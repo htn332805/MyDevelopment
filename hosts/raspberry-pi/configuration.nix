@@ -8,12 +8,44 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+	    ./my_neovim.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages =  pkgs.linuxPackages;
+    initrd.verbose = true;
+    plymouth.enable = false;
+    consoleLogLevel = 7;
+    initrd.supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "zfs" ];
+    initrd.availableKernelModules = [ "pktgen" "xhci_pci" "usbhid" "uas" "usb_storage" ];
+    loader.generic-extlinux-compatible.enable = false;
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable =  true;
+    kernelParams = [
+      "efi=debug"
+      "ignore_loglevel"
+      "console=tty0"
+    ]; #end of kernel parameters
+    #zfs = {
+  	  #forceImportRoot = true;
+  	  #extraPools = [ "zroot" ];
+	  #}; #end of zfs
+  };#END OF BOOT BLOCK
+  
+  systemd.services.zfs-import-pools = {
+  	description = "Import ZFS pools";
+  	wantedBy = [ "zfs.target" ];
+  	before = [ "zfs.target" ];
+  	serviceConfig = {
+    		Type = "oneshot";
+    		RemainAfterExit = true;
+    		ExecStart = "${config.boot.zfs.package}/bin/zpool import -a -f";
+  	};
+  }; #end of sytemd
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -37,11 +69,46 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable the X11 windowing system
+  services.xserver = {
+    enable = true;
+    
+    # Disable the default display manager
+    displayManager.startx.enable = true;
+    
+    # Configure IceWM as the window manager
+    windowManager.icewm.enable = true;
+    windowManager.default = "icewm";
+    
+    # Disable desktop manager
+    desktopManager.xterm.enable = false;
+    
+    # Basic keyboard and mouse configuration
+    layout = "us";
+    libinput.enable = true;
+  };
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Install necessary packages
+  environment.systemPackages = with pkgs; [
+    icewm
+    xorg.xinit
+    xorg.xorgserver
+    xterm  # Useful as a fallback terminal
+    firefox chromium tree tmux screen htop nload git fio sysstat nb neovim emacs vim wget curl 
+  ];
 
+  # Create a basic .xinitrc file for the user
+  environment.etc."skel/.xinitrc".text = ''
+    #!/bin/sh
+    exec icewm-session
+  '';
+
+  # Ensure the .xinitrc file is copied to new user home directories
+  programs.bash.loginShellInit = ''
+    if [ ! -e "$HOME/.xinitrc" ] && [ -e /etc/skel/.xinitrc ]; then
+      cp /etc/skel/.xinitrc $HOME/.xinitrc
+    fi
+  '';
 
   # Configure keymap in X11
    services.xserver.xkb.layout = "us";
@@ -67,15 +134,9 @@
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-       firefox chromium tree tmux screen htop nload git fio systat nb neovim emacs vim wget curl 
+       firefox chromium tree tmux screen htop nload git fio sysstat nb neovim emacs vim wget curl 
      ]; #end of packages
    }; #end of users
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    firefox chromium tree tmux screen htop nload git fio systat nb neovim emacs vim wget curl 
-   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -95,12 +156,12 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
+  networking.hostId = "12345678";
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
-
+  
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
