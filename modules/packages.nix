@@ -78,5 +78,31 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+    # C/C++ development tools
+    gcc
+    gdb
+    clang
+    clang-tools
+    cmake
+    gnumake
+    bear
+    # Python environment
+    pythonEnv
+
+    # Kernel development
+    linuxHeaders
+    ncurses
+
+    # Version control
+    git
+
+    # Code formatting and linting
+    clang-format
+    pylint
+    black
+
+    # IDE support
+    ctags
+    global
   ];
 }
