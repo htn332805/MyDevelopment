@@ -49,7 +49,7 @@
         system = "x86_64-linux";
         extraModules = [ 
           ./hosts/x86_64-linux/labconfiguration.nix 
-          nvf.nixosModules.default
+          #nvf.nixosModules.default
         ];
       };
       Aarch64Serv = mkSystem {
