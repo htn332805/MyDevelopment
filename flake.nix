@@ -52,6 +52,9 @@
         extraModules = [
           disko.nixosModules.disko
           ./modules/disko-config.nix
+          {
+            myDisko.diskDevice = diskDevice;
+          }
         ];
       };
 
@@ -61,6 +64,7 @@
         extraModules = [
           ./hosts/wsl/configuration.nix
           nixos-wsl.nixosModules.wsl
+        #sudo nixos-install --flake .#your-hostname --arg diskDevice '"/dev/disk/by-id/your-disk-id"'
         ];
       };
 
