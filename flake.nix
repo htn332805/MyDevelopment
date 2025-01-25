@@ -3,9 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable_nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
@@ -14,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, ... }:
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, ... }:
   let
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -38,6 +43,16 @@
         inherit nixpkgs home-manager;
         system = "aarch64-linux";
         extraModules = [ ./hosts/raspberry-pi/configuration.nix ];
+      };
+
+      usb = mkSystem {
+        inherit nixpkgs home-manager;
+        inherit system
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraModules = [
+          disko.nixosModules.disko
+          ./modules/disko-config.nix
+        ];
       };
 
       wsl = mkSystem {
