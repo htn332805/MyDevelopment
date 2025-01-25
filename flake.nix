@@ -47,7 +47,7 @@
 
       usb = mkSystem {
         inherit nixpkgs home-manager;
-        inherit system
+        inherit system;
         pkgs = nixpkgs.legacyPackages.${system};
         extraModules = [
           disko.nixosModules.disko
