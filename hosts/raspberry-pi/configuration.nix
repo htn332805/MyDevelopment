@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-	    ./my_neovim.nix
+      ./my_neovim.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
