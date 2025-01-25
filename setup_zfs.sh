@@ -44,7 +44,7 @@ zpool create -f -o ashift=12 -O acltype=posixacl -O canmount=off -O compression=
     -O mountpoint=none ${POOLNAME} ${DISK}-part3
 
 # Set autoexpand
-zpool set autoexpand=on rpool
+zpool set autoexpand=on ${POOLNAME}
 
 # Create ZFS datasets
 echo "Creating ZFS datasets..."
