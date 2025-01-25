@@ -28,6 +28,12 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     mkSystem = import ./lib/mkSystem.nix;
+    packages."x86_64-linux".default = 
+      (nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [ ./modules/nvf-configuration.nix ];
+      }).neovim;
+        
   in
   {
     nixosConfigurations = {
