@@ -4,6 +4,9 @@
   imports = [
     # Hardware scan results
     ./hardware-configuration.nix
+    ../../modules/my_neovim.nix
+    ../../modules/my_power_settings.nix
+    ../../modules/my_xrdp.nix
   ];
 
   # Use the systemd-boot EFI boot loader
@@ -13,6 +16,7 @@
   # Network configuration
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.hostId = "12345678";
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -26,11 +30,22 @@
    }; #end of console
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  ## X Server and i3 Configuration
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      lightdm.enable = true;
+      defaultSession = "none+i3";
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+      ];
+    };
+  };
 
   # Configure keymap in X11
    services.xserver.xkb.layout = "us";
@@ -53,7 +68,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox chromium tree tmux screen htop nload git fio systat nb neovim emacs vim wget curl 
+    firefox chromium tree tmux screen htop nload git fio sysstat nb neovim emacs vim wget curl 
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -72,14 +87,18 @@
       PasswordAuthentication = false;
     };
   };
-
+  ## Firewall Configuration
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 69 80 3389 5900 8080];
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.nixos = {
      initialPassword = "hai";
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-       firefox chromium tree tmux screen htop nload git fio systat nb neovim emacs vim wget curl 
+       firefox chromium tree tmux screen htop nload git fio sysstat nb neovim emacs vim wget curl 
      ]; #end of packages
    }; #end of users
 
