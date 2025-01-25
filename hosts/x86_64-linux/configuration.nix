@@ -16,6 +16,10 @@
   # Use the systemd-boot EFI boot loader.
   #boot.loader.systemd-boot.enable = true;
   #boot.loader.efi.canTouchEfiVariables = true;
+  services.my_xrdp = {
+    enable = true;
+    openFirewall = true;
+  };
   boot = {
     kernelPackages =  pkgs.linuxPackages;
     initrd.verbose = true;
