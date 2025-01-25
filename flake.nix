@@ -17,9 +17,12 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, ... }:
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, nixos-facter-modules,
+    ... }:
   let
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -91,6 +94,7 @@
           })
           disko.nixosModules.disko
           ./hosts/remote/configuration.nix
+          ./hosts/remote/hardware-configuration.nix
         ];
       };
     };
