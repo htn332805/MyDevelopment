@@ -6,6 +6,8 @@ let
     ipython
     dash
     matplotlib
+    pandas
+    numpy
   ];
 in
 {
