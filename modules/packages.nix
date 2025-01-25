@@ -18,7 +18,7 @@
     emacs
     vim
     nb
-    neofetch
+    neofetch fastfetch pythonEnv
     nnn # terminal file manager
     # archives
     zip
