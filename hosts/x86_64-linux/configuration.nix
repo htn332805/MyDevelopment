@@ -11,9 +11,40 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages =  pkgs.linuxPackages;
+    initrd.verbose = true;
+    plymouth.enable = false;
+    consoleLogLevel = 7;
+    initrd.supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "zfs" ];
+    initrd.availableKernelModules = [ "pktgen" "xhci_pci" "usbhid" "uas" "usb_storage" ];
+    loader.generic-extlinux-compatible.enable = false;
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable =  true;
+    kernelParams = [
+      "efi=debug"
+      "ignore_loglevel"
+      "console=tty0"
+    ]; #end of kernel parameters
+    #zfs = {
+  	  #forceImportRoot = true;
+  	  #extraPools = [ "zroot" ];
+	  #}; #end of zfs
+  };#END OF BOOT BLOCK
+  
+  systemd.services.zfs-import-pools = {
+  	description = "Import ZFS pools";
+  	wantedBy = [ "zfs.target" ];
+  	before = [ "zfs.target" ];
+  	serviceConfig = {
+    		Type = "oneshot";
+    		RemainAfterExit = true;
+    		ExecStart = "${config.boot.zfs.package}/bin/zpool import -a -f";
+  	};
+  }; #end of sytemd
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
