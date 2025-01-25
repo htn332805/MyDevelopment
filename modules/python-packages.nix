@@ -9,6 +9,7 @@ let
     matplotlib
     pandas
     numpy
+    virtualenv
   ];
 in
 {
