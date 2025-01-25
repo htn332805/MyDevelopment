@@ -138,15 +138,15 @@
      enable = true;
      enableSSHSupport = true;
    }; #end of programs
-  programs.nvf = {
-    enable = true;
-    settings = {
-      vim.theme.enable = true;
-      vim.theme.name = "catppuccin";
-      vim.theme.style = "dark";
-      vim.languages.nix.enable = true;
-    };
-  };
+  #programs.nvf = {
+  #  enable = true;
+  #  settings = {
+  #    vim.theme.enable = true;
+  #    vim.theme.name = "catppuccin";
+  #    vim.theme.style = "dark";
+  #    vim.languages.nix.enable = true;
+  #  };
+  #};
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
