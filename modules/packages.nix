@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    firefox gptfdisk
+    firefox gptfdisk parted
     chromium
     xrdp
     x11vnc
