@@ -53,7 +53,7 @@
           disko.nixosModules.disko
           ./modules/disko-config.nix
           {
-            myDisko.diskDevice = diskDevice;
+            #myDisko.diskDevice = diskDevice;
           }
           ({ modulesPath, ... }: {
             imports = [
