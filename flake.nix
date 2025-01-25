@@ -17,22 +17,23 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-    nvf.url = "github:NotAShelf/nvf";
+    #nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    #nvf.url = "github:NotAShelf/nvf";
     
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, nixos-facter-modules, nvf,
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, 
+    #nixos-facter-modules, nvf,
     ... }:
   let
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     mkSystem = import ./lib/mkSystem.nix;
-    packages."x86_64-linux".default = 
-      (nvf.lib.neovimConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [ ./modules/nvf-configuration.nix ];
-      }).neovim;
+    #packages."x86_64-linux".default = 
+    #  (nvf.lib.neovimConfiguration {
+    #    pkgs = nixpkgs.legacyPackages."x86_64-linux";
+    #    modules = [ ./modules/nvf-configuration.nix ];
+    #  }).neovim;
         
   in
   {
