@@ -129,7 +129,6 @@
           ]))
           markdown-preview-nvim
           vimtex
-          vim-graphviz
           indent-blankline-nvim
           nvim-ufo
           promise-async
