@@ -18,7 +18,7 @@
     emacs
     vim
     nb
-    neofetch fastfetch pythonEnv
+    neofetch fastfetch
     nnn # terminal file manager
     # archives
     zip
@@ -87,7 +87,7 @@
     gnumake
     bear
     # Python environment
-    pythonEnv
+    
 
     # Kernel development
     linuxHeaders
