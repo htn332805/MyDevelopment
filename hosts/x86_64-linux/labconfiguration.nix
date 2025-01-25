@@ -68,14 +68,35 @@
    }; #end of console
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # X Server and i3 Configuration
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      lightdm.enable = true;
+      defaultSession = "none+i3";
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+      ];
+    }; #end of i3 window manage
+  }; #end of xserver
 
+  ## Firewall Configuration
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 69 80 3389 5900 8080 ];
+  };
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-
+  ## Nix Package Manager Configuration
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+  };
+   
   # Configure keymap in X11
    services.xserver.xkb.layout = "us";
    services.xserver.xkb.options = "eurosign:e,caps:escape";
