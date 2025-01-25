@@ -89,6 +89,7 @@
               (modulesPath + "/profiles/qemu-guest.nix")
             ];
           })
+          disko.nixosModules.disko
           ./hosts/remote/configuration.nix
         ];
       };
