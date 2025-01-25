@@ -38,10 +38,10 @@
   };
   services.xserver.displayManager.gdm.autoSuspend = false;
   programs.dconf.enable = true;
-  environment.etc."dconf/db/local.d/disable-auto-suspend".text = ''
-    [org/gnome/settings-daemon/plugins/power]
-    sleep-inactive-ac-type='nothing'
-    sleep-inactive-battery-type='nothing'
-  '';
+  #environment.etc."dconf/db/local.d/disable-auto-suspend".text = ''
+  #  [org/gnome/settings-daemon/plugins/power]
+  #  sleep-inactive-ac-type='nothing'
+  #  sleep-inactive-battery-type='nothing'
+  #'';
 
 }
