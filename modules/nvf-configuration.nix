@@ -21,8 +21,8 @@
         lsp.server = "pyright";
       }; #end of python
       nix.enable = true;
-      ts.enable  = true
-      python.
+      ts.enable  = true;
+      rust.enable = true;
     }; #end of languages
   }; #end of vim
 
