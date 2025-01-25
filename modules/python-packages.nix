@@ -4,6 +4,7 @@ let
   pythonPackages = ps: with ps; [
     jupyterlab
     ipython
+    jupyter
     dash
     matplotlib
     pandas
