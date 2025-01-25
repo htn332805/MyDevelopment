@@ -97,7 +97,6 @@
     git
 
     # Code formatting and linting
-    clang-format
     pylint
     black
 
