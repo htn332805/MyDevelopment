@@ -1,12 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, modulesPath, lib, ... }:
 
 {
   imports = [
     # Hardware scan results
-    ./hardware-configuration.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/qemu-guest.nix")
+    ./disk-config.nix
     ../../modules/my_neovim.nix
     ../../modules/my_power_settings.nix
     ../../modules/my_xrdp.nix
+
   ];
 
   # Use the systemd-boot EFI boot loader
