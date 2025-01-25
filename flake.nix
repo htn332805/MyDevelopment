@@ -33,6 +33,11 @@
         extraModules = [ ./hosts/x86_64-linux/configuration.nix ];
       };
 
+      LabVM = mkSystem {
+        inherit nixpkgs home-manager;
+        system = "x86_64-linux";
+        extraModules = [ ./hosts/x86_64-linux/labconfiguration.nix ];
+      };
       Aarch64Serv = mkSystem {
         inherit nixpkgs home-manager;
         system = "aarch64-linux";
