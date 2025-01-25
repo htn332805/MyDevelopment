@@ -18,10 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    nvf.url = "github:nvf";
     
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, nixos-facter-modules,
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nixos-wsl, stable_nixpkgs, disko, nixos-facter-modules, nvf,
     ... }:
   let
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
@@ -39,7 +40,10 @@
       LabVM = mkSystem {
         inherit nixpkgs home-manager;
         system = "x86_64-linux";
-        extraModules = [ ./hosts/x86_64-linux/labconfiguration.nix ];
+        extraModules = [ 
+          ./hosts/x86_64-linux/labconfiguration.nix 
+          nvf.nixosModules.default
+        ];
       };
       Aarch64Serv = mkSystem {
         inherit nixpkgs home-manager;
