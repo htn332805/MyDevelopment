@@ -67,14 +67,14 @@
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-       firefox chromium tree tmux screen htop nload git fio systat nb neovim emacs vim wget curl 
+       firefox chromium tree tmux screen htop nload git fio sysstat nb neovim emacs vim wget curl 
      ]; #end of packages
    }; #end of users
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox chromium tree tmux screen htop nload git fio systat nb neovim emacs vim wget curl 
+    firefox chromium tree tmux screen htop nload git fio sysstat nb neovim emacs vim wget curl 
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
