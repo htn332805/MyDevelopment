@@ -11,6 +11,7 @@ let
     numpy
     virtualenv
     pyautogui
+    keyboard
   ];
 in
 {
