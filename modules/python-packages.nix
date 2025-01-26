@@ -10,6 +10,7 @@ let
     pandas
     numpy
     virtualenv
+    pyautogui
   ];
 in
 {
