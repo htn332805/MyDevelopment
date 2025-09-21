@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run module (debug)",
+      "type": "python",
+      "request": "launch",
+      "module": "src.modules.data_processing.csv_reader",
+      "justMyCode": true,
+      "env": {
+        "DEBUG": "1"
+      },
+      "args": []
+    }
+  ]
+}

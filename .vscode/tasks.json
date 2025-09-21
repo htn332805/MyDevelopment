@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "lint:flake8",
+      "type": "shell",
+      "command": "flake8",
+      "problemMatcher": []
+    },
+    {
+      "label": "format:black",
+      "type": "shell",
+      "command": "python -m black .",
+      "problemMatcher": []
+    },
+    {
+      "label": "compliance:lint_checker",
+      "type": "shell",
+      "command": "python tools/lint_checker.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "docs:update",
+      "type": "shell",
+      "command": "python tools/documentation_updater.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "test:pytest",
+      "type": "shell",
+      "command": "pytest --disable-warnings -q",
+      "problemMatcher": []
+    }
+  ]
+}
