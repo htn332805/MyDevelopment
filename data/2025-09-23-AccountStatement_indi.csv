@@ -1,0 +1,1005 @@
+﻿Account Statement for 78980072SCHW (HaiIndividual) since 9/23/24 through 9/22/25
+
+Cash Balance
+DATE,TIME,TYPE,REF #,DESCRIPTION,Misc Fees,Commissions & Fees,AMOUNT,BALANCE
+9/26/24,06:30:10,TRD,1001666517251,BOT +3 TSLA 100 (Weeklys) 27 SEP 24 227.5 PUT @.09 CBOE,-0.03,-1.95,-27.00,"62,477.15"
+9/26/24,06:38:03,TRD,1001705347596,SOLD -1 NVDA 100 (Weeklys) 4 OCT 24 121 PUT @1.11,-0.01,-0.65,111.00,"62,587.49"
+9/26/24,06:38:04,TRD,1001705347596,SOLD -4 NVDA 100 (Weeklys) 4 OCT 24 121 PUT @1.11 PHLX,-0.07,-2.60,444.00,"63,028.82"
+9/27/24,07:33:10,TRD,1001504077697,BOT +1 NVDA 100 (Weeklys) 27 SEP 24 124 CALL @.10 CBOE,-0.01,-0.65,-10.00,"63,018.16"
+9/27/24,07:36:01,TRD,1001722373788,SOLD -1 NVDA 100 (Weeklys) 11 OCT 24 130 CALL @1.30,-0.01,-0.65,130.00,"63,147.50"
+9/27/24,07:36:26,TRD,1001722373836,BOT +1 NVDA 100 (Weeklys) 11 OCT 24 130 CALL @1.29 CBOE,-0.01,-0.65,-129.00,"63,017.84"
+9/27/24,07:36:52,TRD,1001722373893,SOLD -1 NVDA 100 (Weeklys) 11 OCT 24 130 CALL @1.29 CBOE,-0.01,-0.65,129.00,"63,146.18"
+10/1/24,14:56:39,TRD,86658448663,BOT 0.0806 ADP UPON AUTOMATIC DATA PROCESSIN,,,-22.38,"63,146.18"
+10/4/24,08:02:40,TRD,1001705347914,BOT +5 NVDA 100 (Weeklys) 4 OCT 24 121 PUT @.10,-0.05,-3.25,-50.00,"63,093.88"
+10/7/24,06:50:28,TRD,1001802078722,SOLD -1 NVDA 100 18 OCT 24 118 PUT @1.21 CBOE,-0.01,-0.65,121.00,"63,214.22"
+10/7/24,06:50:28,TRD,1001802078722,SOLD -4 NVDA 100 18 OCT 24 118 PUT @1.21 CBOE,-0.07,-2.60,484.00,"63,695.55"
+10/10/24,09:00:15,TRD,1001845403972,BOT +5 NVDA 100 18 OCT 24 118 PUT @.27 CBOE,-0.05,-3.25,-135.00,"63,557.25"
+10/10/24,09:00:50,TRD,1001846144024,SOLD -2 NVDA 100 (Weeklys) 1 NOV 24 125 PUT @2.39 CBOE,-0.04,-1.30,478.00,"64,033.91"
+10/10/24,09:00:50,TRD,1001846144024,SOLD -3 NVDA 100 (Weeklys) 1 NOV 24 125 PUT @2.39 CBOE,-0.05,-1.95,717.00,"64,748.91"
+10/11/24,23:41:20,EXP,87128705703,SOLD -100.0 NVDA UPON NVIDIA CORP,-0.38,,"13,000.00","77,748.53"
+10/18/24,07:21:56,TRD,1001925041995,SOLD -1 TSLA 100 (Weeklys) 1 NOV 24 202.5 PUT @3.05 MIAX,-0.02,-0.65,305.00,"78,063.85"
+10/21/24,06:37:27,TRD,1001938432146,SOLD -1 NVDA 100 (Weeklys) 1 NOV 24 130 PUT @1.24 CBOE,-0.01,-0.65,124.00,"78,187.19"
+10/24/24,06:35:04,TRD,1001946655807,BOT +1 TSLA 100 (Weeklys) 1 NOV 24 202.5 PUT @.10 CBOE,-0.01,-0.65,-10.00,"78,176.53"
+10/29/24,06:48:52,TRD,1002021667926,BOT +5 NVDA 100 (Weeklys) 1 NOV 24 125 PUT @.11 CBOE,-0.05,-3.25,-55.00,"78,118.23"
+10/29/24,06:52:11,TRD,1002022358500,SOLD -1 TSLA 100 (Weeklys) 8 NOV 24 225 PUT @1.35 CBOE,-0.01,-0.65,135.00,"78,252.57"
+10/29/24,06:52:11,TRD,1002022358500,SOLD -1 TSLA 100 (Weeklys) 8 NOV 24 225 PUT @1.35 CBOE,-0.03,-0.65,135.00,"78,386.89"
+10/29/24,06:52:11,TRD,1002022358500,SOLD -1 TSLA 100 (Weeklys) 8 NOV 24 225 PUT @1.35 CBOE,-0.01,-0.65,135.00,"78,521.23"
+11/1/24,06:31:05,TRD,1001938432222,BOT +1 NVDA 100 (Weeklys) 1 NOV 24 130 PUT @.10 CBOE,-0.01,-0.65,-10.00,"78,510.57"
+11/6/24,06:30:04,TRD,1002022358620,BOT +1 TSLA 100 (Weeklys) 8 NOV 24 225 PUT @.08,-0.01,-0.65,-8.00,"78,501.91"
+11/6/24,06:30:04,TRD,1002022358620,BOT +1 TSLA 100 (Weeklys) 8 NOV 24 225 PUT @.08,-0.01,-0.65,-8.00,"78,493.25"
+11/6/24,06:30:04,TRD,1002022358620,BOT +1 TSLA 100 (Weeklys) 8 NOV 24 225 PUT @.08,-0.01,-0.65,-8.00,"78,484.59"
+11/6/24,07:31:13,TRD,1002109938075,SOLD -1 NVDA 100 (Weeklys) 22 NOV 24 124 PUT @1.23 CBOE,-0.01,-0.65,123.00,"78,606.93"
+11/7/24,06:37:10,TRD,1002121469717,SOLD -1 SPY 100 (Weeklys) 11 NOV 24 588 PUT @1.11 MIAX,-0.01,-0.65,111.00,"78,717.27"
+11/11/24,06:30:07,TRD,1002142990965,BOT +1 SPY 100 (Weeklys) 11 NOV 24 588 PUT @.02 NASDAQ,-0.01,,-2.00,"78,715.26"
+11/11/24,06:35:31,TRD,1002154275728,SOLD -1 SPY 100 15 NOV 24 592 PUT @1.14 CBOE,-0.01,-0.65,114.00,"78,828.60"
+11/14/24,14:37:13,TRD,88613357856,BOT 0.0181 AAPL UPON APPLE INC,,,-4.09,"78,828.60"
+11/15/24,14:25:11,TRD,88679846086,BOT 0.0293 ABBV UPON ABBVIE INC,,,-4.87,"78,828.60"
+11/16/24,01:09:40,EXP,88682030010,BOT 100.0 SPY UPON SPDR S&P 500 ETF IV,,,"-59,200.00","19,628.60"
+11/18/24,06:31:43,TRD,1002233013226,SOLD -1 SPY 100 (Weeklys) 25 NOV 24 595 CALL @1.17 NASDAQ,-0.01,-0.65,117.00,"19,756.48"
+11/22/24,06:30:03,TRD,1002109938117,BOT +1 NVDA 100 (Weeklys) 22 NOV 24 124 PUT @.01 PHLX,-0.01,,-1.00,"19,755.47"
+11/22/24,07:12:23,TRD,1002298204641,SOLD -9 VFC 100 (Weeklys) 29 NOV 24 19.5 PUT @.46 MIAX,-0.14,-5.85,414.00,"20,163.48"
+11/26/24,00:07:30,EXP,89078736742,SOLD -100.0 SPY UPON SPDR S&P 500 ETF IV,-1.67,,"59,500.00","79,661.81"
+11/26/24,06:33:50,TRD,1002322955698,SOLD -1 WBA 100 (Weeklys) 13 DEC 24 8.5 PUT @.21 BATS,-0.01,-0.65,21.00,"79,682.15"
+11/26/24,06:33:50,TRD,1002322955698,SOLD -19 WBA 100 (Weeklys) 13 DEC 24 8.5 PUT @.22 PHLX,-0.28,-12.35,418.00,"80,087.52"
+11/26/24,06:43:19,TRD,1002323820775,SOLD -1 NVDA 100 (Weeklys) 6 DEC 24 129 PUT @1.04 CBOE,-0.01,-0.65,104.00,"80,190.86"
+11/26/24,06:43:19,TRD,1002323820775,SOLD -1 NVDA 100 (Weeklys) 6 DEC 24 129 PUT @1.04 CBOE,-0.03,-0.65,104.00,"80,294.18"
+11/26/24,06:43:19,TRD,1002323820775,SOLD -1 NVDA 100 (Weeklys) 6 DEC 24 129 PUT @1.03 CBOE,-0.01,-0.65,103.00,"80,396.52"
+11/26/24,06:43:19,TRD,1002323820775,SOLD -1 NVDA 100 (Weeklys) 6 DEC 24 129 PUT @1.05 CBOE,-0.01,-0.65,105.00,"80,500.86"
+11/27/24,07:36:04,TRD,1002298204700,BOT +4 VFC 100 (Weeklys) 29 NOV 24 19.5 PUT @.02 CBOE,-0.04,,-8.00,"80,492.82"
+11/27/24,07:36:04,TRD,1002298204700,BOT +4 VFC 100 (Weeklys) 29 NOV 24 19.5 PUT @.02 CBOE,-0.05,,-8.00,"80,484.77"
+11/27/24,07:36:04,TRD,1002298204700,BOT +1 VFC 100 (Weeklys) 29 NOV 24 19.5 PUT @.02 CBOE,-0.01,,-2.00,"80,482.76"
+12/5/24,07:05:45,TRD,1002384176927,BOT +4 NVDA 100 (Weeklys) 6 DEC 24 129 PUT @.03,-0.04,,-12.00,"80,470.72"
+12/5/24,07:08:55,TRD,1002384177099,SOLD -7 AFL 100 (Weeklys) 13 DEC 24 108 PUT @1.02 BOX,-0.12,-4.55,714.00,"81,180.05"
+12/10/24,23:58:39,EXP,89668446031,BOT 500.0 AFL UPON AFLAC INC,,,"-54,000.00","27,180.05"
+12/12/24,07:15:55,TRD,1002429908363,SOLD -3 AFL 100 (Weeklys) 3 JAN 25 110 CALL @.47 PHLX,-0.04,-1.95,141.00,"27,337.31"
+12/12/24,10:05:52,TRD,89767817075,BOT 0.3186 ADM UPON ARCHER-DANIELS MIDLAND C,,,-16.78,"27,320.53"
+12/12/24,10:05:59,TRD,89767817095,BOT 0.0269 HVT UPON HAVERTY FURNITURE COS IN,,,-0.62,"27,319.91"
+12/12/24,14:25:49,TRD,89782594046,BOT 0.0019 MSFT UPON MICROSOFT CORP,,,-0.85,"27,319.06"
+12/14/24,00:08:13,EXP,89844727655,BOT 200.0 AFL UPON AFLAC INC,,,"-21,600.00","5,723.30"
+12/16/24,06:33:44,TRD,1002444077722,SOLD -4 AFL 100 (Weeklys) 24 JAN 25 110 CALL @.76 CBOE,-0.06,-2.60,304.00,"6,024.64"
+12/18/24,09:44:14,TRD,90011517410,BOT 0.013 VFC UPON V F CORP,,,-0.30,"6,024.64"
+12/23/24,07:54:54,TRD,1002489224748,BOT +10 SPY @588.955,,,"-5,889.55",135.09
+12/30/24,06:30:05,TRD,1002429909552,BOT +3 AFL 100 (Weeklys) 3 JAN 25 110 CALL @.02 CBOE,-0.03,,-6.00,129.06
+1/2/25,07:52:53,TRD,1002529557687,SOLD -1 AFL 100 (Weeklys) 7 FEB 25 108 CALL @1.45 BOX,-0.01,-0.65,145.00,298.53
+1/2/25,07:52:53,TRD,1002529557687,SOLD -2 AFL 100 (Weeklys) 7 FEB 25 108 CALL @1.45 BOX,-0.04,-1.30,290.00,587.19
+1/2/25,16:41:14,TRD,90557580206,BOT 0.0847 ADP UPON AUTOMATIC DATA PROCESSIN,,,-24.74,562.45
+1/16/25,15:00:04,TRD,91136052189,BOT 0.0704 DIS UPON DISNEY WALT CO,,,-7.56,562.45
+1/29/25,10:05:48,TRD,1002673515659,SOLD -1 AFL 100 (Weeklys) 14 FEB 25 113 CALL @1.06 CBOE,-0.01,-0.65,106.00,667.79
+1/29/25,10:05:48,TRD,1002673515659,SOLD -1 AFL 100 (Weeklys) 14 FEB 25 113 CALL @1.06 CBOE,-0.03,-0.65,106.00,773.11
+1/29/25,10:05:48,TRD,1002673515659,SOLD -2 AFL 100 (Weeklys) 14 FEB 25 113 CALL @1.08 CBOE,-0.02,-1.30,216.00,987.79
+2/13/25,14:54:42,TRD,92378277397,BOT 0.0172 AAPL UPON APPLE INC,,,-4.10,"1,112.79"
+2/14/25,14:49:22,TRD,92445457714,BOT 0.0267 ABBV UPON ABBVIE INC,,,-5.20,"1,112.79"
+2/21/25,06:32:33,TRD,1002809442694,SOLD -3 AFL 100 (Weeklys) 28 MAR 25 109 CALL @.70 CBOE,-0.05,-1.95,210.00,"1,320.79"
+2/21/25,06:32:33,TRD,1002809442694,SOLD -4 AFL 100 (Weeklys) 28 MAR 25 109 CALL @.70 CBOE,-0.06,-2.60,280.00,"1,598.13"
+3/11/25,09:42:03,TRD,93518483918,BOT 0.3484 ADM UPON ARCHER-DANIELS MIDLAND C,,,-17.27,"2,004.13"
+3/13/25,14:49:50,TRD,93660556702,BOT 0.0022 MSFT UPON MICROSOFT CORP,,,-0.85,"2,004.13"
+3/14/25,06:38:24,TRD,1002943594384,BOT +3 SPY @557.77,,,"-1,673.31",330.82
+3/20/25,09:54:05,TRD,93943188947,BOT 0.0184 VFC UPON V F CORP,,,-0.30,330.82
+3/21/25,10:13:26,TRD,94005003493,BOT 0.0299 HVT UPON HAVERTY FURNITURE COS IN,,,-0.63,330.82
+3/29/25,01:47:09,EXP,94329545402,SOLD -700.0 AFL UPON AFLAC INC,-2.24,,"76,300.00","76,628.58"
+3/31/25,06:31:35,TRD,1003030352725,SOLD -1 SPY 100 (Quarterlys) 31 MAR 25 540 PUT @1.04 NASDAQ,-0.01,-0.65,104.00,"76,731.92"
+3/31/25,06:33:55,TRD,1003030352995,SOLD -1 TSLA 100 (Weeklys) 11 APR 25 190 PUT @2.01 BOX,-0.02,-0.65,201.00,"76,932.25"
+4/1/25,06:48:47,TRD,1003030352782,BOT +1 SPY 100 (Quarterlys) 31 MAR 25 540 PUT @.02,-0.01,,-2.00,"76,955.11"
+4/1/25,06:49:46,TRD,1003038998488,SOLD -1 SPY 100 (Weeklys) 2 APR 25 547 PUT @1.13 CBOE,-0.01,-0.65,113.00,"77,067.45"
+4/1/25,14:39:06,TRD,94457548174,BOT 0.0817 ADP UPON AUTOMATIC DATA PROCESSIN,,,-24.87,"77,042.58"
+4/2/25,12:48:22,TRD,1003038998540,BOT +1 SPY 100 (Weeklys) 2 APR 25 547 PUT @.02 NASDAQ,-0.01,,-2.00,"77,040.57"
+4/3/25,06:40:06,TRD,1003055639571,SOLD -1 SPY 100 (Weeklys) 4 APR 25 535 PUT @1.23 CBOE,-0.01,-0.65,123.00,"77,162.91"
+4/5/25,01:35:05,EXP,94686640185,BOT 100.0 SPY UPON SPDR S&P 500 ETF,,,"-53,500.00","23,662.91"
+4/7/25,06:42:30,TRD,1003079473068,BOT +8 SPY @482.815,,,"-3,862.52","19,800.39"
+4/7/25,06:46:52,TRD,1003079473639,SOLD -1 SPY 100 (Weeklys) 7 APR 25 503 CALL @1.47 CBOE,-0.01,-0.65,147.00,"19,946.73"
+4/8/25,01:18:51,EXP,94771367886,SOLD -100.0 SPY UPON SPDR S&P 500 ETF,-1.42,,"50,300.00","70,245.31"
+4/8/25,06:32:10,TRD,1003089512111,SOLD -1 SPY 100 (Weeklys) 8 APR 25 504 PUT @1.21 BOX,-0.01,-0.65,121.00,"70,365.65"
+4/9/25,00:29:06,EXP,94844108980,BOT 100.0 SPY UPON SPDR S&P 500 ETF,,,"-50,400.00","19,965.65"
+4/9/25,06:32:26,TRD,1003098907748,SOLD -1 SPY 100 (Weeklys) 10 APR 25 521 CALL @2.21 MIAX,-0.02,-0.65,221.00,"20,185.98"
+4/11/25,00:12:34,EXP,94996233464,SOLD -100.0 SPY UPON SPDR S&P 500 ETF,-1.47,,"52,100.00","72,284.51"
+4/11/25,06:30:14,TRD,1003119235928,SOLD -1 SPY 100 (Weeklys) 14 APR 25 485 PUT @2.38 MIAX,-0.02,-0.65,238.00,"72,521.84"
+4/11/25,06:55:37,TRD,1003030353034,BOT +1 TSLA 100 (Weeklys) 11 APR 25 190 PUT @.02 CBOE,-0.01,,-2.00,"72,519.83"
+4/14/25,06:53:15,TRD,1003130215996,SOLD -2 NVDA 100 (Weeklys) 25 APR 25 98 PUT @1.15 MIAX,-0.04,-1.30,230.00,"72,748.49"
+4/14/25,07:20:14,TRD,1003130989955,BOT +1 SPY 100 (Weeklys) 14 APR 25 485 PUT @.01,-0.01,,-1.00,"72,747.48"
+4/14/25,07:22:15,TRD,1003131758089,SOLD -1 SPY 100 17 APR 25 515 PUT @1.14 MIAX,-0.01,-0.65,114.00,"72,860.82"
+4/16/25,12:46:18,TRD,1003131758108,BOT +1 SPY 100 17 APR 25 515 PUT @.02,-0.01,,-2.00,"72,858.81"
+4/17/25,06:42:36,TRD,1003155618652,SOLD -1 SPY 100 (Weeklys) 21 APR 25 512 PUT @1.15,-0.01,-0.65,115.00,"72,973.15"
+4/22/25,06:32:37,TRD,1003172010487,SOLD -1 SPY 100 (Weeklys) 25 APR 25 500 PUT @1.29 MIAX,-0.01,-0.65,129.00,"73,101.49"
+4/24/25,07:29:47,TRD,1003191934021,BOT +1 SPY 100 (Weeklys) 25 APR 25 500 PUT @.04 CBOE,-0.01,,-4.00,"73,097.48"
+4/24/25,07:30:24,TRD,1003191934061,SOLD -1 SPY 100 (Weeklys) 25 APR 25 530 PUT @1.11 CBOE,-0.01,-0.65,111.00,"73,207.82"
+4/25/25,06:45:00,TRD,1003130988030,BOT +2 NVDA 100 (Weeklys) 25 APR 25 98 PUT @.02,-0.02,,-4.00,"73,203.80"
+4/25/25,11:10:44,TRD,1003205008248,BOT +1 SPY 100 (Weeklys) 25 APR 25 530 PUT @.01 CBOE,-0.01,,-1.00,"73,202.79"
+4/25/25,11:11:19,TRD,1003205008282,SOLD -1 SPY 100 (Weeklys) 30 APR 25 535 PUT @1.09 CBOE,-0.01,-0.65,109.00,"73,311.13"
+4/30/25,06:35:26,TRD,1003223885949,SOLD -1 SPY 100 (Weeklys) 1 MAY 25 534 PUT @1.13,-0.01,-0.65,113.00,"73,448.26"
+4/30/25,06:37:02,TRD,1003224590086,SOLD -1 TSLA 100 (Weeklys) 9 MAY 25 220 PUT @1.15,-0.01,-0.65,115.00,"73,562.60"
+5/2/25,06:46:07,TRD,1003243072392,SOLD -1 TSLA 100 (Weeklys) 9 MAY 25 245 PUT @1.16 CBOE,-0.01,-0.65,116.00,"73,677.94"
+5/2/25,06:46:07,TRD,1003243072392,SOLD -1 TSLA 100 (Weeklys) 9 MAY 25 245 PUT @1.16 CBOE,-0.03,-0.65,116.00,"73,793.26"
+5/8/25,06:36:07,TRD,1003277972308,BOT +1 TSLA 100 (Weeklys) 9 MAY 25 220 PUT @.03 CBOE,-0.01,,-3.00,"73,790.25"
+5/8/25,06:36:35,TRD,1003277972352,BOT +2 TSLA 100 (Weeklys) 9 MAY 25 245 PUT @.07 CBOE,-0.02,-1.30,-14.00,"73,774.93"
+5/8/25,06:37:55,TRD,1003277972479,SOLD -1 TSLA 100 (Weeklys) 23 MAY 25 230 PUT @1.07 CBOE,-0.01,-0.65,107.00,"73,881.27"
+5/8/25,06:38:29,TRD,1003277972554,SOLD -1 SPY 100 (Weeklys) 9 MAY 25 556 PUT @1.05 CBOE,-0.01,-0.65,105.00,"73,985.61"
+5/9/25,07:14:58,TRD,1003288615193,BOT +1 SPY 100 (Weeklys) 9 MAY 25 556 PUT @.06 CBOE,-0.01,-0.65,-6.00,"73,978.95"
+5/9/25,07:15:33,TRD,1003288615226,SOLD -1 SPY 100 (Weeklys) 13 MAY 25 554 PUT @1.11,-0.01,-0.65,111.00,"74,089.29"
+5/13/25,06:32:26,TRD,1003307707331,BOT +1 SPY 100 (Weeklys) 13 MAY 25 554 PUT @.01 CBOE,-0.01,,-1.00,"74,088.28"
+5/13/25,06:38:56,TRD,1003308646172,SOLD -2 TSLA 100 16 MAY 25 292.5 PUT @1.19,-0.03,-1.30,238.00,"74,324.95"
+5/15/25,14:18:14,TRD,96624481150,BOT 0.0202 AAPL UPON APPLE INC,,,-4.27,"74,330.20"
+5/15/25,14:18:33,TRD,96624481242,BOT 0.0295 ABBV UPON ABBVIE INC,,,-5.25,"74,324.95"
+5/16/25,06:47:43,TRD,1003337932660,BOT +1 TSLA 100 16 MAY 25 292.5 PUT @.01 CBOE,-0.01,,-1.00,"74,323.94"
+5/16/25,06:49:17,TRD,1003337932774,BOT +1 TSLA 100 (Weeklys) 23 MAY 25 230 PUT @.14 CBOE,-0.01,-0.65,-14.00,"74,309.28"
+5/16/25,06:49:35,TRD,1003337932792,SOLD -1 TSLA 100 (Weeklys) 30 MAY 25 297.5 PUT @2.09 CBOE,-0.01,-0.65,209.00,"74,517.62"
+5/19/25,06:34:02,TRD,1003346705668,SOLD -1 TSLA 100 (Weeklys) 6 JUN 25 255 PUT @1.29 CBOE,-0.01,-0.65,129.00,"74,645.96"
+5/19/25,06:34:13,TRD,1003346705683,SOLD -1 TSLA 100 (Weeklys) 6 JUN 25 245 PUT @1.00 MIAX,-0.01,-0.65,100.00,"74,745.30"
+6/2/25,06:39:52,TRD,1003434077226,SOLD -1 NVDA 100 (Weeklys) 13 JUN 25 129 PUT @1.08 CBOE,-0.01,-0.65,108.00,"74,855.64"
+6/9/25,06:34:13,TRD,1003483299692,SOLD -1 TSLA 100 (Weeklys) 13 JUN 25 230 PUT @1.07 BOX,-0.01,-0.65,107.00,"74,961.98"
+6/9/25,06:34:13,TRD,1003483299692,SOLD -1 TSLA 100 (Weeklys) 13 JUN 25 230 PUT @1.07 BOX,-0.02,-0.65,107.00,"75,068.31"
+6/11/25,07:37:30,TRD,1003505504530,BOT +1 TSLA 100 (Weeklys) 13 JUN 25 230 PUT @.03 MIAX,-0.01,,-3.00,"75,082.75"
+6/11/25,07:37:30,TRD,1003505504530,BOT +1 TSLA 100 (Weeklys) 13 JUN 25 230 PUT @.03 MIAX,-0.01,,-3.00,"75,079.74"
+6/11/25,07:37:56,TRD,1003505504571,SOLD -2 TSLA 100 20 JUN 25 287.5 PUT @1.08 CBOE,-0.03,-1.30,216.00,"75,294.41"
+6/11/25,10:11:44,TRD,97925925699,BOT 0.3586 ADM UPON ARCHER-DANIELS MIDLAND C,,,-17.45,"75,276.96"
+6/12/25,14:09:15,TRD,98018005862,BOT 0.0018 MSFT UPON MICROSOFT CORP,,,-0.85,"75,276.96"
+6/16/25,07:02:47,TRD,1003534238775,SOLD -1 NVDA 100 (Weeklys) 27 JUN 25 137 PUT @.92 CBOE,-0.01,-0.65,92.00,"75,368.30"
+6/17/25,09:38:49,TRD,98226507818,BOT 0.0322 HVT UPON HAVERTY FURNITURE COS IN,,,-0.64,"75,368.30"
+6/18/25,09:37:47,TRD,98297768602,BOT 0.0253 VFC UPON V F CORP,,,-0.30,"75,368.30"
+6/30/25,07:17:45,TRD,1003625617840,SOLD -1 TSLA 100 (Weeklys) 3 JUL 25 290 PUT @1.07 CBOE,-0.01,-0.65,107.00,"75,477.54"
+6/30/25,07:17:45,TRD,1003625617840,SOLD -1 TSLA 100 (Weeklys) 3 JUL 25 290 PUT @1.07 CBOE,-0.02,-0.65,107.00,"75,583.87"
+7/1/25,15:01:21,TRD,98958806908,BOT 0.0806 ADP UPON AUTOMATIC DATA PROCESSIN,,,-25.00,"75,583.87"
+7/8/25,06:30:05,TRD,1003671702989,SOLD -1 SPY 100 (Weeklys) 8 JUL 25 616 PUT @.64 CBOE,-0.01,-0.65,64.00,"75,647.21"
+7/8/25,06:35:07,TRD,1003671703689,SOLD -1 TSLA 100 (Weeklys) 11 JUL 25 277.5 PUT @1.00 CBOE,-0.01,-0.65,100.00,"75,746.55"
+7/9/25,06:46:27,TRD,1003682332173,BOT +1 SPY 100 (Weeklys) 8 JUL 25 616 PUT @.05,-0.01,,-5.00,"75,741.54"
+7/9/25,06:51:26,TRD,1003682332654,SOLD -2 TSLA 100 18 JUL 25 262.5 PUT @1.13 CBOE,-0.03,-1.30,226.00,"75,966.21"
+7/15/25,06:50:50,TRD,1003721504573,BOT +2 TSLA 100 18 JUL 25 262.5 PUT @.08 CBOE,-0.02,-1.30,-16.00,"75,948.89"
+7/15/25,06:53:31,TRD,1003721504777,SOLD -1 SPY 100 (Weeklys) 16 JUL 25 623 PUT @.89 CBOE,-0.01,-0.65,89.00,"76,037.23"
+7/17/25,06:32:52,TRD,1003740792874,SOLD -1 SPY 100 18 JUL 25 622 PUT @1.12 CBOE,-0.01,-0.65,112.00,"76,148.57"
+7/18/25,06:34:51,TRD,1003751528346,BOT +1 SPY 100 18 JUL 25 622 PUT @.09 CBOE,-0.01,-0.65,-9.00,"76,138.91"
+7/18/25,06:49:42,TRD,1003752140421,SOLD -1 SPY 100 (Weeklys) 21 JUL 25 627 PUT @1.12,-0.01,-0.65,112.00,"76,250.25"
+7/22/25,06:42:55,TRD,1003774112622,SOLD -1 TSLA 100 (Weeklys) 25 JUL 25 292.5 PUT @1.37 CBOE,-0.01,-0.65,137.00,"76,386.59"
+7/22/25,06:42:55,TRD,1003774112622,SOLD -1 TSLA 100 (Weeklys) 25 JUL 25 292.5 PUT @1.37 CBOE,-0.02,-0.65,137.00,"76,522.92"
+7/22/25,06:49:37,TRD,1003774113457,SOLD -1 NVDA 100 (Weeklys) 25 JUL 25 160 PUT @.78 CBOE,-0.01,-0.65,78.00,"76,600.26"
+7/23/25,14:43:55,TRD,100089031570,BOT 0.062 DIS UPON DISNEY WALT CO,,,-7.60,"76,600.26"
+7/25/25,06:37:51,TRD,1003803910476,BOT +1 NVDA 100 (Weeklys) 25 JUL 25 160 PUT @.02,-0.01,,-2.00,"76,598.25"
+7/25/25,06:38:21,TRD,1003803910531,SOLD -1 NVDA 100 (Weeklys) 8 AUG 25 162.5 PUT @1.05 CBOE,-0.01,-0.65,105.00,"76,702.59"
+7/25/25,06:40:01,TRD,1003803910718,BOT +1 TSLA 100 (Weeklys) 25 JUL 25 292.5 PUT @.05 CBOE,-0.01,,-5.00,"76,697.58"
+7/25/25,06:40:01,TRD,1003803910718,BOT +1 TSLA 100 (Weeklys) 25 JUL 25 292.5 PUT @.05 CBOE,-0.01,,-5.00,"76,692.57"
+7/25/25,06:46:07,TRD,1003803911499,SOLD -2 TSLA 100 (Weeklys) 1 AUG 25 285 PUT @1.09 CBOE,-0.03,-1.30,218.00,"76,909.24"
+7/30/25,06:51:31,TRD,1003832636544,SOLD -2 CALENDAR TSLA 100 15 AUG 25/1 AUG 25 285 PUT @1.78 CBOE,-0.05,-2.60,356.00,"77,262.59"
+8/4/25,06:33:11,TRD,1003862920694,SOLD -1 UNH 100 (Weeklys) 8 AUG 25 232.5 PUT @2.14 CBOE,-0.01,-0.65,214.00,"77,641.23"
+8/4/25,06:42:09,TRD,1003863560079,BOT +14 SPY @627.23,,,"-8,781.22","68,860.01"
+8/7/25,06:40:51,TRD,1003892072572,BOT +1 NVDA 100 (Weeklys) 8 AUG 25 162.5 PUT @.04,-0.01,,-4.00,"68,856.00"
+8/7/25,06:46:25,TRD,1003892073506,SOLD -1 NVDA 100 (Weeklys) 5 SEP 25 160 PUT @2.02 CBOE,-0.01,-0.65,202.00,"69,057.34"
+8/8/25,06:50:59,TRD,1003902420665,BOT +1 UNH 100 (Weeklys) 8 AUG 25 232.5 PUT @.04 CBOE,-0.01,,-4.00,"68,053.33"
+8/8/25,06:53:57,TRD,1003902421103,SOLD -1 UNH 100 (Weeklys) 29 AUG 25 235 PUT @3.17,-0.01,-0.65,317.00,"68,369.67"
+8/8/25,07:14:57,TRD,1003903071394,BOT +8 UNH @247.36,,,"-1,978.88","66,390.79"
+8/11/25,07:00:53,TRD,1003913717536,SOLD -2 CALENDAR TSLA 100 (Weeklys) 12 SEP 25/15 AUG 25 285 PUT @2.24 CBOE,-0.05,-2.60,448.00,"66,836.14"
+8/14/25,14:17:08,TRD,101311278598,BOT 0.0184 AAPL UPON APPLE INC,,,-4.27,"66,036.14"
+8/15/25,06:47:25,TRD,1003954234533,BOT +1 DIAGONAL UNH 100 (Weeklys) 29 AUG 25/22 AUG 25 235/272.5 PUT @-1.15 CBOE,-0.02,-1.30,115.00,"66,155.12"
+8/15/25,14:42:13,TRD,101389007900,BOT 0.0258 ABBV UPON ABBVIE INC,,,-5.30,"66,149.82"
+8/18/25,06:37:54,TRD,1003963833026,BOT +1 UNH 100 (Weeklys) 22 AUG 25 272.5 PUT @.22 CBOE,-0.01,-0.65,-22.00,"66,127.16"
+8/18/25,06:43:34,TRD,1003963833649,SOLD -1 UNH 100 (Weeklys) 22 AUG 25 290 PUT @1.06 PHLX,-0.01,-0.65,106.00,"66,232.50"
+8/22/25,06:30:06,TRD,1003963833729,BOT +1 UNH 100 (Weeklys) 22 AUG 25 290 PUT @.07 CBOE,-0.01,-0.65,-7.00,"66,224.84"
+8/22/25,06:39:50,TRD,1004001874689,SOLD -1 UNH 100 (Weeklys) 29 AUG 25 297.5 PUT @1.83,-0.01,-0.65,183.00,"66,407.18"
+8/28/25,06:41:48,TRD,1004039689670,SOLD -1 CALENDAR NVDA 100 (Weeklys) 10 OCT 25/5 SEP 25 160 PUT @1.90 ISE,-0.02,-1.30,190.00,"66,595.86"
+8/28/25,06:49:01,TRD,1004040566342,SOLD -1 CALENDAR TSLA 100 (Weeklys) 3 OCT 25/12 SEP 25 285 PUT @2.02 CBOE,-0.02,-1.30,202.00,"66,796.54"
+8/29/25,06:34:36,TRD,1004049327004,SOLD -1 CALENDAR UNH 100 19 SEP 25/29 AUG 25 297.5 PUT @7.03 CBOE,-0.02,-1.30,703.00,"67,500.95"
+8/29/25,06:42:10,TRD,1004049327955,SOLD -1 CALENDAR TSLA 100 (Weeklys) 10 OCT 25/12 SEP 25 285 PUT @2.90 CBOE,-0.02,-1.30,290.00,"67,789.63"
+8/29/25,07:01:04,TRD,1004050157968,BOT +1 TSLA 100 (Weeklys) 3 OCT 25 285 PUT @2.91 CBOE,-0.01,-0.65,-291.00,"67,497.97"
+8/29/25,07:17:16,TRD,1004050977888,SOLD -1 VFC 100 (Weeklys) 5 SEP 25 15 PUT @.38 CBOE,-0.01,-0.65,38.00,"67,535.31"
+8/29/25,07:17:16,TRD,1004050977888,SOLD -1 VFC 100 (Weeklys) 5 SEP 25 15 PUT @.38 CBOE,-0.02,-0.65,38.00,"67,572.64"
+9/3/25,07:08:14,TRD,1004070541543,SOLD -1 VFC 100 17 OCT 25 15 PUT @1.07 PHLX,-0.01,-0.65,107.00,"69,715.29"
+9/3/25,07:08:14,TRD,1004070541543,SOLD -1 VFC 100 17 OCT 25 15 PUT @1.07 PHLX,-0.02,-0.65,107.00,"69,821.62"
+9/5/25,23:21:53,EXP,102438853655,BOT 100.0 VFC UPON V F CORP,,,"-1,500.00","68,321.62"
+9/8/25,06:42:20,TRD,1004100590248,SOLD -1 CRCL 100 (Weeklys) 12 SEP 25 107 PUT @2.35 CBOE,-0.01,-0.65,235.00,"68,555.96"
+9/8/25,06:48:38,TRD,1004100590873,SOLD -1 BMNR 100 (Weeklys) 12 SEP 25 41 PUT @1.05 CBOE,-0.01,-0.65,105.00,"68,660.30"
+9/8/25,08:53:16,TRD,1004103495934,SOLD -1 VFC 100 (Weeklys) 24 OCT 25 16 CALL @.94 MIAX,-0.01,-0.65,94.00,"68,753.64"
+9/9/25,06:47:52,TRD,1004110336933,SOLD -1 DIAGONAL UNH 100 (Weeklys) 24 OCT 25/19 SEP 25 320/297.5 PUT @13.01 CBOE,-0.02,-1.30,"1,301.00","70,053.32"
+9/10/25,09:48:15,TRD,102646551691,BOT 0.2862 ADM UPON ARCHER-DANIELS MIDLAND C,,,-17.64,"70,053.97"
+9/10/25,09:48:19,TRD,102646551719,BOT 0.0276 HVT UPON HAVERTY FURNITURE COS IN,,,-0.65,"70,053.32"
+9/11/25,06:39:51,TRD,1004130153516,SOLD -1 CALENDAR BMNR 100 17 OCT 25/12 SEP 25 41 PUT @2.61 CBOE,-0.02,-1.30,261.00,"70,313.86"
+9/11/25,06:49:37,TRD,1004131154352,SOLD -1 DIAGONAL CRCL 100 17 OCT 25/12 SEP 25 105/107 PUT @3.97 MIAX,-0.02,-1.30,397.00,"70,709.54"
+9/11/25,12:45:20,TRD,1004139050049,"BOT +1,000 AIRE @1.2558",,,"-1,255.80","69,453.74"
+9/11/25,14:00:12,TRD,102754013809,BOT 0.0017 MSFT UPON MICROSOFT CORP,,,-0.86,"69,452.88"
+9/17/25,08:05:11,TRD,1004174840509,BOT +1 TSLA 100 (Weeklys) 10 OCT 25 285 PUT @.79 CBOE,-0.01,-0.65,-79.00,"69,373.22"
+9/17/25,08:10:44,TRD,1004174840694,BOT +1 UNH 100 (Weeklys) 24 OCT 25 320 PUT @6.53 PHLX,-0.01,-0.65,-653.00,"68,719.56"
+9/18/25,09:24:13,TRD,103133730983,BOT 0.6103 VFC UPON V F CORP,,,-9.30,"68,719.56"
+9/19/25,06:41:59,TRD,1004194558915,SOLD -1 SPY 100 19 SEP 25 659 PUT @.42 CBOE,-0.01,-0.65,42.00,"68,760.90"
+9/19/25,08:03:00,TRD,1004197604764,BOT +1 BMNR 100 17 OCT 25 41 PUT @1.01,-0.01,-0.65,-101.00,"68,659.24"
+9/19/25,08:03:16,TRD,1004197604781,BOT +1 SPY 100 19 SEP 25 659 PUT @.25 CBOE,-0.01,-0.65,-25.00,"68,633.58"
+9/19/25,08:03:34,TRD,1004197604797,BOT +1 NVDA 100 (Weeklys) 10 OCT 25 160 PUT @1.04 CBOE,-0.01,-0.65,-104.00,"68,528.92"
+9/23/25,06:47:04,TRD,1004218052548,SOLD -1 BMNR 100 17 OCT 25 50 PUT @3.46 CBOE,-0.01,-0.65,346.00,"18,891.94"
+,,,,TOTAL,($10.33),($138.45),"$5,287.93","$18,891.94"
+
+Futures Statements
+Trade Date,Exec Date,Exec Time,Type,Ref #,Description,Misc Fees,Commissions & Fees,Amount,Balance
+9/23/24,9/23/24,22:00:00,BAL,--,Futures cash balance at the start of business day 24.09 CST,--,--,--,0.00
+9/24/24,9/24/24,22:00:00,BAL,--,Futures cash balance at the start of business day 25.09 CST,--,--,--,0.00
+9/25/24,9/25/24,22:00:00,BAL,--,Futures cash balance at the start of business day 26.09 CST,--,--,--,0.00
+9/26/24,9/26/24,22:00:00,BAL,--,Futures cash balance at the start of business day 27.09 CST,--,--,--,0.00
+9/27/24,9/27/24,22:00:00,BAL,--,Futures cash balance at the start of business day 28.09 CST,--,--,--,0.00
+9/28/24,9/28/24,22:00:00,BAL,--,Futures cash balance at the start of business day 29.09 CST,--,--,--,0.00
+9/29/24,9/29/24,22:00:00,BAL,--,Futures cash balance at the start of business day 30.09 CST,--,--,--,0.00
+9/30/24,9/30/24,22:00:00,BAL,--,Futures cash balance at the start of business day 01.10 CST,--,--,--,0.00
+10/1/24,10/1/24,22:00:00,BAL,--,Futures cash balance at the start of business day 02.10 CST,--,--,--,0.00
+10/2/24,10/2/24,22:00:00,BAL,--,Futures cash balance at the start of business day 03.10 CST,--,--,--,0.00
+10/3/24,10/3/24,22:00:00,BAL,--,Futures cash balance at the start of business day 04.10 CST,--,--,--,0.00
+10/4/24,10/4/24,22:00:00,BAL,--,Futures cash balance at the start of business day 05.10 CST,--,--,--,0.00
+10/5/24,10/5/24,22:00:00,BAL,--,Futures cash balance at the start of business day 06.10 CST,--,--,--,0.00
+10/6/24,10/6/24,22:00:00,BAL,--,Futures cash balance at the start of business day 07.10 CST,--,--,--,0.00
+10/7/24,10/7/24,22:00:00,BAL,--,Futures cash balance at the start of business day 08.10 CST,--,--,--,0.00
+10/8/24,10/8/24,22:00:00,BAL,--,Futures cash balance at the start of business day 09.10 CST,--,--,--,0.00
+10/9/24,10/9/24,22:00:00,BAL,--,Futures cash balance at the start of business day 10.10 CST,--,--,--,0.00
+10/10/24,10/10/24,22:00:00,BAL,--,Futures cash balance at the start of business day 11.10 CST,--,--,--,0.00
+10/11/24,10/11/24,22:00:00,BAL,--,Futures cash balance at the start of business day 12.10 CST,--,--,--,0.00
+10/12/24,10/12/24,22:00:00,BAL,--,Futures cash balance at the start of business day 13.10 CST,--,--,--,0.00
+10/13/24,10/13/24,22:00:00,BAL,--,Futures cash balance at the start of business day 14.10 CST,--,--,--,0.00
+10/14/24,10/14/24,22:00:00,BAL,--,Futures cash balance at the start of business day 15.10 CST,--,--,--,0.00
+10/15/24,10/15/24,22:00:00,BAL,--,Futures cash balance at the start of business day 16.10 CST,--,--,--,0.00
+10/16/24,10/16/24,22:00:00,BAL,--,Futures cash balance at the start of business day 17.10 CST,--,--,--,0.00
+10/17/24,10/17/24,22:00:00,BAL,--,Futures cash balance at the start of business day 18.10 CST,--,--,--,0.00
+10/18/24,10/18/24,22:00:00,BAL,--,Futures cash balance at the start of business day 19.10 CST,--,--,--,0.00
+10/19/24,10/19/24,22:00:00,BAL,--,Futures cash balance at the start of business day 20.10 CST,--,--,--,0.00
+10/20/24,10/20/24,22:00:00,BAL,--,Futures cash balance at the start of business day 21.10 CST,--,--,--,0.00
+10/21/24,10/21/24,22:00:00,BAL,--,Futures cash balance at the start of business day 22.10 CST,--,--,--,0.00
+10/22/24,10/22/24,22:00:00,BAL,--,Futures cash balance at the start of business day 23.10 CST,--,--,--,0.00
+10/23/24,10/23/24,22:00:00,BAL,--,Futures cash balance at the start of business day 24.10 CST,--,--,--,0.00
+10/24/24,10/24/24,22:00:00,BAL,--,Futures cash balance at the start of business day 25.10 CST,--,--,--,0.00
+10/25/24,10/25/24,22:00:00,BAL,--,Futures cash balance at the start of business day 26.10 CST,--,--,--,0.00
+10/26/24,10/26/24,22:00:00,BAL,--,Futures cash balance at the start of business day 27.10 CST,--,--,--,0.00
+10/27/24,10/27/24,22:00:00,BAL,--,Futures cash balance at the start of business day 28.10 CST,--,--,--,0.00
+10/28/24,10/28/24,22:00:00,BAL,--,Futures cash balance at the start of business day 29.10 CST,--,--,--,0.00
+10/29/24,10/29/24,22:00:00,BAL,--,Futures cash balance at the start of business day 30.10 CST,--,--,--,0.00
+10/30/24,10/30/24,22:00:00,BAL,--,Futures cash balance at the start of business day 31.10 CST,--,--,--,0.00
+10/31/24,10/31/24,22:00:00,BAL,--,Futures cash balance at the start of business day 01.11 CST,--,--,--,0.00
+11/1/24,11/1/24,22:00:00,BAL,--,Futures cash balance at the start of business day 02.11 CST,--,--,--,0.00
+11/2/24,11/2/24,22:00:00,BAL,--,Futures cash balance at the start of business day 03.11 CST,--,--,--,0.00
+11/3/24,11/3/24,22:00:00,BAL,--,Futures cash balance at the start of business day 04.11 CST,--,--,--,0.00
+11/4/24,11/4/24,22:00:00,BAL,--,Futures cash balance at the start of business day 05.11 CST,--,--,--,0.00
+11/5/24,11/5/24,22:00:00,BAL,--,Futures cash balance at the start of business day 06.11 CST,--,--,--,0.00
+11/6/24,11/6/24,22:00:00,BAL,--,Futures cash balance at the start of business day 07.11 CST,--,--,--,0.00
+11/7/24,11/7/24,22:00:00,BAL,--,Futures cash balance at the start of business day 08.11 CST,--,--,--,0.00
+11/8/24,11/8/24,22:00:00,BAL,--,Futures cash balance at the start of business day 09.11 CST,--,--,--,0.00
+11/9/24,11/9/24,22:00:00,BAL,--,Futures cash balance at the start of business day 10.11 CST,--,--,--,0.00
+11/10/24,11/10/24,22:00:00,BAL,--,Futures cash balance at the start of business day 11.11 CST,--,--,--,0.00
+11/11/24,11/11/24,22:00:00,BAL,--,Futures cash balance at the start of business day 12.11 CST,--,--,--,0.00
+11/12/24,11/12/24,22:00:00,BAL,--,Futures cash balance at the start of business day 13.11 CST,--,--,--,0.00
+11/13/24,11/13/24,22:00:00,BAL,--,Futures cash balance at the start of business day 14.11 CST,--,--,--,0.00
+11/14/24,11/14/24,22:00:00,BAL,--,Futures cash balance at the start of business day 15.11 CST,--,--,--,0.00
+11/15/24,11/15/24,22:00:00,BAL,--,Futures cash balance at the start of business day 16.11 CST,--,--,--,0.00
+11/16/24,11/16/24,22:00:00,BAL,--,Futures cash balance at the start of business day 17.11 CST,--,--,--,0.00
+11/17/24,11/17/24,22:00:00,BAL,--,Futures cash balance at the start of business day 18.11 CST,--,--,--,0.00
+11/18/24,11/18/24,22:00:00,BAL,--,Futures cash balance at the start of business day 19.11 CST,--,--,--,0.00
+11/19/24,11/19/24,22:00:00,BAL,--,Futures cash balance at the start of business day 20.11 CST,--,--,--,0.00
+11/20/24,11/20/24,22:00:00,BAL,--,Futures cash balance at the start of business day 21.11 CST,--,--,--,0.00
+11/21/24,11/21/24,22:00:00,BAL,--,Futures cash balance at the start of business day 22.11 CST,--,--,--,0.00
+11/22/24,11/22/24,22:00:00,BAL,--,Futures cash balance at the start of business day 23.11 CST,--,--,--,0.00
+11/23/24,11/23/24,22:00:00,BAL,--,Futures cash balance at the start of business day 24.11 CST,--,--,--,0.00
+11/24/24,11/24/24,22:00:00,BAL,--,Futures cash balance at the start of business day 25.11 CST,--,--,--,0.00
+11/25/24,11/25/24,22:00:00,BAL,--,Futures cash balance at the start of business day 26.11 CST,--,--,--,0.00
+11/26/24,11/26/24,22:00:00,BAL,--,Futures cash balance at the start of business day 27.11 CST,--,--,--,0.00
+11/27/24,11/27/24,22:00:00,BAL,--,Futures cash balance at the start of business day 28.11 CST,--,--,--,0.00
+11/28/24,11/28/24,22:00:00,BAL,--,Futures cash balance at the start of business day 29.11 CST,--,--,--,0.00
+11/29/24,11/29/24,22:00:00,BAL,--,Futures cash balance at the start of business day 30.11 CST,--,--,--,0.00
+11/30/24,11/30/24,22:00:00,BAL,--,Futures cash balance at the start of business day 01.12 CST,--,--,--,0.00
+12/1/24,12/1/24,22:00:00,BAL,--,Futures cash balance at the start of business day 02.12 CST,--,--,--,0.00
+12/2/24,12/2/24,22:00:00,BAL,--,Futures cash balance at the start of business day 03.12 CST,--,--,--,0.00
+12/3/24,12/3/24,22:00:00,BAL,--,Futures cash balance at the start of business day 04.12 CST,--,--,--,0.00
+12/4/24,12/4/24,22:00:00,BAL,--,Futures cash balance at the start of business day 05.12 CST,--,--,--,0.00
+12/5/24,12/5/24,22:00:00,BAL,--,Futures cash balance at the start of business day 06.12 CST,--,--,--,0.00
+12/6/24,12/6/24,22:00:00,BAL,--,Futures cash balance at the start of business day 07.12 CST,--,--,--,0.00
+12/7/24,12/7/24,22:00:00,BAL,--,Futures cash balance at the start of business day 08.12 CST,--,--,--,0.00
+12/8/24,12/8/24,22:00:00,BAL,--,Futures cash balance at the start of business day 09.12 CST,--,--,--,0.00
+12/9/24,12/9/24,22:00:00,BAL,--,Futures cash balance at the start of business day 10.12 CST,--,--,--,0.00
+12/10/24,12/10/24,22:00:00,BAL,--,Futures cash balance at the start of business day 11.12 CST,--,--,--,0.00
+12/11/24,12/11/24,22:00:00,BAL,--,Futures cash balance at the start of business day 12.12 CST,--,--,--,0.00
+12/12/24,12/12/24,22:00:00,BAL,--,Futures cash balance at the start of business day 13.12 CST,--,--,--,0.00
+12/13/24,12/13/24,22:00:00,BAL,--,Futures cash balance at the start of business day 14.12 CST,--,--,--,0.00
+12/14/24,12/14/24,22:00:00,BAL,--,Futures cash balance at the start of business day 15.12 CST,--,--,--,0.00
+12/15/24,12/15/24,22:00:00,BAL,--,Futures cash balance at the start of business day 16.12 CST,--,--,--,0.00
+12/16/24,12/16/24,22:00:00,BAL,--,Futures cash balance at the start of business day 17.12 CST,--,--,--,0.00
+12/17/24,12/17/24,22:00:00,BAL,--,Futures cash balance at the start of business day 18.12 CST,--,--,--,0.00
+12/18/24,12/18/24,22:00:00,BAL,--,Futures cash balance at the start of business day 19.12 CST,--,--,--,0.00
+12/19/24,12/19/24,22:00:00,BAL,--,Futures cash balance at the start of business day 20.12 CST,--,--,--,0.00
+12/20/24,12/20/24,22:00:00,BAL,--,Futures cash balance at the start of business day 21.12 CST,--,--,--,0.00
+12/21/24,12/21/24,22:00:00,BAL,--,Futures cash balance at the start of business day 22.12 CST,--,--,--,0.00
+12/22/24,12/22/24,22:00:00,BAL,--,Futures cash balance at the start of business day 23.12 CST,--,--,--,0.00
+12/23/24,12/23/24,22:00:00,BAL,--,Futures cash balance at the start of business day 24.12 CST,--,--,--,0.00
+12/24/24,12/24/24,22:00:00,BAL,--,Futures cash balance at the start of business day 25.12 CST,--,--,--,0.00
+12/25/24,12/25/24,22:00:00,BAL,--,Futures cash balance at the start of business day 26.12 CST,--,--,--,0.00
+12/26/24,12/26/24,22:00:00,BAL,--,Futures cash balance at the start of business day 27.12 CST,--,--,--,0.00
+12/27/24,12/27/24,22:00:00,BAL,--,Futures cash balance at the start of business day 28.12 CST,--,--,--,0.00
+12/28/24,12/28/24,22:00:00,BAL,--,Futures cash balance at the start of business day 29.12 CST,--,--,--,0.00
+12/29/24,12/29/24,22:00:00,BAL,--,Futures cash balance at the start of business day 30.12 CST,--,--,--,0.00
+12/30/24,12/30/24,22:00:00,BAL,--,Futures cash balance at the start of business day 31.12 CST,--,--,--,0.00
+12/31/24,12/31/24,22:00:00,BAL,--,Futures cash balance at the start of business day 01.01 CST,--,--,--,0.00
+1/1/25,1/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.01 CST,--,--,--,0.00
+1/2/25,1/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.01 CST,--,--,--,0.00
+1/3/25,1/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.01 CST,--,--,--,0.00
+1/4/25,1/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.01 CST,--,--,--,0.00
+1/5/25,1/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.01 CST,--,--,--,0.00
+1/6/25,1/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.01 CST,--,--,--,0.00
+1/7/25,1/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.01 CST,--,--,--,0.00
+1/8/25,1/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.01 CST,--,--,--,0.00
+1/9/25,1/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.01 CST,--,--,--,0.00
+1/10/25,1/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.01 CST,--,--,--,0.00
+1/11/25,1/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.01 CST,--,--,--,0.00
+1/12/25,1/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.01 CST,--,--,--,0.00
+1/13/25,1/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.01 CST,--,--,--,0.00
+1/14/25,1/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.01 CST,--,--,--,0.00
+1/15/25,1/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.01 CST,--,--,--,0.00
+1/16/25,1/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.01 CST,--,--,--,0.00
+1/17/25,1/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.01 CST,--,--,--,0.00
+1/18/25,1/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.01 CST,--,--,--,0.00
+1/19/25,1/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.01 CST,--,--,--,0.00
+1/20/25,1/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.01 CST,--,--,--,0.00
+1/21/25,1/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.01 CST,--,--,--,0.00
+1/22/25,1/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.01 CST,--,--,--,0.00
+1/23/25,1/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.01 CST,--,--,--,0.00
+1/24/25,1/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.01 CST,--,--,--,0.00
+1/25/25,1/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.01 CST,--,--,--,0.00
+1/26/25,1/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.01 CST,--,--,--,0.00
+1/27/25,1/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.01 CST,--,--,--,0.00
+1/28/25,1/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.01 CST,--,--,--,0.00
+1/29/25,1/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.01 CST,--,--,--,0.00
+1/30/25,1/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 31.01 CST,--,--,--,0.00
+1/31/25,1/31/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.02 CST,--,--,--,0.00
+2/1/25,2/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.02 CST,--,--,--,0.00
+2/2/25,2/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.02 CST,--,--,--,0.00
+2/3/25,2/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.02 CST,--,--,--,0.00
+2/4/25,2/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.02 CST,--,--,--,0.00
+2/5/25,2/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.02 CST,--,--,--,0.00
+2/6/25,2/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.02 CST,--,--,--,0.00
+2/7/25,2/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.02 CST,--,--,--,0.00
+2/8/25,2/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.02 CST,--,--,--,0.00
+2/9/25,2/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.02 CST,--,--,--,0.00
+2/10/25,2/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.02 CST,--,--,--,0.00
+2/11/25,2/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.02 CST,--,--,--,0.00
+2/12/25,2/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.02 CST,--,--,--,0.00
+2/13/25,2/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.02 CST,--,--,--,0.00
+2/14/25,2/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.02 CST,--,--,--,0.00
+2/15/25,2/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.02 CST,--,--,--,0.00
+2/16/25,2/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.02 CST,--,--,--,0.00
+2/17/25,2/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.02 CST,--,--,--,0.00
+2/18/25,2/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.02 CST,--,--,--,0.00
+2/19/25,2/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.02 CST,--,--,--,0.00
+2/20/25,2/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.02 CST,--,--,--,0.00
+2/21/25,2/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.02 CST,--,--,--,0.00
+2/22/25,2/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.02 CST,--,--,--,0.00
+2/23/25,2/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.02 CST,--,--,--,0.00
+2/24/25,2/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.02 CST,--,--,--,0.00
+2/25/25,2/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.02 CST,--,--,--,0.00
+2/26/25,2/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.02 CST,--,--,--,0.00
+2/27/25,2/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.02 CST,--,--,--,0.00
+2/28/25,2/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.03 CST,--,--,--,0.00
+3/1/25,3/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.03 CST,--,--,--,0.00
+3/2/25,3/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.03 CST,--,--,--,0.00
+3/3/25,3/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.03 CST,--,--,--,0.00
+3/4/25,3/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.03 CST,--,--,--,0.00
+3/5/25,3/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.03 CST,--,--,--,0.00
+3/6/25,3/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.03 CST,--,--,--,0.00
+3/7/25,3/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.03 CST,--,--,--,0.00
+3/8/25,3/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.03 CST,--,--,--,0.00
+3/9/25,3/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.03 CST,--,--,--,0.00
+3/10/25,3/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.03 CST,--,--,--,0.00
+3/11/25,3/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.03 CST,--,--,--,0.00
+3/12/25,3/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.03 CST,--,--,--,0.00
+3/13/25,3/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.03 CST,--,--,--,0.00
+3/14/25,3/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.03 CST,--,--,--,0.00
+3/15/25,3/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.03 CST,--,--,--,0.00
+3/16/25,3/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.03 CST,--,--,--,0.00
+3/17/25,3/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.03 CST,--,--,--,0.00
+3/18/25,3/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.03 CST,--,--,--,0.00
+3/19/25,3/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.03 CST,--,--,--,0.00
+3/20/25,3/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.03 CST,--,--,--,0.00
+3/21/25,3/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.03 CST,--,--,--,0.00
+3/22/25,3/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.03 CST,--,--,--,0.00
+3/23/25,3/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.03 CST,--,--,--,0.00
+3/24/25,3/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.03 CST,--,--,--,0.00
+3/25/25,3/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.03 CST,--,--,--,0.00
+3/26/25,3/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.03 CST,--,--,--,0.00
+3/27/25,3/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.03 CST,--,--,--,0.00
+3/28/25,3/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.03 CST,--,--,--,0.00
+3/29/25,3/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.03 CST,--,--,--,0.00
+3/30/25,3/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 31.03 CST,--,--,--,0.00
+3/31/25,3/31/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.04 CST,--,--,--,0.00
+4/1/25,4/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.04 CST,--,--,--,0.00
+4/2/25,4/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.04 CST,--,--,--,0.00
+4/3/25,4/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.04 CST,--,--,--,0.00
+4/4/25,4/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.04 CST,--,--,--,0.00
+4/5/25,4/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.04 CST,--,--,--,0.00
+4/6/25,4/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.04 CST,--,--,--,0.00
+4/7/25,4/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.04 CST,--,--,--,0.00
+4/8/25,4/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.04 CST,--,--,--,0.00
+4/9/25,4/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.04 CST,--,--,--,0.00
+4/10/25,4/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.04 CST,--,--,--,0.00
+4/11/25,4/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.04 CST,--,--,--,0.00
+4/12/25,4/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.04 CST,--,--,--,0.00
+4/13/25,4/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.04 CST,--,--,--,0.00
+4/14/25,4/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.04 CST,--,--,--,0.00
+4/15/25,4/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.04 CST,--,--,--,0.00
+4/16/25,4/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.04 CST,--,--,--,0.00
+4/17/25,4/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.04 CST,--,--,--,0.00
+4/18/25,4/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.04 CST,--,--,--,0.00
+4/19/25,4/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.04 CST,--,--,--,0.00
+4/20/25,4/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.04 CST,--,--,--,0.00
+4/21/25,4/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.04 CST,--,--,--,0.00
+4/22/25,4/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.04 CST,--,--,--,0.00
+4/23/25,4/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.04 CST,--,--,--,0.00
+4/24/25,4/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.04 CST,--,--,--,0.00
+4/25/25,4/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.04 CST,--,--,--,0.00
+4/26/25,4/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.04 CST,--,--,--,0.00
+4/27/25,4/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.04 CST,--,--,--,0.00
+4/28/25,4/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.04 CST,--,--,--,0.00
+4/29/25,4/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.04 CST,--,--,--,0.00
+4/30/25,4/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.05 CST,--,--,--,0.00
+5/1/25,5/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.05 CST,--,--,--,0.00
+5/2/25,5/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.05 CST,--,--,--,0.00
+5/3/25,5/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.05 CST,--,--,--,0.00
+5/4/25,5/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.05 CST,--,--,--,0.00
+5/5/25,5/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.05 CST,--,--,--,0.00
+5/6/25,5/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.05 CST,--,--,--,0.00
+5/7/25,5/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.05 CST,--,--,--,0.00
+5/8/25,5/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.05 CST,--,--,--,0.00
+5/9/25,5/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.05 CST,--,--,--,0.00
+5/10/25,5/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.05 CST,--,--,--,0.00
+5/11/25,5/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.05 CST,--,--,--,0.00
+5/12/25,5/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.05 CST,--,--,--,0.00
+5/13/25,5/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.05 CST,--,--,--,0.00
+5/14/25,5/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.05 CST,--,--,--,0.00
+5/15/25,5/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.05 CST,--,--,--,0.00
+5/16/25,5/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.05 CST,--,--,--,0.00
+5/17/25,5/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.05 CST,--,--,--,0.00
+5/18/25,5/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.05 CST,--,--,--,0.00
+5/19/25,5/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.05 CST,--,--,--,0.00
+5/20/25,5/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.05 CST,--,--,--,0.00
+5/21/25,5/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.05 CST,--,--,--,0.00
+5/22/25,5/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.05 CST,--,--,--,0.00
+5/23/25,5/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.05 CST,--,--,--,0.00
+5/24/25,5/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.05 CST,--,--,--,0.00
+5/25/25,5/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.05 CST,--,--,--,0.00
+5/26/25,5/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.05 CST,--,--,--,0.00
+5/27/25,5/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.05 CST,--,--,--,0.00
+5/28/25,5/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.05 CST,--,--,--,0.00
+5/29/25,5/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.05 CST,--,--,--,0.00
+5/30/25,5/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 31.05 CST,--,--,--,0.00
+5/31/25,5/31/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.06 CST,--,--,--,0.00
+6/1/25,6/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.06 CST,--,--,--,0.00
+6/2/25,6/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.06 CST,--,--,--,0.00
+6/3/25,6/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.06 CST,--,--,--,0.00
+6/4/25,6/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.06 CST,--,--,--,0.00
+6/5/25,6/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.06 CST,--,--,--,0.00
+6/6/25,6/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.06 CST,--,--,--,0.00
+6/7/25,6/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.06 CST,--,--,--,0.00
+6/8/25,6/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.06 CST,--,--,--,0.00
+6/9/25,6/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.06 CST,--,--,--,0.00
+6/10/25,6/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.06 CST,--,--,--,0.00
+6/11/25,6/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.06 CST,--,--,--,0.00
+6/12/25,6/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.06 CST,--,--,--,0.00
+6/13/25,6/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.06 CST,--,--,--,0.00
+6/14/25,6/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.06 CST,--,--,--,0.00
+6/15/25,6/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.06 CST,--,--,--,0.00
+6/16/25,6/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.06 CST,--,--,--,0.00
+6/17/25,6/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.06 CST,--,--,--,0.00
+6/18/25,6/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.06 CST,--,--,--,0.00
+6/19/25,6/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.06 CST,--,--,--,0.00
+6/20/25,6/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.06 CST,--,--,--,0.00
+6/21/25,6/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.06 CST,--,--,--,0.00
+6/22/25,6/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.06 CST,--,--,--,0.00
+6/23/25,6/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.06 CST,--,--,--,0.00
+6/24/25,6/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.06 CST,--,--,--,0.00
+6/25/25,6/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.06 CST,--,--,--,0.00
+6/26/25,6/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.06 CST,--,--,--,0.00
+6/27/25,6/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.06 CST,--,--,--,0.00
+6/28/25,6/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.06 CST,--,--,--,0.00
+6/29/25,6/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.06 CST,--,--,--,0.00
+6/30/25,6/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.07 CST,--,--,--,0.00
+7/1/25,7/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.07 CST,--,--,--,0.00
+7/2/25,7/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.07 CST,--,--,--,0.00
+7/3/25,7/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.07 CST,--,--,--,0.00
+7/4/25,7/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.07 CST,--,--,--,0.00
+7/5/25,7/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.07 CST,--,--,--,0.00
+7/6/25,7/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.07 CST,--,--,--,0.00
+7/7/25,7/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.07 CST,--,--,--,0.00
+7/8/25,7/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.07 CST,--,--,--,0.00
+7/9/25,7/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.07 CST,--,--,--,0.00
+7/10/25,7/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.07 CST,--,--,--,0.00
+7/11/25,7/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.07 CST,--,--,--,0.00
+7/12/25,7/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.07 CST,--,--,--,0.00
+7/13/25,7/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.07 CST,--,--,--,0.00
+7/14/25,7/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.07 CST,--,--,--,0.00
+7/15/25,7/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.07 CST,--,--,--,0.00
+7/16/25,7/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.07 CST,--,--,--,0.00
+7/17/25,7/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.07 CST,--,--,--,0.00
+7/18/25,7/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.07 CST,--,--,--,0.00
+7/19/25,7/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.07 CST,--,--,--,0.00
+7/20/25,7/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.07 CST,--,--,--,0.00
+7/21/25,7/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.07 CST,--,--,--,0.00
+7/22/25,7/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.07 CST,--,--,--,0.00
+7/23/25,7/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.07 CST,--,--,--,0.00
+7/24/25,7/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.07 CST,--,--,--,0.00
+7/25/25,7/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.07 CST,--,--,--,0.00
+7/26/25,7/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.07 CST,--,--,--,0.00
+7/27/25,7/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.07 CST,--,--,--,0.00
+7/28/25,7/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.07 CST,--,--,--,0.00
+7/29/25,7/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.07 CST,--,--,--,0.00
+7/30/25,7/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 31.07 CST,--,--,--,0.00
+7/31/25,7/31/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.08 CST,--,--,--,0.00
+8/1/25,8/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.08 CST,--,--,--,0.00
+8/2/25,8/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.08 CST,--,--,--,0.00
+8/3/25,8/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.08 CST,--,--,--,0.00
+8/4/25,8/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.08 CST,--,--,--,0.00
+8/5/25,8/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.08 CST,--,--,--,0.00
+8/6/25,8/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.08 CST,--,--,--,0.00
+8/7/25,8/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.08 CST,--,--,--,0.00
+8/8/25,8/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.08 CST,--,--,--,0.00
+8/9/25,8/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.08 CST,--,--,--,0.00
+8/10/25,8/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.08 CST,--,--,--,0.00
+8/11/25,8/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.08 CST,--,--,--,0.00
+8/12/25,8/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.08 CST,--,--,--,0.00
+8/13/25,8/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.08 CST,--,--,--,0.00
+8/14/25,8/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.08 CST,--,--,--,0.00
+8/15/25,8/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.08 CST,--,--,--,0.00
+8/16/25,8/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.08 CST,--,--,--,0.00
+8/17/25,8/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.08 CST,--,--,--,0.00
+8/18/25,8/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.08 CST,--,--,--,0.00
+8/19/25,8/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.08 CST,--,--,--,0.00
+8/20/25,8/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.08 CST,--,--,--,0.00
+8/21/25,8/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.08 CST,--,--,--,0.00
+8/22/25,8/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.08 CST,--,--,--,0.00
+8/23/25,8/23/25,22:00:00,BAL,--,Futures cash balance at the start of business day 24.08 CST,--,--,--,0.00
+8/24/25,8/24/25,22:00:00,BAL,--,Futures cash balance at the start of business day 25.08 CST,--,--,--,0.00
+8/25/25,8/25/25,22:00:00,BAL,--,Futures cash balance at the start of business day 26.08 CST,--,--,--,0.00
+8/26/25,8/26/25,22:00:00,BAL,--,Futures cash balance at the start of business day 27.08 CST,--,--,--,0.00
+8/27/25,8/27/25,22:00:00,BAL,--,Futures cash balance at the start of business day 28.08 CST,--,--,--,0.00
+8/28/25,8/28/25,22:00:00,BAL,--,Futures cash balance at the start of business day 29.08 CST,--,--,--,0.00
+8/29/25,8/29/25,22:00:00,BAL,--,Futures cash balance at the start of business day 30.08 CST,--,--,--,0.00
+8/30/25,8/30/25,22:00:00,BAL,--,Futures cash balance at the start of business day 31.08 CST,--,--,--,0.00
+8/31/25,8/31/25,22:00:00,BAL,--,Futures cash balance at the start of business day 01.09 CST,--,--,--,0.00
+9/1/25,9/1/25,22:00:00,BAL,--,Futures cash balance at the start of business day 02.09 CST,--,--,--,0.00
+9/2/25,9/2/25,22:00:00,BAL,--,Futures cash balance at the start of business day 03.09 CST,--,--,--,0.00
+9/3/25,9/3/25,22:00:00,BAL,--,Futures cash balance at the start of business day 04.09 CST,--,--,--,0.00
+9/4/25,9/4/25,22:00:00,BAL,--,Futures cash balance at the start of business day 05.09 CST,--,--,--,0.00
+9/5/25,9/5/25,22:00:00,BAL,--,Futures cash balance at the start of business day 06.09 CST,--,--,--,0.00
+9/6/25,9/6/25,22:00:00,BAL,--,Futures cash balance at the start of business day 07.09 CST,--,--,--,0.00
+9/7/25,9/7/25,22:00:00,BAL,--,Futures cash balance at the start of business day 08.09 CST,--,--,--,0.00
+9/8/25,9/8/25,22:00:00,BAL,--,Futures cash balance at the start of business day 09.09 CST,--,--,--,0.00
+9/9/25,9/9/25,22:00:00,BAL,--,Futures cash balance at the start of business day 10.09 CST,--,--,--,0.00
+9/10/25,9/10/25,22:00:00,BAL,--,Futures cash balance at the start of business day 11.09 CST,--,--,--,0.00
+9/11/25,9/11/25,22:00:00,BAL,--,Futures cash balance at the start of business day 12.09 CST,--,--,--,0.00
+9/12/25,9/12/25,22:00:00,BAL,--,Futures cash balance at the start of business day 13.09 CST,--,--,--,0.00
+9/13/25,9/13/25,22:00:00,BAL,--,Futures cash balance at the start of business day 14.09 CST,--,--,--,0.00
+9/14/25,9/14/25,22:00:00,BAL,--,Futures cash balance at the start of business day 15.09 CST,--,--,--,0.00
+9/15/25,9/15/25,22:00:00,BAL,--,Futures cash balance at the start of business day 16.09 CST,--,--,--,0.00
+9/16/25,9/16/25,22:00:00,BAL,--,Futures cash balance at the start of business day 17.09 CST,--,--,--,0.00
+9/17/25,9/17/25,22:00:00,BAL,--,Futures cash balance at the start of business day 18.09 CST,--,--,--,0.00
+9/18/25,9/18/25,22:00:00,BAL,--,Futures cash balance at the start of business day 19.09 CST,--,--,--,0.00
+9/19/25,9/19/25,22:00:00,BAL,--,Futures cash balance at the start of business day 20.09 CST,--,--,--,0.00
+9/20/25,9/20/25,22:00:00,BAL,--,Futures cash balance at the start of business day 21.09 CST,--,--,--,0.00
+9/21/25,9/21/25,22:00:00,BAL,--,Futures cash balance at the start of business day 22.09 CST,--,--,--,0.00
+9/22/25,9/22/25,22:00:00,BAL,--,Futures cash balance at the start of business day 23.09 CST,--,--,--,0.00
+
+Forex Statements
+,Date,Time,Type,Ref #,Description,Commissions & Fees,Amount,Amount(USD),Balance
+
+Crypto (Schwab Digital Assets) Statements
+Trade Date,Exec Date,Exec Time,Type,Ref #,Description,Commissions & Fees,Amount,Balance
+
+ 
+"Total Cash $18,891.94"
+
+
+Account Order History
+Notes,,Time Placed,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,PRICE,,TIF,Status
+,,9/23/25 06:47:04,SINGLE,SELL,-1,TO OPEN,BMNR,17 OCT 25,50,PUT,3.30,LMT,DAY,FILLED
+,,9/19/25 08:03:33,SINGLE,BUY,+1,TO CLOSE,NVDA,10 OCT 25,160,PUT,1.04,LMT,DAY,FILLED
+,,9/19/25 08:03:16,SINGLE,BUY,+1,TO CLOSE,SPY,19 SEP 25,659,PUT,.27,LMT,DAY,FILLED
+,,9/19/25 08:03:00,SINGLE,BUY,+1,TO CLOSE,BMNR,17 OCT 25,41,PUT,1.17,LMT,DAY,FILLED
+,,9/19/25 06:41:59,SINGLE,SELL,-1,TO OPEN,SPY,19 SEP 25,659,PUT,.42,LMT,DAY,FILLED
+,,9/18/25 07:21:21,SINGLE,BUY,+1,TO CLOSE,BMNR,17 OCT 25,41,PUT,.06,LMT,GTC,CANCELED
+,,9/17/25 08:10:44,SINGLE,BUY,+1,TO CLOSE,UNH,24 OCT 25,320,PUT,6.70,LMT,DAY,FILLED
+,,9/17/25 08:05:10,SINGLE,BUY,+1,TO CLOSE,TSLA,10 OCT 25,285,PUT,.79,LMT,DAY,FILLED
+,,9/11/25 12:45:20,STOCK,BUY,+1000,TO OPEN,AIRE,,,STOCK,1.26,LMT,DAY,FILLED
+,,9/11/25 06:49:11,DIAGONAL,SELL,-1,TO OPEN,CRCL,17 OCT 25,105,PUT,3.97,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,CRCL,12 SEP 25,107,PUT,CREDIT,,,
+,,9/11/25 06:45:56,DIAGONAL,SELL,-1,TO OPEN,CRCL,17 OCT 25,105,PUT,4.17,LMT,DAY,CANCELED
+,,,,BUY,+1,TO CLOSE,CRCL,12 SEP 25,107,PUT,CREDIT,,,
+,,9/11/25 06:39:51,CALENDAR,SELL,-1,TO OPEN,BMNR,17 OCT 25,41,PUT,2.61,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,BMNR,12 SEP 25,41,PUT,CREDIT,,,
+,,9/10/25 19:37:57,SINGLE,SELL,-1,TO OPEN,ORCL,12 SEP 25,310,PUT,2.36,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,9/9/25 06:47:51,DIAGONAL,SELL,-1,TO OPEN,UNH,24 OCT 25,320,PUT,13.01,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,UNH,19 SEP 25,297.5,PUT,CREDIT,,,
+,,9/8/25 08:53:16,SINGLE,SELL,-1,TO OPEN,VFC,24 OCT 25,16,CALL,.82,LMT,DAY,FILLED
+,,9/8/25 06:48:38,SINGLE,SELL,-1,TO OPEN,BMNR,12 SEP 25,41,PUT,1.05,LMT,DAY,FILLED
+,,9/8/25 06:45:28,SINGLE,SELL,-1,TO OPEN,TSM,19 SEP 25,227.5,PUT,.80,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,9/8/25 06:44:55,SINGLE,SELL,-1,TO OPEN,TSM,19 SEP 25,230,PUT,1.09,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,9/8/25 06:42:20,SINGLE,SELL,-1,TO OPEN,CRCL,12 SEP 25,107,PUT,2.03,LMT,DAY,FILLED
+,,9/3/25 07:08:14,SINGLE,SELL,-2,TO OPEN,VFC,17 OCT 25,15,PUT,1.04,LMT,DAY,FILLED
+,,8/29/25 07:17:53,SINGLE,BUY,+2,TO CLOSE,VFC,5 SEP 25,15,PUT,.02,LMT,GTC,CANCELED
+,,8/29/25 07:17:16,SINGLE,SELL,-2,TO OPEN,VFC,5 SEP 25,15,PUT,.37,LMT,DAY,FILLED
+,,8/29/25 07:12:08,STOCK,BUY,+100,TO OPEN,WBA,,,STOCK,12.06,LMT,DAY,REJECTED: This security is currently unavailable. Contact us for details.
+,,8/29/25 07:10:32,STOCK,BUY,+300,TO OPEN,WBA,,,STOCK,12.00,LMT,GTC,REJECTED: This security is currently unavailable. Contact us for details.
+,,8/29/25 07:01:04,SINGLE,BUY,+1,TO CLOSE,TSLA,3 OCT 25,285,PUT,2.97,LMT,GTC,FILLED
+,,8/29/25 06:42:08,CALENDAR,SELL,-1,TO OPEN,TSLA,10 OCT 25,285,PUT,2.90,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,TSLA,12 SEP 25,285,PUT,CREDIT,,,
+,,8/29/25 06:34:36,CALENDAR,SELL,-1,TO OPEN,UNH,19 SEP 25,297.5,PUT,7.01,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,UNH,29 AUG 25,297.5,PUT,CREDIT,,,
+,,8/28/25 06:49:01,CALENDAR,SELL,-1,TO OPEN,TSLA,3 OCT 25,285,PUT,2.02,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,TSLA,12 SEP 25,285,PUT,CREDIT,,,
+,,8/28/25 06:42:25,SINGLE,BUY,+1,TO CLOSE,NVDA,10 OCT 25,160,PUT,.10,LMT,GTC,CANCELED
+,,8/28/25 06:41:47,CALENDAR,SELL,-1,TO OPEN,NVDA,10 OCT 25,160,PUT,1.90,LMT,DAY,FILLED
+,,,,BUY,+1,TO CLOSE,NVDA,5 SEP 25,160,PUT,CREDIT,,,
+,,8/22/25 06:40:21,SINGLE,BUY,+1,TO CLOSE,UNH,29 AUG 25,297.5,PUT,.10,LMT,GTC,CANCELED
+,,8/22/25 06:39:50,SINGLE,SELL,-1,TO OPEN,UNH,29 AUG 25,297.5,PUT,1.55,LMT,DAY,FILLED
+,,8/18/25 06:44:20,SINGLE,BUY,+1,TO CLOSE,UNH,22 AUG 25,290,PUT,.07,LMT,GTC,FILLED
+,,8/18/25 06:43:34,SINGLE,SELL,-1,TO OPEN,UNH,22 AUG 25,290,PUT,1.04,LMT,DAY,FILLED
+,,8/18/25 06:37:54,SINGLE,BUY,+1,TO CLOSE,UNH,22 AUG 25,272.5,PUT,.22,LMT,DAY,FILLED
+,,8/18/25 06:36:18,SINGLE,BUY,+1,TO CLOSE,UNH,22 AUG 25,272.5,PUT,.22,LMT,DAY,CANCELED
+,,8/15/25 06:47:15,DIAGONAL,BUY,+1,TO CLOSE,UNH,29 AUG 25,235,PUT,-1.15,LMT,DAY,FILLED
+,,,,SELL,-1,TO OPEN,UNH,22 AUG 25,272.5,PUT,CREDIT,,,
+,,8/11/25 07:00:53,CALENDAR,SELL,-2,TO OPEN,TSLA,12 SEP 25,285,PUT,2.24,LMT,DAY,FILLED
+,,,,BUY,+2,TO CLOSE,TSLA,15 AUG 25,285,PUT,CREDIT,,,
+,,8/11/25 06:54:47,CUSTOM,SELL,-2,TO OPEN,TSLA,12 SEP 25,285,PUT,4.61,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,,,BUY,+1,TO CLOSE,TSLA,15 AUG 25,285,PUT,CREDIT,,,
+,,8/8/25 07:14:57,STOCK,BUY,+8,TO OPEN,UNH,,,STOCK,247.36,LMT,DAY,FILLED
+,,8/8/25 07:13:34,STOCK,BUY,+8,TO OPEN,UNH,,,STOCK,247.30,LMT,DAY,CANCELED
+,,8/8/25 06:53:57,SINGLE,SELL,-1,TO OPEN,UNH,29 AUG 25,235,PUT,3.10,LMT,DAY,FILLED
+,,8/8/25 06:50:59,SINGLE,BUY,+1,TO CLOSE,UNH,8 AUG 25,232.5,PUT,.04,LMT,DAY,FILLED
+,,8/7/25 06:46:44,SINGLE,BUY,+1,TO CLOSE,NVDA,5 SEP 25,160,PUT,.10,LMT,GTC,CANCELED
+,,8/7/25 06:46:25,SINGLE,SELL,-1,TO OPEN,NVDA,5 SEP 25,160,PUT,2.02,LMT,DAY,FILLED
+,,8/7/25 06:40:50,SINGLE,BUY,+1,TO CLOSE,NVDA,8 AUG 25,162.5,PUT,.04,LMT,DAY,FILLED
+,,8/4/25 06:41:52,STOCK,BUY,+14,TO OPEN,SPY,,,ETF,627.23,LMT,DAY,FILLED
+,,8/4/25 06:40:42,STOCK,BUY,+15,TO OPEN,SPY,,,ETF,627.16,LMT,DAY,CANCELED
+,,8/4/25 06:33:11,SINGLE,SELL,-1,TO OPEN,UNH,8 AUG 25,232.5,PUT,2.14,LMT,DAY,FILLED
+,,8/4/25 06:13:35,SINGLE,SELL,-1,TO OPEN,UNH,8 AUG 25,232.5,PUT,2.87,LMT,DAY,CANCELED
+,,7/30/25 06:51:30,CALENDAR,SELL,-2,TO OPEN,TSLA,15 AUG 25,285,PUT,1.78,LMT,DAY,FILLED
+,,,,BUY,+2,TO CLOSE,TSLA,1 AUG 25,285,PUT,CREDIT,,,
+,,7/25/25 06:46:07,SINGLE,SELL,-2,TO OPEN,TSLA,1 AUG 25,285,PUT,1.05,LMT,DAY,FILLED
+,,7/25/25 06:41:32,SINGLE,SELL,-2,TO OPEN,TSLA,1 AUG 25,285,PUT,1.11,LMT,DAY,CANCELED
+,,7/25/25 06:40:00,SINGLE,BUY,+2,TO CLOSE,TSLA,25 JUL 25,292.5,PUT,.06,LMT,DAY,FILLED
+,,7/25/25 06:38:21,SINGLE,SELL,-1,TO OPEN,NVDA,8 AUG 25,162.5,PUT,1.05,LMT,DAY,FILLED
+,,7/25/25 06:37:51,SINGLE,BUY,+1,TO CLOSE,NVDA,25 JUL 25,160,PUT,.02,LMT,DAY,FILLED
+,,7/22/25 06:49:37,SINGLE,SELL,-1,TO OPEN,NVDA,25 JUL 25,160,PUT,.78,LMT,DAY,FILLED
+,,7/22/25 06:42:55,SINGLE,SELL,-2,TO OPEN,TSLA,25 JUL 25,292.5,PUT,1.35,LMT,DAY,FILLED
+,,7/18/25 06:48:26,SINGLE,SELL,-1,TO OPEN,SPY,21 JUL 25,627,PUT,1.12,LMT,DAY,FILLED
+,,7/18/25 06:34:51,SINGLE,BUY,+1,TO CLOSE,SPY,18 JUL 25,622,PUT,.09,LMT,DAY,FILLED
+,,7/17/25 06:52:28,SINGLE,BUY,+1,TO CLOSE,SPY,18 JUL 25,622,PUT,.02,LMT,GTC,CANCELED
+,,7/17/25 06:32:52,SINGLE,SELL,-1,TO OPEN,SPY,18 JUL 25,622,PUT,1.10,LMT,DAY,FILLED
+,,7/15/25 06:53:31,SINGLE,SELL,-1,TO OPEN,SPY,16 JUL 25,623,PUT,.86,LMT,DAY,FILLED
+,,7/15/25 06:50:49,SINGLE,BUY,+2,TO CLOSE,TSLA,18 JUL 25,262.5,PUT,.09,LMT,DAY,FILLED
+,,7/9/25 06:51:26,SINGLE,SELL,-2,TO OPEN,TSLA,18 JUL 25,262.5,PUT,1.12,LMT,DAY,FILLED
+,,7/9/25 06:51:10,SINGLE,SELL,-3,TO OPEN,TSLA,18 JUL 25,262.5,PUT,1.11,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,7/9/25 06:46:27,SINGLE,BUY,+1,TO CLOSE,SPY,8 JUL 25,616,PUT,.06,LMT,DAY,FILLED
+,,7/8/25 06:35:06,SINGLE,SELL,-1,TO OPEN,TSLA,11 JUL 25,277.5,PUT,1.00,LMT,DAY,FILLED
+,,7/8/25 06:30:04,SINGLE,SELL,-1,TO OPEN,SPY,8 JUL 25,616,PUT,.58,LMT,DAY,FILLED
+,,6/30/25 07:17:44,SINGLE,SELL,-2,TO OPEN,TSLA,3 JUL 25,290,PUT,1.07,LMT,DAY,FILLED
+,,6/16/25 07:02:47,SINGLE,SELL,-1,TO OPEN,NVDA,27 JUN 25,137,PUT,.92,LMT,DAY,FILLED
+,,6/11/25 07:37:56,SINGLE,SELL,-2,TO OPEN,TSLA,20 JUN 25,287.5,PUT,1.06,LMT,DAY,FILLED
+,,6/11/25 07:37:30,SINGLE,BUY,+2,TO CLOSE,TSLA,13 JUN 25,230,PUT,.03,LMT,DAY,FILLED
+,,6/9/25 06:34:13,SINGLE,SELL,-2,TO OPEN,TSLA,13 JUN 25,230,PUT,1.06,LMT,DAY,FILLED
+,,6/2/25 06:39:52,SINGLE,SELL,-1,TO OPEN,NVDA,13 JUN 25,129,PUT,1.08,LMT,DAY,FILLED
+,,5/30/25 06:02:06,SINGLE,BUY,+1,TO CLOSE,TSLA,30 MAY 25,297.5,PUT,.03,LMT,DAY,CANCELED
+,,5/19/25 06:34:13,SINGLE,SELL,-1,TO OPEN,TSLA,6 JUN 25,245,PUT,1.00,LMT,DAY,FILLED
+,,5/19/25 06:34:02,SINGLE,SELL,-1,TO OPEN,TSLA,6 JUN 25,255,PUT,1.25,LMT,DAY,FILLED
+,,5/16/25 06:49:35,SINGLE,SELL,-1,TO OPEN,TSLA,30 MAY 25,297.5,PUT,2.08,LMT,DAY,FILLED
+,,5/16/25 06:49:17,SINGLE,BUY,+1,TO CLOSE,TSLA,23 MAY 25,230,PUT,.15,LMT,DAY,FILLED
+,,5/16/25 06:47:43,SINGLE,BUY,+2,TO CLOSE,TSLA,16 MAY 25,292.5,PUT,.01,LMT,DAY,(+1) CANCELED
+,,5/13/25 06:38:56,SINGLE,SELL,-2,TO OPEN,TSLA,16 MAY 25,292.5,PUT,1.19,LMT,DAY,FILLED
+,,5/13/25 06:32:26,SINGLE,BUY,+1,TO CLOSE,SPY,13 MAY 25,554,PUT,.01,LMT,DAY,FILLED
+,,5/9/25 07:15:33,SINGLE,SELL,-1,TO OPEN,SPY,13 MAY 25,554,PUT,1.10,LMT,DAY,FILLED
+,,5/9/25 07:14:57,SINGLE,BUY,+1,TO CLOSE,SPY,9 MAY 25,556,PUT,.07,LMT,DAY,FILLED
+,,5/8/25 06:38:29,SINGLE,SELL,-1,TO OPEN,SPY,9 MAY 25,556,PUT,1.05,LMT,DAY,FILLED
+,,5/8/25 06:37:55,SINGLE,SELL,-1,TO OPEN,TSLA,23 MAY 25,230,PUT,1.06,LMT,DAY,FILLED
+,,5/8/25 06:36:35,SINGLE,BUY,+2,TO CLOSE,TSLA,9 MAY 25,245,PUT,.07,LMT,DAY,FILLED
+,,5/8/25 06:36:07,SINGLE,BUY,+1,TO CLOSE,TSLA,9 MAY 25,220,PUT,.03,LMT,DAY,FILLED
+,,5/2/25 06:46:07,SINGLE,SELL,-2,TO OPEN,TSLA,9 MAY 25,245,PUT,1.16,LMT,DAY,FILLED
+,,4/30/25 06:37:01,SINGLE,SELL,-1,TO OPEN,TSLA,9 MAY 25,220,PUT,1.15,LMT,DAY,FILLED
+,,4/30/25 06:35:25,SINGLE,SELL,-1,TO OPEN,SPY,1 MAY 25,534,PUT,1.11,LMT,DAY,FILLED
+,,4/25/25 11:11:19,SINGLE,SELL,-1,TO OPEN,SPY,30 APR 25,535,PUT,1.07,LMT,DAY,FILLED
+,,4/25/25 11:10:43,SINGLE,BUY,+1,TO CLOSE,SPY,25 APR 25,530,PUT,.02,LMT,DAY,FILLED
+,,4/24/25 07:30:24,SINGLE,SELL,-1,TO OPEN,SPY,25 APR 25,530,PUT,1.10,LMT,DAY,FILLED
+,,4/24/25 07:29:47,SINGLE,BUY,+1,TO CLOSE,SPY,25 APR 25,500,PUT,.04,LMT,DAY,FILLED
+,,4/22/25 06:33:01,SINGLE,BUY,+1,TO CLOSE,SPY,25 APR 25,500,PUT,.02,LMT,GTC,CANCELED
+,,4/22/25 06:32:37,SINGLE,SELL,-1,TO OPEN,SPY,25 APR 25,500,PUT,1.26,LMT,DAY,FILLED
+,,4/17/25 06:42:35,SINGLE,SELL,-1,TO OPEN,SPY,21 APR 25,512,PUT,1.12,LMT,DAY,FILLED
+,,4/14/25 07:22:44,SINGLE,BUY,+1,TO CLOSE,SPY,17 APR 25,515,PUT,.02,LMT,GTC,FILLED
+,,4/14/25 07:22:15,SINGLE,SELL,-1,TO OPEN,SPY,17 APR 25,515,PUT,1.14,LMT,DAY,FILLED
+,,4/14/25 07:21:41,SINGLE,SELL,-1,TO OPEN,SPY,15 APR 25,523,PUT,1.07,LMT,DAY,CANCELED
+,,4/14/25 07:21:13,SINGLE,BUY,+1,TO OPEN,SPY,15 APR 25,523,PUT,1.05,LMT,DAY,CANCELED
+,,4/14/25 07:20:43,SINGLE,SELL,-1,TO OPEN,SPY,15 APR 25,524,PUT,1.14,LMT,DAY,CANCELED
+,,4/14/25 07:20:14,SINGLE,BUY,+1,TO CLOSE,SPY,14 APR 25,485,PUT,.01,LMT,DAY,FILLED
+,,4/14/25 06:53:41,SINGLE,BUY,+2,TO CLOSE,NVDA,25 APR 25,98,PUT,.02,LMT,GTC,FILLED
+,,4/14/25 06:53:15,SINGLE,SELL,-2,TO OPEN,NVDA,25 APR 25,98,PUT,1.15,LMT,DAY,FILLED
+,,4/11/25 06:30:14,SINGLE,SELL,-1,TO OPEN,SPY,14 APR 25,485,PUT,2.36,LMT,DAY,FILLED
+,,4/9/25 06:32:26,SINGLE,SELL,-1,TO OPEN,SPY,10 APR 25,521,CALL,2.16,LMT,DAY,FILLED
+,,4/8/25 06:32:10,SINGLE,SELL,-1,TO OPEN,SPY,8 APR 25,504,PUT,1.21,LMT,DAY,FILLED
+,,4/7/25 06:46:52,SINGLE,SELL,-1,TO OPEN,SPY,7 APR 25,503,CALL,~,MKT,DAY,FILLED
+,,4/7/25 06:45:37,SINGLE,SELL,-1,TO OPEN,SPY,7 APR 25,503,CALL,2.00,LMT,DAY,CANCELED
+,,4/7/25 06:42:30,STOCK,BUY,+8,TO OPEN,SPY,,,ETF,483.13,LMT,DAY,FILLED
+,,4/7/25 06:39:25,SINGLE,SELL,-1,TO OPEN,SPY,7 APR 25,503,CALL,2.00,LMT,DAY,CANCELED
+,,4/3/25 06:40:06,SINGLE,SELL,-1,TO OPEN,SPY,4 APR 25,535,PUT,1.17,LMT,DAY,FILLED
+,,4/1/25 06:50:58,SINGLE,BUY,+1,TO CLOSE,SPY,2 APR 25,547,PUT,.02,LMT,GTC,FILLED
+,,4/1/25 06:49:46,SINGLE,SELL,-1,TO OPEN,SPY,2 APR 25,547,PUT,1.11,LMT,DAY,FILLED
+,,3/31/25 06:34:18,SINGLE,BUY,+1,TO CLOSE,TSLA,11 APR 25,190,PUT,.02,LMT,GTC,FILLED
+,,3/31/25 06:33:55,SINGLE,SELL,-1,TO OPEN,TSLA,11 APR 25,190,PUT,1.97,LMT,DAY,FILLED
+,,3/31/25 06:31:59,SINGLE,BUY,+1,TO CLOSE,SPY,31 MAR 25,540,PUT,.02,LMT,GTC,FILLED
+,,3/31/25 06:31:27,SINGLE,SELL,-1,TO OPEN,SPY,31 MAR 25,540,PUT,1.04,LMT,DAY,FILLED
+,,3/14/25 06:38:24,STOCK,BUY,+3,TO OPEN,SPY,,,ETF,557.79,LMT,DAY,FILLED
+,,2/21/25 06:32:56,SINGLE,BUY,+7,TO CLOSE,AFL,28 MAR 25,109,CALL,.02,LMT,GTC,EXPIRED
+,,2/21/25 06:32:33,SINGLE,SELL,-7,TO OPEN,AFL,28 MAR 25,109,CALL,.25,LMT,DAY,FILLED
+,,1/29/25 10:06:10,SINGLE,BUY,+4,TO CLOSE,AFL,14 FEB 25,113,CALL,.02,LMT,GTC,EXPIRED
+,,1/29/25 10:05:48,SINGLE,SELL,-4,TO OPEN,AFL,14 FEB 25,113,CALL,1.05,LMT,DAY,FILLED
+,,1/21/25 06:37:59,SINGLE,BUY,+3,TO CLOSE,AFL,7 FEB 25,108,CALL,.02,LMT,GTC,EXPIRED
+,,1/2/25 07:52:53,SINGLE,SELL,-3,TO OPEN,AFL,7 FEB 25,108,CALL,.85,LMT,DAY,FILLED
+,,12/23/24 07:54:54,STOCK,BUY,+10,TO OPEN,SPY,,,ETF,589.00,LMT,DAY,FILLED
+,,12/16/24 06:34:01,SINGLE,BUY,+4,TO CLOSE,AFL,24 JAN 25,110,CALL,.02,LMT,GTC,EXPIRED
+,,12/16/24 06:33:44,SINGLE,SELL,-4,TO OPEN,AFL,24 JAN 25,110,CALL,.55,LMT,DAY,FILLED
+,,12/12/24 07:43:16,SINGLE,BUY,+3,TO CLOSE,AFL,3 JAN 25,110,CALL,.02,LMT,GTC,FILLED
+,,12/12/24 07:16:08,SINGLE,BUY,+3,TO CLOSE,AFL,3 JAN 25,110,CALL,.02,LMT,DAY,CANCELED
+,,12/12/24 07:15:54,SINGLE,SELL,-3,TO OPEN,AFL,3 JAN 25,110,CALL,.35,LMT,DAY,FILLED
+,,12/11/24 06:14:02,SINGLE,BUY,+2,TO CLOSE,AFL,13 DEC 24,108,PUT,.02,LMT,GTC,CANCELED
+,,,RE #1002384177113,,,,,,,,,,,
+,,12/5/24 07:09:13,SINGLE,BUY,+7,TO CLOSE,AFL,13 DEC 24,108,PUT,.02,LMT,GTC,CANCELED
+,,12/5/24 07:08:55,SINGLE,SELL,-7,TO OPEN,AFL,13 DEC 24,108,PUT,.90,LMT,DAY,FILLED
+,,12/5/24 07:05:44,SINGLE,BUY,+4,TO CLOSE,NVDA,6 DEC 24,129,PUT,.03,LMT,DAY,FILLED
+,,11/26/24 06:43:49,SINGLE,BUY,+4,TO CLOSE,NVDA,6 DEC 24,129,PUT,.02,LMT,GTC,CANCELED
+,,11/26/24 06:43:18,SINGLE,SELL,-4,TO OPEN,NVDA,6 DEC 24,129,PUT,1.00,LMT,DAY,FILLED
+,,11/26/24 06:38:54,SINGLE,SELL,-5,TO OPEN,NVDA,6 DEC 24,132,PUT,1.28,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,11/26/24 06:37:43,SINGLE,SELL,-6,TO OPEN,NVDA,6 DEC 24,131,PUT,1.11,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,11/26/24 06:33:50,SINGLE,SELL,-20,TO OPEN,WBA,13 DEC 24,8.5,PUT,.21,LMT,DAY,FILLED
+,,11/22/24 07:12:40,SINGLE,BUY,+9,TO CLOSE,VFC,29 NOV 24,19.5,PUT,.02,LMT,GTC,FILLED
+,,11/22/24 07:12:22,SINGLE,SELL,-9,TO OPEN,VFC,29 NOV 24,19.5,PUT,.32,LMT,DAY,FILLED
+,,11/18/24 06:32:04,SINGLE,BUY,+1,TO CLOSE,SPY,25 NOV 24,595,CALL,.10,LMT,GTC,EXPIRED
+,,11/18/24 06:31:42,SINGLE,SELL,-1,TO OPEN,SPY,25 NOV 24,595,CALL,1.17,LMT,DAY,FILLED
+,,11/11/24 06:36:06,SINGLE,BUY,+1,TO CLOSE,SPY,15 NOV 24,592,PUT,.02,LMT,GTC,EXPIRED
+,,11/11/24 06:35:31,SINGLE,SELL,-1,TO OPEN,SPY,15 NOV 24,592,PUT,1.14,LMT,DAY,FILLED
+,,11/8/24 08:06:03,SINGLE,BUY,+1,TO CLOSE,SPY,11 NOV 24,588,PUT,.03,LMT,GTC,FILLED
+,,11/7/24 06:37:31,SINGLE,BUY,+1,TO CLOSE,SPY,11 NOV 24,588,PUT,.10,LMT,GTC,CANCELED
+,,11/7/24 06:37:09,SINGLE,SELL,-1,TO OPEN,SPY,11 NOV 24,588,PUT,1.10,LMT,DAY,FILLED
+,,11/6/24 07:31:30,SINGLE,BUY,+1,TO CLOSE,NVDA,22 NOV 24,124,PUT,.01,LMT,GTC,FILLED
+,,11/6/24 07:31:13,SINGLE,SELL,-1,TO OPEN,NVDA,22 NOV 24,124,PUT,1.23,LMT,DAY,FILLED
+,,10/29/24 06:52:49,SINGLE,BUY,+3,TO CLOSE,TSLA,8 NOV 24,225,PUT,.10,LMT,GTC,FILLED
+,,10/29/24 06:52:11,SINGLE,SELL,-3,TO OPEN,TSLA,8 NOV 24,225,PUT,1.35,LMT,DAY,FILLED
+,,10/29/24 06:48:52,SINGLE,BUY,+5,TO CLOSE,NVDA,1 NOV 24,125,PUT,.12,LMT,DAY,FILLED
+,,10/24/24 06:48:54,SINGLE,SELL,-1,TO OPEN,TSLA,1 NOV 24,227.5,PUT,1.11,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,10/24/24 06:36:52,SINGLE,SELL,-1,TO OPEN,TSLA,1 NOV 24,227.5,PUT,1.24,LMT,DAY,REJECTED: You do not have enough available cash/buying power for this order.
+,,10/21/24 11:30:50,SINGLE,BUY,+1,TO CLOSE,TSLA,1 NOV 24,202.5,PUT,.10,LMT,GTC,FILLED
+,,10/21/24 06:37:46,SINGLE,BUY,+1,TO CLOSE,NVDA,1 NOV 24,130,PUT,.10,LMT,GTC,FILLED
+,,10/21/24 06:37:26,SINGLE,SELL,-1,TO OPEN,NVDA,1 NOV 24,130,PUT,1.23,LMT,DAY,FILLED
+,,10/18/24 07:22:21,SINGLE,BUY,+1,TO CLOSE,TSLA,1 NOV 24,202.5,PUT,.10,LMT,DAY,EXPIRED
+,,10/18/24 07:21:56,SINGLE,SELL,-1,TO OPEN,TSLA,1 NOV 24,202.5,PUT,3.05,LMT,DAY,FILLED
+,,10/10/24 09:01:06,SINGLE,BUY,+5,TO CLOSE,NVDA,1 NOV 24,125,PUT,.10,LMT,GTC,CANCELED
+,,10/10/24 09:00:49,SINGLE,SELL,-5,TO OPEN,NVDA,1 NOV 24,125,PUT,2.38,LMT,DAY,FILLED
+,,10/10/24 09:00:15,SINGLE,BUY,+5,TO CLOSE,NVDA,18 OCT 24,118,PUT,.27,LMT,DAY,FILLED
+,,10/7/24 06:51:52,SINGLE,BUY,+5,TO CLOSE,NVDA,18 OCT 24,118,PUT,.10,LMT,GTC,CANCELED
+,,10/7/24 06:50:28,SINGLE,SELL,-5,TO OPEN,NVDA,18 OCT 24,118,PUT,1.21,LMT,DAY,FILLED
+,,9/27/24 07:37:13,SINGLE,BUY,+1,TO CLOSE,NVDA,11 OCT 24,130,CALL,.10,LMT,GTC,EXPIRED
+,,9/27/24 07:36:52,SINGLE,SELL,-1,TO OPEN,NVDA,11 OCT 24,130,CALL,1.28,LMT,DAY,FILLED
+,,9/27/24 07:36:26,SINGLE,BUY,+1,TO CLOSE,NVDA,11 OCT 24,130,CALL,1.33,LMT,GTC,FILLED
+,,9/27/24 07:36:01,SINGLE,SELL,-1,TO OPEN,NVDA,11 OCT 24,130,CALL,1.28,LMT,DAY,FILLED
+,,9/26/24 06:39:14,SINGLE,BUY,+5,TO CLOSE,NVDA,4 OCT 24,121,PUT,.10,LMT,GTC,FILLED
+,,9/26/24 06:38:03,SINGLE,SELL,-5,TO OPEN,NVDA,4 OCT 24,121,PUT,1.09,LMT,DAY,FILLED
+,,9/23/24 06:35:21,SINGLE,BUY,+3,TO CLOSE,TSLA,27 SEP 24,227.5,PUT,.10,LMT,GTC,FILLED
+,,9/5/24 06:37:31,SINGLE,BUY,+1,TO CLOSE,NVDA,27 SEP 24,124,CALL,.10,LMT,GTC,FILLED
+
+Account Trade History
+,Exec Time,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,Price,Net Price,Order Type
+,9/23/25 06:47:04,SINGLE,SELL,-1,TO OPEN,BMNR,17 OCT 25,50,PUT,3.46,3.46,LMT
+,9/19/25 08:03:34,SINGLE,BUY,+1,TO CLOSE,NVDA,10 OCT 25,160,PUT,1.04,1.04,LMT
+,9/19/25 08:03:16,SINGLE,BUY,+1,TO CLOSE,SPY,19 SEP 25,659,PUT,.25,.25,LMT
+,9/19/25 08:03:00,SINGLE,BUY,+1,TO CLOSE,BMNR,17 OCT 25,41,PUT,1.01,1.01,LMT
+,9/19/25 06:41:59,SINGLE,SELL,-1,TO OPEN,SPY,19 SEP 25,659,PUT,.42,.42,LMT
+,9/17/25 08:10:44,SINGLE,BUY,+1,TO CLOSE,UNH,24 OCT 25,320,PUT,6.53,6.53,LMT
+,9/17/25 08:05:11,SINGLE,BUY,+1,TO CLOSE,TSLA,10 OCT 25,285,PUT,.79,.79,LMT
+,9/11/25 12:45:20,STOCK,BUY,+1000,TO OPEN,AIRE,,,STOCK,1.2558,1.2558,LMT
+,9/11/25 06:49:37,DIAGONAL,SELL,-1,TO OPEN,CRCL,17 OCT 25,105,PUT,4.08,3.97,LMT
+,,,BUY,+1,TO CLOSE,CRCL,12 SEP 25,107,PUT,.11,CREDIT,
+,9/11/25 06:39:51,CALENDAR,SELL,-1,TO OPEN,BMNR,17 OCT 25,41,PUT,2.79,2.61,LMT
+,,,BUY,+1,TO CLOSE,BMNR,12 SEP 25,41,PUT,.18,CREDIT,
+,9/9/25 06:47:52,DIAGONAL,SELL,-1,TO OPEN,UNH,24 OCT 25,320,PUT,13.87,13.01,LMT
+,,,BUY,+1,TO CLOSE,UNH,19 SEP 25,297.5,PUT,.86,CREDIT,
+,9/8/25 08:53:16,SINGLE,SELL,-1,TO OPEN,VFC,24 OCT 25,16,CALL,.94,.94,LMT
+,9/8/25 06:48:38,SINGLE,SELL,-1,TO OPEN,BMNR,12 SEP 25,41,PUT,1.05,1.05,LMT
+,9/8/25 06:42:20,SINGLE,SELL,-1,TO OPEN,CRCL,12 SEP 25,107,PUT,2.35,2.35,LMT
+,9/3/25 07:08:14,SINGLE,SELL,-1,TO OPEN,VFC,17 OCT 25,15,PUT,1.07,1.07,LMT
+,9/3/25 07:08:14,SINGLE,SELL,-1,TO OPEN,VFC,17 OCT 25,15,PUT,1.07,1.07,LMT
+,8/29/25 07:17:16,SINGLE,SELL,-1,TO OPEN,VFC,5 SEP 25,15,PUT,.38,.38,LMT
+,8/29/25 07:17:16,SINGLE,SELL,-1,TO OPEN,VFC,5 SEP 25,15,PUT,.38,.38,LMT
+,8/29/25 07:01:04,SINGLE,BUY,+1,TO CLOSE,TSLA,3 OCT 25,285,PUT,2.91,2.91,LMT
+,8/29/25 06:42:10,CALENDAR,SELL,-1,TO OPEN,TSLA,10 OCT 25,285,PUT,3.40,2.90,LMT
+,,,BUY,+1,TO CLOSE,TSLA,12 SEP 25,285,PUT,.50,CREDIT,
+,8/29/25 06:34:36,CALENDAR,SELL,-1,TO OPEN,UNH,19 SEP 25,297.5,PUT,7.26,7.03,LMT
+,,,BUY,+1,TO CLOSE,UNH,29 AUG 25,297.5,PUT,.23,CREDIT,
+,8/28/25 06:49:01,CALENDAR,SELL,-1,TO OPEN,TSLA,3 OCT 25,285,PUT,2.59,2.02,LMT
+,,,BUY,+1,TO CLOSE,TSLA,12 SEP 25,285,PUT,.57,CREDIT,
+,8/28/25 06:41:48,CALENDAR,SELL,-1,TO OPEN,NVDA,10 OCT 25,160,PUT,2.11,1.90,LMT
+,,,BUY,+1,TO CLOSE,NVDA,5 SEP 25,160,PUT,.21,CREDIT,
+,8/22/25 06:39:50,SINGLE,SELL,-1,TO OPEN,UNH,29 AUG 25,297.5,PUT,1.83,1.83,LMT
+,8/22/25 06:30:06,SINGLE,BUY,+1,TO CLOSE,UNH,22 AUG 25,290,PUT,.07,.07,LMT
+,8/18/25 06:43:34,SINGLE,SELL,-1,TO OPEN,UNH,22 AUG 25,290,PUT,1.06,1.06,LMT
+,8/18/25 06:37:54,SINGLE,BUY,+1,TO CLOSE,UNH,22 AUG 25,272.5,PUT,.22,.22,LMT
+,8/15/25 06:47:25,DIAGONAL,BUY,+1,TO CLOSE,UNH,29 AUG 25,235,PUT,.27,-1.15,LMT
+,,,SELL,-1,TO OPEN,UNH,22 AUG 25,272.5,PUT,1.42,CREDIT,
+,8/11/25 07:00:53,CALENDAR,SELL,-2,TO OPEN,TSLA,12 SEP 25,285,PUT,2.44,2.24,LMT
+,,,BUY,+2,TO CLOSE,TSLA,15 AUG 25,285,PUT,.20,CREDIT,
+,8/8/25 07:14:57,STOCK,BUY,+8,TO OPEN,UNH,,,STOCK,247.36,247.36,LMT
+,8/8/25 06:53:57,SINGLE,SELL,-1,TO OPEN,UNH,29 AUG 25,235,PUT,3.17,3.17,LMT
+,8/8/25 06:50:59,SINGLE,BUY,+1,TO CLOSE,UNH,8 AUG 25,232.5,PUT,.04,.04,LMT
+,8/7/25 06:46:25,SINGLE,SELL,-1,TO OPEN,NVDA,5 SEP 25,160,PUT,2.02,2.02,LMT
+,8/7/25 06:40:51,SINGLE,BUY,+1,TO CLOSE,NVDA,8 AUG 25,162.5,PUT,.04,.04,LMT
+,8/4/25 06:42:09,STOCK,BUY,+14,TO OPEN,SPY,,,ETF,627.23,627.23,LMT
+,8/4/25 06:33:11,SINGLE,SELL,-1,TO OPEN,UNH,8 AUG 25,232.5,PUT,2.14,2.14,LMT
+,7/30/25 06:51:31,CALENDAR,SELL,-2,TO OPEN,TSLA,15 AUG 25,285,PUT,1.90,1.78,LMT
+,,,BUY,+2,TO CLOSE,TSLA,1 AUG 25,285,PUT,.12,CREDIT,
+,7/25/25 06:46:07,SINGLE,SELL,-2,TO OPEN,TSLA,1 AUG 25,285,PUT,1.09,1.09,LMT
+,7/25/25 06:40:01,SINGLE,BUY,+1,TO CLOSE,TSLA,25 JUL 25,292.5,PUT,.05,.05,LMT
+,7/25/25 06:40:01,SINGLE,BUY,+1,TO CLOSE,TSLA,25 JUL 25,292.5,PUT,.05,.05,LMT
+,7/25/25 06:38:21,SINGLE,SELL,-1,TO OPEN,NVDA,8 AUG 25,162.5,PUT,1.05,1.05,LMT
+,7/25/25 06:37:51,SINGLE,BUY,+1,TO CLOSE,NVDA,25 JUL 25,160,PUT,.02,.02,LMT
+,7/22/25 06:49:37,SINGLE,SELL,-1,TO OPEN,NVDA,25 JUL 25,160,PUT,.78,.78,LMT
+,7/22/25 06:42:55,SINGLE,SELL,-1,TO OPEN,TSLA,25 JUL 25,292.5,PUT,1.37,1.37,LMT
+,7/22/25 06:42:55,SINGLE,SELL,-1,TO OPEN,TSLA,25 JUL 25,292.5,PUT,1.37,1.37,LMT
+,7/18/25 06:49:42,SINGLE,SELL,-1,TO OPEN,SPY,21 JUL 25,627,PUT,1.12,1.12,LMT
+,7/18/25 06:34:51,SINGLE,BUY,+1,TO CLOSE,SPY,18 JUL 25,622,PUT,.09,.09,LMT
+,7/17/25 06:32:52,SINGLE,SELL,-1,TO OPEN,SPY,18 JUL 25,622,PUT,1.12,1.12,LMT
+,7/15/25 06:53:31,SINGLE,SELL,-1,TO OPEN,SPY,16 JUL 25,623,PUT,.89,.89,LMT
+,7/15/25 06:50:50,SINGLE,BUY,+2,TO CLOSE,TSLA,18 JUL 25,262.5,PUT,.08,.08,LMT
+,7/9/25 06:51:26,SINGLE,SELL,-2,TO OPEN,TSLA,18 JUL 25,262.5,PUT,1.13,1.13,LMT
+,7/9/25 06:46:27,SINGLE,BUY,+1,TO CLOSE,SPY,8 JUL 25,616,PUT,.05,.05,LMT
+,7/8/25 06:35:07,SINGLE,SELL,-1,TO OPEN,TSLA,11 JUL 25,277.5,PUT,1.00,1.00,LMT
+,7/8/25 06:30:05,SINGLE,SELL,-1,TO OPEN,SPY,8 JUL 25,616,PUT,.64,.64,LMT
+,6/30/25 07:17:45,SINGLE,SELL,-1,TO OPEN,TSLA,3 JUL 25,290,PUT,1.07,1.07,LMT
+,6/30/25 07:17:45,SINGLE,SELL,-1,TO OPEN,TSLA,3 JUL 25,290,PUT,1.07,1.07,LMT
+,6/16/25 07:02:47,SINGLE,SELL,-1,TO OPEN,NVDA,27 JUN 25,137,PUT,.92,.92,LMT
+,6/11/25 07:37:56,SINGLE,SELL,-2,TO OPEN,TSLA,20 JUN 25,287.5,PUT,1.08,1.08,LMT
+,6/11/25 07:37:30,SINGLE,BUY,+1,TO CLOSE,TSLA,13 JUN 25,230,PUT,.03,.03,LMT
+,6/11/25 07:37:30,SINGLE,BUY,+1,TO CLOSE,TSLA,13 JUN 25,230,PUT,.03,.03,LMT
+,6/9/25 06:34:13,SINGLE,SELL,-1,TO OPEN,TSLA,13 JUN 25,230,PUT,1.07,1.07,LMT
+,6/9/25 06:34:13,SINGLE,SELL,-1,TO OPEN,TSLA,13 JUN 25,230,PUT,1.07,1.07,LMT
+,6/2/25 06:39:52,SINGLE,SELL,-1,TO OPEN,NVDA,13 JUN 25,129,PUT,1.08,1.08,LMT
+,5/19/25 06:34:13,SINGLE,SELL,-1,TO OPEN,TSLA,6 JUN 25,245,PUT,1.00,1.00,LMT
+,5/19/25 06:34:02,SINGLE,SELL,-1,TO OPEN,TSLA,6 JUN 25,255,PUT,1.29,1.29,LMT
+,5/16/25 06:49:35,SINGLE,SELL,-1,TO OPEN,TSLA,30 MAY 25,297.5,PUT,2.09,2.09,LMT
+,5/16/25 06:49:17,SINGLE,BUY,+1,TO CLOSE,TSLA,23 MAY 25,230,PUT,.14,.14,LMT
+,5/16/25 06:47:43,SINGLE,BUY,+1,TO CLOSE,TSLA,16 MAY 25,292.5,PUT,.01,.01,LMT
+,5/13/25 06:38:56,SINGLE,SELL,-2,TO OPEN,TSLA,16 MAY 25,292.5,PUT,1.19,1.19,LMT
+,5/13/25 06:32:26,SINGLE,BUY,+1,TO CLOSE,SPY,13 MAY 25,554,PUT,.01,.01,LMT
+,5/9/25 07:15:33,SINGLE,SELL,-1,TO OPEN,SPY,13 MAY 25,554,PUT,1.11,1.11,LMT
+,5/9/25 07:14:58,SINGLE,BUY,+1,TO CLOSE,SPY,9 MAY 25,556,PUT,.06,.06,LMT
+,5/8/25 06:38:29,SINGLE,SELL,-1,TO OPEN,SPY,9 MAY 25,556,PUT,1.05,1.05,LMT
+,5/8/25 06:37:55,SINGLE,SELL,-1,TO OPEN,TSLA,23 MAY 25,230,PUT,1.07,1.07,LMT
+,5/8/25 06:36:35,SINGLE,BUY,+2,TO CLOSE,TSLA,9 MAY 25,245,PUT,.07,.07,LMT
+,5/8/25 06:36:07,SINGLE,BUY,+1,TO CLOSE,TSLA,9 MAY 25,220,PUT,.03,.03,LMT
+,5/2/25 06:46:07,SINGLE,SELL,-1,TO OPEN,TSLA,9 MAY 25,245,PUT,1.16,1.16,LMT
+,5/2/25 06:46:07,SINGLE,SELL,-1,TO OPEN,TSLA,9 MAY 25,245,PUT,1.16,1.16,LMT
+,4/30/25 06:37:02,SINGLE,SELL,-1,TO OPEN,TSLA,9 MAY 25,220,PUT,1.15,1.15,LMT
+,4/30/25 06:35:26,SINGLE,SELL,-1,TO OPEN,SPY,1 MAY 25,534,PUT,1.13,1.13,LMT
+,4/25/25 11:11:19,SINGLE,SELL,-1,TO OPEN,SPY,30 APR 25,535,PUT,1.09,1.09,LMT
+,4/25/25 11:10:44,SINGLE,BUY,+1,TO CLOSE,SPY,25 APR 25,530,PUT,.01,.01,LMT
+,4/25/25 06:45:00,SINGLE,BUY,+2,TO CLOSE,NVDA,25 APR 25,98,PUT,.02,.02,LMT
+,4/24/25 07:30:24,SINGLE,SELL,-1,TO OPEN,SPY,25 APR 25,530,PUT,1.11,1.11,LMT
+,4/24/25 07:29:47,SINGLE,BUY,+1,TO CLOSE,SPY,25 APR 25,500,PUT,.04,.04,LMT
+,4/22/25 06:32:37,SINGLE,SELL,-1,TO OPEN,SPY,25 APR 25,500,PUT,1.29,1.29,LMT
+,4/17/25 06:42:36,SINGLE,SELL,-1,TO OPEN,SPY,21 APR 25,512,PUT,1.15,1.15,LMT
+,4/16/25 12:46:18,SINGLE,BUY,+1,TO CLOSE,SPY,17 APR 25,515,PUT,.02,.02,LMT
+,4/14/25 07:22:15,SINGLE,SELL,-1,TO OPEN,SPY,17 APR 25,515,PUT,1.14,1.14,LMT
+,4/14/25 07:20:14,SINGLE,BUY,+1,TO CLOSE,SPY,14 APR 25,485,PUT,.01,.01,LMT
+,4/14/25 06:53:15,SINGLE,SELL,-2,TO OPEN,NVDA,25 APR 25,98,PUT,1.15,1.15,LMT
+,4/11/25 06:55:37,SINGLE,BUY,+1,TO CLOSE,TSLA,11 APR 25,190,PUT,.02,.02,LMT
+,4/11/25 06:30:14,SINGLE,SELL,-1,TO OPEN,SPY,14 APR 25,485,PUT,2.38,2.38,LMT
+,4/9/25 06:32:26,SINGLE,SELL,-1,TO OPEN,SPY,10 APR 25,521,CALL,2.21,2.21,LMT
+,4/8/25 06:32:10,SINGLE,SELL,-1,TO OPEN,SPY,8 APR 25,504,PUT,1.21,1.21,LMT
+,4/7/25 06:46:52,SINGLE,SELL,-1,TO OPEN,SPY,7 APR 25,503,CALL,1.47,1.47,MKT
+,4/7/25 06:42:30,STOCK,BUY,+8,TO OPEN,SPY,,,ETF,482.815,482.815,LMT
+,4/3/25 06:40:06,SINGLE,SELL,-1,TO OPEN,SPY,4 APR 25,535,PUT,1.23,1.23,LMT
+,4/2/25 12:48:22,SINGLE,BUY,+1,TO CLOSE,SPY,2 APR 25,547,PUT,.02,.02,LMT
+,4/1/25 06:49:46,SINGLE,SELL,-1,TO OPEN,SPY,2 APR 25,547,PUT,1.13,1.13,LMT
+,4/1/25 06:48:47,SINGLE,BUY,+1,TO CLOSE,SPY,31 MAR 25,540,PUT,.02,.02,LMT
+,3/31/25 06:33:55,SINGLE,SELL,-1,TO OPEN,TSLA,11 APR 25,190,PUT,2.01,2.01,LMT
+,3/31/25 06:31:35,SINGLE,SELL,-1,TO OPEN,SPY,31 MAR 25,540,PUT,1.04,1.04,LMT
+,3/14/25 06:38:24,STOCK,BUY,+3,TO OPEN,SPY,,,ETF,557.7697,557.77,LMT
+,2/21/25 06:32:33,SINGLE,SELL,-4,TO OPEN,AFL,28 MAR 25,109,CALL,.70,.70,LMT
+,2/21/25 06:32:33,SINGLE,SELL,-3,TO OPEN,AFL,28 MAR 25,109,CALL,.70,.70,LMT
+,1/29/25 10:05:48,SINGLE,SELL,-2,TO OPEN,AFL,14 FEB 25,113,CALL,1.08,1.08,LMT
+,1/29/25 10:05:48,SINGLE,SELL,-1,TO OPEN,AFL,14 FEB 25,113,CALL,1.06,1.06,LMT
+,1/29/25 10:05:48,SINGLE,SELL,-1,TO OPEN,AFL,14 FEB 25,113,CALL,1.06,1.06,LMT
+,1/2/25 07:52:53,SINGLE,SELL,-2,TO OPEN,AFL,7 FEB 25,108,CALL,1.45,1.45,LMT
+,1/2/25 07:52:53,SINGLE,SELL,-1,TO OPEN,AFL,7 FEB 25,108,CALL,1.45,1.45,LMT
+,12/30/24 06:30:05,SINGLE,BUY,+3,TO CLOSE,AFL,3 JAN 25,110,CALL,.02,.02,LMT
+,12/23/24 07:54:54,STOCK,BUY,+10,TO OPEN,SPY,,,ETF,588.955,588.955,LMT
+,12/16/24 06:33:44,SINGLE,SELL,-4,TO OPEN,AFL,24 JAN 25,110,CALL,.76,.76,LMT
+,12/12/24 07:15:55,SINGLE,SELL,-3,TO OPEN,AFL,3 JAN 25,110,CALL,.47,.47,LMT
+,12/5/24 07:08:55,SINGLE,SELL,-7,TO OPEN,AFL,13 DEC 24,108,PUT,1.02,1.02,LMT
+,12/5/24 07:05:45,SINGLE,BUY,+4,TO CLOSE,NVDA,6 DEC 24,129,PUT,.03,.03,LMT
+,11/27/24 07:36:04,SINGLE,BUY,+1,TO CLOSE,VFC,29 NOV 24,19.5,PUT,.02,.02,LMT
+,11/27/24 07:36:04,SINGLE,BUY,+4,TO CLOSE,VFC,29 NOV 24,19.5,PUT,.02,.02,LMT
+,11/27/24 07:36:04,SINGLE,BUY,+4,TO CLOSE,VFC,29 NOV 24,19.5,PUT,.02,.02,LMT
+,11/26/24 06:43:19,SINGLE,SELL,-1,TO OPEN,NVDA,6 DEC 24,129,PUT,1.05,1.05,LMT
+,11/26/24 06:43:19,SINGLE,SELL,-1,TO OPEN,NVDA,6 DEC 24,129,PUT,1.03,1.03,LMT
+,11/26/24 06:43:19,SINGLE,SELL,-1,TO OPEN,NVDA,6 DEC 24,129,PUT,1.04,1.04,LMT
+,11/26/24 06:43:19,SINGLE,SELL,-1,TO OPEN,NVDA,6 DEC 24,129,PUT,1.04,1.04,LMT
+,11/26/24 06:33:50,SINGLE,SELL,-19,TO OPEN,WBA,13 DEC 24,8.5,PUT,.22,.22,LMT
+,11/26/24 06:33:50,SINGLE,SELL,-1,TO OPEN,WBA,13 DEC 24,8.5,PUT,.21,.21,LMT
+,11/22/24 07:12:23,SINGLE,SELL,-9,TO OPEN,VFC,29 NOV 24,19.5,PUT,.46,.46,LMT
+,11/22/24 06:30:03,SINGLE,BUY,+1,TO CLOSE,NVDA,22 NOV 24,124,PUT,.01,.01,LMT
+,11/18/24 06:31:43,SINGLE,SELL,-1,TO OPEN,SPY,25 NOV 24,595,CALL,1.17,1.17,LMT
+,11/11/24 06:35:31,SINGLE,SELL,-1,TO OPEN,SPY,15 NOV 24,592,PUT,1.14,1.14,LMT
+,11/11/24 06:30:07,SINGLE,BUY,+1,TO CLOSE,SPY,11 NOV 24,588,PUT,.02,.02,LMT
+,11/7/24 06:37:10,SINGLE,SELL,-1,TO OPEN,SPY,11 NOV 24,588,PUT,1.11,1.11,LMT
+,11/6/24 07:31:13,SINGLE,SELL,-1,TO OPEN,NVDA,22 NOV 24,124,PUT,1.23,1.23,LMT
+,11/6/24 06:30:04,SINGLE,BUY,+1,TO CLOSE,TSLA,8 NOV 24,225,PUT,.08,.08,LMT
+,11/6/24 06:30:04,SINGLE,BUY,+1,TO CLOSE,TSLA,8 NOV 24,225,PUT,.08,.08,LMT
+,11/6/24 06:30:04,SINGLE,BUY,+1,TO CLOSE,TSLA,8 NOV 24,225,PUT,.08,.08,LMT
+,11/1/24 06:31:05,SINGLE,BUY,+1,TO CLOSE,NVDA,1 NOV 24,130,PUT,.10,.10,LMT
+,10/29/24 06:52:11,SINGLE,SELL,-1,TO OPEN,TSLA,8 NOV 24,225,PUT,1.35,1.35,LMT
+,10/29/24 06:52:11,SINGLE,SELL,-1,TO OPEN,TSLA,8 NOV 24,225,PUT,1.35,1.35,LMT
+,10/29/24 06:52:11,SINGLE,SELL,-1,TO OPEN,TSLA,8 NOV 24,225,PUT,1.35,1.35,LMT
+,10/29/24 06:48:52,SINGLE,BUY,+5,TO CLOSE,NVDA,1 NOV 24,125,PUT,.11,.11,LMT
+,10/24/24 06:35:04,SINGLE,BUY,+1,TO CLOSE,TSLA,1 NOV 24,202.5,PUT,.10,.10,LMT
+,10/21/24 06:37:27,SINGLE,SELL,-1,TO OPEN,NVDA,1 NOV 24,130,PUT,1.24,1.24,LMT
+,10/18/24 07:21:56,SINGLE,SELL,-1,TO OPEN,TSLA,1 NOV 24,202.5,PUT,3.05,3.05,LMT
+,10/10/24 09:00:50,SINGLE,SELL,-3,TO OPEN,NVDA,1 NOV 24,125,PUT,2.39,2.39,LMT
+,10/10/24 09:00:50,SINGLE,SELL,-2,TO OPEN,NVDA,1 NOV 24,125,PUT,2.39,2.39,LMT
+,10/10/24 09:00:15,SINGLE,BUY,+5,TO CLOSE,NVDA,18 OCT 24,118,PUT,.27,.27,LMT
+,10/7/24 06:50:28,SINGLE,SELL,-4,TO OPEN,NVDA,18 OCT 24,118,PUT,1.21,1.21,LMT
+,10/7/24 06:50:28,SINGLE,SELL,-1,TO OPEN,NVDA,18 OCT 24,118,PUT,1.21,1.21,LMT
+,10/4/24 08:02:40,SINGLE,BUY,+5,TO CLOSE,NVDA,4 OCT 24,121,PUT,.10,.10,LMT
+,9/27/24 07:36:52,SINGLE,SELL,-1,TO OPEN,NVDA,11 OCT 24,130,CALL,1.29,1.29,LMT
+,9/27/24 07:36:26,SINGLE,BUY,+1,TO CLOSE,NVDA,11 OCT 24,130,CALL,1.29,1.29,LMT
+,9/27/24 07:36:01,SINGLE,SELL,-1,TO OPEN,NVDA,11 OCT 24,130,CALL,1.30,1.30,LMT
+,9/27/24 07:33:10,SINGLE,BUY,+1,TO CLOSE,NVDA,27 SEP 24,124,CALL,.10,.10,LMT
+,9/26/24 06:38:04,SINGLE,SELL,-4,TO OPEN,NVDA,4 OCT 24,121,PUT,1.11,1.11,LMT
+,9/26/24 06:38:03,SINGLE,SELL,-1,TO OPEN,NVDA,4 OCT 24,121,PUT,1.11,1.11,LMT
+,9/26/24 06:30:10,SINGLE,BUY,+3,TO CLOSE,TSLA,27 SEP 24,227.5,PUT,.09,.09,LMT
+
+Equities
+Symbol,Description,Qty,Trade Price,Mark,Mark Value
+AIRE,REALPHA TECH CORP,+1000,1.2558,.7943,$794.30
+VFC,V F CORP,+103.9656,15.1188,14.7888,"$1,537.53"
+AMD,ADVANCED MICRO DEVIC,+50,78.275,161.47,"$8,073.50"
+SPY,SPDR S&P 500 ETF,+35,553.292,666.87,"$23,340.45"
+ADM,ARCHER-DANIELS MIDLA,+34.8654,53.3721,61.18,"$2,133.07"
+AAPL,APPLE INC,+16.4445,494.1032,255.96,"$4,209.13"
+ADP,AUTOMATIC DATA PROCE,+16.3125,226.4739,289.50,"$4,722.47"
+DIS,DISNEY WALT CO,+15.2574,84.3131,113.16,"$1,726.53"
+UNH,UNITEDHEALTH GROUP I,+8,247.36,347.87,"$2,782.96"
+DJT,TRUMP MEDIA & TECHNO,+4,49.88,17.56,$70.24
+ABBV,ABBVIE INC,+3.2555,147.0135,223.8626,$728.78
+HVT,HAVERTY FURNITURE CO,+2.0494,30.039,23.22,$47.59
+MSFT,MICROSOFT CORP,+1.0331,299.258,511.94,$528.89
+,OVERALL TOTALS,,,,"$50,695.43"
+
+Options
+Symbol,Exp,Strike,Type,Qty,Trade Price,Mark,Mark Value,P/L Open,P/L Day,P/L %,Account Name,Option Code
+CRCL,17 OCT 25,105,PUT,-1,4.08,1.62,($162.00),$245.34,($7.50),+60.23%,HaiIndividual,CRCL251017P105
+BMNR,17 OCT 25,50,PUT,-1,3.46,3.40,($340.00),$6.00,$6.00,+1.73%,HaiIndividual,BMNR251017P50
+VFC,17 OCT 25,15,PUT,-2,1.07,.94,($188.00),$24.67,$54.18,+11.60%,HaiIndividual,VFC251017P15
+VFC,24 OCT 25,16,CALL,-1,.94,.56,($56.00),$37.34,($12.00),+40.00%,HaiIndividual,VFC251024C16
+,,,,,,,($746.00),$313.35,$40.68,+29.58%,,OVERALL TOTALS
+
+Others
+Symbol,Description,Qty,Trade Price,Mark,Mark Value
+79730CHX5,SAN DIEGO CALIF PUB REV 5% 08/01/2035 Callable,+5,131.184,105.984,"$5,299.20"
+,OVERALL TOTALS,,,,"$5,299.20"
+
+Profits and Losses
+Symbol,Description,P/L Open,P/L %,P/L Day,P/L YTD,P/L Diff,Mark Value
+AIRE,REALPHA TECH CORP,($461.50),-36.75%,($135.70),($461.50),($461.50),$794.30
+DJT,TRUMP MEDIA & TECHNO,($129.28),-64.80%,($0.16),($66.16),($47.32),$70.24
+ADP,AUTOMATIC DATA PROCE,"$1,028.04",+27.83%,($67.86),($54.98),($781.91),"$4,722.47"
+79730CHX5,SAN DIEGO CALIF PUB REV 5% 08/01/2035 Callable,"($1,260.00)",-19.21%,$0.00,($27.75),$150.80,"$5,299.20"
+HVT,HAVERTY FURNITURE CO,($12.05),-20.21%,$1.05,$2.04,$17.51,$47.59
+DIS,DISNEY WALT CO,($274.28),-13.71%,$9.15,$27.19,($24.25),"$1,726.53"
+AAPL,APPLE INC,"$2,120.64",+101.54%,($1.97),$92.46,($477.48),"$4,209.13"
+MSFT,MICROSOFT CORP,$219.65,+71.03%,($2.59),$93.29,$39.04,$528.89
+VFC,V F CORP,$65.05,+5.29%,$89.88,$96.56,$77.54,"$1,293.53"
+ABBV,ABBVIE INC,$250.10,+52.25%,$4.14,$149.11,($254.53),$728.78
+BMNR,BITMINE IMMERSION TE,$6.00,+1.73%,$6.00,$271.00,$271.00,($340.00)
+ADM,ARCHER-DANIELS MIDLA,$272.23,+14.63%,$46.02,$369.48,$123.47,"$2,133.07"
+CRCL,CIRCLE INTERNET GROU A,$245.34,+60.23%,($7.50),$470.00,$470.00,($162.00)
+NVDA,NVIDIA CORP,$0.00,0.00%,$0.00,$891.00,$504.50,$0.00
+AMD,ADVANCED MICRO DEVIC,"$4,159.75",+106.29%,$84.00,"$2,034.00","$1,488.50","$8,073.50"
+UNH,UNITEDHEALTH GROUP I,$804.08,+40.63%,$52.56,"$3,057.08","$3,057.08","$2,782.96"
+TSLA,TESLA INC,$0.00,0.00%,$0.00,"$3,653.00","$13,331.35",$0.00
+SPY,SPDR S&P 500 ETF,"$2,857.83",+13.95%,$1.05,"$3,997.60","$3,127.60","$23,340.45"
+AFL,AFLAC INC,$0.00,0.00%,$0.00,"$5,555.00","$5,555.00",$0.00
+,OVERALL TOTALS,"$9,891.59",+21.11%,$78.07,"$20,148.42","$26,166.40","$55,248.63"
+
+Account Summary
+Net Liquidating Value,"$74,140.58"
+Stock Buying Power,"$124,803.30"
+Option Buying Power,"$39,269.03"
+Equity Commissions & Fees YTD,$76.36
+Futures Commissions & Fees YTD,$0.00
+Total Commissions & Fees YTD,$76.36
