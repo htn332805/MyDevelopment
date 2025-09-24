@@ -14,6 +14,7 @@ Absolute rules
 - Tests first: each function/class must come with a pytest unit test in /tests; use mocks and fixtures where needed.
 - Compliance: generated code must pass tools/lint_checker.py and follow naming, typing, docstring, and no-legacy-edits rules.
 - Docs: update docs via tools/documentation_updater.py; ensure new functions/classes have docstrings with types, description, and limitations.
+- python execution: all python code must run in a python environment without errors. The python environment is activate by '~/pyvenv/bin/activate'
 
 Generation guidance
 - Prefer factories, adapters, wrappers for extensibility; avoid breaking public APIs.
