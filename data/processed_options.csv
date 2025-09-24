@@ -1,0 +1,10 @@
+symbol,expiration,strike,option_type,quantity,trade_price,mark,mark_value,pl_open,pl_day,pl_percent,account_name,option_code,total_contracts,position_type,days_to_expiration
+AMD,26 SEP 25,165.0,PUT,-1,4.58,5.4,-540.0,-82.66,127.65,-18.07,HaiRoth,AMD250926P165,1,Short,
+BMNR,10 OCT 25,50.0,PUT,-1,2.46,2.48,-248.0,-2.0,-2.0,-0.81,HaiIRA,BMNR251010P50,1,Short,
+BMNR,17 OCT 25,50.0,PUT,-1,3.46,3.375,-337.5,8.5,8.5,2.46,HaiIndividual,BMNR251017P50,1,Short,
+BMNR,24 OCT 25,48.0,PUT,-1,3.45,3.325,-332.5,12.5,12.5,3.62,HaiIRA,BMNR251024P48,1,Short,
+BMNR,3 OCT 25,51.0,PUT,-1,1.81,1.83,-183.0,-2.0,-2.0,-1.1,HaiIRA,BMNR251003P51,1,Short,
+BMNR,31 OCT 25,50.0,PUT,-1,5.0,4.925,-492.5,7.5,7.5,1.5,HaiIRA,BMNR251031P50,1,Short,
+CRCL,17 OCT 25,105.0,PUT,-1,4.08,1.49,-149.0,258.34,5.5,63.42,HaiIndividual,CRCL251017P105,1,Short,
+VFC,17 OCT 25,15.0,PUT,-2,1.07,0.93,-186.0,26.67,56.18,12.54,HaiIndividual,VFC251017P15,2,Short,
+VFC,24 OCT 25,16.0,CALL,-1,0.94,0.58,-58.0,35.34,-14.0,37.86,HaiIndividual,VFC251024C16,1,Short,

@@ -192,6 +192,14 @@ debug_session()
 
 ### 11. Python Code Guideline
 - all python code should be leveraging Cpython for speed computing. 
-- all python code must run in a python environment without errors. The python environment is activate by '~/pyvenv/bin/activate'
+- all python code must run in a python environment without errors. The python environment is activate by 'source .venv/bin/activate' command.
+- all python code must be formatted by black formatter.
+- all python code must be linted by flake8 linter.
+- all python code must be tested by pytest framework.
+- all python code must be type-hinted for all inputs and outputs.
+- all python code must be documented with docstrings and comments on every line of code.
+---
+
+
 
 
