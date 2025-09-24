@@ -1,0 +1,772 @@
+telnet 172.25.27.3 2007
+Trying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+Mon Sep 22 19:09:47 GMT 2025
+
+telnet> q
+Connection closed.
+$ ^[[A^[[A^[[A 
+-sh: 3: [A[A[: not found
+$ 
+$ 
+$ bash
+[?2004htester@LC1UNVME:~/Projects/goldeneye$ bash golden_eye_prep.sh M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[KM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct elnet 172.25.27.3 2008
+[?2004lTrying 172.25.27.3...
+telnet: Unable to connect to remote host: Connection refused
+[?2004htester@LC1UNVME:~/Projects/goldeneye$ telnet 172.25.27.3 2008[K7
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+ Starting crond service: [60G[  [1;32mOK[0;39m  ]
+        Starting telemetry:  [60G[  [1;32mOK[0;39m  ]
+
+telnet> q
+Connection closed.
+[?2004htester@LC1UNVME:~/Projects/goldeneye$ telnet 172.25.27.3 2007
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+        Starting NXOS Apps: 
+telnet> q
+Connection closed.
+[?2004htester@LC1UNVME:~/Projects/goldeneye$ telnet 172.25.27.3 2007
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+LAN   device path = PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x0,0x0)/MAC(00A0C9000000,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x0,0x1)/MAC(341278560100,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x17,0x0)/Pci(0x0,0x0)/MAC(00A0C9000000,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x17,0x0)/Pci(0x0,0x1)/MAC(341278560100,0x1)
+[0;37;40m[2J[1;1H[1;1H[1;1HCisco IOM BIOS: v3.2.36 Date: 07/02/2021 16:40:08                               [2;1HCopyright (C) Cisco Systems, Inc.                                               [3;1H                                                                                [4;1H                                                                                [5;1H                                                                                [6;1H                                                                                [7;1H                                                                                [8;1H                                                                                [9;1H                                                                                [10;1H                                                                                [11;1H                                                                                [12;1H                                                                                [13;1H                                                                                [14;1H                                                                                [15;1H                                                                                [16;1H                                                                                [17;1H                                                                                [18;1H                                                                                [19;1H                                                                                [20;1H                                                                                [21;1H                                                                                [22;1H                                                                                [23;1H                                                                                [24;1H                                                                                [25;1H                                                                               
+
+IOM Version: 3.2.36   Date: May 25 2021 Time 21:08:59
+   Board Name: SkagitRiver P4 8G in Slot IFM-2
+   Keys Found: Pri=Release  Backup=Developer  Sign=Developer
+I211 State: Programmed   MAC Address: 8c:94:61:7e:5f:40
+FPGA Version = 2.8  Dated 12/03/2021
+CPU Temperatures: 40C 38C 39C 39C (max 91C)
+Reset Reason Register:  0x80000001
+Reset Reason bit 00: CPU reset
+Reset Reason bit 31: FPGA_PO_RST
+    FRU  MAC Addr: 8c:94:61:7e:5f:40 
+    CMOS MAC Addr: 8c:94:61:7e:5f:40
+Found 6 partition(s), 6 EMMC, 0 USB, and 0 SCSI.
+Using Primary BIOS [0x1096]
+BIOS is locked
+
+Press 'ctrl l' to enter shell
+
+Default Wait 9 sec
+9..8..7..6..5..4..3..2..1..
+Auto-boot image #1
+ ---- image=1 ok=0 fail=0 cnt=1.
+Booting IOM image: sys1:  bzImage
+default cmdline
+[    0.172377] Spectre V2 : Kernel not compiled with retpoline; no mitigation available!
+[    0.821611] skagitriver_add_pinctrl: Adding in pinctrl for denverton
+[    3.124601] fpga_watchdog_init: Watchdog started, kernel, 120 sec delay
+[    3.137518] sundown 0000:02:00.0: Vendor: 1137 Device: 88
+[    3.270984] mmcblk mmc0:0001: iom_oops_card_set:sector_start: 20973568
+[    3.429923] mmcblk mmc0:0001: iom_oops_enable: count: 0, start: 20973568, size: 17 in blocks
+[    3.438500] mmcblk mmc0:0001: iom_oops_enable: oops dump memory size: 8704
+INIT: version 2.88 booting
+        Starting udev: [60G[  [1;32mOK[0;39m  ]
+        Mounting CMC OBFL filesystem: [60G[  [1;32mOK[0;39m  ]
+        Mounting NXOS OBFL filesystem: [60G[  [1;32mOK[0;39m  ]
+        Mounting application filesystems: [60G[  [1;32mOK[0;39m  ]
+        Mounting /flash to /dev/mmcblk0p1: [60G[  [1;32mOK[0;39m  ]
+        Mounting /ws to /dev/mmcblk0p5: [60G[  [1;32mOK[0;39m  ]
+        Unpacking CMC App Pkg 6.0(1b):  [60G[  [1;32mOK[0;39m  ]
+        Unpacking Cisco Sundown Pkg 6.0(1b):  [60G[  [1;32mOK[0;39m  ]
+        Configuring network interfaces:  [60G[  [1;32mOK[0;39m  ]
+        Blocking AlleyCat3 external access:  [60G[  [1;32mOK[0;39m  ]
+INIT: Entering runlevel: 3
+        Generate CMC Keys:  [60G[  [1;32mOK[0;39m  ]
+        Mounting Secure Data:  [60G[  [1;32mOK[0;39m  ]
+        Starting cmclog directory rotate:  [60G[  [1;32mOK[0;39m  ]
+        Starting doctor_cmc:  [60G[  [1;32mOK[0;39m  ]
+doctor_cmc: 412:save_to_last_known_good:fopen(/ws/.persistent/security/.lastknowngood/tmp_data.json) failed: No such file or directory
+
+doctor_cmc: 412:save_to_last_known_good:fopen(/ws/.persistent/security/.lastknowngood/tmp_data.json) failed: No such file or directory
+
+        Starting OBFL logger:   [60G[  [1;32mOK[0;39m  ]
+        Starting rsyslogd server: [60G[  [1;32mOK[0;39m  ]
+        Starting appDemo:  [60G[  [1;32mOK[0;39m  ]
+        Starting sendslot:  [60G[  [1;32mOK[0;39m  ]
+        Starting internet superserver: xinetd [60G[  [1;32mOK[0;39m  ]
+        Starting firewall: [60G[  [1;32mOK[0;39m  ]
+        Starting mosquitto:  [60G[  [1;32mOK[0;39m  ]
+        Starting platform_ohms:  [60G[  [1;32mOK[0;39m  ]
+        Starting secure-action:  [60G[  [1;32mOK[0;39m  ]
+        Starting uemd:  [60G[  [1;32mOK[0;39m  ]
+        Starting thermal:  [60G[  [1;32mOK[0;39m  ]
+        Starting cipmi:  [60G[  [1;32mOK[0;39m  ]
+        Starting cmc_manager:  [60G[  [1;32mOK[0;39m  ]
+        Starting cluster_manager:  [60G[  [1;32mOK[0;39m  ]
+        Starting cnotify:  [60G[  [1;32mOK[0;39m  ]
+        Starting bmcd:  [60G[  [1;32mOK[0;39m  ]
+        Starting ipwrmgr:  [60G[  [1;32mOK[0;39m  ]
+        Starting mailer:  [60G[  [1;32mOK[0;39m  ]
+        Starting updated:  [60G[  [1;32mOK[0;39m  ]
+        Starting NXOS Apps:  [60G[  [1;32mOK[0;39m  ]
+        Starting crond service: [60G[  [1;32mOK[0;39m  ]
+        Starting telemetry:  [60G[  [1;32mOK[0;39m  ]
+        Starting http_cisco_opaque:  [60G[  [1;32mOK[0;39m  ]
+        Starting dc:  [60G[  [1;32mOK[0;39m  ]
+        Starting Redfish:  [60G[  [1;32mOK[0;39m  ]
+2025 Sep 22 19:23:55 <<%SATCTRL-FEX1-2-SATCTRL>> IOM-0   Module 1: Cold boot
+
+Kernel Version 5.10.216 (cspgre@cspg-bld35) #3 SMP Thu Aug 21 12:00:58 UTC 2025 SA_BASIC_VERSION_STRING=6.0(1b)
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: [?61;4;6;7;14;21;22;23;24;28;32;42;52c[>0;10;1c[>84;0;0croot
+
+Kernel Version 5.10.216 (cspgre@cspg-bld35) #3 SMP Thu Aug 21 12:00:58 UTC 2025 SA_BASIC_VERSION_STRING=6.0(1b)
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: root
+7[r[999;999H[6n8root@SkagitRiver-1:~# /etc/scr rip     fir   initt.df     . t.d/firewall tsop    stop
+Stopping firewall: [60G[  [1;32mOK[0;39m  ]
+root@SkagitRiver-1:~# /etc/init.d/firewall stop              /sshd start
+        Starting sshd service & adding default password: [60G[  [1;32mOK[0;39m  ]
+ root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+root@SkagitRiver-1:~# 
+Turning off RSU timer (Gpio 10) from 0 to 1.
+Initializing: Noe Valley Not Present...
+Initializing: PCA9641...
+Memory Size 8G (GpioValue = 0)
+[2J[1;1H[1;1HCisco IFM Secureboot BIOS 3.2.36
+Board is : Skagit River IFM Board
+
+Reading 0x0080 value=00000000
+Writing 0x0080 value=00000800
+Writing 0x0080 value=00000000
+
+******************************************
+******** Booting from Upgrade Bios *******
+******************************************
+******* bootcheck: done(1) good(1) *******
+******************************************
+*********** Using Upgrade FPGA ***********
+******************************************
+
+SBCR 0x88 = 0x9096
+SBCW 0x88 = 0x1096
+SBCR 0x88 = 0x1096
+
+IO-FPGA: Enabled the OS Watch Dog Timer!
+UpdateCiscoSmbiosTables: NOT IMPLEMENTED YET 
+FRU MAC Address = 8C:94:61:7E:5F:40
+LAN   device path = PciRoot(0x0)/Pci(0xF,0x0)/Pci(0x0,0x0)/MAC(8C94617E5F40,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x0,0x0)/MAC(00A0C9000000,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x0,0x1)/MAC(341278560100,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x17,0x0)/Pci(0x0,0x0)/MAC(00A0C9000000,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x17,0x0)/Pci(0x0,0x1)/MAC(341278560100,0x1)
+[0;37;40m[2J[1;1H[1;1H[1;1HCisco IOM BIOS: v3.2.36 Date: 07/02/2021 16:40:08                               [2;1HCopyright (C) Cisco Systems, Inc.                                               [3;1H                                                                                [4;1H                                                                                [5;1H                                                                                [6;1H                                                                                [7;1H                                                                                [8;1H                                                                                [9;1H                                                                                [10;1H                                                                                [11;1H                                                                                [12;1H                                                                                [13;1H                                                                                [14;1H                                                                                [15;1H                                                                                [16;1H                                                                                [17;1H                                                                                [18;1H                                                                                [19;1H                                                                                [20;1H                                                                                [21;1H                                                                                [22;1H                                                                                [23;1H                                                                                [24;1H                                                                                [25;1H                                                                               
+
+IOM Version: 3.2.36   Date: May 25 2021 Time 21:08:59
+   Board Name: SkagitRiver P4 8G in Slot IFM-2
+   Keys Found: Pri=Release  Backup=Developer  Sign=Developer
+I211 State: Programmed   MAC Address: 8c:94:61:7e:5f:40
+FPGA Version = 2.8  Dated 12/03/2021
+CPU Temperatures: 43C 42C 42C 43C (max 91C)
+Reset Reason Register:  0x80000001
+Reset Reason bit 00: CPU reset
+Reset Reason bit 31: FPGA_PO_RST
+    FRU  MAC Addr: 8c:94:61:7e:5f:40 
+    CMOS MAC Addr: 8c:94:61:7e:5f:40
+Found 6 partition(s), 6 EMMC, 0 USB, and 0 SCSI.
+Using Primary BIOS [0x1096]
+BIOS is locked
+
+Press 'ctrl l' to enter shell
+
+Default Wait 9 sec
+9..8..7..6..5..4..3..2..1..
+Auto-boot image #1
+ ---- image=1 ok=1 fail=0 cnt=0.
+Booting IOM image: sys1:  bzImage
+default cmdline
+[    0.172198] Spectre V2 : Kernel not compiled with retpoline; no mitigation available!
+[    0.821219] skagitriver_add_pinctrl: Adding in pinctrl for denverton
+[    3.091275] fpga_watchdog_init: Watchdog started, kernel, 120 sec delay
+[    3.104182] sundown 0000:02:00.0: Vendor: 1137 Device: 88
+INIT: version 2.88 booting
+[    3.257598] mmcblk mmc0:0001: iom_oops_card_set:sector_start: 20973568
+        Starting udev: [60G[  [1;32mOK[0;39m  ]
+        Mounting CMC OBFL filesystem: [60G[  [1;32mOK[0;39m  ]
+        Mounting NXOS OBFL filesystem: [60G[  [1;32mOK[0;39m  ]
+        Mounting application filesystems: [60G[  [1;32mOK[0;39m  ]
+        Mounting /flash to /dev/mmcblk0p1: [60G[  [1;32mOK[0;39m  ]
+        Mounting /ws to /dev/mmcblk0p5: [60G[  [1;32mOK[0;39m  ]
+        Unpacking CMC App Pkg 6.0(1b):  [60G[  [1;32mOK[0;39m  ]
+        Unpacking Cisco Sundown Pkg 6.0(1b):  [60G[  [1;32mOK[0;39m  ]
+        Configuring network interfaces:  [60G[  [1;32mOK[0;39m  ]
+        Blocking AlleyCat3 external access:  [60G[  [1;32mOK[0;39m  ]
+INIT: Entering runlevel: 3
+        Generate CMC Keys:  [60G[  [1;32mOK[0;39m  ]
+        Mounting Secure Data:  [60G[  [1;32mOK[0;39m  ]
+        Starting cmclog directory rotate:  [60G[  [1;32mOK[0;39m  ]
+        Starting doctor_cmc:  [60G[  [1;32mOK[0;39m  ]
+doctor_cmc: 412:save_to_last_known_good:fopen(/ws/.persistent/security/.lastknowngood/tmp_data.json) failed: No such file or directory
+
+doctor_cmc: 412:save_to_last_known_good:fopen(/ws/.persistent/security/.lastknowngood/tmp_data.json) failed: No such file or directory
+
+        Starting OBFL logger:   [60G[  [1;32mOK[0;39m  ]
+        Starting rsyslogd server: [60G[  [1;32mOK[0;39m  ]
+        Starting appDemo:  [60G[  [1;32mOK[0;39m  ]
+        Starting sendslot:  [60G[  [1;32mOK[0;39m  ]
+        Starting internet superserver: xinetd [60G[  [1;32mOK[0;39m  ]
+        Starting firewall: [60G[  [1;32mOK[0;39m  ]
+        Starting mosquitto:  [60G[  [1;32mOK[0;39m  ]
+        Starting platform_ohms:  [60G[  [1;32mOK[0;39m  ]
+        Starting secure-action:  [60G[  [1;32mOK[0;39m  ]
+        Starting uemd:  [60G[  [1;32mOK[0;39m  ]
+        Starting thermal:  [60G[  [1;32mOK[0;39m  ]
+        Starting cipmi:  [60G[  [1;32mOK[0;39m  ]
+        Starting cmc_manager:  [60G[  [1;32mOK[0;39m  ]
+        Starting cluster_manager:  [60G[  [1;32mOK[0;39m  ]
+        Starting cnotify:  [60G[  [1;32mOK[0;39m  ]
+        Starting bmcd:  [60G[  [1;32mOK[0;39m  ]
+        Starting ipwrmgr:  [60G[  [1;32mOK[0;39m  ]
+        Starting mailer:  [60G[  [1;32mOK[0;39m  ]
+        Starting updated:  [60G[  [1;32mOK[0;39m  ]
+        Starting NXOS Apps:  [60G[  [1;32mOK[0;39m  ]
+        Starting crond service: [60G[  [1;32mOK[0;39m  ]
+        Starting telemetry:  [60G[  [1;32mOK[0;39m  ]
+        Starting dc:  [60G[  [1;32mOK[0;39m  ]
+        Starting http_cisco_opaque:  [60G[  [1;32mOK[0;39m  ]
+        Starting Redfish:  [60G[  [1;32mOK[0;39m  ]
+2025 Sep 22 20:11:47 <<%SATCTRL-FEX1-2-SATCTRL>> IOM-0   Module 1: Cold boot
+
+Kernel Version 5.10.216 (cspgre@cspg-bld35) #3 SMP Thu Aug 21 12:00:58 UTC 2025 SA_BASIC_VERSION_STRING=6.0(1b)
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: root
+7[r[999;999H[6n8root@SkagitRiver-1:~# /etc/sc  init.d/firewall stop
+Stopping firewall: [60G[  [1;32mOK[0;39m  ]
+root@SkagitRiver-1:~# /etc/init.d/firewall stop             sshd start
+        Starting sshd service & adding default password: [60G[  [1;32mOK[0;39m  ]
+ root@SkagitRiver-1:~# getip.sh 
+udhcpc: started, v1.29.3
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending select for 172.25.27.74
+udhcpc: lease of 172.25.27.74 obtained, lease time 864000
+root@SkagitRiver-1:~# 
+Kernel Version 5.10.216 (cspgre@cspg-bld35) #3 SMP Thu Aug 21 12:00:58 UTC 2025 SA_BASIC_VERSION_STRING=6.0(1b)
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: 
+SkagitRiver-1 login: froo    root
+7[r[999;999H[6n8root@SkagitRiver-1:~# /etc/ni  init.d/firewalll stop
+Stopping firewall: [60G[  [1;32mOK[0;39m  ]
+root@SkagitRiver-1:~# /etc/init.d/firewalll stop       [Aroot@SkagitRiver-1:~# /etc/init.d/firewa [K[Aroot@SkagitRiver-1:~# /etc/init.d/firew[K
+[K[Aroot@SkagitRiver-1:~# /etc/init.d/firew     sshd s tart
+        Starting sshd service & adding default password: [60G[  [1;32mOK[0;39m  ]
+ root@SkagitRiver-1:~# getip.sh 
+udhcpc: started, v1.29.3
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending select for 172.25.27.74
+udhcpc: lease of 172.25.27.74 obtained, lease time 864000
+root@SkagitRiver-1:~# 
+Turning off RSU timer (Gpio 10) from 0 to 1.
+Initializing: Noe Valley Not Present...
+Initializing: PCA9641...
+Memory Size 8G (GpioValue = 0)
+[2J[1;1H[1;1HCisco IFM Secureboot BIOS 3.2.36
+Board is : Skagit River IFM Board
+
+Reading 0x0080 value=00000000
+Writing 0x0080 value=00000800
+Writing 0x0080 value=00000000
+
+******************************************
+******** Booting from Upgrade Bios *******
+******************************************
+******* bootcheck: done(1) good(1) *******
+******************************************
+*********** Using Upgrade FPGA ***********
+******************************************
+
+SBCR 0x88 = 0x9096
+SBCW 0x88 = 0x1096
+SBCR 0x88 = 0x1096
+
+IO-FPGA: Enabled the OS Watch Dog Timer!
+UpdateCiscoSmbiosTables: NOT IMPLEMENTED YET 
+FRU MAC Address = 8C:94:61:7E:5F:40
+LAN   device path = PciRoot(0x0)/Pci(0xF,0x0)/Pci(0x0,0x0)/MAC(8C94617E5F40,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x0,0x0)/MAC(00A0C9000000,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x16,0x0)/Pci(0x0,0x1)/MAC(341278560100,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x17,0x0)/Pci(0x0,0x0)/MAC(00A0C9000000,0x1)
+LAN   device path = PciRoot(0x0)/Pci(0x17,0x0)/Pci(0x0,0x1)/MAC(341278560100,0x1)
+[0;37;40m[2J[1;1H[1;1H[1;1HCisco IOM BIOS: v3.2.36 Date: 07/02/2021 16:40:08                               [2;1HCopyright (C) Cisco Systems, Inc.                                               [3;1H                                                                                [4;1H                                                                                [5;1H                                                                                [6;1H                                                                                [7;1H                                                                                [8;1H                                                                                [9;1H                                                                                [10;1H                                                                                [11;1H                                                                                [12;1H                                                                                [13;1H                                                                                [14;1H                                                                                [15;1H                                                                                [16;1H                                                                                [17;1H                                                                                [18;1H                                                                                [19;1H                                                                                [20;1H                                                                                [21;1H                                                                                [22;1H                                                                                [23;1H                                                                                [24;1H                                                                                [25;1H                                                                               
+
+IOM Version: 3.2.36   Date: May 25 2021 Time 21:08:59
+   Board Name: SkagitRiver P4 8G in Slot IFM-2
+   Keys Found: Pri=Release  Backup=Developer  Sign=Developer
+I211 State: Programmed   MAC Address: 8c:94:61:7e:5f:40
+FPGA Version = 2.8  Dated 12/03/2021
+CPU Temperatures: 31C 30C 30C 31C (max 91C)
+Reset Reason Register:  0x80000001
+Reset Reason bit 00: CPU reset
+Reset Reason bit 31: FPGA_PO_RST
+    FRU  MAC Addr: 8c:94:61:7e:5f:40 
+    CMOS MAC Addr: 8c:94:61:7e:5f:40
+Found 6 partition(s), 6 EMMC, 0 USB, and 0 SCSI.
+Using Primary BIOS [0x1096]
+BIOS is locked
+
+Press 'ctrl l' to enter shell
+
+Default Wait 9 sec
+9..8..7..6..5..4..3..2..1..
+Auto-boot image #1
+ ---- image=1 ok=1 fail=0 cnt=0.
+Booting IOM image: sys1:  bzImage
+default cmdline
+[    0.171973] Spectre V2 : Kernel not compiled with retpoline; no mitigation available!
+[    0.820980] skagitriver_add_pinctrl: Adding in pinctrl for denverton
+[    3.111267] fpga_watchdog_init: Watchdog started, kernel, 120 sec delay
+[    3.124200] sundown 0000:02:00.0: Vendor: 1137 Device: 88
+INIT: [    3.276685] mmcblk mmc0:0001: iom_oops_card_set:sector_start: 20973568
+version 2.88 booting
+        Starting udev: [60G[  [1;32mOK[0;39m  ]
+        Mounting CMC OBFL filesystem: [60G[  [1;32mOK[0;39m  ]
+        Mounting NXOS OBFL filesystem: [60G[  [1;32mOK[0;39m  ]
+        Mounting application filesystems: [60G[  [1;32mOK[0;39m  ]
+        Mounting /flash to /dev/mmcblk0p1: [60G[  [1;32mOK[0;39m  ]
+        Mounting /ws to /dev/mmcblk0p5: [60G[  [1;32mOK[0;39m  ]
+        Unpacking CMC App Pkg 6.0(1b):  [60G[  [1;32mOK[0;39m  ]
+        Unpacking Cisco Sundown Pkg 6.0(1b):  [60G[  [1;32mOK[0;39m  ]
+        Configuring network interfaces:  [60G[  [1;32mOK[0;39m  ]
+        Blocking AlleyCat3 external access:  [60G[  [1;32mOK[0;39m  ]
+INIT: Entering runlevel: 3
+        Generate CMC Keys:  [60G[  [1;32mOK[0;39m  ]
+        Mounting Secure Data:  [60G[  [1;32mOK[0;39m  ]
+        Starting cmclog directory rotate:  [60G[  [1;32mOK[0;39m  ]
+        Starting doctor_cmc:  [60G[  [1;32mOK[0;39m  ]
+doctor_cmc: 412:save_to_last_known_good:fopen(/ws/.persistent/security/.lastknowngood/tmp_data.json) failed: No such file or directory
+
+doctor_cmc: 412:save_to_last_known_good:fopen(/ws/.persistent/security/.lastknowngood/tmp_data.json) failed: No such file or directory
+
+        Starting OBFL logger:   [60G[  [1;32mOK[0;39m  ]
+        Starting rsyslogd server: [60G[  [1;32mOK[0;39m  ]
+        Starting appDemo:  [60G[  [1;32mOK[0;39m  ]
+        Starting sendslot:  [60G[  [1;32mOK[0;39m  ]
+        Starting internet superserver: xinetd [60G[  [1;32mOK[0;39m  ]
+        Starting firewall: [60G[  [1;32mOK[0;39m  ]
+        Starting mosquitto:  [60G[  [1;32mOK[0;39m  ]
+        Starting platform_ohms:  [60G[  [1;32mOK[0;39m  ]
+        Starting secure-action:  [60G[  [1;32mOK[0;39m  ]
+        Starting uemd:  [60G[  [1;32mOK[0;39m  ]
+        Starting thermal:  [60G[  [1;32mOK[0;39m  ]
+        Starting cipmi:  [60G[  [1;32mOK[0;39m  ]
+        Starting cmc_manager:  [60G[  [1;32mOK[0;39m  ]
+        Starting cluster_manager:  [60G[  [1;32mOK[0;39m  ]
+        Starting cnotify:  [60G[  [1;32mOK[0;39m  ]
+        Starting bmcd:  [60G[  [1;32mOK[0;39m  ]
+        Starting ipwrmgr:  [60G[  [1;32mOK[0;39m  ]
+        Starting mailer:  [60G[  [1;32mOK[0;39m  ]
+        Starting updated:  [60G[  [1;32mOK[0;39m  ]
+        Starting NXOS Apps:  [60G[  [1;32mOK[0;39m  ]
+        Starting crond service: [60G[  [1;32mOK[0;39m  ]
+        Starting telemetry:  [60G[  [1;32mOK[0;39m  ]
+
+Kernel Version 5.10.216 (cspgre@cspg-bld35) #3 SMP Thu Aug 21 12:00:58 UTC 2025 SA_BASIC_VERSION_STRING=6.0(1b)
+SkagitRiver-1 login:         Starting dc:  [60G[  [1;32mOK[0;39m  ]
+        Starting Redfish:  [60G[  [1;32mOK[0;39m  ]
+        Starting http_cisco_opaque:  [60G[  [1;32mOK[0;39m  ]
+2025 Sep 23 15:56:30 <<%SATCTRL-FEX1-2-SATCTRL>> IOM-0   Module 1: Cold boot
+
+SkagitRiver-1 login: 
+SkagitRiver-1 login: root
+7[r[999;999H[6n8root@SkagitRiver-1:~# cd /flash/ha  
+root@SkagitRiver-1:/flash# ls
+bzImage             debugpkg.sh
+ciscosundownpkg.sh  diagpkg.sh
+cmcapppkg.sh        hai
+dc.tar.img
+root@SkagitRiver-1:/flash# cd hai/
+root@SkagitRiver-1:/flash/hai# cat prp ep        ls
+update_pkg-goldeneye.bin   update_pkg-snakeriver.bin
+root@SkagitRiver-1:/flash/hai# /etc/initfi  .d/firewall stop
+Stopping firewall: [60G[  [1;32mOK[0;39m  ]
+root@SkagitRiver-1:/flash/hai# /etc/init.d/firewall stop             sshd start
+        Starting sshd service & adding default password: [60G[  [1;32mOK[0;39m  ]
+ root@SkagitRiver-1:/flash/hai# /etc/init.d/sshd start                      getip.sh 
+udhcpc: started, v1.29.3
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending discover
+udhcpc: sending select for 172.25.27.74
+udhcpc: lease of 172.25.27.74 obtained, lease time 864000
+root@SkagitRiver-1:/flash/hai# clear && export TZ=UTC && ech o '2025-09-23 16:18:37'
+[H[J2025-09-23 16:18:37
+root@SkagitRiver-1:/flash/hai# getip.sh 
+udhcpc: started, v1.29.3
+udhcpc: sending discover
+udhcpc: sending select for 172.25.27.74
+udhcpc: lease of 172.25.27.74 obtained, lease time 864000
+root@SkagitRiver-1:/flash/hai# clear && export TZ=UTC && ech o '2025-09-23 16:59:34'
+[H[J2025-09-23 16:59:34
+root@SkagitRiver-1:/flash/hai# clear && export TZ=UTC && ech o '2025-09-23 16:59:44'
+[H[J2025-09-23 16:59:44
+root@SkagitRiver-1:/flash/hai# clear && export TZ=UTC && ech o '2025-09-23 16:59:56'
+[H[J2025-09-23 16:59:56
+root@SkagitRiver-1:/flash/hai# ls
+update_pkg-goldeneye.bin   update_pkg-snakeriver.bin
+root@SkagitRiver-1:/flash/hai# ls  cd ..
+root@SkagitRiver-1:/flash# ls
+bzImage             debugpkg.sh
+ciscosundownpkg.sh  diagpkg.sh
+cmcapppkg.sh        hai
+dc.tar.img
+root@SkagitRiver-1:/flash# cd hai/
+root@SkagitRiver-1:/flash/hai# ls
+update_pkg-goldeneye.bin   update_pkg-snakeriver.bin
+root@SkagitRiver-1:/flash/hai# powerc     wrmgrcli -a
+==============================
+PSU GPIO status:
+==============================
+PSs present 		: 1 2 3 4 5 6
+PSs RMT on 		: 1 2 3 4 5 6
+PS DC ok 		: 1 2 3 4 5 6
+PS AC ok 		: 1 2 3 4 5 6
+==============================
+
+PSU readings:
+Power supply: 1
+	Input Voltage	: 211000 mV
+	Input Current	: 2761 mA
+	Input Power	: 566000 mW
+	Output Voltage	: 54062 mV
+	Output Current	: 9671 mA
+	Output Power	: 522000 mW
+	Max Power	: 2800 W
+	Temperature 0	: 18.23 C
+	Temperature 1	: 29.23 C
+	Temperature 2	: 40.48 C
+	Fan Speed 0	: 5504 rpm
+	Fan Speed 1	: 4480 rpm
+	Input source	: HIGHLINE
+Power supply: 2
+	Input Voltage	: 210500 mV
+	Input Current	: 3046 mA
+	Input Power	: 640000 mW
+	Output Voltage	: 54093 mV
+	Output Current	: 11515 mA
+	Output Power	: 623000 mW
+	Max Power	: 2800 W
+	Temperature 0	: 19.98 C
+	Temperature 1	: 27.98 C
+	Temperature 2	: 32.98 C
+	Fan Speed 0	: 7504 rpm
+	Fan Speed 1	: 5552 rpm
+	Input source	: HIGHLINE
+Power supply: 3
+	Input Voltage	: 210000 mV
+	Input Current	: 3039 mA
+	Input Power	: 635000 mW
+	Output Voltage	: 54085 mV
+	Output Current	: 10890 mA
+	Output Power	: 589000 mW
+	Max Power	: 2800 W
+	Temperature 0	: 2006.98 C
+	Temperature 1	: 27.98 C
+	Temperature 2	: 34.98 C
+	Fan Speed 0	: 6480 rpm
+	Fan Speed 1	: 4832 rpm
+	Input source	: HIGHLINE
+Power supply: 4
+	Input Voltage	: 209750 mV
+	Input Current	: 3039 mA
+	Input Power	: 636000 mW
+	Output Voltage	: 54125 mV
+	Output Current	: 11062 mA
+	Output Power	: 599000 mW
+	Max Power	: 2800 W
+	Temperature 0	: 18.98 C
+	Temperature 1	: 26.98 C
+	Temperature 2	: 33.98 C
+	Fan Speed 0	: 7504 rpm
+	Fan Speed 1	: 5160 rpm
+	Input source	: HIGHLINE
+Power supply: 5
+	Input Voltage	: 210500 mV
+	Input Current	: 3019 mA
+	Input Power	: 634000 mW
+	Output Voltage	: 54109 mV
+	Output Current	: 11062 mA
+	Output Power	: 599000 mW
+	Max Power	: 2800 W
+	Temperature 0	: 18.98 C
+	Temperature 1	: 26.98 C
+	Temperature 2	: 31.98 C
+	Fan Speed 0	: 7472 rpm
+	Fan Speed 1	: 5552 rpm
+	Input source	: HIGHLINE
+Power supply: 6
+	Input Voltage	: 210750 mV
+	Input Current	: 375 mA
+	Input Power	: 78875 mW
+	Output Voltage	: 54093 mV
+	Output Current	: 10609 mA
+	Output Power	: 59125 mW
+	Max Power	: 2800 W
+	Temperature 0	: 17.98 C
+	Temperature 1	: 27.98 C
+	Temperature 2	: 33.98 C
+	Fan Speed 0	: 7440 rpm
+	Fan Speed 1	: 5672 rpm
+	Input source	: HIGHLINE
+
+---------------------------------------------------------------------------------------------
+PSU statistics: 
+---------------------------------------------------------------------------------------------
+                |   PSU1   |   PSU2   |   PSU3   |   PSU4   |   PSU5   |   PSU6   |   Total  |
+---------------------------------------------------------------------------------------------
+Presence        |  Present |  Present |  Present |  Present |  Present |  Present |          |
+---------------------------------------------------------------------------------------------
+AC/DC Input     |  Present |  Present |  Present |  Present |  Present |  Present |          |
+---------------------------------------------------------------------------------------------
+DC Output       |  Present |  Present |  Present |  Present |  Present |  Present |          |
+---------------------------------------------------------------------------------------------
+Input Voltage   |      211V|      210V|      210V|      209V|      210V|      210V|          |
+---------------------------------------------------------------------------------------------
+Input Current   |        2A|        3A|        3A|        3A|        3A|        0A|       14A|
+---------------------------------------------------------------------------------------------
+Input Power     |      566W|      640W|      635W|      636W|      634W|       78W|     3189W|
+---------------------------------------------------------------------------------------------
+Output Voltage  |       54V|       54V|       54V|       54V|       54V|       54V|          |
+---------------------------------------------------------------------------------------------
+Output Current  |        9A|       11A|       10A|       11A|       11A|       10A|       62A|
+---------------------------------------------------------------------------------------------
+Output Power    |      522W|      623W|      589W|      599W|      599W|       59W|     2991W|
+---------------------------------------------------------------------------------------------
+Max Power       |     2800W|     2800W|     2800W|     2800W|     2800W|     2800W|    16800W|
+---------------------------------------------------------------------------------------------
+
+Power configuration:
+==============================
+last update TS		: 4061
+power_save_mode		: Disabled
+power_extended_mode	: Disabled
+power_rebalance		: Enabled
+power policy		: NotRedundant
+chassis powercap	: Enabled
+chassis powerlimit	: 0W
+blade1 priority		: 3
+blade2 priority		: 3
+blade3 priority		: 3
+blade4 priority		: 3
+blade5 priority		: 3
+blade6 priority		: 3
+blade7 priority		: 3
+blade8 priority		: 3
+==============================
+Redundancy status:
+==============================
+Last update TS 		: 4078
+Stale TS 		: 4088
+Cluster master 		: no
+Policy			: N
+State			: ok
+Total power available	: 16800
+Policy powerlimit	: 16800
+Min PSU num req:	: 6
+PSU input line 		: High
+Power save mode 	: Disabled (All PSUs active)
+-----------
+Grid			: 1
+	Active PS	: 1 2 3 4 5 6 
+	Spare PS	: 
+	Unavailable PS	: 
+-----------
+==============================
+
+Policy power:
+-------------------------------------------
+       GRID-1       ||       GRID-2       ||
+-------------------------------------------
+ PSU1 | PSU2 | PSU3 || PSU4 | PSU5 | PSU6 ||
+-------------------------------------------
+  P   |  P   |  P   |  P   |  P   |  P   ||
+-------------------------------------------
+2800  |2800  |2800  |2800  |2800  |2800  ||
+-------------------------------------------
+---------------------------------------
+   N     |   N+1   |   N+2   |   Grid  |
+---------------------------------------
+  16800W |  14000W |  11200W |   8400W |
+---------------------------------------
+
+Chassis power consumption report:
+---------------------------------------------------------------------
+        |presence | cur     | avg     | min     | max     | fault   |
+---------------------------------------------------------------------
+Blade1  | Present |    399W |    395W |     10W |    669W | No      |
+---------------------------------------------------------------------
+Blade2  | Present |     10W |     10W |     10W |     10W | No      |
+---------------------------------------------------------------------
+Blade3  | ---     |         |         |         |         |         |
+---------------------------------------------------------------------
+Blade4  | Present |    241W |    244W |     20W |    392W | No      |
+---------------------------------------------------------------------
+Blade5  | Present |    396W |    384W |     13W |    599W | No      |
+---------------------------------------------------------------------
+Blade6  | Present |     13W |     13W |     13W |     13W | No      |
+---------------------------------------------------------------------
+Blade7  | ---     |         |         |         |         |         |
+---------------------------------------------------------------------
+Blade8  | Present |    335W |    336W |      4W |    475W | No      |
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+FAN1    |         |    283W |         |         |         |         |
+---------------------------------------------------------------------
+FAN2    |         |    291W |         |         |         |         |
+---------------------------------------------------------------------
+FAN3    |         |    298W |         |         |         |         |
+---------------------------------------------------------------------
+FAN4    |         |    297W |         |         |         |         |
+---------------------------------------------------------------------
+FEM1    |         |    184W |         |         |         |         |
+---------------------------------------------------------------------
+FEM2    |         |    177W |         |         |         |         |
+---------------------------------------------------------------------
+IFM1    |         |    213W |         |         |         |         |
+---------------------------------------------------------------------
+IFM2    |         |    215W |         |         |         |         |
+---------------------------------------------------------------------
+Chassis |         |   3352W |   1382W |     70W |   2158W |         |
+---------------------------------------------------------------------
+
+
+Chassis power info report:
+(BladeX prof_min, prof_max, min_pwr, max_pwr, pwr_limit, host_pwr are collected from BMC) 
+-----------------------------------------------------------------------------------------
+        |presence | prof_min| prof_max|  min_pwr|  max_pwr|pwr_limit| fault   | host_pwr|
+-----------------------------------------------------------------------------------------
+Blade1  | Present |    691W |   1106W |   1092W |   1366W |   1366W | No      | On      |
+-----------------------------------------------------------------------------------------
+Blade2  | Present |    387W |    899W |    900W |   1610W |   1610W | No      | Off     |
+-----------------------------------------------------------------------------------------
+Blade3  | ---     |         |         |         |         |         |         |         |
+-----------------------------------------------------------------------------------------
+Blade4  | Present |   1425W |   1430W |    375W |   1425W |   1425W | No      | On      |
+-----------------------------------------------------------------------------------------
+Blade5  | Present |    631W |   1111W |   1032W |   1291W |   1291W | No      | On      |
+-----------------------------------------------------------------------------------------
+Blade6  | Present |    716W |   1436W |    900W |   1610W |   1610W | No      | Off     |
+-----------------------------------------------------------------------------------------
+Blade7  | ---     |         |         |         |         |         |         |         |
+-----------------------------------------------------------------------------------------
+Blade8  | Present |   2425W |   2430W |    625W |   2425W |   2425W | No      | On      |
+-----------------------------------------------------------------------------------------
+SubTotal|         |   6275W |   8412W |   4924W |   9727W |   9727W |         |         |
+-----------------------------------------------------------------------------------------
+FAN1    |         |         |         |         |    320W |         |         |         |
+-----------------------------------------------------------------------------------------
+FAN2    |         |         |         |         |    320W |         |         |         |
+-----------------------------------------------------------------------------------------
+FAN3    |         |         |         |         |    320W |         |         |         |
+-----------------------------------------------------------------------------------------
+FAN4    |         |         |         |         |    320W |         |         |         |
+-----------------------------------------------------------------------------------------
+FEM1    |         |         |         |         |    341W |         |         |         |
+-----------------------------------------------------------------------------------------
+FEM2    |         |         |         |         |    341W |         |         |         |
+-----------------------------------------------------------------------------------------
+IFM1    |         |         |         |         |    300W |         |         |         |
+-----------------------------------------------------------------------------------------
+IFM2    |         |         |         |         |    300W |         |         |         |
+-----------------------------------------------------------------------------------------
+SubTotal|         |         |         |         |   2562W |         |         |         |
+-----------------------------------------------------------------------------------------
+Chassis |         |   8837W |  10974W |   7486W |  12289W |         |         |         |
+-----------------------------------------------------------------------------------------
+Chassis Required Power Range          |   8837W |  10964W |         |         |         |
+-----------------------------------------------------------------------------------------
+
+
+Chassis power allocation report:
+---------------------------------------------------------------------------------
+Chassis powerlimit: 16800                                                        |
+---------------------------------------------------------------------------------
+Chassis blade available budget: 14768                                            |
+---------------------------------------------------------------------------------
+Chassis blade allocated budget: 14713                                            |
+---------------------------------------------------------------------------------
+ebrake_min_req_psu: 0 | prereq_ebrake =              N/A                        |
+---------------------------------------------------------------------------------
+        |presence | init_pwr| dyn_pwr | ok_to_pwr_on | ok_to_pwr_prof | fault   |
+---------------------------------------------------------------------------------
+Blade1  | Present |   1366W |   1366W | Yes          | No             | No      |
+---------------------------------------------------------------------------------
+Blade2  | Present |   1610W |   1610W | Yes          | No             | No      |
+---------------------------------------------------------------------------------
+Blade3  | ---     |         |         |              |                |         |
+---------------------------------------------------------------------------------
+Blade4  | Present |   1425W |   1425W | Yes          | No             | No      |
+---------------------------------------------------------------------------------
+Blade5  | Present |   1291W |   1291W | Yes          | No             | No      |
+---------------------------------------------------------------------------------
+Blade6  | Present |   1610W |   1610W | Yes          | No             | No      |
+---------------------------------------------------------------------------------
+Blade7  | ---     |         |         |              |                |         |
+---------------------------------------------------------------------------------
+Blade8  | Present |   2425W |   2425W | Yes          | No             | No      |
+---------------------------------------------------------------------------------
+SubTotal|         |   9727W |   9727W |
+---------------------------------------
+Ch Base |         |   2562W |   2032W |
+---------------------------------------
+Total   |         |  12289W |  11759W |
+---------------------------------------
+
+
+root@SkagitRiver-1:/flash/hai# ls
+update_pkg-goldeneye.bin   update_pkg-snakeriver.bin
+root@SkagitRiver-1:/flash/hai# 
