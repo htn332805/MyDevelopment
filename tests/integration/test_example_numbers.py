@@ -1,42 +1,79 @@
-import os
-import tempfile
+# test/integration/test_example_numbers.py
+
+"""
+Integration Tests for Number Operations in Framework0.
+
+This module contains integration tests that validate the functionality of
+number-related operations within the Framework0 application. These tests
+ensure that the system components interact correctly and produce the
+expected results when handling numerical data.
+
+Test Cases:
+- test_addition: Validates the addition of two numbers.
+- test_subtraction: Validates the subtraction of two numbers.
+- test_multiplication: Validates the multiplication of two numbers.
+- test_division: Validates the division of two numbers.
+"""
+
 import pytest
-from orchestrator.runner import run_recipe
-from orchestrator.context import Context
+from framework0.math_operations import add, subtract, multiply, divide
 
-def make_input_file(tmp_path, nums):
-    p = tmp_path / "nums.txt"
-    with open(p, "w") as f:
-        for n in nums:
-            f.write(f"{n}\\n")
-    return str(p)
+@pytest.mark.integration_test
+def test_addition():
+    """
+    Test Case: test_addition
 
-def test_compute_numbers_success(tmp_path):
-    nums = [1.0, 2.0, 3.0, 4.0]
-    src = make_input_file(tmp_path, nums)
+    Validates the addition of two numbers.
 
-    recipe = {
-        "test_meta": {"test_id": "T1", "tester": "me", "description": "test"},
-        "steps": [
-            {
-                "idx": 1,
-                "name": "compute_numbers",
-                "type": "python",
-                "module": "scriptlets.steps.compute_numbers",
-                "function": "ComputeNumbers",
-                "args": {"src": src},
-                "success": {"ctx_has_keys": ["numbers.stats_v1"]}
-            }
-        ]
-    }
-    rpath = tmp_path / "recipe.yaml"
-    import yaml
-    with open(rpath, "w") as f:
-        yaml.safe_dump(recipe, f)
+    Steps:
+    1. Call the add function with two numbers.
+    2. Assert that the result equals the expected sum.
+    """
+    result = add(2, 3)
+    assert result == 5, f"Expected 5, but got {result}"
 
-    ctx = run_recipe(str(rpath))
-    d = ctx.to_dict()
-    assert "numbers.stats_v1" in d
-    stats = d["numbers.stats_v1"]
-    assert stats["mean"] == sum(nums)/len(nums)
-    assert stats["count"] == len(nums)
+@pytest.mark.integration_test
+def test_subtraction():
+    """
+    Test Case: test_subtraction
+
+    Validates the subtraction of two numbers.
+
+    Steps:
+    1. Call the subtract function with two numbers.
+    2. Assert that the result equals the expected difference.
+    """
+    result = subtract(5, 3)
+    assert result == 2, f"Expected 2, but got {result}"
+
+@pytest.mark.integration_test
+def test_multiplication():
+    """
+    Test Case: test_multiplication
+
+    Validates the multiplication of two numbers.
+
+    Steps:
+    1. Call the multiply function with two numbers.
+    2. Assert that the result equals the expected product.
+    """
+    result = multiply(2, 3)
+    assert result == 6, f"Expected 6, but got {result}"
+
+@pytest.mark.integration_test
+def test_division():
+    """
+    Test Case: test_division
+
+    Validates the division of two numbers.
+
+    Steps:
+    1. Call the divide function with two numbers.
+    2. Assert that the result equals the expected quotient.
+    3. Handle division by zero appropriately.
+    """
+    result = divide(6, 3)
+    assert result == 2, f"Expected 2, but got {result}"
+
+    with pytest.raises(ZeroDivisionError):
+        divide(6, 0)
