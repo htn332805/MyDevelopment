@@ -1,0 +1,16 @@
+test_meta:
+  test_id: NUM-001
+  tester: alice
+  description: Compute stats
+
+steps:
+  - idx: 1
+    name: compute_numbers
+    type: python
+    module: scriptlets.steps.compute_numbers
+    function: ComputeNumbers
+    args:
+      src: data/numbers.csv
+    success:
+      ctx_has_keys:
+        - numbers.stats_v1

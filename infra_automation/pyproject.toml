@@ -1,0 +1,9 @@
+[project]
+name = "infra_automation"
+version = "0.1.0"
+description = "Prototype automation framework"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyyaml = "^6.0"
+psutil = "^5.0"
