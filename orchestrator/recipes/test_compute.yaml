@@ -1,0 +1,17 @@
+# Example recipe for testing step packager
+description: "Simple test recipe for step packaging demonstration"
+
+steps:
+  - name: compute_factorial
+    idx: 1
+    module: scriptlets.steps.compute_numbers
+    function: ComputeFactorial
+    args:
+      number: 5
+  
+  - name: check_prime
+    idx: 2
+    module: scriptlets.steps.compute_numbers  
+    function: CheckPrime
+    args:
+      number: 17
