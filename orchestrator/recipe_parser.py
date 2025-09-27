@@ -8,6 +8,7 @@ from typing import List, Dict, Any
 from orchestrator.context import Context
 
 def load_recipe(file_path: str) -> Dict[str, Any]:
+    # Execute load_recipe operation
     """
     Load and parse a YAML recipe file into a Python dictionary.
 
@@ -27,6 +28,7 @@ def load_recipe(file_path: str) -> Dict[str, Any]:
             raise ValueError(f"Error parsing YAML file: {file_path}") from e
 
 def validate_recipe(recipe: Dict[str, Any]) -> None:
+    # Execute validate_recipe operation
     """
     Validate the structure and required fields of the recipe.
 
@@ -43,6 +45,7 @@ def validate_recipe(recipe: Dict[str, Any]) -> None:
         raise ValueError("'steps' must be a list.")
 
 def parse_step(step: Dict[str, Any]) -> Dict[str, Any]:
+    # Execute parse_step operation
     """
     Parse and validate an individual step in the recipe.
 
@@ -74,6 +77,7 @@ def parse_step(step: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 def parse_recipe(recipe: Dict[str, Any]) -> List[Dict[str, Any]]:
+    # Execute parse_recipe operation
     """
     Parse and validate the entire recipe, returning a list of steps.
 

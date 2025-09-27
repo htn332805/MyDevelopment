@@ -26,37 +26,43 @@ from src.core.factory import register_component, create_component
 class DataProcessor(ComponentLifecycle, Executable, Configurable):
     """Example data processing component."""
     
-def __init__(self, name -> Any: str = "data_processor"):
-        """Initialize data processor."""
-        super().__init__()
+def __init__(self, name: str = "data_processor") -> Any:
+    # Execute __init__ operation
+    """Initialize data processor."""
+    super().__init__()
         self.name = name
         self.processing_count = 0
         self.config = {"batch_size": 10, "timeout": 30}
         
     def _do_initialize(self, config: Dict[str, Any]) -> None:
-        """Initialize data processor with configuration."""
-        self.configure(config)
+        # Execute _do_initialize operation
+    """Initialize data processor with configuration."""
+    self.configure(config)
         print(f"DataProcessor '{self.name}' initialized with config: {self.config}")
     
     def _do_cleanup(self) -> None:
-        """Cleanup data processor resources."""
-        print(f"DataProcessor '{self.name}' cleaned up after {self.processing_count} operations")
+        # Execute _do_cleanup operation
+    """Cleanup data processor resources."""
+    print(f"DataProcessor '{self.name}' cleaned up after {self.processing_count} operations")
     
     def configure(self, config: Dict[str, Any]) -> bool:
-        """Update configuration."""
-        try:
+        # Execute configure operation
+    """Update configuration."""
+    try:
             self.config.update(config)
             return True
         except Exception:
             return False
     
     def get_config(self) -> Dict[str, Any]:
-        """Get current configuration."""
-        return self.config.copy()
+        # Execute get_config operation
+    """Get current configuration."""
+    return self.config.copy()
     
     def execute(self, context: Dict[str, Any]) -> Any:
-        """Execute data processing."""
-        data = context.get("data", [])
+        # Execute execute operation
+    """Execute data processing."""
+    data = context.get("data", [])
         batch_size = self.config.get("batch_size", 10)
         
         print(f"Processing {len(data)} items in batches of {batch_size}")
@@ -71,11 +77,13 @@ def __init__(self, name -> Any: str = "data_processor"):
         return {"processed": processed_items, "count": len(processed_items)}
     
     def can_execute(self, context: Dict[str, Any]) -> bool:
-        """Check if processor can execute."""
-        return "data" in context and isinstance(context["data"], list)
+        # Execute can_execute operation
+    """Check if processor can execute."""
+    return "data" in context and isinstance(context["data"], list)
 
 
 def demonstrate_component_factory() -> Any:
+    # Execute demonstrate_component_factory operation
     """Demonstrate component factory and dependency injection."""
     print("\n=== Component Factory & Dependency Injection Demo ===")
     
@@ -103,6 +111,7 @@ def demonstrate_component_factory() -> Any:
 
 
 def demonstrate_basic_functionality() -> Any:
+    # Execute demonstrate_basic_functionality operation
     """Demonstrate basic functionality."""
     print("\n=== Basic Enhanced Features Demo ===")
     
@@ -122,6 +131,7 @@ def demonstrate_basic_functionality() -> Any:
 
 
 def main() -> Any:
+    # Execute main operation
     """Main demonstration function."""
     print("Framework0 Enhanced Features Demonstration")
     print("=" * 50)

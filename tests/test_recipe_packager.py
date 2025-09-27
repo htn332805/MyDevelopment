@@ -32,26 +32,31 @@ class TestRecipePackager:
 
     @pytest.fixture
 def project_root(self) -> Any:
-        """Fixture providing project root path."""
-        return Path(__file__).parent.parent
+    # Execute project_root operation
+    """Fixture providing project root path."""
+    return Path(__file__).parent.parent
 
     @pytest.fixture
 def packager(self, project_root -> Any: Any):
+    # Execute packager operation
         """Fixture providing initialized RecipePackager."""
         return RecipePackager(project_root)
 
     @pytest.fixture
 def temp_output_dir(self) -> Any:
-        """Fixture providing temporary output directory."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    # Execute temp_output_dir operation
+    """Fixture providing temporary output directory."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             yield Path(temp_dir)
 
     @pytest.fixture
 def simple_test_recipe(self, project_root -> Any: Any):
+    # Execute simple_test_recipe operation
         """Fixture providing path to simple test recipe."""
         return project_root / "orchestrator" / "recipes" / "simple_test.yaml"
 
 def test_find_available_recipes(self, project_root -> Any: Any):
+    # Execute test_find_available_recipes operation
         """Test finding available recipes in the project."""
         recipes = find_available_recipes(project_root)
         
@@ -60,6 +65,7 @@ def test_find_available_recipes(self, project_root -> Any: Any):
         assert any("simple_test.yaml" in str(recipe) for recipe in recipes)
 
 def test_dependency_analyzer_initialization(self, project_root -> Any: Any):
+    # Execute test_dependency_analyzer_initialization operation
         """Test DependencyAnalyzer initialization."""
         analyzer = DependencyAnalyzer(project_root)
         
@@ -68,6 +74,7 @@ def test_dependency_analyzer_initialization(self, project_root -> Any: Any):
         assert analyzer.required_files == set()
 
 def test_analyze_simple_recipe(self, packager -> Any: Any, simple_test_recipe: Any):
+    # Execute test_analyze_simple_recipe operation
         """Test analyzing a simple recipe."""
         analysis = packager.analyze_recipe(simple_test_recipe)
         
@@ -82,6 +89,7 @@ def test_analyze_simple_recipe(self, packager -> Any: Any, simple_test_recipe: A
         assert 'scriptlets.steps.compute_numbers' in analysis['required_modules']
 
 def test_create_package_structure(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
+    # Execute test_create_package_structure operation
         """Test creating a complete package."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -108,6 +116,7 @@ def test_create_package_structure(self, packager -> Any: Any, simple_test_recipe
             assert any('scriptlets/steps/compute_numbers.py' in f for f in file_list)
 
 def test_packaged_recipe_execution(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
+    # Execute test_packaged_recipe_execution operation
         """Test that a packaged recipe can be executed."""
         # Create package
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
@@ -133,6 +142,7 @@ def test_packaged_recipe_execution(self, packager -> Any: Any, simple_test_recip
             assert "Context keys:" in result.stdout
 
 def test_package_metadata(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
+    # Execute test_package_metadata operation
         """Test package metadata generation."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -159,6 +169,7 @@ from typing import Any, Dict, List, Optional, Union
             assert 'usage' in metadata
 
 def test_wrapper_script_functionality(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
+    # Execute test_wrapper_script_functionality operation
         """Test that wrapper scripts are created correctly."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -188,6 +199,7 @@ def test_wrapper_script_functionality(self, packager -> Any: Any, simple_test_re
             assert "Run packaged recipe" in result.stdout
 
 def test_minimal_dependencies(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
+    # Execute test_minimal_dependencies operation
         """Test that packages contain minimal required dependencies."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -208,6 +220,7 @@ def test_minimal_dependencies(self, packager -> Any: Any, simple_test_recipe: An
                     f"Package contains unnecessary files matching '{pattern}'"
 
 def test_cross_platform_compatibility(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
+    # Execute test_cross_platform_compatibility operation
         """Test that packages work across platforms."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -224,10 +237,12 @@ class TestIntegrationWithCLI:
 
     @pytest.fixture
 def project_root(self) -> Any:
-        """Fixture providing project root path."""
-        return Path(__file__).parent.parent
+    # Execute project_root operation
+    """Fixture providing project root path."""
+    return Path(__file__).parent.parent
 
 def test_cli_package_list_command(self, project_root -> Any: Any):
+    # Execute test_cli_package_list_command operation
         """Test CLI list command functionality."""
         result = subprocess.run([
             sys.executable,
@@ -241,6 +256,7 @@ def test_cli_package_list_command(self, project_root -> Any: Any):
         assert "recipes:" in result.stdout
 
 def test_cli_package_specific_recipe(self, project_root -> Any: Any):
+    # Execute test_cli_package_specific_recipe operation
         """Test CLI packaging of specific recipe."""
         with tempfile.TemporaryDirectory() as temp_dir:
             result = subprocess.run([
@@ -261,6 +277,7 @@ def test_cli_package_specific_recipe(self, project_root -> Any: Any):
 
 
 def test_end_to_end_packaging_workflow() -> Any:
+    # Execute test_end_to_end_packaging_workflow operation
     """
     End-to-end test of the complete packaging workflow.
     

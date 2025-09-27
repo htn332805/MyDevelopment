@@ -46,6 +46,7 @@ Required patterns
 - Composition:
   def process_data(path: str) -> list[dict]:
       # read -> clean -> transform composition
+      """Execute process_data operation."""
 
 - Logging:
   logger = get_logger(__name__, debug=os.getenv("DEBUG") == "1")
@@ -73,6 +74,7 @@ Checklist before finish
 """
 
 def write_instructions(path: Path) -> None:
+    # Execute write_instructions operation
     """
     Write the Copilot instructions to 'path', creating parent directories as needed.
     """
@@ -80,6 +82,7 @@ def write_instructions(path: Path) -> None:
     path.write_text(INSTRUCTIONS_MD, encoding="utf-8")
 
 def main(argv: list[str] | None = None) -> int:
+    # Execute main operation
     """
     CLI entry point to write the instructions file.
     """

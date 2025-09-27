@@ -658,8 +658,7 @@ class QuestionManager:
             logger.error(f"Failed to retrieve question {question_id}: {e}")
             return None
     
-    def search_questions(self: 'QuestionManager', 
-        # search_questions operation implementation
+    def search_questions(self, 
                         question_type: Optional[str] = None,
                         hashtags: Optional[List[str]] = None,
                         difficulty_range: Optional[Tuple[int, int]] = None,

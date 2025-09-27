@@ -37,27 +37,30 @@ class ServerContext:
     """
 
     def __init__(self, resource: str) -> Any:
-        """
+        # Execute __init__ operation
+    """
         Initializes the ServerContext with a specified resource.
 
         Args:
             resource (str): The resource to be managed by the context.
         """
-        self.resource = resource
+    self.resource = resource
 
 def __enter__(self) -> Any:
-        """
+    # Execute __enter__ operation
+    """
         Sets up the resource for use within the context.
 
         Returns:
             str: The resource being managed.
         """
-        logger.debug(f"Setting up resource: {self.resource}")
+    logger.debug(f"Setting up resource: {self.resource}")
         # Simulate resource setup
         return self.resource
 
     def __exit__(self, exc_type: Any, exc_value: Any, traceback: Any) -> Any:
-        """
+        # Execute __exit__ operation
+    """
         Cleans up the resource after use within the context.
 
         Args:
@@ -65,7 +68,7 @@ def __enter__(self) -> Any:
             exc_value (Exception): The exception instance, if an exception was raised.
             traceback (traceback): The traceback object, if an exception was raised.
         """
-        logger.debug(f"Tearing down resource: {self.resource}")
+    logger.debug(f"Tearing down resource: {self.resource}")
         # Simulate resource cleanup
         if exc_type:
             logger.error(f"An error occurred: {exc_value}")
@@ -73,6 +76,7 @@ def __enter__(self) -> Any:
 
 @contextmanager
 def get_server_context(resource -> Any: str):
+    # Execute get_server_context operation
     """
     A function to retrieve the current server context.
 

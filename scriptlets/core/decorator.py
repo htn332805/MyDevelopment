@@ -36,8 +36,8 @@ def decorator(func -> Any: Any):
 """Execute decorator operation."""
         @wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            logger.debug(f"Checking dependency: {dependency_name}")
+    """Execute wrapper operation."""
+    logger.debug(f"Checking dependency: {dependency_name}")
             # Logic to check if the dependency is met
             # For example, check if the dependent task has been executed successfully
             logger.debug(f"Dependency {dependency_name} is satisfied.")
@@ -45,7 +45,7 @@ def wrapper(*args, **kwargs) -> Any:
         return wrapper
     return decorator
 
-def task_retry(retries -> Any: Any=3, delay: Any=2):
+def task_retry(s: Any=3, delay: Any = 2) -> Any::
     """
     Decorator to retry a task upon failure.
 
@@ -60,8 +60,8 @@ def decorator(func -> Any: Any):
 """Execute decorator operation."""
         @wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            attempt = 0
+    """Execute wrapper operation."""
+    attempt = 0
             while attempt < retries:
                 try:
                     logger.debug(f"Attempt {attempt + 1} for task {func.__name__}")
@@ -90,8 +90,8 @@ def task_logging(func -> Any: Any):
     """
     @wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-        logger.info(f"Starting task: {func.__name__}")
+    """Execute wrapper operation."""
+    logger.info(f"Starting task: {func.__name__}")
         result = func(*args, **kwargs)
         logger.info(f"Completed task: {func.__name__}")
         return result

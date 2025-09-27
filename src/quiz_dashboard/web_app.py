@@ -40,9 +40,9 @@ class QuizWebApp:
     RESTful API, and responsive UI with advanced quiz functionality.
     """
     
-def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
+def __init__(self, database_path: str = "quiz_dashboard.db") -> Any:
+    # Execute __init__ operation
         """Initialize Flask web application."""
-        
         # Initialize Flask app
         self.app = Flask(__name__, 
                         template_folder='templates',
@@ -69,9 +69,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         logger.info("QuizWebApp initialized successfully")
     
     def _register_routes(self) -> None:
-        """Register all Flask routes."""
-        
-        # Main dashboard routes
+        # Execute _register_routes operation
+    """Register all Flask routes."""
+    # Main dashboard routes
         self.app.route('/', methods=['GET'])(self.index)
         self.app.route('/dashboard', methods=['GET'])(self.dashboard)
         self.app.route('/student', methods=['GET'])(self.student_dashboard)
@@ -108,17 +108,19 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         self.app.errorhandler(500)(self.handle_500)
     
     def index(self) -> str:
-        """Main landing page."""
-        return render_template('index.html', title='Quiz Dashboard')
+        # Execute index operation
+    """Main landing page."""
+    return render_template('index.html', title='Quiz Dashboard')
     
     def dashboard(self) -> str:
-        """Main dashboard with role selection."""
-        return render_template('dashboard.html', title='Dashboard')
+        # Execute dashboard operation
+    """Main dashboard with role selection."""
+    return render_template('dashboard.html', title='Dashboard')
     
     def student_dashboard(self) -> str:
-        """Student dashboard with available quizzes and progress."""
-        
-        try:
+        # Execute student_dashboard operation
+    """Student dashboard with available quizzes and progress."""
+    try:
             # Get current user (demo user for now)
             user_id = session.get('user_id', 1)
             
@@ -146,9 +148,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return render_template('error.html', error=str(e))
     
     def instructor_dashboard(self) -> str:
-        """Instructor dashboard with question management and analytics."""
-        
-        try:
+        # Execute instructor_dashboard operation
+    """Instructor dashboard with question management and analytics."""
+    try:
             # Get recent questions
             recent_questions = self.question_manager.search_questions(limit=10)
             
@@ -166,9 +168,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return render_template('error.html', error=str(e))
     
     def start_quiz_session(self) -> str:
-        """Start new quiz session."""
-        
-        try:
+        # Execute start_quiz_session operation
+    """Start new quiz session."""
+    try:
             # Get session parameters
             user_id = session.get('user_id', 1)
             question_count = int(request.form.get('question_count', 10))
@@ -211,9 +213,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return redirect(url_for('student_dashboard'))
     
     def quiz_interface(self, session_id: str) -> str:
-        """Main quiz taking interface."""
-        
-        try:
+        # Execute quiz_interface operation
+    """Main quiz taking interface."""
+    try:
             # Validate session
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -236,9 +238,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return redirect(url_for('student_dashboard'))
     
     def get_next_question(self, session_id: str) -> Dict[str, Any]:
-        """API endpoint to get next question in quiz session."""
-        
-        try:
+        # Execute get_next_question operation
+    """API endpoint to get next question in quiz session."""
+    try:
             # Validate session
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -296,9 +298,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return jsonify({'error': str(e)}), 500
     
     def submit_question_answer(self, session_id: str) -> Dict[str, Any]:
-        """API endpoint to submit question answer."""
-        
-        try:
+        # Execute submit_question_answer operation
+    """API endpoint to submit question answer."""
+    try:
             # Validate session
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -372,9 +374,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return jsonify({'error': str(e)}), 500
     
     def complete_quiz_session(self, session_id: str) -> Dict[str, Any]:
-        """API endpoint to complete quiz session."""
-        
-        try:
+        # Execute complete_quiz_session operation
+    """API endpoint to complete quiz session."""
+    try:
             # Get session data
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -408,9 +410,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return jsonify({'error': str(e)}), 500
     
     def create_question(self) -> str:
-        """Create new question interface."""
-        
-        if request.method == 'GET':
+        # Execute create_question operation
+    """Create new question interface."""
+    if request.method == 'GET':
             return render_template('create_question.html',
                                  title='Create Question',
                                  question_types=[t.value for t in QuestionType])
@@ -448,9 +450,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
                              form_data=request.form)
     
     def list_questions(self) -> str:
-        """List all questions with filtering."""
-        
-        try:
+        # Execute list_questions operation
+    """List all questions with filtering."""
+    try:
             # Get filter parameters
             question_type = request.args.get('type')
             difficulty = request.args.get('difficulty')
@@ -492,9 +494,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return render_template('error.html', error=str(e))
     
     def view_question(self, question_id: int) -> str:
-        """View individual question details."""
-        
-        try:
+        # Execute view_question operation
+    """View individual question details."""
+    try:
             question = self.question_manager.get_question(question_id)
             
             if not question:
@@ -511,9 +513,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return redirect(url_for('list_questions'))
     
     def import_questions(self) -> str:
-        """Import questions from JSON file."""
-        
-        if request.method == 'GET':
+        # Execute import_questions operation
+    """Import questions from JSON file."""
+    if request.method == 'GET':
             return render_template('import_questions.html', title='Import Questions')
         
         try:
@@ -566,9 +568,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         return render_template('import_questions.html', title='Import Questions')
     
     def analytics_dashboard(self) -> str:
-        """Analytics dashboard with system statistics."""
-        
-        try:
+        # Execute analytics_dashboard operation
+    """Analytics dashboard with system statistics."""
+    try:
             # Get system-wide statistics
             system_stats = self._get_system_statistics()
             
@@ -582,9 +584,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return render_template('error.html', error=str(e))
     
     def user_analytics(self, user_id: int) -> str:
-        """Individual user analytics page."""
-        
-        try:
+        # Execute user_analytics operation
+    """Individual user analytics page."""
+    try:
             # Get user statistics
             user_stats = self.sr_engine.get_user_statistics(user_id)
             
@@ -601,9 +603,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
     # API endpoints
     
     def api_search_questions(self) -> Dict[str, Any]:
-        """API endpoint for question search."""
-        
-        try:
+        # Execute api_search_questions operation
+    """API endpoint for question search."""
+    try:
             # Get search parameters
             question_type = request.args.get('type')
             hashtags = request.args.getlist('hashtags')
@@ -638,9 +640,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return jsonify({'error': str(e)}), 500
     
     def api_validate_question(self) -> Dict[str, Any]:
-        """API endpoint for question validation."""
-        
-        try:
+        # Execute api_validate_question operation
+    """API endpoint for question validation."""
+    try:
             question_data = request.get_json()
             
             if not question_data:
@@ -664,9 +666,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return jsonify({'error': str(e)}), 500
     
     def api_user_progress(self, user_id: int) -> Dict[str, Any]:
-        """API endpoint for user progress data."""
-        
-        try:
+        # Execute api_user_progress operation
+    """API endpoint for user progress data."""
+    try:
             user_stats = self.sr_engine.get_user_statistics(user_id)
             return jsonify(user_stats)
             
@@ -675,9 +677,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return jsonify({'error': str(e)}), 500
     
     def api_quiz_recommendations(self, user_id: int) -> Dict[str, Any]:
-        """API endpoint for quiz question recommendations."""
-        
-        try:
+        # Execute api_quiz_recommendations operation
+    """API endpoint for quiz question recommendations."""
+    try:
             count = min(int(request.args.get('count', 10)), 50)
             hashtags = request.args.getlist('hashtags')
             difficulty = request.args.get('difficulty')
@@ -712,9 +714,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
     # Helper methods
     
     def _get_quiz_session(self, session_id: str) -> Optional[Dict[str, Any]]:
-        """Get quiz session data by UUID."""
-        
-        try:
+        # Execute _get_quiz_session operation
+    """Get quiz session data by UUID."""
+    try:
             query = """
                 SELECT user_id, session_uuid, started_at, completed_at, status,
                        total_questions, questions_answered, correct_answers,
@@ -748,9 +750,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return None
     
     def _prepare_question_for_client(self, question: Dict[str, Any]) -> Dict[str, Any]:
-        """Prepare question data for client (remove answers)."""
-        
-        # Create copy without correct answers
+        # Execute _prepare_question_for_client operation
+    """Prepare question data for client (remove answers)."""
+    # Create copy without correct answers
         client_question = question.copy()
         
         # Remove correct answer fields based on question type
@@ -775,9 +777,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         return client_question
     
     def _evaluate_answer(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
-        """Evaluate user answer against correct answer."""
-        
-        question_type = question['type']
+        # Execute _evaluate_answer operation
+    """Evaluate user answer against correct answer."""
+    question_type = question['type']
         result = {'is_correct': False, 'score': 0}
         
         try:
@@ -799,9 +801,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         return result
     
     def _evaluate_multiple_choice(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
-        """Evaluate multiple choice answer."""
-        
-        correct_answer = question['correct_answer']
+        # Execute _evaluate_multiple_choice operation
+    """Evaluate multiple choice answer."""
+    correct_answer = question['correct_answer']
         is_correct = str(user_answer) == str(correct_answer)
         
         return {
@@ -811,9 +813,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         }
     
     def _evaluate_true_false(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
-        """Evaluate true/false answer."""
-        
-        correct_answer = question['correct_answer']
+        # Execute _evaluate_true_false operation
+    """Evaluate true/false answer."""
+    correct_answer = question['correct_answer']
         user_bool = str(user_answer).lower() in ('true', '1', 'yes')
         is_correct = user_bool == correct_answer
         
@@ -824,9 +826,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         }
     
     def _evaluate_fill_in_blank(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
-        """Evaluate fill-in-blank answer."""
-        
-        acceptable_answers = question['acceptable_answers']
+        # Execute _evaluate_fill_in_blank operation
+    """Evaluate fill-in-blank answer."""
+    acceptable_answers = question['acceptable_answers']
         case_sensitive = question.get('case_sensitive', False)
         
         user_text = str(user_answer).strip()
@@ -843,9 +845,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         }
     
     def _evaluate_reorder(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
-        """Evaluate reorder/sequence answer."""
-        
-        correct_order = question['correct_order']
+        # Execute _evaluate_reorder operation
+    """Evaluate reorder/sequence answer."""
+    correct_order = question['correct_order']
         user_order = user_answer if isinstance(user_answer, list) else []
         
         # Calculate partial credit
@@ -868,9 +870,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         }
     
     def _evaluate_matching(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
-        """Evaluate matching pairs answer."""
-        
-        correct_matches = question['correct_matches']
+        # Execute _evaluate_matching operation
+    """Evaluate matching pairs answer."""
+    correct_matches = question['correct_matches']
         user_matches = user_answer if isinstance(user_answer, list) else []
         
         # Convert to sets for comparison
@@ -901,9 +903,8 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
                                    time_taken: float,
                                    confidence_level: int,
                                    estimated_time: int) -> float:
-        """Calculate performance score (0-5) for SM-2 algorithm."""
-        
-        # Base score from correctness
+    """Calculate performance score (0-5) for SM-2 algorithm."""
+    # Base score from correctness
         if is_correct:
             base_score = 4.0  # Good performance
         else:
@@ -928,9 +929,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         return max(0.0, min(5.0, base_score))
     
     def _record_quiz_attempt(self, **kwargs) -> int:
-        """Record quiz attempt in database."""
-        
-        query = """
+        # Execute _record_quiz_attempt operation
+    """Record quiz attempt in database."""
+    query = """
             INSERT INTO quiz_attempts (
                 session_id, question_id, user_id, attempted_at, user_answer_json,
                 is_correct, time_taken_seconds, confidence_level
@@ -958,9 +959,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         return result[0][0] if result else 0
     
     def _update_session_progress(self, session_id: str, is_correct: bool) -> None:
-        """Update quiz session progress."""
-        
-        query = """
+        # Execute _update_session_progress operation
+    """Update quiz session progress."""
+    query = """
             UPDATE quiz_sessions 
             SET questions_answered = questions_answered + 1,
                 correct_answers = correct_answers + ?,
@@ -977,8 +978,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         self.database.execute_update(query, params)
     
     def _track_question_in_session(self, session_id: str, question_id: int) -> None:
-        """Track that a question was shown in session."""
-        # This could be implemented to prevent showing the same question twice
+        # Execute _track_question_in_session operation
+    """Track that a question was shown in session."""
+    # This could be implemented to prevent showing the same question twice
         pass
     
     def _select_random_questions(self, 
@@ -987,9 +989,8 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
     """Execute _select_random_questions operation."""
                                 difficulty_level: Optional[int] = None,
                                 hashtags: Optional[List[str]] = None) -> List[int]:
-        """Simple random question selection with filters."""
-        
-        try:
+    """Simple random question selection with filters."""
+    try:
             conditions = ["is_active = 1"]
             params = []
             
@@ -1020,9 +1021,9 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
             return []
     
 def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
-        """Extract question data from form submission."""
-        
-        question_type = form_data.get('question_type')
+    # Execute _extract_question_from_form operation
+    """Extract question data from form submission."""
+    question_type = form_data.get('question_type')
         
         # Base question data
         question_data = {
@@ -1073,9 +1074,9 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
         return question_data
     
     def _get_question_type_statistics(self) -> Dict[str, int]:
-        """Get question count by type."""
-        
-        try:
+        # Execute _get_question_type_statistics operation
+    """Get question count by type."""
+    try:
             query = """
                 SELECT question_type, COUNT(*) as count
                 FROM questions
@@ -1092,9 +1093,9 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
             return {}
     
     def _get_system_statistics(self) -> Dict[str, Any]:
-        """Get system-wide statistics."""
-        
-        try:
+        # Execute _get_system_statistics operation
+    """Get system-wide statistics."""
+    try:
             stats = {}
             
             # Question statistics
@@ -1137,9 +1138,9 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
             return {}
     
     def _calculate_session_statistics(self, session_id: str) -> Dict[str, Any]:
-        """Calculate final statistics for completed session."""
-        
-        try:
+        # Execute _calculate_session_statistics operation
+    """Calculate final statistics for completed session."""
+    try:
             # Session data
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -1188,6 +1189,7 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
     # Static file and error handlers
     
 def serve_static(self, filename -> Any: str):
+    # Execute serve_static operation
         """Serve static files."""
         return send_from_directory(self.app.static_folder, filename)
     
@@ -1205,13 +1207,11 @@ def handle_500(self, error -> Any: Any):
                              error_code=500), 500
     
     def run(self, host: str = '0.0.0.0', port: int = 5000, debug: bool = False) -> None:
-        """Run Flask development server."""
-        
-        logger.info(f"Starting Quiz Dashboard web server on {host}:{port}")
+    """Run Flask development server."""
+    logger.info(f"Starting Quiz Dashboard web server on {host}:{port}")
         self.app.run(host=host, port=port, debug=debug)
 
 
 def create_app(database_path: str = "quiz_dashboard.db") -> QuizWebApp:
     """Create and configure Quiz Dashboard web application."""
-    
     return QuizWebApp(database_path=database_path)

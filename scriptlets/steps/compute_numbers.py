@@ -27,8 +27,8 @@ try:
 except ImportError:
     import logging
     def get_logger(name: str, debug: bool = False) -> logging.Logger:
-        """Fallback logger implementation."""
-        logger = logging.getLogger(name)
+    """Fallback logger implementation."""
+    logger = logging.getLogger(name)
         if not logger.handlers:
             handler = logging.StreamHandler()
             formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -130,7 +130,7 @@ class ComputeNumbers:
     """
     
     def run(self, ctx: Any, params: Dict[str, Any]) -> int:
-        """
+    """
         Execute mathematical operation based on parameters.
         
         Args:
@@ -140,7 +140,7 @@ class ComputeNumbers:
         Returns:
             int: 0 for success, non-zero for failure
         """
-        logger.info("Starting mathematical operation step")
+    logger.info("Starting mathematical operation step")
         
         try:
             operation = params.get('operation', 'factorial')
@@ -197,7 +197,7 @@ class ComputeFactorial:
     """
     
     def run(self, ctx: Any, params: Dict[str, Any]) -> int:
-        """
+    """
         Execute the factorial computation step.
         
         Args:
@@ -207,7 +207,7 @@ class ComputeFactorial:
         Returns:
             int: 0 for success, non-zero for failure
         """
-        logger.info("Starting factorial computation step")
+    logger.info("Starting factorial computation step")
         
         try:
             # Get the number parameter
@@ -238,7 +238,7 @@ class CheckPrime:
     """
     
     def run(self, ctx: Any, params: Dict[str, Any]) -> int:
-        """
+    """
         Execute the prime number check step.
         
         Args:
@@ -248,7 +248,7 @@ class CheckPrime:
         Returns:
             int: 0 for success, non-zero for failure
         """
-        logger.info("Starting prime number check step")
+    logger.info("Starting prime number check step")
         
         try:
             # Get the number parameter
@@ -279,7 +279,7 @@ class GenerateFibonacci:
     """
     
     def run(self, ctx: Any, params: Dict[str, Any]) -> int:
-        """
+    """
         Execute the Fibonacci sequence generation step.
         
         Args:
@@ -289,7 +289,7 @@ class GenerateFibonacci:
         Returns:
             int: 0 for success, non-zero for failure
         """
-        logger.info("Starting Fibonacci sequence generation step")
+    logger.info("Starting Fibonacci sequence generation step")
         
         try:
             # Get the length parameter

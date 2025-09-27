@@ -12,20 +12,22 @@ class DependencyGraph:
     """
 
 def __init__(self) -> Any:
-        """
+    # Execute __init__ operation
+    """
         Initializes an empty directed graph.
         """
-        self.graph = nx.DiGraph()
+    self.graph = nx.DiGraph()
 
     def add_task(self, task_name: str, dependencies: List[str] = []) -> Any:
-        """
+        # Execute add_task operation
+    """
         Adds a task to the graph with its dependencies.
 
         Args:
             task_name (str): The name of the task.
             dependencies (List[str], optional): A list of task names that this task depends on. Defaults to [].
         """
-        # Add the task node to the graph
+    # Add the task node to the graph
         self.graph.add_node(task_name)
 
         # Add edges from dependencies to the current task
@@ -33,18 +35,20 @@ def __init__(self) -> Any:
             self.graph.add_edge(dep, task_name)
 
     def get_task_order(self) -> List[str]:
-        """
+        # Execute get_task_order operation
+    """
         Returns a list of tasks in the order they should be executed, 
         respecting their dependencies.
 
         Returns:
             List[str]: A list of task names in execution order.
         """
-        # Perform a topological sort to get the execution order
+    # Perform a topological sort to get the execution order
         return list(nx.topological_sort(self.graph))
 
     def get_task_dependencies(self, task_name: str) -> List[str]:
-        """
+        # Execute get_task_dependencies operation
+    """
         Returns a list of tasks that the given task depends on.
 
         Args:
@@ -53,11 +57,12 @@ def __init__(self) -> Any:
         Returns:
             List[str]: A list of task names that the given task depends on.
         """
-        # Return the list of predecessors (dependencies) of the task
+    # Return the list of predecessors (dependencies) of the task
         return list(self.graph.predecessors(task_name))
 
     def get_task_dependents(self, task_name: str) -> List[str]:
-        """
+        # Execute get_task_dependents operation
+    """
         Returns a list of tasks that depend on the given task.
 
         Args:
@@ -66,10 +71,11 @@ def __init__(self) -> Any:
         Returns:
             List[str]: A list of task names that depend on the given task.
         """
-        # Return the list of successors (dependents) of the task
+    # Return the list of successors (dependents) of the task
         return list(self.graph.successors(task_name))
 
 def remove_task(self, task_name -> Any: str):
+    # Execute remove_task operation
         """
         Removes a task and all its dependencies from the graph.
 
@@ -80,13 +86,14 @@ def remove_task(self, task_name -> Any: str):
         self.graph.remove_node(task_name)
 
 def visualize(self) -> Any:
-        """
+    # Execute visualize operation
+    """
         Visualizes the dependency graph using matplotlib.
 
         Note:
             Requires matplotlib to be installed.
         """
-        try:
+    try:
             import matplotlib.pyplot as plt
             pos = nx.spring_layout(self.graph)
             nx.draw(self.graph, pos, with_labels=True, node_size=3000, node_color="skyblue")

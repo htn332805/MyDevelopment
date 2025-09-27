@@ -17,12 +17,14 @@ hsc_pin = ""
 
 
 def debug(msg: Any) -> Any:
+    # Execute debug operation
     """Execute debug operation."""
     if DEBUG:
         print(f"[DEBUG] {msg}", file=sys.stderr)
 
 
 def reset_gpu_info() -> Any:
+    # Execute reset_gpu_info operation
     """Execute reset_gpu_info operation."""
     return {"Board temp": "", "HBM temp": "", "Power": "", "Board Serial #": ""}
 

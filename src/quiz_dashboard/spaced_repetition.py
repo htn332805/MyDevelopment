@@ -93,13 +93,12 @@ class SpacedRepetitionEngine:
     question scheduling and difficulty adjustment.
     """
     
-def __init__(self, database -> Any: Optional[QuizDatabase] = None,
-"""Execute __init__ operation."""
+    def __init__(self, database: Optional[QuizDatabase] = None,
                  sm2_params: Optional[SM2Parameters] = None,
-                 selection_weights: Optional[SelectionWeights] = None):
+                 selection_weights: Optional[SelectionWeights] = None) -> Any:
+        # Execute __init__ operation
         """Initialize spaced repetition engine."""
-        
-        self.database = database or get_quiz_database()  # Database connection
+    self.database = database or get_quiz_database()  # Database connection
         self.sm2_params = sm2_params or SM2Parameters()  # SM-2 parameters
         self.selection_weights = selection_weights or SelectionWeights()  # Selection weights
         
@@ -118,9 +117,8 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
                                 performance_score: float,
                                 time_taken_seconds: float,
                                 is_correct: bool) -> QuestionProgress:
-        """Process question attempt and update spaced repetition data."""
-        
-        try:
+    """Process question attempt and update spaced repetition data."""
+    try:
             # Get current progress or create new
             progress = self._get_question_progress(user_id, question_id)
             if not progress:
@@ -168,9 +166,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             raise
     
     def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
-        """Apply SM-2 algorithm to update intervals and easiness."""
-        
-        # Convert performance score to SM-2 quality scale (0-5)
+        # Execute _apply_sm2_algorithm operation
+    """Apply SM-2 algorithm to update intervals and easiness."""
+    # Convert performance score to SM-2 quality scale (0-5)
         quality = min(5, max(0, int(performance_score)))
         
         # Update easiness factor based on performance
@@ -219,9 +217,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
         return progress
     
     def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
-        """Calculate mastery level based on performance history."""
-        
-        if progress.total_attempts == 0:
+        # Execute _calculate_mastery_level operation
+    """Calculate mastery level based on performance history."""
+    if progress.total_attempts == 0:
             return 0.0
         
         # Base mastery from success rate
@@ -254,9 +252,8 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
                              preferred_hashtags: Optional[List[str]] = None,
                              target_difficulty: Optional[int] = None,
                              avoid_recent: bool = True) -> List[int]:
-        """Select next questions using weighted multi-factor algorithm."""
-        
-        try:
+    """Select next questions using weighted multi-factor algorithm."""
+    try:
             # Get available questions with user progress
             candidate_questions = self._get_candidate_questions(user_id, preferred_hashtags, target_difficulty)
             
@@ -312,9 +309,8 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
     """Execute _get_candidate_questions operation."""
                                preferred_hashtags: Optional[List[str]] = None,
                                target_difficulty: Optional[int] = None) -> List[Dict[str, Any]]:
-        """Get candidate questions with user progress data."""
-        
-        try:
+    """Get candidate questions with user progress data."""
+    try:
             # Build query with optional filters
             base_query = """
                 SELECT 
@@ -395,8 +391,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             return []
     
     def _calculate_due_days(self, review_date_str: str) -> int:
-        """Calculate days until/since review date."""
-        try:
+        # Execute _calculate_due_days operation
+    """Calculate days until/since review date."""
+    try:
             review_date = datetime.strptime(review_date_str, "%Y-%m-%d").date()
             today = date.today()
             return (review_date - today).days
@@ -404,9 +401,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             return 0
     
     def _filter_recent_questions(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Filter out recently shown questions for anti-clustering."""
-        
-        filtered = []
+        # Execute _filter_recent_questions operation
+    """Filter out recently shown questions for anti-clustering."""
+    filtered = []
         for candidate in candidates:
             question_id = candidate["question_id"]
             hashtags = candidate["hashtags"]
@@ -430,9 +427,8 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
     """Execute _calculate_selection_score operation."""
                                  preferred_hashtags: Optional[List[str]] = None,
                                  target_difficulty: Optional[int] = None) -> float:
-        """Calculate weighted selection score for question."""
-        
-        weights = self.selection_weights
+    """Calculate weighted selection score for question."""
+    weights = self.selection_weights
         score = 0.0
         
         # Due date factor (higher score for overdue questions)
@@ -485,8 +481,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
         return max(0.0, score)
     
     def _weighted_random_choice(self, weights: List[float]) -> int:
-        """Select index using weighted random selection."""
-        if not weights:
+        # Execute _weighted_random_choice operation
+    """Select index using weighted random selection."""
+    if not weights:
             return 0
         
         total = sum(weights)
@@ -504,9 +501,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
         return len(weights) - 1
     
     def _update_recent_questions(self, question_ids: List[int]) -> None:
-        """Update anti-clustering state with recently shown questions."""
-        
-        # Add new question IDs
+        # Execute _update_recent_questions operation
+    """Update anti-clustering state with recently shown questions."""
+    # Add new question IDs
         self._recent_questions.extend(question_ids)
         
         # Trim to window size
@@ -536,9 +533,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             logger.warning(f"Failed to update recent hashtags: {e}")
     
     def _get_question_progress(self, user_id: int, question_id: int) -> Optional[QuestionProgress]:
-        """Retrieve question progress from database."""
-        
-        try:
+        # Execute _get_question_progress operation
+    """Retrieve question progress from database."""
+    try:
             query = """
                 SELECT user_id, question_id, easiness_factor, repetition_count,
                        interval_days, next_review_date, last_reviewed_at,
@@ -579,9 +576,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             return None
     
     def _save_question_progress(self, progress: QuestionProgress) -> None:
-        """Save question progress to database."""
-        
-        try:
+        # Execute _save_question_progress operation
+    """Save question progress to database."""
+    try:
             query = """
                 INSERT OR REPLACE INTO user_progress (
                     user_id, question_id, easiness_factor, repetition_count,
@@ -614,9 +611,9 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             raise
     
     def get_user_statistics(self, user_id: int) -> Dict[str, Any]:
-        """Get comprehensive learning statistics for user."""
-        
-        try:
+        # Execute get_user_statistics operation
+    """Get comprehensive learning statistics for user."""
+    try:
             # Basic progress statistics
             stats_query = """
                 SELECT 
@@ -692,6 +689,7 @@ _engine_lock = threading.Lock()
 
 
 def get_spaced_repetition_engine(database: Optional[QuizDatabase] = None) -> SpacedRepetitionEngine:
+    # Execute get_spaced_repetition_engine operation
     """Get global spaced repetition engine instance."""
     global _sr_engine
     

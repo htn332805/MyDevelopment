@@ -45,14 +45,16 @@ class DatabaseAdapter:
     """
 
 def __init__(self) -> Any:
-        """
+    # Execute __init__ operation
+    """
         Initializes the DatabaseAdapter instance.
         """
-        self.engine = None
+    self.engine = None
         self.Session = None
         self.metadata = MetaData()
 
 def connect(self, database_url -> Any: str):
+    # Execute connect operation
         """
         Establishes a connection to the database.
 
@@ -72,13 +74,14 @@ def connect(self, database_url -> Any: str):
             raise
 
 def disconnect(self) -> Any:
-        """
+    # Execute disconnect operation
+    """
         Closes the database connection.
 
         Raises:
             SQLAlchemyError: If there is an error during disconnection.
         """
-        try:
+    try:
             if self.engine:
                 self.engine.dispose()
                 logger.info("Disconnected from database")
@@ -87,7 +90,8 @@ def disconnect(self) -> Any:
             raise
 
 def create_session(self) -> Any:
-        """
+    # Execute create_session operation
+    """
         Creates a new session for database operations.
 
         Returns:
@@ -96,7 +100,7 @@ def create_session(self) -> Any:
         Raises:
             SQLAlchemyError: If session creation fails.
         """
-        try:
+    try:
             session = self.Session()
             logger.debug("Created new database session")
             return session
@@ -104,7 +108,8 @@ def create_session(self) -> Any:
             logger.error(f"Failed to create session: {e}")
             raise
 
-def execute_query(self, query -> Any: str, params: dict = None):
+def execute_query(y: str, params: dict  = None) -> Any::
+    # Execute execute_query operation
         """
         Executes a raw SQL query.
 
@@ -128,6 +133,7 @@ def execute_query(self, query -> Any: str, params: dict = None):
             raise
 
 def create_table(self, table_class -> Any: Base):
+    # Execute create_table operation
         """
         Creates a table based on the provided class.
 
@@ -145,6 +151,7 @@ def create_table(self, table_class -> Any: Base):
             raise
 
 def drop_table(self, table_class -> Any: Base):
+    # Execute drop_table operation
         """
         Drops the table corresponding to the provided class.
 

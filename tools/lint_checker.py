@@ -4,6 +4,7 @@ import os  # Operating system interface for file operations
 from typing import List  # Type hints for better code quality, Any
 
 def check_comments_and_typing(file_path: str) -> List[str]:
+    # Execute check_comments_and_typing operation
     """Check Python file for compliance with team standards for comments and typing."""
     with open(file_path, "r", encoding="utf-8") as f:  # Read file with UTF-8 encoding
         lines = f.readlines()  # Read all lines into list
@@ -33,6 +34,7 @@ def check_comments_and_typing(file_path: str) -> List[str]:
     return errors  # Return list of compliance errors
 
 def scan_directory(path: str = "src") -> List[str]:
+    # Execute scan_directory operation
     """Scan directory recursively for Python files and check compliance."""
     all_errors = []  # Initialize list to collect all errors from directory scan
     for root, _, files in os.walk(path):  # Walk through directory tree

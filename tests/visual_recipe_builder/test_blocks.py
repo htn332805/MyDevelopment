@@ -27,8 +27,9 @@ class TestBlockInput:
     """Test BlockInput class functionality."""
     
 def test_block_input_creation(self) -> Any:
-        """Test creating a BlockInput instance."""
-        input_def = BlockInput(
+    # Execute test_block_input_creation operation
+    """Test creating a BlockInput instance."""
+    input_def = BlockInput(
             name="test_param",
             label="Test Parameter",
             input_type=InputType.TEXT,
@@ -45,8 +46,9 @@ def test_block_input_creation(self) -> Any:
         assert input_def.description == "Test parameter description"
     
 def test_block_input_to_dict(self) -> Any:
-        """Test BlockInput serialization to dictionary."""
-        input_def = BlockInput(
+    # Execute test_block_input_to_dict operation
+    """Test BlockInput serialization to dictionary."""
+    input_def = BlockInput(
             name="file_path",
             label="File Path",
             input_type=InputType.FILE_PATH,
@@ -73,8 +75,9 @@ class TestBlockLibrary:
     """Test BlockLibrary class functionality."""
     
 def test_block_library_initialization(self) -> Any:
-        """Test BlockLibrary creates core blocks."""
-        library = BlockLibrary()
+    # Execute test_block_library_initialization operation
+    """Test BlockLibrary creates core blocks."""
+    library = BlockLibrary()
         blocks = library.get_blocks()
         
         # Should have core blocks
@@ -85,8 +88,9 @@ def test_block_library_initialization(self) -> Any:
         assert "data_validator" in blocks
     
 def test_get_block_by_id(self) -> Any:
-        """Test retrieving specific block by ID."""
-        library = BlockLibrary()
+    # Execute test_get_block_by_id operation
+    """Test retrieving specific block by ID."""
+    library = BlockLibrary()
         
         block = library.get_block("csv_processor")
         assert block is not None
@@ -98,8 +102,9 @@ def test_get_block_by_id(self) -> Any:
         assert library.get_block("nonexistent") is None
     
 def test_add_custom_block(self) -> Any:
-        """Test adding custom block to library."""
-        library = BlockLibrary()
+    # Execute test_add_custom_block operation
+    """Test adding custom block to library."""
+    library = BlockLibrary()
         initial_count = len(library.get_blocks())
         
         custom_block = Block(

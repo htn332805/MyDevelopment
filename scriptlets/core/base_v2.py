@@ -80,7 +80,7 @@ class BaseScriptletV2(ABC):
     error handling, configuration management, and context integration.
     """
 
-def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
+def __init__(g: Optional[ScriptletConfig]  = None) -> Any::
         """
         Initialize enhanced scriptlet.
         
@@ -111,8 +111,8 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
 
     @property
     def execution_duration(self) -> Optional[float]:
-        """Get execution duration if available."""
-        if self.start_time and self.end_time:
+    """Get execution duration if available."""
+    if self.start_time and self.end_time:
             return self.end_time - self.start_time
         elif self.start_time:
             return time.time() - self.start_time
@@ -120,29 +120,29 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
 
     @property
     def is_executing(self) -> bool:
-        """Check if scriptlet is currently executing."""
-        return self.state == ScriptletState.EXECUTING
+    """Check if scriptlet is currently executing."""
+    return self.state == ScriptletState.EXECUTING
 
     def add_pre_execution_hook(self, hook: Callable[['BaseScriptletV2', ContextV2], None]) -> None:
-        """Add pre-execution hook."""
-        self._pre_execution_hooks.append(hook)
+    """Add pre-execution hook."""
+    self._pre_execution_hooks.append(hook)
         self.logger.debug(f"Added pre-execution hook: {hook.__name__}")
 
     def add_post_execution_hook(self, hook: Callable[['BaseScriptletV2', ScriptletResult], None]) -> None:
-        """Add post-execution hook."""
-        self._post_execution_hooks.append(hook)
+    """Add post-execution hook."""
+    self._post_execution_hooks.append(hook)
         self.logger.debug(f"Added post-execution hook: {hook.__name__}")
 
     def add_error_handler(self, handler: Callable[['BaseScriptletV2', Exception], Optional[ScriptletResult]]) -> None:
-        """Add error handler."""
-        self._error_handlers.append(handler)
+    """Add error handler."""
+    self._error_handlers.append(handler)
         self.logger.debug(f"Added error handler: {handler.__name__}")
 
     @monitor_resources(log_metrics=True)
     @debug_trace(capture_vars=["params"])
     @enhanced_retry(max_attempts=1)  # Default no retry, override in config
     def run(self, context: ContextV2, params: Dict[str, Any]) -> int:
-        """
+    """
         Execute scriptlet with comprehensive monitoring and error handling.
         
         Args:
@@ -152,7 +152,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         Returns:
             int: Exit code (0 for success, non-zero for failure)
         """
-        self._context = context  # Store context reference
+    self._context = context  # Store context reference
         self.start_time = time.time()  # Record start time
         self.state = ScriptletState.VALIDATING  # Update state
         
@@ -216,16 +216,16 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
             return self._handle_completion(error_result)
 
     def _execute_hooks(self, hooks: List[Callable], *args) -> None:
-        """Execute lifecycle hooks safely."""
-        for hook in hooks:
+    """Execute lifecycle hooks safely."""
+    for hook in hooks:
             try:
                 hook(self, *args)
             except Exception as e:
                 self.logger.error(f"Hook {hook.__name__} failed: {e}")
 
     def _handle_error(self, error: Exception, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """Handle execution errors with custom error handlers."""
-        self.state = ScriptletState.FAILED
+    """Handle execution errors with custom error handlers."""
+    self.state = ScriptletState.FAILED
         
         self.logger.error(f"Scriptlet {self.name} failed: {error}", exc_info=True)
         
@@ -247,8 +247,8 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         )
 
     def _handle_completion(self, result: ScriptletResult) -> int:
-        """Handle scriptlet completion with cleanup and logging."""
-        self.end_time = time.time()
+    """Handle scriptlet completion with cleanup and logging."""
+    self.end_time = time.time()
         result.duration = self.execution_duration or 0.0
         
         # Update state based on result
@@ -285,7 +285,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         return result.exit_code
 
     def validate(self, context: ContextV2, params: Dict[str, Any]) -> bool:
-        """
+    """
         Validate scriptlet parameters and context state.
         
         Args:
@@ -295,7 +295,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         Returns:
             bool: True if validation passes
         """
-        try:
+    try:
             # Basic parameter validation
             validation_rules = self.config.validation_rules
             
@@ -324,7 +324,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
             return False
 
     def validate_custom(self, context: ContextV2, params: Dict[str, Any]) -> bool:
-        """
+    """
         Custom validation logic - override in subclasses.
         
         Args:
@@ -334,11 +334,11 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         Returns:
             bool: True if validation passes
         """
-        return True  # Override in subclasses
+    return True  # Override in subclasses
 
     @abstractmethod
     def execute(self, context: ContextV2, params: Dict[str, Any]) -> Union[ScriptletResult, int, Any]:
-        """
+    """
         Main scriptlet execution logic - must be implemented by subclasses.
         
         Args:
@@ -348,25 +348,25 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         Returns:
             Union[ScriptletResult, int, Any]: Execution result
         """
-        raise NotImplementedError("Subclasses must implement execute method")
+    raise NotImplementedError("Subclasses must implement execute method")
 
     def get_capabilities(self) -> List[str]:
-        """
+    """
         Get list of scriptlet capabilities.
         
         Returns:
             List[str]: List of capability names
         """
-        return ["execute", "validate", "monitor"]
+    return ["execute", "validate", "monitor"]
 
     def get_metadata(self) -> Dict[str, Any]:
-        """
+    """
         Get scriptlet metadata.
         
         Returns:
             Dict[str, Any]: Scriptlet metadata
         """
-        return {
+    return {
             "name": self.name,
             "state": self.state.value,
             "capabilities": self.get_capabilities(),
@@ -383,7 +383,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         }
 
     def export_execution_data(self, include_context: bool = False) -> Dict[str, Any]:
-        """
+    """
         Export comprehensive execution data.
         
         Args:
@@ -392,7 +392,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         Returns:
             Dict[str, Any]: Execution data
         """
-        data = {
+    data = {
             "metadata": self.get_metadata(),
             "config": {
                 "parameters": self.config.parameters,
@@ -423,9 +423,9 @@ class ComputeScriptletV2(BaseScriptletV2):
     with automatic result caching and optimization.
     """
 
-def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
+def __init__(g: Optional[ScriptletConfig] = None,
 """Execute __init__ operation."""
-                 enable_caching: bool = True):
+                 enable_caching: bool  = True) -> Any::
         """
         Initialize compute scriptlet.
         
@@ -440,8 +440,8 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
         self.logger.debug(f"ComputeScriptletV2 '{self.name}' initialized with caching={enable_caching}")
 
     def _generate_cache_key(self, params: Dict[str, Any]) -> str:
-        """Generate cache key from parameters."""
-        import hashlib
+    """Generate cache key from parameters."""
+    import hashlib
         import json
         
         # Create stable JSON representation
@@ -449,7 +449,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
         return hashlib.md5(param_json.encode()).hexdigest()
 
     def execute(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """
+    """
         Execute compute task with caching support.
         
         Args:
@@ -459,7 +459,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
         Returns:
             ScriptletResult: Computation result
         """
-        # Check cache if enabled
+    # Check cache if enabled
         if self.enable_caching:
             cache_key = self._generate_cache_key(params)
             if cache_key in self._result_cache:
@@ -485,7 +485,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
 
     @abstractmethod
     def compute(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """
+    """
         Perform actual computation - must be implemented by subclasses.
         
         Args:
@@ -495,7 +495,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
         Returns:
             ScriptletResult: Computation result
         """
-        raise NotImplementedError("Subclasses must implement compute method")
+    raise NotImplementedError("Subclasses must implement compute method")
 
 
 class IOScriptletV2(BaseScriptletV2):
@@ -506,10 +506,10 @@ class IOScriptletV2(BaseScriptletV2):
     or database operations with automatic retry and error handling.
     """
 
-def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
+def __init__(g: Optional[ScriptletConfig] = None,
 """Execute __init__ operation."""
                  retry_attempts: int = 3,
-                 retry_delay: float = 1.0):
+                 retry_delay: float  = 1.0) -> Any::
         """
         Initialize I/O scriptlet.
         
@@ -527,7 +527,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
 
     @enhanced_retry(max_attempts=3, delay=1.0, exceptions=(IOError, ConnectionError, TimeoutError))
     def execute(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """
+    """
         Execute I/O operation with automatic retry.
         
         Args:
@@ -537,11 +537,11 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
         Returns:
             ScriptletResult: I/O operation result
         """
-        return self.perform_io(context, params)
+    return self.perform_io(context, params)
 
     @abstractmethod
     def perform_io(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """
+    """
         Perform actual I/O operation - must be implemented by subclasses.
         
         Args:
@@ -551,7 +551,7 @@ def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
         Returns:
             ScriptletResult: I/O operation result
         """
-        raise NotImplementedError("Subclasses must implement perform_io method")
+    raise NotImplementedError("Subclasses must implement perform_io method")
 
 
 # Factory functions for creating enhanced scriptlets

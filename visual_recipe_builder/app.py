@@ -26,6 +26,7 @@ logger = get_logger(__name__)
 
 
 def create_visual_recipe_app(debug: bool = False, port: int = 8050) -> dash.Dash:
+    # Execute create_visual_recipe_app operation
     """
     Create and configure the Visual Recipe Builder Dash application.
     
@@ -56,6 +57,7 @@ def create_visual_recipe_app(debug: bool = False, port: int = 8050) -> dash.Dash
 
 
 def create_app_layout(block_library: Any) -> html.Div:
+    # Execute create_app_layout operation
     """
     Create the main application layout.
     
@@ -143,6 +145,7 @@ def create_app_layout(block_library: Any) -> html.Div:
 
 
 def create_block_library_panel(block_library: Any) -> html.Div:
+    # Execute create_block_library_panel operation
     """
     Create the block library panel with categorized blocks.
     
@@ -193,6 +196,7 @@ def create_block_library_panel(block_library: Any) -> html.Div:
 
 
 def create_empty_canvas() -> go.Figure:
+    # Execute create_empty_canvas operation
     """Create an empty canvas for recipe design."""
     fig = go.Figure()
     
@@ -210,7 +214,8 @@ def create_empty_canvas() -> go.Figure:
     return fig
 
 
-def create_step_properties_panel(step_data: Optional[Dict[str, Any]],
+def create_step_properties_panel(step_data -> Any: Optional[Dict[str, Any]],
+    # Execute create_step_properties_panel operation
 """Execute create_step_properties_panel operation."""
                                block_library) -> List[html.Div]:
     """
@@ -277,6 +282,7 @@ def create_step_properties_panel(step_data: Optional[Dict[str, Any]],
 
 
 def create_parameter_input(input_def: BlockInput, value: Any) -> dcc.Input:
+    # Execute create_parameter_input operation
     """Create appropriate input component for parameter type."""
     if input_def.input_type == InputType.TEXT:
         return dcc.Input(
@@ -326,6 +332,7 @@ def create_parameter_input(input_def: BlockInput, value: Any) -> dcc.Input:
 
 
 def register_callbacks(app -> Any: dash.Dash, block_library: Any, recipe_generator: Any):
+    # Execute register_callbacks operation
     """Register all Dash callbacks."""
     
     @app.callback(
@@ -335,6 +342,7 @@ def register_callbacks(app -> Any: dash.Dash, block_library: Any, recipe_generat
         [State('recipe-name', 'value')]
     )
 def create_new_recipe(n_clicks -> Any: Any, recipe_name: Any):
+    # Execute create_new_recipe operation
         """Create a new empty recipe."""
         if n_clicks == 0:
             return None, "Ready to create a new recipe"
@@ -362,6 +370,7 @@ def create_new_recipe(n_clicks -> Any: Any, recipe_name: Any):
          Input('selected-step', 'data')]
     )
 def update_canvas_and_properties(recipe_data -> Any: Any, selected_step: Any):
+    # Execute update_canvas_and_properties operation
         """Update the canvas display and properties panel."""
         fig = create_empty_canvas()
         properties = create_step_properties_panel(selected_step, block_library)
@@ -412,6 +421,7 @@ def update_canvas_and_properties(recipe_data -> Any: Any, selected_step: Any):
         [State('current-recipe', 'data')]
     )
 def generate_yaml(n_clicks -> Any: Any, recipe_data: Any):
+    # Execute generate_yaml operation
         """Generate YAML from visual recipe."""
         if n_clicks == 0 or not recipe_data:
             return "Click 'Generate YAML' to see the recipe"
@@ -428,6 +438,7 @@ def generate_yaml(n_clicks -> Any: Any, recipe_data: Any):
 
 
 def main() -> Any:
+    # Execute main operation
     """Main entry point for running the application."""
     import argparse
     

@@ -31,8 +31,9 @@ class VisualStep:
     enabled: bool = True  # Whether step is enabled
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary for serialization."""
-        return {
+        # Execute to_dict operation
+    """Convert to dictionary for serialization."""
+    return {
             "block_id": self.block_id,
             "step_name": self.step_name,
             "position": self.position,
@@ -55,8 +56,9 @@ class VisualRecipe:
     modified_at: datetime  # Last modification
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary for serialization."""
-        return {
+        # Execute to_dict operation
+    """Convert to dictionary for serialization."""
+    return {
             "recipe_id": self.recipe_id,
             "name": self.name,
             "description": self.description,
@@ -76,7 +78,8 @@ class RecipeGenerator:
     from visual block compositions.
     """
     
-def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
+def __init__(y: Optional[BlockLibrary]  = None) -> Any::
+    # Execute __init__ operation
         """
         Initialize recipe generator.
         
@@ -87,10 +90,11 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         self.block_library = block_library or get_block_library()
         self.logger.info("RecipeGenerator initialized")
     
-    def create_visual_recipe(self, name: str, description: str = "", 
+    def create_visual_recipe(self, name -> Any: str, description: str = "", 
+        # Execute create_visual_recipe operation
     """Execute create_visual_recipe operation."""
                            author: str = "Visual Recipe Builder") -> VisualRecipe:
-        """
+    """
         Create a new empty visual recipe.
         
         Args:
@@ -101,7 +105,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Returns:
             VisualRecipe: New visual recipe instance
         """
-        recipe_id = str(uuid.uuid4())
+    recipe_id = str(uuid.uuid4())
         now = datetime.now()
         
         recipe = VisualRecipe(
@@ -118,12 +122,13 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         self.logger.info(f"Created new visual recipe: {name} ({recipe_id})")
         return recipe
     
-    def add_step_to_recipe(self, recipe: VisualRecipe, block_id: str,
+    def add_step_to_recipe(self, recipe -> Any: VisualRecipe, block_id: str,
+        # Execute add_step_to_recipe operation
     """Execute add_step_to_recipe operation."""
                           position: Tuple[float, float], 
                           parameters: Optional[Dict[str, Any]] = None,
                           step_name: Optional[str] = None) -> VisualStep:
-        """
+    """
         Add a visual step to a recipe.
         
         Args:
@@ -139,7 +144,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Raises:
             ValueError: If block_id is not found in library
         """
-        # Validate block exists
+    # Validate block exists
         block = self.block_library.get_block(block_id)
         if not block:
             raise ValueError(f"Block not found: {block_id}")
@@ -172,10 +177,11 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         self.logger.info(f"Added step '{step_name}' to recipe '{recipe.name}'")
         return step
     
-    def set_step_dependencies(self, recipe: VisualRecipe, step_name: str,
+    def set_step_dependencies(self, recipe -> Any: VisualRecipe, step_name: str,
+        # Execute set_step_dependencies operation
     """Execute set_step_dependencies operation."""
                             dependencies: List[str]) -> None:
-        """
+    """
         Set dependencies for a step.
         
         Args:
@@ -186,7 +192,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Raises:
             ValueError: If step is not found
         """
-        step = self._find_step_by_name(recipe, step_name)
+    step = self._find_step_by_name(recipe, step_name)
         if not step:
             raise ValueError(f"Step not found: {step_name}")
         
@@ -200,10 +206,11 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         
         self.logger.info(f"Set dependencies for step '{step_name}': {dependencies}")
     
-    def update_step_parameters(self, recipe: VisualRecipe, step_name: str,
+    def update_step_parameters(self, recipe -> Any: VisualRecipe, step_name: str,
+        # Execute update_step_parameters operation
     """Execute update_step_parameters operation."""
                              parameters: Dict[str, Any]) -> None:
-        """
+    """
         Update parameters for a step.
         
         Args:
@@ -214,7 +221,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Raises:
             ValueError: If step is not found
         """
-        step = self._find_step_by_name(recipe, step_name)
+    step = self._find_step_by_name(recipe, step_name)
         if not step:
             raise ValueError(f"Step not found: {step_name}")
         
@@ -224,7 +231,8 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         self.logger.info(f"Updated parameters for step '{step_name}'")
     
     def remove_step_from_recipe(self, recipe: VisualRecipe, step_name: str) -> None:
-        """
+        # Execute remove_step_from_recipe operation
+    """
         Remove a step from the recipe.
         
         Args:
@@ -234,7 +242,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Raises:
             ValueError: If step is not found
         """
-        step = self._find_step_by_name(recipe, step_name)
+    step = self._find_step_by_name(recipe, step_name)
         if not step:
             raise ValueError(f"Step not found: {step_name}")
         
@@ -250,7 +258,8 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         self.logger.info(f"Removed step '{step_name}' from recipe '{recipe.name}'")
     
     def validate_recipe(self, recipe: VisualRecipe) -> Tuple[bool, List[str]]:
-        """
+        # Execute validate_recipe operation
+    """
         Validate a visual recipe for correctness.
         
         Args:
@@ -259,7 +268,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Returns:
             Tuple[bool, List[str]]: (is_valid, error_messages)
         """
-        errors = []
+    errors = []
         
         # Check for empty recipe
         if not recipe.steps:
@@ -290,7 +299,8 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         return is_valid, errors
     
     def generate_yaml_recipe(self, recipe: VisualRecipe) -> str:
-        """
+        # Execute generate_yaml_recipe operation
+    """
         Generate Framework0 YAML recipe from visual recipe.
         
         Args:
@@ -302,7 +312,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Raises:
             ValueError: If recipe validation fails
         """
-        # Validate recipe first
+    # Validate recipe first
         is_valid, errors = self.validate_recipe(recipe)
         if not is_valid:
             raise ValueError(f"Recipe validation failed: {'; '.join(errors)}")
@@ -345,7 +355,8 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         return yaml_content
     
     def export_visual_recipe(self, recipe: VisualRecipe) -> Dict[str, Any]:
-        """
+        # Execute export_visual_recipe operation
+    """
         Export visual recipe to dictionary for saving.
         
         Args:
@@ -354,10 +365,11 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Returns:
             Dict[str, Any]: Serializable recipe data
         """
-        return recipe.to_dict()
+    return recipe.to_dict()
     
     def import_visual_recipe(self, recipe_data: Dict[str, Any]) -> VisualRecipe:
-        """
+        # Execute import_visual_recipe operation
+    """
         Import visual recipe from dictionary.
         
         Args:
@@ -366,7 +378,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         Returns:
             VisualRecipe: Imported recipe
         """
-        # Convert steps
+    # Convert steps
         steps = []
         for step_data in recipe_data.get("steps", []):
             step = VisualStep(
@@ -395,8 +407,9 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         return recipe
     
     def _generate_step_name(self, recipe: VisualRecipe, base_name: str) -> str:
-        """Generate a unique step name."""
-        existing_names = {step.step_name for step in recipe.steps}
+        # Execute _generate_step_name operation
+    """Generate a unique step name."""
+    existing_names = {step.step_name for step in recipe.steps}
         
         # Clean base name
         clean_name = base_name.lower().replace(" ", "_")
@@ -412,15 +425,17 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         return f"{clean_name}_{counter}"
     
     def _find_step_by_name(self, recipe: VisualRecipe, step_name: str) -> Optional[VisualStep]:
-        """Find step by name in recipe."""
-        for step in recipe.steps:
+        # Execute _find_step_by_name operation
+    """Find step by name in recipe."""
+    for step in recipe.steps:
             if step.step_name == step_name:
                 return step
         return None
     
     def _validate_step(self, step: VisualStep) -> List[str]:
-        """Validate a single step."""
-        errors = []
+        # Execute _validate_step operation
+    """Validate a single step."""
+    errors = []
         
         # Get block definition
         block = self.block_library.get_block(step.block_id)
@@ -436,8 +451,9 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         return errors
     
     def _has_circular_dependencies(self, recipe: VisualRecipe) -> bool:
-        """Check for circular dependencies in recipe."""
-        # Build adjacency list
+        # Execute _has_circular_dependencies operation
+    """Check for circular dependencies in recipe."""
+    # Build adjacency list
         graph = {}
         for step in recipe.steps:
             graph[step.step_name] = step.dependencies
@@ -447,6 +463,7 @@ def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         rec_stack = set()
         
 def dfs(node -> Any: Any):
+    # Execute dfs operation
 """Execute dfs operation."""
             if node in rec_stack:
                 return True
@@ -471,13 +488,15 @@ def dfs(node -> Any: Any):
         return False
     
     def _resolve_step_order(self, recipe: VisualRecipe) -> List[VisualStep]:
-        """Resolve execution order for steps based on dependencies."""
-        # Simple topological sort
+        # Execute _resolve_step_order operation
+    """Resolve execution order for steps based on dependencies."""
+    # Simple topological sort
         step_map = {step.step_name: step for step in recipe.steps}
         visited = set()
         result = []
         
 def visit(step_name -> Any: Any):
+    # Execute visit operation
 """Execute visit operation."""
             if step_name in visited:
                 return

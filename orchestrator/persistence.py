@@ -15,11 +15,12 @@ class PersistenceManager:
     and can perform full snapshotting or delta-only flushing.
     """
 
-def __init__( self, persist_dir -> Any: str = "persist",
+def __init__(r -> Any: str = "persist",
+    # Execute __init__ operation
 """Execute __init__ operation."""
         flush_interval_sec: Optional[int] = 10,
-        max_history: Optional[int] = None,
-    ):
+        max_history: Optional[int]  = None,
+    ) -> Any::
         """Execute __init__ operation."""
         """
         :param persist_dir: Directory where serialized snapshots or delta files go.
@@ -39,15 +40,17 @@ def __init__( self, persist_dir -> Any: str = "persist",
         self._timer_thread: Optional[threading.Thread] = None
 
     def start_background_flush(self, ctx: Context) -> None:
-        """
+        # Execute start_background_flush operation
+    """
         Begin a background thread that periodically flushes dirty keys
         from the context to disk / persistent storage.
         """
-        if self.flush_interval_sec is None:
+    if self.flush_interval_sec is None:
             return
 
         def _flush_loop() -> Any:
             # _flush_loop operation implementation
+            """Execute _flush_loop operation."""
             while not self._stop_event.is_set():
                 time.sleep(self.flush_interval_sec)
                 try:
@@ -61,20 +64,22 @@ def __init__( self, persist_dir -> Any: str = "persist",
         t.start()
 
     def stop_background_flush(self) -> None:
-        """
+        # Execute stop_background_flush operation
+    """
         Signal the background flush thread to stop, and join it.
         """
-        self._stop_event.set()
+    self._stop_event.set()
         if self._timer_thread:
             self._timer_thread.join(timeout=1.0)
 
     def flush(self, ctx: Context) -> None:
-        """
+        # Execute flush operation
+    """
         Persist the current context state or dirty deltas to disk.
         For now, this writes a full snapshot JSON. You may later optimize
         to delta-only or compressed storage.
         """
-        with self._lock:
+    with self._lock:
             snapshot = ctx.to_dict()
 
             # Optionally trim history if too long
@@ -101,11 +106,12 @@ def __init__( self, persist_dir -> Any: str = "persist",
             os.replace(tmp, fname)
 
     def load_latest(self) -> Optional[Context]:
-        """
+        # Execute load_latest operation
+    """
         Load the most recent snapshot file, reconstruct into a Context.
         Returns None if no snapshot exists.
         """
-        # List files matching snapshot pattern
+    # List files matching snapshot pattern
         entries = os.listdir(self.persist_dir)
         snaps: List[str] = []
         for e in entries:

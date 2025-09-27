@@ -16,6 +16,7 @@ class Context:
 
     def __init__(self) -> None:
         # Internal storage of context key → value
+        """Execute __init__ operation."""
         # Values must be JSON-serializable (primitives, dict, list, etc.)
         self._data: Dict[str, Any] = {}
 
@@ -38,20 +39,23 @@ class Context:
         # self._lock = threading.Lock()
 
     def get(self, key: str) -> Optional[Any]:
-        """
+        # Execute get operation
+    """
         Retrieve the value for a given dotted key.
         Returns None if the key is absent.
         """
-        return self._data.get(key)
+    return self._data.get(key)
 
     def to_dict(self) -> Dict[str, Any]:
-        """
+        # Execute to_dict operation
+    """
         Return a shallow copy of the full context data.
         Useful for snapshotting or exporting.
         """
-        return dict(self._data)
+    return dict(self._data)
 
     def set(self, key: str, value: Any, who: Optional[str] = None) -> None:
+        # Execute set operation
         """
         Set a context key to a new value.
 
@@ -86,23 +90,26 @@ class Context:
         self._history.append(rec)
 
     def pop_dirty_keys(self) -> List[str]:
-        """
+        # Execute pop_dirty_keys operation
+    """
         Return the list of keys that have changed (“dirty”) since last flush,
         and clear the dirty set.
         Use this in persistence logic to only store deltas.
         """
-        keys = list(self._dirty_keys)
+    keys = list(self._dirty_keys)
         self._dirty_keys.clear()
         return keys
 
     def get_history(self) -> List[Dict[str, Any]]:
-        """
+        # Execute get_history operation
+    """
         Return the full change history (immutable copy).
         Useful for debugging, auditing, or replay.
         """
-        return list(self._history)
+    return list(self._history)
 
     def merge_from(self, other: "Context", *, prefix: Optional[str] = None) -> None:
+        # Execute merge_from operation
         """
         Merge changes from another Context instance into this one.
         Optionally apply a prefix to all keys from `other`.
@@ -126,19 +133,21 @@ class Context:
             self.set(key, rec["after"], who=rec.get("step"))
 
     def to_json(self) -> str:
-        """
+        # Execute to_json operation
+    """
         Serialize the current context to a JSON string.
         This is a snapshot view (no history, just data).
         """
-        return json.dumps(self._data)
+    return json.dumps(self._data)
 
     @classmethod
     def from_json(cls: Any, j: str) -> "Context":
-        """
+        # Execute from_json operation
+    """
         Reconstruct a Context from a JSON snapshot (just data, no history).
         History will be empty in the reconstructed instance.
         """
-        inst = cls()
+    inst = cls()
         d = json.loads(j)
         for k, v in d.items():
             inst._data[k] = v
