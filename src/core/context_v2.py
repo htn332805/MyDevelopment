@@ -82,7 +82,7 @@ class ContextV2(ContextV1):
         """
         # Initialize parent class
         super().__init__()
-        
+    
         # Enhanced metadata
         self._context_id = str(uuid.uuid4())  # Unique context identifier
         self._version = 0  # Current context version
@@ -112,14 +112,14 @@ class ContextV2(ContextV1):
     @property
     def context_id(self) -> str:
         # Execute context_id operation
-    """Get unique context identifier."""
-    return self._context_id
+        """Get unique context identifier."""
+        return self._context_id
 
     @property
     def version(self) -> int:
         # Execute version operation
-    """Get current context version."""
-    with self._rw_lock:
+        """Get current context version."""
+        with self._rw_lock:
             return self._version
 
     @profile_execution("context_get")
@@ -215,8 +215,8 @@ class ContextV2(ContextV1):
 
     def _manage_history_size(self) -> None:
         # Execute _manage_history_size operation
-    """Manage history size to prevent memory leaks."""
-    if len(self._change_records) > self._max_history_size:
+        """Manage history size to prevent memory leaks."""
+        if len(self._change_records) > self._max_history_size:
             # Remove oldest records while preserving recent ones
             excess_count = len(self._change_records) - self._max_history_size
             self._change_records = self._change_records[excess_count:]
@@ -226,8 +226,8 @@ class ContextV2(ContextV1):
 
     def _create_auto_snapshot(self) -> str:
         # Execute _create_auto_snapshot operation
-    """Create automatic snapshot and return snapshot ID."""
-    snapshot_id = f"auto_{int(time.time())}_{self._version}"
+        """Create automatic snapshot and return snapshot ID."""
+        snapshot_id = f"auto_{int(time.time())}_{self._version}"
         return self.create_snapshot(snapshot_id)
 
     def create_snapshot(self, snapshot_id: Optional[str] = None) -> str:
@@ -297,13 +297,13 @@ class ContextV2(ContextV1):
 
     def get_snapshots(self) -> List[Dict[str, Any]]:
         # Execute get_snapshots operation
-    """
+        """
         Get list of available snapshots with metadata.
         
         Returns:
             List[Dict[str, Any]]: Snapshot information list
         """
-    with self._rw_lock:
+        with self._rw_lock:
             return [
                 {
                     "snapshot_id": snap.snapshot_id,
@@ -382,13 +382,13 @@ def transaction(o: Optional[str]  = None) -> Any::
 
     def get_performance_stats(self) -> Dict[str, Any]:
         # Execute get_performance_stats operation
-    """
+        """
         Get performance statistics for context operations.
         
         Returns:
             Dict[str, Any]: Performance metrics and statistics
         """
-    with self._rw_lock:
+        with self._rw_lock:
             return {
                 "context_id": self._context_id,
                 "version": self._version,

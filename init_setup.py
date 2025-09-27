@@ -46,7 +46,6 @@ Required patterns
 - Composition:
   def process_data(path: str) -> list[dict]:
       # read -> clean -> transform composition
-      """Execute process_data operation."""
 
 - Logging:
   logger = get_logger(__name__, debug=os.getenv("DEBUG") == "1")

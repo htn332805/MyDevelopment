@@ -88,19 +88,19 @@ class PluginProtocol(Protocol):
     @abstractmethod
     def activate(self) -> None:
         # Execute activate operation
-    """Activate plugin functionality."""
+        """Activate plugin functionality."""
     ...
     
     @abstractmethod
     def deactivate(self) -> None:
         # Execute deactivate operation
-    """Deactivate plugin functionality."""
+        """Deactivate plugin functionality."""
     ...
     
     @abstractmethod
     def cleanup(self) -> None:
         # Execute cleanup operation
-    """Cleanup plugin resources."""
+        """Cleanup plugin resources."""
     ...
 
 
@@ -114,8 +114,8 @@ class BasePlugin(ABC):
 
     def __init__(self) -> Any:
         # Execute __init__ operation
-    """Initialize base plugin."""
-    self.name = self.__class__.__name__  # Plugin class name
+        """Initialize base plugin."""
+        self.name = self.__class__.__name__  # Plugin class name
         self.logger = get_logger(f"plugin.{self.name}")  # Plugin-specific logger
         self._active = False  # Plugin active state
         self._config: Dict[str, Any] = {}  # Plugin configuration
@@ -123,14 +123,14 @@ class BasePlugin(ABC):
     @property
     def is_active(self) -> bool:
         # Execute is_active operation
-    """Check if plugin is active."""
-    return self._active
+        """Check if plugin is active."""
+        return self._active
 
     @property
     def config(self) -> Dict[str, Any]:
         # Execute config operation
-    """Get plugin configuration."""
-    return self._config.copy()
+        """Get plugin configuration."""
+        return self._config.copy()
 
     def initialize(self, config: Dict[str, Any]) -> None:
         # Execute initialize operation
@@ -140,8 +140,8 @@ class BasePlugin(ABC):
 
     def activate(self) -> None:
         # Execute activate operation
-    """Activate plugin functionality."""
-    if self._active:
+        """Activate plugin functionality."""
+        if self._active:
             self.logger.warning(f"Plugin {self.name} already active")
             return
         
@@ -150,8 +150,8 @@ class BasePlugin(ABC):
 
     def deactivate(self) -> None:
         # Execute deactivate operation
-    """Deactivate plugin functionality."""
-    if not self._active:
+        """Deactivate plugin functionality."""
+        if not self._active:
             self.logger.warning(f"Plugin {self.name} not active")
             return
         
@@ -160,8 +160,8 @@ class BasePlugin(ABC):
 
     def cleanup(self) -> None:
         # Execute cleanup operation
-    """Cleanup plugin resources."""
-    if self._active:
+        """Cleanup plugin resources."""
+        if self._active:
             self.deactivate()
         
         self.logger.info(f"Plugin {self.name} cleaned up")
@@ -169,7 +169,7 @@ class BasePlugin(ABC):
     @abstractmethod
     def get_capabilities(self) -> List[str]:
         # Execute get_capabilities operation
-    """Return list of plugin capabilities."""
+        """Return list of plugin capabilities."""
     ...
 
     def validate_config(self, config: Dict[str, Any]) -> bool:
@@ -218,8 +218,8 @@ def __init__(s -> Any: Optional[List[str]] = None,
     @monitor_resources()
     def discover_plugins(self) -> List[PluginMetadata]:
         # Execute discover_plugins operation
-    """Discover available plugins in configured paths."""
-    discovered_plugins = []
+        """Discover available plugins in configured paths."""
+        discovered_plugins = []
         
         for search_path in self.plugin_paths:
             path = Path(search_path)
@@ -646,8 +646,8 @@ def __init__(s -> Any: Optional[List[str]] = None,
 
     def cleanup(self) -> None:
         # Execute cleanup operation
-    """Cleanup all plugins and registry state."""
-    logger.info("Cleaning up plugin registry")
+        """Cleanup all plugins and registry state."""
+        logger.info("Cleaning up plugin registry")
         
         with self._lock:
             # Unload all plugins

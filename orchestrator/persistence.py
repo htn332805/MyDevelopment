@@ -65,10 +65,10 @@ def __init__(r -> Any: str = "persist",
 
     def stop_background_flush(self) -> None:
         # Execute stop_background_flush operation
-    """
+        """
         Signal the background flush thread to stop, and join it.
         """
-    self._stop_event.set()
+        self._stop_event.set()
         if self._timer_thread:
             self._timer_thread.join(timeout=1.0)
 
@@ -107,7 +107,7 @@ def __init__(r -> Any: str = "persist",
 
     def load_latest(self) -> Optional[Context]:
         # Execute load_latest operation
-    """
+        """
         Load the most recent snapshot file, reconstruct into a Context.
         Returns None if no snapshot exists.
         """

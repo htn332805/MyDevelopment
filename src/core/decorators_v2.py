@@ -129,8 +129,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
 
     def _evict_lru(self) -> None:
         # Execute _evict_lru operation
-    """Evict least recently used entry."""
-    if not self._cache:
+        """Evict least recently used entry."""
+        if not self._cache:
             return
         
         # Find LRU entry
@@ -144,8 +144,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
 
     def get_stats(self) -> Dict[str, Any]:
         # Execute get_stats operation
-    """Get cache statistics."""
-    with self._lock:
+        """Get cache statistics."""
+        with self._lock:
             hit_rate = (self._stats["hits"] / 
                        (self._stats["hits"] + self._stats["misses"])
                        if self._stats["hits"] + self._stats["misses"] > 0 else 0)

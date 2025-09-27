@@ -143,8 +143,8 @@ class ResourceMonitor:
 
     def start_monitoring(self) -> None:
         # Execute start_monitoring operation
-    """Start real-time resource monitoring."""
-    if self._monitoring:
+        """Start real-time resource monitoring."""
+        if self._monitoring:
             logger.warning("Resource monitoring already started")
             return
         
@@ -163,8 +163,8 @@ class ResourceMonitor:
 
     def stop_monitoring(self) -> None:
         # Execute stop_monitoring operation
-    """Stop resource monitoring."""
-    if not self._monitoring:
+        """Stop resource monitoring."""
+        if not self._monitoring:
             logger.warning("Resource monitoring not active")
             return
         
@@ -179,8 +179,8 @@ class ResourceMonitor:
 
     def _monitoring_loop(self) -> None:
         # Execute _monitoring_loop operation
-    """Main monitoring loop running in separate thread."""
-    logger.debug("Resource monitoring loop started")
+        """Main monitoring loop running in separate thread."""
+        logger.debug("Resource monitoring loop started")
         
         while not self._stop_event.is_set():
             try:
@@ -209,8 +209,8 @@ class ResourceMonitor:
 
     def _collect_system_metrics(self) -> SystemMetrics:
         # Execute _collect_system_metrics operation
-    """Collect comprehensive system resource metrics."""
-    try:
+        """Collect comprehensive system resource metrics."""
+        try:
             # CPU metrics
             cpu_percent = psutil.cpu_percent(interval=0.1)
             cpu_per_core = psutil.cpu_percent(interval=0.1, percpu=True)
@@ -280,8 +280,8 @@ class ResourceMonitor:
 
     def _collect_process_metrics(self) -> None:
         # Execute _collect_process_metrics operation
-    """Collect metrics for all processes."""
-    try:
+        """Collect metrics for all processes."""
+        try:
             current_time = time.time()
             
             # Get current process list
@@ -400,8 +400,8 @@ class ResourceMonitor:
 
     def get_current_metrics(self) -> Optional[SystemMetrics]:
         # Execute get_current_metrics operation
-    """Get most recent system metrics."""
-    with self._lock:
+        """Get most recent system metrics."""
+        with self._lock:
             return self._system_metrics[-1] if self._system_metrics else None
 
     def get_metrics_history(self, minutes: int = 60) -> List[SystemMetrics]:

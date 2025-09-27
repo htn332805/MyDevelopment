@@ -195,8 +195,8 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
 
     def cleanup_sandbox(self) -> None:
         # Execute cleanup_sandbox operation
-    """Cleanup sandbox resources."""
-    if self._temp_dir and Path(self._temp_dir).exists():
+        """Cleanup sandbox resources."""
+        if self._temp_dir and Path(self._temp_dir).exists():
             import shutil
             try:
                 shutil.rmtree(self._temp_dir)
@@ -362,7 +362,7 @@ def __init__(self) -> Any:
     # Execute __init__ operation
     """Initialize enhanced plugin manager."""
     super().__init__()
-        EventDrivenComponent.__init__(self)
+    EventDrivenComponent.__init__(self)
         
         self._plugin_registry = PluginRegistry()  # Core plugin registry
         self._dependency_injector = DependencyInjector()  # Dependency injection
@@ -412,7 +412,7 @@ def __init__(self) -> Any:
 
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-    """Cleanup plugin manager resources."""
+        """Cleanup plugin manager resources."""
     # Stop resource monitoring
         self._stop_resource_monitoring()
         
@@ -659,8 +659,8 @@ def install_plugin(plugin_name -> Any: str):
 
     def _start_resource_monitoring(self) -> None:
         # Execute _start_resource_monitoring operation
-    """Start resource monitoring thread."""
-    if self._monitor_thread and self._monitor_thread.is_alive():
+        """Start resource monitoring thread."""
+        if self._monitor_thread and self._monitor_thread.is_alive():
             return
         
         self._monitor_active = True
@@ -674,15 +674,15 @@ def install_plugin(plugin_name -> Any: str):
 
     def _stop_resource_monitoring(self) -> None:
         # Execute _stop_resource_monitoring operation
-    """Stop resource monitoring thread."""
-    self._monitor_active = False
+        """Stop resource monitoring thread."""
+        self._monitor_active = False
         if self._monitor_thread:
             self._monitor_thread.join(timeout=5.0)
 
     def _resource_monitor_loop(self) -> None:
         # Execute _resource_monitor_loop operation
-    """Resource monitoring loop."""
-    while self._monitor_active:
+        """Resource monitoring loop."""
+        while self._monitor_active:
             try:
                 self._collect_plugin_metrics()
                 time.sleep(5.0)  # Monitor every 5 seconds
@@ -691,7 +691,7 @@ def install_plugin(plugin_name -> Any: str):
 
     def _collect_plugin_metrics(self) -> None:
         # Execute _collect_plugin_metrics operation
-    """Collect resource metrics for all active plugins."""
+        """Collect resource metrics for all active plugins."""
     # This would collect actual metrics from running plugins
         # For now, we'll just update the monitoring timestamp
         current_time = time.time()
@@ -742,24 +742,24 @@ def install_plugin(plugin_name -> Any: str):
 
     def list_available_plugins(self) -> List[PluginManifest]:
         # Execute list_available_plugins operation
-    """
+        """
         List all available plugin manifests.
         
         Returns:
             List[PluginManifest]: Available plugin manifests
         """
-    with self._lock:
+        with self._lock:
             return list(self._plugin_manifests.values())
 
     def get_plugin_dependency_graph(self) -> Dict[str, List[str]]:
         # Execute get_plugin_dependency_graph operation
-    """
+        """
         Get plugin dependency graph.
         
         Returns:
             Dict[str, List[str]]: Plugin dependency relationships
         """
-    with self._lock:
+        with self._lock:
             dependency_graph = {}
             
             for plugin_name, manifest in self._plugin_manifests.items():

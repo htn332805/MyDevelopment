@@ -178,8 +178,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-    """Cleanup Framework0 resources."""
-    self._state = FrameworkState.STOPPING
+        """Cleanup Framework0 resources."""
+        self._state = FrameworkState.STOPPING
         
         try:
             # Stop monitoring
@@ -210,7 +210,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _initialize_core_components(self) -> None:
         # Execute _initialize_core_components operation
-    """Initialize core Framework0 components."""
+        """Initialize core Framework0 components."""
     # Initialize component factory
         self._factory = get_global_factory()
         logger.debug("Component factory initialized")
@@ -264,8 +264,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _auto_load_plugins(self) -> None:
         # Execute _auto_load_plugins operation
-    """Auto-load plugins from configured directories."""
-    plugin_dirs = self._config.get('plugin_directories', [])
+        """Auto-load plugins from configured directories."""
+        plugin_dirs = self._config.get('plugin_directories', [])
         
         for plugin_dir in plugin_dirs:
             plugin_path = Path(plugin_dir)
@@ -293,8 +293,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _start_monitoring(self) -> None:
         # Execute _start_monitoring operation
-    """Start framework monitoring thread."""
-    if self._monitor_thread and self._monitor_thread.is_alive():
+        """Start framework monitoring thread."""
+        if self._monitor_thread and self._monitor_thread.is_alive():
             return
         
         self._monitor_active = True
@@ -308,15 +308,15 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _stop_monitoring(self) -> None:
         # Execute _stop_monitoring operation
-    """Stop framework monitoring thread."""
-    self._monitor_active = False
+        """Stop framework monitoring thread."""
+        self._monitor_active = False
         if self._monitor_thread:
             self._monitor_thread.join(timeout=5.0)
 
     def _monitoring_loop(self) -> None:
         # Execute _monitoring_loop operation
-    """Main monitoring loop."""
-    while self._monitor_active:
+        """Main monitoring loop."""
+        while self._monitor_active:
             try:
                 self._update_metrics()
                 self._perform_health_checks()
@@ -326,8 +326,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _update_metrics(self) -> None:
         # Execute _update_metrics operation
-    """Update framework metrics."""
-    try:
+        """Update framework metrics."""
+        try:
             import psutil
             process = psutil.Process()
             
@@ -354,8 +354,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _perform_health_checks(self) -> None:
         # Execute _perform_health_checks operation
-    """Perform health checks on components."""
-    with self._lock:
+        """Perform health checks on components."""
+        with self._lock:
             for component_name, health_check in self._health_checks.items():
                 try:
                     is_healthy = health_check()
@@ -369,8 +369,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _register_framework_events(self) -> None:
         # Execute _register_framework_events operation
-    """Register framework-level event handlers."""
-    self.add_listener('component_error', self._on_component_error)
+        """Register framework-level event handlers."""
+        self.add_listener('component_error', self._on_component_error)
         self.add_listener('plugin_error', self._on_plugin_error)
         self.add_listener('framework_error', self._on_framework_error)
 
@@ -400,8 +400,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def _create_initial_metrics(self) -> FrameworkMetrics:
         # Execute _create_initial_metrics operation
-    """Create initial framework metrics."""
-    return FrameworkMetrics(
+        """Create initial framework metrics."""
+        return FrameworkMetrics(
             uptime_seconds=0.0,
             total_components=0,
             active_components=0,
@@ -437,13 +437,13 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
     
     def start(self) -> bool:
         # Execute start operation
-    """
+        """
         Start the Framework0 instance.
         
         Returns:
             bool: True if started successfully
         """
-    if self._state != FrameworkState.INITIALIZED:
+        if self._state != FrameworkState.INITIALIZED:
             logger.error("Framework must be initialized before starting")
             return False
         
@@ -468,13 +468,13 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def stop(self) -> bool:
         # Execute stop operation
-    """
+        """
         Stop the Framework0 instance.
         
         Returns:
             bool: True if stopped successfully
         """
-    try:
+        try:
             self.cleanup()
             return True
         except Exception as e:
@@ -496,38 +496,38 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def get_factory(self) -> ComponentFactory:
         # Execute get_factory operation
-    """Get the component factory."""
-    return self._factory
+        """Get the component factory."""
+        return self._factory
 
     def get_debug_toolkit(self) -> AdvancedDebugToolkit:
         # Execute get_debug_toolkit operation
-    """Get the debug toolkit."""
-    return self._debug_toolkit
+        """Get the debug toolkit."""
+        return self._debug_toolkit
 
     def get_error_handler(self) -> AdvancedErrorHandler:
         # Execute get_error_handler operation
-    """Get the error handler."""
-    return self._error_handler
+        """Get the error handler."""
+        return self._error_handler
 
     def get_plugin_manager(self) -> EnhancedPluginManager:
         # Execute get_plugin_manager operation
-    """Get the plugin manager."""
-    return self._plugin_manager
+        """Get the plugin manager."""
+        return self._plugin_manager
 
     def get_context(self) -> ContextV2:
         # Execute get_context operation
-    """Get the framework context."""
-    return self._context
+        """Get the framework context."""
+        return self._context
 
     def get_metrics(self) -> FrameworkMetrics:
         # Execute get_metrics operation
-    """
+        """
         Get current framework metrics.
         
         Returns:
             FrameworkMetrics: Current metrics
         """
-    with self._lock:
+        with self._lock:
             return FrameworkMetrics(**asdict(self._metrics))
 
     def get_component_info(self, name: str) -> Optional[ComponentInfo]:
@@ -546,34 +546,34 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def list_components(self) -> List[ComponentInfo]:
         # Execute list_components operation
-    """
+        """
         List all registered components.
         
         Returns:
             List[ComponentInfo]: List of component information
         """
-    with self._lock:
+        with self._lock:
             return list(self._components.values())
 
     def get_state(self) -> FrameworkState:
         # Execute get_state operation
-    """
+        """
         Get current framework state.
         
         Returns:
             FrameworkState: Current state
         """
-    return self._state
+        return self._state
 
     def is_healthy(self) -> bool:
         # Execute is_healthy operation
-    """
+        """
         Check if framework is healthy.
         
         Returns:
             bool: True if framework is healthy
         """
-    if self._state != FrameworkState.RUNNING:
+        if self._state != FrameworkState.RUNNING:
             return False
         
         with self._lock:
@@ -623,7 +623,7 @@ _framework_lock = threading.Lock()
 def get_framework(config_path: Optional[Union[str, Path]] = None) -> Framework0:
     # Execute get_framework operation
     """
-    Get or create global Framework0 instance.
+        Get or create global Framework0 instance.
     
     Args:
         config_path (Optional[Union[str, Path]]): Configuration file path

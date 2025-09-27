@@ -139,7 +139,6 @@ import ast, os
 
 def check_comments_and_typing(file_path) -> Any:
     # check_comments_and_typing operation implementation
-    """Execute check_comments_and_typing operation."""
     with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
     errors = []
@@ -161,7 +160,6 @@ def check_comments_and_typing(file_path) -> Any:
 
 def scan_directory(path="src") -> Any:
     # scan_directory operation implementation
-    """Execute scan_directory operation."""
     all_errors = []
     for root, _, files in os.walk(path):
         for file in files:

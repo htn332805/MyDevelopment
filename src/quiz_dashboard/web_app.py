@@ -109,18 +109,18 @@ class QuizWebApp:
     
     def index(self) -> str:
         # Execute index operation
-    """Main landing page."""
-    return render_template('index.html', title='Quiz Dashboard')
+        """Main landing page."""
+        return render_template('index.html', title='Quiz Dashboard')
     
     def dashboard(self) -> str:
         # Execute dashboard operation
-    """Main dashboard with role selection."""
-    return render_template('dashboard.html', title='Dashboard')
+        """Main dashboard with role selection."""
+        return render_template('dashboard.html', title='Dashboard')
     
     def student_dashboard(self) -> str:
         # Execute student_dashboard operation
-    """Student dashboard with available quizzes and progress."""
-    try:
+        """Student dashboard with available quizzes and progress."""
+        try:
             # Get current user (demo user for now)
             user_id = session.get('user_id', 1)
             
@@ -149,8 +149,8 @@ class QuizWebApp:
     
     def instructor_dashboard(self) -> str:
         # Execute instructor_dashboard operation
-    """Instructor dashboard with question management and analytics."""
-    try:
+        """Instructor dashboard with question management and analytics."""
+        try:
             # Get recent questions
             recent_questions = self.question_manager.search_questions(limit=10)
             
@@ -169,8 +169,8 @@ class QuizWebApp:
     
     def start_quiz_session(self) -> str:
         # Execute start_quiz_session operation
-    """Start new quiz session."""
-    try:
+        """Start new quiz session."""
+        try:
             # Get session parameters
             user_id = session.get('user_id', 1)
             question_count = int(request.form.get('question_count', 10))
@@ -411,8 +411,8 @@ class QuizWebApp:
     
     def create_question(self) -> str:
         # Execute create_question operation
-    """Create new question interface."""
-    if request.method == 'GET':
+        """Create new question interface."""
+        if request.method == 'GET':
             return render_template('create_question.html',
                                  title='Create Question',
                                  question_types=[t.value for t in QuestionType])
@@ -451,8 +451,8 @@ class QuizWebApp:
     
     def list_questions(self) -> str:
         # Execute list_questions operation
-    """List all questions with filtering."""
-    try:
+        """List all questions with filtering."""
+        try:
             # Get filter parameters
             question_type = request.args.get('type')
             difficulty = request.args.get('difficulty')
@@ -514,8 +514,8 @@ class QuizWebApp:
     
     def import_questions(self) -> str:
         # Execute import_questions operation
-    """Import questions from JSON file."""
-    if request.method == 'GET':
+        """Import questions from JSON file."""
+        if request.method == 'GET':
             return render_template('import_questions.html', title='Import Questions')
         
         try:
@@ -569,8 +569,8 @@ class QuizWebApp:
     
     def analytics_dashboard(self) -> str:
         # Execute analytics_dashboard operation
-    """Analytics dashboard with system statistics."""
-    try:
+        """Analytics dashboard with system statistics."""
+        try:
             # Get system-wide statistics
             system_stats = self._get_system_statistics()
             
@@ -604,8 +604,8 @@ class QuizWebApp:
     
     def api_search_questions(self) -> Dict[str, Any]:
         # Execute api_search_questions operation
-    """API endpoint for question search."""
-    try:
+        """API endpoint for question search."""
+        try:
             # Get search parameters
             question_type = request.args.get('type')
             hashtags = request.args.getlist('hashtags')
@@ -641,8 +641,8 @@ class QuizWebApp:
     
     def api_validate_question(self) -> Dict[str, Any]:
         # Execute api_validate_question operation
-    """API endpoint for question validation."""
-    try:
+        """API endpoint for question validation."""
+        try:
             question_data = request.get_json()
             
             if not question_data:
@@ -930,8 +930,8 @@ class QuizWebApp:
     
     def _record_quiz_attempt(self, **kwargs) -> int:
         # Execute _record_quiz_attempt operation
-    """Record quiz attempt in database."""
-    query = """
+        """Record quiz attempt in database."""
+        query = """
             INSERT INTO quiz_attempts (
                 session_id, question_id, user_id, attempted_at, user_answer_json,
                 is_correct, time_taken_seconds, confidence_level
@@ -1075,8 +1075,8 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
     
     def _get_question_type_statistics(self) -> Dict[str, int]:
         # Execute _get_question_type_statistics operation
-    """Get question count by type."""
-    try:
+        """Get question count by type."""
+        try:
             query = """
                 SELECT question_type, COUNT(*) as count
                 FROM questions
@@ -1094,8 +1094,8 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
     
     def _get_system_statistics(self) -> Dict[str, Any]:
         # Execute _get_system_statistics operation
-    """Get system-wide statistics."""
-    try:
+        """Get system-wide statistics."""
+        try:
             stats = {}
             
             # Question statistics

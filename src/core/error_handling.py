@@ -468,7 +468,7 @@ def __init__(self) -> Any:
     # Execute __init__ operation
     """Initialize advanced error handler."""
     super().__init__()
-        self._analyzer = ErrorAnalyzer()  # Error analysis engine
+    self._analyzer = ErrorAnalyzer()  # Error analysis engine
         self._recovery_strategies: List[ErrorRecoveryStrategy] = []  # Recovery strategies
         self._error_reports: Dict[str, ErrorReport] = {}  # Error report storage
         self._correlation_map: Dict[str, List[str]] = defaultdict(list)  # Error correlations
@@ -495,16 +495,16 @@ def __init__(self) -> Any:
 
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-    """Cleanup error handler resources."""
-    with self._lock:
+        """Cleanup error handler resources."""
+        with self._lock:
             self._error_reports.clear()
             self._correlation_map.clear()
             self._recovery_strategies.clear()
 
     def _initialize_default_strategies(self) -> None:
         # Execute _initialize_default_strategies operation
-    """Initialize default error recovery strategies."""
-    self._recovery_strategies.extend([
+        """Initialize default error recovery strategies."""
+        self._recovery_strategies.extend([
             RetryRecoveryStrategy(max_retries=3, backoff_factor=1.5),
             CheckpointRecoveryStrategy()
         ])
@@ -633,8 +633,8 @@ def error_context(e -> Any: str,
 
     def _extract_class_name(self, frame) -> Optional[str]:
         # Execute _extract_class_name operation
-    """Extract class name from frame if it's a method call."""
-    if not frame or 'self' not in frame.f_locals:
+        """Extract class name from frame if it's a method call."""
+        if not frame or 'self' not in frame.f_locals:
             return None
         
         self_obj = frame.f_locals['self']
@@ -642,8 +642,8 @@ def error_context(e -> Any: str,
 
     def _extract_global_context(self, frame) -> Dict[str, Any]:
         # Execute _extract_global_context operation
-    """Extract relevant global context from frame."""
-    if not frame:
+        """Extract relevant global context from frame."""
+        if not frame:
             return {}
         
         global_context = {}
@@ -662,8 +662,8 @@ def error_context(e -> Any: str,
 
     def _extract_call_stack(self) -> List[Dict[str, Any]]:
         # Execute _extract_call_stack operation
-    """Extract formatted call stack information."""
-    call_stack = []
+        """Extract formatted call stack information."""
+        call_stack = []
         
         for frame_info in traceback.extract_tb(sys.exc_info()[2]):
             call_stack.append({
@@ -677,8 +677,8 @@ def error_context(e -> Any: str,
 
     def _capture_system_state(self) -> Dict[str, Any]:
         # Execute _capture_system_state operation
-    """Capture current system state information."""
-    try:
+        """Capture current system state information."""
+        try:
             import psutil
             process = psutil.Process()
             

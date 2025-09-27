@@ -104,7 +104,7 @@ class VariableTracker:
             value (Any): Variable value
             location (str): Code location identifier
         """
-    with self._lock:
+        with self._lock:
             try:
                 # Calculate memory size if tracking enabled
                 size_bytes = 0
@@ -142,7 +142,7 @@ class VariableTracker:
 
     def get_variable_history(self, name: str) -> List[Dict[str, Any]]:
         # Execute get_variable_history operation
-    """
+        """
         Get history of changes for a variable.
         
         Args:
@@ -151,7 +151,7 @@ class VariableTracker:
         Returns:
             List[Dict[str, Any]]: Variable change history
         """
-    with self._lock:
+        with self._lock:
             if name not in self._variable_states:
                 return []
             
@@ -159,7 +159,7 @@ class VariableTracker:
 
     def detect_changes(self, name: str) -> List[Dict[str, Any]]:
         # Execute detect_changes operation
-    """
+        """
         Detect when a variable's value changed.
         
         Args:
@@ -168,7 +168,7 @@ class VariableTracker:
         Returns:
             List[Dict[str, Any]]: Change detection results
         """
-    history = self.get_variable_history(name)
+        history = self.get_variable_history(name)
         if len(history) < 2:
             return []
         
@@ -197,8 +197,8 @@ class ExecutionTracer:
     and control flow analysis.
     """
 
-def __init__(h: int = 10, include_stdlib: bool  = False) -> Any::
-    # Execute __init__ operation
+    def __init__(self, h: int = 10, include_stdlib: bool = False) -> None:
+        # Execute __init__ operation
         """
         Initialize execution tracer.
         
@@ -276,24 +276,24 @@ def wrapper(*args, **kwargs) -> Any:
 
     def get_current_stack(self) -> List[Dict[str, Any]]:
         # Execute get_current_stack operation
-    """
+        """
         Get current execution stack.
         
         Returns:
             List[Dict[str, Any]]: Current call stack frames
         """
-    with self._lock:
+        with self._lock:
             return [asdict(frame) for frame in self._call_stack]
 
     def get_trace_history(self) -> List[List[Dict[str, Any]]]:
         # Execute get_trace_history operation
-    """
+        """
         Get history of completed execution traces.
         
         Returns:
             List[List[Dict[str, Any]]]: Completed execution traces
         """
-    with self._lock:
+        with self._lock:
             return [
                 [asdict(frame) for frame in trace]
                 for trace in self._completed_traces
