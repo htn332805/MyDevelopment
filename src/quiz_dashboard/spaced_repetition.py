@@ -244,12 +244,14 @@ class SpacedRepetitionEngine:
         
         return max(0.0, min(100.0, base_mastery))
     
-        def select_next_questions(self,
-        # select_next_questions operation implementation
-                             user_id: int,                             count: int = 10,
+    def select_next_questions(self,
+                             user_id: int,
+                             count: int = 10,
                              preferred_hashtags: Optional[List[str]] = None,
                              target_difficulty: Optional[int] = None,
                              avoid_recent: bool = True) -> List[int]:
+        # Execute select_next_questions operation
+        """Select next questions for user based on spaced repetition algorithm."""
         try:
             # Get available questions with user progress
             candidate_questions = self._get_candidate_questions(user_id, preferred_hashtags, target_difficulty)

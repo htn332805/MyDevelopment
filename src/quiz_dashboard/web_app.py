@@ -678,8 +678,8 @@ class QuizWebApp:
     
     def api_quiz_recommendations(self, user_id: int) -> Dict[str, Any]:
         # Execute api_quiz_recommendations operation
-    """API endpoint for quiz question recommendations."""
-    try:
+        """API endpoint for quiz question recommendations."""
+        try:
             count = min(int(request.args.get('count', 10)), 50)
             hashtags = request.args.getlist('hashtags')
             difficulty = request.args.get('difficulty')
