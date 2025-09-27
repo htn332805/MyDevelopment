@@ -72,3 +72,69 @@ def fibonacci(n: int) -> List[int]:
     for i in range(2, n):
         sequence.append(sequence[-1] + sequence[-2])
     return sequence[:n]
+
+
+# Scriptlet classes for orchestrator integration
+class MathScriptlet:
+    """Scriptlet wrapper for mathematical operations."""
+    
+    def run(self, ctx, params):
+        """
+        Execute mathematical operation based on parameters.
+        
+        Args:
+            ctx: Orchestrator context object
+            params: Parameters containing operation and number
+            
+        Returns:
+            int: Return code (0 for success)
+        """
+        operation = params.get('operation', 'factorial')
+        number = params.get('number', 5)
+        
+        try:
+            if operation == 'factorial':
+                result = factorial(number)
+                ctx.set(f"math.factorial_{number}", result, who="MathScriptlet")
+            elif operation == 'fibonacci':
+                result = fibonacci(number)
+                ctx.set(f"math.fibonacci_{number}", result, who="MathScriptlet")
+            else:
+                ctx.set("math.error", f"Unknown operation: {operation}", who="MathScriptlet")
+                return 1
+                
+            print(f"Math operation {operation}({number}) = {result}")
+            return 0
+            
+        except Exception as e:
+            ctx.set("math.error", str(e), who="MathScriptlet")
+            print(f"Error in math operation: {e}")
+            return 1
+
+
+class PrimeScriptlet:
+    """Scriptlet wrapper for prime number checking."""
+    
+    def run(self, ctx, params):
+        """
+        Check if a number is prime.
+        
+        Args:
+            ctx: Orchestrator context object
+            params: Parameters containing the number to check
+            
+        Returns:
+            int: Return code (0 for success)
+        """
+        number = params.get('number', 2)
+        
+        try:
+            result = is_prime(number)
+            ctx.set(f"prime.check_{number}", result, who="PrimeScriptlet")
+            print(f"Number {number} is {'prime' if result else 'not prime'}")
+            return 0
+            
+        except Exception as e:
+            ctx.set("prime.error", str(e), who="PrimeScriptlet")
+            print(f"Error checking prime: {e}")
+            return 1

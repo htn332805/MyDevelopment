@@ -1,0 +1,21 @@
+# Simple test recipe for packaging demonstration
+
+description: >
+  A simple test recipe that demonstrates the packaging system.
+  This recipe performs basic number operations and logging.
+
+steps:
+  - idx: 1
+    name: compute_basic_math
+    module: scriptlets.steps.compute_numbers  
+    function: MathScriptlet
+    args:
+      operation: "factorial"
+      number: 5
+      
+  - idx: 2
+    name: check_prime
+    module: scriptlets.steps.compute_numbers
+    function: PrimeScriptlet  
+    args:
+      number: 17
