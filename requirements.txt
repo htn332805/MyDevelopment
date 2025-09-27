@@ -33,5 +33,9 @@ gitpython>=3.1.0  # Specifies the minimum version required for interacting with 
 # Database
 sqlalchemy>=1.4.0  # Specifies the minimum version required for SQLAlchemy ORM.
 
+# Web Framework
+flask>=2.0.0  # Flask web framework for quiz dashboard
+jsonschema>=4.0.0  # JSON schema validation for questions
+
 # Optional: If you're using a virtual environment, you can generate this file using:
 # pip freeze > requirements.txt

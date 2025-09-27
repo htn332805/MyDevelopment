@@ -1,0 +1,140 @@
+[
+  {
+    "id": "demo1",
+    "type": "multiple_choice",
+    "title": "Python List Creation",
+    "content": "What is the correct syntax to create an empty list in Python?",
+    "explanation": "In Python, lists are created using square brackets []. Empty lists are simply [].",
+    "difficulty": 1,
+    "estimated_time": 30,
+    "hashtags": ["python", "basics", "data-structures"],
+    "options": [
+      {"id": "a", "text": "list = []"},
+      {"id": "b", "text": "list = {}"},
+      {"id": "c", "text": "list = ()"},
+      {"id": "d", "text": "list = [[]]"}
+    ],
+    "correct_answer": "a",
+    "shuffle_options": true
+  },
+  {
+    "id": "demo2",
+    "type": "true_false",
+    "title": "Python Case Sensitivity",
+    "content": "Python is case-sensitive, meaning 'Variable' and 'variable' are treated as different identifiers.",
+    "explanation": "Yes, Python is case-sensitive. This means that 'Variable', 'variable', 'VARIABLE', and 'VaRiAbLe' would all be treated as different variable names.",
+    "difficulty": 1,
+    "estimated_time": 20,
+    "hashtags": ["python", "basics", "syntax"],
+    "correct_answer": true
+  },
+  {
+    "id": "demo3",
+    "type": "fill_in_blank",
+    "title": "Python Print Statement",
+    "content": "To display 'Hello, World!' in Python, you would use: _____(\"Hello, World!\")",
+    "explanation": "The print() function is used to output text to the console in Python.",
+    "difficulty": 1,
+    "estimated_time": 25,
+    "hashtags": ["python", "basics", "output"],
+    "acceptable_answers": ["print", "print()", "Print"],
+    "case_sensitive": false,
+    "blank_placeholder": "_____"
+  },
+  {
+    "id": "demo4",
+    "type": "multiple_choice",
+    "title": "Mathematical Calculation with LaTeX",
+    "content": "Calculate the value of $2^3 + \\sqrt{16} - \\frac{8}{2}$",
+    "explanation": "Step by step: $2^3 = 8$, $\\sqrt{16} = 4$, $\\frac{8}{2} = 4$. So: $8 + 4 - 4 = 8$",
+    "difficulty": 3,
+    "estimated_time": 60,
+    "hashtags": ["mathematics", "algebra", "calculations"],
+    "options": [
+      {"id": "a", "text": "6"},
+      {"id": "b", "text": "8"},
+      {"id": "c", "text": "10"},
+      {"id": "d", "text": "12"}
+    ],
+    "correct_answer": "b",
+    "shuffle_options": true
+  },
+  {
+    "id": "demo5",
+    "type": "reorder_sequence",
+    "title": "Software Development Lifecycle",
+    "content": "Arrange the following phases of software development in the correct chronological order:",
+    "explanation": "The typical SDLC follows: Requirements Analysis → System Design → Implementation/Coding → Testing → Deployment → Maintenance",
+    "difficulty": 3,
+    "estimated_time": 90,
+    "hashtags": ["software-engineering", "sdlc", "process"],
+    "items": [
+      {"id": "req", "text": "Requirements Analysis", "description": "Gathering and documenting what the software should do"},
+      {"id": "design", "text": "System Design", "description": "Creating the architecture and detailed design"},
+      {"id": "impl", "text": "Implementation", "description": "Writing the actual code"},
+      {"id": "test", "text": "Testing", "description": "Verifying the software works correctly"},
+      {"id": "deploy", "text": "Deployment", "description": "Releasing to production environment"},
+      {"id": "maint", "text": "Maintenance", "description": "Ongoing support and updates"}
+    ],
+    "correct_order": ["req", "design", "impl", "test", "deploy", "maint"],
+    "partial_credit": true
+  },
+  {
+    "id": "demo6",
+    "type": "matching_pairs",
+    "title": "Programming Languages and Paradigms",
+    "content": "Match each programming language with its primary programming paradigm:",
+    "explanation": "Different languages emphasize different programming paradigms, though many support multiple paradigms.",
+    "difficulty": 4,
+    "estimated_time": 120,
+    "hashtags": ["programming-languages", "paradigms", "concepts"],
+    "left_items": [
+      {"id": "java", "text": "Java"},
+      {"id": "haskell", "text": "Haskell"},
+      {"id": "c", "text": "C"},
+      {"id": "lisp", "text": "Lisp"}
+    ],
+    "right_items": [
+      {"id": "oop", "text": "Object-Oriented"},
+      {"id": "functional", "text": "Functional"},
+      {"id": "procedural", "text": "Procedural"},
+      {"id": "symbolic", "text": "Symbolic/List Processing"}
+    ],
+    "correct_matches": [
+      {"left_id": "java", "right_id": "oop"},
+      {"left_id": "haskell", "right_id": "functional"},
+      {"left_id": "c", "right_id": "procedural"},
+      {"left_id": "lisp", "right_id": "symbolic"}
+    ],
+    "allow_multiple_matches": false
+  },
+  {
+    "id": "demo7",
+    "type": "multiple_choice",
+    "title": "Database Normalization",
+    "content": "What is the main purpose of database normalization?",
+    "explanation": "Database normalization reduces data redundancy and improves data integrity by organizing data into separate related tables.",
+    "difficulty": 3,
+    "estimated_time": 45,
+    "hashtags": ["database", "normalization", "design"],
+    "options": [
+      {"id": "a", "text": "To increase query performance"},
+      {"id": "b", "text": "To reduce data redundancy and improve data integrity"},
+      {"id": "c", "text": "To make databases larger"},
+      {"id": "d", "text": "To simplify database queries"}
+    ],
+    "correct_answer": "b",
+    "shuffle_options": true
+  },
+  {
+    "id": "demo8",
+    "type": "true_false",
+    "title": "HTTP Status Code",
+    "content": "HTTP status code 404 indicates that the requested resource was found but access is forbidden.",
+    "explanation": "False. HTTP 404 means 'Not Found' - the requested resource could not be found. HTTP 403 'Forbidden' indicates the resource exists but access is denied.",
+    "difficulty": 2,
+    "estimated_time": 30,
+    "hashtags": ["http", "web-development", "status-codes"],
+    "correct_answer": false
+  }
+]

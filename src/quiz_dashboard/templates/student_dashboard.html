@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Welcome section -->
+    <div class="col-12 mb-4">
+        <div class="card stats-card border-0">
+            <div class="card-body text-center py-4">
+                <h1 class="card-title mb-3">
+                    <i class="bi bi-person-workspace"></i> Welcome back!
+                </h1>
+                <p class="card-text mb-0">Ready to continue your learning journey?</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Learning statistics -->
+    <div class="col-lg-8 mb-4">
+        <div class="row">
+            <!-- Progress cards -->
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-2">
+                            {{ user_stats.get('total_questions_attempted', 0) }}
+                        </div>
+                        <h6 class="card-title text-muted">Questions Attempted</h6>
+                        <div class="progress mt-3" style="height: 8px;">
+                            <div class="progress-bar bg-primary" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-success mb-2">
+                            {{ user_stats.get('mastered_questions', 0) }}
+                        </div>
+                        <h6 class="card-title text-muted">Mastered Topics</h6>
+                        <div class="progress mt-3" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: {{ (user_stats.get('mastered_questions', 0) / user_stats.get('total_questions_attempted', 1) * 100) | int }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-warning mb-2">
+                            {{ "%.1f" | format(user_stats.get('average_mastery', 0)) }}%
+                        </div>
+                        <h6 class="card-title text-muted">Average Mastery</h6>
+                        <div class="mastery-meter mt-3">
+                            <div class="mastery-indicator" style="left: {{ user_stats.get('average_mastery', 0) }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-info mb-2">
+                            {{ user_stats.get('due_for_review', 0) }}
+                        </div>
+                        <h6 class="card-title text-muted">Due for Review</h6>
+                        <div class="progress mt-3" style="height: 8px;">
+                            <div class="progress-bar bg-info" style="width: {{ min(100, user_stats.get('due_for_review', 0) * 10) }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Learning streak -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h5 class="card-title mb-2">
+                            <i class="bi bi-fire text-warning"></i> Learning Streak
+                        </h5>
+                        <p class="text-muted mb-0">
+                            Keep up the great work! You've been learning consistently for 
+                            <strong>{{ user_stats.get('current_learning_streak', 0) }} days</strong>.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="display-5 text-warning">
+                            🔥 {{ user_stats.get('current_learning_streak', 0) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accuracy chart -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-graph-up text-primary"></i> Overall Performance
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-4">
+                        <div class="h4 text-success">{{ "%.1f" | format(user_stats.get('overall_accuracy', 0) * 100) }}%</div>
+                        <small class="text-muted">Accuracy</small>
+                    </div>
+                    <div class="col-4">
+                        <div class="h4 text-primary">{{ user_stats.get('total_questions_attempted', 0) }}</div>
+                        <small class="text-muted">Total Attempts</small>
+                    </div>
+                    <div class="col-4">
+                        <div class="h4 text-warning">{{ user_stats.get('difficulty_distribution', {}).keys() | list | length }}</div>
+                        <small class="text-muted">Difficulty Levels</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick actions sidebar -->
+    <div class="col-lg-4">
+        <!-- Start quiz section -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-primary text-white border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-play-circle-fill"></i> Start Learning
+                </h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('start_quiz_session') }}" method="POST">
+                    <div class="mb-3">
+                        <label for="question_count" class="form-label">Number of Questions</label>
+                        <select class="form-select" id="question_count" name="question_count">
+                            <option value="5">Quick Session (5)</option>
+                            <option value="10" selected>Standard (10)</option>
+                            <option value="20">Extended (20)</option>
+                            <option value="50">Marathon (50)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="difficulty_level" class="form-label">Difficulty Level</label>
+                        <select class="form-select" id="difficulty_level" name="difficulty_level">
+                            <option value="">Adaptive (Recommended)</option>
+                            <option value="1">Very Easy</option>
+                            <option value="2">Easy</option>
+                            <option value="3">Medium</option>
+                            <option value="4">Hard</option>
+                            <option value="5">Very Hard</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="hashtags" class="form-label">Topics (Optional)</label>
+                        <input type="text" class="form-control" id="hashtags" name="hashtags" 
+                               placeholder="e.g., math, science, history">
+                        <div class="form-text">Separate multiple topics with commas</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="spaced_repetition" 
+                                   name="spaced_repetition" checked>
+                            <label class="form-check-label" for="spaced_repetition">
+                                Enable Spaced Repetition
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="adaptive_difficulty" 
+                                   name="adaptive_difficulty" checked>
+                            <label class="form-check-label" for="adaptive_difficulty">
+                                Adaptive Difficulty
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-rocket-takeoff"></i> Start Quiz Session
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Recommended questions -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-white border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-lightbulb text-warning"></i> Recommended for You
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if recommended_questions %}
+                    {% for question in recommended_questions[:3] %}
+                    <div class="border-bottom pb-2 mb-2">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">{{ question.title[:50] }}{% if question.title|length > 50 %}...{% endif %}</h6>
+                                <small class="text-muted d-block">{{ question.type.replace('_', ' ').title() }}</small>
+                            </div>
+                            <span class="badge difficulty-{{ question.difficulty }} ms-2">
+                                Level {{ question.difficulty }}
+                            </span>
+                        </div>
+                        {% if question.hashtags %}
+                        <div class="mt-1">
+                            {% for tag in question.hashtags[:2] %}
+                                <span class="badge bg-secondary me-1">#{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Based on spaced repetition algorithm</small>
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-3">
+                        <i class="bi bi-collection display-6 d-block mb-2"></i>
+                        <p>Start taking quizzes to get personalized recommendations!</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Quick stats -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-speedometer2 text-info"></i> Quick Stats
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6 border-end">
+                        <div class="h5 text-primary">{{ user_stats.get('total_questions_attempted', 0) }}</div>
+                        <small class="text-muted">Questions</small>
+                    </div>
+                    <div class="col-6">
+                        <div class="h5 text-success">{{ user_stats.get('current_learning_streak', 0) }}</div>
+                        <small class="text-muted">Day Streak</small>
+                    </div>
+                </div>
+                
+                <hr class="my-3">
+                
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <small class="text-muted">Next Review:</small>
+                    <small class="fw-bold">{{ user_stats.get('due_for_review', 0) }} questions</small>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">Avg. Mastery:</small>
+                    <small class="fw-bold">{{ "%.1f" | format(user_stats.get('average_mastery', 0)) }}%</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent activity (placeholder for future implementation) -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-clock-history text-secondary"></i> Recent Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="text-center text-muted py-4">
+                    <i class="bi bi-activity display-6 d-block mb-2"></i>
+                    <p>Your recent quiz activity will appear here</p>
+                    <a href="#" class="btn btn-outline-primary" onclick="QuizDashboard.showNotification('Coming soon!', 'info')">
+                        View Full History
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate mastery meter
+    const masteryMeter = document.querySelector('.mastery-meter');
+    if (masteryMeter) {
+        setTimeout(() => {
+            QuizDashboard.updateMasteryMeter(masteryMeter, {{ user_stats.get('average_mastery', 0) }});
+        }, 500);
+    }
+    
+    // Add form validation
+    const quizForm = document.querySelector('form[action*="start_quiz_session"]');
+    if (quizForm) {
+        quizForm.addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            QuizDashboard.showLoading(submitBtn);
+        });
+    }
+});
+</script>
+{% endblock %}

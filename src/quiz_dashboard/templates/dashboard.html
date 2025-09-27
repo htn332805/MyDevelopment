@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 mb-5">
+        <i class="bi bi-speedometer2 text-primary"></i>
+        Choose Your Role
+    </h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <div class="card border-0 shadow-lg h-100">
+                <div class="card-body p-5 text-center">
+                    <div class="display-1 text-primary mb-4">
+                        <i class="bi bi-person-workspace"></i>
+                    </div>
+                    <h3 class="card-title mb-3">Student</h3>
+                    <p class="card-text text-muted mb-4">
+                        Take quizzes, track your progress, and improve your knowledge 
+                        with our adaptive learning system.
+                    </p>
+                    <ul class="list-unstyled text-start mb-4">
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Personalized quiz recommendations</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Spaced repetition scheduling</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Progress tracking & analytics</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Mastery level monitoring</li>
+                    </ul>
+                    <a href="{{ url_for('student_dashboard') }}" class="btn btn-primary btn-lg w-100">
+                        <i class="bi bi-rocket-takeoff"></i> Start Learning
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-5 mb-4">
+            <div class="card border-0 shadow-lg h-100">
+                <div class="card-body p-5 text-center">
+                    <div class="display-1 text-success mb-4">
+                        <i class="bi bi-person-gear"></i>
+                    </div>
+                    <h3 class="card-title mb-3">Instructor</h3>
+                    <p class="card-text text-muted mb-4">
+                        Create questions, manage content, and analyze student 
+                        performance with comprehensive tools.
+                    </p>
+                    <ul class="list-unstyled text-start mb-4">
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Multi-type question creation</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>JSON schema validation</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Bulk question import</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Student analytics dashboard</li>
+                    </ul>
+                    <a href="{{ url_for('instructor_dashboard') }}" class="btn btn-success btn-lg w-100">
+                        <i class="bi bi-pencil-square"></i> Manage Content
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick stats -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card border-0 bg-light">
+                <div class="card-body py-4">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="h4 text-primary">5+</div>
+                            <small class="text-muted">Question Types</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 text-success">SM-2</div>
+                            <small class="text-muted">Spaced Repetition</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 text-warning">∞</div>
+                            <small class="text-muted">LaTeX Support</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 text-info">📊</div>
+                            <small class="text-muted">Analytics</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
