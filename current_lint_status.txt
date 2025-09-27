@@ -1,0 +1,87 @@
+⚠️ Compliance Issues Detected:
+❌ Missing comment after function at line 858 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 858 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 884 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 884 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 902 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 902 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 922 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 922 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 949 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 949 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 980 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 980 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1016 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 1016 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1028 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 1028 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1116 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 1116 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1125 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 1125 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1415 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1433 in src/quiz_dashboard/web_app.py
+⚠️ Failed to parse src/quiz_dashboard/web_app.py: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers (web_app.py, line 893)
+❌ Missing comment after function at line 100 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 100 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 121 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 121 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 182 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 182 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 271 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 271 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 337 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 337 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 434 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 434 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 459 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 459 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 573 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 573 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 778 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 778 in src/quiz_dashboard/spaced_repetition.py
+⚠️ Failed to parse src/quiz_dashboard/spaced_repetition.py: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers (spaced_repetition.py, line 627)
+❌ Missing comment after function at line 100 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 100 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 329 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 329 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 341 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 341 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 363 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 363 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 513 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 513 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 536 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 536 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 562 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 690 in src/core/debug_toolkit.py
+❌ Missing return type hint at line 721 in src/core/debug_toolkit.py
+⚠️ Failed to parse src/core/debug_toolkit.py: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers (debug_toolkit.py, line 347)
+❌ Missing comment after function at line 58 in src/core/profiler.py
+⚠️ Failed to parse src/core/profiler.py: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers (profiler.py, line 63)
+❌ Missing comment after function at line 154 in src/core/error_handling.py
+❌ Missing comment after function at line 528 in src/core/error_handling.py
+❌ Missing return type hint at line 528 in src/core/error_handling.py
+❌ Missing comment after function at line 584 in src/core/error_handling.py
+❌ Missing return type hint at line 584 in src/core/error_handling.py
+❌ Missing comment after function at line 793 in src/core/error_handling.py
+❌ Missing return type hint at line 793 in src/core/error_handling.py
+❌ Missing comment after function at line 840 in src/core/error_handling.py
+❌ Missing return type hint at line 840 in src/core/error_handling.py
+⚠️ Failed to parse src/core/error_handling.py: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers (error_handling.py, line 159)
+❌ Missing comment after function at line 98 in src/core/factory.py
+❌ Missing return type hint at line 98 in src/core/factory.py
+❌ Missing comment after function at line 228 in src/core/factory.py
+❌ Missing return type hint at line 228 in src/core/factory.py
+❌ Missing return type hint at line 343 in src/core/factory.py
+❌ Missing comment after function at line 427 in src/core/factory.py
+⚠️ Failed to parse src/core/factory.py: expected an indented block after function definition on line 148 (factory.py, line 150)
+❌ Missing return type hint at line 71 in src/core/context_v2.py
+⚠️ Failed to parse src/core/context_v2.py: expected an indented block after function definition on line 113 (context_v2.py, line 115)
+❌ Missing comment after function at line 111 in src/core/debug_toolkit_v2.py
+❌ Missing return type hint at line 111 in src/core/debug_toolkit_v2.py
+❌ Missing return type hint at line 220 in src/core/debug_toolkit_v2.py
+❌ Missing return type hint at line 465 in src/core/debug_toolkit_v2.py
+❌ Missing return type hint at line 506 in src/core/debug_toolkit_v2.py
+⚠️ Failed to parse src/core/debug_toolkit_v2.py: expected an indented block after function definition on line 185 (debug_toolkit_v2.py, line 187)
+⚠️ Failed to parse src/core/plugin_registry.py: expected an indented block after function definition on line 100 (plugin_registry.py, line 102)
