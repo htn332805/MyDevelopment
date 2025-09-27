@@ -45,6 +45,12 @@ known_third_party = ["requests", "numpy", "pandas"]
 [tool.pytest.ini_options]
 addopts = ["--maxfail=3", "--disable-warnings", "--strict-markers"]
 testpaths = ["tests"]
+markers = [
+    "integration_test: marks tests as integration tests",
+    "unit_test: marks tests as unit tests",
+    "slow: marks tests as slow running",
+    "requires_network: marks tests that require network access"
+]
 
 [tool.coverage.run]
 branch = true

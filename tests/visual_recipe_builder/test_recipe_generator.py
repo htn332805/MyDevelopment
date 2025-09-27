@@ -9,8 +9,15 @@ from visual blocks to YAML format.
 
 import pytest
 import yaml
+import sys
+import os
+from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any
+
+# Add project root to path for imports
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root))
 
 from visual_recipe_builder.recipe_generator import (
     RecipeGenerator, VisualRecipe, VisualStep

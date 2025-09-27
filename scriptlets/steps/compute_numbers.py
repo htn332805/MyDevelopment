@@ -99,75 +99,98 @@ def fibonacci(n: int) -> List[int]:
     return sequence[:n]
 
 
-<<<<<<< HEAD
-# Scriptlet classes for orchestrator integration
-class MathScriptlet:
-    """Scriptlet wrapper for mathematical operations."""
+
+# Basic Math Operations for Framework0 compatibility
+def add(a: int | float, b: int | float) -> int | float:
+    """Add two numbers together."""
+    return a + b
+
+def subtract(a: int | float, b: int | float) -> int | float:
+    """Subtract second number from first number."""
+    return a - b
+
+def multiply(a: int | float, b: int | float) -> int | float:
+    """Multiply two numbers."""
+    return a * b
+
+def divide(a: int | float, b: int | float) -> float:
+    """Divide first number by second number."""
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
+    return a / b
+
+
+# Enhanced Scriptlet classes with improved Framework0 integration
+class ComputeNumbers:
+    """
+    Enhanced scriptlet class for comprehensive mathematical operations.
     
-    def run(self, ctx, params):
+    This class implements the Framework0 scriptlet interface and performs
+    various mathematical operations based on the 'operation' parameter.
+    """
+    
+    def run(self, ctx: Any, params: Dict[str, Any]) -> int:
         """
         Execute mathematical operation based on parameters.
         
         Args:
-            ctx: Orchestrator context object
-            params: Parameters containing operation and number
+            ctx: Framework0 context object for storing results
+            params: Dictionary containing 'operation', 'value'/'values' parameters
             
         Returns:
-            int: Return code (0 for success)
+            int: 0 for success, non-zero for failure
         """
-        operation = params.get('operation', 'factorial')
-        number = params.get('number', 5)
+        logger.info("Starting mathematical operation step")
         
         try:
+            operation = params.get('operation', 'factorial')
+            logger.debug(f"Performing operation: {operation}")
+            
             if operation == 'factorial':
-                result = factorial(number)
-                ctx.set(f"math.factorial_{number}", result, who="MathScriptlet")
-            elif operation == 'fibonacci':
-                result = fibonacci(number)
-                ctx.set(f"math.fibonacci_{number}", result, who="MathScriptlet")
-            else:
-                ctx.set("math.error", f"Unknown operation: {operation}", who="MathScriptlet")
-                return 1
+                value = params.get('value', 5)
+                result = factorial(value)
+                ctx.set("compute.factorial_result", result, who="ComputeNumbers")
+                ctx.set("compute.factorial_input", value, who="ComputeNumbers")
                 
-            print(f"Math operation {operation}({number}) = {result}")
-            return 0
+            elif operation == 'add':
+                values = params.get('values', [2, 3])
+                result = add(values[0], values[1]) if len(values) >= 2 else 0
+                ctx.set("compute.add_result", result, who="ComputeNumbers")
+                ctx.set("compute.add_inputs", values, who="ComputeNumbers")
+                
+            elif operation == 'subtract':
+                values = params.get('values', [5, 3])
+                result = subtract(values[0], values[1]) if len(values) >= 2 else 0
+                ctx.set("compute.subtract_result", result, who="ComputeNumbers")
+                ctx.set("compute.subtract_inputs", values, who="ComputeNumbers")
+                
+            elif operation == 'multiply':
+                values = params.get('values', [2, 3])
+                result = multiply(values[0], values[1]) if len(values) >= 2 else 0
+                ctx.set("compute.multiply_result", result, who="ComputeNumbers")
+                ctx.set("compute.multiply_inputs", values, who="ComputeNumbers")
+                
+            elif operation == 'divide':
+                values = params.get('values', [6, 3])
+                result = divide(values[0], values[1]) if len(values) >= 2 else 0
+                ctx.set("compute.divide_result", result, who="ComputeNumbers")
+                ctx.set("compute.divide_inputs", values, who="ComputeNumbers")
+                
+            else:
+                logger.error(f"Unknown operation: {operation}")
+                return 1
+            
+            logger.info(f"Operation {operation} completed successfully with result: {result}")
+            return 0  # Success
             
         except Exception as e:
-            ctx.set("math.error", str(e), who="MathScriptlet")
-            print(f"Error in math operation: {e}")
-            return 1
+            logger.error(f"Failed to perform mathematical operation: {e}")
+            return 1  # Failure
 
 
-class PrimeScriptlet:
-    """Scriptlet wrapper for prime number checking."""
-    
-    def run(self, ctx, params):
-        """
-        Check if a number is prime.
-        
-        Args:
-            ctx: Orchestrator context object
-            params: Parameters containing the number to check
-            
-        Returns:
-            int: Return code (0 for success)
-        """
-        number = params.get('number', 2)
-        
-        try:
-            result = is_prime(number)
-            ctx.set(f"prime.check_{number}", result, who="PrimeScriptlet")
-            print(f"Number {number} is {'prime' if result else 'not prime'}")
-            return 0
-            
-        except Exception as e:
-            ctx.set("prime.error", str(e), who="PrimeScriptlet")
-            print(f"Error checking prime: {e}")
-            return 1
-=======
 class ComputeFactorial:
     """
-    Scriptlet class to compute factorial of a number.
+    Legacy scriptlet class to compute factorial of a number.
     
     This class implements the Framework0 scriptlet interface and computes
     the factorial of a given number, storing the result in the context.
@@ -286,4 +309,4 @@ class GenerateFibonacci:
         except Exception as e:
             logger.error(f"Failed to generate Fibonacci: {e}")
             return 1  # Failure
->>>>>>> origin/copilot/fix-9b15fb09-c0fc-447f-9abd-424c6e9d940d
+

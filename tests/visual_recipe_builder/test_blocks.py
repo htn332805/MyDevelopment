@@ -8,7 +8,14 @@ block-related functionality.
 """
 
 import pytest
+import sys
+import os
+from pathlib import Path
 from typing import Dict, Any
+
+# Add project root to path for imports
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root))
 
 from visual_recipe_builder.blocks import (
     Block, BlockInput, BlockOutput, BlockLibrary, BlockType, InputType,

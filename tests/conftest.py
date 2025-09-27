@@ -15,7 +15,8 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-# Ensure visual_recipe_builder module can be imported
-visual_recipe_builder_path = project_root / "visual_recipe_builder"
-if visual_recipe_builder_path.exists():
-    sys.path.insert(0, str(project_root))
+# Ensure visual_recipe_builder module can be imported by adding parent to path
+sys.path.insert(0, str(project_root))
+
+# Set PYTHONPATH environment variable for consistency
+os.environ['PYTHONPATH'] = str(project_root) + ':' + os.environ.get('PYTHONPATH', '')
