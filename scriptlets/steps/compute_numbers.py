@@ -99,7 +99,6 @@ def fibonacci(n: int) -> List[int]:
     return sequence[:n]
 
 
-<<<<<<< HEAD
 # Scriptlet classes for orchestrator integration
 class MathScriptlet:
     """Scriptlet wrapper for mathematical operations."""
@@ -164,7 +163,7 @@ class PrimeScriptlet:
             ctx.set("prime.error", str(e), who="PrimeScriptlet")
             print(f"Error checking prime: {e}")
             return 1
-=======
+
 class ComputeFactorial:
     """
     Scriptlet class to compute factorial of a number.
@@ -286,4 +285,3 @@ class GenerateFibonacci:
         except Exception as e:
             logger.error(f"Failed to generate Fibonacci: {e}")
             return 1  # Failure
->>>>>>> origin/copilot/fix-9b15fb09-c0fc-447f-9abd-424c6e9d940d
