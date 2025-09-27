@@ -70,6 +70,9 @@ Examples:
   framework_cli.py template generate basic_scriptlet MyScriptlet.py --class_name MyScriptlet
   framework_cli.py monitor start --alerts
   framework_cli.py recipe run recipe.yaml --parallel --profile
+  framework_cli.py recipe package --interactive
+  framework_cli.py recipe package --recipe my_recipe.yaml
+  framework_cli.py recipe package --list
   framework_cli.py debug start --session my_session
             """
         )
@@ -131,14 +134,30 @@ Examples:
         report_parser.add_argument('--minutes', type=int, default=60, help='Report time window')
         report_parser.add_argument('--output', help='Output file path')
         
+        # Recipe execution and management
+        recipe_parser = subparsers.add_parser('recipe', help='Recipe execution and management')
+        recipe_subparsers = recipe_parser.add_subparsers(dest='recipe_action', help='Recipe actions')
+        
         # Recipe execution
-        recipe_parser = subparsers.add_parser('recipe', help='Recipe execution')
-        recipe_parser.add_argument('action', choices=['run', 'validate'], help='Recipe action')
-        recipe_parser.add_argument('recipe_path', help='Path to recipe YAML file')
-        recipe_parser.add_argument('--parallel', action='store_true', help='Enable parallel execution')
-        recipe_parser.add_argument('--only', help='Comma-separated steps to include')
-        recipe_parser.add_argument('--skip', help='Comma-separated steps to skip')
-        recipe_parser.add_argument('--export-report', help='Export execution report to file')
+        run_parser = recipe_subparsers.add_parser('run', help='Execute a recipe')
+        run_parser.add_argument('recipe_path', help='Path to recipe YAML file')
+        run_parser.add_argument('--parallel', action='store_true', help='Enable parallel execution')
+        run_parser.add_argument('--only', help='Comma-separated steps to include')
+        run_parser.add_argument('--skip', help='Comma-separated steps to skip')
+        run_parser.add_argument('--export-report', help='Export execution report to file')
+        
+        # Recipe validation
+        validate_parser = recipe_subparsers.add_parser('validate', help='Validate a recipe')
+        validate_parser.add_argument('recipe_path', help='Path to recipe YAML file')
+        
+        # Recipe packaging
+        package_parser = recipe_subparsers.add_parser('package', help='Package recipe for distribution')
+        package_parser.add_argument('--recipe', type=str, help='Path to specific recipe file to package')
+        package_parser.add_argument('--output', type=str, default='./recipe_packages', 
+                                  help='Output directory for packages (default: ./recipe_packages)')
+        package_parser.add_argument('--list', action='store_true', help='List available recipes and exit')
+        package_parser.add_argument('--interactive', action='store_true', 
+                                  help='Use interactive recipe selection (default if no --recipe specified)')
         
         # Debug management
         debug_parser = subparsers.add_parser('debug', help='Debug management')
@@ -297,8 +316,8 @@ Examples:
         return 0
 
     def handle_recipe_commands(self, args) -> int:
-        """Handle recipe execution commands."""
-        if args.action == 'run':
+        """Handle recipe execution and management commands."""
+        if args.recipe_action == 'run':
             # Parse filter arguments
             only_list = args.only.split(",") if args.only else None
             skip_list = args.skip.split(",") if args.skip else None
@@ -332,7 +351,7 @@ Examples:
                 print(f"Error: {result.error_summary}")
                 return 1
         
-        elif args.action == 'validate':
+        elif args.recipe_action == 'validate':
             # Simple recipe validation
             try:
                 import yaml
@@ -349,6 +368,72 @@ Examples:
                 
             except Exception as e:
                 print(f"Recipe validation: FAILED - {e}")
+                return 1
+                
+        elif args.recipe_action == 'package':
+            # Import recipe packager
+            from pathlib import Path
+            import sys
+            
+            # Add current directory to path for imports
+            project_root = Path(__file__).parent.parent
+            sys.path.insert(0, str(project_root))
+            
+            from tools.recipe_packager import RecipePackager, find_available_recipes, interactive_recipe_selection
+            
+            if args.list:
+                # List available recipes
+                recipes = find_available_recipes(project_root)
+                print(f"\n📦 Found {len(recipes)} recipes:")
+                for recipe in recipes:
+                    print(f"  • {recipe.relative_to(project_root)}")
+                return 0
+            
+            # Find available recipes
+            recipes = find_available_recipes(project_root)
+            
+            # Determine recipe to package
+            if args.recipe:
+                recipe_path = Path(args.recipe)
+                if not recipe_path.exists():
+                    print(f"❌ Recipe file not found: {args.recipe}")
+                    return 1
+                selected_recipe = recipe_path
+            else:
+                # Interactive selection or use first available
+                if args.interactive or not recipes:
+                    selected_recipe = interactive_recipe_selection(recipes)
+                    if not selected_recipe:
+                        print("No recipe selected. Exiting.")
+                        return 0
+                else:
+                    # Use first available recipe by default
+                    selected_recipe = recipes[0]
+                    print(f"Using first available recipe: {selected_recipe.name}")
+            
+            print(f"\n📦 Packaging recipe: {selected_recipe.name}")
+            
+            # Create packager and generate package
+            packager = RecipePackager(project_root)
+            output_path = Path(args.output)
+            
+            try:
+                zip_path = packager.create_package(selected_recipe, output_path)
+                
+                print(f"\n✅ Package created successfully!")
+                print(f"   Archive: {zip_path}")
+                print(f"   Size: {zip_path.stat().st_size:,} bytes")
+                print("\n📋 Usage Instructions:")
+                print("   1. Extract the archive to any directory")
+                print("   2. Navigate to the extracted directory") 
+                print("   3. Run: python run_recipe.py")
+                print("   4. Use --debug, --only, --skip options as needed")
+                
+                return 0
+                
+            except Exception as e:
+                logger.error(f"Failed to create package: {e}")
+                print(f"❌ Error: {e}")
                 return 1
         
         return 0
