@@ -1,0 +1,58 @@
+{
+  "data_cleaning": {
+    "remove_duplicates": true,
+    "standardize_dates": true,
+    "clean_text_casing": "title",
+    "normalize_columns": true,
+    "date_format": "MM/DD/YYYY",
+    "currency_format": "$#,##0.00",
+    "text_columns": [
+      "Name",
+      "Description",
+      "Category"
+    ],
+    "date_columns": [
+      "Date",
+      "Created",
+      "Modified"
+    ]
+  },
+  "analysis": {
+    "create_pivot_tables": true,
+    "generate_summaries": true,
+    "apply_filters": true,
+    "highlight_outliers": true,
+    "pivot_settings": {
+      "default_aggfunc": "sum",
+      "include_totals": true
+    },
+    "filter_settings": {
+      "highlight_color": "FFFF00",
+      "conditional_rules": [
+        "above_average",
+        "color_scale"
+      ]
+    }
+  },
+  "visualization": {
+    "create_charts": true,
+    "apply_conditional_formatting": true,
+    "create_dashboards": false,
+    "chart_types": [
+      "bar",
+      "line",
+      "pie"
+    ],
+    "chart_settings": {
+      "default_width": 15,
+      "default_height": 10,
+      "title_font_size": 14,
+      "show_gridlines": true
+    }
+  },
+  "navigation": {
+    "create_toc": true,
+    "add_nav_buttons": true,
+    "toc_threshold": 6
+  }
+}
