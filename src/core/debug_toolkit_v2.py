@@ -108,14 +108,15 @@ class AdvancedDebugSession:
     checkpoint management, performance analysis, and error recovery.
     """
 
-def __init__(d -> Any: str,
-        # Execute __init__ operation        *,
+def __init__(d: str,
+        *,
         enable_profiling: bool = True,
         enable_memory_tracking: bool = True,
         max_call_depth: int = 100,
-        checkpoint_interval: float  = 1.0
+        checkpoint_interval: float = 1.0
         ) -> Any:
-        Initialize advanced debug session.
+    # Execute __init__ operation
+    """Initialize advanced debug session."""
         
         Args:
             session_id (str): Unique session identifier

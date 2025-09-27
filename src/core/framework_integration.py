@@ -594,15 +594,15 @@ def get_framework(config_path: Optional[Union[str, Path]] = None) -> Framework0:
         return _global_framework
 
 
-        def initialize_framework(config: Optional[Dict[str, Any]] = None,) -> Any:
-        # Execute initialize_framework operation
-        config_path: Optional[Union[str, Path]] = None
-        ) -> Framework0:
-        Initialize Framework0 with configuration.
-    
-        Args:
+def initialize_framework(config: Optional[Dict[str, Any]] = None,
+                        config_path: Optional[Union[str, Path]] = None
+                        ) -> Framework0:
+    # Execute initialize_framework operation
+    """Initialize Framework0 with configuration.
+
+    Args:
         config (Optional[Dict[str, Any]]): Configuration dictionary
-        config_path (Optional[Union[str, Path]]): Configuration file path
+        config_path (Optional[Union[str, Path]]): Configuration file path"""
         
         Returns:
         Framework0: Initialized framework instance

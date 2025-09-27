@@ -84,14 +84,16 @@ class PluginProtocol(Protocol):
         # Execute initialize operation
         ...
     
-        @abstractmethod
-        def activate(self) -> None:
+    @abstractmethod
+    def activate(self) -> None:
         # Execute activate operation
+        """Activate the plugin."""
         ...
     
-        @abstractmethod
-        def deactivate(self) -> None:
+    @abstractmethod
+    def deactivate(self) -> None:
         # Execute deactivate operation
+        """Deactivate the plugin."""
         ...
     
         @abstractmethod

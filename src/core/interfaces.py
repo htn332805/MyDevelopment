@@ -43,10 +43,11 @@ class Initializable(Protocol):
     
     def initialize(self, config: Dict[str, Any]) -> None:
         # Execute initialize operation
-        Initialize component with configuration.
+        """Initialize component with configuration.
         
         Args:
             config (Dict[str, Any]): Configuration parameters
+        """
         ...
 
 
