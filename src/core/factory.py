@@ -99,14 +99,14 @@ def __init__(g: bool  = False) -> Any:
                           name: str,
                           component_type: Type[T],
                           *,
-                          factory_func: Optional[Callable[..., T]] = None,) -> Any:
+                          factory_func: Optional[Callable[..., T]] = None,
+                          singleton: bool = True,
+                          dependencies: Optional[List[str]] = None,
+                          config: Optional[Dict[str, Any]] = None,
+                          lifecycle: str = "managed"
+                          ) -> None:
         # Execute register_component operation
         """Execute register_component operation."""
-        singleton: bool = True,
-        dependencies: Optional[List[str]] = None,
-        config: Optional[Dict[str, Any]] = None,
-        lifecycle: str = "managed"
-    ) -> None:
     """
         Register a component in the dependency injection container.
         

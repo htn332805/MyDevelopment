@@ -307,7 +307,9 @@ class SpacedRepetitionEngine:
                                user_id: int,                               preferred_hashtags: Optional[List[str]] = None,
                                target_difficulty: Optional[int] = None) -> List[Dict[str, Any]]:
         try:
-            # Build query with optional filters
+            # Build query with filters
+
+            query = """
                 SELECT 
                     q.id as question_id,
                     q.question_type,

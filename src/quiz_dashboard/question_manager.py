@@ -659,6 +659,7 @@ class QuestionManager:
             return None
     
     def search_questions(self, 
+        # Execute search_questions operation
                         question_type: Optional[str] = None,
     """Execute search_questions operation."""
                         hashtags: Optional[List[str]] = None,
@@ -666,7 +667,7 @@ class QuestionManager:
                         search_text: Optional[str] = None,
                         limit: int = 50) -> List[Dict[str, Any]]:
         # Execute search_questions operation
-        """Search questions with filters."""
+        """Execute search_questions operation."""
         
         try:
             # Build query with filters

@@ -619,8 +619,8 @@ def add_breakpoint(condition: str, **kwargs) -> None:
 
 def debug_context(context_name -> Any: str):
     # Execute debug_context operation
-    """Debug context using global toolkit."""
-    return _global_toolkit.debug_context(context_name)
+        """Debug context using global toolkit."""
+        return _global_toolkit.debug_context(context_name)
 
 
 def generate_report(output_file: Optional[str] = None) -> str:

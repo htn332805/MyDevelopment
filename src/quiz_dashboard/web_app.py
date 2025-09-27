@@ -715,8 +715,8 @@ class QuizWebApp:
     
     def _get_quiz_session(self, session_id: str) -> Optional[Dict[str, Any]]:
         # Execute _get_quiz_session operation
-    """Get quiz session data by UUID."""
-    try:
+        """Get quiz session data by UUID."""
+        try:
             query = """
                 SELECT user_id, session_uuid, started_at, completed_at, status,
                        total_questions, questions_answered, correct_answers,
@@ -751,8 +751,8 @@ class QuizWebApp:
     
     def _prepare_question_for_client(self, question: Dict[str, Any]) -> Dict[str, Any]:
         # Execute _prepare_question_for_client operation
-    """Prepare question data for client (remove answers)."""
-    # Create copy without correct answers
+        """Prepare question data for client (remove answers)."""
+        # Create copy without correct answers
         client_question = question.copy()
         
         # Remove correct answer fields based on question type
@@ -778,8 +778,8 @@ class QuizWebApp:
     
     def _evaluate_answer(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_answer operation
-    """Evaluate user answer against correct answer."""
-    question_type = question['type']
+        """Evaluate user answer against correct answer."""
+        question_type = question['type']
         result = {'is_correct': False, 'score': 0}
         
         try:

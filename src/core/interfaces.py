@@ -51,7 +51,7 @@ class Initializable(Protocol):
         ...
 
 
-        @runtime_checkable
+@runtime_checkable
 class Cleanupable(Protocol):
     """Protocol for components that require cleanup."""
     
@@ -60,7 +60,7 @@ class Cleanupable(Protocol):
         ...
 
 
-        @runtime_checkable
+@runtime_checkable
 class Configurable(Protocol):
     """Protocol for components that accept configuration updates."""
     
@@ -82,9 +82,7 @@ class Configurable(Protocol):
         Returns:
             Dict[str, Any]: Current configuration
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Validatable(Protocol):
     """Protocol for components that support validation."""
     
@@ -103,9 +101,7 @@ class Validatable(Protocol):
         Returns:
             List[str]: Validation error messages
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Executable(Protocol):
     """Protocol for executable components like tasks and scriptlets."""
     
@@ -130,9 +126,7 @@ class Executable(Protocol):
         Returns:
             bool: True if execution is possible
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Plugin(Protocol):
     """Protocol defining the interface for Framework0 plugins."""
     
@@ -166,9 +160,7 @@ class Plugin(Protocol):
         Returns:
             Dict[str, Any]: Plugin metadata information
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class ContextManager(Protocol):
     """Protocol for context management components."""
     
@@ -212,9 +204,7 @@ class ContextManager(Protocol):
         Returns:
             List[Dict[str, Any]]: History records
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class EventEmitter(Protocol):
     """Protocol for components that emit events."""
     
@@ -245,9 +235,7 @@ class EventEmitter(Protocol):
             event (str): Event name
             callback (Callable): Callback function to remove
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Debuggable(Protocol):
     """Protocol for components that support debugging."""
     
@@ -274,9 +262,7 @@ class Debuggable(Protocol):
         Args:
             enabled (bool): Enable tracing if True
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Profiler(Protocol):
     """Protocol for profiling components."""
     
@@ -306,9 +292,7 @@ class Profiler(Protocol):
         Returns:
             Dict[str, Any]: Current metrics
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Serializable(Protocol):
     """Protocol for components that support serialization."""
     
@@ -335,9 +319,7 @@ class Serializable(Protocol):
         Returns:
             str: JSON representation
         ...
-
-
-        @runtime_checkable
+@runtime_checkable
 class Cacheable(Protocol):
     """Protocol for components with caching capabilities."""
     
