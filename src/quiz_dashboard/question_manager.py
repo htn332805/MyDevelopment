@@ -56,7 +56,8 @@ class QuestionSchemaValidator:
     error reporting and content analysis capabilities.
     """
     
-    def __init__(self):
+    def __init__(self) -> None:
+        # Initialize schema validator with question type schemas
         """Initialize schema validator with question type schemas."""
         self.schemas = self._load_question_schemas()  # Question type schemas
         self.latex_pattern = re.compile(r'\$.*?\$|\\\(.*?\\\)|\\\[.*?\\\]|\\begin\{.*?\}.*?\\end\{.*?\}', re.DOTALL)
@@ -64,6 +65,7 @@ class QuestionSchemaValidator:
         logger.debug("QuestionSchemaValidator initialized")
     
     def _load_question_schemas(self) -> Dict[str, Dict[str, Any]]:
+        # Load JSON schemas for all question types
         """Load JSON schemas for all question types."""
         
         # Base question schema - common fields for all types
@@ -222,6 +224,7 @@ class QuestionSchemaValidator:
         }
     
     def validate_question(self, question_data: Dict[str, Any]) -> QuestionValidationResult:
+        # Validate question data against appropriate schema
         """Validate question data against appropriate schema."""
         result = QuestionValidationResult(is_valid=False)
         
@@ -266,6 +269,7 @@ class QuestionSchemaValidator:
         return result
     
     def _validate_content_quality(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Validate content quality and completeness
         """Validate content quality and completeness."""
         
         # Check title length and quality
@@ -299,6 +303,7 @@ class QuestionSchemaValidator:
             self._validate_matching_quality(question_data, result)
     
     def _validate_multiple_choice_quality(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Validate multiple choice question quality
         """Validate multiple choice question quality."""
         options = question_data.get("options", [])
         correct_answer = question_data.get("correct_answer")
@@ -320,6 +325,7 @@ class QuestionSchemaValidator:
             result.errors.append("Correct answer ID does not match any option ID")
     
     def _validate_fill_in_blank_quality(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Validate fill-in-blank question quality
         """Validate fill-in-blank question quality."""
         acceptable_answers = question_data.get("acceptable_answers", [])
         
@@ -331,6 +337,7 @@ class QuestionSchemaValidator:
             result.warnings.append("Some acceptable answers are duplicates (case-insensitive)")
     
     def _validate_reorder_quality(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Validate reorder/sequence question quality
         """Validate reorder/sequence question quality."""
         items = question_data.get("items", [])
         correct_order = question_data.get("correct_order", [])
@@ -349,6 +356,7 @@ class QuestionSchemaValidator:
             result.errors.append("Correct order IDs do not match item IDs")
     
     def _validate_matching_quality(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Validate matching pairs question quality
         """Validate matching pairs question quality."""
         left_items = question_data.get("left_items", [])
         right_items = question_data.get("right_items", [])
@@ -372,6 +380,7 @@ class QuestionSchemaValidator:
                 result.errors.append(f"Match references non-existent right item: {right_id}")
     
     def _detect_latex_content(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Detect LaTeX mathematical content in question
         """Detect LaTeX mathematical content in question."""
         
         # Check all text fields for LaTeX patterns
@@ -400,6 +409,7 @@ class QuestionSchemaValidator:
             result.suggestions.append("LaTeX content detected - ensure MathJax is enabled")
     
     def _estimate_difficulty(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Estimate question difficulty based on content analysis
         """Estimate question difficulty based on content analysis."""
         
         difficulty_score = 3  # Default medium difficulty
@@ -433,6 +443,7 @@ class QuestionSchemaValidator:
         result.estimated_difficulty = max(1, min(5, difficulty_score))
     
     def _detect_topics(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Detect topics/subjects from question content
         """Detect topics/subjects from question content."""
         
         # Common academic topics/keywords
@@ -463,6 +474,7 @@ class QuestionSchemaValidator:
         result.detected_topics = detected_topics
     
     def _check_common_issues(self, question_data: Dict[str, Any], result: QuestionValidationResult) -> None:
+        # Check for common question authoring issues
         """Check for common question authoring issues."""
         
         title = question_data.get("title", "").lower()
@@ -491,7 +503,8 @@ class QuestionManager:
     and search functionality with database integration.
     """
     
-    def __init__(self, database: Optional[QuizDatabase] = None):
+    def __init__(self: 'QuestionManager', database: Optional[QuizDatabase] = None) -> None:
+        # Initialize question manager with database connection
         """Initialize question manager with database connection."""
         self.database = database or get_quiz_database()  # Database connection
         self.validator = QuestionSchemaValidator()  # Schema validator
@@ -499,6 +512,7 @@ class QuestionManager:
         logger.info("QuestionManager initialized")
     
     def create_question(self, question_data: Dict[str, Any], created_by: Optional[int] = None) -> Optional[int]:
+        # Create new question with validation
         """Create new question with validation."""
         
         try:
@@ -566,6 +580,7 @@ class QuestionManager:
             return None
     
     def _extract_correct_answer(self, question_data: Dict[str, Any]) -> Dict[str, Any]:
+        # Extract correct answer data based on question type
         """Extract correct answer data based on question type."""
         
         question_type = question_data["type"]
@@ -587,6 +602,7 @@ class QuestionManager:
         return {}
     
     def _add_question_tags(self, question_id: int, hashtags: List[str]) -> None:
+        # Add hashtags as question tags
         """Add hashtags as question tags."""
         
         for tag in hashtags:
@@ -597,6 +613,7 @@ class QuestionManager:
                 logger.warning(f"Failed to add tag '{tag}': {e}")
     
     def get_question(self, question_id: int) -> Optional[Dict[str, Any]]:
+        # Retrieve question by ID
         """Retrieve question by ID."""
         
         try:
@@ -641,12 +658,13 @@ class QuestionManager:
             logger.error(f"Failed to retrieve question {question_id}: {e}")
             return None
     
-    def search_questions(self, 
+    def search_questions(self: 'QuestionManager', 
                         question_type: Optional[str] = None,
                         hashtags: Optional[List[str]] = None,
                         difficulty_range: Optional[Tuple[int, int]] = None,
                         search_text: Optional[str] = None,
                         limit: int = 50) -> List[Dict[str, Any]]:
+        # Search questions with filters and return matching results
         """Search questions with filters."""
         
         try:
@@ -708,6 +726,7 @@ class QuestionManager:
             return []
     
     def import_questions(self, questions_file: str) -> Dict[str, Any]:
+        # Import questions from JSON file with validation
         """Import questions from JSON file with validation."""
         
         result = {
@@ -752,6 +771,7 @@ _manager_lock = threading.Lock()
 
 
 def get_question_manager(database: Optional[QuizDatabase] = None) -> QuestionManager:
+        # Get global question manager instance
     """Get global question manager instance."""
     global _question_manager
     
