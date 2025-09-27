@@ -660,6 +660,7 @@ class QuestionManager:
     
     def search_questions(self, 
                         question_type: Optional[str] = None,
+    """Execute search_questions operation."""
                         hashtags: Optional[List[str]] = None,
                         difficulty_range: Optional[Tuple[int, int]] = None,
                         search_text: Optional[str] = None,
