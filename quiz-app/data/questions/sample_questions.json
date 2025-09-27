@@ -1,0 +1,151 @@
+[
+  {
+    "question_id": "mcq-algorithms-001",
+    "type": "multiple_choice",
+    "prompt": "Which algorithm has the best **average-case** time complexity for sorting?",
+    "choices": ["Bubble Sort", "Quick Sort", "Selection Sort", "Insertion Sort"],
+    "answer": 1,
+    "hint": "Think about divide-and-conquer algorithms",
+    "explanation": "Quick Sort has O(n log n) average-case time complexity, which is optimal for comparison-based sorting algorithms.",
+    "difficulty": "medium",
+    "categories": ["algorithms", "sorting"],
+    "hashtags": ["#sorting", "#time-complexity", "#algorithms"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "tf-data-structures-001",
+    "type": "true_false",
+    "prompt": "A binary search tree allows for O(log n) search time in the worst case.",
+    "answer": false,
+    "hint": "Consider what happens when the tree becomes unbalanced",
+    "explanation": "In the worst case, a BST can become a linked list (completely unbalanced), leading to O(n) search time. Only balanced BSTs guarantee O(log n).",
+    "difficulty": "medium",
+    "categories": ["data-structures", "trees"],
+    "hashtags": ["#bst", "#time-complexity", "#worst-case"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "fill-calculus-001",
+    "type": "fill_blank",
+    "prompt": "The derivative of $\\sin(x)$ is ____.",
+    "answer": ["cos(x)", "cos x", "\\cos(x)", "\\cos x"],
+    "hint": "Remember the basic trigonometric derivatives",
+    "explanation": "The derivative of sin(x) with respect to x is cos(x). This is one of the fundamental trigonometric derivatives.",
+    "difficulty": "easy",
+    "categories": ["calculus", "derivatives"],
+    "hashtags": ["#derivatives", "#trigonometry", "#calculus"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "reorder-quicksort-001",
+    "type": "reorder",
+    "prompt": "Put the steps of the QuickSort algorithm in the correct order:",
+    "reorder": [
+      "Choose a pivot element",
+      "Partition array around pivot",
+      "Recursively sort left subarray", 
+      "Recursively sort right subarray",
+      "Combine results (no action needed)"
+    ],
+    "hint": "Think about the divide-and-conquer approach",
+    "explanation": "QuickSort follows divide-and-conquer: choose pivot, partition, then recursively sort subarrays. No explicit combining is needed as partitioning puts elements in correct relative positions.",
+    "difficulty": "hard",
+    "categories": ["algorithms", "sorting"],
+    "hashtags": ["#quicksort", "#divide-conquer", "#recursion"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "match-data-structures-001",
+    "type": "matching",
+    "prompt": "Match each data structure with its primary characteristic:",
+    "matching": {
+      "left": ["Stack", "Queue", "Heap", "Hash Table"],
+      "right": ["LIFO (Last In, First Out)", "FIFO (First In, First Out)", "Priority-based ordering", "O(1) average lookup"],
+      "pairs": [[0, 0], [1, 1], [2, 2], [3, 3]]
+    },
+    "hint": "Think about how each data structure manages insertion and removal",
+    "explanation": "Stack follows LIFO principle, Queue follows FIFO principle, Heap maintains priority ordering, and Hash Table provides fast average-case lookup.",
+    "difficulty": "easy",
+    "categories": ["data-structures"],
+    "hashtags": ["#stack", "#queue", "#heap", "#hash-table"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "mcq-python-001",
+    "type": "multiple_choice",
+    "prompt": "What is the time complexity of accessing an element by index in a Python list?",
+    "choices": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    "answer": 0,
+    "hint": "Python lists are implemented as dynamic arrays",
+    "explanation": "Python lists are implemented as dynamic arrays, allowing constant-time O(1) access to elements by index.",
+    "difficulty": "easy",
+    "categories": ["python", "data-structures"],
+    "hashtags": ["#python", "#lists", "#time-complexity"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "tf-networking-001", 
+    "type": "true_false",
+    "prompt": "TCP guarantees that data packets will arrive in the same order they were sent.",
+    "answer": true,
+    "hint": "Consider TCP's reliability features",
+    "explanation": "TCP is a reliable, connection-oriented protocol that guarantees ordered delivery of data packets through sequence numbering and acknowledgments.",
+    "difficulty": "medium",
+    "categories": ["networking", "protocols"],
+    "hashtags": ["#tcp", "#networking", "#protocols"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "fill-database-001",
+    "type": "fill_blank", 
+    "prompt": "In SQL, the ____ command is used to remove duplicate rows from query results.",
+    "answer": ["DISTINCT", "distinct"],
+    "hint": "This keyword comes after SELECT",
+    "explanation": "The DISTINCT keyword in SQL is used with SELECT to return only unique rows, eliminating duplicates from the result set.",
+    "difficulty": "easy",
+    "categories": ["database", "sql"],
+    "hashtags": ["#sql", "#database", "#distinct"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "mcq-complexity-001",
+    "type": "multiple_choice",
+    "prompt": "Which of the following best describes the space complexity of merge sort?",
+    "choices": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    "answer": 2,
+    "hint": "Consider the additional arrays needed for merging",
+    "explanation": "Merge sort requires O(n) additional space for temporary arrays used during the merging process, making its space complexity O(n).",
+    "difficulty": "medium",
+    "categories": ["algorithms", "complexity"],
+    "hashtags": ["#merge-sort", "#space-complexity", "#algorithms"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "question_id": "reorder-oop-001",
+    "type": "reorder",
+    "prompt": "Put the phases of object-oriented design in the correct order:",
+    "reorder": [
+      "Requirements analysis",
+      "Identify classes and objects", 
+      "Define class relationships",
+      "Implement methods and attributes",
+      "Testing and refinement"
+    ],
+    "hint": "Think about the software development lifecycle",
+    "explanation": "OOP design follows a logical progression: understand requirements, identify classes, define relationships, implement details, then test and refine.",
+    "difficulty": "medium",
+    "categories": ["object-oriented", "software-design"],
+    "hashtags": ["#oop", "#design", "#software-engineering"],
+    "created_by": "system",
+    "created_at": "2024-01-01T00:00:00Z"
+  }
+]

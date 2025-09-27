@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quiz Question Schema",
+  "description": "Comprehensive schema for all quiz question types",
+  "type": "object",
+  "required": ["question_id", "type", "prompt"],
+  "properties": {
+    "question_id": {
+      "type": ["string", "number"],
+      "description": "Unique identifier for the question"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["multiple_choice", "true_false", "fill_blank", "reorder", "matching"],
+      "description": "Type of question"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Question text (supports markdown & LaTeX)"
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Answer choices for multiple_choice questions"
+    },
+    "answer": {
+      "oneOf": [
+        {"type": "number", "description": "Index for multiple_choice (0-based)"},
+        {"type": "string", "description": "String answer"},
+        {"type": "boolean", "description": "Boolean for true_false"},
+        {"type": "array", "items": {"type": "string"}, "description": "Array of acceptable answers for fill_blank"}
+      ],
+      "description": "Correct answer(s)"
+    },
+    "reorder": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Correct order for reorder type questions"
+    },
+    "matching": {
+      "type": "object",
+      "properties": {
+        "left": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Left side items for matching"
+        },
+        "right": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Right side items for matching"
+        },
+        "pairs": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "description": "Correct pairs as [left_index, right_index] arrays"
+        }
+      },
+      "required": ["left", "right", "pairs"],
+      "description": "Matching question configuration"
+    },
+    "hint": {
+      "type": "string",
+      "description": "Optional hint text"
+    },
+    "explanation": {
+      "type": "string",
+      "description": "Detailed explanation (can contain LaTeX)"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"],
+      "default": "medium",
+      "description": "Question difficulty level"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Categories/topics for the question"
+    },
+    "hashtags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^#\\w+"
+      },
+      "description": "Hashtags for the question (must start with #)"
+    },
+    "media": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["image", "svg"],
+          "description": "Media type"
+        },
+        "src": {
+          "type": "string",
+          "description": "Path to media file"
+        }
+      },
+      "required": ["type", "src"],
+      "description": "Optional media content"
+    },
+    "time_limit": {
+      "type": ["number", "null"],
+      "description": "Time limit in seconds (null = untimed)"
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Optional alternate question variants"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "Author name or ID"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"const": "multiple_choice"}}},
+      "then": {"required": ["choices", "answer"]}
+    },
+    {
+      "if": {"properties": {"type": {"const": "true_false"}}},
+      "then": {"required": ["answer"]}
+    },
+    {
+      "if": {"properties": {"type": {"const": "fill_blank"}}},
+      "then": {"required": ["answer"]}
+    },
+    {
+      "if": {"properties": {"type": {"const": "reorder"}}},
+      "then": {"required": ["reorder"]}
+    },
+    {
+      "if": {"properties": {"type": {"const": "matching"}}},
+      "then": {"required": ["matching"]}
+    }
+  ]
+}
