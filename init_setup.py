@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 import sys
+from typing import Any, Dict, List, Optional, Union
 
 INSTRUCTIONS_MD = """Title: Team Copilot Instructions — Modular, Version-Safe Python Automation
 

@@ -18,6 +18,7 @@ import os
 import sys
 import argparse
 import json
+from typing import Any, Dict, List, Optional, Union
 from pathlib import Path
 
 # Add project root to Python path
@@ -34,7 +35,7 @@ from src.quiz_dashboard.question_manager import get_question_manager
 logger = get_logger(__name__)
 
 
-def create_sample_questions():
+def create_sample_questions() -> Any:
     """Create sample questions for demonstration."""
     
     sample_questions = [
@@ -147,7 +148,7 @@ def create_sample_questions():
     return sample_questions
 
 
-def initialize_sample_data():
+def initialize_sample_data() -> Any:
     """Initialize database with sample questions."""
     
     try:
@@ -184,7 +185,7 @@ def initialize_sample_data():
         logger.error(f"Failed to initialize sample data: {e}")
 
 
-def main():
+def main() -> Any:
     """Main application entry point."""
     
     parser = argparse.ArgumentParser(description="Quiz Dashboard Application")

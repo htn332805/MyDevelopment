@@ -15,6 +15,7 @@ Components:
 
 from contextlib import contextmanager
 import logging
+from typing import Any, Dict, List, Optional, Union
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -35,7 +36,7 @@ class ServerContext:
         __exit__: Cleans up the resource.
     """
 
-    def __init__(self, resource: str):
+def __init__(self, resource -> Any: str):
         """
         Initializes the ServerContext with a specified resource.
 
@@ -44,7 +45,7 @@ class ServerContext:
         """
         self.resource = resource
 
-    def __enter__(self):
+def __enter__(self) -> Any:
         """
         Sets up the resource for use within the context.
 
@@ -55,7 +56,7 @@ class ServerContext:
         # Simulate resource setup
         return self.resource
 
-    def __exit__(self, exc_type, exc_value, traceback):
+def __exit__(self, exc_type -> Any: Any, exc_value: Any, traceback: Any):
         """
         Cleans up the resource after use within the context.
 
@@ -71,7 +72,7 @@ class ServerContext:
         # Additional cleanup logic can be added here
 
 @contextmanager
-def get_server_context(resource: str):
+def get_server_context(resource -> Any: str):
     """
     A function to retrieve the current server context.
 

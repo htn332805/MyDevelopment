@@ -12,6 +12,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 import subprocess
+from typing import Any, Dict, List, Optional, Union
 
 # Add project root to Python path
 project_root = Path(__file__).parent.parent
@@ -20,7 +21,7 @@ sys.path.insert(0, str(project_root))
 from tools.recipe_packager import RecipePackager, find_available_recipes
 
 
-def main():
+def main() -> Any:
     """Run the recipe packaging demonstration."""
     print("🎯 Recipe Packaging System Demo")
     print("=" * 50)

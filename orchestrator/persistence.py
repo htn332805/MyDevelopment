@@ -15,9 +15,8 @@ class PersistenceManager:
     and can perform full snapshotting or delta-only flushing.
     """
 
-    def __init__(
-        self,
-        persist_dir: str = "persist",
+def __init__( self, persist_dir -> Any: str = "persist",
+"""Execute __init__ operation."""
         flush_interval_sec: Optional[int] = 10,
         max_history: Optional[int] = None,
     ):

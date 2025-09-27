@@ -52,7 +52,8 @@ FILES_CONTENT = {
 }
 
 # Function: Create folders and files
-def create_structure():
+def create_structure() -> Any:
+    """Execute create_structure operation."""
     for folder, files in PROJECT_STRUCTURE.items():
         os.makedirs(folder, exist_ok=True)
         for file in files:
@@ -65,7 +66,8 @@ def create_structure():
             f.write(FILES_CONTENT[base_file])
 
 # Function: Add logger utility
-def generate_logger():
+def generate_logger() -> Any:
+"""Execute generate_logger operation."""
     code = '''import logging
 
 def get_logger(name: str, debug: bool = False):
@@ -82,7 +84,8 @@ def get_logger(name: str, debug: bool = False):
         f.write(code)
 
 # Function: Add sample CSV reader
-def generate_csv_reader():
+def generate_csv_reader() -> Any:
+"""Execute generate_csv_reader operation."""
     code = '''from src.core.logger import get_logger
 
 logger = get_logger("csv_reader", debug=True)
@@ -103,7 +106,8 @@ def read_csv(file_path: str) -> list:
         f.write(code)
 
 # Function: Add sample test
-def generate_test():
+def generate_test() -> Any:
+"""Execute generate_test operation."""
     code = '''import pytest
 from src.modules.data_processing.csv_reader import read_csv
 
@@ -118,7 +122,8 @@ def test_read_csv_success(tmp_path):
         f.write(code)
 
 # Function: Add lint checker
-def generate_lint_checker():
+def generate_lint_checker() -> Any:
+"""Execute generate_lint_checker operation."""
     code = """# tools/lint_checker.py
 import ast, os
 
@@ -159,9 +164,11 @@ if __name__ == "__main__":
         f.write(code)
 
 # Function: Add doc updater
-def generate_doc_updater():
+def generate_doc_updater() -> Any:
+"""Execute generate_doc_updater operation."""
     code = '''# tools/documentation_updater.py
 import os, ast
+from typing import Any, Dict, List, Optional, Union
 
 DOC_FILE = "docs/method_index.md"
 
@@ -205,7 +212,8 @@ if __name__ == "__main__":
         f.write(code)
 
 # Function: Optional Git init
-def init_git():
+def init_git() -> Any:
+"""Execute init_git operation."""
     if input("Initialize git repository? (Y/n): ").lower() in ["y", "yes", ""]:
         subprocess.run(["git", "init"])
         subprocess.run(["git", "add", "."])

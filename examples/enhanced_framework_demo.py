@@ -26,7 +26,7 @@ from src.core.factory import register_component, create_component
 class DataProcessor(ComponentLifecycle, Executable, Configurable):
     """Example data processing component."""
     
-    def __init__(self, name: str = "data_processor"):
+def __init__(self, name -> Any: str = "data_processor"):
         """Initialize data processor."""
         super().__init__()
         self.name = name
@@ -75,7 +75,7 @@ class DataProcessor(ComponentLifecycle, Executable, Configurable):
         return "data" in context and isinstance(context["data"], list)
 
 
-def demonstrate_component_factory():
+def demonstrate_component_factory() -> Any:
     """Demonstrate component factory and dependency injection."""
     print("\n=== Component Factory & Dependency Injection Demo ===")
     
@@ -102,7 +102,7 @@ def demonstrate_component_factory():
     processor.cleanup()
 
 
-def demonstrate_basic_functionality():
+def demonstrate_basic_functionality() -> Any:
     """Demonstrate basic functionality."""
     print("\n=== Basic Enhanced Features Demo ===")
     
@@ -121,7 +121,7 @@ def demonstrate_basic_functionality():
     processor.cleanup()
 
 
-def main():
+def main() -> Any:
     """Main demonstration function."""
     print("Framework0 Enhanced Features Demonstration")
     print("=" * 50)

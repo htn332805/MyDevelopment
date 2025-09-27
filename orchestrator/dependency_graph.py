@@ -11,13 +11,13 @@ class DependencyGraph:
         graph (networkx.DiGraph): A directed graph to store tasks and their dependencies.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """
         Initializes an empty directed graph.
         """
         self.graph = nx.DiGraph()
 
-    def add_task(self, task_name: str, dependencies: List[str] = []):
+def add_task(self, task_name -> Any: str, dependencies: List[str] = []):
         """
         Adds a task to the graph with its dependencies.
 
@@ -69,7 +69,7 @@ class DependencyGraph:
         # Return the list of successors (dependents) of the task
         return list(self.graph.successors(task_name))
 
-    def remove_task(self, task_name: str):
+def remove_task(self, task_name -> Any: str):
         """
         Removes a task and all its dependencies from the graph.
 
@@ -79,7 +79,7 @@ class DependencyGraph:
         # Remove the task node from the graph
         self.graph.remove_node(task_name)
 
-    def visualize(self):
+def visualize(self) -> Any:
         """
         Visualizes the dependency graph using matplotlib.
 

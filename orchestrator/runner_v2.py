@@ -76,8 +76,8 @@ class EnhancedRunner:
     debugging capabilities, parallel execution support, and detailed analytics.
     """
 
-    def __init__(self, *, 
-                 enable_profiling: bool = True,
+def __init__(self, *, enable_profiling -> Any: bool = True,
+"""Execute __init__ operation."""
                  enable_debugging: bool = False,
                  max_parallel_steps: int = 4,
                  execution_timeout: float = 3600.0):
@@ -110,6 +110,7 @@ class EnhancedRunner:
     @debug_trace(capture_vars=["recipe_path", "debug", "only", "skip"])
     def run_recipe(self,
                    recipe_path: str,
+    """Execute run_recipe operation."""
                    *,
                    debug: bool = False,
                    only: Optional[List[str]] = None,
@@ -228,6 +229,7 @@ class EnhancedRunner:
             return None
 
     def _prepare_steps(self, recipe: Dict[str, Any], 
+    """Execute _prepare_steps operation."""
                       only: Optional[List[str]], 
                       skip: Optional[List[str]]) -> List[Dict[str, Any]]:
         """Prepare and filter steps for execution."""
@@ -269,6 +271,7 @@ class EnhancedRunner:
             return f"Dependency validation error: {e}"
 
     def _execute_steps_sequential(self, steps: List[Dict[str, Any]], 
+    """Execute _execute_steps_sequential operation."""
                                  context: ContextV2, 
                                  debug: bool) -> List[StepResult]:
         """Execute steps sequentially with monitoring."""
@@ -286,6 +289,7 @@ class EnhancedRunner:
         return step_results
 
     def _execute_steps_parallel(self, steps: List[Dict[str, Any]], 
+    """Execute _execute_steps_parallel operation."""
                                context: ContextV2, 
                                debug: bool) -> List[StepResult]:
         """Execute steps in parallel respecting dependencies."""
@@ -324,6 +328,7 @@ class EnhancedRunner:
     @monitor_resources(log_metrics=True)
     @enhanced_retry(max_attempts=2, delay=1.0, exceptions=(ImportError, AttributeError))
     def _execute_single_step(self, step: Dict[str, Any], 
+    """Execute _execute_single_step operation."""
                            context: ContextV2, 
                            debug: bool) -> StepResult:
         """Execute a single recipe step with comprehensive monitoring."""
@@ -476,6 +481,7 @@ class EnhancedRunner:
         )
 
     def export_execution_report(self, result: RecipeExecutionResult, 
+    """Execute export_execution_report operation."""
                                output_path: Optional[str] = None) -> str:
         """
         Export comprehensive execution report to file.
@@ -551,6 +557,7 @@ def run_recipe_enhanced(recipe_path: str, **kwargs) -> RecipeExecutionResult:
 
 # Backward compatibility function that returns original format
 def run_recipe(recipe_path: str, *, 
+"""Execute run_recipe operation."""
               debug: bool = False,
               only: Optional[List[str]] = None,
               skip: Optional[List[str]] = None) -> ContextV2:
@@ -567,7 +574,7 @@ def run_recipe(recipe_path: str, *,
     return result.context
 
 
-def main():
+def main() -> Any:
     """Enhanced main function with comprehensive reporting."""
     import argparse
     

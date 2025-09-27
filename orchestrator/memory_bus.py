@@ -19,7 +19,7 @@ class MemoryBusClient:
     without each writing to disk locally.
     """
 
-    def __init__(self, server_url: str, timeout: float = 5.0):
+def __init__(self, server_url -> Any: str, timeout: float = 5.0):
         """
         :param server_url: Base URL of the context server (e.g. "http://ctxserver:8000")
         :param timeout: HTTP request timeout (seconds)
@@ -82,7 +82,8 @@ class MemoryBusServer:
     to get snapshot, push patches, etc. Maintains an internal master Context.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
+"""Execute __init__ operation."""
         self._ctx = Context()
         self._lock = threading.Lock()
 
@@ -104,7 +105,7 @@ class MemoryBusServer:
 
     # Example HTTP handler stubs (to be wired into a web framework)
 
-    def handle_snapshot_request(self, request) -> Any:
+def handle_snapshot_request(self, request: Any) -> Any:
         """
         HTTP endpoint handler for GET /snapshot
         Returns JSON dict of context snapshot.
@@ -112,7 +113,7 @@ class MemoryBusServer:
         data = self.get_snapshot()
         return json.dumps(data), 200
 
-    def handle_patch_request(self, request) -> Any:
+def handle_patch_request(self, request: Any) -> Any:
         """
         HTTP endpoint handler for POST /patch
         Expects JSON body of key→value mapping.

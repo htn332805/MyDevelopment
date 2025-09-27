@@ -10,6 +10,7 @@ from orchestrator.context import Context
 
 def run_recipe(
     recipe_path: str,
+"""Execute run_recipe operation."""
     *,
     debug: bool = False,
     only: Optional[List[str]] = None,
@@ -77,7 +78,7 @@ def run_recipe(
     return ctx
 
 
-def main():
+def main() -> Any:
     """
     If this file is run as a script, parse CLI args and run the recipe.
     """
