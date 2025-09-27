@@ -145,7 +145,7 @@ class LintComplianceFixer:
         
         while func_line_idx < len(lines):
             line = lines[func_line_idx]
-            if f'def {node.name}(' in line -> Any:
+            if f'def {node.name}(' in line:
                 break
             func_line_idx += 1
         
@@ -193,7 +193,7 @@ class LintComplianceFixer:
         func_line_idx = node.lineno - 1
         
         # Find the actual function line
-        while func_line_idx < len(lines) and f'def {node.name}(' not in lines[func_line_idx] -> Any:
+        while func_line_idx < len(lines) and f'def {node.name}(' not in lines[func_line_idx]:
             func_line_idx += 1
         
         if func_line_idx >= len(lines):

@@ -9,15 +9,13 @@ from typing import Optional, List, Any
 from orchestrator.context import Context
 
 def run_recipe(
-    # run_recipe operation implementation
     recipe_path: str,
-"""Execute run_recipe operation."""
     *,
     debug: bool = False,
     only: Optional[List[str]] = None,
     skip: Optional[List[str]] = None
 ) -> Context:
-    """
+    """Execute run_recipe operation."""
     Execute a full recipe (YAML file) step by step.
 
     :param recipe_path: Path to recipe YAML file

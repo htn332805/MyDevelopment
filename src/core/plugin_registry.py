@@ -108,7 +108,7 @@ class BasePlugin(ABC):
     and lifecycle management functionality.
     """
 
-def __init__(self) -> Any:
+    def __init__(self) -> Any:
         """Initialize base plugin."""
         self.name = self.__class__.__name__  # Plugin class name
         self.logger = get_logger(f"plugin.{self.name}")  # Plugin-specific logger

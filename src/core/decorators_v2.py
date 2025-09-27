@@ -54,7 +54,7 @@ class EnhancedCache:
     statistics tracking, and configurable eviction policies.
     """
 
-def __init__(self, *, max_size -> Any: int = 1000, default_ttl: float = 3600.0):
+def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
         """
         Initialize enhanced cache.
         

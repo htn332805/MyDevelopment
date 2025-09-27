@@ -93,10 +93,9 @@ class SpacedRepetitionEngine:
     question scheduling and difficulty adjustment.
     """
     
-def __init__(self, database -> Any: Optional[QuizDatabase] = None,
-"""Execute __init__ operation."""
+def __init__(self, database: Optional[QuizDatabase] = None,
                  sm2_params: Optional[SM2Parameters] = None,
-                 selection_weights: Optional[SelectionWeights] = None):
+                 selection_weights: Optional[SelectionWeights] = None) -> Any:
         """Initialize spaced repetition engine."""
         
         self.database = database or get_quiz_database()  # Database connection

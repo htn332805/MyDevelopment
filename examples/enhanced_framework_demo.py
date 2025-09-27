@@ -26,7 +26,7 @@ from src.core.factory import register_component, create_component
 class DataProcessor(ComponentLifecycle, Executable, Configurable):
     """Example data processing component."""
     
-def __init__(self, name -> Any: str = "data_processor"):
+def __init__(self, name: str = "data_processor") -> Any:
         """Initialize data processor."""
         super().__init__()
         self.name = name

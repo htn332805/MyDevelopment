@@ -40,7 +40,7 @@ class QuizWebApp:
     RESTful API, and responsive UI with advanced quiz functionality.
     """
     
-def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
+def __init__(self, database_path: str = "quiz_dashboard.db") -> Any:
         """Initialize Flask web application."""
         
         # Initialize Flask app
