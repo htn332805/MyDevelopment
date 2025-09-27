@@ -27,6 +27,7 @@ _registry_lock = threading.Lock()
 
 
 def get_logger(name: str, *, debug: Optional[bool] = None) -> logging.Logger:
+    # Get or create a logger with Framework0 configuration
     """
     Get or create a logger with Framework0 configuration.
     
@@ -52,6 +53,7 @@ def get_logger(name: str, *, debug: Optional[bool] = None) -> logging.Logger:
 
 
 def _create_framework_logger(name: str, debug: Optional[bool]) -> logging.Logger:
+    # Create a new logger with Framework0 standard configuration
     """
     Create a new logger with Framework0 standard configuration.
     
@@ -104,6 +106,7 @@ def _create_framework_logger(name: str, debug: Optional[bool]) -> logging.Logger
 
 
 def _add_file_handler(logger: logging.Logger, name: str, debug_mode: bool) -> None:
+    # Add rotating file handler to logger for persistent logging
     """
     Add rotating file handler to logger for persistent logging.
     
@@ -147,6 +150,7 @@ _module_logger = get_logger(__name__)
 
 
 def configure_debug_logging(enable: bool = True) -> None:
+    # Configure debug logging for all Framework0 loggers
     """
     Configure debug logging for all Framework0 loggers.
     
@@ -166,6 +170,7 @@ def configure_debug_logging(enable: bool = True) -> None:
 
 
 def log_execution_context(logger: logging.Logger, context: str, **kwargs) -> None:
+    # Log execution context with structured data
     """
     Log execution context with structured data.
     
@@ -178,8 +183,8 @@ def log_execution_context(logger: logging.Logger, context: str, **kwargs) -> Non
     logger.info(f"CONTEXT: {context} | {context_data}")
 
 
-def log_performance_metrics(logger: logging.Logger, operation: str, 
-                          duration: float, **metrics) -> None:
+def log_performance_metrics(logger: logging.Logger, operation: str, duration: float, **metrics) -> None:
+    # Log performance metrics in structured format
     """
     Log performance metrics in structured format.
     
@@ -193,8 +198,8 @@ def log_performance_metrics(logger: logging.Logger, operation: str,
     logger.info(f"PERFORMANCE: {operation} | duration={duration:.3f}s | {metrics_str}")
 
 
-def log_resource_usage(logger: logging.Logger, operation: str, 
-                      memory_mb: float, cpu_percent: float, **resources) -> None:
+def log_resource_usage(logger: logging.Logger, operation: str, memory_mb: float, cpu_percent: float, **resources) -> None:
+    # Log resource usage metrics
     """
     Log resource usage metrics.
     
@@ -211,6 +216,7 @@ def log_resource_usage(logger: logging.Logger, operation: str,
 
 
 def create_debug_tracer(logger_name: str) -> logging.Logger:
+    # Create a specialized logger for debug tracing
     """
     Create a specialized logger for debug tracing.
     
