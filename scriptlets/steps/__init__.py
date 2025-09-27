@@ -14,22 +14,12 @@ Features:
 - Handles package-level initialization tasks.
 """
 
-# Import necessary submodules
-from . import (
-    base,
-    executor,
-    manager,
-    validator,
-    logger,
-)
+# Import necessary submodules - simplified to avoid circular imports
+# Individual modules will be imported as needed
 
-# Define the public API of the package
+# Define the public API of the package - simplified
 __all__ = [
-    'base',
-    'executor',
-    'manager',
-    'validator',
-    'logger',
+    'compute_numbers',
 ]
 
 # Package-level initialization tasks
@@ -42,11 +32,8 @@ def initialize_package():
     connections to external services. It ensures that the package is
     ready for use upon import.
     """
-    # Example: Initialize logging
-    logger.setup_logging()
-
-    # Additional initialization tasks can be added here
-    print("Framework0 'step' package initialized successfully.")
+    # Package initialized - no specific setup needed currently
+    pass
 
 # Execute package-level initialization
 initialize_package()
