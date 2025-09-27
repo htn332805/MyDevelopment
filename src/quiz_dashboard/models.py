@@ -80,7 +80,8 @@ class QuizDatabase:
     backup and recovery capabilities.
     """
     
-    def __init__(self, config: DatabaseConfig):
+    def __init__(self: 'QuizDatabase', config: DatabaseConfig) -> None:
+        # Initialize database manager with configuration settings
         """Initialize database manager with configuration."""
         self.config = config  # Database configuration
         self._connection_lock = threading.Lock()  # Thread safety lock
@@ -92,7 +93,8 @@ class QuizDatabase:
         
         logger.info(f"QuizDatabase initialized: {config.database_path}")
     
-    def _initialize_database(self) -> None:
+    def _initialize_database(self: 'QuizDatabase') -> None:
+        # Initialize database with schema and configuration settings
         """Initialize database with schema and configuration."""
         try:
             # Create database directory if it doesn't exist
@@ -125,7 +127,8 @@ class QuizDatabase:
             logger.error(f"Failed to initialize database: {e}")
             raise
     
-    def _get_connection(self) -> sqlite3.Connection:
+    def _get_connection(self: 'QuizDatabase') -> sqlite3.Connection:
+        # Get thread-safe database connection from connection pool
         """Get thread-safe database connection."""
         thread_id = threading.get_ident()
         
@@ -142,7 +145,8 @@ class QuizDatabase:
             
             return self._connections[thread_id]
     
-    def _create_schema(self, conn: sqlite3.Connection) -> None:
+    def _create_schema(self: 'QuizDatabase', conn: sqlite3.Connection) -> None:
+        # Create database schema with all required tables
         """Create database schema with all required tables."""
         
         # Users table - user accounts and profiles
@@ -275,7 +279,8 @@ class QuizDatabase:
         
         logger.debug("Database schema created successfully")
     
-    def _create_indexes(self, conn: sqlite3.Connection) -> None:
+    def _create_indexes(self: 'QuizDatabase', conn: sqlite3.Connection) -> None:
+        # Create database indexes for optimal query performance
         """Create database indexes for optimal query performance."""
         
         indexes = [
@@ -324,7 +329,8 @@ class QuizDatabase:
         
         logger.debug("Database indexes created successfully")
     
-    def execute_query(self, query: str, params: Tuple = ()) -> List[sqlite3.Row]:
+    def execute_query(self: 'QuizDatabase', query: str, params: Tuple = ()) -> List[sqlite3.Row]:
+        # Execute SELECT query and return results with error handling
         """Execute SELECT query and return results."""
         try:
             with self._get_connection() as conn:
@@ -334,7 +340,8 @@ class QuizDatabase:
             logger.error(f"Query execution failed: {e}")
             raise
     
-    def execute_update(self, query: str, params: Tuple = ()) -> int:
+    def execute_update(self: 'QuizDatabase', query: str, params: Tuple = ()) -> int:
+        # Execute INSERT/UPDATE/DELETE query and return affected rows count
         """Execute INSERT/UPDATE/DELETE query and return affected rows."""
         try:
             with self._get_connection() as conn:
@@ -345,7 +352,8 @@ class QuizDatabase:
             logger.error(f"Update execution failed: {e}")
             raise
     
-    def close_all_connections(self) -> None:
+    def close_all_connections(self: 'QuizDatabase') -> None:
+        # Close all database connections in the connection pool
         """Close all database connections in the pool."""
         with self._connection_lock:
             for conn in self._connections.values():
@@ -364,6 +372,8 @@ _database_lock = threading.Lock()
 
 
 def get_quiz_database(config: Optional[DatabaseConfig] = None) -> QuizDatabase:
+    # Get global quiz database instance using singleton pattern
+    """Get global quiz database instance."""
     """Get global quiz database instance."""
     global _database_instance
     
@@ -377,6 +387,8 @@ def get_quiz_database(config: Optional[DatabaseConfig] = None) -> QuizDatabase:
 
 
 def initialize_database(database_path: str = "quiz_dashboard.db") -> QuizDatabase:
+    # Initialize quiz database with configuration and return instance
+    """Initialize quiz database with default configuration."""
     """Initialize quiz database with custom path."""
     config = DatabaseConfig(database_path=database_path)
     return get_quiz_database(config)
