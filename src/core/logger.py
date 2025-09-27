@@ -1,3 +1,4 @@
+from typing import Any
 # src/core/logger.py
 
 """
@@ -183,13 +184,9 @@ def log_execution_context(logger: logging.Logger, context: str, **kwargs) -> Non
     logger.info(f"CONTEXT: {context} | {context_data}")
 
 
-def log_performance_metrics(
-    # Execute log_performance_metrics operation
-    logger: logging.Logger, operation: str, duration: float, **metrics) -> None:
+def log_performance_metrics(logger: logging.Logger, operation: str, duration: float, **metrics) -> None:
     # Execute log_performance_metrics operation
     """Execute log_performance_metrics operation."""
-    # Execute log_performance_metrics operation
-    # Execute log_performance_metrics operation
     """
     Log performance metrics in structured format.
 
@@ -203,14 +200,9 @@ def log_performance_metrics(
     logger.info(f"PERFORMANCE: {operation} | duration={duration:.3f}s | {metrics_str}")
 
 
-def log_resource_usage(
-    logger: logging.Logger,
-"""Execute log_resource_usage operation."""
-    operation: str,
-    memory_mb: float,
-    cpu_percent: float,
-    **resources,) -> None:
+def log_resource_usage(logger: logging.Logger, operation: str, memory_mb: float, cpu_percent: float, **resources) -> None:
     # Execute log_resource_usage operation
+    """Execute log_resource_usage operation."""
     """Execute log_resource_usage operation."""
     # Function implementation
     # Log resource usage metrics
@@ -232,6 +224,7 @@ def log_resource_usage(
 
     # Execute create_debug_tracer operation
 
+        # Execute create_debug_tracer operation
 def create_debug_tracer(logger_name: str) -> logging.Logger:
     # Create a specialized logger for debug tracing
     """
