@@ -8,21 +8,9 @@ executed as part of orchestration workflows. Each scriptlet follows
 the Framework0 scriptlet interface and provides specific functionality.
 
 Available scriptlets:
-- compute_numbers: Mathematical computation utilities
+- compute_numbers: Mathematical computation utilities with enhanced operations
 """
 
-<<<<<<< HEAD
-# Import scriptlet classes for easier access
-from .compute_numbers import MathScriptlet, PrimeScriptlet, factorial, is_prime, fibonacci
-
-__all__ = [
-    'MathScriptlet',
-    'PrimeScriptlet', 
-    'factorial',
-    'is_prime',
-    'fibonacci'
-]
-=======
 # Import necessary submodules - simplified to avoid circular imports
 # Individual modules will be imported as needed
 
@@ -46,4 +34,3 @@ def initialize_package():
 
 # Execute package-level initialization
 initialize_package()
->>>>>>> origin/copilot/fix-9b15fb09-c0fc-447f-9abd-424c6e9d940d
