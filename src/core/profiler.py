@@ -55,14 +55,8 @@ class ResourceProfiler:
     metrics during code execution. Designed for debugging and optimization.
     """
 
-    def __init__(
+    def __init__(self, name: str = "default", enable_detailed_logging: bool = False) -> None:
         # Execute __init__ operation
-
-        self: "ResourceProfiler",
-    """Execute __init__ operation."""
-        name: str = "default",
-        enable_detailed_logging: bool = False,) -> None:
-        # Initialize resource profiler instance with configuration options
         """
         Execute __init__ operation.
         

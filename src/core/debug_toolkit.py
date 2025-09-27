@@ -308,16 +308,15 @@ class DebugBreakpoint:
     execution context, or custom conditions.
     """
 
-def __init__(n: str, *, action: str = "break",
-             variables_to_inspect: Optional[List[str]] = None) -> Any:
-    # Execute __init__ operation
-    """Execute __init__ operation."""
-    """
-    Initialize debug breakpoint.
-    
-    Args:
-        condition (str): Python expression for break condition
-        action (str): Action to take when condition met ('break', 'log', 'capture')
+    def __init__(self, condition: str, *, action: str = "break",
+                 variables_to_inspect: Optional[List[str]] = None) -> None:
+        # Execute __init__ operation
+        """
+        Initialize debug breakpoint.
+        
+        Args:
+            condition (str): Python expression for break condition
+            action (str): Action to take when condition met ('break', 'log', 'capture')
             variables_to_inspect (Optional[List[str]]): Variables to inspect at breakpoint
         """
         self.condition = condition  # Break condition expression
@@ -330,7 +329,7 @@ def __init__(n: str, *, action: str = "break",
 
     def check_condition(self, local_vars: Dict[str, Any], global_vars: Dict[str, Any]) -> bool:
         # Execute check_condition operation
-    """
+        """
         Check if breakpoint condition is met.
         
         Args:
@@ -340,7 +339,7 @@ def __init__(n: str, *, action: str = "break",
         Returns:
             bool: True if condition is met
         """
-    try:
+        try:
             # Combine local and global variables for evaluation
             evaluation_context = {**global_vars, **local_vars}
             
@@ -359,13 +358,13 @@ def __init__(n: str, *, action: str = "break",
 
     def execute_action(self, local_vars: Dict[str, Any]) -> None:
         # Execute execute_action operation
-    """
+        """
         Execute breakpoint action when condition is met.
         
         Args:
             local_vars (Dict[str, Any]): Local variables at breakpoint
         """
-    if self.action == "break":
+        if self.action == "break":
             # Enter interactive debugging
             debug_tracer.info(f"BREAKPOINT HIT: {self.condition}")
             self._print_variable_inspection(local_vars)
@@ -382,8 +381,8 @@ def __init__(n: str, *, action: str = "break",
 
     def _print_variable_inspection(self, local_vars: Dict[str, Any]) -> None:
         # Execute _print_variable_inspection operation
-    """Print variable inspection results."""
-    debug_tracer.info("=== VARIABLE INSPECTION ===")
+        """Print variable inspection results."""
+        debug_tracer.info("=== VARIABLE INSPECTION ===")
         for var_name in self.variables_to_inspect:
             if var_name in local_vars:
                 value = local_vars[var_name]
@@ -393,16 +392,16 @@ def __init__(n: str, *, action: str = "break",
 
     def _log_variable_state(self, local_vars: Dict[str, Any]) -> None:
         # Execute _log_variable_state operation
-    """Log current variable state."""
-    for var_name in self.variables_to_inspect:
+        """Log current variable state."""
+        for var_name in self.variables_to_inspect:
             if var_name in local_vars:
                 value = local_vars[var_name]
                 logger.info(f"BREAKPOINT_VAR: {var_name}={value}")
 
     def _capture_variable_state(self, local_vars: Dict[str, Any]) -> None:
         # Execute _capture_variable_state operation
-    """Capture variable state for analysis."""
-    # This could be enhanced to store in a dedicated capture system
+        """Capture variable state for analysis."""
+        # This could be enhanced to store in a dedicated capture system
         debug_tracer.debug(f"Captured variables at breakpoint: {self.variables_to_inspect}")
 
 
@@ -436,7 +435,7 @@ def __init__(e: str  = "debug_session") -> Any:
 
     def trace_variable(self, name: str, value: Any, *, location: str = None) -> None:
         # Execute trace_variable operation
-    """
+        """
         Trace a variable's current state.
         
         Args:
