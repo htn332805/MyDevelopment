@@ -62,6 +62,8 @@ class ResourceProfiler:
     ) -> None:
         # Initialize resource profiler instance with configuration options
         """
+        Execute __init__ operation.
+        
         Initialize resource profiler instance.
 
         Args:
@@ -81,6 +83,7 @@ class ResourceProfiler:
 
     def _collect_current_metrics(
         self: "ResourceProfiler", context: str = "unknown"
+    """Execute _collect_current_metrics operation."""
     ) -> ResourceMetrics:
         # Collect current system resource metrics using psutil
         """
@@ -127,6 +130,7 @@ class ResourceProfiler:
     @contextmanager
     def profile_context(
         self: "ResourceProfiler", context_name: str = "context"
+    """Execute profile_context operation."""
     ) -> Generator[None, None, None]:
         # Context manager for profiling code blocks with resource monitoring
         """
@@ -169,6 +173,7 @@ class ResourceProfiler:
 
     def profile_function(
         self: "ResourceProfiler", context_name: Optional[str] = None
+    """Execute profile_function operation."""
     ) -> Callable:
         # Decorator for profiling function execution with resource tracking
         """
@@ -242,6 +247,7 @@ class ResourceProfiler:
 
     def export_metrics(
         self: "ResourceProfiler", file_path: Optional[str] = None
+    """Execute export_metrics operation."""
     ) -> str:
         # Export metrics data to JSON file for analysis
         """
