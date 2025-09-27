@@ -58,3 +58,94 @@ def plot_bar(data: pd.DataFrame, x: str, y: str, title: str = "Bar Chart", xlabe
         title (str): The title of the chart.
         xlabel (str): The label for the x-axis.
         ylabel (str): The label for the y-axis.
+
+    Returns:
+        None
+    """
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=data, x=x, y=y)
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.show()
+
+def plot_scatter(data: pd.DataFrame, x: str, y: str, title: str = "Scatter Plot", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
+    """
+    Creates a scatter plot using Matplotlib and Seaborn.
+
+    Args:
+        data (pd.DataFrame): The data to plot.
+        x (str): The column name for the x-axis.
+        y (str): The column name for the y-axis.
+        title (str): The title of the chart.
+        xlabel (str): The label for the x-axis.
+        ylabel (str): The label for the y-axis.
+
+    Returns:
+        None
+    """
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(data=data, x=x, y=y)
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.show()
+
+def plot_histogram(data: pd.DataFrame, column: str, bins: int = 30, title: str = "Histogram"):
+    """
+    Creates a histogram using Matplotlib and Seaborn.
+
+    Args:
+        data (pd.DataFrame): The data to plot.
+        column (str): The column name for the histogram.
+        bins (int): Number of histogram bins.
+        title (str): The title of the chart.
+
+    Returns:
+        None
+    """
+    plt.figure(figsize=(10, 6))
+    sns.histplot(data=data, x=column, bins=bins)
+    plt.title(title)
+    plt.show()
+
+def plot_heatmap(data: pd.DataFrame, title: str = "Heatmap"):
+    """
+    Creates a heatmap using Seaborn.
+
+    Args:
+        data (pd.DataFrame): The data to plot (should be numeric).
+        title (str): The title of the chart.
+
+    Returns:
+        None
+    """
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(data, annot=True, cmap="viridis")
+    plt.title(title)
+    plt.show()
+
+def plot_interactive(data: pd.DataFrame, x: str, y: str, chart_type: str = "scatter", title: str = "Interactive Chart"):
+    """
+    Creates an interactive chart using Plotly.
+
+    Args:
+        data (pd.DataFrame): The data to plot.
+        x (str): The column name for the x-axis.
+        y (str): The column name for the y-axis.
+        chart_type (str): Type of chart ('scatter', 'line', 'bar').
+        title (str): The title of the chart.
+
+    Returns:
+        None
+    """
+    if chart_type == "scatter":
+        fig = px.scatter(data, x=x, y=y, title=title)
+    elif chart_type == "line":
+        fig = px.line(data, x=x, y=y, title=title)
+    elif chart_type == "bar":
+        fig = px.bar(data, x=x, y=y, title=title)
+    else:
+        raise ValueError(f"Unsupported chart type: {chart_type}")
+    
+    fig.show()

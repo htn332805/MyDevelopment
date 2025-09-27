@@ -16,18 +16,16 @@ Features:
 
 # Import necessary submodules
 from . import (
-    data_loader,
-    processor,
-    visualizer,
-    statistics,
+    exporter,
+    charting,
+    excel_processor,
 )
 
-# Define the public API of the package
+# Define the public API of the package  
 __all__ = [
-    'data_loader',
-    'processor',
-    'visualizer',
-    'statistics',
+    'exporter',
+    'charting',
+    'excel_processor',
 ]
 
 # Package-level initialization tasks
