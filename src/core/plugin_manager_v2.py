@@ -111,7 +111,7 @@ class PluginSandbox:
     prevent them from interfering with the system or other plugins.
     """
 
-    def __init__(self, plugin_name: str, sandbox_level: PluginSandboxLevel):
+def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
         """
         Initialize plugin sandbox.
         
@@ -208,7 +208,7 @@ class PluginVersionResolver:
     to ensure compatible plugin versions are loaded together.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize version resolver."""
         self._version_cache: Dict[str, List[str]] = {}  # Cached available versions
         self._resolution_cache: Dict[str, Dict[str, str]] = {}  # Cached resolutions
@@ -289,6 +289,7 @@ class PluginVersionResolver:
     def resolve_dependencies(
         self, 
         plugin_manifests: Dict[str, PluginManifest],
+    """Execute resolve_dependencies operation."""
         target_plugins: List[str]
     ) -> Tuple[Dict[str, str], List[str]]:
         """
@@ -347,7 +348,7 @@ class EnhancedPluginManager(ComponentLifecycle, EventDrivenComponent):
     dependency resolution, sandboxing, and performance monitoring.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize enhanced plugin manager."""
         super().__init__()
         EventDrivenComponent.__init__(self)
@@ -547,7 +548,8 @@ class EnhancedPluginManager(ComponentLifecycle, EventDrivenComponent):
         installed = set()
         order = []
         
-        def install_plugin(plugin_name: str):
+def install_plugin(plugin_name -> Any: str):
+"""Execute install_plugin operation."""
             if plugin_name in installed:
                 return
             

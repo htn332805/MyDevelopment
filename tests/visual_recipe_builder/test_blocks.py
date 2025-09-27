@@ -26,7 +26,7 @@ from visual_recipe_builder.blocks import (
 class TestBlockInput:
     """Test BlockInput class functionality."""
     
-    def test_block_input_creation(self):
+def test_block_input_creation(self) -> Any:
         """Test creating a BlockInput instance."""
         input_def = BlockInput(
             name="test_param",
@@ -44,7 +44,7 @@ class TestBlockInput:
         assert input_def.default_value == "default"
         assert input_def.description == "Test parameter description"
     
-    def test_block_input_to_dict(self):
+def test_block_input_to_dict(self) -> Any:
         """Test BlockInput serialization to dictionary."""
         input_def = BlockInput(
             name="file_path",
@@ -72,7 +72,7 @@ class TestBlockInput:
 class TestBlockLibrary:
     """Test BlockLibrary class functionality."""
     
-    def test_block_library_initialization(self):
+def test_block_library_initialization(self) -> Any:
         """Test BlockLibrary creates core blocks."""
         library = BlockLibrary()
         blocks = library.get_blocks()
@@ -84,7 +84,7 @@ class TestBlockLibrary:
         assert "file_reader" in blocks
         assert "data_validator" in blocks
     
-    def test_get_block_by_id(self):
+def test_get_block_by_id(self) -> Any:
         """Test retrieving specific block by ID."""
         library = BlockLibrary()
         
@@ -97,7 +97,7 @@ class TestBlockLibrary:
         # Non-existent block
         assert library.get_block("nonexistent") is None
     
-    def test_add_custom_block(self):
+def test_add_custom_block(self) -> Any:
         """Test adding custom block to library."""
         library = BlockLibrary()
         initial_count = len(library.get_blocks())

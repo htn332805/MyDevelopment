@@ -1,10 +1,12 @@
 # tools/documentation_updater.py
 import os
 import ast
+from typing import Any, Dict, List, Optional, Union
 
 DOC_FILE = "docs/method_index.md"
 
-def extract_function_info(filepath):
+def extract_function_info(filepath -> Any: Any):
+"""Execute extract_function_info operation."""
     with open(filepath, "r", encoding="utf-8") as f:
         tree = ast.parse(f.read())
     
@@ -20,7 +22,8 @@ def extract_function_info(filepath):
             funcs.append(func)
     return funcs
 
-def update_docs(path="src"):
+def update_docs(path -> Any: Any="src"):
+"""Execute update_docs operation."""
     all_funcs = []
     for root, _, files in os.walk(path):
         for file in files:

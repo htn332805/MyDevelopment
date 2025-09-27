@@ -16,10 +16,11 @@ Test Cases:
 """
 
 import pytest
+from typing import Any, Dict, List, Optional, Union
 from framework0.math_operations import add, subtract, multiply, divide
 
 @pytest.mark.integration_test
-def test_addition():
+def test_addition() -> Any:
     """
     Test Case: test_addition
 
@@ -33,7 +34,7 @@ def test_addition():
     assert result == 5, f"Expected 5, but got {result}"
 
 @pytest.mark.integration_test
-def test_subtraction():
+def test_subtraction() -> Any:
     """
     Test Case: test_subtraction
 
@@ -47,7 +48,7 @@ def test_subtraction():
     assert result == 2, f"Expected 2, but got {result}"
 
 @pytest.mark.integration_test
-def test_multiplication():
+def test_multiplication() -> Any:
     """
     Test Case: test_multiplication
 
@@ -61,7 +62,7 @@ def test_multiplication():
     assert result == 6, f"Expected 6, but got {result}"
 
 @pytest.mark.integration_test
-def test_division():
+def test_division() -> Any:
     """
     Test Case: test_division
 

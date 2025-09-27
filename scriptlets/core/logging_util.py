@@ -34,6 +34,7 @@ LOG_LEVELS = {
 DEFAULT_LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 
 def setup_logger(name: str,
+"""Execute setup_logger operation."""
                  log_level: str = 'INFO',
                  log_file: Optional[str] = None,
                  max_bytes: int = 10485760,

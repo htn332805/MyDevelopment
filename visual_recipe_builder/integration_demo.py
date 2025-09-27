@@ -22,7 +22,7 @@ from visual_recipe_builder.recipe_generator import RecipeGenerator
 from visual_recipe_builder.blocks import get_block_library
 
 
-def main():
+def main() -> Any:
     """Run complete integration demonstration."""
     print("🔧 Visual Recipe Builder - Integration Demonstration")
     print("=" * 60)
@@ -198,5 +198,6 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\n❌ Demo failed with error: {e}")
         import traceback
+from typing import Any, Dict, List, Optional, Union
         traceback.print_exc()
         sys.exit(1)

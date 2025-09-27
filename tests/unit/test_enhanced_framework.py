@@ -44,7 +44,7 @@ from src.core.error_handling import (
 class TestComponent(ComponentLifecycle):
     """Test component implementing ComponentLifecycle."""
     
-    def __init__(self, name: str = "test", config: Dict[str, Any] = None):
+def __init__(self, name -> Any: str = "test", config: Dict[str, Any] = None):
         """Initialize test component."""
         super().__init__()
         self.name = name  # Component name
@@ -81,7 +81,7 @@ class ConfigurableTestComponent(TestComponent, Configurable):
 class ExecutableTestComponent(TestComponent, Executable):
     """Test component implementing Executable interface."""
     
-    def __init__(self, **kwargs):
+def __init__(self, **kwargs) -> Any:
         """Initialize executable test component."""
         super().__init__(**kwargs)
         self.execution_count = 0  # Track execution calls
@@ -101,7 +101,7 @@ class ExecutableTestComponent(TestComponent, Executable):
 class EventDrivenTestComponent(EventDrivenComponent):
     """Test component extending EventDrivenComponent."""
     
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize event-driven test component."""
         super().__init__()
         self.events_received = []  # Track received events
@@ -114,7 +114,7 @@ class EventDrivenTestComponent(EventDrivenComponent):
         """Cleanup event listeners."""
         pass  # Event listeners cleaned up by parent
     
-    def _handle_test_event(self, *args, **kwargs):
+def _handle_test_event(self, *args, **kwargs) -> Any:
         """Handle test event."""
         self.events_received.append({"args": args, "kwargs": kwargs})  # Record event
 
@@ -122,11 +122,11 @@ class EventDrivenTestComponent(EventDrivenComponent):
 class TestDependencyInjector:
     """Test cases for DependencyInjector."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.injector = DependencyInjector(enable_debug=True)  # Create debug-enabled injector
     
-    def test_component_registration(self):
+def test_component_registration(self) -> Any:
         """Test component registration functionality."""
         # Register a test component
         self.injector.register_component(
@@ -144,7 +144,7 @@ class TestDependencyInjector:
         assert registry.singleton is True  # Singleton flag should match
         assert registry.config["test_param"] == "test_value"  # Config should match
     
-    def test_component_creation(self):
+def test_component_creation(self) -> Any:
         """Test component creation and dependency injection."""
         # Register component
         self.injector.register_component(
@@ -162,7 +162,7 @@ class TestDependencyInjector:
         assert component.is_initialized  # Should be initialized
         assert component.initialized_called  # Initialization method called
     
-    def test_dependency_resolution(self):
+def test_dependency_resolution(self) -> Any:
         """Test automatic dependency resolution."""
         # Register components with dependencies
         self.injector.register_component(
@@ -190,7 +190,7 @@ class TestDependencyInjector:
         assert isinstance(dependency, TestComponent)  # Dependency should be created
         assert dependency.is_initialized  # Dependency should be initialized
     
-    def test_circular_dependency_detection(self):
+def test_circular_dependency_detection(self) -> Any:
         """Test circular dependency detection."""
         # Register components with circular dependency
         self.injector.register_component(
@@ -209,7 +209,7 @@ class TestDependencyInjector:
         with pytest.raises(ValueError, match="Circular dependency detected"):
             self.injector.get_component("component_a")
     
-    def test_singleton_behavior(self):
+def test_singleton_behavior(self) -> Any:
         """Test singleton component behavior."""
         # Register singleton component
         self.injector.register_component(
@@ -225,7 +225,7 @@ class TestDependencyInjector:
         # Verify same instance returned
         assert component1 is component2  # Should be same instance
     
-    def test_non_singleton_behavior(self):
+def test_non_singleton_behavior(self) -> Any:
         """Test non-singleton component behavior."""
         # Register non-singleton component
         self.injector.register_component(
@@ -247,7 +247,7 @@ class TestDependencyInjector:
 class TestInterfaces:
     """Test cases for interface implementations."""
     
-    def test_interface_detection(self):
+def test_interface_detection(self) -> Any:
         """Test interface implementation detection."""
         # Create components with different interfaces
         configurable_component = ConfigurableTestComponent()
@@ -262,7 +262,7 @@ class TestInterfaces:
         assert implements_interface(executable_component, Initializable)  # Should implement Initializable
         assert not implements_interface(executable_component, Configurable)  # Should not implement Configurable
     
-    def test_configurable_interface(self):
+def test_configurable_interface(self) -> Any:
         """Test Configurable interface implementation."""
         component = ConfigurableTestComponent()
         
@@ -275,7 +275,7 @@ class TestInterfaces:
         assert retrieved_config["param1"] == "value1"  # Config should be stored
         assert retrieved_config["param2"] == 42
     
-    def test_executable_interface(self):
+def test_executable_interface(self) -> Any:
         """Test Executable interface implementation."""
         component = ExecutableTestComponent()
         
@@ -294,7 +294,7 @@ class TestInterfaces:
         assert component.execution_count == 1  # Internal counter should update
         assert component.last_context["required_key"] == "present"  # Context should be stored
     
-    def test_component_lifecycle(self):
+def test_component_lifecycle(self) -> Any:
         """Test ComponentLifecycle functionality."""
         component = TestComponent()
         
@@ -317,7 +317,7 @@ class TestInterfaces:
         assert not component.is_configured  # Should not be configured after cleanup()
         assert component.cleanup_called  # Cleanup method should be called
     
-    def test_event_driven_component(self):
+def test_event_driven_component(self) -> Any:
         """Test EventDrivenComponent functionality."""
         component = EventDrivenTestComponent()
         
@@ -341,16 +341,16 @@ class TestInterfaces:
 class TestAdvancedDebugToolkit:
     """Test cases for AdvancedDebugToolkit."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.toolkit = AdvancedDebugToolkit()  # Create debug toolkit
         self.toolkit.initialize({})  # Initialize with default config
     
-    def teardown_method(self):
+def teardown_method(self) -> Any:
         """Clean up test fixtures."""
         self.toolkit.cleanup()  # Cleanup toolkit
     
-    def test_debug_session_creation(self):
+def test_debug_session_creation(self) -> Any:
         """Test debug session creation and management."""
         # Create debug session
         session_id = self.toolkit.create_debug_session("test_session")
@@ -363,7 +363,7 @@ class TestAdvancedDebugToolkit:
         assert session.session_id == "test_session"  # Session ID should match
         assert session._is_active  # Session should be active
     
-    def test_checkpoint_creation(self):
+def test_checkpoint_creation(self) -> Any:
         """Test checkpoint creation and management."""
         # Create debug session
         session_id = self.toolkit.create_debug_session()
@@ -380,7 +380,7 @@ class TestAdvancedDebugToolkit:
         assert context.checkpoint_name == "test_checkpoint"  # Name should match
         assert context.custom_data["test_data"] == "checkpoint_value"  # Custom data should be stored
     
-    def test_execution_tracing(self):
+def test_execution_tracing(self) -> Any:
         """Test function execution tracing."""
         # Create a test function to trace
         @trace_advanced(checkpoint_name="test_trace")
@@ -398,7 +398,7 @@ class TestAdvancedDebugToolkit:
         # This is a simplified test - full verification would require
         # more detailed inspection of the debug session
     
-    def test_debug_info_retrieval(self):
+def test_debug_info_retrieval(self) -> Any:
         """Test debug information retrieval."""
         # Create some debug sessions
         session1_id = self.toolkit.create_debug_session("session1")
@@ -416,16 +416,16 @@ class TestAdvancedDebugToolkit:
 class TestAdvancedErrorHandler:
     """Test cases for AdvancedErrorHandler."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.error_handler = AdvancedErrorHandler()  # Create error handler
         self.error_handler.initialize({})  # Initialize with default config
     
-    def teardown_method(self):
+def teardown_method(self) -> Any:
         """Clean up test fixtures."""
         self.error_handler.cleanup()  # Cleanup error handler
     
-    def test_error_context_capture(self):
+def test_error_context_capture(self) -> Any:
         """Test error context capture and analysis."""
         # Test error handling context manager
         with pytest.raises(ValueError):
@@ -441,7 +441,7 @@ class TestAdvancedErrorHandler:
         assert error_report.exception_message == "Test error message"  # Message should match
         assert error_report.context.user_context["test_param"] == "test_value"  # Context should be captured
     
-    def test_error_severity_determination(self):
+def test_error_severity_determination(self) -> Any:
         """Test error severity determination."""
         test_exceptions = [
             (SystemExit(), ErrorSeverity.CRITICAL),  # Critical exception
@@ -454,7 +454,7 @@ class TestAdvancedErrorHandler:
             severity = self.error_handler._determine_severity(exception)
             assert severity == expected_severity  # Severity should match expected
     
-    def test_error_categorization(self):
+def test_error_categorization(self) -> Any:
         """Test error categorization."""
         test_cases = [
             (ValueError("Invalid configuration setting"), ErrorCategory.CONFIGURATION),  # Config error
@@ -467,7 +467,7 @@ class TestAdvancedErrorHandler:
             category = self.error_handler._categorize_error(exception)
             assert category == expected_category  # Category should match expected
     
-    def test_recovery_strategy(self):
+def test_recovery_strategy(self) -> Any:
         """Test error recovery strategies."""
         # Create retry strategy
         retry_strategy = RetryRecoveryStrategy(max_retries=2, backoff_factor=0.1)
@@ -486,7 +486,7 @@ class TestAdvancedErrorHandler:
         assert success is True  # Recovery should succeed
         assert result["retry_attempt"] == 1  # Should indicate first retry
     
-    def test_error_correlation(self):
+def test_error_correlation(self) -> Any:
         """Test error correlation functionality."""
         correlation_id = str(uuid.uuid4())  # Generate correlation ID
         
@@ -509,7 +509,7 @@ class TestAdvancedErrorHandler:
 class TestIntegration:
     """Integration tests for enhanced Framework0 components."""
     
-    def test_factory_debug_integration(self):
+def test_factory_debug_integration(self) -> Any:
         """Test integration between factory and debug toolkit."""
         # Create factory with debug-enabled injector
         factory = ComponentFactory()
@@ -526,7 +526,7 @@ class TestIntegration:
         assert isinstance(component, TestComponent)  # Should be correct type
         assert component.is_initialized  # Should be initialized
     
-    def test_error_handler_debug_integration(self):
+def test_error_handler_debug_integration(self) -> Any:
         """Test integration between error handler and debug toolkit."""
         error_handler = get_error_handler()  # Get global error handler
         
@@ -542,7 +542,7 @@ class TestIntegration:
         # Verify error was captured with debug context
         assert len(error_handler._error_reports) >= 1  # Should have captured error
     
-    def test_complete_workflow(self):
+def test_complete_workflow(self) -> Any:
         """Test complete workflow using all enhanced components."""
         # 1. Create components using factory
         factory = ComponentFactory()

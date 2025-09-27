@@ -23,7 +23,7 @@ sys.path.insert(0, str(project_root))
 class LintComplianceFixer:
     """Automated fixer for lint compliance issues."""
     
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize the lint compliance fixer."""
         self.project_root = project_root
         self.fixed_files = []
@@ -340,7 +340,7 @@ class LintComplianceFixer:
         return results
 
 
-def main():
+def main() -> Any:
     """Main function to run lint compliance fixes."""
     fixer = LintComplianceFixer()
     

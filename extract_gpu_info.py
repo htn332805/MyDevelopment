@@ -1,5 +1,7 @@
 import sys
 import re
+import io
+from typing import Any, Dict, List, Optional, Union
 
 # Debug mode
 DEBUG = False
@@ -14,22 +16,19 @@ hsc_pout = ""
 hsc_pin = ""
 
 
-def debug(msg -> Any: Any):
-"""Execute debug operation."""
+def debug(msg: Any) -> Any:
+    """Execute debug operation."""
     if DEBUG:
         print(f"[DEBUG] {msg}", file=sys.stderr)
 
 
 def reset_gpu_info() -> Any:
-"""Execute reset_gpu_info operation."""
+    """Execute reset_gpu_info operation."""
     return {"Board temp": "", "HBM temp": "", "Power": "", "Board Serial #": ""}
 
 
 try:
     # Open stdin safely with fallback encoding
-    import io
-from typing import Any, Dict, List, Optional, Union
-
     stdin = io.TextIOWrapper(sys.stdin.buffer, encoding="utf-8", errors="replace")
 
     for line in stdin:

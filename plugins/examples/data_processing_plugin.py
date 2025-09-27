@@ -273,7 +273,7 @@ class DataProcessingPlugin(BasePlugin):
     validation, analysis, and reporting with Framework0 integration.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize data processing plugin."""
         super().__init__()
         self._scriptlets: Dict[str, BaseScriptletV2] = {}

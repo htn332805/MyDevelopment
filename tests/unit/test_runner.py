@@ -26,7 +26,7 @@ from orchestrator.context import Context
 class TestRunnerV1:
     """Test cases for the original orchestrator runner."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures for each test method."""
         # Create a temporary directory for test files
         self.test_dir = tempfile.mkdtemp()
@@ -59,7 +59,7 @@ class TestRunnerV1:
         with open(self.test_recipe_path, 'w') as f:
             yaml.dump(self.sample_recipe, f)
     
-    def teardown_method(self):
+def teardown_method(self) -> Any:
         """Clean up test fixtures after each test method."""
         # Clean up temporary files
         if os.path.exists(self.test_recipe_path):
@@ -67,7 +67,7 @@ class TestRunnerV1:
         if os.path.exists(self.test_dir):
             os.rmdir(self.test_dir)
     
-    def test_run_recipe_loads_yaml_file(self):
+def test_run_recipe_loads_yaml_file(self) -> Any:
         """Test that run_recipe correctly loads YAML file."""
         # Create a mock step class to avoid actual execution
         with patch('importlib.import_module') as mock_import:
@@ -90,7 +90,7 @@ class TestRunnerV1:
             # Verify the step was executed
             mock_instance.run.assert_called_once()
     
-    def test_run_recipe_with_debug_mode(self):
+def test_run_recipe_with_debug_mode(self) -> Any:
         """Test run_recipe with debug mode enabled."""
         with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
@@ -108,7 +108,7 @@ class TestRunnerV1:
             assert isinstance(context, Context)
             mock_instance.run.assert_called_once()
     
-    def test_run_recipe_with_only_filter(self):
+def test_run_recipe_with_only_filter(self) -> Any:
         """Test run_recipe with only specific steps included."""
         with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
@@ -126,7 +126,7 @@ class TestRunnerV1:
             assert isinstance(context, Context)
             mock_instance.run.assert_called_once()
     
-    def test_run_recipe_with_skip_filter(self):
+def test_run_recipe_with_skip_filter(self) -> Any:
         """Test run_recipe with specific steps skipped."""
         with patch('importlib.import_module') as mock_import:
             # Test with skip filter excluding our step
@@ -136,12 +136,12 @@ class TestRunnerV1:
             # Import should not be called since step is skipped
             mock_import.assert_not_called()
     
-    def test_run_recipe_handles_missing_file(self):
+def test_run_recipe_handles_missing_file(self) -> Any:
         """Test run_recipe handles missing recipe files gracefully."""
         with pytest.raises(FileNotFoundError):
             run_recipe("/nonexistent/recipe.yaml")
     
-    def test_run_recipe_handles_invalid_yaml(self):
+def test_run_recipe_handles_invalid_yaml(self) -> Any:
         """Test run_recipe handles invalid YAML gracefully."""
         # Create invalid YAML file
         invalid_yaml_path = os.path.join(self.test_dir, "invalid.yaml")
@@ -154,7 +154,7 @@ class TestRunnerV1:
         finally:
             os.remove(invalid_yaml_path)
     
-    def test_run_recipe_step_execution_failure(self):
+def test_run_recipe_step_execution_failure(self) -> Any:
         """Test run_recipe handles step execution failures."""
         with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
@@ -172,7 +172,7 @@ class TestRunnerV1:
             assert isinstance(context, Context)
             mock_instance.run.assert_called_once()
     
-    def test_run_recipe_with_multiple_steps(self):
+def test_run_recipe_with_multiple_steps(self) -> Any:
         """Test run_recipe with multiple steps in correct order."""
         # Create recipe with multiple steps
         multi_step_recipe = {
@@ -231,17 +231,17 @@ class TestRunnerV1:
 class TestRunnerErrorHandling:
     """Test error handling scenarios in the runner."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.test_dir = tempfile.mkdtemp()
         
-    def teardown_method(self):
+def teardown_method(self) -> Any:
         """Clean up test fixtures."""
         if os.path.exists(self.test_dir):
             import shutil
             shutil.rmtree(self.test_dir)
     
-    def test_runner_handles_import_errors(self):
+def test_runner_handles_import_errors(self) -> Any:
         """Test runner handles module import errors gracefully."""
         recipe = {
             "steps": [{
@@ -263,7 +263,7 @@ class TestRunnerErrorHandling:
         with pytest.raises((ImportError, ModuleNotFoundError, AttributeError)):
             run_recipe(recipe_path)
     
-    def test_runner_handles_missing_function(self):
+def test_runner_handles_missing_function(self) -> Any:
         """Test runner handles missing function/class in module."""
         recipe = {
             "steps": [{

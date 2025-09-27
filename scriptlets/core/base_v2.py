@@ -80,7 +80,7 @@ class BaseScriptletV2(ABC):
     error handling, configuration management, and context integration.
     """
 
-    def __init__(self, *, config: Optional[ScriptletConfig] = None):
+def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None):
         """
         Initialize enhanced scriptlet.
         
@@ -423,7 +423,8 @@ class ComputeScriptletV2(BaseScriptletV2):
     with automatic result caching and optimization.
     """
 
-    def __init__(self, *, config: Optional[ScriptletConfig] = None, 
+def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
+"""Execute __init__ operation."""
                  enable_caching: bool = True):
         """
         Initialize compute scriptlet.
@@ -505,7 +506,8 @@ class IOScriptletV2(BaseScriptletV2):
     or database operations with automatic retry and error handling.
     """
 
-    def __init__(self, *, config: Optional[ScriptletConfig] = None,
+def __init__(self, *, config -> Any: Optional[ScriptletConfig] = None,
+"""Execute __init__ operation."""
                  retry_attempts: int = 3,
                  retry_delay: float = 1.0):
         """

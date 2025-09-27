@@ -67,7 +67,7 @@ def create_structure() -> Any:
 
 # Function: Add logger utility
 def generate_logger() -> Any:
-"""Execute generate_logger operation."""
+    """Execute generate_logger operation."""
     code = '''import logging
 
 def get_logger(name: str, debug: bool = False):
@@ -85,7 +85,7 @@ def get_logger(name: str, debug: bool = False):
 
 # Function: Add sample CSV reader
 def generate_csv_reader() -> Any:
-"""Execute generate_csv_reader operation."""
+    """Execute generate_csv_reader operation."""
     code = '''from src.core.logger import get_logger
 
 logger = get_logger("csv_reader", debug=True)
@@ -107,7 +107,7 @@ def read_csv(file_path: str) -> list:
 
 # Function: Add sample test
 def generate_test() -> Any:
-"""Execute generate_test operation."""
+    """Execute generate_test operation."""
     code = '''import pytest
 from src.modules.data_processing.csv_reader import read_csv
 

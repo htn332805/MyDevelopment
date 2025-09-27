@@ -10,6 +10,7 @@ with appropriate configuration and error handling.
 
 import sys
 import os
+from typing import Any, Dict, List, Optional, Union
 from pathlib import Path
 
 # Add the project root to Python path

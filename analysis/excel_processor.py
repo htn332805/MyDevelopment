@@ -136,6 +136,7 @@ class ExcelProcessorV1:
             raise
 
     def remove_duplicates_from_sheet(self, sheet_name: str, *, 
+    """Execute remove_duplicates_from_sheet operation."""
                                    columns: Optional[List[str]] = None,
                                    keep_first: bool = True) -> int:
         """
@@ -205,6 +206,7 @@ class ExcelProcessorV1:
         return removed_count
 
     def standardize_date_formats(self, sheet_name: str, 
+    """Execute standardize_date_formats operation."""
                                 date_columns: List[str],
                                 target_format: str = "MM/DD/YYYY") -> int:
         """
@@ -278,6 +280,7 @@ class ExcelProcessorV1:
         return standardized_count
 
     def clean_text_casing(self, sheet_name: str, 
+    """Execute clean_text_casing operation."""
                          text_columns: List[str],
                          case_type: str = "title") -> int:
         """
@@ -420,6 +423,7 @@ class ExcelProcessorV1:
         return name_mapping
 
     def split_sheet_by_column(self, sheet_name: str, 
+    """Execute split_sheet_by_column operation."""
                              split_column: str, 
                              prefix: str = "Sheet") -> Dict[str, str]:
         """
@@ -507,6 +511,7 @@ class ExcelProcessorV1:
         return sheet_mapping
 
     def merge_sheets(self, sheet_names: List[str], 
+    """Execute merge_sheets operation."""
                     target_sheet_name: str, 
                     remove_source: bool = False) -> int:
         """
@@ -750,6 +755,7 @@ class ExcelProcessorV1:
     # Analysis and Reporting Methods
     
     def create_pivot_table_from_data(self, source_sheet: str,
+    """Execute create_pivot_table_from_data operation."""
                                    target_sheet: str,
                                    rows: List[str],
                                    columns: List[str] = None,
@@ -871,7 +877,7 @@ class ExcelProcessorV1:
         self.logger.info(f"✅ Created pivot table in sheet '{target_sheet}' with {len(pivot_df)} rows")
         return target_sheet
 
-    def _style_pivot_table(self, worksheet, index_cols: int, data_cols: int) -> None:
+def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) -> None:
         """
         Apply styling to pivot table for better readability.
         
@@ -897,6 +903,7 @@ class ExcelProcessorV1:
                 cell.font = index_font
 
     def filter_column_by_value_range(self, sheet_name: str,
+    """Execute filter_column_by_value_range operation."""
                                    column_name: str,
                                    min_value: Optional[float] = None,
                                    max_value: Optional[float] = None,
@@ -1002,6 +1009,7 @@ class ExcelProcessorV1:
         return result_count
 
     def highlight_cells_by_value_range(self, sheet_name: str,
+    """Execute highlight_cells_by_value_range operation."""
                                      column_name: str,
                                      min_value: Optional[float] = None,
                                      max_value: Optional[float] = None,
@@ -1083,6 +1091,7 @@ class ExcelProcessorV1:
     # Visualization and Dashboard Methods
     
     def create_chart_from_data(self, sheet_name: str,
+    """Execute create_chart_from_data operation."""
                              chart_type: str,
                              data_range: str,
                              chart_title: str = "Chart",
@@ -1146,7 +1155,7 @@ class ExcelProcessorV1:
         
         return chart_id
 
-    def _find_chart_position(self, worksheet) -> str:
+def _find_chart_position(self, worksheet: Any) -> str:
         """
         Find suitable position for chart placement.
         
@@ -1166,6 +1175,7 @@ class ExcelProcessorV1:
         return f"{chr(ord('A') + chart_col - 1)}{chart_row}"
 
     def apply_conditional_formatting(self, sheet_name: str,
+    """Execute apply_conditional_formatting operation."""
                                    data_range: str,
                                    rule_type: str,
                                    format_style: str = "3_color_scale") -> int:
@@ -1229,6 +1239,7 @@ class ExcelProcessorV1:
         return cell_count
 
     def create_summary_sheet(self, source_sheets: List[str],
+    """Execute create_summary_sheet operation."""
                            summary_sheet_name: str = "Summary",
                            include_charts: bool = True) -> str:
         """
@@ -1329,7 +1340,7 @@ class ExcelProcessorV1:
         self.logger.info(f"✅ Created summary sheet '{summary_sheet_name}' for {len(source_sheets)} sheets")
         return summary_sheet_name
 
-    def _calculate_numeric_summaries(self, worksheet) -> Dict[str, float]:
+def _calculate_numeric_summaries(self, worksheet: Any) -> Dict[str, float]:
         """
         Calculate numeric summaries for worksheet data.
         
@@ -1361,7 +1372,7 @@ class ExcelProcessorV1:
         
         return summaries
 
-    def _create_comparison_chart(self, worksheet, source_sheets: List[str], start_row: int) -> None:
+def _create_comparison_chart(self, worksheet: Any, source_sheets: List[str], start_row: int) -> None:
         """
         Create comparison chart in summary worksheet.
         
@@ -1400,6 +1411,7 @@ class ExcelProcessorV1:
         worksheet.add_chart(chart, chart_anchor)
 
     def format_chart_elements(self, sheet_name: str,
+    """Execute format_chart_elements operation."""
                             chart_index: int = 0,
                             title_font_size: int = 14,
                             axis_font_size: int = 10,
@@ -1620,6 +1632,7 @@ def create_example_config() -> str:
 # Utility functions for common Excel operations
 
 def auto_clean_excel_file(filepath: str, 
+"""Execute auto_clean_excel_file operation."""
                          config: Optional[ExcelConfigV1] = None,
                          output_path: Optional[str] = None) -> str:
     """
@@ -1690,6 +1703,7 @@ def auto_clean_excel_file(filepath: str,
 
 
 def batch_process_excel_files(directory_path: str,
+"""Execute batch_process_excel_files operation."""
                             config: Optional[ExcelConfigV1] = None,
                             output_directory: Optional[str] = None) -> List[str]:
     """

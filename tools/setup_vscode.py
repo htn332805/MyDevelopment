@@ -1,6 +1,7 @@
 # tools/setup_vscode.py
 import os
 import json
+from typing import Any, Dict, List, Optional, Union
 
 VSCODE_DIR = ".vscode"
 
@@ -35,7 +36,8 @@ LAUNCH = {
     ]
 }
 
-def create_vscode_config():
+def create_vscode_config() -> Any:
+"""Execute create_vscode_config operation."""
     os.makedirs(VSCODE_DIR, exist_ok=True)
     with open(os.path.join(VSCODE_DIR, "settings.json"), "w") as f:
         json.dump(SETTINGS, f, indent=4)

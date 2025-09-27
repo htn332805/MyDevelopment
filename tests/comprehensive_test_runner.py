@@ -25,7 +25,7 @@ os.environ['PYTHONPATH'] = str(project_root) + ':' + os.environ.get('PYTHONPATH'
 class ComprehensiveTestRunner:
     """Comprehensive test runner for the entire framework."""
     
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize the test runner."""
         self.project_root = project_root
         self.test_results = {
@@ -259,7 +259,7 @@ class ComprehensiveTestRunner:
         
         return self.test_results
     
-    def _calculate_summary(self):
+def _calculate_summary(self) -> Any:
         """Calculate test summary statistics."""
         summary = self.test_results['summary']
         
@@ -276,7 +276,7 @@ class ComprehensiveTestRunner:
         else:
             summary['success_rate'] = 0.0
     
-    def print_summary(self):
+def print_summary(self) -> Any:
         """Print test summary."""
         print(f"\n{'='*80}")
         print("🎯 COMPREHENSIVE TEST RESULTS SUMMARY")
@@ -310,7 +310,7 @@ class ComprehensiveTestRunner:
         
         return overall_success
     
-    def save_results(self, output_file: str = 'test_results.json'):
+def save_results(self, output_file -> Any: str = 'test_results.json'):
         """Save test results to JSON file."""
         try:
             output_path = self.project_root / output_file
@@ -321,7 +321,7 @@ class ComprehensiveTestRunner:
             print(f"❌ Failed to save results: {e}")
 
 
-def main():
+def main() -> Any:
     """Main function to run comprehensive tests."""
     runner = ComprehensiveTestRunner()
     

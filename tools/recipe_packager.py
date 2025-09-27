@@ -47,7 +47,7 @@ class DependencyAnalyzer:
     imports, module references, and file dependencies required for execution.
     """
 
-    def __init__(self, project_root: Path):
+def __init__(self, project_root -> Any: Path):
         """
         Initialize dependency analyzer.
         
@@ -175,7 +175,7 @@ class RecipePackager:
     analysis, file collection, archive creation, and wrapper script generation.
     """
 
-    def __init__(self, project_root: Path):
+def __init__(self, project_root -> Any: Path):
         """
         Initialize recipe packager.
         
@@ -228,7 +228,7 @@ class RecipePackager:
         logger.debug(f"Recipe analysis complete: {len(analysis['required_files'])} files")
         return analysis
 
-    def _extract_data_file_refs(self, data: Any, data_files: Set[Path]):
+def _extract_data_file_refs(self, data -> Any: Any, data_files: Set[Path]):
         """
         Recursively extract data file references from recipe arguments.
         
@@ -367,7 +367,7 @@ __version__ = "0.1.0"
             logger.info(f"Package created: {zip_path}")
             return zip_path
 
-    def _ensure_init_files(self, file_path: Path, staging_dir: Path):
+def _ensure_init_files(self, file_path -> Any: Path, staging_dir: Path):
         """
         Ensure all parent directories have __init__.py files.
         
@@ -386,7 +386,7 @@ __version__ = "0.1.0"
                 logger.debug(f"Created __init__.py for: {current_dir}")
             current_dir = current_dir.parent
 
-    def _create_wrapper_script(self, staging_dir: Path, analysis: Dict[str, Any]):
+def _create_wrapper_script(self, staging_dir -> Any: Path, analysis: Dict[str, Any]):
         """
         Create wrapper scripts for cross-platform execution.
         
@@ -467,7 +467,7 @@ python run_recipe.py %*
             f.write(batch_content)
         logger.debug(f"Created Windows batch wrapper: {batch_path}")
 
-    def _create_package_metadata(self, staging_dir: Path, analysis: Dict[str, Any]):
+def _create_package_metadata(self, staging_dir -> Any: Path, analysis: Dict[str, Any]):
         """
         Create metadata file for the package.
         
@@ -500,7 +500,7 @@ python run_recipe.py %*
             json.dump(metadata, f, indent=2, default=str)
         logger.debug(f"Created package metadata: {metadata_path}")
 
-    def _create_zip_archive(self, staging_dir: Path, zip_path: Path):
+def _create_zip_archive(self, staging_dir -> Any: Path, zip_path: Path):
         """
         Create zip archive from staging directory.
         
@@ -603,7 +603,7 @@ def interactive_recipe_selection(recipes: List[Path]) -> Optional[Path]:
             return None
 
 
-def main():
+def main() -> Any:
     """Main CLI entry point for recipe packaging."""
     parser = argparse.ArgumentParser(
         description="Package Framework0 recipes into portable archives",

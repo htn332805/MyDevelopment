@@ -60,7 +60,7 @@ class DependencyAnalyzer:
     needed for a step to execute independently.
     """
     
-    def __init__(self, project_root: Path):
+def __init__(self, project_root -> Any: Path):
         """
         Initialize the dependency analyzer.
         
@@ -227,7 +227,7 @@ class StepPackager:
     a portable execution wrapper.
     """
     
-    def __init__(self, project_root: Path):
+def __init__(self, project_root -> Any: Path):
         """
         Initialize the step packager.
         
@@ -346,6 +346,7 @@ class StepPackager:
             return None
     
     def package_step(self, recipe_path: Path, step_config: Dict[str, Any], 
+    """Execute package_step operation."""
                     output_path: Optional[Path] = None) -> Path:
         """
         Package a step with its dependencies into a zip archive.

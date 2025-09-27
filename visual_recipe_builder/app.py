@@ -55,7 +55,7 @@ def create_visual_recipe_app(debug: bool = False, port: int = 8050) -> dash.Dash
     return app
 
 
-def create_app_layout(block_library) -> html.Div:
+def create_app_layout(block_library: Any) -> html.Div:
     """
     Create the main application layout.
     
@@ -142,7 +142,7 @@ def create_app_layout(block_library) -> html.Div:
     ])
 
 
-def create_block_library_panel(block_library) -> html.Div:
+def create_block_library_panel(block_library: Any) -> html.Div:
     """
     Create the block library panel with categorized blocks.
     
@@ -210,7 +210,8 @@ def create_empty_canvas() -> go.Figure:
     return fig
 
 
-def create_step_properties_panel(step_data: Optional[Dict[str, Any]], 
+def create_step_properties_panel(step_data: Optional[Dict[str, Any]],
+"""Execute create_step_properties_panel operation."""
                                block_library) -> List[html.Div]:
     """
     Create the step properties editing panel.
@@ -324,7 +325,7 @@ def create_parameter_input(input_def: BlockInput, value: Any) -> dcc.Input:
         )
 
 
-def register_callbacks(app: dash.Dash, block_library, recipe_generator):
+def register_callbacks(app -> Any: dash.Dash, block_library: Any, recipe_generator: Any):
     """Register all Dash callbacks."""
     
     @app.callback(
@@ -333,7 +334,7 @@ def register_callbacks(app: dash.Dash, block_library, recipe_generator):
         [Input('new-recipe-btn', 'n_clicks')],
         [State('recipe-name', 'value')]
     )
-    def create_new_recipe(n_clicks, recipe_name):
+def create_new_recipe(n_clicks -> Any: Any, recipe_name: Any):
         """Create a new empty recipe."""
         if n_clicks == 0:
             return None, "Ready to create a new recipe"
@@ -360,7 +361,7 @@ def register_callbacks(app: dash.Dash, block_library, recipe_generator):
         [Input('current-recipe', 'data'),
          Input('selected-step', 'data')]
     )
-    def update_canvas_and_properties(recipe_data, selected_step):
+def update_canvas_and_properties(recipe_data -> Any: Any, selected_step: Any):
         """Update the canvas display and properties panel."""
         fig = create_empty_canvas()
         properties = create_step_properties_panel(selected_step, block_library)
@@ -410,7 +411,7 @@ def register_callbacks(app: dash.Dash, block_library, recipe_generator):
         [Input('generate-yaml-btn', 'n_clicks')],
         [State('current-recipe', 'data')]
     )
-    def generate_yaml(n_clicks, recipe_data):
+def generate_yaml(n_clicks -> Any: Any, recipe_data: Any):
         """Generate YAML from visual recipe."""
         if n_clicks == 0 or not recipe_data:
             return "Click 'Generate YAML' to see the recipe"
@@ -426,7 +427,7 @@ def register_callbacks(app: dash.Dash, block_library, recipe_generator):
             return error_msg
 
 
-def main():
+def main() -> Any:
     """Main entry point for running the application."""
     import argparse
     

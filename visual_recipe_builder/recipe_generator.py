@@ -76,7 +76,7 @@ class RecipeGenerator:
     from visual block compositions.
     """
     
-    def __init__(self, block_library: Optional[BlockLibrary] = None):
+def __init__(self, block_library -> Any: Optional[BlockLibrary] = None):
         """
         Initialize recipe generator.
         
@@ -88,6 +88,7 @@ class RecipeGenerator:
         self.logger.info("RecipeGenerator initialized")
     
     def create_visual_recipe(self, name: str, description: str = "", 
+    """Execute create_visual_recipe operation."""
                            author: str = "Visual Recipe Builder") -> VisualRecipe:
         """
         Create a new empty visual recipe.
@@ -118,6 +119,7 @@ class RecipeGenerator:
         return recipe
     
     def add_step_to_recipe(self, recipe: VisualRecipe, block_id: str,
+    """Execute add_step_to_recipe operation."""
                           position: Tuple[float, float], 
                           parameters: Optional[Dict[str, Any]] = None,
                           step_name: Optional[str] = None) -> VisualStep:
@@ -171,6 +173,7 @@ class RecipeGenerator:
         return step
     
     def set_step_dependencies(self, recipe: VisualRecipe, step_name: str,
+    """Execute set_step_dependencies operation."""
                             dependencies: List[str]) -> None:
         """
         Set dependencies for a step.
@@ -198,6 +201,7 @@ class RecipeGenerator:
         self.logger.info(f"Set dependencies for step '{step_name}': {dependencies}")
     
     def update_step_parameters(self, recipe: VisualRecipe, step_name: str,
+    """Execute update_step_parameters operation."""
                              parameters: Dict[str, Any]) -> None:
         """
         Update parameters for a step.
@@ -442,7 +446,8 @@ class RecipeGenerator:
         visited = set()
         rec_stack = set()
         
-        def dfs(node):
+def dfs(node -> Any: Any):
+"""Execute dfs operation."""
             if node in rec_stack:
                 return True
             if node in visited:
@@ -472,7 +477,8 @@ class RecipeGenerator:
         visited = set()
         result = []
         
-        def visit(step_name):
+def visit(step_name -> Any: Any):
+"""Execute visit operation."""
             if step_name in visited:
                 return
             

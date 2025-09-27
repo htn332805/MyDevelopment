@@ -412,7 +412,7 @@ class ComponentLifecycle(ABC):
     with hooks for initialization, configuration, validation, and cleanup.
     """
     
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize component lifecycle state."""
         self._is_initialized: bool = False  # Initialization status
         self._is_configured: bool = False  # Configuration status
@@ -490,7 +490,7 @@ class EventDrivenComponent(ComponentLifecycle):
     thread-safe event handling and listener management.
     """
     
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize event-driven component."""
         super().__init__()
         self._event_listeners: Dict[str, List[Callable]] = {}  # Event listeners registry

@@ -20,6 +20,7 @@ def __init__( self, persist_dir -> Any: str = "persist",
         flush_interval_sec: Optional[int] = 10,
         max_history: Optional[int] = None,
     ):
+        """Execute __init__ operation."""
         """
         :param persist_dir: Directory where serialized snapshots or delta files go.
         :param flush_interval_sec: If not None, flush dirty data every N seconds.

@@ -21,11 +21,12 @@ import seaborn as sns
 import plotly.express as px
 import pandas as pd
 import numpy as np
+from typing import Any, Dict, List, Optional, Union
 
 # Set Seaborn style for consistent aesthetics
 sns.set_theme(style="whitegrid")
 
-def plot_line(data: pd.DataFrame, x: str, y: str, title: str = "Line Chart", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
+def plot_line(data -> Any: pd.DataFrame, x: str, y: str, title: str = "Line Chart", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
     """
     Creates a line chart using Matplotlib and Seaborn.
 
@@ -47,7 +48,7 @@ def plot_line(data: pd.DataFrame, x: str, y: str, title: str = "Line Chart", xla
     plt.ylabel(ylabel)
     plt.show()
 
-def plot_bar(data: pd.DataFrame, x: str, y: str, title: str = "Bar Chart", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
+def plot_bar(data -> Any: pd.DataFrame, x: str, y: str, title: str = "Bar Chart", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
     """
     Creates a bar chart using Matplotlib and Seaborn.
 
@@ -69,7 +70,7 @@ def plot_bar(data: pd.DataFrame, x: str, y: str, title: str = "Bar Chart", xlabe
     plt.ylabel(ylabel)
     plt.show()
 
-def plot_scatter(data: pd.DataFrame, x: str, y: str, title: str = "Scatter Plot", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
+def plot_scatter(data -> Any: pd.DataFrame, x: str, y: str, title: str = "Scatter Plot", xlabel: str = "X-axis", ylabel: str = "Y-axis"):
     """
     Creates a scatter plot using Matplotlib and Seaborn.
 
@@ -91,7 +92,7 @@ def plot_scatter(data: pd.DataFrame, x: str, y: str, title: str = "Scatter Plot"
     plt.ylabel(ylabel)
     plt.show()
 
-def plot_histogram(data: pd.DataFrame, column: str, bins: int = 30, title: str = "Histogram"):
+def plot_histogram(data -> Any: pd.DataFrame, column: str, bins: int = 30, title: str = "Histogram"):
     """
     Creates a histogram using Matplotlib and Seaborn.
 
@@ -109,7 +110,7 @@ def plot_histogram(data: pd.DataFrame, column: str, bins: int = 30, title: str =
     plt.title(title)
     plt.show()
 
-def plot_heatmap(data: pd.DataFrame, title: str = "Heatmap"):
+def plot_heatmap(data -> Any: pd.DataFrame, title: str = "Heatmap"):
     """
     Creates a heatmap using Seaborn.
 
@@ -125,7 +126,7 @@ def plot_heatmap(data: pd.DataFrame, title: str = "Heatmap"):
     plt.title(title)
     plt.show()
 
-def plot_interactive(data: pd.DataFrame, x: str, y: str, chart_type: str = "scatter", title: str = "Interactive Chart"):
+def plot_interactive(data -> Any: pd.DataFrame, x: str, y: str, chart_type: str = "scatter", title: str = "Interactive Chart"):
     """
     Creates an interactive chart using Plotly.
 

@@ -94,7 +94,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
     lifecycle management, configuration, monitoring, and event coordination.
     """
 
-    def __init__(self, config_path: Optional[Union[str, Path]] = None):
+def __init__(self, config_path -> Any: Optional[Union[str, Path]] = None):
         """
         Initialize Framework0 instance.
         
@@ -554,7 +554,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         return True
 
     @contextmanager
-    def debug_session(self, session_name: str = None):
+def debug_session(self, session_name -> Any: str = None):
         """
         Context manager for debug sessions.
         
@@ -570,7 +570,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
                 session._is_active = False
 
     @contextmanager
-    def error_handling(self, operation_name: str, **context):
+def error_handling(self, operation_name -> Any: str, **context):
         """
         Context manager for error handling.
         
@@ -606,6 +606,7 @@ def get_framework(config_path: Optional[Union[str, Path]] = None) -> Framework0:
 
 def initialize_framework(
     config: Optional[Dict[str, Any]] = None,
+"""Execute initialize_framework operation."""
     config_path: Optional[Union[str, Path]] = None
 ) -> Framework0:
     """

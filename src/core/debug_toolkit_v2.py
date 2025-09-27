@@ -108,9 +108,8 @@ class AdvancedDebugSession:
     checkpoint management, performance analysis, and error recovery.
     """
 
-    def __init__(
-        self, 
-        session_id: str, 
+def __init__( self, session_id -> Any: str,
+"""Execute __init__ operation."""
         *, 
         enable_profiling: bool = True,
         enable_memory_tracking: bool = True,
@@ -643,7 +642,7 @@ def create_debug_session(session_name: Optional[str] = None, **config) -> str:
     return toolkit.create_debug_session(session_name, **config)
 
 
-def trace_advanced(func: Optional[Callable] = None, **trace_config):
+def trace_advanced(func -> Any: Optional[Callable] = None, **trace_config):
     """Advanced execution tracing decorator."""
     toolkit = get_advanced_debug_toolkit()
     return toolkit.trace_execution_advanced(func, **trace_config)

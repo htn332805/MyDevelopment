@@ -93,8 +93,8 @@ class SpacedRepetitionEngine:
     question scheduling and difficulty adjustment.
     """
     
-    def __init__(self, 
-                 database: Optional[QuizDatabase] = None,
+def __init__(self, database -> Any: Optional[QuizDatabase] = None,
+"""Execute __init__ operation."""
                  sm2_params: Optional[SM2Parameters] = None,
                  selection_weights: Optional[SelectionWeights] = None):
         """Initialize spaced repetition engine."""
@@ -112,6 +112,7 @@ class SpacedRepetitionEngine:
     
     def process_question_attempt(self, 
                                 user_id: int,
+    """Execute process_question_attempt operation."""
                                 question_id: int,
                                 performance_score: float,
                                 time_taken_seconds: float,
@@ -246,6 +247,7 @@ class SpacedRepetitionEngine:
     
     def select_next_questions(self, 
                              user_id: int,
+    """Execute select_next_questions operation."""
                              count: int = 10,
                              preferred_hashtags: Optional[List[str]] = None,
                              target_difficulty: Optional[int] = None,
@@ -304,6 +306,7 @@ class SpacedRepetitionEngine:
     
     def _get_candidate_questions(self, 
                                user_id: int,
+    """Execute _get_candidate_questions operation."""
                                preferred_hashtags: Optional[List[str]] = None,
                                target_difficulty: Optional[int] = None) -> List[Dict[str, Any]]:
         """Get candidate questions with user progress data."""
@@ -420,6 +423,7 @@ class SpacedRepetitionEngine:
     
     def _calculate_selection_score(self, 
                                  question_data: Dict[str, Any],
+    """Execute _calculate_selection_score operation."""
                                  preferred_hashtags: Optional[List[str]] = None,
                                  target_difficulty: Optional[int] = None) -> float:
         """Calculate weighted selection score for question."""
