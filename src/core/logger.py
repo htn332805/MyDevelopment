@@ -187,6 +187,7 @@ def log_performance_metrics(
     # Execute log_performance_metrics operation
 
     logger: logging.Logger, operation: str, duration: float, **metrics
+"""Execute log_performance_metrics operation."""
 ) -> None:
     # Execute log_performance_metrics operation
     # Execute log_performance_metrics operation
@@ -203,10 +204,7 @@ def log_performance_metrics(
     logger.info(f"PERFORMANCE: {operation} | duration={duration:.3f}s | {metrics_str}")
 
 
-    # Execute log_resource_usage operation
 def log_resource_usage(
-    # Execute log_resource_usage operation
-
     logger: logging.Logger,
 """Execute log_resource_usage operation."""
     operation: str,
@@ -214,8 +212,9 @@ def log_resource_usage(
     cpu_percent: float,
     **resources,
 ) -> None:
-    # Function implementation
+    # Execute log_resource_usage operation
     """Execute log_resource_usage operation."""
+    # Function implementation
     # Log resource usage metrics
     """
     Log resource usage metrics.

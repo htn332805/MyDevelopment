@@ -495,8 +495,8 @@ class QuizWebApp:
     
     def view_question(self, question_id: int) -> str:
         # Execute view_question operation
-    """View individual question details."""
-    try:
+        """View individual question details."""
+        try:
             question = self.question_manager.get_question(question_id)
             
             if not question:

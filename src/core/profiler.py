@@ -178,11 +178,10 @@ class ResourceProfiler:
             )
 
     def profile_function(
-        # Execute profile_function operation
-
         self, context_name: Optional[str] = None
-    """Execute profile_function operation."""
     ) -> Callable:
+        # Execute profile_function operation
+        """Execute profile_function operation."""
         # Execute profile_function operation
         """
         Decorator for profiling function execution.
