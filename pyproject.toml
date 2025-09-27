@@ -1,17 +1,14 @@
 # pyproject.toml
-
-"""
-Framework0 - A robust and flexible Python framework.
-
-This configuration file adheres to PEP 518 and PEP 621 standards,
-defining build system requirements, project metadata, dependencies,
-and tool configurations for the Framework0 project.
-
-Sections:
-- [build-system]: Specifies the build system and its requirements.
-- [project]: Defines project metadata, dependencies, and optional dependencies.
-- [tool]: Configurations for various tools used in the project.
-"""
+# Framework0 - A robust and flexible Python framework.
+#
+# This configuration file adheres to PEP 518 and PEP 621 standards,
+# defining build system requirements, project metadata, dependencies,
+# and tool configurations for the Framework0 project.
+#
+# Sections:
+# - [build-system]: Specifies the build system and its requirements.
+# - [project]: Defines project metadata, dependencies, and optional dependencies.
+# - [tool]: Configurations for various tools used in the project.
 
 # Build system requirements
 [build-system]
