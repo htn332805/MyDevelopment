@@ -601,7 +601,7 @@ def generate_report(output_file: Optional[str] = None) -> str:
 def trace_variable(name: str, value: Any) -> None:
     """Trace variable using global toolkit with compatibility."""
     if _global_toolkit and hasattr(_global_toolkit, 'variable_tracker'):
-        _global_toolkit.variable_tracker.track_variable(name, value, "global_context")
+        _global_toolkit.variable_tracker.capture_variable(name, value, location="global_context")
     else:
         logger.debug(f"Variable trace: {name} = {value}")
 
