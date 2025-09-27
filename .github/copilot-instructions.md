@@ -45,7 +45,8 @@ All generated code must adhere to these foundational principles:
 | **Compliance Tools**          | Must pass all linter and checker tools provided. |
 | **Auto-Generated Docs**       | Use `tools/documentation_updater.py` to refresh documentation. |
 | **Executable Code**           | All code must run with `source .venv/bin/activate` — no runtime errors allowed. |
-
+| **Zero compliance issue**           | All code must pass linter check 100% compliance — no runtime errors allowed. |
+| **Unit test**           | All code must run and pass Unit test — no runtime errors allowed. |
 ---
 
 ## 💡 Copilot Usage Guidance
