@@ -751,8 +751,8 @@ class QuizWebApp:
     
     def _prepare_question_for_client(self, question: Dict[str, Any]) -> Dict[str, Any]:
         # Execute _prepare_question_for_client operation
-    """Prepare question data for client (remove answers)."""
-    # Create copy without correct answers
+        """Prepare question data for client (remove answers)."""
+        # Create copy without correct answers
         client_question = question.copy()
         
         # Remove correct answer fields based on question type
@@ -778,8 +778,8 @@ class QuizWebApp:
     
     def _evaluate_answer(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_answer operation
-    """Evaluate user answer against correct answer."""
-    question_type = question['type']
+        """Evaluate user answer against correct answer."""
+        question_type = question['type']
         result = {'is_correct': False, 'score': 0}
         
         try:
@@ -1191,7 +1191,7 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
 def serve_static(self, filename -> Any: str):
     # Execute serve_static operation
         """Serve static files."""
-                return send_from_directory(self.app.static_folder, filename)
+        return send_from_directory(self.app.static_folder, filename)
     
 def handle_404(self, error -> Any: Any):
         """Handle 404 errors."""

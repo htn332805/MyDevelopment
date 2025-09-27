@@ -514,7 +514,7 @@ def debug_context(self, context_name -> Any: str):
         Args:
             context_name (str): Name for debug context
         """
-                debug_tracer.info(f"Entering debug context: {context_name}")
+        debug_tracer.info(f"Entering debug context: {context_name}")
         
         with self.profiler.profile_context(context_name):
             try:
@@ -619,8 +619,8 @@ def add_breakpoint(condition: str, **kwargs) -> None:
 
 def debug_context(context_name -> Any: str):
     # Execute debug_context operation
-    """Debug context using global toolkit."""
-            return _global_toolkit.debug_context(context_name)
+        """Debug context using global toolkit."""
+        return _global_toolkit.debug_context(context_name)
 
 
 def generate_report(output_file: Optional[str] = None) -> str:

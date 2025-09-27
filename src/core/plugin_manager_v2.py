@@ -540,7 +540,7 @@ def __init__(self) -> Any:
 def install_plugin(plugin_name -> Any: str):
     # Execute install_plugin operation
         """Execute install_plugin operation."""
-            # Execute install_plugin operation
+        # Execute install_plugin operation
         """Execute install_plugin operation."""
             if plugin_name in installed:
                 return
