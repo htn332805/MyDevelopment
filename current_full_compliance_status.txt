@@ -1,18 +1,18 @@
 ⚠️ Compliance Issues Detected:
 ❌ Missing comment after function at line 899 in src/quiz_dashboard/web_app.py
 ❌ Missing return type hint at line 899 in src/quiz_dashboard/web_app.py
-❌ Missing comment after function at line 986 in src/quiz_dashboard/web_app.py
-❌ Missing return type hint at line 986 in src/quiz_dashboard/web_app.py
-⚠️ Failed to parse src/quiz_dashboard/web_app.py: invalid syntax (web_app.py, line 901)
+❌ Missing comment after function at line 985 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 985 in src/quiz_dashboard/web_app.py
+❌ Missing type hint for argument 'error' in function 'handle_404'
+❌ Missing type hint for argument 'error' in function 'handle_500'
 ❌ Missing comment after function at line 96 in src/quiz_dashboard/spaced_repetition.py
 ❌ Missing return type hint at line 96 in src/quiz_dashboard/spaced_repetition.py
-❌ Missing comment after function at line 113 in src/quiz_dashboard/spaced_repetition.py
-❌ Missing return type hint at line 113 in src/quiz_dashboard/spaced_repetition.py
-❌ Missing comment after function at line 248 in src/quiz_dashboard/spaced_repetition.py
-❌ Missing return type hint at line 248 in src/quiz_dashboard/spaced_repetition.py
-❌ Missing return type hint at line 307 in src/quiz_dashboard/spaced_repetition.py
-❌ Missing return type hint at line 421 in src/quiz_dashboard/spaced_repetition.py
-⚠️ Failed to parse src/quiz_dashboard/spaced_repetition.py: invalid syntax (spaced_repetition.py, line 97)
+❌ Missing comment after function at line 112 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 112 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 246 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 246 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 304 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 417 in src/quiz_dashboard/spaced_repetition.py
 ❌ Missing comment after function at line 311 in src/core/debug_toolkit.py
 ❌ Missing return type hint at line 311 in src/core/debug_toolkit.py
 ❌ Missing comment after function at line 632 in src/core/debug_toolkit.py
@@ -29,10 +29,11 @@
 ⚠️ Failed to parse src/core/error_handling.py: unexpected indent (error_handling.py, line 249)
 ❌ Missing comment after function at line 98 in src/core/factory.py
 ❌ Missing return type hint at line 98 in src/core/factory.py
-❌ Missing return type hint at line 229 in src/core/factory.py
-❌ Missing return type hint at line 347 in src/core/factory.py
-❌ Missing comment after function at line 431 in src/core/factory.py
-⚠️ Failed to parse src/core/factory.py: unindent does not match any outer indentation level (factory.py, line 97)
+❌ Missing comment after function at line 228 in src/core/factory.py
+❌ Missing return type hint at line 228 in src/core/factory.py
+❌ Missing return type hint at line 343 in src/core/factory.py
+❌ Missing comment after function at line 427 in src/core/factory.py
+⚠️ Failed to parse src/core/factory.py: expected an indented block after function definition on line 148 (factory.py, line 150)
 ❌ Missing return type hint at line 71 in src/core/context_v2.py
 ⚠️ Failed to parse src/core/context_v2.py: expected an indented block after function definition on line 113 (context_v2.py, line 115)
 ❌ Missing return type hint at line 105 in src/core/resource_monitor.py

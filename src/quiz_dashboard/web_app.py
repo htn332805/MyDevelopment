@@ -802,8 +802,8 @@ class QuizWebApp:
     
     def _evaluate_multiple_choice(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_multiple_choice operation
-    """Evaluate multiple choice answer."""
-    correct_answer = question['correct_answer']
+        """Evaluate multiple choice answer."""
+        correct_answer = question['correct_answer']
         is_correct = str(user_answer) == str(correct_answer)
         
         return {
@@ -814,8 +814,8 @@ class QuizWebApp:
     
     def _evaluate_true_false(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_true_false operation
-    """Evaluate true/false answer."""
-    correct_answer = question['correct_answer']
+        """Evaluate true/false answer."""
+        correct_answer = question['correct_answer']
         user_bool = str(user_answer).lower() in ('true', '1', 'yes')
         is_correct = user_bool == correct_answer
         
@@ -827,8 +827,8 @@ class QuizWebApp:
     
     def _evaluate_fill_in_blank(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_fill_in_blank operation
-    """Evaluate fill-in-blank answer."""
-    acceptable_answers = question['acceptable_answers']
+        """Evaluate fill-in-blank answer."""
+        acceptable_answers = question['acceptable_answers']
         case_sensitive = question.get('case_sensitive', False)
         
         user_text = str(user_answer).strip()
@@ -846,8 +846,8 @@ class QuizWebApp:
     
     def _evaluate_reorder(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_reorder operation
-    """Evaluate reorder/sequence answer."""
-    correct_order = question['correct_order']
+        """Evaluate reorder/sequence answer."""
+        correct_order = question['correct_order']
         user_order = user_answer if isinstance(user_answer, list) else []
         
         # Calculate partial credit
@@ -871,8 +871,8 @@ class QuizWebApp:
     
     def _evaluate_matching(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_matching operation
-    """Evaluate matching pairs answer."""
-    correct_matches = question['correct_matches']
+        """Evaluate matching pairs answer."""
+        correct_matches = question['correct_matches']
         user_matches = user_answer if isinstance(user_answer, list) else []
         
         # Convert to sets for comparison
@@ -897,13 +897,12 @@ class QuizWebApp:
         }
     
     def _calculate_performance_score(self, 
-        # _calculate_performance_score operation implementation
                                    is_correct: bool,
-    """Execute _calculate_performance_score operation."""
                                    time_taken: float,
                                    confidence_level: int,
                                    estimated_time: int) -> float:
-    """Calculate performance score (0-5) for SM-2 algorithm."""
+        # _calculate_performance_score operation implementation  
+        """Calculate performance score (0-5) for SM-2 algorithm."""
     # Base score from correctness
         if is_correct:
             base_score = 4.0  # Good performance
@@ -960,8 +959,8 @@ class QuizWebApp:
     
     def _update_session_progress(self, session_id: str, is_correct: bool) -> None:
         # Execute _update_session_progress operation
-    """Update quiz session progress."""
-    query = """
+        """Update quiz session progress."""
+        query = """
             UPDATE quiz_sessions 
             SET questions_answered = questions_answered + 1,
                 correct_answers = correct_answers + ?,
@@ -979,18 +978,17 @@ class QuizWebApp:
     
     def _track_question_in_session(self, session_id: str, question_id: int) -> None:
         # Execute _track_question_in_session operation
-    """Track that a question was shown in session."""
-    # This could be implemented to prevent showing the same question twice
+        """Track that a question was shown in session."""
+        # This could be implemented to prevent showing the same question twice
         pass
     
     def _select_random_questions(self, 
-        # _select_random_questions operation implementation
                                 count: int = 1,
-    """Execute _select_random_questions operation."""
                                 difficulty_level: Optional[int] = None,
                                 hashtags: Optional[List[str]] = None) -> List[int]:
-    """Simple random question selection with filters."""
-    try:
+        # _select_random_questions operation implementation
+        """Simple random question selection with filters."""
+        try:
             conditions = ["is_active = 1"]
             params = []
             
@@ -1020,10 +1018,10 @@ class QuizWebApp:
             logger.error(f"Random question selection error: {e}")
             return []
     
-def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
-    # Execute _extract_question_from_form operation
-    """Extract question data from form submission."""
-    question_type = form_data.get('question_type')
+    def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
+        # Execute _extract_question_from_form operation
+        """Extract question data from form submission."""
+        question_type = form_data.get('question_type')
         
         # Base question data
         question_data = {
@@ -1139,8 +1137,8 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
     
     def _calculate_session_statistics(self, session_id: str) -> Dict[str, Any]:
         # Execute _calculate_session_statistics operation
-    """Calculate final statistics for completed session."""
-    try:
+        """Calculate final statistics for completed session."""
+        try:
             # Session data
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -1188,18 +1186,20 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
     
     # Static file and error handlers
     
-def serve_static(self, filename -> Any: str):
-    # Execute serve_static operation
+    def serve_static(self, filename: str) -> Any:
+        # Execute serve_static operation
         """Serve static files."""
         return send_from_directory(self.app.static_folder, filename)
     
-def handle_404(self, error -> Any: Any):
+    def handle_404(self, error) -> Any:
+        # Execute handle_404 operation
         """Handle 404 errors."""
         return render_template('error.html', 
                              error="Page not found",
                              error_code=404), 404
     
-def handle_500(self, error -> Any: Any):
+    def handle_500(self, error) -> Any:
+        # Execute handle_500 operation
         """Handle 500 errors."""
         logger.error(f"Internal server error: {error}")
         return render_template('error.html',
@@ -1207,11 +1207,13 @@ def handle_500(self, error -> Any: Any):
                              error_code=500), 500
     
     def run(self, host: str = '0.0.0.0', port: int = 5000, debug: bool = False) -> None:
-    """Run Flask development server."""
-    logger.info(f"Starting Quiz Dashboard web server on {host}:{port}")
+        # Execute run operation
+        """Run Flask development server."""
+        logger.info(f"Starting Quiz Dashboard web server on {host}:{port}")
         self.app.run(host=host, port=port, debug=debug)
 
 
 def create_app(database_path: str = "quiz_dashboard.db") -> QuizWebApp:
+    # Execute create_app operation
     """Create and configure Quiz Dashboard web application."""
     return QuizWebApp(database_path=database_path)
