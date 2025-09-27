@@ -204,7 +204,6 @@ def log_performance_metrics(
 
 
 def log_resource_usage(
-    # Execute log_resource_usage operation
     logger: logging.Logger,
 """Execute log_resource_usage operation."""
     operation: str,

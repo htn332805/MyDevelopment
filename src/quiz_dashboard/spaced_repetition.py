@@ -94,11 +94,10 @@ class SpacedRepetitionEngine:
     """
     
     def __init__(self, database: Optional[QuizDatabase] = None,
-        # Execute __init__ operation
-
                  sm2_params: Optional[SM2Parameters] = None,
-                 selection_weights: Optional[SelectionWeights] = None) -> Any:
+                 selection_weights: Optional[SelectionWeights] = None) -> None:
         # Execute __init__ operation
+        """Initialize spaced repetition system with database and parameters."""
         self.database = database or get_quiz_database()  # Database connection
         self.sm2_params = sm2_params or SM2Parameters()  # SM-2 parameters
         self.selection_weights = selection_weights or SelectionWeights()  # Selection weights
@@ -309,7 +308,7 @@ class SpacedRepetitionEngine:
         try:
             # Build query with filters
 
-            query = """
+            base_query = """
                 SELECT 
                     q.id as question_id,
                     q.question_type,
@@ -325,7 +324,7 @@ class SpacedRepetitionEngine:
                     COALESCE(up.next_review_date, date('now')) as review_date
                 FROM questions q
                 LEFT JOIN user_progress up ON q.id = up.question_id AND up.user_id = ?
-                WHERE q.is_active = 1
+                WHERE q.is_active = 1"""
             
             params = [user_id]
             conditions = []
@@ -348,14 +347,14 @@ class SpacedRepetitionEngine:
                 base_query += " AND " + " AND ".join(conditions)
             
             # Order by review priority
-                ORDER BY 
+            base_query += """ ORDER BY 
                     CASE 
                         WHEN up.next_review_date <= date('now') THEN 0
                         ELSE 1
                     END,
                     review_date ASC,
                     RANDOM()
-                LIMIT 100
+                LIMIT 100"""
             
             results = self.database.execute_query(base_query, tuple(params))
             
@@ -384,8 +383,9 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to get candidate questions: {e}")
             return []
     
-        def _calculate_due_days(self, review_date_str: str) -> int:
+    def _calculate_due_days(self, review_date_str: str) -> int:
         # Execute _calculate_due_days operation
+        """Calculate due days from review date string."""
         try:
             review_date = datetime.strptime(review_date_str, "%Y-%m-%d").date()
             today = date.today()
@@ -393,8 +393,9 @@ class SpacedRepetitionEngine:
         except:
             return 0
     
-        def _filter_recent_questions(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def _filter_recent_questions(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         # Execute _filter_recent_questions operation
+        """Filter out recently shown questions."""
         filtered = []
         for candidate in candidates:
             question_id = candidate["question_id"]
@@ -469,8 +470,9 @@ class SpacedRepetitionEngine:
         
         return max(0.0, score)
     
-        def _weighted_random_choice(self, weights: List[float]) -> int:
+    def _weighted_random_choice(self, weights: List[float]) -> int:
         # Execute _weighted_random_choice operation
+        """Weighted random choice from list based on weights."""
         if not weights:
             return 0
         
