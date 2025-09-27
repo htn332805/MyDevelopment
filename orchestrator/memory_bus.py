@@ -32,11 +32,11 @@ def __init__(l: str, timeout: float  = 5.0) -> Any::
 
     def fetch_snapshot(self) -> Optional[Context]:
         # Execute fetch_snapshot operation
-    """
+        """
         Fetch the full context snapshot from the server.
         Returns a Context object or None (if server returned empty or error).
         """
-    url = f"{self.server_url}/snapshot"
+        url = f"{self.server_url}/snapshot"
         resp = requests.get(url, timeout=self.timeout)
         if resp.status_code != 200:
             # server error or not found
@@ -82,22 +82,22 @@ def __init__(l: str, timeout: float  = 5.0) -> Any::
 
 class MemoryBusServer:
     """
-    A simple in-memory context server. Exposes HTTP endpoints for clients
+        A simple in-memory context server. Exposes HTTP endpoints for clients
     to get snapshot, push patches, etc. Maintains an internal master Context.
     """
 
     def __init__(self) -> Any:
         # Execute __init__ operation
-    """Execute __init__ operation."""
-    self._ctx = Context()
+        """Execute __init__ operation."""
+        self._ctx = Context()
         self._lock = threading.Lock()
 
     def get_snapshot(self) -> Dict[str, Any]:
         # Execute get_snapshot operation
-    """
+        """
         Returns the full context data as a JSON‑serializable dict.
         """
-    with self._lock:
+        with self._lock:
             return self._ctx.to_dict()
 
     def apply_patch(self, patch: Dict[str, Any]) -> None:

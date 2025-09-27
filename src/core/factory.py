@@ -48,7 +48,7 @@ class Component(Protocol):
     
     def cleanup(self) -> None:
         # Execute cleanup operation
-    """Cleanup component resources."""
+        """Cleanup component resources."""
     ...
 
 
@@ -280,30 +280,30 @@ def __init__(g: bool  = False) -> Any::
 
     def get_dependency_graph(self) -> Dict[str, List[str]]:
         # Execute get_dependency_graph operation
-    """
+        """
         Get dependency graph visualization data.
         
         Returns:
             Dict[str, List[str]]: Component names mapped to their dependencies
         """
-    with self._lock:
+        with self._lock:
             return {name: list(deps) for name, deps in self._dependency_graph.items()}
 
     def get_creation_order(self) -> List[str]:
         # Execute get_creation_order operation
-    """
+        """
         Get the order in which components were created.
         
         Returns:
             List[str]: Component names in creation order
         """
-    with self._lock:
+        with self._lock:
             return self._creation_order.copy()
 
     def cleanup_all(self) -> None:
         # Execute cleanup_all operation
-    """Cleanup all managed component instances."""
-    with self._lock:
+        """Cleanup all managed component instances."""
+        with self._lock:
             # Cleanup in reverse creation order
             for component_name in reversed(self._creation_order):
                 instance = self._instances.get(component_name)
@@ -395,8 +395,8 @@ def __init__(r: Optional[DependencyInjector]  = None) -> Any::
 
     def get_injector(self) -> DependencyInjector:
         # Execute get_injector operation
-    """Get the underlying dependency injector."""
-    return self._injector
+        """Get the underlying dependency injector."""
+        return self._injector
 
 
 # Global factory instance for Framework0

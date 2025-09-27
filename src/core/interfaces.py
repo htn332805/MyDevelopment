@@ -58,7 +58,7 @@ class Cleanupable(Protocol):
     
     def cleanup(self) -> None:
         # Execute cleanup operation
-    """Cleanup component resources and state."""
+        """Cleanup component resources and state."""
     ...
 
 
@@ -81,7 +81,7 @@ class Configurable(Protocol):
     
     def get_config(self) -> Dict[str, Any]:
         # Execute get_config operation
-    """
+        """
         Get current component configuration.
         
         Returns:
@@ -96,7 +96,7 @@ class Validatable(Protocol):
     
     def validate(self) -> bool:
         # Execute validate operation
-    """
+        """
         Validate component state and configuration.
         
         Returns:
@@ -106,7 +106,7 @@ class Validatable(Protocol):
     
     def get_validation_errors(self) -> List[str]:
         # Execute get_validation_errors operation
-    """
+        """
         Get list of validation errors.
         
         Returns:
@@ -153,34 +153,34 @@ class Plugin(Protocol):
     @property
     def name(self) -> str:
         # Execute name operation
-    """Plugin name identifier."""
+        """Plugin name identifier."""
     ...
     
     @property  
     def version(self) -> str:
         # Execute version operation
-    """Plugin version string."""
+        """Plugin version string."""
     ...
     
     @property
     def dependencies(self) -> List[str]:
         # Execute dependencies operation
-    """List of plugin dependencies."""
+        """List of plugin dependencies."""
     ...
     
     def activate(self) -> None:
         # Execute activate operation
-    """Activate plugin and register its functionality."""
+        """Activate plugin and register its functionality."""
     ...
     
     def deactivate(self) -> None:
         # Execute deactivate operation
-    """Deactivate plugin and cleanup its resources."""
+        """Deactivate plugin and cleanup its resources."""
     ...
     
     def get_metadata(self) -> Dict[str, Any]:
         # Execute get_metadata operation
-    """
+        """
         Get plugin metadata.
         
         Returns:
@@ -234,7 +234,7 @@ class ContextManager(Protocol):
     
     def get_history(self) -> List[Dict[str, Any]]:
         # Execute get_history operation
-    """
+        """
         Get context change history.
         
         Returns:
@@ -288,17 +288,17 @@ class Debuggable(Protocol):
     
     def enable_debug(self) -> None:
         # Execute enable_debug operation
-    """Enable debug mode for component."""
+        """Enable debug mode for component."""
     ...
     
     def disable_debug(self) -> None:
         # Execute disable_debug operation
-    """Disable debug mode for component."""
+        """Disable debug mode for component."""
     ...
     
     def get_debug_info(self) -> Dict[str, Any]:
         # Execute get_debug_info operation
-    """
+        """
         Get debugging information.
         
         Returns:
@@ -346,7 +346,7 @@ class Profiler(Protocol):
     
     def get_metrics(self) -> Dict[str, Any]:
         # Execute get_metrics operation
-    """
+        """
         Get current profiling metrics.
         
         Returns:
@@ -361,7 +361,7 @@ class Serializable(Protocol):
     
     def to_dict(self) -> Dict[str, Any]:
         # Execute to_dict operation
-    """
+        """
         Serialize component to dictionary.
         
         Returns:
@@ -381,7 +381,7 @@ class Serializable(Protocol):
     
     def to_json(self) -> str:
         # Execute to_json operation
-    """
+        """
         Serialize component to JSON string.
         
         Returns:
@@ -396,7 +396,7 @@ class Cacheable(Protocol):
     
     def get_cache_key(self, *args, **kwargs) -> str:
         # Execute get_cache_key operation
-    """
+        """
         Generate cache key for given arguments.
         
         Args:
@@ -435,7 +435,7 @@ class Cacheable(Protocol):
     
     def clear_cache(self) -> None:
         # Execute clear_cache operation
-    """Clear all cached values."""
+        """Clear all cached values."""
     ...
 
 
@@ -471,8 +471,8 @@ def __init__(self) -> Any:
     @abstractmethod 
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-    """Component-specific cleanup logic."""
-    pass
+        """Component-specific cleanup logic."""
+        pass
 
     def initialize(self, config: Dict[str, Any]) -> None:
         # Execute initialize operation
@@ -496,8 +496,8 @@ def __init__(self) -> Any:
 
     def cleanup(self) -> None:
         # Execute cleanup operation
-    """Cleanup component with thread-safe guarantees."""
-    with self._initialization_lock:
+        """Cleanup component with thread-safe guarantees."""
+        with self._initialization_lock:
             if not self._is_initialized:
                 return
             
@@ -510,19 +510,19 @@ def __init__(self) -> Any:
     @property
     def is_initialized(self) -> bool:
         # Execute is_initialized operation
-    """Check if component is initialized."""
-    return self._is_initialized
+        """Check if component is initialized."""
+        return self._is_initialized
 
     @property
     def is_configured(self) -> bool:
         # Execute is_configured operation
-    """Check if component is configured."""
-    return self._is_configured
+        """Check if component is configured."""
+        return self._is_configured
 
     def get_config(self) -> Dict[str, Any]:
         # Execute get_config operation
-    """Get current configuration."""
-    return self._config.copy()
+        """Get current configuration."""
+        return self._config.copy()
 
 
 class EventDrivenComponent(ComponentLifecycle):
@@ -537,7 +537,7 @@ def __init__(self) -> Any:
     # Execute __init__ operation
     """Initialize event-driven component."""
     super().__init__()
-        self._event_listeners: Dict[str, List[Callable]] = {}  # Event listeners registry
+    self._event_listeners: Dict[str, List[Callable]] = {}  # Event listeners registry
         self._event_lock = threading.RLock()  # Thread safety for event operations
         
         logger.debug(f"EventDrivenComponent initialized for {self.__class__.__name__}")

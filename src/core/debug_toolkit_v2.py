@@ -282,8 +282,8 @@ def __init__(d -> Any: str,
 
     def _collect_performance_metrics(self) -> PerformanceMetrics:
         # Execute _collect_performance_metrics operation
-    """Collect current performance metrics."""
-    if not self.enable_profiling:
+        """Collect current performance metrics."""
+        if not self.enable_profiling:
             return PerformanceMetrics(0, 0, 0, 0, 0, 0, [], [])
         
         # Get current metrics from profiler
@@ -302,8 +302,8 @@ def __init__(d -> Any: str,
 
     def _capture_memory_snapshot(self) -> Dict[str, Any]:
         # Execute _capture_memory_snapshot operation
-    """Capture current memory usage snapshot."""
-    if not self.enable_memory_tracking:
+        """Capture current memory usage snapshot."""
+        if not self.enable_memory_tracking:
             return {}
         
         try:
@@ -326,8 +326,8 @@ def __init__(d -> Any: str,
 
     def _identify_bottlenecks(self) -> List[str]:
         # Execute _identify_bottlenecks operation
-    """Identify performance bottlenecks in call stack."""
-    bottlenecks = []
+        """Identify performance bottlenecks in call stack."""
+        bottlenecks = []
         
         # Analyze call stack for long-running functions
         for frame in self._call_stack:
@@ -338,8 +338,8 @@ def __init__(d -> Any: str,
 
     def _identify_hotspots(self) -> List[Tuple[str, float]]:
         # Execute _identify_hotspots operation
-    """Identify performance hot spots."""
-    hotspots = []
+        """Identify performance hot spots."""
+        hotspots = []
         function_times = defaultdict(float)
         
         # Aggregate execution times by function
@@ -353,8 +353,8 @@ def __init__(d -> Any: str,
 
     def _extract_relevant_globals(self, frame) -> Dict[str, Any]:
         # Execute _extract_relevant_globals operation
-    """Extract relevant global variables from frame."""
-    relevant_globals = {}
+        """Extract relevant global variables from frame."""
+        relevant_globals = {}
         
         if not frame or not hasattr(frame, 'f_globals'):
             return relevant_globals
@@ -375,8 +375,8 @@ def __init__(d -> Any: str,
 
     def _get_memory_usage(self) -> int:
         # Execute _get_memory_usage operation
-    """Get current memory usage in bytes."""
-    try:
+        """Get current memory usage in bytes."""
+        try:
             process = psutil.Process()
             return process.memory_info().rss
         except Exception:
@@ -384,8 +384,8 @@ def __init__(d -> Any: str,
 
     def get_session_summary(self) -> Dict[str, Any]:
         # Execute get_session_summary operation
-    """Get comprehensive session summary."""
-    with self._lock:
+        """Get comprehensive session summary."""
+        with self._lock:
             return {
                 'session_id': self.session_id,
                 'start_time': self.start_time,
@@ -444,9 +444,9 @@ class AdvancedDebugToolkit(ComponentLifecycle, Debuggable):
 
     def __init__(self) -> Any:
         # Execute __init__ operation
-    """Initialize advanced debug toolkit."""
-    super().__init__()
-        self._sessions: Dict[str, AdvancedDebugSession] = {}  # Active debug sessions
+        """Initialize advanced debug toolkit."""
+        super().__init__()
+    self._sessions: Dict[str, AdvancedDebugSession] = {}  # Active debug sessions
         self._global_session: Optional[AdvancedDebugSession] = None  # Default global session
         self._session_lock = threading.RLock()  # Thread safety for session management
         
@@ -470,8 +470,8 @@ class AdvancedDebugToolkit(ComponentLifecycle, Debuggable):
 
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-    """Cleanup debug toolkit resources."""
-    with self._session_lock:
+        """Cleanup debug toolkit resources."""
+        with self._session_lock:
             for session in self._sessions.values():
                 try:
                     session._is_active = False
@@ -602,8 +602,8 @@ class AdvancedDebugToolkit(ComponentLifecycle, Debuggable):
 
     def enable_debug(self) -> None:
         # Execute enable_debug operation
-    """Enable debug mode for all sessions."""
-    with self._session_lock:
+        """Enable debug mode for all sessions."""
+        with self._session_lock:
             for session in self._sessions.values():
                 session.enable_profiling = True
                 session.enable_memory_tracking = True
@@ -620,8 +620,8 @@ class AdvancedDebugToolkit(ComponentLifecycle, Debuggable):
 
     def get_debug_info(self) -> Dict[str, Any]:
         # Execute get_debug_info operation
-    """Get comprehensive debug information."""
-    with self._session_lock:
+        """Get comprehensive debug information."""
+        with self._session_lock:
             return {
                 'toolkit_initialized': self.is_initialized,
                 'active_sessions': len(self._sessions),

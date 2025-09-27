@@ -36,7 +36,7 @@ def __init__(self) -> Any:
 
     def get_task_order(self) -> List[str]:
         # Execute get_task_order operation
-    """
+        """
         Returns a list of tasks in the order they should be executed, 
         respecting their dependencies.
 

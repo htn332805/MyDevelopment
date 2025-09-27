@@ -30,20 +30,20 @@ def __init__(self, name: str = "data_processor") -> Any:
     # Execute __init__ operation
     """Initialize data processor."""
     super().__init__()
-        self.name = name
-        self.processing_count = 0
-        self.config = {"batch_size": 10, "timeout": 30}
+    self.name = name
+    self.processing_count = 0
+    self.config = {"batch_size": 10, "timeout": 30}
         
     def _do_initialize(self, config: Dict[str, Any]) -> None:
         # Execute _do_initialize operation
-    """Initialize data processor with configuration."""
-    self.configure(config)
+        """Initialize data processor with configuration."""
+        self.configure(config)
         print(f"DataProcessor '{self.name}' initialized with config: {self.config}")
     
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-    """Cleanup data processor resources."""
-    print(f"DataProcessor '{self.name}' cleaned up after {self.processing_count} operations")
+        """Cleanup data processor resources."""
+        print(f"DataProcessor '{self.name}' cleaned up after {self.processing_count} operations")
     
     def configure(self, config: Dict[str, Any]) -> bool:
         # Execute configure operation
@@ -56,8 +56,8 @@ def __init__(self, name: str = "data_processor") -> Any:
     
     def get_config(self) -> Dict[str, Any]:
         # Execute get_config operation
-    """Get current configuration."""
-    return self.config.copy()
+        """Get current configuration."""
+        return self.config.copy()
     
     def execute(self, context: Dict[str, Any]) -> Any:
         # Execute execute operation

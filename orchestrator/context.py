@@ -48,11 +48,11 @@ class Context:
 
     def to_dict(self) -> Dict[str, Any]:
         # Execute to_dict operation
-    """
+        """
         Return a shallow copy of the full context data.
         Useful for snapshotting or exporting.
         """
-    return dict(self._data)
+        return dict(self._data)
 
     def set(self, key: str, value: Any, who: Optional[str] = None) -> None:
         # Execute set operation
@@ -91,22 +91,22 @@ class Context:
 
     def pop_dirty_keys(self) -> List[str]:
         # Execute pop_dirty_keys operation
-    """
+        """
         Return the list of keys that have changed (“dirty”) since last flush,
         and clear the dirty set.
         Use this in persistence logic to only store deltas.
         """
-    keys = list(self._dirty_keys)
+        keys = list(self._dirty_keys)
         self._dirty_keys.clear()
         return keys
 
     def get_history(self) -> List[Dict[str, Any]]:
         # Execute get_history operation
-    """
+        """
         Return the full change history (immutable copy).
         Useful for debugging, auditing, or replay.
         """
-    return list(self._history)
+        return list(self._history)
 
     def merge_from(self, other: "Context", *, prefix: Optional[str] = None) -> None:
         # Execute merge_from operation
@@ -134,11 +134,11 @@ class Context:
 
     def to_json(self) -> str:
         # Execute to_json operation
-    """
+        """
         Serialize the current context to a JSON string.
         This is a snapshot view (no history, just data).
         """
-    return json.dumps(self._data)
+        return json.dumps(self._data)
 
     @classmethod
     def from_json(cls: Any, j: str) -> "Context":
