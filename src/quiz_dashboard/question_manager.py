@@ -1,3 +1,4 @@
+from typing import Any
 # src/quiz_dashboard/question_manager.py
 
 """
@@ -658,14 +659,7 @@ class QuestionManager:
             logger.error(f"Failed to retrieve question {question_id}: {e}")
             return None
     
-    def search_questions(self, 
-        # Execute search_questions operation
-                        question_type: Optional[str] = None,
-    """Execute search_questions operation."""
-                        hashtags: Optional[List[str]] = None,
-                        difficulty_range: Optional[Tuple[int, int]] = None,
-                        search_text: Optional[str] = None,
-                        limit: int = 50) -> List[Dict[str, Any]]:
+    def search_questions(self, question_type: Optional[str] = None, hashtags: Optional[List[str]] = None, difficulty_range: Optional[Tuple[int, int]] = None, search_text: Optional[str] = None, limit: int = 50) -> List[Dict[str, Any]]:
         # Execute search_questions operation
         """Execute search_questions operation."""
         
@@ -727,6 +721,7 @@ class QuestionManager:
             logger.error(f"Question search failed: {e}")
             return []
     
+        # Execute import_questions operation
     def import_questions(self, questions_file: str) -> Dict[str, Any]:
         # Import questions from JSON file with validation
         """Import questions from JSON file with validation."""
