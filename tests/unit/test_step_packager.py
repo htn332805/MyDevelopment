@@ -32,8 +32,8 @@ class TestDependencyAnalyzer:
     """Test cases for the DependencyAnalyzer class."""
     
 def test_analyzer_initialization(self) -> Any:
-        """Test DependencyAnalyzer initialization."""
-        # Create analyzer with test project root
+    """Test DependencyAnalyzer initialization."""
+    # Create analyzer with test project root
         test_root = Path("/test/project")
         analyzer = DependencyAnalyzer(test_root)
         
@@ -43,8 +43,8 @@ def test_analyzer_initialization(self) -> Any:
         assert len(analyzer.required_files) == 0
     
 def test_find_module_file(self) -> Any:
-        """Test module file discovery functionality."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test module file discovery functionality."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             analyzer = DependencyAnalyzer(temp_path)
             
@@ -71,8 +71,8 @@ def test_find_module_file(self) -> Any:
             assert not_found is None
     
 def test_extract_imports(self) -> Any:
-        """Test Python import extraction from module files."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test Python import extraction from module files."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             analyzer = DependencyAnalyzer(temp_path)
             
@@ -99,8 +99,8 @@ from external_lib import something
             assert imports == expected_imports
     
 def test_is_local_import(self) -> Any:
-        """Test local import detection."""
-        analyzer = DependencyAnalyzer(Path("/test"))
+    """Test local import detection."""
+    analyzer = DependencyAnalyzer(Path("/test"))
         
         # Test local imports
         assert analyzer._is_local_import("orchestrator.context") == True
@@ -115,8 +115,8 @@ def test_is_local_import(self) -> Any:
         assert analyzer._is_local_import("requests") == False
     
 def test_analyze_step_dependencies(self) -> Any:
-        """Test complete step dependency analysis."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test complete step dependency analysis."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             analyzer = DependencyAnalyzer(temp_path)
             
@@ -160,8 +160,8 @@ class TestStepPackager:
     """Test cases for the StepPackager class."""
     
 def test_packager_initialization(self) -> Any:
-        """Test StepPackager initialization."""
-        test_root = Path("/test/project")
+    """Test StepPackager initialization."""
+    test_root = Path("/test/project")
         packager = StepPackager(test_root)
         
         # Verify initialization
@@ -169,8 +169,8 @@ def test_packager_initialization(self) -> Any:
         assert isinstance(packager.analyzer, DependencyAnalyzer)
     
 def test_list_available_recipes(self) -> Any:
-        """Test recipe file discovery."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test recipe file discovery."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             packager = StepPackager(temp_path)
             
@@ -193,8 +193,8 @@ def test_list_available_recipes(self) -> Any:
             assert "test2.yml" in recipe_names
     
 def test_list_steps_in_recipe(self) -> Any:
-        """Test step extraction from recipe files."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test step extraction from recipe files."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             packager = StepPackager(temp_path)
             
@@ -224,8 +224,8 @@ steps:
             assert steps[1]["args"]["param1"] == "value1"
     
 def test_create_execution_wrapper(self) -> Any:
-        """Test portable execution wrapper generation."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test portable execution wrapper generation."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             packager = StepPackager(temp_path)
             
@@ -247,8 +247,8 @@ def test_create_execution_wrapper(self) -> Any:
             assert "--debug" in wrapper_content
     
 def test_create_package_readme(self) -> Any:
-        """Test package README generation."""
-        packager = StepPackager(Path("/test"))
+    """Test package README generation."""
+    packager = StepPackager(Path("/test"))
         
         step_config = {
             "name": "test_step",
@@ -268,8 +268,8 @@ def test_create_package_readme(self) -> Any:
         assert "Requirements" in readme_content
     
 def test_package_step_complete(self) -> Any:
-        """Test complete step packaging functionality."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Test complete step packaging functionality."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             packager = StepPackager(temp_path)
             
@@ -323,8 +323,8 @@ class TestPackagerIntegration:
     
     @pytest.fixture
 def sample_project(self) -> Any:
-        """Create a sample project structure for testing."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Create a sample project structure for testing."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             
             # Create orchestrator structure

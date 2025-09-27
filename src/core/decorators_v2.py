@@ -55,14 +55,14 @@ class EnhancedCache:
     """
 
 def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
-        """
+    """
         Initialize enhanced cache.
         
         Args:
             max_size (int): Maximum number of cached entries
             default_ttl (float): Default time-to-live in seconds
         """
-        self.max_size = max_size  # Maximum cache entries
+    self.max_size = max_size  # Maximum cache entries
         self.default_ttl = default_ttl  # Default TTL in seconds
         self._cache: Dict[str, CacheEntry] = {}  # Cache storage
         self._lock = threading.RLock()  # Thread safety
@@ -71,8 +71,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
         logger.debug(f"EnhancedCache initialized: max_size={max_size}, ttl={default_ttl}")
 
     def _generate_key(self, func: Callable, args: tuple, kwargs: dict) -> str:
-        """Generate cache key from function signature."""
-        key_data = {
+    """Generate cache key from function signature."""
+    key_data = {
             'function': f"{func.__module__}.{func.__name__}",
             'args': args,
             'kwargs': sorted(kwargs.items())
@@ -83,8 +83,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
         return hashlib.sha256(key_bytes).hexdigest()
 
     def get(self, key: str, *, ttl: Optional[float] = None) -> Optional[Any]:
-        """Get value from cache with TTL checking."""
-        with self._lock:
+    """Get value from cache with TTL checking."""
+    with self._lock:
             if key not in self._cache:
                 self._stats["misses"] += 1
                 return None
@@ -107,8 +107,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
             return entry.value
 
     def set(self, key: str, value: Any) -> None:
-        """Set value in cache with size management."""
-        with self._lock:
+    """Set value in cache with size management."""
+    with self._lock:
             current_time = time.time()
             
             # Evict entries if at capacity
@@ -124,8 +124,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
             )
 
     def _evict_lru(self) -> None:
-        """Evict least recently used entry."""
-        if not self._cache:
+    """Evict least recently used entry."""
+    if not self._cache:
             return
         
         # Find LRU entry
@@ -138,8 +138,8 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
         logger.debug(f"Evicted LRU cache entry: {lru_key}")
 
     def get_stats(self) -> Dict[str, Any]:
-        """Get cache statistics."""
-        with self._lock:
+    """Get cache statistics."""
+    with self._lock:
             hit_rate = (self._stats["hits"] / 
                        (self._stats["hits"] + self._stats["misses"])
                        if self._stats["hits"] + self._stats["misses"] > 0 else 0)
@@ -175,8 +175,8 @@ def monitor_resources(*, profiler: Optional[ResourceProfiler] = None,
         
         @functools.wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            context_name = f"{func.__module__}.{func.__name__}"
+    """Execute wrapper operation."""
+    context_name = f"{func.__module__}.{func.__name__}"
             
             with active_profiler.profile_context(context_name) as metrics:
                 start_time = time.time()
@@ -225,8 +225,8 @@ def debug_trace(*, capture_vars: Optional[List[str]] = None,
         
         @functools.wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            import inspect
+    """Execute wrapper operation."""
+    import inspect
             
             # Get function frame for variable access
             frame = inspect.currentframe()
@@ -283,10 +283,10 @@ def enhanced_retry(*, max_attempts: int = 3, delay: float = 1.0,
     """
     def decorator(func: F) -> F:
     """Execute decorator operation."""
-        @functools.wraps(func)
+    @functools.wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            last_exception = None
+    """Execute wrapper operation."""
+    last_exception = None
             current_delay = delay
             
             for attempt in range(max_attempts):
@@ -431,8 +431,8 @@ def error_boundary(*, fallback_value: Any = None,
     """Execute decorator operation."""
         @functools.wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            try:
+    """Execute wrapper operation."""
+    try:
                 return func(*args, **kwargs)
                 
             except Exception as e:
@@ -480,8 +480,8 @@ def rate_limit(*, calls_per_second: float = 10.0,
         
         @functools.wraps(func)
 def wrapper(*args, **kwargs) -> Any:
-"""Execute wrapper operation."""
-            with bucket_state['lock']:
+    """Execute wrapper operation."""
+    with bucket_state['lock']:
                 current_time = time.time()
                 time_passed = current_time - bucket_state['last_update']
                 

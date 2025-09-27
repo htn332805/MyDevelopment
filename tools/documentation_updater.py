@@ -22,7 +22,7 @@ def extract_function_info(filepath -> Any: Any):
             funcs.append(func)
     return funcs
 
-def update_docs(path -> Any: Any="src"):
+def update_docs(h: Any = "src") -> Any::
 """Execute update_docs operation."""
     all_funcs = []
     for root, _, files in os.walk(path):

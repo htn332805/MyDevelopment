@@ -51,8 +51,8 @@ class TestExcelProcessorV1:
     
     @pytest.fixture
 def sample_excel_file(self) -> Any:
-        """Create temporary Excel file with test data."""
-        # Create temporary file
+    """Create temporary Excel file with test data."""
+    # Create temporary file
         temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
         temp_file.close()
         
@@ -108,8 +108,8 @@ def test_load_workbook_existing_file(self, sample_excel_file -> Any: Any):
         assert 'Customers' in processor.original_sheets
     
 def test_load_workbook_new_file(self) -> Any:
-        """Test creating new workbook for non-existent file."""
-        # Use non-existent file path
+    """Test creating new workbook for non-existent file."""
+    # Use non-existent file path
         temp_path = tempfile.mktemp(suffix='.xlsx')
         
         try:
@@ -290,8 +290,8 @@ class TestExcelConfigV1:
     """Test suite for ExcelConfigV1 class."""
     
 def test_config_initialization(self) -> Any:
-        """Test configuration initialization with defaults."""
-        # Create config
+    """Test configuration initialization with defaults."""
+    # Create config
         config = ExcelConfigV1()
         
         # Verify default settings
@@ -310,8 +310,8 @@ def test_config_initialization(self) -> Any:
         assert config.navigation['toc_threshold'] == 6
     
 def test_config_json_serialization(self) -> Any:
-        """Test configuration JSON save/load functionality."""
-        # Create config with custom settings
+    """Test configuration JSON save/load functionality."""
+    # Create config with custom settings
         config = ExcelConfigV1()
         config.data_cleaning['remove_duplicates'] = False
         config.navigation['toc_threshold'] = 3
@@ -339,8 +339,8 @@ def test_config_json_serialization(self) -> Any:
             Path(temp_file.name).unlink(missing_ok=True)
     
 def test_config_invalid_json(self) -> Any:
-        """Test handling of invalid JSON configuration."""
-        # Create invalid JSON file
+    """Test handling of invalid JSON configuration."""
+    # Create invalid JSON file
         temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False)
         temp_file.write('{ invalid json content }')
         temp_file.close()
@@ -362,13 +362,13 @@ class TestExcelAutomationCLI:
     
     @pytest.fixture
 def cli(self) -> Any:
-        """Create CLI instance for testing."""
-        return ExcelAutomationCLI()
+    """Create CLI instance for testing."""
+    return ExcelAutomationCLI()
     
     @pytest.fixture
 def sample_excel_file(self) -> Any:
-        """Create temporary Excel file for CLI testing."""
-        # Create temporary file
+    """Create temporary Excel file for CLI testing."""
+    # Create temporary file
         temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
         temp_file.close()
         
@@ -462,8 +462,8 @@ class TestUtilityFunctions:
     
     @pytest.fixture
 def sample_excel_file(self) -> Any:
-        """Create temporary Excel file for utility testing."""
-        temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
+    """Create temporary Excel file for utility testing."""
+    temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
         temp_file.close()
         
         # Create test data with duplicates and mixed formatting

@@ -29,25 +29,25 @@ class TestAdvancedErrorHandler:
     """Test cases for AdvancedErrorHandler."""
     
 def setup_method(self) -> Any:
-        """Set up test fixtures for each test method."""
-        self.error_handler = AdvancedErrorHandler()
+    """Set up test fixtures for each test method."""
+    self.error_handler = AdvancedErrorHandler()
         self.error_handler.initialize({})  # Initialize with default config
         
 def teardown_method(self) -> Any:
-        """Clean up test fixtures after each test method."""
-        self.error_handler.cleanup()
+    """Clean up test fixtures after each test method."""
+    self.error_handler.cleanup()
     
 def test_error_handler_initialization(self) -> Any:
-        """Test error handler initializes correctly."""
-        assert self.error_handler is not None
+    """Test error handler initializes correctly."""
+    assert self.error_handler is not None
         # Test that error handler has required components
         assert hasattr(self.error_handler, '_analyzer')
         assert hasattr(self.error_handler, '_recovery_strategies')
         assert hasattr(self.error_handler, '_error_reports')
     
 def test_error_context_manager(self) -> Any:
-        """Test error context manager functionality."""
-        operation_name = "test_operation"
+    """Test error context manager functionality."""
+    operation_name = "test_operation"
         
         # Test successful operation
         with self.error_handler.error_context(operation_name) as context:
@@ -58,8 +58,8 @@ def test_error_context_manager(self) -> Any:
         assert result == "success"
     
 def test_error_context_with_exception(self) -> Any:
-        """Test error context manager with exceptions."""
-        operation_name = "failing_operation"
+    """Test error context manager with exceptions."""
+    operation_name = "failing_operation"
         
         try:
             with self.error_handler.error_context(operation_name) as context:
@@ -74,8 +74,8 @@ def test_error_context_with_exception(self) -> Any:
         assert True  # If we get here, error was handled correctly
     
 def test_error_severity_assessment(self) -> Any:
-        """Test error severity assessment functionality."""
-        # Test different types of exceptions
+    """Test error severity assessment functionality."""
+    # Test different types of exceptions
         test_exceptions = [
             (ValueError("Test value error"), ErrorSeverity.MEDIUM),
             (TypeError("Test type error"), ErrorSeverity.MEDIUM),  
@@ -93,8 +93,8 @@ def test_error_severity_assessment(self) -> Any:
                     pass  # Exception handled by context manager
     
 def test_error_recovery_strategies(self) -> Any:
-        """Test error recovery strategy registration and execution."""
-        recovery_called = []
+    """Test error recovery strategy registration and execution."""
+    recovery_called = []
         
 def test_recovery_strategy(handler -> Any: Any, error: Any):
             """Test recovery strategy."""
@@ -117,8 +117,8 @@ def test_recovery_strategy(handler -> Any: Any, error: Any):
         assert True
     
 def test_error_correlation(self) -> Any:
-        """Test error correlation functionality."""
-        correlation_id = "test_correlation_123"
+    """Test error correlation functionality."""
+    correlation_id = "test_correlation_123"
         
         # Create multiple related errors
         with self.error_handler.error_context("related_op_1", correlation_id=correlation_id):
@@ -141,8 +141,8 @@ class TestErrorAnalyzer:
     """Test cases for ErrorAnalyzer component."""
     
 def setup_method(self) -> Any:
-        """Set up test fixtures."""
-        try:
+    """Set up test fixtures."""
+    try:
             self.analyzer = ErrorAnalyzer()
         except NameError:
             # ErrorAnalyzer may not be directly accessible
@@ -150,8 +150,8 @@ def setup_method(self) -> Any:
     
     @pytest.mark.skipif("not hasattr(self, 'analyzer') or self.analyzer is None")
 def test_error_analysis(self) -> Any:
-        """Test basic error analysis functionality."""
-        test_error = ValueError("Test error for analysis")
+    """Test basic error analysis functionality."""
+    test_error = ValueError("Test error for analysis")
         
         # Test analysis methods if they exist
         if hasattr(self.analyzer, 'analyze_error'):
@@ -170,17 +170,17 @@ class TestErrorReporting:
     """Test error reporting functionality."""
     
 def setup_method(self) -> Any:
-        """Set up test fixtures."""
-        self.error_handler = AdvancedErrorHandler()
+    """Set up test fixtures."""
+    self.error_handler = AdvancedErrorHandler()
         self.error_handler.initialize({})
     
 def teardown_method(self) -> Any:
-        """Clean up test fixtures."""
-        self.error_handler.cleanup()
+    """Clean up test fixtures."""
+    self.error_handler.cleanup()
     
 def test_error_report_generation(self) -> Any:
-        """Test error report generation."""
-        # Generate an error to create a report
+    """Test error report generation."""
+    # Generate an error to create a report
         with self.error_handler.error_context("report_test") as context:
             try:
                 raise RuntimeError("Test error for reporting")
@@ -192,8 +192,8 @@ def test_error_report_generation(self) -> Any:
         assert hasattr(self.error_handler, '_error_reports')
     
 def test_error_report_storage(self) -> Any:
-        """Test error report storage and retrieval."""
-        # This test depends on the specific implementation
+    """Test error report storage and retrieval."""
+    # This test depends on the specific implementation
         # For now, just verify basic functionality
         assert hasattr(self.error_handler, '_error_reports')
         
@@ -205,8 +205,8 @@ class TestErrorHandlingIntegration:
     """Integration tests for error handling system."""
     
 def setup_method(self) -> Any:
-        """Set up test fixtures."""
-        self.error_handler = AdvancedErrorHandler()
+    """Set up test fixtures."""
+    self.error_handler = AdvancedErrorHandler()
         self.error_handler.initialize({
             'max_recovery_attempts': 3,
             'enable_correlation': True,
@@ -214,12 +214,12 @@ def setup_method(self) -> Any:
         })
     
 def teardown_method(self) -> Any:
-        """Clean up test fixtures."""
-        self.error_handler.cleanup()
+    """Clean up test fixtures."""
+    self.error_handler.cleanup()
     
 def test_complete_error_flow(self) -> Any:
-        """Test complete error handling flow."""
-        operation_name = "integration_test_operation"
+    """Test complete error handling flow."""
+    operation_name = "integration_test_operation"
         
         # Test the complete flow: error -> analysis -> recovery -> reporting
         with self.error_handler.error_context(operation_name) as context:
@@ -234,8 +234,8 @@ def test_complete_error_flow(self) -> Any:
         assert True
     
 def _simulate_complex_operation(self) -> Any:
-        """Simulate a complex operation that might fail."""
-        import random
+    """Simulate a complex operation that might fail."""
+    import random
 from typing import Any, Dict, List, Optional, Union
         
         # Randomly choose an exception type to simulate different scenarios
@@ -250,8 +250,8 @@ from typing import Any, Dict, List, Optional, Union
         raise exceptions[0]  # Use first exception for deterministic testing
     
 def test_nested_error_contexts(self) -> Any:
-        """Test nested error contexts."""
-        with self.error_handler.error_context("outer_operation") as outer:
+    """Test nested error contexts."""
+    with self.error_handler.error_context("outer_operation") as outer:
             try:
                 with self.error_handler.error_context("inner_operation") as inner:
                     try:
@@ -269,8 +269,8 @@ def test_nested_error_contexts(self) -> Any:
         assert result == "outer_completed"
     
 def test_error_handler_performance(self) -> Any:
-        """Test error handler performance with multiple operations."""
-        num_operations = 50
+    """Test error handler performance with multiple operations."""
+    num_operations = 50
         
         for i in range(num_operations):
             operation_name = f"perf_test_op_{i}"

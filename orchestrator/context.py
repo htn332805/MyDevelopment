@@ -38,18 +38,18 @@ class Context:
         # self._lock = threading.Lock()
 
     def get(self, key: str) -> Optional[Any]:
-        """
+    """
         Retrieve the value for a given dotted key.
         Returns None if the key is absent.
         """
-        return self._data.get(key)
+    return self._data.get(key)
 
     def to_dict(self) -> Dict[str, Any]:
-        """
+    """
         Return a shallow copy of the full context data.
         Useful for snapshotting or exporting.
         """
-        return dict(self._data)
+    return dict(self._data)
 
     def set(self, key: str, value: Any, who: Optional[str] = None) -> None:
         """
@@ -86,21 +86,21 @@ class Context:
         self._history.append(rec)
 
     def pop_dirty_keys(self) -> List[str]:
-        """
+    """
         Return the list of keys that have changed (“dirty”) since last flush,
         and clear the dirty set.
         Use this in persistence logic to only store deltas.
         """
-        keys = list(self._dirty_keys)
+    keys = list(self._dirty_keys)
         self._dirty_keys.clear()
         return keys
 
     def get_history(self) -> List[Dict[str, Any]]:
-        """
+    """
         Return the full change history (immutable copy).
         Useful for debugging, auditing, or replay.
         """
-        return list(self._history)
+    return list(self._history)
 
     def merge_from(self, other: "Context", *, prefix: Optional[str] = None) -> None:
         """
@@ -126,19 +126,19 @@ class Context:
             self.set(key, rec["after"], who=rec.get("step"))
 
     def to_json(self) -> str:
-        """
+    """
         Serialize the current context to a JSON string.
         This is a snapshot view (no history, just data).
         """
-        return json.dumps(self._data)
+    return json.dumps(self._data)
 
     @classmethod
     def from_json(cls: Any, j: str) -> "Context":
-        """
+    """
         Reconstruct a Context from a JSON snapshot (just data, no history).
         History will be empty in the reconstructed instance.
         """
-        inst = cls()
+    inst = cls()
         d = json.loads(j)
         for k, v in d.items():
             inst._data[k] = v

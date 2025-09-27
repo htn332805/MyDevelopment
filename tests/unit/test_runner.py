@@ -27,8 +27,8 @@ class TestRunnerV1:
     """Test cases for the original orchestrator runner."""
     
 def setup_method(self) -> Any:
-        """Set up test fixtures for each test method."""
-        # Create a temporary directory for test files
+    """Set up test fixtures for each test method."""
+    # Create a temporary directory for test files
         self.test_dir = tempfile.mkdtemp()
         self.test_recipe_path = os.path.join(self.test_dir, "test_recipe.yaml")
         
@@ -60,16 +60,16 @@ def setup_method(self) -> Any:
             yaml.dump(self.sample_recipe, f)
     
 def teardown_method(self) -> Any:
-        """Clean up test fixtures after each test method."""
-        # Clean up temporary files
+    """Clean up test fixtures after each test method."""
+    # Clean up temporary files
         if os.path.exists(self.test_recipe_path):
             os.remove(self.test_recipe_path)
         if os.path.exists(self.test_dir):
             os.rmdir(self.test_dir)
     
 def test_run_recipe_loads_yaml_file(self) -> Any:
-        """Test that run_recipe correctly loads YAML file."""
-        # Create a mock step class to avoid actual execution
+    """Test that run_recipe correctly loads YAML file."""
+    # Create a mock step class to avoid actual execution
         with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
             mock_class = MagicMock()
@@ -91,8 +91,8 @@ def test_run_recipe_loads_yaml_file(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_debug_mode(self) -> Any:
-        """Test run_recipe with debug mode enabled."""
-        with patch('importlib.import_module') as mock_import:
+    """Test run_recipe with debug mode enabled."""
+    with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
             mock_class = MagicMock()
             mock_instance = MagicMock()
@@ -109,8 +109,8 @@ def test_run_recipe_with_debug_mode(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_only_filter(self) -> Any:
-        """Test run_recipe with only specific steps included."""
-        with patch('importlib.import_module') as mock_import:
+    """Test run_recipe with only specific steps included."""
+    with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
             mock_class = MagicMock()
             mock_instance = MagicMock()
@@ -127,8 +127,8 @@ def test_run_recipe_with_only_filter(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_skip_filter(self) -> Any:
-        """Test run_recipe with specific steps skipped."""
-        with patch('importlib.import_module') as mock_import:
+    """Test run_recipe with specific steps skipped."""
+    with patch('importlib.import_module') as mock_import:
             # Test with skip filter excluding our step
             context = run_recipe(self.test_recipe_path, skip=['test_step'])
             
@@ -137,13 +137,13 @@ def test_run_recipe_with_skip_filter(self) -> Any:
             mock_import.assert_not_called()
     
 def test_run_recipe_handles_missing_file(self) -> Any:
-        """Test run_recipe handles missing recipe files gracefully."""
-        with pytest.raises(FileNotFoundError):
+    """Test run_recipe handles missing recipe files gracefully."""
+    with pytest.raises(FileNotFoundError):
             run_recipe("/nonexistent/recipe.yaml")
     
 def test_run_recipe_handles_invalid_yaml(self) -> Any:
-        """Test run_recipe handles invalid YAML gracefully."""
-        # Create invalid YAML file
+    """Test run_recipe handles invalid YAML gracefully."""
+    # Create invalid YAML file
         invalid_yaml_path = os.path.join(self.test_dir, "invalid.yaml")
         with open(invalid_yaml_path, 'w') as f:
             f.write("invalid: yaml: content: {")
@@ -155,8 +155,8 @@ def test_run_recipe_handles_invalid_yaml(self) -> Any:
             os.remove(invalid_yaml_path)
     
 def test_run_recipe_step_execution_failure(self) -> Any:
-        """Test run_recipe handles step execution failures."""
-        with patch('importlib.import_module') as mock_import:
+    """Test run_recipe handles step execution failures."""
+    with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
             mock_class = MagicMock()
             mock_instance = MagicMock()
@@ -173,8 +173,8 @@ def test_run_recipe_step_execution_failure(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_multiple_steps(self) -> Any:
-        """Test run_recipe with multiple steps in correct order."""
-        # Create recipe with multiple steps
+    """Test run_recipe with multiple steps in correct order."""
+    # Create recipe with multiple steps
         multi_step_recipe = {
             "test_meta": {
                 "test_id": "multi-step-test",
@@ -232,18 +232,18 @@ class TestRunnerErrorHandling:
     """Test error handling scenarios in the runner."""
     
 def setup_method(self) -> Any:
-        """Set up test fixtures."""
-        self.test_dir = tempfile.mkdtemp()
+    """Set up test fixtures."""
+    self.test_dir = tempfile.mkdtemp()
         
 def teardown_method(self) -> Any:
-        """Clean up test fixtures."""
-        if os.path.exists(self.test_dir):
+    """Clean up test fixtures."""
+    if os.path.exists(self.test_dir):
             import shutil
             shutil.rmtree(self.test_dir)
     
 def test_runner_handles_import_errors(self) -> Any:
-        """Test runner handles module import errors gracefully."""
-        recipe = {
+    """Test runner handles module import errors gracefully."""
+    recipe = {
             "steps": [{
                 "idx": 1,
                 "name": "bad_step",
@@ -264,8 +264,8 @@ def test_runner_handles_import_errors(self) -> Any:
             run_recipe(recipe_path)
     
 def test_runner_handles_missing_function(self) -> Any:
-        """Test runner handles missing function/class in module."""
-        recipe = {
+    """Test runner handles missing function/class in module."""
+    recipe = {
             "steps": [{
                 "idx": 1,
                 "name": "bad_function_step",

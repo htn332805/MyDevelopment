@@ -37,7 +37,7 @@ LAUNCH = {
 }
 
 def create_vscode_config() -> Any:
-"""Execute create_vscode_config operation."""
+    """Execute create_vscode_config operation."""
     os.makedirs(VSCODE_DIR, exist_ok=True)
     with open(os.path.join(VSCODE_DIR, "settings.json"), "w") as f:
         json.dump(SETTINGS, f, indent=4)

@@ -35,7 +35,7 @@ class BaseTask:
         execute(): Executes the task. Should be overridden by subclasses.
     """
 
-def __init__(self, name -> Any: str, dependencies: List[str] = None, parameters: Dict[str, Any] = None):
+def __init__(e: str, dependencies: List[str] = None, parameters: Dict[str, Any]  = None) -> Any::
         """
         Initializes a new task instance.
 
@@ -49,7 +49,7 @@ def __init__(self, name -> Any: str, dependencies: List[str] = None, parameters:
         self.parameters = parameters or {}
 
 def execute(self) -> Any:
-        """
+    """
         Executes the task.
 
         This method should be overridden by subclasses to define the specific
@@ -58,7 +58,7 @@ def execute(self) -> Any:
         Raises:
             NotImplementedError: If the method is not overridden by a subclass.
         """
-        raise NotImplementedError("Subclasses should implement the 'execute' method.")
+    raise NotImplementedError("Subclasses should implement the 'execute' method.")
 
 class ExecutionContext:
     """
@@ -75,12 +75,12 @@ class ExecutionContext:
     """
 
 def __init__(self) -> Any:
-        """
+    """
         Initializes a new execution context instance.
 
         Sets up empty dictionaries for task instances and results.
         """
-        self.task_instances = {}
+    self.task_instances = {}
         self.results = {}
 
 def add_task(self, task -> Any: BaseTask):
@@ -97,7 +97,7 @@ def add_task(self, task -> Any: BaseTask):
             logger.info(f"Task '{task.name}' added to the execution context.")
 
     def get_task(self, name: str) -> BaseTask:
-        """
+    """
         Retrieves a task by its name.
 
         Args:
@@ -109,19 +109,19 @@ def add_task(self, task -> Any: BaseTask):
         Raises:
             KeyError: If no task with the given name exists.
         """
-        try:
+    try:
             return self.task_instances[name]
         except KeyError:
             logger.error(f"Task '{name}' not found in the execution context.")
             raise
 
 def execute(self) -> Any:
-        """
+    """
         Executes all tasks in the correct order based on their dependencies.
 
         Tasks are executed only after all their dependencies have been executed.
         """
-        executed = set()
+    executed = set()
 
 def execute_task(task_name -> Any: str):
             """

@@ -45,10 +45,10 @@ class DatabaseAdapter:
     """
 
 def __init__(self) -> Any:
-        """
+    """
         Initializes the DatabaseAdapter instance.
         """
-        self.engine = None
+    self.engine = None
         self.Session = None
         self.metadata = MetaData()
 
@@ -72,13 +72,13 @@ def connect(self, database_url -> Any: str):
             raise
 
 def disconnect(self) -> Any:
-        """
+    """
         Closes the database connection.
 
         Raises:
             SQLAlchemyError: If there is an error during disconnection.
         """
-        try:
+    try:
             if self.engine:
                 self.engine.dispose()
                 logger.info("Disconnected from database")
@@ -87,7 +87,7 @@ def disconnect(self) -> Any:
             raise
 
 def create_session(self) -> Any:
-        """
+    """
         Creates a new session for database operations.
 
         Returns:
@@ -96,7 +96,7 @@ def create_session(self) -> Any:
         Raises:
             SQLAlchemyError: If session creation fails.
         """
-        try:
+    try:
             session = self.Session()
             logger.debug("Created new database session")
             return session
@@ -104,7 +104,7 @@ def create_session(self) -> Any:
             logger.error(f"Failed to create session: {e}")
             raise
 
-def execute_query(self, query -> Any: str, params: dict = None):
+def execute_query(y: str, params: dict  = None) -> Any::
         """
         Executes a raw SQL query.
 

@@ -37,8 +37,8 @@ try:
 except ImportError:
     import logging
     def get_logger(name: str, debug: bool = False) -> logging.Logger:
-        """Fallback logger implementation."""
-        logger = logging.getLogger(name)
+    """Fallback logger implementation."""
+    logger = logging.getLogger(name)
         if not logger.handlers:
             handler = logging.StreamHandler()
             formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -73,7 +73,7 @@ def __init__(self, project_root -> Any: Path):
         logger.debug(f"Initialized DependencyAnalyzer with project root: {project_root}")
     
     def analyze_step_dependencies(self, step_config: Dict[str, Any]) -> Set[Path]:
-        """
+    """
         Analyze dependencies for a specific step configuration.
         
         Args:
@@ -82,7 +82,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Set of Path objects representing all required files
         """
-        logger.info(f"Analyzing dependencies for step: {step_config.get('name', 'unknown')}")
+    logger.info(f"Analyzing dependencies for step: {step_config.get('name', 'unknown')}")
         
         # Reset analysis state
         self.analyzed_modules.clear()
@@ -101,13 +101,13 @@ def __init__(self, project_root -> Any: Path):
         return self.required_files.copy()
     
     def _analyze_module_recursive(self, module_name: str) -> None:
-        """
+    """
         Recursively analyze a module and its dependencies.
         
         Args:
             module_name: Name of the module to analyze
         """
-        if module_name in self.analyzed_modules:
+    if module_name in self.analyzed_modules:
             return  # Avoid infinite recursion
             
         self.analyzed_modules.add(module_name)
@@ -132,7 +132,7 @@ def __init__(self, project_root -> Any: Path):
             logger.warning(f"Failed to analyze module {module_name}: {e}")
     
     def _find_module_file(self, module_name: str) -> Optional[Path]:
-        """
+    """
         Find the file path for a given module name.
         
         Args:
@@ -141,7 +141,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Path to the module file, or None if not found
         """
-        # Convert module name to file path
+    # Convert module name to file path
         module_parts = module_name.split('.')
         
         # Try different combinations of paths
@@ -158,7 +158,7 @@ def __init__(self, project_root -> Any: Path):
         return None
     
     def _extract_imports(self, module_path: Path) -> Set[str]:
-        """
+    """
         Extract import statements from a Python module file.
         
         Args:
@@ -167,7 +167,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Set of imported module names
         """
-        imports: Set[str] = set()
+    imports: Set[str] = set()
         
         try:
             with open(module_path, 'r', encoding='utf-8') as f:
@@ -189,7 +189,7 @@ def __init__(self, project_root -> Any: Path):
         return imports
     
     def _is_local_import(self, module_name: str) -> bool:
-        """
+    """
         Check if an import is local to the project.
         
         Args:
@@ -198,13 +198,13 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             True if the module is local to the project
         """
-        # Consider modules starting with project-specific prefixes as local
+    # Consider modules starting with project-specific prefixes as local
         local_prefixes = ['orchestrator', 'scriptlets', 'src', 'cli']
         return any(module_name.startswith(prefix) for prefix in local_prefixes)
     
     def _include_core_orchestrator_files(self) -> None:
-        """Include essential orchestrator files that are always needed."""
-        core_files = [
+    """Include essential orchestrator files that are always needed."""
+    core_files = [
             self.project_root / 'orchestrator' / '__init__.py',
             self.project_root / 'orchestrator' / 'context.py',
             self.project_root / 'orchestrator' / 'runner.py',
@@ -239,13 +239,13 @@ def __init__(self, project_root -> Any: Path):
         logger.debug(f"Initialized StepPackager with project root: {project_root}")
     
     def list_available_recipes(self) -> List[Path]:
-        """
+    """
         List all available recipe files in the project.
         
         Returns:
             List of Path objects pointing to recipe files
         """
-        recipe_dirs = [
+    recipe_dirs = [
             self.project_root / 'orchestrator' / 'recipes',
             self.project_root / 'recipes',
         ]
@@ -260,7 +260,7 @@ def __init__(self, project_root -> Any: Path):
         return recipe_files
     
     def list_steps_in_recipe(self, recipe_path: Path) -> List[Dict[str, Any]]:
-        """
+    """
         Extract steps from a recipe file.
         
         Args:
@@ -269,7 +269,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             List of step configurations
         """
-        logger.debug(f"Loading recipe: {recipe_path}")
+    logger.debug(f"Loading recipe: {recipe_path}")
         
         try:
             with open(recipe_path, 'r', encoding='utf-8') as f:
@@ -287,13 +287,13 @@ def __init__(self, project_root -> Any: Path):
             return []
     
     def interactive_step_selection(self) -> Optional[Tuple[Path, Dict[str, Any]]]:
-        """
+    """
         Interactive menu for selecting a step to package.
         
         Returns:
             Tuple of (recipe_path, step_config) or None if cancelled
         """
-        print("\n🔍 Available Recipes:")
+    print("\n🔍 Available Recipes:")
         print("=" * 50)
         
         recipes = self.list_available_recipes()
@@ -348,7 +348,7 @@ def __init__(self, project_root -> Any: Path):
     def package_step(self, recipe_path: Path, step_config: Dict[str, Any], 
     """Execute package_step operation."""
                     output_path: Optional[Path] = None) -> Path:
-        """
+    """
         Package a step with its dependencies into a zip archive.
         
         Args:
@@ -359,7 +359,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Path to the created zip archive
         """
-        step_name = step_config.get('name', 'unknown_step')
+    step_name = step_config.get('name', 'unknown_step')
         logger.info(f"Packaging step: {step_name}")
         
         # Create output path if not provided
@@ -403,7 +403,7 @@ def __init__(self, project_root -> Any: Path):
         return output_path
     
     def _create_execution_wrapper(self, recipe_path: Path, step_config: Dict[str, Any]) -> str:
-        """
+    """
         Create a portable execution wrapper script for the packaged step.
         
         Args:
@@ -413,7 +413,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Python script content as string
         """
-        step_name = step_config.get('name', 'unknown_step')
+    step_name = step_config.get('name', 'unknown_step')
         
         # Calculate the relative path from project root
         try:
@@ -510,7 +510,7 @@ if __name__ == "__main__":
         return wrapper_script
     
     def _create_package_readme(self, step_name: str, step_config: Dict[str, Any]) -> str:
-        """
+    """
         Create README documentation for the package.
         
         Args:
@@ -520,7 +520,7 @@ if __name__ == "__main__":
         Returns:
             README content as string
         """
-        module = step_config.get('module', 'N/A')
+    module = step_config.get('module', 'N/A')
         function = step_config.get('function', 'N/A')
         args = step_config.get('args', {})
         

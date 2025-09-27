@@ -39,7 +39,7 @@ class TestSampleContextManager(unittest.TestCase):
     """
 
 def test_context_manager_setup(self) -> Any:
-        """
+    """
         Test Case: test_context_manager_setup
 
         Validates the setup behavior of the context manager.
@@ -48,11 +48,11 @@ def test_context_manager_setup(self) -> Any:
         1. Enter the context manager.
         2. Assert that the yielded resource is as expected.
         """
-        with sample_context_manager() as resource:
+    with sample_context_manager() as resource:
             self.assertEqual(resource, "resource", f"Expected 'resource', but got {resource}")
 
 def test_context_manager_teardown(self) -> Any:
-        """
+    """
         Test Case: test_context_manager_teardown
 
         Validates the teardown behavior of the context manager.
@@ -62,7 +62,7 @@ def test_context_manager_teardown(self) -> Any:
         2. Perform operations within the context.
         3. Assert that the context manager correctly handles teardown.
         """
-        try:
+    try:
             with sample_context_manager() as resource:
                 # Perform operations within the context
                 pass
@@ -70,7 +70,7 @@ def test_context_manager_teardown(self) -> Any:
             self.fail(f"Exception occurred during context manager teardown: {e}")
 
 def test_context_manager_exception_handling(self) -> Any:
-        """
+    """
         Test Case: test_context_manager_exception_handling
 
         Validates the exception handling within the context manager.
@@ -80,6 +80,6 @@ def test_context_manager_exception_handling(self) -> Any:
         2. Raise an exception within the context.
         3. Assert that the exception is handled correctly.
         """
-        with self.assertRaises(Exception):
+    with self.assertRaises(Exception):
             with sample_context_manager() as resource:
                 raise Exception("Test exception")

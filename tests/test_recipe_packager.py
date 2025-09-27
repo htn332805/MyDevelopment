@@ -32,8 +32,8 @@ class TestRecipePackager:
 
     @pytest.fixture
 def project_root(self) -> Any:
-        """Fixture providing project root path."""
-        return Path(__file__).parent.parent
+    """Fixture providing project root path."""
+    return Path(__file__).parent.parent
 
     @pytest.fixture
 def packager(self, project_root -> Any: Any):
@@ -42,8 +42,8 @@ def packager(self, project_root -> Any: Any):
 
     @pytest.fixture
 def temp_output_dir(self) -> Any:
-        """Fixture providing temporary output directory."""
-        with tempfile.TemporaryDirectory() as temp_dir:
+    """Fixture providing temporary output directory."""
+    with tempfile.TemporaryDirectory() as temp_dir:
             yield Path(temp_dir)
 
     @pytest.fixture
@@ -224,8 +224,8 @@ class TestIntegrationWithCLI:
 
     @pytest.fixture
 def project_root(self) -> Any:
-        """Fixture providing project root path."""
-        return Path(__file__).parent.parent
+    """Fixture providing project root path."""
+    return Path(__file__).parent.parent
 
 def test_cli_package_list_command(self, project_root -> Any: Any):
         """Test CLI list command functionality."""

@@ -118,8 +118,8 @@ class EnhancedRunner:
                    context: Optional[ContextV2] = None,
                    parallel: bool = False,
                    validate_dependencies: bool = True) -> RecipeExecutionResult:
-        """Execute run_recipe operation."""
-        """
+    """Execute run_recipe operation."""
+    """
         Execute a recipe with enhanced monitoring and analysis.
         
         Args:
@@ -208,8 +208,8 @@ class EnhancedRunner:
             return self._create_error_result(recipe_path, str(e))
 
     def _load_recipe(self, recipe_path: str) -> Optional[Dict[str, Any]]:
-        """Load and validate recipe YAML file."""
-        try:
+    """Load and validate recipe YAML file."""
+    try:
             with open(recipe_path, 'r') as f:
                 recipe = yaml.safe_load(f)
             
@@ -233,8 +233,8 @@ class EnhancedRunner:
     """Execute _prepare_steps operation."""
                       only: Optional[List[str]], 
                       skip: Optional[List[str]]) -> List[Dict[str, Any]]:
-        """Prepare and filter steps for execution."""
-        steps = recipe.get("steps", [])
+    """Prepare and filter steps for execution."""
+    steps = recipe.get("steps", [])
         
         # Sort by index if present
         steps = sorted(steps, key=lambda s: s.get("idx", 0))
@@ -250,8 +250,8 @@ class EnhancedRunner:
         return steps
 
     def _validate_dependencies(self, steps: List[Dict[str, Any]]) -> Optional[str]:
-        """Validate step dependencies using dependency graph."""
-        try:
+    """Validate step dependencies using dependency graph."""
+    try:
             graph = DependencyGraph()
             
             # Add all steps to graph
@@ -275,8 +275,8 @@ class EnhancedRunner:
     """Execute _execute_steps_sequential operation."""
                                  context: ContextV2, 
                                  debug: bool) -> List[StepResult]:
-        """Execute steps sequentially with monitoring."""
-        step_results = []
+    """Execute steps sequentially with monitoring."""
+    step_results = []
         
         for step in steps:
             step_result = self._execute_single_step(step, context, debug)
@@ -293,8 +293,8 @@ class EnhancedRunner:
     """Execute _execute_steps_parallel operation."""
                                context: ContextV2, 
                                debug: bool) -> List[StepResult]:
-        """Execute steps in parallel respecting dependencies."""
-        # For now, implement simple parallel execution
+    """Execute steps in parallel respecting dependencies."""
+    # For now, implement simple parallel execution
         # TODO: Implement proper dependency-aware parallel execution
         
         step_results = []
@@ -332,8 +332,8 @@ class EnhancedRunner:
     """Execute _execute_single_step operation."""
                            context: ContextV2, 
                            debug: bool) -> StepResult:
-        """Execute a single recipe step with comprehensive monitoring."""
-        import time
+    """Execute a single recipe step with comprehensive monitoring."""
+    import time
         
         step_name = step.get("name", "unknown")
         start_time = time.time()
@@ -424,8 +424,8 @@ class EnhancedRunner:
             )
 
     def _generate_performance_summary(self, step_results: List[StepResult]) -> Dict[str, Any]:
-        """Generate comprehensive performance summary."""
-        if not step_results:
+    """Generate comprehensive performance summary."""
+    if not step_results:
             return {}
         
         total_duration = sum(r.duration for r in step_results)
@@ -454,8 +454,8 @@ class EnhancedRunner:
         }
 
     def _generate_error_summary(self, step_results: List[StepResult]) -> str:
-        """Generate error summary from failed steps."""
-        failed_steps = [r for r in step_results if not r.success]
+    """Generate error summary from failed steps."""
+    failed_steps = [r for r in step_results if not r.success]
         
         if not failed_steps:
             return "No errors occurred"
@@ -468,8 +468,8 @@ class EnhancedRunner:
         return error_summary.strip()
 
     def _create_error_result(self, recipe_path: str, error_message: str) -> RecipeExecutionResult:
-        """Create error result for failed recipe execution."""
-        return RecipeExecutionResult(
+    """Create error result for failed recipe execution."""
+    return RecipeExecutionResult(
             recipe_path=recipe_path,
             success=False,
             total_duration=0.0,
@@ -484,7 +484,7 @@ class EnhancedRunner:
     def export_execution_report(self, result: RecipeExecutionResult, 
     """Execute export_execution_report operation."""
                                output_path: Optional[str] = None) -> str:
-        """
+    """
         Export comprehensive execution report to file.
         
         Args:
@@ -494,7 +494,7 @@ class EnhancedRunner:
         Returns:
             str: Path to exported report file
         """
-        if output_path is None:
+    if output_path is None:
             timestamp = int(time.time())
             recipe_name = Path(result.recipe_path).stem
             output_path = f"/tmp/execution_report_{recipe_name}_{timestamp}.json"

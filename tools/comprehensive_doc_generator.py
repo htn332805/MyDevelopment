@@ -45,13 +45,13 @@ def __init__(self, repo_root -> Any: str):
         }
         
     def find_all_code_files(self) -> List[str]:
-        """
+    """
         Find all Python and shell script files in the repository.
         
         Returns:
             List[str]: List of file paths relative to repository root
         """
-        code_files: List[str] = []  # Initialize empty list for code files
+    code_files: List[str] = []  # Initialize empty list for code files
         
         # Walk through all directories in repository
         for root, dirs, files in os.walk(self.repo_root):
@@ -69,7 +69,7 @@ def __init__(self, repo_root -> Any: str):
         return sorted(code_files)  # Return sorted list for consistency
         
     def analyze_python_file(self, file_path: str) -> Dict[str, Any]:
-        """
+    """
         Analyze a Python file and extract comprehensive information.
         
         Args:
@@ -78,7 +78,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             Dict[str, Any]: Dictionary containing file analysis results
         """
-        full_path = os.path.join(self.repo_root, file_path)  # Get absolute file path
+    full_path = os.path.join(self.repo_root, file_path)  # Get absolute file path
         
         # Initialize file information dictionary
         file_info = {
@@ -134,7 +134,7 @@ def __init__(self, repo_root -> Any: str):
         return file_info  # Return complete file analysis
         
     def analyze_shell_file(self, file_path: str) -> Dict[str, Any]:
-        """
+    """
         Analyze a shell script file and extract information.
         
         Args:
@@ -143,7 +143,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             Dict[str, Any]: Dictionary containing file analysis results
         """
-        full_path = os.path.join(self.repo_root, file_path)  # Get absolute file path
+    full_path = os.path.join(self.repo_root, file_path)  # Get absolute file path
         
         # Initialize shell file information
         file_info = {
@@ -192,7 +192,7 @@ def __init__(self, repo_root -> Any: str):
         return file_info  # Return complete shell analysis
         
     def _extract_imports(self, tree: ast.AST) -> List[Dict[str, str]]:
-        """
+    """
         Extract all import statements from Python AST.
         
         Args:
@@ -201,7 +201,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[Dict[str, str]]: List of import information dictionaries
         """
-        imports = []  # Initialize imports list
+    imports = []  # Initialize imports list
         
         # Walk through all nodes in AST
         for node in ast.walk(tree):
@@ -228,7 +228,7 @@ def __init__(self, repo_root -> Any: str):
         return imports  # Return all found imports
         
     def _extract_functions(self, tree: ast.AST) -> List[Dict[str, Any]]:
-        """
+    """
         Extract all function definitions from Python AST.
         
         Args:
@@ -237,7 +237,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[Dict[str, Any]]: List of function information dictionaries
         """
-        functions = []  # Initialize functions list
+    functions = []  # Initialize functions list
         
         # Walk through all nodes in AST
         for node in ast.walk(tree):
@@ -258,7 +258,7 @@ def __init__(self, repo_root -> Any: str):
         return functions  # Return all found functions
         
     def _extract_classes(self, tree: ast.AST) -> List[Dict[str, Any]]:
-        """
+    """
         Extract all class definitions from Python AST.
         
         Args:
@@ -267,7 +267,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[Dict[str, Any]]: List of class information dictionaries
         """
-        classes = []  # Initialize classes list
+    classes = []  # Initialize classes list
         
         # Walk through all nodes in AST
         for node in ast.walk(tree):
@@ -298,7 +298,7 @@ def __init__(self, repo_root -> Any: str):
         return classes  # Return all found classes
         
     def _calculate_complexity(self, tree: ast.AST) -> int:
-        """
+    """
         Calculate basic complexity score for Python file.
         
         Args:
@@ -307,7 +307,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             int: Complexity score based on control flow statements
         """
-        complexity = 1  # Base complexity
+    complexity = 1  # Base complexity
         
         # Walk through all nodes and count complexity-adding constructs
         for node in ast.walk(tree):
@@ -320,7 +320,7 @@ def __init__(self, repo_root -> Any: str):
         return complexity  # Return calculated complexity
         
     def _find_usage_examples(self, content: str) -> List[str]:
-        """
+    """
         Find usage examples in comments and docstrings.
         
         Args:
@@ -329,7 +329,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[str]: List of found usage examples
         """
-        examples = []  # Initialize examples list
+    examples = []  # Initialize examples list
         
         # Look for common usage example patterns
         example_patterns = [
@@ -354,7 +354,7 @@ def __init__(self, repo_root -> Any: str):
         return cleaned_examples  # Return cleaned examples
         
     def _find_dependencies(self, content: str, file_path: str) -> List[str]:
-        """
+    """
         Find dependencies to other files in the repository.
         
         Args:
@@ -364,7 +364,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[str]: List of dependency file paths
         """
-        dependencies = []  # Initialize dependencies list
+    dependencies = []  # Initialize dependencies list
         
         # Look for local imports (from . or from src)
         local_import_patterns = [
@@ -381,7 +381,7 @@ def __init__(self, repo_root -> Any: str):
         return list(set(dependencies))  # Return unique dependencies
         
     def _extract_shell_functions(self, content: str) -> List[Dict[str, Any]]:
-        """
+    """
         Extract function definitions from shell script content.
         
         Args:
@@ -390,7 +390,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[Dict[str, Any]]: List of shell function information
         """
-        functions = []  # Initialize functions list
+    functions = []  # Initialize functions list
         
         # Pattern to match shell function definitions
         function_pattern = r'(\w+)\s*\(\)\s*\{([^}]*)\}'  # function_name() { body }
@@ -410,7 +410,7 @@ def __init__(self, repo_root -> Any: str):
         return functions  # Return all found functions
         
     def _extract_shell_variables(self, content: str) -> List[Dict[str, str]]:
-        """
+    """
         Extract variable assignments from shell script.
         
         Args:
@@ -419,7 +419,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[Dict[str, str]]: List of variable information
         """
-        variables = []  # Initialize variables list
+    variables = []  # Initialize variables list
         
         # Pattern to match variable assignments
         var_pattern = r'^([A-Z_][A-Z0-9_]*)\s*=\s*["\']?([^"\']*)["\']?'  # VAR=value
@@ -439,7 +439,7 @@ def __init__(self, repo_root -> Any: str):
         return variables  # Return all found variables
         
     def _extract_shell_commands(self, content: str) -> List[str]:
-        """
+    """
         Extract main commands used in shell script.
         
         Args:
@@ -448,7 +448,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[str]: List of commands used
         """
-        commands = []  # Initialize commands list
+    commands = []  # Initialize commands list
         
         # Common command patterns to look for
         command_patterns = [
@@ -465,7 +465,7 @@ def __init__(self, repo_root -> Any: str):
         return list(set(commands))  # Return unique commands
         
     def _extract_shell_description(self, content: str) -> str:
-        """
+    """
         Extract description from shell script comments.
         
         Args:
@@ -474,7 +474,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             str: Extracted description or default message
         """
-        # Look for description in comments at top of file
+    # Look for description in comments at top of file
         lines = content.splitlines()  # Split into lines
         description_lines = []  # Initialize description lines
         
@@ -495,7 +495,7 @@ def __init__(self, repo_root -> Any: str):
             return "No description available"  # Default message
             
     def _find_shell_usage_examples(self, content: str) -> List[str]:
-        """
+    """
         Find usage examples in shell script comments.
         
         Args:
@@ -504,7 +504,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[str]: List of usage examples
         """
-        examples = []  # Initialize examples list
+    examples = []  # Initialize examples list
         
         # Look for usage patterns in comments
         usage_patterns = [
@@ -520,7 +520,7 @@ def __init__(self, repo_root -> Any: str):
         return [ex.strip() for ex in examples if ex.strip()]  # Return cleaned examples
         
     def _extract_shell_parameters(self, content: str) -> List[Dict[str, str]]:
-        """
+    """
         Extract command line parameters from shell script.
         
         Args:
@@ -529,7 +529,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             List[Dict[str, str]]: List of parameter information
         """
-        parameters = []  # Initialize parameters list
+    parameters = []  # Initialize parameters list
         
         # Look for getopt or case statement parameter parsing
         param_patterns = [
@@ -550,7 +550,7 @@ def __init__(self, repo_root -> Any: str):
         return parameters  # Return unique parameters
         
     def _extract_function_description(self, func_name: str, content: str) -> str:
-        """
+    """
         Extract description for a specific function from comments.
         
         Args:
@@ -560,7 +560,7 @@ def __init__(self, repo_root -> Any: str):
         Returns:
             str: Function description or default message
         """
-        # Look for comments before function definition
+    # Look for comments before function definition
         lines = content.splitlines()  # Split into lines
         
         # Find function definition line
@@ -575,13 +575,13 @@ def __init__(self, repo_root -> Any: str):
         return f"Function: {func_name}"  # Default description
         
     def analyze_all_files(self) -> None:
-        """
+    """
         Analyze all code files in the repository.
         
         This method processes all Python and shell script files found in the repository
         and stores the analysis results in self.all_files.
         """
-        code_files = self.find_all_code_files()  # Get list of all code files
+    code_files = self.find_all_code_files()  # Get list of all code files
         
         print(f"Found {len(code_files)} code files to analyze...")  # Progress message
         
@@ -623,13 +623,13 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         self.repo_root = analyzer.repo_root  # Store repository root
         
     def generate_repository_overview(self) -> str:
-        """
+    """
         Generate comprehensive repository overview documentation.
         
         Returns:
             str: Complete repository overview in markdown format
         """
-        # Start building markdown content
+    # Start building markdown content
         overview = []  # Initialize content list
         
         # Add title and description
@@ -681,13 +681,13 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return '\n'.join(overview)  # Join all sections into single string
         
     def generate_user_manual(self) -> str:
-        """
+    """
         Generate comprehensive user manual documentation.
         
         Returns:
             str: Complete user manual in markdown format
         """
-        # Start building user manual content
+    # Start building user manual content
         manual = []  # Initialize content list
         
         # Add title and description
@@ -739,8 +739,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return '\n'.join(manual)  # Join all sections into single string
         
     def _generate_statistics_section(self) -> List[str]:
-        """Generate repository statistics section."""
-        section = []  # Initialize section content
+    """Generate repository statistics section."""
+    section = []  # Initialize section content
         
         section.append("## Repository Statistics")
         section.append("")
@@ -755,8 +755,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
     
     def _generate_enhanced_architecture_section(self) -> List[str]:
-        """Generate Framework0 enhanced architecture section."""
-        section = []  # Initialize section content
+    """Generate Framework0 enhanced architecture section."""
+    section = []  # Initialize section content
         
         section.append("## Framework0 Enhanced Architecture")
         section.append("")
@@ -821,8 +821,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
     
     def _generate_key_features_section(self) -> List[str]:
-        """Generate key features section highlighting major capabilities."""
-        section = []  # Initialize section content
+    """Generate key features section highlighting major capabilities."""
+    section = []  # Initialize section content
         
         section.append("## Key Features")
         section.append("")
@@ -877,8 +877,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_architecture_section(self) -> List[str]:
-        """Generate architecture overview section."""
-        section = []  # Initialize section content
+    """Generate architecture overview section."""
+    section = []  # Initialize section content
         
         section.append("## Architecture Overview")
         section.append("")
@@ -909,8 +909,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_directory_structure_section(self) -> List[str]:
-        """Generate directory structure section."""
-        section = []  # Initialize section content
+    """Generate directory structure section."""
+    section = []  # Initialize section content
         
         section.append("## Directory Structure")
         section.append("")
@@ -942,8 +942,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_core_components_section(self) -> List[str]:
-        """Generate core components section."""
-        section = []  # Initialize section content
+    """Generate core components section."""
+    section = []  # Initialize section content
         
         section.append("## Core Components")
         section.append("")
@@ -988,8 +988,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_python_modules_section(self) -> List[str]:
-        """Generate detailed Python modules section."""
-        section = []  # Initialize section content
+    """Generate detailed Python modules section."""
+    section = []  # Initialize section content
         
         section.append("## Python Modules")
         section.append("")
@@ -1054,8 +1054,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_shell_scripts_section(self) -> List[str]:
-        """Generate detailed shell scripts section."""
-        section = []  # Initialize section content
+    """Generate detailed shell scripts section."""
+    section = []  # Initialize section content
         
         section.append("## Shell Scripts")
         section.append("")
@@ -1108,8 +1108,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_dependencies_section(self) -> List[str]:
-        """Generate dependencies analysis section."""
-        section = []  # Initialize section content
+    """Generate dependencies analysis section."""
+    section = []  # Initialize section content
         
         section.append("## Dependencies")
         section.append("")
@@ -1148,8 +1148,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_quick_start_section(self) -> List[str]:
-        """Generate quick start section for user manual."""
-        section = []  # Initialize section content
+    """Generate quick start section for user manual."""
+    section = []  # Initialize section content
         
         section.append("## Quick Start")
         section.append("")
@@ -1177,8 +1177,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_installation_section(self) -> List[str]:
-        """Generate installation section for user manual."""
-        section = []  # Initialize section content
+    """Generate installation section for user manual."""
+    section = []  # Initialize section content
         
         section.append("## Installation")
         section.append("")
@@ -1221,8 +1221,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_configuration_section(self) -> List[str]:
-        """Generate configuration section for user manual."""
-        section = []  # Initialize section content
+    """Generate configuration section for user manual."""
+    section = []  # Initialize section content
         
         section.append("## Configuration")
         section.append("")
@@ -1257,8 +1257,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
     
     def _generate_framework0_features_section(self) -> List[str]:
-        """Generate detailed Framework0 features usage section."""
-        section = []  # Initialize section content
+    """Generate detailed Framework0 features usage section."""
+    section = []  # Initialize section content
         
         section.append("## Framework0 Features")
         section.append("")
@@ -1402,8 +1402,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_python_usage_section(self) -> List[str]:
-        """Generate Python scripts usage section."""
-        section = []  # Initialize section content
+    """Generate Python scripts usage section."""
+    section = []  # Initialize section content
         
         section.append("## Python Scripts Usage")
         section.append("")
@@ -1475,8 +1475,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_shell_usage_section(self) -> List[str]:
-        """Generate shell scripts usage section."""
-        section = []  # Initialize section content
+    """Generate shell scripts usage section."""
+    section = []  # Initialize section content
         
         section.append("## Shell Scripts Usage")
         section.append("")
@@ -1531,8 +1531,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_api_reference_section(self) -> List[str]:
-        """Generate API reference section."""
-        section = []  # Initialize section content
+    """Generate API reference section."""
+    section = []  # Initialize section content
         
         section.append("## API Reference")
         section.append("")
@@ -1589,8 +1589,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_examples_section(self) -> List[str]:
-        """Generate comprehensive examples section."""
-        section = []  # Initialize section content
+    """Generate comprehensive examples section."""
+    section = []  # Initialize section content
         
         section.append("## Examples")
         section.append("")
@@ -1765,8 +1765,8 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_troubleshooting_section(self) -> List[str]:
-        """Generate troubleshooting section."""
-        section = []  # Initialize section content
+    """Generate troubleshooting section."""
+    section = []  # Initialize section content
         
         section.append("## Troubleshooting")
         section.append("")

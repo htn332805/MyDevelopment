@@ -51,14 +51,14 @@ class ExcelProcessorV1:
     """
     
     def __init__(self, filepath: str, *, debug: bool = False) -> None:
-        """
+    """
         Initialize Excel processor with target workbook.
         
         Args:
             filepath (str): Path to Excel file to process
             debug (bool): Enable debug logging for operations
         """
-        # Initialize instance attributes with proper typing
+    # Initialize instance attributes with proper typing
         self.filepath: str = filepath  # Target Excel file path
         self.debug: bool = debug  # Debug mode flag
         self.workbook: Optional[Workbook] = None  # Loaded workbook instance
@@ -69,7 +69,7 @@ class ExcelProcessorV1:
         self.logger.info(f"Excel processor initialized for file: {filepath}")
     
     def load_workbook(self) -> Workbook:
-        """
+    """
         Load Excel workbook from filepath, creating new if doesn't exist.
         
         Returns:
@@ -79,7 +79,7 @@ class ExcelProcessorV1:
             FileNotFoundError: If filepath directory doesn't exist
             PermissionError: If file access is denied
         """
-        try:
+    try:
             # Check if file exists and load, otherwise create new workbook
             if Path(self.filepath).exists():
                 self.logger.debug(f"Loading existing workbook: {self.filepath}")
@@ -102,7 +102,7 @@ class ExcelProcessorV1:
             raise
     
     def save_workbook(self, output_path: Optional[str] = None) -> str:
-        """
+    """
         Save workbook to file, using original path if no output specified.
         
         Args:
@@ -115,7 +115,7 @@ class ExcelProcessorV1:
             ValueError: If workbook not loaded
             PermissionError: If file access denied
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         # Use provided path or default to original filepath
@@ -139,7 +139,7 @@ class ExcelProcessorV1:
     """Execute remove_duplicates_from_sheet operation."""
                                    columns: Optional[List[str]] = None,
                                    keep_first: bool = True) -> int:
-        """
+    """
         Remove duplicate rows from specified worksheet.
         
         Args:
@@ -154,7 +154,7 @@ class ExcelProcessorV1:
             KeyError: If sheet doesn't exist
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -209,7 +209,7 @@ class ExcelProcessorV1:
     """Execute standardize_date_formats operation."""
                                 date_columns: List[str],
                                 target_format: str = "MM/DD/YYYY") -> int:
-        """
+    """
         Standardize date formats in specified columns of a worksheet.
         
         Args:
@@ -224,7 +224,7 @@ class ExcelProcessorV1:
             KeyError: If sheet or columns don't exist
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -283,7 +283,7 @@ class ExcelProcessorV1:
     """Execute clean_text_casing operation."""
                          text_columns: List[str],
                          case_type: str = "title") -> int:
-        """
+    """
         Standardize text casing in specified columns.
         
         Args:
@@ -298,7 +298,7 @@ class ExcelProcessorV1:
             KeyError: If sheet doesn't exist
             ValueError: If workbook not loaded or invalid case_type
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -355,7 +355,7 @@ class ExcelProcessorV1:
         return processed_count
 
     def normalize_column_names(self, sheet_name: str) -> Dict[str, str]:
-        """
+    """
         Normalize column header names for consistency.
         
         Args:
@@ -368,7 +368,7 @@ class ExcelProcessorV1:
             KeyError: If sheet doesn't exist
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -426,7 +426,7 @@ class ExcelProcessorV1:
     """Execute split_sheet_by_column operation."""
                              split_column: str, 
                              prefix: str = "Sheet") -> Dict[str, str]:
-        """
+    """
         Split a worksheet into multiple sheets based on unique values in a column.
         
         Args:
@@ -441,7 +441,7 @@ class ExcelProcessorV1:
             KeyError: If sheet or column doesn't exist
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -514,7 +514,7 @@ class ExcelProcessorV1:
     """Execute merge_sheets operation."""
                     target_sheet_name: str, 
                     remove_source: bool = False) -> int:
-        """
+    """
         Merge multiple sheets into a single sheet.
         
         Args:
@@ -529,7 +529,7 @@ class ExcelProcessorV1:
             KeyError: If any source sheet doesn't exist
             ValueError: If workbook not loaded or sheets have different structures
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         # Validate all sheets exist
@@ -599,7 +599,7 @@ class ExcelProcessorV1:
         return total_rows
 
     def create_table_of_contents(self, toc_sheet_name: str = "Table of Contents") -> str:
-        """
+    """
         Create a table of contents sheet with navigation links to all worksheets.
         
         Args:
@@ -611,7 +611,7 @@ class ExcelProcessorV1:
         Raises:
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         self.logger.debug(f"Creating table of contents: {toc_sheet_name}")
@@ -689,7 +689,7 @@ class ExcelProcessorV1:
         return toc_sheet_name
 
     def add_navigation_buttons(self, toc_sheet_name: str = "Table of Contents") -> int:
-        """
+    """
         Add navigation buttons to all sheets linking back to table of contents.
         
         Args:
@@ -702,7 +702,7 @@ class ExcelProcessorV1:
             ValueError: If workbook not loaded
             KeyError: If TOC sheet doesn't exist
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if toc_sheet_name not in self.workbook.sheetnames:
@@ -761,7 +761,7 @@ class ExcelProcessorV1:
                                    columns: List[str] = None,
                                    values: List[str] = None,
                                    aggfunc: str = 'sum') -> str:
-        """
+    """
         Generate pivot table from source data and create in target sheet.
         
         Args:
@@ -779,7 +779,7 @@ class ExcelProcessorV1:
             KeyError: If source sheet doesn't exist
             ValueError: If workbook not loaded or invalid parameters
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if source_sheet not in self.workbook.sheetnames:
@@ -878,7 +878,7 @@ class ExcelProcessorV1:
         return target_sheet
 
 def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) -> None:
-        """
+    """
         Apply styling to pivot table for better readability.
         
         Args:
@@ -886,7 +886,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
             index_cols (int): Number of index columns
             data_cols (int): Number of data columns
         """
-        # Style headers
+    # Style headers
         header_font = Font(name='Calibri', size=11, bold=True, color="FFFFFF")
         header_fill = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
         
@@ -908,7 +908,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
                                    min_value: Optional[float] = None,
                                    max_value: Optional[float] = None,
                                    target_sheet: str = None) -> int:
-        """
+    """
         Filter data based on value range in specified column.
         
         Args:
@@ -925,7 +925,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
             KeyError: If sheet or column doesn't exist
             ValueError: If workbook not loaded or invalid range
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -1014,7 +1014,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
                                      min_value: Optional[float] = None,
                                      max_value: Optional[float] = None,
                                      highlight_color: str = "FFFF00") -> int:
-        """
+    """
         Highlight cells in a column based on value range.
         
         Args:
@@ -1031,7 +1031,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
             KeyError: If sheet or column doesn't exist
             ValueError: If workbook not loaded or invalid parameters
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -1097,7 +1097,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
                              chart_title: str = "Chart",
                              x_axis_title: str = "X Axis",
                              y_axis_title: str = "Y Axis") -> str:
-        """
+    """
         Create chart from data range in worksheet.
         
         Args:
@@ -1115,7 +1115,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
             KeyError: If sheet doesn't exist
             ValueError: If workbook not loaded or invalid chart type
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -1156,7 +1156,7 @@ def _style_pivot_table(self, worksheet: Any, index_cols: int, data_cols: int) ->
         return chart_id
 
 def _find_chart_position(self, worksheet: Any) -> str:
-        """
+    """
         Find suitable position for chart placement.
         
         Args:
@@ -1165,7 +1165,7 @@ def _find_chart_position(self, worksheet: Any) -> str:
         Returns:
             str: Excel cell reference for chart anchor
         """
-        # Try to place chart to the right of data
+    # Try to place chart to the right of data
         max_col = worksheet.max_column
         chart_col = max_col + 2 if max_col < 20 else 1  # Place at column A if too far right
         
@@ -1179,7 +1179,7 @@ def _find_chart_position(self, worksheet: Any) -> str:
                                    data_range: str,
                                    rule_type: str,
                                    format_style: str = "3_color_scale") -> int:
-        """
+    """
         Apply conditional formatting to data range.
         
         Args:
@@ -1195,7 +1195,7 @@ def _find_chart_position(self, worksheet: Any) -> str:
             KeyError: If sheet doesn't exist
             ValueError: If workbook not loaded or invalid parameters
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -1242,7 +1242,7 @@ def _find_chart_position(self, worksheet: Any) -> str:
     """Execute create_summary_sheet operation."""
                            summary_sheet_name: str = "Summary",
                            include_charts: bool = True) -> str:
-        """
+    """
         Create summary sheet with KPIs and charts from multiple source sheets.
         
         Args:
@@ -1257,7 +1257,7 @@ def _find_chart_position(self, worksheet: Any) -> str:
             KeyError: If any source sheet doesn't exist
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         # Validate source sheets exist
@@ -1341,7 +1341,7 @@ def _find_chart_position(self, worksheet: Any) -> str:
         return summary_sheet_name
 
 def _calculate_numeric_summaries(self, worksheet: Any) -> Dict[str, float]:
-        """
+    """
         Calculate numeric summaries for worksheet data.
         
         Args:
@@ -1350,7 +1350,7 @@ def _calculate_numeric_summaries(self, worksheet: Any) -> Dict[str, float]:
         Returns:
             Dict[str, float]: Dictionary of metric names to values
         """
-        summaries = {}
+    summaries = {}
         
         # Find numeric columns and calculate basic stats
         numeric_values = []
@@ -1373,7 +1373,7 @@ def _calculate_numeric_summaries(self, worksheet: Any) -> Dict[str, float]:
         return summaries
 
 def _create_comparison_chart(self, worksheet: Any, source_sheets: List[str], start_row: int) -> None:
-        """
+    """
         Create comparison chart in summary worksheet.
         
         Args:
@@ -1381,7 +1381,7 @@ def _create_comparison_chart(self, worksheet: Any, source_sheets: List[str], sta
             source_sheets (List[str]): Source sheets to compare
             start_row (int): Starting row for chart data
         """
-        # Create simple row count comparison chart
+    # Create simple row count comparison chart
         chart = BarChart()
         chart.title = "Sheet Comparison - Row Counts"
         chart.x_axis.title = "Sheets"
@@ -1416,7 +1416,7 @@ def _create_comparison_chart(self, worksheet: Any, source_sheets: List[str], sta
                             title_font_size: int = 14,
                             axis_font_size: int = 10,
                             show_gridlines: bool = True) -> bool:
-        """
+    """
         Format chart elements for better appearance.
         
         Args:
@@ -1433,7 +1433,7 @@ def _create_comparison_chart(self, worksheet: Any, source_sheets: List[str], sta
             KeyError: If sheet doesn't exist
             ValueError: If workbook not loaded
         """
-        if not self.workbook:
+    if not self.workbook:
             raise ValueError("No workbook loaded - call load_workbook() first")
         
         if sheet_name not in self.workbook.sheetnames:
@@ -1481,8 +1481,8 @@ class ExcelConfigV1:
     """
     
     def __init__(self) -> None:
-        """Initialize Excel configuration with default values."""
-        self.data_cleaning: Dict[str, Any] = {
+    """Initialize Excel configuration with default values."""
+    self.data_cleaning: Dict[str, Any] = {
             "remove_duplicates": True,
             "standardize_dates": True,
             "clean_text_casing": "title",
@@ -1512,7 +1512,7 @@ class ExcelConfigV1:
         self.logger = get_logger(f"{__name__}.{self.__class__.__name__}")
     
     def load_from_json(self, config_path: str) -> 'ExcelConfigV1':
-        """
+    """
         Load configuration from JSON file.
         
         Args:
@@ -1525,7 +1525,7 @@ class ExcelConfigV1:
             FileNotFoundError: If config file doesn't exist
             ValueError: If JSON is invalid
         """
-        try:
+    try:
             with open(config_path, 'r') as f:
                 import json
                 config_data = json.load(f)
@@ -1554,7 +1554,7 @@ class ExcelConfigV1:
             raise ValueError(f"Invalid JSON configuration: {e}")
     
     def save_to_json(self, config_path: str) -> str:
-        """
+    """
         Save current configuration to JSON file.
         
         Args:
@@ -1563,7 +1563,7 @@ class ExcelConfigV1:
         Returns:
             str: Path where configuration was saved
         """
-        import json
+    import json
         
         config_data = {
             "data_cleaning": self.data_cleaning,

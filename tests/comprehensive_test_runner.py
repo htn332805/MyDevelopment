@@ -26,8 +26,8 @@ class ComprehensiveTestRunner:
     """Comprehensive test runner for the entire framework."""
     
 def __init__(self) -> Any:
-        """Initialize the test runner."""
-        self.project_root = project_root
+    """Initialize the test runner."""
+    self.project_root = project_root
         self.test_results = {
             'start_time': None,
             'end_time': None,
@@ -71,8 +71,8 @@ def __init__(self) -> Any:
         }
         
     def run_pytest_suite(self, test_paths: List[str], suite_name: str) -> Dict[str, Any]:
-        """Run a pytest suite and return results."""
-        print(f"\n{'='*60}")
+    """Run a pytest suite and return results."""
+    print(f"\n{'='*60}")
         print(f"Running {suite_name}")
         print(f"{'='*60}")
         
@@ -173,8 +173,8 @@ def __init__(self) -> Any:
         return suite_result
     
     def run_custom_test(self, test_script: str, suite_name: str) -> Dict[str, Any]:
-        """Run a custom test script."""
-        print(f"\n{'='*60}")
+    """Run a custom test script."""
+    print(f"\n{'='*60}")
         print(f"Running Custom Test: {suite_name}")
         print(f"{'='*60}")
         
@@ -230,8 +230,8 @@ def __init__(self) -> Any:
         return suite_result
     
     def run_all_tests(self) -> Dict[str, Any]:
-        """Run all test suites."""
-        print("🚀 Starting Comprehensive Test Suite")
+    """Run all test suites."""
+    print("🚀 Starting Comprehensive Test Suite")
         print(f"Project Root: {self.project_root}")
         print(f"Python Path: {os.environ.get('PYTHONPATH', 'Not Set')}")
         
@@ -260,8 +260,8 @@ def __init__(self) -> Any:
         return self.test_results
     
 def _calculate_summary(self) -> Any:
-        """Calculate test summary statistics."""
-        summary = self.test_results['summary']
+    """Calculate test summary statistics."""
+    summary = self.test_results['summary']
         
         for suite_name, suite_result in self.test_results['test_suites'].items():
             summary['total_tests'] += len(suite_result['tests'])
@@ -277,8 +277,8 @@ def _calculate_summary(self) -> Any:
             summary['success_rate'] = 0.0
     
 def print_summary(self) -> Any:
-        """Print test summary."""
-        print(f"\n{'='*80}")
+    """Print test summary."""
+    print(f"\n{'='*80}")
         print("🎯 COMPREHENSIVE TEST RESULTS SUMMARY")
         print(f"{'='*80}")
         
@@ -310,7 +310,7 @@ def print_summary(self) -> Any:
         
         return overall_success
     
-def save_results(self, output_file -> Any: str = 'test_results.json'):
+def save_results(e: str  = 'test_results.json') -> Any::
         """Save test results to JSON file."""
         try:
             output_path = self.project_root / output_file

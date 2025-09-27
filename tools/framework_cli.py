@@ -49,8 +49,8 @@ class Framework0CLI:
     """
 
 def __init__(self) -> Any:
-        """Initialize Framework0 CLI."""
-        self.registry = get_plugin_registry()
+    """Initialize Framework0 CLI."""
+    self.registry = get_plugin_registry()
         self.template_generator = get_template_generator()
         self.profiler = get_profiler()
         self.monitor = get_resource_monitor(auto_start=False)
@@ -59,8 +59,8 @@ def __init__(self) -> Any:
         logger.info("Framework0 CLI initialized")
 
     def setup_argument_parser(self) -> argparse.ArgumentParser:
-        """Setup comprehensive argument parser."""
-        parser = argparse.ArgumentParser(
+    """Setup comprehensive argument parser."""
+    parser = argparse.ArgumentParser(
             description="Framework0 - Advanced Python Automation Framework",
             formatter_class=argparse.RawDescriptionHelpFormatter,
             epilog="""
@@ -184,8 +184,8 @@ Examples:
         return parser
 
 def handle_plugin_commands(self, args: Any) -> int:
-        """Handle plugin management commands."""
-        if args.plugin_action == 'list':
+    """Handle plugin management commands."""
+    if args.plugin_action == 'list':
             plugins = self.registry.list_plugins()
             if plugins:
                 print("Loaded plugins:")
@@ -243,8 +243,8 @@ def handle_plugin_commands(self, args: Any) -> int:
         return 0
 
 def handle_template_commands(self, args: Any) -> int:
-        """Handle template management commands."""
-        if args.template_action == 'list':
+    """Handle template management commands."""
+    if args.template_action == 'list':
             templates = list_available_templates()
             print(f"Available templates ({len(templates)}):")
             for template in templates:
@@ -276,8 +276,8 @@ def handle_template_commands(self, args: Any) -> int:
         return 0
 
 def handle_monitor_commands(self, args: Any) -> int:
-        """Handle resource monitoring commands."""
-        if args.monitor_action == 'start':
+    """Handle resource monitoring commands."""
+    if args.monitor_action == 'start':
             if args.alerts:
                 # Add alert callback
 def alert_callback(alert -> Any: Any):
@@ -317,8 +317,8 @@ def alert_callback(alert -> Any: Any):
         return 0
 
 def handle_recipe_commands(self, args: Any) -> int:
-        """Handle recipe execution and management commands."""
-        if args.recipe_action == 'run':
+    """Handle recipe execution and management commands."""
+    if args.recipe_action == 'run':
             # Parse filter arguments
             only_list = args.only.split(",") if args.only else None
             skip_list = args.skip.split(",") if args.skip else None
@@ -440,8 +440,8 @@ def handle_recipe_commands(self, args: Any) -> int:
         return 0
 
 def handle_debug_commands(self, args: Any) -> int:
-        """Handle debug management commands."""
-        if args.debug_action == 'start':
+    """Handle debug management commands."""
+    if args.debug_action == 'start':
             print(f"Debug session '{args.session}' started")
             print("Debug toolkit ready for use")
         
@@ -458,8 +458,8 @@ def handle_debug_commands(self, args: Any) -> int:
         return 0
 
 def handle_system_commands(self, args: Any) -> int:
-        """Handle system diagnostic commands."""
-        if args.system_action == 'status':
+    """Handle system diagnostic commands."""
+    if args.system_action == 'status':
             print("Framework0 System Status:")
             print(f"  Profiler: {'active' if self.profiler else 'inactive'}")
             print(f"  Monitor: {'running' if self.monitor._monitoring else 'stopped'}")
@@ -495,8 +495,8 @@ def handle_system_commands(self, args: Any) -> int:
         return 0
 
     def run(self, args: List[str]) -> int:
-        """Run CLI with provided arguments."""
-        parser = self.setup_argument_parser()
+    """Run CLI with provided arguments."""
+    parser = self.setup_argument_parser()
         parsed_args = parser.parse_args(args)
         
         # Configure logging

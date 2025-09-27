@@ -169,7 +169,7 @@ if __name__ == "__main__":
 
 # Function: Add doc updater
 def generate_doc_updater() -> Any:
-"""Execute generate_doc_updater operation."""
+    """Execute generate_doc_updater operation."""
     code = '''# tools/documentation_updater.py
 import os, ast
 from typing import Any, Dict, List, Optional, Union
@@ -219,7 +219,7 @@ if __name__ == "__main__":
 
 # Function: Optional Git init
 def init_git() -> Any:
-"""Execute init_git operation."""
+    """Execute init_git operation."""
     if input("Initialize git repository? (Y/n): ").lower() in ["y", "yes", ""]:
         subprocess.run(["git", "init"])
         subprocess.run(["git", "add", "."])

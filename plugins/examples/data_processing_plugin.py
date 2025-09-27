@@ -54,8 +54,8 @@ class CSVProcessorScriptlet(BaseScriptletV2):
     """
 
     def validate_custom(self, context: ContextV2, params: Dict[str, Any]) -> bool:
-        """Validate CSV processor parameters."""
-        # Check required parameters
+    """Validate CSV processor parameters."""
+    # Check required parameters
         if "file_path" not in params:
             self.logger.error("Missing required parameter: file_path")
             return False
@@ -72,8 +72,8 @@ class CSVProcessorScriptlet(BaseScriptletV2):
         return True
 
     def execute(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """Execute CSV processing with comprehensive analysis."""
-        try:
+    """Execute CSV processing with comprehensive analysis."""
+    try:
             file_path = params["file_path"]
             encoding = params.get("encoding", "utf-8")
             max_rows = params.get("max_rows", 10000)
@@ -150,8 +150,8 @@ class DataValidatorScriptlet(BaseScriptletV2):
     """
 
     def execute(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
-        """Execute data validation with comprehensive rule checking."""
-        try:
+    """Execute data validation with comprehensive rule checking."""
+    try:
             data_key = params.get("data_key", "csv_analysis.data")
             validation_rules = params.get("validation_rules", {})
             
@@ -274,13 +274,13 @@ class DataProcessingPlugin(BasePlugin):
     """
 
 def __init__(self) -> Any:
-        """Initialize data processing plugin."""
-        super().__init__()
+    """Initialize data processing plugin."""
+    super().__init__()
         self._scriptlets: Dict[str, BaseScriptletV2] = {}
         
     def get_capabilities(self) -> List[str]:
-        """Return plugin capabilities."""
-        return [
+    """Return plugin capabilities."""
+    return [
             "csv_processing",
             "data_validation", 
             "statistical_analysis",
@@ -289,8 +289,8 @@ def __init__(self) -> Any:
         ]
 
     def initialize(self, config: Dict[str, Any]) -> None:
-        """Initialize plugin with configuration."""
-        super().initialize(config)
+    """Initialize plugin with configuration."""
+    super().initialize(config)
         
         # Create scriptlet instances
         csv_config = ScriptletConfig(
@@ -313,14 +313,14 @@ def __init__(self) -> Any:
         self.logger.info("Data processing plugin initialized with CSV and validation support")
 
     def activate(self) -> None:
-        """Activate plugin functionality."""
-        super().activate()
+    """Activate plugin functionality."""
+    super().activate()
         
         # Register scriptlets or capabilities as needed
         self.logger.info("Data processing plugin activated - scriptlets ready for use")
 
     def process_csv(self, file_path: str, context: ContextV2, **kwargs) -> ScriptletResult:
-        """
+    """
         Process CSV file using the CSV processor scriptlet.
         
         Args:
@@ -331,14 +331,14 @@ def __init__(self) -> Any:
         Returns:
             ScriptletResult: Processing result
         """
-        if not self.is_active:
+    if not self.is_active:
             raise RuntimeError("Plugin not active")
         
         params = {"file_path": file_path, **kwargs}
         return self._scriptlets["csv_processor"].run(context, params)
 
     def validate_data(self, context: ContextV2, validation_rules: Dict[str, Any], **kwargs) -> ScriptletResult:
-        """
+    """
         Validate data using the data validator scriptlet.
         
         Args:
@@ -349,19 +349,19 @@ def __init__(self) -> Any:
         Returns:
             ScriptletResult: Validation result
         """
-        if not self.is_active:
+    if not self.is_active:
             raise RuntimeError("Plugin not active")
         
         params = {"validation_rules": validation_rules, **kwargs}
         return self._scriptlets["data_validator"].run(context, params)
 
     def get_scriptlets(self) -> Dict[str, BaseScriptletV2]:
-        """Get available scriptlets."""
-        return self._scriptlets.copy()
+    """Get available scriptlets."""
+    return self._scriptlets.copy()
 
     def cleanup(self) -> None:
-        """Cleanup plugin resources."""
-        super().cleanup()
+    """Cleanup plugin resources."""
+    super().cleanup()
         
         # Cleanup scriptlets
         for scriptlet in self._scriptlets.values():

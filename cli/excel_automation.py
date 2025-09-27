@@ -62,8 +62,8 @@ class ExcelAutomationCLI:
     """
     
     def __init__(self) -> None:
-        """Initialize CLI with argument parser and configuration."""
-        # Initialize CLI state
+    """Initialize CLI with argument parser and configuration."""
+    # Initialize CLI state
         self.parser: argparse.ArgumentParser = self._create_argument_parser()
         self.config: Optional[ExcelConfigV1] = None
         self.debug: bool = False
@@ -73,13 +73,13 @@ class ExcelAutomationCLI:
         self.logger.info("Excel Automation CLI initialized")
 
     def _create_argument_parser(self) -> argparse.ArgumentParser:
-        """
+    """
         Create comprehensive argument parser for CLI operations.
         
         Returns:
             argparse.ArgumentParser: Configured argument parser
         """
-        # Create main parser
+    # Create main parser
         parser = argparse.ArgumentParser(
             prog='excel_automation',
             description='Excel Automation CLI for Framework0',
@@ -127,8 +127,8 @@ Examples:
         return parser
 
 def _add_clean_command(self, subparsers: Any) -> None:
-        """Add data cleaning subcommand."""
-        # Create clean subcommand parser
+    """Add data cleaning subcommand."""
+    # Create clean subcommand parser
         clean_parser = subparsers.add_parser('clean', 
                                            help='Clean Excel data (remove duplicates, standardize formats)')
         clean_parser.add_argument('input_file', help='Input Excel file path')
@@ -144,8 +144,8 @@ def _add_clean_command(self, subparsers: Any) -> None:
                                 help='Target date format')
 
 def _add_analyze_command(self, subparsers: Any) -> None:
-        """Add data analysis subcommand."""
-        # Create analyze subcommand parser
+    """Add data analysis subcommand."""
+    # Create analyze subcommand parser
         analyze_parser = subparsers.add_parser('analyze', 
                                             help='Analyze Excel data (pivot tables, filters, summaries)')
         analyze_parser.add_argument('input_file', help='Input Excel file path')
@@ -165,8 +165,8 @@ def _add_analyze_command(self, subparsers: Any) -> None:
                                   help='Create summary sheet')
 
 def _add_visualize_command(self, subparsers: Any) -> None:
-        """Add visualization subcommand."""
-        # Create visualize subcommand parser
+    """Add visualization subcommand."""
+    # Create visualize subcommand parser
         viz_parser = subparsers.add_parser('visualize',
                                          help='Create charts and visualizations')
         viz_parser.add_argument('input_file', help='Input Excel file path')
@@ -182,8 +182,8 @@ def _add_visualize_command(self, subparsers: Any) -> None:
                               help='Apply conditional formatting')
 
 def _add_auto_process_command(self, subparsers: Any) -> None:
-        """Add auto-processing subcommand."""
-        # Create auto-process subcommand parser
+    """Add auto-processing subcommand."""
+    # Create auto-process subcommand parser
         auto_parser = subparsers.add_parser('auto-process',
                                           help='Automatically process Excel file with full feature set')
         auto_parser.add_argument('input_file', help='Input Excel file path')
@@ -191,8 +191,8 @@ def _add_auto_process_command(self, subparsers: Any) -> None:
                                help='Create table of contents for multi-sheet files')
 
 def _add_batch_process_command(self, subparsers: Any) -> None:
-        """Add batch processing subcommand."""
-        # Create batch processing subcommand parser
+    """Add batch processing subcommand."""
+    # Create batch processing subcommand parser
         batch_parser = subparsers.add_parser('batch-process',
                                            help='Process multiple Excel files in directory')
         batch_parser.add_argument('input_directory', help='Directory containing Excel files')
@@ -202,8 +202,8 @@ def _add_batch_process_command(self, subparsers: Any) -> None:
                                 help='File pattern to match (e.g., *.xlsx, *.xls)')
 
 def _add_config_command(self, subparsers: Any) -> None:
-        """Add configuration management subcommand."""
-        # Create config subcommand parser
+    """Add configuration management subcommand."""
+    # Create config subcommand parser
         config_parser = subparsers.add_parser('create-config',
                                             help='Create example configuration file')
         config_parser.add_argument('--template', choices=['basic', 'advanced'], default='basic',
@@ -212,7 +212,7 @@ def _add_config_command(self, subparsers: Any) -> None:
                                  help='Output path for configuration file')
 
     def run(self, args: Optional[List[str]] = None) -> int:
-        """
+    """
         Run the CLI with provided arguments.
         
         Args:
@@ -221,7 +221,7 @@ def _add_config_command(self, subparsers: Any) -> None:
         Returns:
             int: Exit code (0 for success, 1 for error)
         """
-        try:
+    try:
             # Parse arguments
             parsed_args = self.parser.parse_args(args)
             
@@ -263,13 +263,13 @@ def _add_config_command(self, subparsers: Any) -> None:
             return 1
 
     def _load_config(self, config_path: str) -> None:
-        """
+    """
         Load configuration from JSON file.
         
         Args:
             config_path (str): Path to configuration file
         """
-        try:
+    try:
             # Load and validate configuration
             self.config = ExcelConfigV1().load_from_json(config_path)
             self.logger.info(f"Loaded configuration from: {config_path}")
@@ -278,7 +278,7 @@ def _add_config_command(self, subparsers: Any) -> None:
             raise
 
 def _execute_clean_command(self, args: Any) -> int:
-        """
+    """
         Execute data cleaning command.
         
         Args:
@@ -287,7 +287,7 @@ def _execute_clean_command(self, args: Any) -> int:
         Returns:
             int: Exit code
         """
-        try:
+    try:
             # Validate input file exists
             if not Path(args.input_file).exists():
                 raise FileNotFoundError(f"Input file not found: {args.input_file}")
@@ -329,7 +329,7 @@ def _execute_clean_command(self, args: Any) -> int:
             return 1
 
 def _execute_analyze_command(self, args: Any) -> int:
-        """
+    """
         Execute data analysis command.
         
         Args:
@@ -338,7 +338,7 @@ def _execute_analyze_command(self, args: Any) -> int:
         Returns:
             int: Exit code
         """
-        try:
+    try:
             # Validate input file
             if not Path(args.input_file).exists():
                 raise FileNotFoundError(f"Input file not found: {args.input_file}")
@@ -394,7 +394,7 @@ def _execute_analyze_command(self, args: Any) -> int:
             return 1
 
 def _execute_visualize_command(self, args: Any) -> int:
-        """
+    """
         Execute visualization command.
         
         Args:
@@ -403,7 +403,7 @@ def _execute_visualize_command(self, args: Any) -> int:
         Returns:
             int: Exit code
         """
-        try:
+    try:
             # Validate input file
             if not Path(args.input_file).exists():
                 raise FileNotFoundError(f"Input file not found: {args.input_file}")
@@ -443,7 +443,7 @@ def _execute_visualize_command(self, args: Any) -> int:
             return 1
 
 def _execute_auto_process_command(self, args: Any) -> int:
-        """
+    """
         Execute auto-processing command.
         
         Args:
@@ -452,7 +452,7 @@ def _execute_auto_process_command(self, args: Any) -> int:
         Returns:
             int: Exit code
         """
-        try:
+    try:
             # Use configuration if available, otherwise use defaults
             config = self.config if self.config else ExcelConfigV1()
             
@@ -476,7 +476,7 @@ def _execute_auto_process_command(self, args: Any) -> int:
             return 1
 
 def _execute_batch_process_command(self, args: Any) -> int:
-        """
+    """
         Execute batch processing command.
         
         Args:
@@ -485,7 +485,7 @@ def _execute_batch_process_command(self, args: Any) -> int:
         Returns:
             int: Exit code
         """
-        try:
+    try:
             # Validate input directory
             if not Path(args.input_directory).exists():
                 raise FileNotFoundError(f"Input directory not found: {args.input_directory}")
@@ -508,7 +508,7 @@ def _execute_batch_process_command(self, args: Any) -> int:
             return 1
 
 def _execute_create_config_command(self, args: Any) -> int:
-        """
+    """
         Execute configuration creation command.
         
         Args:
@@ -517,7 +517,7 @@ def _execute_create_config_command(self, args: Any) -> int:
         Returns:
             int: Exit code
         """
-        try:
+    try:
             # Create configuration based on template
             config = ExcelConfigV1()
             

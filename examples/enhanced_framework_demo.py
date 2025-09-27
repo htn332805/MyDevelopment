@@ -27,36 +27,36 @@ class DataProcessor(ComponentLifecycle, Executable, Configurable):
     """Example data processing component."""
     
 def __init__(self, name: str = "data_processor") -> Any:
-        """Initialize data processor."""
-        super().__init__()
+    """Initialize data processor."""
+    super().__init__()
         self.name = name
         self.processing_count = 0
         self.config = {"batch_size": 10, "timeout": 30}
         
     def _do_initialize(self, config: Dict[str, Any]) -> None:
-        """Initialize data processor with configuration."""
-        self.configure(config)
+    """Initialize data processor with configuration."""
+    self.configure(config)
         print(f"DataProcessor '{self.name}' initialized with config: {self.config}")
     
     def _do_cleanup(self) -> None:
-        """Cleanup data processor resources."""
-        print(f"DataProcessor '{self.name}' cleaned up after {self.processing_count} operations")
+    """Cleanup data processor resources."""
+    print(f"DataProcessor '{self.name}' cleaned up after {self.processing_count} operations")
     
     def configure(self, config: Dict[str, Any]) -> bool:
-        """Update configuration."""
-        try:
+    """Update configuration."""
+    try:
             self.config.update(config)
             return True
         except Exception:
             return False
     
     def get_config(self) -> Dict[str, Any]:
-        """Get current configuration."""
-        return self.config.copy()
+    """Get current configuration."""
+    return self.config.copy()
     
     def execute(self, context: Dict[str, Any]) -> Any:
-        """Execute data processing."""
-        data = context.get("data", [])
+    """Execute data processing."""
+    data = context.get("data", [])
         batch_size = self.config.get("batch_size", 10)
         
         print(f"Processing {len(data)} items in batches of {batch_size}")
@@ -71,8 +71,8 @@ def __init__(self, name: str = "data_processor") -> Any:
         return {"processed": processed_items, "count": len(processed_items)}
     
     def can_execute(self, context: Dict[str, Any]) -> bool:
-        """Check if processor can execute."""
-        return "data" in context and isinstance(context["data"], list)
+    """Check if processor can execute."""
+    return "data" in context and isinstance(context["data"], list)
 
 
 def demonstrate_component_factory() -> Any:

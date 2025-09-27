@@ -60,7 +60,7 @@ def __init__(self, project_root -> Any: Path):
         logger.debug(f"Initialized DependencyAnalyzer with root: {project_root}")
 
     def analyze_module(self, module_name: str) -> Set[Path]:
-        """
+    """
         Analyze a module and return all required files.
         
         Args:
@@ -69,7 +69,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Set[Path]: Set of file paths required by this module
         """
-        if module_name in self.analyzed_modules:
+    if module_name in self.analyzed_modules:
             return set()  # Already analyzed
             
         logger.debug(f"Analyzing module: {module_name}")
@@ -94,7 +94,7 @@ def __init__(self, project_root -> Any: Path):
         return self.required_files.copy()
 
     def _find_module_file(self, module_name: str) -> Optional[Path]:
-        """
+    """
         Find the file path for a given module name.
         
         Args:
@@ -103,7 +103,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Optional[Path]: Path to the module file if found
         """
-        # Convert module name to file path
+    # Convert module name to file path
         parts = module_name.split('.')
         
         # Try as a .py file
@@ -119,7 +119,7 @@ def __init__(self, project_root -> Any: Path):
         return None
 
     def _extract_imports(self, file_path: Path) -> Set[str]:
-        """
+    """
         Extract import statements from a Python file.
         
         Args:
@@ -128,7 +128,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Set[str]: Set of imported module names
         """
-        imports = set()
+    imports = set()
         full_path = self.project_root / file_path
         
         try:
@@ -153,7 +153,7 @@ def __init__(self, project_root -> Any: Path):
         return imports
 
     def _is_local_import(self, import_name: str) -> bool:
-        """
+    """
         Check if an import is a local project module.
         
         Args:
@@ -162,7 +162,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             bool: True if this is a local import
         """
-        # Check if it's one of our main packages
+    # Check if it's one of our main packages
         local_packages = ['orchestrator', 'scriptlets', 'src', 'tools', 'analysis', 'storage', 'server']
         return any(import_name.startswith(pkg) for pkg in local_packages)
 
@@ -187,7 +187,7 @@ def __init__(self, project_root -> Any: Path):
         logger.debug(f"Initialized RecipePackager with root: {project_root}")
 
     def analyze_recipe(self, recipe_path: Path) -> Dict[str, Any]:
-        """
+    """
         Analyze a recipe file to determine its dependencies.
         
         Args:
@@ -196,7 +196,7 @@ def __init__(self, project_root -> Any: Path):
         Returns:
             Dict[str, Any]: Analysis results including dependencies
         """
-        logger.info(f"Analyzing recipe: {recipe_path}")
+    logger.info(f"Analyzing recipe: {recipe_path}")
         
         # Load recipe YAML
         with open(recipe_path, 'r', encoding='utf-8') as f:
@@ -250,7 +250,7 @@ def _extract_data_file_refs(self, data -> Any: Any, data_files: Set[Path]):
                 self._extract_data_file_refs(item, data_files)
 
     def _looks_like_file_path(self, value: str) -> bool:
-        """
+    """
         Check if a string looks like a file path.
         
         Args:
@@ -259,7 +259,7 @@ def _extract_data_file_refs(self, data -> Any: Any, data_files: Set[Path]):
         Returns:
             bool: True if it looks like a file path
         """
-        # Simple heuristics for file paths
+    # Simple heuristics for file paths
         return (
             '.' in value and
             not value.startswith('http') and
@@ -268,7 +268,7 @@ def _extract_data_file_refs(self, data -> Any: Any, data_files: Set[Path]):
         )
 
     def create_package(self, recipe_path: Path, output_path: Path) -> Path:
-        """
+    """
         Create a complete portable package for a recipe.
         
         Args:
@@ -278,7 +278,7 @@ def _extract_data_file_refs(self, data -> Any: Any, data_files: Set[Path]):
         Returns:
             Path: Path to the created package zip file
         """
-        logger.info(f"Creating package for recipe: {recipe_path}")
+    logger.info(f"Creating package for recipe: {recipe_path}")
         
         # Analyze recipe dependencies
         analysis = self.analyze_recipe(recipe_path)

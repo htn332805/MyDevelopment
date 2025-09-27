@@ -51,8 +51,8 @@ class BlockInput:
     description: str = ""  # Help text for the input
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary for JSON serialization."""
-        return {
+    """Convert to dictionary for JSON serialization."""
+    return {
             "name": self.name,
             "label": self.label,
             "input_type": self.input_type.value,
@@ -71,8 +71,8 @@ class BlockOutput:
     data_type: str = "any"  # Expected data type
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary for JSON serialization."""
-        return {
+    """Convert to dictionary for JSON serialization."""
+    return {
             "name": self.name,
             "description": self.description,
             "data_type": self.data_type
@@ -95,8 +95,8 @@ class Block:
     dependencies: List[str] = field(default_factory=list)  # Block dependencies
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary for JSON serialization."""
-        return {
+    """Convert to dictionary for JSON serialization."""
+    return {
             "id": self.id,
             "name": self.name,
             "block_type": self.block_type.value,
@@ -120,15 +120,15 @@ class BlockLibrary:
     """
     
 def __init__(self) -> Any:
-        """Initialize the block library with predefined blocks."""
-        self.logger = get_logger(__name__)
+    """Initialize the block library with predefined blocks."""
+    self.logger = get_logger(__name__)
         self._blocks: Dict[str, Block] = {}
         self._initialize_core_blocks()
         self._discover_scriptlet_blocks()
     
     def _initialize_core_blocks(self) -> None:
-        """Initialize core Framework0 blocks."""
-        self.logger.info("Initializing core block library")
+    """Initialize core Framework0 blocks."""
+    self.logger.info("Initializing core block library")
         
         # CSV Data Processing Block
         csv_block = Block(
@@ -298,8 +298,8 @@ def __init__(self) -> Any:
         self.logger.info(f"Initialized {len(self._blocks)} core blocks")
     
     def _discover_scriptlet_blocks(self) -> None:
-        """Discover blocks from existing scriptlets in the system."""
-        self.logger.info("Discovering scriptlet blocks from system")
+    """Discover blocks from existing scriptlets in the system."""
+    self.logger.info("Discovering scriptlet blocks from system")
         
         # This would scan the scriptlets directory and plugins for additional blocks
         # For now, we'll add a placeholder for dynamic discovery
@@ -313,32 +313,32 @@ def __init__(self) -> Any:
             self.logger.warning(f"Failed to discover scriptlet blocks: {e}")
     
     def get_blocks(self) -> Dict[str, Block]:
-        """Get all available blocks."""
-        return self._blocks.copy()
+    """Get all available blocks."""
+    return self._blocks.copy()
     
     def get_blocks_by_type(self, block_type: BlockType) -> Dict[str, Block]:
-        """Get blocks filtered by type."""
-        return {
+    """Get blocks filtered by type."""
+    return {
             block_id: block for block_id, block in self._blocks.items()
             if block.block_type == block_type
         }
     
     def get_block(self, block_id: str) -> Optional[Block]:
-        """Get a specific block by ID."""
-        return self._blocks.get(block_id)
+    """Get a specific block by ID."""
+    return self._blocks.get(block_id)
     
     def add_custom_block(self, block: Block) -> None:
-        """Add a custom block to the library."""
-        self.logger.info(f"Adding custom block: {block.id}")
+    """Add a custom block to the library."""
+    self.logger.info(f"Adding custom block: {block.id}")
         self._blocks[block.id] = block
     
     def get_block_types(self) -> List[str]:
-        """Get all available block types."""
-        return [block_type.value for block_type in BlockType]
+    """Get all available block types."""
+    return [block_type.value for block_type in BlockType]
     
     def export_blocks_definition(self) -> Dict[str, Any]:
-        """Export all blocks as a JSON-serializable definition."""
-        return {
+    """Export all blocks as a JSON-serializable definition."""
+    return {
             block_id: block.to_dict()
             for block_id, block in self._blocks.items()
         }
