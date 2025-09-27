@@ -4,7 +4,9 @@ This document provides a comprehensive overview of the MyDevelopment repository 
 
 ## Table of Contents
 - [Repository Statistics](#repository-statistics)
+- [Framework0 Enhanced Architecture](#framework0-enhanced-architecture)
 - [Architecture Overview](#architecture-overview)
+- [Key Features](#key-features)
 - [Directory Structure](#directory-structure)
 - [Core Components](#core-components)
 - [Python Modules](#python-modules)
@@ -16,9 +18,46 @@ This document provides a comprehensive overview of the MyDevelopment repository 
 - **Total Files Analyzed:** 89
 - **Python Files:** 87
 - **Shell Scripts:** 2
-- **Total Functions:** 970
+- **Total Functions:** 973
 - **Total Classes:** 157
-- **Total Lines of Code:** 26399
+- **Total Lines of Code:** 26858
+
+## Framework0 Enhanced Architecture
+
+MyDevelopment implements Framework0's enhanced modular architecture with advanced capabilities:
+
+### 🏗️ Core Architecture Components
+
+#### Component Factory & Dependency Injection (`src/core/factory.py`)
+- **Automatic dependency resolution** with circular dependency detection
+- **Thread-safe component registration** and creation
+- **Singleton and non-singleton lifecycle** management
+- **Configuration-driven instantiation** with type safety
+- **Plugin integration** with hot-reload capabilities
+
+#### Interface & Protocol System (`src/core/interfaces.py`)
+- **Runtime-checkable protocols** for better modularity
+- **Component lifecycle management** with initialization/cleanup
+- **Event-driven components** with thread-safe event handling
+- **Configurable, Executable, and Debuggable** interfaces
+
+#### Advanced Debug Toolkit (`src/core/debug_toolkit_v2.py`)
+- **Enhanced debugging capabilities** with context tracking
+- **Performance profiling** and resource monitoring
+- **Memory usage tracking** and optimization tools
+- **Execution flow visualization** and analysis
+
+#### Error Handling & Recovery (`src/core/error_handling.py`)
+- **Multiple error recovery strategies** with fallback mechanisms
+- **Graceful degradation** and failure isolation
+- **Comprehensive error logging** and reporting
+- **Custom exception hierarchies** for better error handling
+
+#### Enhanced Plugin Management (`src/core/plugin_manager_v2.py`)
+- **Plugin hot-reload** and lifecycle management
+- **Dynamic plugin discovery** and registration
+- **Plugin dependency resolution** and versioning
+- **Sandboxed plugin execution** for security
 
 ## Architecture Overview
 
@@ -51,6 +90,39 @@ Server and networking components
 ### Tools
 Development and utility tools
 - **Files:** 7 files
+
+## Key Features
+
+### 🎯 Major Platform Features
+
+#### 🧠 Advanced Quiz Dashboard
+- **Spaced Repetition Algorithm (SM-2)** with custom enhancements
+- **Multi-type Question Support**: Multiple choice, true/false, fill-in-blank, reorder, matching
+- **Adaptive Difficulty**: Dynamic question selection based on performance
+- **MathJax Integration**: Full LaTeX mathematical notation support
+- **User Progress Tracking**: Individual performance metrics and learning curves
+- **RESTful API**: Complete API for quiz operations and data access
+
+#### 🎨 Visual Recipe Builder
+- **Scratch-like Visual Interface** for creating Framework0 automation recipes
+- **Drag-and-Drop Canvas**: Interactive canvas for arranging workflow steps
+- **Real-time Validation**: Instant feedback on recipe correctness
+- **YAML Generation**: Automatic conversion to Framework0-compatible recipes
+- **Step Properties Panel**: Configure parameters with appropriate input types
+- **Dependency Management**: Visual dependency linking between steps
+
+#### 📊 Excel Automation Suite
+- **Automated Excel Processing**: Read, analyze, and manipulate Excel files
+- **Data Validation and Cleaning**: Comprehensive data quality checks
+- **Chart Generation**: Automated visualization creation
+- **Batch Processing**: Handle multiple files with progress tracking
+
+#### ⚙️ Advanced Orchestration Engine
+- **Recipe-based Automation**: YAML-driven workflow execution
+- **Dependency Graph Management**: Automatic step ordering and execution
+- **Context Management**: Shared state across automation steps
+- **Memory Bus**: Inter-component communication system
+- **Persistence Layer**: Save and restore execution state
 
 ## Directory Structure
 
@@ -3957,10 +4029,10 @@ Author: Generated for MyDevelopment Repository
 Date: 2024
 
 **Statistics:**
-- Lines of Code: 1478
-- Functions: 37
+- Lines of Code: 1937
+- Functions: 40
 - Classes: 2
-- Complexity Score: 175
+- Complexity Score: 196
 
 **Dependencies:**
 - `os`
@@ -4007,7 +4079,7 @@ Args:
 
 This class provides me...
 - `DocumentationGenerator`
-  - Methods: 18
+  - Methods: 21
   - Generates comprehensive markdown documentation from code analysis results.
 
 This class takes the out...
@@ -4660,16 +4732,16 @@ with appropriate configuration and error handling.
 - `usage()`: Function: usage
 
 **Key Commands Used:**
-- `window_names[w]:-win$w`
-- `window_names[0]:-win0`
-- `session_name`
-- `safe_session`
+- `pane_idx`
+- `pane_names[pane_idx]:-pane$pane_idx`
+- `flags[@]`
+- `s// /_`
 - `tmux`
+- `session_name`
+- `window_names[0]:-win0`
+- `safe_win`
 - `full_title`
 - `args[@]`
-- `safe_win`
-- `flags[@]`
-- `safe_label`
 
 ---
 

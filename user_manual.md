@@ -6,6 +6,7 @@ This user manual provides detailed instructions for using all components of the 
 - [Quick Start](#quick-start)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Framework0 Features](#framework0-features)
 - [Python Scripts Usage](#python-scripts-usage)
 - [Shell Scripts Usage](#shell-scripts-usage)
 - [API Reference](#api-reference)
@@ -80,6 +81,124 @@ The following environment variables can be used to configure the application:
 ### Configuration Files
 Check for existing configuration files in the repository:
 - No specific configuration files found
+
+## Framework0 Features
+
+This section provides detailed usage instructions for Framework0's major features and capabilities.
+
+### 🧠 Quiz Dashboard
+
+The Quiz Dashboard is an advanced interactive learning platform with spaced repetition algorithms.
+
+#### Starting the Quiz Dashboard
+```bash
+# Activate virtual environment
+source .venv/bin/activate
+
+# Run quiz dashboard
+python run_quiz_dashboard.py
+
+# Access via browser
+# http://localhost:5000
+```
+
+#### Key Features
+- **Spaced Repetition**: SM-2 algorithm implementation for optimal learning
+- **Multiple Question Types**: Support for MCQ, true/false, fill-in-blank, reorder, and matching
+- **Progress Tracking**: Individual performance analytics and mastery calculations
+- **MathJax Support**: Full LaTeX mathematical notation in questions
+- **Anti-Clustering**: Prevents similar questions from appearing consecutively
+
+### 🎨 Visual Recipe Builder
+
+Create Framework0 automation recipes using a Scratch-like visual interface.
+
+#### Starting the Visual Recipe Builder
+```bash
+# Method 1: Using the launcher script
+python visual_recipe_builder/run_app.py --debug --port 8050
+
+# Method 2: Direct module execution
+cd visual_recipe_builder && python app.py
+
+# Access via browser
+# http://localhost:8050
+```
+
+#### Creating Recipes
+1. **Drag Blocks**: Drag blocks from the library to the canvas
+2. **Connect Steps**: Link blocks to create execution flow
+3. **Configure Parameters**: Set step properties in the properties panel
+4. **Validate Recipe**: Real-time validation ensures correctness
+5. **Generate YAML**: Export as Framework0-compatible YAML recipe
+
+### 📊 Excel Automation
+
+Automated processing and analysis of Excel files with comprehensive validation.
+
+#### Basic Excel Processing
+```bash
+# Process single Excel file
+python cli/excel_automation.py --file data/sample.xlsx --output results/
+
+# Batch processing multiple files
+python cli/excel_automation.py --batch --input-dir data/ --output-dir results/
+```
+
+#### Features
+- **Data Validation**: Comprehensive quality checks and error reporting
+- **Chart Generation**: Automatic visualization creation
+- **Batch Processing**: Handle multiple files with progress tracking
+- **Export Options**: Multiple output formats (CSV, JSON, HTML)
+
+### ⚙️ Recipe Orchestration
+
+Execute complex automation workflows using YAML-based recipes.
+
+#### Running Recipes
+```bash
+# Execute a recipe
+python -m orchestrator.runner --recipe recipe_packages/example.yaml
+
+# Execute with context
+python -m orchestrator.runner --recipe recipe.yaml --context '{"input": "data.csv"}'
+
+# Debug mode execution
+DEBUG=1 python -m orchestrator.runner --recipe recipe.yaml --verbose
+```
+
+#### Recipe Structure
+```yaml
+name: Example Recipe
+description: Sample automation workflow
+steps:
+  - name: process_data
+    scriptlet: csv_processor
+    inputs:
+      file_path: "data/input.csv"
+    outputs:
+      - processed_data
+```
+
+### 🔧 Enhanced Debugging
+
+Advanced debugging capabilities with comprehensive tracing and profiling.
+
+#### Enabling Debug Mode
+```bash
+# Enable debug mode for detailed logging
+export DEBUG=1
+export LOG_LEVEL=DEBUG
+
+# Run with performance profiling
+python -m src.core.profiler your_script.py
+```
+
+#### Debug Features
+- **Context Tracking**: Full execution context preservation
+- **Performance Profiling**: Detailed timing and resource usage
+- **Memory Monitoring**: Memory usage tracking and leak detection
+- **Execution Visualization**: Flow analysis and bottleneck identification
 
 ## Python Scripts Usage
 
@@ -11289,6 +11408,12 @@ Returns:
 ##### `_generate_statistics_section(self)`
 Generate repository statistics section.
 
+##### `_generate_enhanced_architecture_section(self)`
+Generate Framework0 enhanced architecture section.
+
+##### `_generate_key_features_section(self)`
+Generate key features section highlighting major capabilities.
+
 ##### `_generate_architecture_section(self)`
 Generate architecture overview section.
 
@@ -11315,6 +11440,9 @@ Generate installation section for user manual.
 
 ##### `_generate_configuration_section(self)`
 Generate configuration section for user manual.
+
+##### `_generate_framework0_features_section(self)`
+Generate detailed Framework0 features usage section.
 
 ##### `_generate_python_usage_section(self)`
 Generate Python scripts usage section.
@@ -11518,6 +11646,12 @@ Returns:
 ##### `_generate_statistics_section(self) -> List[str]`
 Generate repository statistics section.
 
+##### `_generate_enhanced_architecture_section(self) -> List[str]`
+Generate Framework0 enhanced architecture section.
+
+##### `_generate_key_features_section(self) -> List[str]`
+Generate key features section highlighting major capabilities.
+
 ##### `_generate_architecture_section(self) -> List[str]`
 Generate architecture overview section.
 
@@ -11544,6 +11678,9 @@ Generate installation section for user manual.
 
 ##### `_generate_configuration_section(self) -> List[str]`
 Generate configuration section for user manual.
+
+##### `_generate_framework0_features_section(self) -> List[str]`
+Generate detailed Framework0 features usage section.
 
 ##### `_generate_python_usage_section(self) -> List[str]`
 Generate Python scripts usage section.
@@ -12616,6 +12753,110 @@ Resolve execution order for steps based on dependencies.
 
 ## Examples
 
+This section provides practical examples of using Framework0 features and components.
+
+### 🚀 Framework0 Usage Examples
+
+#### Component Factory Usage
+```python
+from src.core.factory import register_component, create_component
+from src.core.interfaces import ComponentLifecycle
+
+class MyService(ComponentLifecycle):
+    def _do_initialize(self, config): pass
+    def _do_cleanup(self): pass
+
+# Register component
+register_component(MyService, name="my_service", singleton=True)
+
+# Create instance with dependency injection
+service = create_component("my_service")
+```
+
+#### Recipe Orchestration Example
+**Create a Recipe (example.yaml):**
+```yaml
+name: Data Processing Pipeline
+description: Process CSV data and generate reports
+
+context:
+  input_file: "data/sales.csv"
+  output_dir: "results/"
+
+steps:
+  - name: read_data
+    scriptlet: csv_processor
+    inputs:
+      file_path: "{{input_file}}"
+    outputs:
+      - data
+
+  - name: analyze_data
+    scriptlet: data_analyzer
+    depends_on: [read_data]
+    inputs:
+      data: "{{read_data.data}}"
+    outputs:
+      - analysis_report
+
+  - name: generate_charts
+    scriptlet: chart_generator
+    depends_on: [analyze_data]
+    inputs:
+      data: "{{read_data.data}}"
+      analysis: "{{analyze_data.analysis_report}}"
+      output_path: "{{output_dir}}/charts/"
+```
+
+**Execute the Recipe:**
+```bash
+python -m orchestrator.runner --recipe example.yaml
+```
+
+#### Quiz Dashboard Usage
+**Starting the Dashboard:**
+```bash
+# Basic startup
+python run_quiz_dashboard.py
+
+# With custom configuration
+python run_quiz_dashboard.py --port 8080 --debug
+```
+
+**Creating Questions (JSON format):**
+```json
+{
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple_choice",
+      "question": "What is the capital of France?",
+      "options": ["London", "Berlin", "Paris", "Madrid"],
+      "correct_answer": 2,
+      "difficulty": "easy",
+      "hashtags": ["geography", "capitals"]
+    }
+  ]
+}
+```
+
+#### Visual Recipe Builder Usage
+```bash
+# Start the visual builder
+python visual_recipe_builder/run_app.py --port 8050
+
+# Open browser and navigate to:
+# http://localhost:8050
+
+# The interface provides:
+# 1. Block Library - Drag blocks to canvas
+# 2. Canvas - Arrange and connect blocks
+# 3. Properties Panel - Configure block parameters
+# 4. YAML Preview - See generated recipe code
+```
+
+### 💻 Python Development Examples
+
 ### Common Usage Patterns
 
 #### Running Main Scripts
@@ -12792,6 +13033,56 @@ python path/to/script.py
 - Use `--help` flag where available
 - Enable debug mode with `DEBUG=1` environment variable
 - Check log files in the `logs/` directory
+
+### Framework0 Specific Issues
+
+#### Component Factory Issues
+**Problem:** Component not found or circular dependency
+```python
+# Check component registration
+from src.core.factory import list_components
+print(list_components())  # View all registered components
+
+# Enable factory debugging
+import logging
+logging.getLogger('src.core.factory').setLevel(logging.DEBUG)
+```
+
+#### Recipe Execution Issues
+**Problem:** Recipe step fails or context issues
+```bash
+# Enable recipe debugging
+DEBUG=1 python -m orchestrator.runner --recipe recipe.yaml --verbose
+
+# Validate recipe structure
+python -m orchestrator.recipe_parser --validate recipe.yaml
+```
+
+#### Quiz Dashboard Issues
+**Problem:** Database not accessible or question format errors
+```bash
+# Check database status
+ls -la quiz_dashboard.db*
+
+# Validate question format
+python -m src.quiz_dashboard.question_manager --validate questions.json
+
+# Reset database if needed
+rm quiz_dashboard.db* && python run_quiz_dashboard.py
+```
+
+#### Visual Recipe Builder Issues
+**Problem:** Interface not loading or YAML generation errors
+```bash
+# Check for port conflicts
+lsof -i :8050
+
+# Try different port
+python visual_recipe_builder/run_app.py --port 8051
+
+# Enable debug mode
+python visual_recipe_builder/run_app.py --debug
+```
 
 ### Debug Mode
 Many scripts support debug mode for verbose output:
