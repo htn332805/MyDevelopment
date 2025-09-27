@@ -19,12 +19,14 @@ from transformers import pipeline
 import nltk
 
 # Ensure necessary NLTK resources are downloaded
-nltk.download('punkt')
+nltk.download("punkt")
 
 # Initialize the transformer model for abstractive summarization
 abstractive_summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
+
 def extractive_summary(text: str, num_sentences: int = 5) -> str:
+    # Execute extractive_summary operation
     """
     Extracts the most important sentences from the input text.
 
@@ -51,10 +53,12 @@ def extractive_summary(text: str, num_sentences: int = 5) -> str:
                 sentence_score += word_frequencies[word]
         sentence_scores[i] = sentence_score
     ranked_sentences = sorted(sentence_scores, key=sentence_scores.get, reverse=True)
-    summary = ' '.join([sentences[i] for i in ranked_sentences[:num_sentences]])
+    summary = " ".join([sentences[i] for i in ranked_sentences[:num_sentences]])
     return summary
 
+
 def abstractive_summary(text: str) -> str:
+    # Execute abstractive_summary operation
     """
     Generates a concise summary of the input text using a pre-trained transformer model.
 
@@ -64,5 +68,7 @@ def abstractive_summary(text: str) -> str:
     Returns:
         str: A concise summary of the input text.
     """
-    summary = abstractive_summarizer(text, max_length=150, min_length=50, do_sample=False)
-    return summary[0]['summary_text']
+    summary = abstractive_summarizer(
+        text, max_length=150, min_length=50, do_sample=False
+    )
+    return summary[0]["summary_text"]
