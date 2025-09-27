@@ -150,8 +150,8 @@ class ErrorRecoveryStrategy:
 class RetryRecoveryStrategy(ErrorRecoveryStrategy):
     """Recovery strategy that retries the failed operation."""
     
-def __init__(s: int = 3, backoff_factor: float  = 1.0) -> Any:
-    # Execute __init__ operation
+    def __init__(self, max_retries: int = 3, backoff_factor: float = 1.0) -> None:
+        # Execute __init__ operation
         """
         Initialize retry recovery strategy.
         
@@ -166,8 +166,8 @@ def __init__(s: int = 3, backoff_factor: float  = 1.0) -> Any:
 
     def can_handle(self, error_report: ErrorReport) -> bool:
         # Execute can_handle operation
-    """Check if error is retryable."""
-    retryable_categories = {
+        """Check if error is retryable."""
+        retryable_categories = {
             ErrorCategory.NETWORK,
             ErrorCategory.FILESYSTEM,
             ErrorCategory.DATABASE
@@ -177,8 +177,8 @@ def __init__(s: int = 3, backoff_factor: float  = 1.0) -> Any:
 
     def recover(self, error_report: ErrorReport, **kwargs) -> Tuple[bool, Optional[Any]]:
         # Execute recover operation
-    """Attempt recovery by retrying the operation."""
-    error_id = error_report.context.error_id
+        """Attempt recovery by retrying the operation."""
+        error_id = error_report.context.error_id
         retry_count = self._retry_counts.get(error_id, 0)
         
         if retry_count >= self.max_retries:
@@ -209,14 +209,14 @@ def __init__(self) -> Any:
 
     def can_handle(self, error_report: ErrorReport) -> bool:
         # Execute can_handle operation
-    """Check if rollback is possible."""
-    return (error_report.context.checkpoint_id is not None and
+        """Check if rollback is possible."""
+        return (error_report.context.checkpoint_id is not None and
                 error_report.is_recoverable)
 
     def recover(self, error_report: ErrorReport, **kwargs) -> Tuple[bool, Optional[Any]]:
         # Execute recover operation
-    """Recover by rolling back to checkpoint."""
-    checkpoint_id = error_report.context.checkpoint_id
+        """Recover by rolling back to checkpoint."""
+        checkpoint_id = error_report.context.checkpoint_id
         if not checkpoint_id:
             return False, None
         
