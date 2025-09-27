@@ -96,7 +96,7 @@ class VariableTracker:
 
     def capture_variable(self, name: str, value: Any, *, location: str = "unknown") -> None:
         # Execute capture_variable operation
-    """
+        """
         Capture current state of a variable.
         
         Args:

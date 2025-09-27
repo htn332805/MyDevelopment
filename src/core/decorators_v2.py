@@ -63,7 +63,7 @@ def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
             max_size (int): Maximum number of cached entries
             default_ttl (float): Default time-to-live in seconds
         """
-    self.max_size = max_size  # Maximum cache entries
+        self.max_size = max_size  # Maximum cache entries
         self.default_ttl = default_ttl  # Default TTL in seconds
         self._cache: Dict[str, CacheEntry] = {}  # Cache storage
         self._lock = threading.RLock()  # Thread safety

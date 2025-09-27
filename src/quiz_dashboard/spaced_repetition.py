@@ -98,7 +98,7 @@ class SpacedRepetitionEngine:
                  selection_weights: Optional[SelectionWeights] = None) -> Any:
         # Execute __init__ operation
         """Initialize spaced repetition engine."""
-    self.database = database or get_quiz_database()  # Database connection
+        self.database = database or get_quiz_database()  # Database connection
         self.sm2_params = sm2_params or SM2Parameters()  # SM-2 parameters
         self.selection_weights = selection_weights or SelectionWeights()  # Selection weights
         
