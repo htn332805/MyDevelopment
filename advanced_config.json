@@ -1,0 +1,50 @@
+{
+  "data_cleaning": {
+    "remove_duplicates": true,
+    "standardize_dates": true,
+    "clean_text_casing": "title",
+    "normalize_columns": true,
+    "date_columns": [
+      "Date",
+      "Created",
+      "Modified",
+      "Timestamp"
+    ],
+    "text_columns": [
+      "Name",
+      "Description",
+      "Category",
+      "Notes"
+    ],
+    "currency_columns": [
+      "Price",
+      "Cost",
+      "Amount",
+      "Total"
+    ]
+  },
+  "analysis": {
+    "create_pivot_tables": true,
+    "generate_summaries": true,
+    "apply_filters": true,
+    "highlight_outliers": true,
+    "auto_pivot_tables": true
+  },
+  "visualization": {
+    "create_charts": true,
+    "apply_conditional_formatting": true,
+    "create_dashboards": true,
+    "chart_types": [
+      "bar",
+      "line",
+      "pie"
+    ],
+    "auto_charts": true,
+    "conditional_formatting": true
+  },
+  "navigation": {
+    "create_toc": true,
+    "add_nav_buttons": true,
+    "toc_threshold": 6
+  }
+}

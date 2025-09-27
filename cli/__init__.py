@@ -15,15 +15,11 @@ Components:
 """
 
 # Importing core CLI components
-from .cli import CLI
-from .commands import commands
-from .config import config
-from .utils import utils
+from . import main
+from . import excel_automation
 
 # Exposing the components for easy access
 __all__ = [
-    "CLI",
-    "commands",
-    "config",
-    "utils"
+    "main",
+    "excel_automation"
 ]
