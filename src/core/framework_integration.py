@@ -96,10 +96,12 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def __init__(self, config_path: Optional[Union[str, Path]] = None) -> None:
         # Execute __init__ operation
+        """
         Initialize Framework0 instance.
         
         Args:
             config_path (Optional[Union[str, Path]]): Path to framework configuration file
+        """
         ComponentLifecycle.__init__(self)
         EventDrivenComponent.__init__(self)
         
@@ -138,7 +140,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         
         logger.info(f"Framework0 instance created with ID: {self.framework_id}")
 
-        def _do_initialize(self, config: Dict[str, Any]) -> None:
+    def _do_initialize(self, config: Dict[str, Any]) -> None:
         # Execute _do_initialize operation
         self._state = FrameworkState.INITIALIZING
         self._config = config.copy()
@@ -237,7 +239,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         self._register_component("plugin_manager", EnhancedPluginManager, self._plugin_manager)
         self._register_component("context", ContextV2, self._context)
 
-        def _register_component(self, name: str, component_type: Type, instance: Any) -> None:
+    def _register_component(self, name: str, component_type: Type, instance: Any) -> None:
         # Execute _register_component operation
         with self._lock:
             component_info = ComponentInfo(
@@ -256,7 +258,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             
             logger.debug(f"Component registered: {name}")
 
-        def _auto_load_plugins(self) -> None:
+    def _auto_load_plugins(self) -> None:
         # Execute _auto_load_plugins operation
         plugin_dirs = self._config.get('plugin_directories', [])
         
@@ -283,7 +285,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             except Exception as e:
                 logger.error(f"Error loading plugin manifest {manifest_file}: {e}")
 
-        def _start_monitoring(self) -> None:
+    def _start_monitoring(self) -> None:
         # Execute _start_monitoring operation
         if self._monitor_thread and self._monitor_thread.is_alive():
             return
@@ -303,7 +305,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         if self._monitor_thread:
             self._monitor_thread.join(timeout=5.0)
 
-        def _monitoring_loop(self) -> None:
+    def _monitoring_loop(self) -> None:
         # Execute _monitoring_loop operation
         while self._monitor_active:
             try:
@@ -313,7 +315,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             except Exception as e:
                 logger.error(f"Error in monitoring loop: {e}")
 
-        def _update_metrics(self) -> None:
+    def _update_metrics(self) -> None:
         # Execute _update_metrics operation
         try:
             import psutil
@@ -340,7 +342,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         except Exception as e:
             logger.warning(f"Failed to update metrics: {e}")
 
-        def _perform_health_checks(self) -> None:
+    def _perform_health_checks(self) -> None:
         # Execute _perform_health_checks operation
         with self._lock:
             for component_name, health_check in self._health_checks.items():
@@ -360,7 +362,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         self.add_listener('plugin_error', self._on_plugin_error)
         self.add_listener('framework_error', self._on_framework_error)
 
-        def _on_component_error(self, component_name: str, error: Exception) -> None:
+    def _on_component_error(self, component_name: str, error: Exception) -> None:
         # Execute _on_component_error operation
         with self._lock:
             if component_name in self._components:
@@ -371,17 +373,17 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         
         logger.error(f"Component error in {component_name}: {error}")
 
-        def _on_plugin_error(self, plugin_name: str, error: Exception) -> None:
+    def _on_plugin_error(self, plugin_name: str, error: Exception) -> None:
         # Execute _on_plugin_error operation
         self._metrics.error_count += 1
         logger.error(f"Plugin error in {plugin_name}: {error}")
 
-        def _on_framework_error(self, error: Exception) -> None:
+    def _on_framework_error(self, error: Exception) -> None:
         # Execute _on_framework_error operation
         self._metrics.error_count += 1
         logger.error(f"Framework error: {error}")
 
-        def _create_initial_metrics(self) -> FrameworkMetrics:
+    def _create_initial_metrics(self) -> FrameworkMetrics:
         # Execute _create_initial_metrics operation
         return FrameworkMetrics(
             uptime_seconds=0.0,
@@ -398,7 +400,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             last_updated=time.time()
         )
 
-        def _cleanup_component(self, component_name: str) -> None:
+    def _cleanup_component(self, component_name: str) -> None:
         # Execute _cleanup_component operation
         try:
             instance = self._component_instances.get(component_name)
@@ -418,10 +420,12 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
     
     def start(self) -> bool:
         # Execute start operation
+        """
         Start the Framework0 instance.
         
         Returns:
             bool: True if started successfully
+        """
         if self._state != FrameworkState.INITIALIZED:
             logger.error("Framework must be initialized before starting")
             return False
@@ -447,10 +451,12 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
 
     def stop(self) -> bool:
         # Execute stop operation
+        """
         Stop the Framework0 instance.
         
         Returns:
             bool: True if stopped successfully
+        """
         try:
             self.cleanup()
             return True
@@ -458,8 +464,9 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             logger.error(f"Failed to stop Framework0: {e}")
             return False
 
-        def get_component(self, name: str) -> Optional[Any]:
+    def get_component(self, name: str) -> Optional[Any]:
         # Execute get_component operation
+        """
         Get component instance by name.
         
         Args:
@@ -467,39 +474,43 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             
         Returns:
             Optional[Any]: Component instance or None
+        """
         return self._component_instances.get(name)
 
-        def get_factory(self) -> ComponentFactory:
+    def get_factory(self) -> ComponentFactory:
         # Execute get_factory operation
         return self._factory
 
-        def get_debug_toolkit(self) -> AdvancedDebugToolkit:
+    def get_debug_toolkit(self) -> AdvancedDebugToolkit:
         # Execute get_debug_toolkit operation
         return self._debug_toolkit
 
-        def get_error_handler(self) -> AdvancedErrorHandler:
+    def get_error_handler(self) -> AdvancedErrorHandler:
         # Execute get_error_handler operation
         return self._error_handler
 
-        def get_plugin_manager(self) -> EnhancedPluginManager:
+    def get_plugin_manager(self) -> EnhancedPluginManager:
         # Execute get_plugin_manager operation
         return self._plugin_manager
 
-        def get_context(self) -> ContextV2:
+    def get_context(self) -> ContextV2:
         # Execute get_context operation
         return self._context
 
-        def get_metrics(self) -> FrameworkMetrics:
+    def get_metrics(self) -> FrameworkMetrics:
         # Execute get_metrics operation
+        """
         Get current framework metrics.
         
         Returns:
             FrameworkMetrics: Current metrics
+        """
         with self._lock:
             return FrameworkMetrics(**asdict(self._metrics))
 
-        def get_component_info(self, name: str) -> Optional[ComponentInfo]:
+    def get_component_info(self, name: str) -> Optional[ComponentInfo]:
         # Execute get_component_info operation
+        """
         Get information about a specific component.
         
         Args:
@@ -507,32 +518,39 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
             
         Returns:
             Optional[ComponentInfo]: Component information or None
+        """
         with self._lock:
             return self._components.get(name)
 
-        def list_components(self) -> List[ComponentInfo]:
+    def list_components(self) -> List[ComponentInfo]:
         # Execute list_components operation
+        """
         List all registered components.
         
         Returns:
             List[ComponentInfo]: List of component information
+        """
         with self._lock:
             return list(self._components.values())
 
-        def get_state(self) -> FrameworkState:
+    def get_state(self) -> FrameworkState:
         # Execute get_state operation
+        """
         Get current framework state.
         
         Returns:
             FrameworkState: Current state
+        """
         return self._state
 
-        def is_healthy(self) -> bool:
+    def is_healthy(self) -> bool:
         # Execute is_healthy operation
+        """
         Check if framework is healthy.
         
         Returns:
             bool: True if framework is healthy
+        """
         if self._state != FrameworkState.RUNNING:
             return False
         
@@ -545,12 +563,14 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         return True
 
     @contextmanager
-def debug_session(e: str  = None) -> Any:
+    def debug_session(self, session_name: str = None) -> Any:
         # Execute debug_session operation
+        """
         Context manager for debug sessions.
         
         Args:
             session_name (str): Debug session name
+        """
         session_id = self._debug_toolkit.create_debug_session(session_name)
         try:
             yield session_id
@@ -559,9 +579,9 @@ def debug_session(e: str  = None) -> Any:
             if session:
                 session._is_active = False
 
-        @contextmanager
-def error_handling(self, operation_name -> Any: str, **context):
-    # Execute error_handling operation
+    @contextmanager
+    def error_handling(self, operation_name: str, **context) -> Any:
+        # Execute error_handling operation
         """
         Context manager for error handling.
         
@@ -579,37 +599,39 @@ _framework_lock = threading.Lock()
 
 
 def get_framework(config_path: Optional[Union[str, Path]] = None) -> Framework0:
-        # Execute get_framework operation
-        Get or create global Framework0 instance.
+    # Execute get_framework operation
+    """
+    Get or create global Framework0 instance.
     
-        Args:
+    Args:
         config_path (Optional[Union[str, Path]]): Configuration file path
         
-        Returns:
+    Returns:
         Framework0: Global framework instance
-        global _global_framework
-        with _framework_lock:
+    """
+    global _global_framework
+    with _framework_lock:
         if _global_framework is None:
             _global_framework = Framework0(config_path)
         return _global_framework
 
 
-def initialize_framework(config: Optional[Dict[str, Any]] = None,
-                        config_path: Optional[Union[str, Path]] = None
-                        ) -> Framework0:
+def initialize_framework(config: Optional[Dict[str, Any]] = None, config_path: Optional[Union[str, Path]] = None, **kwargs: Any) -> Framework0:
     # Execute initialize_framework operation
-    """Initialize Framework0 with configuration.
+    """
+    Initialize Framework0 with configuration.
 
     Args:
         config (Optional[Dict[str, Any]]): Configuration dictionary
-        config_path (Optional[Union[str, Path]]): Configuration file path"""
+        config_path (Optional[Union[str, Path]]): Configuration file path
         
-        Returns:
+    Returns:
         Framework0: Initialized framework instance
-        framework = get_framework(config_path)
+    """
+    framework = get_framework(config_path)
     
-        # Load configuration from file if path provided
-        if config_path:
+    # Load configuration from file if path provided
+    if config_path:
         config_file = Path(config_path)
         if config_file.exists():
             with open(config_file, 'r') as f:
@@ -636,16 +658,17 @@ def initialize_framework(config: Optional[Dict[str, Any]] = None,
     return framework
 
 
-def start_framework(**init_kwargs) -> Framework0:
+def start_framework(**init_kwargs: Dict[str, Any]) -> Framework0:
     # Execute start_framework operation
-
-        Initialize and start Framework0.
+    """
+    Initialize and start Framework0.
     
-        Args:
+    Args:
         **init_kwargs: Initialization arguments
         
-        Returns:
+    Returns:
         Framework0: Started framework instance
-        framework = initialize_framework(**init_kwargs)
-        framework.start()
-        return framework
+    """
+    framework = initialize_framework(**init_kwargs)
+    framework.start()
+    return framework

@@ -66,21 +66,23 @@ class Configurable(Protocol):
     
     def configure(self, config: Dict[str, Any]) -> bool:
         # Execute configure operation
-        Update component configuration.
+        """Update component configuration.
         
         Args:
             config (Dict[str, Any]): New configuration parameters
             
         Returns:
             bool: True if configuration applied successfully
+        """
         ...
     
-        def get_config(self) -> Dict[str, Any]:
+    def get_config(self) -> Dict[str, Any]:
         # Execute get_config operation
-        Get current component configuration.
+        """Get current component configuration.
         
         Returns:
             Dict[str, Any]: Current configuration
+        """
         ...
 @runtime_checkable
 class Validatable(Protocol):
@@ -88,18 +90,20 @@ class Validatable(Protocol):
     
     def validate(self) -> bool:
         # Execute validate operation
-        Validate component state and configuration.
+        """Validate component state and configuration.
         
         Returns:
             bool: True if component is valid
+        """
         ...
     
-        def get_validation_errors(self) -> List[str]:
+    def get_validation_errors(self) -> List[str]:
         # Execute get_validation_errors operation
-        Get list of validation errors.
+        """Get list of validation errors.
         
         Returns:
             List[str]: Validation error messages
+        """
         ...
 @runtime_checkable
 class Executable(Protocol):
@@ -107,24 +111,26 @@ class Executable(Protocol):
     
     def execute(self, context: Dict[str, Any]) -> Any:
         # Execute execute operation
-        Execute component logic.
+        """Execute component logic.
         
         Args:
             context (Dict[str, Any]): Execution context
             
         Returns:
             Any: Execution result
+        """
         ...
     
-        def can_execute(self, context: Dict[str, Any]) -> bool:
+    def can_execute(self, context: Dict[str, Any]) -> bool:
         # Execute can_execute operation
-        Check if component can execute with given context.
+        """Check if component can execute with given context.
         
         Args:
             context (Dict[str, Any]): Proposed execution context
             
         Returns:
             bool: True if execution is possible
+        """
         ...
 @runtime_checkable
 class Plugin(Protocol):
@@ -135,30 +141,31 @@ class Plugin(Protocol):
         # Execute name operation
         ...
     
-        @property
-        def version(self) -> str:
+    @property
+    def version(self) -> str:
         # Execute version operation
         ...
     
-        @property
-        def dependencies(self) -> List[str]:
+    @property
+    def dependencies(self) -> List[str]:
         # Execute dependencies operation
         ...
     
-        def activate(self) -> None:
+    def activate(self) -> None:
         # Execute activate operation
         ...
     
-        def deactivate(self) -> None:
+    def deactivate(self) -> None:
         # Execute deactivate operation
         ...
     
-        def get_metadata(self) -> Dict[str, Any]:
+    def get_metadata(self) -> Dict[str, Any]:
         # Execute get_metadata operation
-        Get plugin metadata.
+        """Get plugin metadata.
         
         Returns:
             Dict[str, Any]: Plugin metadata information
+        """
         ...
 @runtime_checkable
 class ContextManager(Protocol):
@@ -166,7 +173,7 @@ class ContextManager(Protocol):
     
     def get(self, key: str, default: Any = None) -> Any:
         # Execute get operation
-        Get value from context.
+        """Get value from context.
         
         Args:
             key (str): Context key
@@ -174,35 +181,39 @@ class ContextManager(Protocol):
             
         Returns:
             Any: Context value or default
+        """
         ...
     
-        def set(self, key: str, value: Any, **kwargs) -> None:
+    def set(self, key: str, value: Any, **kwargs) -> None:
         # Execute set operation
-        Set value in context.
+        """Set value in context.
         
         Args:
             key (str): Context key
             value (Any): Value to store
             **kwargs: Additional context parameters
+        """
         ...
     
-        def delete(self, key: str) -> bool:
+    def delete(self, key: str) -> bool:
         # Execute delete operation
-        Delete key from context.
+        """Delete key from context.
         
         Args:
             key (str): Context key to delete
             
         Returns:
             bool: True if key was deleted
+        """
         ...
     
-        def get_history(self) -> List[Dict[str, Any]]:
+    def get_history(self) -> List[Dict[str, Any]]:
         # Execute get_history operation
-        Get context change history.
+        """Get context change history.
         
         Returns:
             List[Dict[str, Any]]: History records
+        """
         ...
 @runtime_checkable
 class EventEmitter(Protocol):
@@ -210,30 +221,33 @@ class EventEmitter(Protocol):
     
     def emit(self, event: str, *args, **kwargs) -> None:
         # Execute emit operation
-        Emit event with arguments.
+        """Emit event with arguments.
         
         Args:
             event (str): Event name
             *args: Positional arguments
             **kwargs: Keyword arguments
+        """
         ...
     
-        def add_listener(self, event: str, callback: Callable) -> None:
+    def add_listener(self, event: str, callback: Callable) -> None:
         # Execute add_listener operation
-        Add event listener.
+        """Add event listener.
         
         Args:
             event (str): Event name
             callback (Callable): Callback function
+        """
         ...
     
-        def remove_listener(self, event: str, callback: Callable) -> None:
+    def remove_listener(self, event: str, callback: Callable) -> None:
         # Execute remove_listener operation
-        Remove event listener.
+        """Remove event listener.
         
         Args:
             event (str): Event name
             callback (Callable): Callback function to remove
+        """
         ...
 @runtime_checkable
 class Debuggable(Protocol):
@@ -243,24 +257,26 @@ class Debuggable(Protocol):
         # Execute enable_debug operation
         ...
     
-        def disable_debug(self) -> None:
+    def disable_debug(self) -> None:
         # Execute disable_debug operation
         ...
     
-        def get_debug_info(self) -> Dict[str, Any]:
+    def get_debug_info(self) -> Dict[str, Any]:
         # Execute get_debug_info operation
-        Get debugging information.
+        """Get debugging information.
         
         Returns:
             Dict[str, Any]: Debug information
+        """
         ...
     
-        def trace_execution(self, enabled: bool = True) -> None:
+    def trace_execution(self, enabled: bool = True) -> None:
         # Execute trace_execution operation
-        Enable or disable execution tracing.
+        """Enable or disable execution tracing.
         
         Args:
             enabled (bool): Enable tracing if True
+        """
         ...
 @runtime_checkable
 class Profiler(Protocol):
@@ -268,29 +284,32 @@ class Profiler(Protocol):
     
     def start_profiling(self, context: str = "default") -> None:
         # Execute start_profiling operation
-        Start profiling session.
+        """Start profiling session.
         
         Args:
             context (str): Profiling context identifier
+        """
         ...
     
-        def stop_profiling(self, context: str = "default") -> Dict[str, Any]:
+    def stop_profiling(self, context: str = "default") -> Dict[str, Any]:
         # Execute stop_profiling operation
-        Stop profiling and get results.
+        """Stop profiling and get results.
         
         Args:
             context (str): Profiling context identifier
             
         Returns:
             Dict[str, Any]: Profiling results
+        """
         ...
     
-        def get_metrics(self) -> Dict[str, Any]:
+    def get_metrics(self) -> Dict[str, Any]:
         # Execute get_metrics operation
-        Get current profiling metrics.
+        """Get current profiling metrics.
         
         Returns:
             Dict[str, Any]: Current metrics
+        """
         ...
 @runtime_checkable
 class Serializable(Protocol):
@@ -298,26 +317,29 @@ class Serializable(Protocol):
     
     def to_dict(self) -> Dict[str, Any]:
         # Execute to_dict operation
-        Serialize component to dictionary.
+        """Serialize component to dictionary.
         
         Returns:
             Dict[str, Any]: Serialized component data
+        """
         ...
     
-        def from_dict(self, data: Dict[str, Any]) -> None:
+    def from_dict(self, data: Dict[str, Any]) -> None:
         # Execute from_dict operation
-        Deserialize component from dictionary.
+        """Deserialize component from dictionary.
         
         Args:
             data (Dict[str, Any]): Serialized component data
+        """
         ...
     
-        def to_json(self) -> str:
+    def to_json(self) -> str:
         # Execute to_json operation
-        Serialize component to JSON string.
+        """Serialize component to JSON string.
         
         Returns:
             str: JSON representation
+        """
         ...
 @runtime_checkable
 class Cacheable(Protocol):
@@ -325,7 +347,7 @@ class Cacheable(Protocol):
     
     def get_cache_key(self, *args, **kwargs) -> str:
         # Execute get_cache_key operation
-        Generate cache key for given arguments.
+        """Generate cache key for given arguments.
         
         Args:
             *args: Positional arguments
@@ -333,30 +355,33 @@ class Cacheable(Protocol):
             
         Returns:
             str: Cache key
+        """
         ...
     
-        def get_from_cache(self, key: str) -> Optional[Any]:
+    def get_from_cache(self, key: str) -> Optional[Any]:
         # Execute get_from_cache operation
-        Get value from cache.
+        """Get value from cache.
         
         Args:
             key (str): Cache key
             
         Returns:
             Optional[Any]: Cached value or None
+        """
         ...
     
-        def put_in_cache(self, key: str, value: Any, ttl: Optional[int] = None) -> None:
+    def put_in_cache(self, key: str, value: Any, ttl: Optional[int] = None) -> None:
         # Execute put_in_cache operation
-        Put value in cache.
+        """Put value in cache.
         
         Args:
             key (str): Cache key
             value (Any): Value to cache
             ttl (Optional[int]): Time to live in seconds
+        """
         ...
     
-        def clear_cache(self) -> None:
+    def clear_cache(self) -> None:
         # Execute clear_cache operation
         ...
 
@@ -369,7 +394,7 @@ class ComponentLifecycle(ABC):
     with hooks for initialization, configuration, validation, and cleanup.
     """
     
-def __init__(self) -> Any:
+    def __init__(self) -> Any:
         # Execute __init__ operation
         self._is_initialized: bool = False  # Initialization status
         self._is_configured: bool = False  # Configuration status
@@ -378,26 +403,28 @@ def __init__(self) -> Any:
         
         logger.debug(f"ComponentLifecycle initialized for {self.__class__.__name__}")
 
-        @abstractmethod
-        def _do_initialize(self, config: Dict[str, Any]) -> None:
+    @abstractmethod
+    def _do_initialize(self, config: Dict[str, Any]) -> None:
         # Execute _do_initialize operation
-        Component-specific initialization logic.
+        """Component-specific initialization logic.
         
         Args:
             config (Dict[str, Any]): Initialization configuration
+        """
         pass
 
-        @abstractmethod
-        def _do_cleanup(self) -> None:
+    @abstractmethod
+    def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
         pass
 
-        def initialize(self, config: Dict[str, Any]) -> None:
+    def initialize(self, config: Dict[str, Any]) -> None:
         # Execute initialize operation
-        Initialize component with thread-safe guarantees.
+        """Initialize component with thread-safe guarantees.
         
         Args:
             config (Dict[str, Any]): Initialization configuration
+        """
         with self._initialization_lock:
             if self._is_initialized:
                 logger.warning(f"{self.__class__.__name__} already initialized")
@@ -410,7 +437,7 @@ def __init__(self) -> Any:
             
             logger.info(f"{self.__class__.__name__} initialized successfully")
 
-        def cleanup(self) -> None:
+    def cleanup(self) -> None:
         # Execute cleanup operation
         with self._initialization_lock:
             if not self._is_initialized:
@@ -422,17 +449,17 @@ def __init__(self) -> Any:
             
             logger.info(f"{self.__class__.__name__} cleaned up successfully")
 
-        @property
-        def is_initialized(self) -> bool:
+    @property
+    def is_initialized(self) -> bool:
         # Execute is_initialized operation
         return self._is_initialized
 
-        @property
-        def is_configured(self) -> bool:
+    @property
+    def is_configured(self) -> bool:
         # Execute is_configured operation
         return self._is_configured
 
-        def get_config(self) -> Dict[str, Any]:
+    def get_config(self) -> Dict[str, Any]:
         # Execute get_config operation
         return self._config.copy()
 
@@ -445,7 +472,7 @@ class EventDrivenComponent(ComponentLifecycle):
     thread-safe event handling and listener management.
     """
     
-def __init__(self) -> Any:
+    def __init__(self) -> Any:
         # Execute __init__ operation
         super().__init__()
         self._event_listeners: Dict[str, List[Callable]] = {}  # Event listeners registry
@@ -453,14 +480,15 @@ def __init__(self) -> Any:
         
         logger.debug(f"EventDrivenComponent initialized for {self.__class__.__name__}")
 
-        def emit(self, event: str, *args, **kwargs) -> None:
+    def emit(self, event: str, *args, **kwargs) -> None:
         # Execute emit operation
-        Emit event to all registered listeners.
+        """Emit event to all registered listeners.
         
         Args:
             event (str): Event name
             *args: Positional arguments to pass to listeners
             **kwargs: Keyword arguments to pass to listeners
+        """
         with self._event_lock:
             listeners = self._event_listeners.get(event, [])
             
@@ -470,13 +498,14 @@ def __init__(self) -> Any:
                 except Exception as e:
                     logger.error(f"Event listener error for '{event}': {e}")
 
-        def add_listener(self, event: str, callback: Callable) -> None:
+    def add_listener(self, event: str, callback: Callable) -> None:
         # Execute add_listener operation
-        Add event listener.
+        """Add event listener.
         
         Args:
             event (str): Event name
             callback (Callable): Callback function
+        """
         with self._event_lock:
             if event not in self._event_listeners:
                 self._event_listeners[event] = []
@@ -484,13 +513,14 @@ def __init__(self) -> Any:
             self._event_listeners[event].append(callback)
             logger.debug(f"Added listener for event '{event}'")
 
-        def remove_listener(self, event: str, callback: Callable) -> None:
+    def remove_listener(self, event: str, callback: Callable) -> None:
         # Execute remove_listener operation
-        Remove event listener.
+        """Remove event listener.
         
         Args:
             event (str): Event name  
             callback (Callable): Callback function to remove
+        """
         with self._event_lock:
             if event in self._event_listeners:
                 try:
@@ -499,67 +529,69 @@ def __init__(self) -> Any:
                 except ValueError:
                     logger.warning(f"Listener not found for event '{event}'")
 
-        def get_listener_count(self, event: str) -> int:
+    def get_listener_count(self, event: str) -> int:
         # Execute get_listener_count operation
-        Get number of listeners for event.
+        """Get number of listeners for event.
         
         Args:
             event (str): Event name
             
         Returns:
             int: Number of listeners
+        """
         with self._event_lock:
             return len(self._event_listeners.get(event, []))
 
 
-        @dataclass
-        class ComponentMetadata:
-        name: str  # Component name
-        version: str  # Component version
-        description: str  # Component description
-        author: str  # Component author
-        dependencies: List[str]  # Component dependencies
-        interfaces: List[str]  # Implemented interfaces
-        capabilities: List[str]  # Component capabilities
-        config_schema: Dict[str, Any]  # Configuration schema
-        created_at: float  # Creation timestamp
-        updated_at: float  # Last update timestamp
+@dataclass
+class ComponentMetadata:
+    """Metadata for framework components."""
+    name: str  # Component name
+    version: str  # Component version
+    description: str  # Component description
+    author: str  # Component author
+    dependencies: List[str]  # Component dependencies
+    interfaces: List[str]  # Implemented interfaces
+    capabilities: List[str]  # Component capabilities
+    config_schema: Dict[str, Any]  # Configuration schema
+    created_at: float  # Creation timestamp
+    updated_at: float  # Last update timestamp
 
 
-        def implements_interface(component: Any, interface: type) -> bool:
-            # Execute implements_interface operation
-
-        Check if component implements given interface protocol.
+def implements_interface(component: Any, interface: type) -> bool:
+    # Execute implements_interface operation
+    """Check if component implements given interface protocol.
     
-        Args:
+    Args:
         component (Any): Component instance to check
         interface (type): Interface protocol to check against
         
-        Returns:
+    Returns:
         bool: True if component implements interface
-        return isinstance(component, interface)
+    """
+    return isinstance(component, interface)
 
 
-        def get_implemented_interfaces(component: Any) -> List[str]:
-            # Execute get_implemented_interfaces operation
-
-        Get list of interfaces implemented by component.
+def get_implemented_interfaces(component: Any) -> List[str]:
+    # Execute get_implemented_interfaces operation
+    """Get list of interfaces implemented by component.
     
-        Args:
+    Args:
         component (Any): Component instance to analyze
         
-        Returns:
+    Returns:
         List[str]: List of interface names
-        interfaces = []
+    """
+    interfaces: List[str] = []
     
-        # Check against all known interfaces
-        interface_types = [
+    # Check against all known interfaces
+    interface_types: List[type] = [
         Initializable, Cleanupable, Configurable, Validatable,
         Executable, Plugin, ContextManager, EventEmitter,
         Debuggable, Profiler, Serializable, Cacheable
-        ]
+    ]
     
-        for interface_type in interface_types:
+    for interface_type in interface_types:
         if isinstance(component, interface_type):
             interfaces.append(interface_type.__name__)
     

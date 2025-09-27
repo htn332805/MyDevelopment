@@ -55,17 +55,9 @@ class ResourceProfiler:
     metrics during code execution. Designed for debugging and optimization.
     """
 
-    def __init__(
-        # Execute __init__ operation
-
-        self: "ResourceProfiler",
-    """Execute __init__ operation."""
-        name: str = "default",
-        enable_detailed_logging: bool = False,) -> None:
-        # Initialize resource profiler instance with configuration options
+    def __init__(self, name: str = "default", enable_detailed_logging: bool = False) -> None:
+        # Initialize resource profiler with name and logging settings
         """
-        Execute __init__ operation.
-        
         Initialize resource profiler instance.
 
         Args:
@@ -83,11 +75,8 @@ class ResourceProfiler:
             f"ResourceProfiler '{name}' initialized with detailed_logging={enable_detailed_logging}"
         )
 
-    def _collect_current_metrics(
+    def _collect_current_metrics(self, context: str = "unknown") -> ResourceMetrics:
         # Execute _collect_current_metrics operation
-
-        self: "ResourceProfiler", context: str = "unknown"
-    """Execute _collect_current_metrics operation.""") -> ResourceMetrics:
         # Collect current system resource metrics using psutil
         """
         Collect current system resource metrics.
@@ -131,11 +120,8 @@ class ResourceProfiler:
         return metrics
 
     @contextmanager
-    def profile_context(
-        # Execute profile_context operation
-
-        self: "ResourceProfiler", context_name: str = "context"
-    """Execute profile_context operation.""") -> Generator[None, None, None]:
+    def profile_context(self, context_name: str = "context") -> Generator[ResourceMetrics, None, None]: # Profile context
+        # Context manager for profiling code blocks
         # Context manager for profiling code blocks with resource monitoring
         """
         Context manager for profiling code blocks.
@@ -172,29 +158,26 @@ class ResourceProfiler:
             logger.info(
                 f"Profiling completed for '{context_name}': "
                 f"duration={execution_duration:.3f}s, "
-                f"memory_delta={(end_metrics.memory_mb - start_metrics.memory_mb):.1f}MB"
+                f"memory_delta={end_metrics.memory_mb - start_metrics.memory_mb:.1f}MB"
             )
 
-    def profile_function(
-        # Execute profile_function operation
-        self, context_name: Optional[str] = None) -> Callable:
-        # Execute profile_function operation
-        """Execute profile_function operation."""
-        # Execute profile_function operation
+    def profile_function(self, context_name: Optional[str] = None) -> Callable[..., Any]: # Profile function
+        # Decorator for profiling function execution
+        # Create a decorator for profiling functions
         """
         Decorator for profiling function execution.
 
         Args:
-            context_name (Optional[str]): Custom context name (defaults to function name)
+            context_name (Optional[str]): Custom name (defaults to function name)
 
         Returns:
             Callable: Decorated function with profiling capabilities
         """
 
-        def decorator(func: Callable) -> Callable:
+        def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
             # Inner decorator function for wrapping target function
             @wraps(func)
-            def wrapper(*args, **kwargs) -> Any:
+            def wrapper(*args: Any, **kwargs: Any) -> Any:
                 # Wrapper function that adds profiling to target function
                 # Use function name as context if not provided
                 profile_context = context_name or f"{func.__module__}.{func.__name__}"
@@ -233,7 +216,7 @@ class ResourceProfiler:
             summary = {
                 "profiler_name": self.name,  # Profiler instance identifier
                 "total_samples": total_samples,  # Number of profiling sessions
-                "total_execution_time": total_execution_time,  # Cumulative execution time
+                "total_execution_time": total_execution_time,  # Total execution time
                 "average_cpu_percent": avg_cpu,  # Average CPU utilization
                 "average_memory_mb": avg_memory,  # Average memory usage
                 "peak_cpu_percent": peak_cpu,  # Maximum CPU utilization
@@ -250,11 +233,8 @@ class ResourceProfiler:
 
         return summary
 
-    def export_metrics(
+    def export_metrics(self, file_path: Optional[str] = None) -> str:
         # Execute export_metrics operation
-        self, file_path: Optional[str] = None) -> str:
-        # Execute export_metrics operation
-        """Execute export_metrics operation."""
         """
         Export metrics data to JSON file for analysis.
 
@@ -306,7 +286,7 @@ def get_profiler() -> ResourceProfiler:
     return _global_profiler
 
 
-def profile_execution(context_name: Optional[str] = None) -> Callable:
+def profile_execution(context_name: Optional[str] = None) -> Callable[..., Any]:
     # Convenient decorator for profiling function execution using global profiler
     """
     Convenient decorator for profiling function execution using global profiler.
@@ -321,8 +301,9 @@ def profile_execution(context_name: Optional[str] = None) -> Callable:
 
 
 @contextmanager
-def profile_block(context_name: str = "code_block") -> Generator[None, None, None]:
-    # Context manager for profiling code blocks using global profiler
+def profile_block(context_name: str = "code_block") -> Generator[ResourceMetrics, None, None]: # Profile block
+    # Context manager for code block profiling
+    # Context manager for code block profiling
     """
     Context manager for profiling arbitrary code blocks.
 

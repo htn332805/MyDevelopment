@@ -17,17 +17,14 @@ Integrates with profiler for comprehensive performance analysis.
 import time
 import threading
 import psutil
-import queue
 import statistics
-from typing import Dict, Any, List, Optional, Callable, NamedTuple
+from typing import Dict, Any, List, Optional, Callable
 from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta
 from collections import deque
 from enum import Enum
 
 # Import Framework0 components
-from src.core.logger import get_logger, log_resource_usage
-from src.core.profiler import ResourceMetrics
+from src.core.logger import get_logger
 
 # Initialize logger
 logger = get_logger(__name__)
@@ -102,12 +99,9 @@ class ResourceMonitor:
     configurable thresholds, alerting, and historical data collection.
     """
 
-    def __init__(self, polling_interval: float = 1.0,
-        # Execute __init__ operation
-
-                 history_size: int = 3600,
-                 thresholds: Optional[ResourceThresholds] = None,
-                 enable_process_monitoring: bool = True) -> None:
+    def __init__(self, collection_interval: float = 1.0, history_size: int = 3600, thresholds: Optional[ResourceThresholds] = None, enable_process_monitoring: bool = True) -> None:
+        # Initialize resource monitor with specified parameters
+        # Initialize resource monitor with specified parameters
         # Execute __init__ operation
         """Initialize resource monitor.
         
@@ -120,7 +114,8 @@ class ResourceMonitor:
         self.collection_interval = collection_interval  # Collection frequency
         self.history_size = history_size  # Historical data retention
         self.thresholds = thresholds or ResourceThresholds()  # Alert thresholds
-        self.enable_process_monitoring = enable_process_monitoring  # Process monitoring flag
+        # Process monitoring flag
+        self.enable_process_monitoring = enable_process_monitoring
         
         # Monitoring state
         self._monitoring = False  # Monitoring active flag
@@ -128,21 +123,26 @@ class ResourceMonitor:
         self._stop_event = threading.Event()  # Stop monitoring event
         
         # Data storage
-        self._system_metrics: deque = deque(maxlen=history_size)  # System metrics history
-        self._process_metrics: Dict[int, deque] = {}  # Process metrics by PID
-        self._alerts: deque = deque(maxlen=1000)  # Alert history
+        # System metrics history
+        self._system_metrics: deque = deque(maxlen=history_size)
+        # Process metrics by PID
+        self._process_metrics: Dict[int, deque] = {}
+        # Alert history
+        self._alerts: deque = deque(maxlen=1000)
         
         # Thread safety
         self._lock = threading.RLock()  # Data access lock
         
         # Alert callbacks
-        self._alert_callbacks: List[Callable[[ResourceAlert], None]] = []  # Alert handlers
+        # Alert handlers
+        self._alert_callbacks: List[Callable[[ResourceAlert], None]] = []
         
         logger.info(f"ResourceMonitor initialized: interval={collection_interval}s, "
-                   f"history_size={history_size}")
+                    f"history_size={history_size}")
 
-        def start_monitoring(self) -> None:
+    def start_monitoring(self) -> None:
         # Execute start_monitoring operation
+        """Start resource monitoring in a background thread."""
         if self._monitoring:
             logger.warning("Resource monitoring already started")
             return
@@ -160,8 +160,9 @@ class ResourceMonitor:
         
         logger.info("Resource monitoring started")
 
-        def stop_monitoring(self) -> None:
+    def stop_monitoring(self) -> None:
         # Execute stop_monitoring operation
+        """Stop resource monitoring and clean up monitoring thread."""
         if not self._monitoring:
             logger.warning("Resource monitoring not active")
             return
@@ -175,8 +176,9 @@ class ResourceMonitor:
         
         logger.info("Resource monitoring stopped")
 
-        def _monitoring_loop(self) -> None:
+    def _monitoring_loop(self) -> None:
         # Execute _monitoring_loop operation
+        """Main monitoring loop that runs in a background thread."""
         logger.debug("Resource monitoring loop started")
         
         while not self._stop_event.is_set():
@@ -377,8 +379,22 @@ class ResourceMonitor:
                 except Exception as e:
                     logger.error(f"Alert callback failed: {e}")
 
-    def _create_alert(self, level -> Any: AlertLevel, resource_type: str, 
-        # Execute _create_alert operation                     current_value: float, threshold: float, message: str) -> ResourceAlert:
+    def _create_alert(self, level: AlertLevel, resource_type: str, current_value: float, threshold: float, message: str) -> ResourceAlert:
+        # Create resource alert notification object
+        # Create resource alert notification object
+        # Execute _create_alert operation
+        """Create a resource alert object.
+        
+        Args:
+            level (AlertLevel): Alert severity level
+            resource_type (str): Type of resource (cpu, memory, disk)
+            current_value (float): Current resource value
+            threshold (float): Threshold that was exceeded
+            message (str): Alert message
+            
+        Returns:
+            ResourceAlert: Created alert object
+        """
         return ResourceAlert(
             timestamp=time.time(),
             level=level,
@@ -389,20 +405,42 @@ class ResourceMonitor:
             metadata={"collection_interval": self.collection_interval}
         )
 
-        def get_current_metrics(self) -> Optional[SystemMetrics]:
+    def get_current_metrics(self) -> Optional[SystemMetrics]:
         # Execute get_current_metrics operation
+        """Get the most recent system metrics.
+        
+        Returns:
+            Optional[SystemMetrics]: Latest system metrics or None if not available
+        """
         with self._lock:
             return self._system_metrics[-1] if self._system_metrics else None
 
-        def get_metrics_history(self, minutes: int = 60) -> List[SystemMetrics]:
+    def get_metrics_history(self, minutes: int = 60) -> List[SystemMetrics]:
         # Execute get_metrics_history operation
+        """Get historical system metrics for the specified time period.
+        
+        Args:
+            minutes (int): Number of minutes of history to retrieve
+            
+        Returns:
+            List[SystemMetrics]: List of system metrics within the time period
+        """
         cutoff_time = time.time() - (minutes * 60)
         
         with self._lock:
             return [m for m in self._system_metrics if m.timestamp >= cutoff_time]
 
-        def get_process_metrics(self, pid: int, minutes: int = 60) -> List[ProcessMetrics]:
+    def get_process_metrics(self, pid: int, minutes: int = 60) -> List[ProcessMetrics]:
         # Execute get_process_metrics operation
+        """Get historical process metrics for a specific process.
+        
+        Args:
+            pid (int): Process ID to get metrics for
+            minutes (int): Number of minutes of history to retrieve
+            
+        Returns:
+            List[ProcessMetrics]: List of process metrics within the time period
+        """
         cutoff_time = time.time() - (minutes * 60)
         
         with self._lock:
@@ -411,8 +449,20 @@ class ResourceMonitor:
             
             return [m for m in self._process_metrics[pid] if m.timestamp >= cutoff_time]
 
-        def get_top_processes(self, by: str = "cpu", limit: int = 10) -> List[ProcessMetrics]:
+    def get_top_processes(self, by: str = "cpu", limit: int = 10) -> List[ProcessMetrics]:
         # Execute get_top_processes operation
+        """Get top resource-consuming processes.
+        
+        Args:
+            by (str): Sort criteria ('cpu' or 'memory')
+            limit (int): Maximum number of processes to return
+            
+        Returns:
+            List[ProcessMetrics]: List of top process metrics
+            
+        Raises:
+            ValueError: If sort criteria is invalid
+        """
         if by not in ["cpu", "memory"]:
             raise ValueError("Sort criteria must be 'cpu' or 'memory'")
         
@@ -431,8 +481,17 @@ class ResourceMonitor:
             
             return latest_metrics[:limit]
 
-    def get_alerts(self, level -> Any: Optional[AlertLevel] = None, 
-        # Execute get_alerts operation                  minutes: int = 60) -> List[ResourceAlert]:
+    def get_alerts(self, level: Optional[AlertLevel] = None, minutes: int = 60) -> List[ResourceAlert]:
+        # Execute get_alerts operation
+        """Get resource alerts within the specified time period.
+        
+        Args:
+            level (Optional[AlertLevel]): Filter alerts by severity level
+            minutes (int): Number of minutes of history to retrieve
+            
+        Returns:
+            List[ResourceAlert]: List of alerts within the time period
+        """
         cutoff_time = time.time() - (minutes * 60)
         
         with self._lock:
@@ -443,13 +502,26 @@ class ResourceMonitor:
             
             return list(alerts)
 
-        def add_alert_callback(self, callback: Callable[[ResourceAlert], None]) -> None:
+    def add_alert_callback(self, callback: Callable[[ResourceAlert], None]) -> None:
         # Execute add_alert_callback operation
+        """Add a callback function to be called when alerts are generated.
+        
+        Args:
+            callback (Callable[[ResourceAlert], None]): Alert handler function
+        """
         self._alert_callbacks.append(callback)
         logger.debug(f"Added alert callback: {callback.__name__}")
 
-        def generate_performance_report(self, minutes: int = 60) -> Dict[str, Any]:
+    def generate_performance_report(self, minutes: int = 60) -> Dict[str, Any]:
         # Execute generate_performance_report operation
+        """Generate a comprehensive performance report.
+        
+        Args:
+            minutes (int): Number of minutes of history to analyze
+            
+        Returns:
+            Dict[str, Any]: Performance report data
+        """
         metrics_history = self.get_metrics_history(minutes)
         
         if not metrics_history:
@@ -490,8 +562,13 @@ class ResourceMonitor:
         
         return report
 
-        def cleanup_old_data(self, older_than_hours: int = 24) -> None:
+    def cleanup_old_data(self, older_than_hours: int = 24) -> None:
         # Execute cleanup_old_data operation
+        """Clean up old monitoring data and terminated process metrics.
+        
+        Args:
+            older_than_hours (int): Age threshold for data cleanup in hours
+        """
         cutoff_time = time.time() - (older_than_hours * 3600)
         
         with self._lock:
@@ -512,50 +589,60 @@ class ResourceMonitor:
             logger.debug(f"Cleaned up metrics for {len(dead_pids)} terminated processes")
 
 
-        # Global resource monitor instance
-        _global_monitor: Optional[ResourceMonitor] = None
+# Global resource monitor instance
+_global_monitor: Optional[ResourceMonitor] = None
 
 
-        def get_resource_monitor(*, auto_start: bool = True) -> ResourceMonitor:
-        # Execute get_resource_monitor operation
-        Get global resource monitor instance.
+def get_resource_monitor(*, auto_start: bool = True) -> ResourceMonitor:
+    # Execute get_resource_monitor operation
+    """Get global resource monitor instance.
     
-        Args:
+    Args:
         auto_start (bool): Automatically start monitoring if not active
         
-        Returns:
+    Returns:
         ResourceMonitor: Global resource monitor instance
-        global _global_monitor
-    
-        if _global_monitor is None:
+    """
+    global _global_monitor
+
+    if _global_monitor is None:
         _global_monitor = ResourceMonitor()
         
-        if auto_start and not _global_monitor._monitoring:
+    if auto_start and not _global_monitor._monitoring:
         _global_monitor.start_monitoring()
         
-        return _global_monitor
+    return _global_monitor
 
 
-        def start_resource_monitoring() -> None:
-        # Execute start_resource_monitoring operation
-        monitor = get_resource_monitor()
-        monitor.start_monitoring()
+def start_resource_monitoring() -> None:
+    # Execute start_resource_monitoring operation
+    """Start global resource monitoring."""
+    monitor = get_resource_monitor()
+    monitor.start_monitoring()
 
 
-        def stop_resource_monitoring() -> None:
-            # Execute stop_resource_monitoring operation
-
-        if _global_monitor:
+def stop_resource_monitoring() -> None:
+    # Execute stop_resource_monitoring operation
+    """Stop global resource monitoring."""
+    if _global_monitor:
         _global_monitor.stop_monitoring()
 
 
-        def get_current_system_metrics() -> Optional[SystemMetrics]:
-            # Execute get_current_system_metrics operation
+def get_current_system_metrics() -> Optional[SystemMetrics]:
+    # Execute get_current_system_metrics operation
+    """Get current system metrics from the global monitor.
+    
+    Returns:
+        Optional[SystemMetrics]: Latest system metrics or None if not available
+    """
+    return get_resource_monitor().get_current_metrics()
 
-        return get_resource_monitor().get_current_metrics()
 
-
-        def add_resource_alert_callback(callback: Callable[[ResourceAlert], None]) -> None:
-            # Execute add_resource_alert_callback operation
-
-        get_resource_monitor().add_alert_callback(callback)
+def add_resource_alert_callback(callback: Callable[[ResourceAlert], None]) -> None:
+    # Execute add_resource_alert_callback operation
+    """Add a callback to be called when resource alerts are generated.
+    
+    Args:
+        callback (Callable[[ResourceAlert], None]): Alert handler function
+    """
+    get_resource_monitor().add_alert_callback(callback)

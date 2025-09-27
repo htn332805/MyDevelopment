@@ -18,15 +18,13 @@ import functools
 import threading
 import hashlib
 import pickle
-from typing import Any, Callable, Dict, List, Optional, Union, TypeVar, ParamSpec
+from typing import Any, Callable, Dict, List, Optional, TypeVar, ParamSpec
 from dataclasses import dataclass
-from contextlib import contextmanager
 
 # Import Framework0 components
 from src.core.logger import get_logger, log_performance_metrics
 from src.core.profiler import get_profiler, ResourceProfiler
 from src.core.debug_toolkit import get_debug_toolkit
-from src.core.context_v2 import ContextV2
 
 # Type variables for generic decorator support
 F = TypeVar('F', bound=Callable[..., Any])
@@ -47,30 +45,32 @@ class CacheEntry:
 
 
 class EnhancedCache:
-        """
+    """
     Thread-safe cache with TTL and size limits.
     
     Provides advanced caching capabilities with automatic cleanup,
     statistics tracking, and configurable eviction policies.
-        """
+    """
 
-    def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> Any:
-        # Execute __init__ operation
+    def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0) -> None:
+        # Initialize enhanced cache with size limit and time-to-live
+        """
         Initialize enhanced cache.
         
         Args:
             max_size (int): Maximum number of cached entries
             default_ttl (float): Default time-to-live in seconds
+        """
         self.max_size = max_size  # Maximum cache entries
         self.default_ttl = default_ttl  # Default TTL in seconds
         self._cache: Dict[str, CacheEntry] = {}  # Cache storage
         self._lock = threading.RLock()  # Thread safety
         self._stats = {"hits": 0, "misses": 0, "evictions": 0}  # Cache statistics
         
-        logger.debug(f"EnhancedCache initialized: max_size={max_size}, ttl={default_ttl}")
+        logger.debug(f"EnhancedCache initialized: size={max_size}, ttl={default_ttl}")
 
-        def _generate_key(self, func: Callable, args: tuple, kwargs: dict) -> str:
-        # Execute _generate_key operation
+    def _generate_key(self, func: Callable, args: tuple, kwargs: dict) -> str:
+        # Generate a unique cache key based on function and arguments
         key_data = {
             'function': f"{func.__module__}.{func.__name__}",
             'args': args,
@@ -81,8 +81,8 @@ class EnhancedCache:
         key_bytes = pickle.dumps(key_data, protocol=pickle.HIGHEST_PROTOCOL)
         return hashlib.sha256(key_bytes).hexdigest()
 
-        def get(self, key: str, *, ttl: Optional[float] = None) -> Optional[Any]:
-        # Execute get operation
+    def get(self, key: str, *, ttl: Optional[float] = None) -> Optional[Any]:
+        # Retrieve a value from cache with optional ttl override
         with self._lock:
             if key not in self._cache:
                 self._stats["misses"] += 1
@@ -105,8 +105,8 @@ class EnhancedCache:
             
             return entry.value
 
-        def set(self, key: str, value: Any) -> None:
-        # Execute set operation
+    def set(self, key: str, value: Any) -> None:
+        # Store a value in cache with current timestamp
         with self._lock:
             current_time = time.time()
             
@@ -122,26 +122,29 @@ class EnhancedCache:
                 last_accessed=current_time
             )
 
-        def _evict_lru(self) -> None:
-        # Execute _evict_lru operation
+    def _evict_lru(self) -> None:
+        # Evict least recently used cache entry
         if not self._cache:
             return
         
         # Find LRU entry
-        lru_key = min(self._cache.keys(), 
-                     key=lambda k: self._cache[k].last_accessed)
+        lru_key = min(
+            self._cache.keys(),
+            key=lambda k: self._cache[k].last_accessed
+        )
         
         del self._cache[lru_key]
         self._stats["evictions"] += 1
         
         logger.debug(f"Evicted LRU cache entry: {lru_key}")
 
-        def get_stats(self) -> Dict[str, Any]:
-        # Execute get_stats operation
+    def get_stats(self) -> Dict[str, Any]:
+        # Get cache statistics including hit rate
         with self._lock:
-            hit_rate = (self._stats["hits"] / 
-                       (self._stats["hits"] + self._stats["misses"])
-                       if self._stats["hits"] + self._stats["misses"] > 0 else 0)
+            hit_rate = (
+                self._stats["hits"] / (self._stats["hits"] + self._stats["misses"])
+                if self._stats["hits"] + self._stats["misses"] > 0 else 0
+            )
             
             return {
                 **self._stats,
@@ -151,28 +154,32 @@ class EnhancedCache:
             }
 
 
-        # Global cache instance
-        _global_cache = EnhancedCache()
+# Global cache instance
+_global_cache = EnhancedCache()
 
 
-        def monitor_resources(*, profiler -> Any: Optional[ResourceProfiler] = None,
-        # Execute monitor_resources operation                     log_metrics: bool = True) -> Callable[[F], F]:
-        Decorator for comprehensive resource monitoring.
+def monitor_resources(*, profiler: Optional[ResourceProfiler] = None, log_metrics: bool = True) -> Callable[[F], F]:
+    # Monitor resource usage during function execution
+    """
+    Decorator for comprehensive resource monitoring.
     
-        Args:
+    Args:
         profiler (Optional[ResourceProfiler]): Custom profiler instance
         log_metrics (bool): Log performance metrics
         
-        Returns:
+    Returns:
         Callable: Resource monitoring decorator
-        def decorator(func: F) -> F:
-        # Execute decorator operation
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with resource monitoring
+        # Execute decorator operation with profiler
         active_profiler = profiler or get_profiler()
         
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
-        # Execute wrapper operation
-        context_name = f"{func.__module__}.{func.__name__}"
+            # Execute function with resource tracking
+            # Execute wrapper operation with profiling
+            context_name = f"{func.__module__}.{func.__name__}"
             
             with active_profiler.profile_context(context_name) as metrics:
                 start_time = time.time()
@@ -193,33 +200,39 @@ class EnhancedCache:
                     
                 except Exception as e:
                     duration = time.time() - start_time
-                    logger.error(f"Function {func.__name__} failed after {duration:.3f}s: {e}")
+                    logger.error(
+                        f"Function {func.__name__} failed "
+                        f"after {duration:.3f}s: {e}"
+                    )
                     raise
-        
+            
         return wrapper
-        return decorator
+    return decorator
 
 
-        def debug_trace(*, capture_vars -> Any: Optional[List[str]] = None,
-        # Execute debug_trace operation               capture_all: bool = False,
-               breakpoint_condition: Optional[str] = None) -> Callable[[F], F]:
-        Decorator for advanced debug tracing with variable capture.
+def debug_trace(*, capture_vars: Optional[List[str]] = None, capture_all: bool = False, breakpoint_condition: Optional[str] = None) -> Callable[[F], F]:
+    # Trace function execution with variable capture
+    """
+    Decorator for advanced debug tracing with variable capture.
     
-        Args:
+    Args:
         capture_vars (Optional[List[str]]): Specific variables to capture
         capture_all (bool): Capture all local variables
         breakpoint_condition (Optional[str]): Conditional breakpoint expression
         
-        Returns:
+    Returns:
         Callable: Debug tracing decorator
-        def decorator(func: F) -> F:
-        # Execute decorator operation
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with debug tracing
+        # Execute decorator operation with debug toolkit
         toolkit = get_debug_toolkit()
         
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
-        # Execute wrapper operation
-        import inspect
+            # Execute function with debug tracing
+            # Execute wrapper operation with debug tracing
+            import inspect
             
             # Get function frame for variable access
             frame = inspect.currentframe()
@@ -241,7 +254,9 @@ class EnhancedCache:
             if breakpoint_condition:
                 try:
                     if eval(breakpoint_condition, frame.f_globals, local_vars):
-                        logger.info(f"DEBUG BREAKPOINT: {func.__name__} - {breakpoint_condition}")
+                        logger.info(
+                            f"DEBUG: {func.__name__} - {breakpoint_condition}"
+                        )
                         # Could trigger interactive debugger here
                 except Exception as e:
                     logger.error(f"Breakpoint condition evaluation failed: {e}")
@@ -256,34 +271,37 @@ class EnhancedCache:
     return decorator
 
 
-def enhanced_retry(*, max_attempts -> Any: int = 3, delay: float = 1.0,
-        # Execute enhanced_retry operation
-                  backoff_multiplier: float = 2.0,
-                  exceptions: tuple = (Exception,),
-                  on_retry: Optional[Callable] = None) -> Callable[[F], F]:
-        Enhanced retry decorator with exponential backoff and custom logic.
+def enhanced_retry(*, max_attempts: int = 3, delay: float = 1.0, backoff_multiplier: float = 2.0, exceptions: tuple = (Exception,), on_retry: Optional[Callable] = None) -> Callable[[F], F]:
+    # Retry failed function calls with backoff
+    """
+    Enhanced retry decorator with exponential backoff and custom logic.
     
-        Args:
+    Args:
         max_attempts (int): Maximum number of retry attempts
         delay (float): Initial delay between retries
         backoff_multiplier (float): Backoff multiplier for delays
         exceptions (tuple): Exception types to retry on
         on_retry (Optional[Callable]): Callback function on retry
         
-        Returns:
+    Returns:
         Callable: Enhanced retry decorator
-        def decorator(func: F) -> F:
-        # Execute decorator operation
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with retry mechanism
+        # Execute decorator operation with retry logic
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
-        # Execute wrapper operation
-        last_exception = None
+            # Execute function with retry handling
+            # Execute wrapper operation with retry handling
+            last_exception = None
             current_delay = delay
             
             for attempt in range(max_attempts):
                 try:
                     if attempt > 0:
-                        logger.info(f"Retry attempt {attempt + 1}/{max_attempts} for {func.__name__}")
+                        logger.info(
+                            f"Retry {attempt + 1}/{max_attempts} for {func.__name__}"
+                        )
                     
                     return func(*args, **kwargs)
                     
@@ -292,15 +310,19 @@ def enhanced_retry(*, max_attempts -> Any: int = 3, delay: float = 1.0,
                     
                     if attempt == max_attempts - 1:
                         # Final attempt failed
-                        logger.error(f"Function {func.__name__} failed after {max_attempts} attempts")
+                        logger.error(
+                            f"Func {func.__name__} failed after {max_attempts} tries"
+                        )
                         raise e
                     
                     # Execute retry callback if provided
                     if on_retry:
                         on_retry(attempt, e, current_delay)
                     
-                    logger.warning(f"Function {func.__name__} attempt {attempt + 1} failed: {e}. "
-                                 f"Retrying in {current_delay:.2f}s")
+                    logger.warning(
+                        f"Function {func.__name__} attempt {attempt + 1} failed: {e}. "
+                        f"Retrying in {current_delay:.2f}s"
+                    )
                     
                     time.sleep(current_delay)
                     current_delay *= backoff_multiplier
@@ -312,23 +334,27 @@ def enhanced_retry(*, max_attempts -> Any: int = 3, delay: float = 1.0,
     return decorator
 
 
-def cached(*, ttl -> Any: Optional[float] = None, cache: Optional[EnhancedCache] = None,
-        # Execute cached operation          key_func: Optional[Callable] = None) -> Callable[[F], F]:
-        Enhanced caching decorator with TTL and custom key generation.
+def cached(*, ttl: Optional[float] = None, cache: Optional[EnhancedCache] = None, key_func: Optional[Callable] = None) -> Callable[[F], F]:
+    # Cache function results with optional TTL
+    """
+    Enhanced caching decorator with TTL and custom key generation.
     
-        Args:
+    Args:
         ttl (Optional[float]): Time-to-live for cached entries
         cache (Optional[EnhancedCache]): Custom cache instance
         key_func (Optional[Callable]): Custom key generation function
         
-        Returns:
+    Returns:
         Callable: Caching decorator
-        def decorator(func: F) -> F:
-        # Execute decorator operation
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with caching
+        # Execute decorator operation with caching
         active_cache = cache or _global_cache
         
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
+            # Execute function with caching
             # Generate cache key
             if key_func:
                 cache_key = key_func(func, args, kwargs)
@@ -349,30 +375,35 @@ def cached(*, ttl -> Any: Optional[float] = None, cache: Optional[EnhancedCache]
             return result
         
         return wrapper
-        return decorator
+    return decorator
 
 
-        def context_aware(context_key -> Any: str, *,
-        # Execute context_aware operation                 auto_set_result: bool = False,
-                 require_context: bool = True) -> Callable[[F], F]:
-        Decorator for context-aware function execution.
+def context_aware(context_key: str, *, auto_set_result: bool = False, require_context: bool = True) -> Callable[[F], F]:
+    # Enable context-aware function execution
+    # Enable context-aware function execution
+    """
+    Decorator for context-aware function execution.
     
-        Args:
+    Args:
         context_key (str): Key to store/retrieve from context
         auto_set_result (bool): Automatically store result in context
         require_context (bool): Require context parameter
         
-        Returns:
+    Returns:
         Callable: Context-aware decorator
-        def decorator(func: F) -> F:
-        # Execute decorator operation
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with context awareness
+        # Execute decorator operation with context awareness
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
+            # Execute function with context
             # Look for context in kwargs
             context = kwargs.get('context')
             
             if context is None and require_context:
-                raise ValueError(f"Function {func.__name__} requires 'context' parameter")
+                msg = f"Function {func.__name__} requires 'context' parameter"
+                raise ValueError(msg)
             
             if context and hasattr(context, 'get'):
                 # Check if result already exists in context
@@ -395,26 +426,28 @@ def cached(*, ttl -> Any: Optional[float] = None, cache: Optional[EnhancedCache]
     return decorator
 
 
-def error_boundary(*, fallback_value -> Any: Any = None,
-        # Execute error_boundary operation                  on_error: Optional[Callable] = None,
-                  suppress_errors: bool = False,
-                  log_errors: bool = True) -> Callable[[F], F]:
-        Error boundary decorator with fallback and custom error handling.
+def error_boundary(*, fallback_value: Any = None, on_error: Optional[Callable] = None, suppress_errors: bool = False, log_errors: bool = True) -> Callable[[F], F]:
+    # Provide error handling and graceful failure
+    """
+    Error boundary decorator with fallback and custom error handling.
     
-        Args:
+    Args:
         fallback_value (Any): Value to return on error
         on_error (Optional[Callable]): Custom error handler
         suppress_errors (bool): Suppress exceptions and return fallback
         log_errors (bool): Log errors when they occur
         
-        Returns:
+    Returns:
         Callable: Error boundary decorator
-        def decorator(func: F) -> F:
-        # Execute decorator operation
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with error handling
+        # Execute decorator operation with error handling
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
-        # Execute wrapper operation
-        try:
+            # Execute function with error handling
+            # Execute wrapper operation with error handling
+            try:
                 return func(*args, **kwargs)
                 
             except Exception as e:
@@ -429,28 +462,32 @@ def error_boundary(*, fallback_value -> Any: Any = None,
                         logger.error(f"Error handler failed: {handler_error}")
                 
                 if suppress_errors:
-                    logger.info(f"Suppressing error in {func.__name__}, returning fallback")
+                    msg = f"Suppressing error in {func.__name__}, returning fallback"
+                    logger.info(msg)
                     return fallback_value
                 
                 # Re-raise original exception
                 raise e
         
         return wrapper
-        return decorator
+    return decorator
 
 
-        def rate_limit(*, calls_per_second -> Any: float = 10.0,
-        # Execute rate_limit operation              burst_size: int = 10) -> Callable[[F], F]:
-        Rate limiting decorator using token bucket algorithm.
+def rate_limit(*, calls_per_second: float = 10.0, burst_size: int = 10) -> Callable[[F], F]:
+    # Limit function call rate using token bucket algorithm
+    """
+    Rate limiting decorator using token bucket algorithm.
     
-        Args:
+    Args:
         calls_per_second (float): Maximum calls per second
         burst_size (int): Maximum burst size
         
-        Returns:
+    Returns:
         Callable: Rate limiting decorator
-        def decorator(func: F) -> F:
-        # Token bucket state
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with rate limiting
+        # Token bucket state for rate limiting
         bucket_state = {
             'tokens': float(burst_size),
             'last_update': time.time(),
@@ -459,21 +496,25 @@ def error_boundary(*, fallback_value -> Any: Any = None,
         
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
-        # Execute wrapper operation
-        with bucket_state['lock']:
+            # Execute function with rate limiting
+            # Execute wrapper operation with rate limiting
+            with bucket_state['lock']:
                 current_time = time.time()
                 time_passed = current_time - bucket_state['last_update']
                 
                 # Add tokens based on time passed
                 tokens_to_add = time_passed * calls_per_second
-                bucket_state['tokens'] = min(burst_size, 
-                                           bucket_state['tokens'] + tokens_to_add)
+                bucket_state['tokens'] = min(
+                    burst_size,
+                    bucket_state['tokens'] + tokens_to_add
+                )
                 bucket_state['last_update'] = current_time
                 
                 # Check if we have tokens available
                 if bucket_state['tokens'] < 1.0:
                     sleep_time = (1.0 - bucket_state['tokens']) / calls_per_second
-                    logger.debug(f"Rate limiting {func.__name__}, sleeping {sleep_time:.3f}s")
+                    msg = f"Rate limiting {func.__name__}, sleeping {sleep_time:.3f}s"
+                    logger.debug(msg)
                     time.sleep(sleep_time)
                     bucket_state['tokens'] = 0.0
                 else:
@@ -482,21 +523,24 @@ def error_boundary(*, fallback_value -> Any: Any = None,
             return func(*args, **kwargs)
         
         return wrapper
-        return decorator
+    return decorator
 
 
         # Composite decorators for common use cases
-        def full_monitoring(*, cache_ttl -> Any: Optional[float] = None,
-        # Execute full_monitoring operation                   max_retries: int = 3) -> Callable[[F], F]:
-        Composite decorator combining monitoring, caching, and retry logic.
+def full_monitoring(*, cache_ttl: Optional[float] = None, max_retries: int = 3) -> Callable[[F], F]:
+    # Combine monitoring, caching, retry and debug capabilities
+    """
+    Composite decorator combining monitoring, caching, and retry logic.
     
-        Args:
+    Args:
         cache_ttl (Optional[float]): Cache TTL for results
         max_retries (int): Maximum retry attempts
         
-        Returns:
+    Returns:
         Callable: Full monitoring decorator
-        def decorator(func: F) -> F:
+    """
+    def decorator(func: F) -> F:
+        # Wrap function with monitoring and retries
         # Apply decorators in reverse order (innermost first)
         decorated = func
         
@@ -518,37 +562,33 @@ def error_boundary(*, fallback_value -> Any: Any = None,
         
         return decorated
     
-        return decorator
+    return decorator
 
 
-        def get_cache_stats() -> Dict[str, Any]:
-        # Execute get_cache_stats operation
-        return _global_cache.get_stats()
+def get_cache_stats() -> Dict[str, Any]:
+    # Get statistics about cache usage
+    return _global_cache.get_stats()
 
 
-        def clear_cache() -> None:
-            # Execute clear_cache operation
-
-        with _global_cache._lock:
+def clear_cache() -> None:
+    # Clear all cached entries and reset statistics
+    with _global_cache._lock:
         _global_cache._cache.clear()
         _global_cache._stats = {"hits": 0, "misses": 0, "evictions": 0}
         logger.info("Global cache cleared")
 
 
         # Backward compatibility aliases from original decorators
-        def task_dependency(dependency_name: str) -> Callable[[F], F]:
-            # Execute task_dependency operation
-
-        return debug_trace(breakpoint_condition=f"'{dependency_name}' in locals()")
-
-
-        def task_retry(retries: int = 3, delay: int = 2) -> Callable[[F], F]:
-            # Execute task_retry operation
-
-        return enhanced_retry(max_attempts=retries, delay=float(delay), backoff_multiplier=1.0)
+def task_dependency(dependency_name: str) -> Callable[[F], F]:
+    # Legacy function for task dependency tracking
+    return debug_trace(breakpoint_condition=f"'{dependency_name}' in locals()")
 
 
-        def task_logging(func: F) -> F:
-            # Execute task_logging operation
+def task_retry(retries: int = 3, delay: int = 2) -> Callable[[F], F]:
+    # Legacy function for retry logic
+    return enhanced_retry(max_attempts=retries, delay=float(delay), backoff_multiplier=1.0)
 
-        return monitor_resources(log_metrics=True)(func)
+
+def task_logging(func: F) -> F:
+    # Legacy function for resource logging
+    return monitor_resources(log_metrics=True)(func)

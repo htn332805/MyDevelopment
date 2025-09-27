@@ -116,40 +116,41 @@ def __init__(d: str,
         checkpoint_interval: float = 1.0
         ) -> Any:
     # Execute __init__ operation
-    """Initialize advanced debug session."""
+    """Initialize advanced debug session.
         
-        Args:
-            session_id (str): Unique session identifier
-            enable_profiling (bool): Enable performance profiling
-            enable_memory_tracking (bool): Enable memory usage tracking
-            max_call_depth (int): Maximum call stack depth to track
-            checkpoint_interval (float): Automatic checkpoint interval in seconds
-        self.session_id = session_id  # Unique session identifier
-        self.start_time = time.time()  # Session start timestamp
-        self.enable_profiling = enable_profiling  # Performance profiling flag
-        self.enable_memory_tracking = enable_memory_tracking  # Memory tracking flag
-        self.max_call_depth = max_call_depth  # Maximum call depth
-        self.checkpoint_interval = checkpoint_interval  # Checkpoint frequency
-        
-        # Debug state management
-        self._contexts: Dict[str, DebugContext] = {}  # Debug contexts/checkpoints
-        self._call_stack: deque = deque(maxlen=max_call_depth)  # Current call stack
-        self._variable_tracker = VariableTracker()  # Enhanced variable tracking
-        self._performance_data: List[PerformanceMetrics] = []  # Performance history
-        self._error_history: List[Dict[str, Any]] = []  # Error tracking
-        self._thread_states: Dict[int, str] = {}  # Thread state tracking
-        
-        # Session management
-        self._is_active = True  # Session activity flag
-        self._last_checkpoint = time.time()  # Last checkpoint timestamp
-        self._profiler = ResourceProfiler(f"debug_session_{session_id}")  # Resource profiler
-        self._lock = threading.RLock()  # Thread safety
-        
-        logger.info(f"AdvancedDebugSession {session_id} initialized")
+    Args:
+        session_id (str): Unique session identifier
+        enable_profiling (bool): Enable performance profiling
+        enable_memory_tracking (bool): Enable memory usage tracking
+        max_call_depth (int): Maximum call stack depth to track
+        checkpoint_interval (float): Automatic checkpoint interval in seconds
+    """
+    self.session_id = session_id  # Unique session identifier
+    self.start_time = time.time()  # Session start timestamp
+    self.enable_profiling = enable_profiling  # Performance profiling flag
+    self.enable_memory_tracking = enable_memory_tracking  # Memory tracking flag
+    self.max_call_depth = max_call_depth  # Maximum call depth
+    self.checkpoint_interval = checkpoint_interval  # Checkpoint frequency
+    
+    # Debug state management
+    self._contexts: Dict[str, DebugContext] = {}  # Debug contexts/checkpoints
+    self._call_stack: deque = deque(maxlen=max_call_depth)  # Current call stack
+    self._variable_tracker = VariableTracker()  # Enhanced variable tracking
+    self._performance_data: List[PerformanceMetrics] = []  # Performance history
+    self._error_history: List[Dict[str, Any]] = []  # Error tracking
+    self._thread_states: Dict[int, str] = {}  # Thread state tracking
+    
+    # Session management
+    self._is_active = True  # Session activity flag
+    self._last_checkpoint = time.time()  # Last checkpoint timestamp
+    self._profiler = ResourceProfiler(f"debug_session_{session_id}")  # Resource profiler
+    self._lock = threading.RLock()  # Thread safety
+    
+    logger.info(f"AdvancedDebugSession {session_id} initialized")
 
-        def create_checkpoint(self, name: str, **custom_data) -> str:
+    def create_checkpoint(self, name: str, **custom_data) -> str:
         # Execute create_checkpoint operation
-        Create debug checkpoint with current execution state.
+        """Create debug checkpoint with current execution state.
         
         Args:
             name (str): Checkpoint name
@@ -157,6 +158,7 @@ def __init__(d: str,
             
         Returns:
             str: Checkpoint context ID
+        """
         with self._lock:
             context_id = f"{self.session_id}_{uuid.uuid4().hex[:8]}"
             

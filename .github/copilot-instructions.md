@@ -45,8 +45,8 @@ All generated code must adhere to these foundational principles:
 | **Compliance Tools**          | Must pass all linter and checker tools provided. |
 | **Auto-Generated Docs**       | Use `tools/documentation_updater.py` to refresh documentation. |
 | **Executable Code**           | All code must run with `source .venv/bin/activate` — no runtime errors allowed. |
-| **Zero compliance issue**           | All code must pass linter check 100% compliance — no runtime errors allowed. |
-| **Unit test**           | All code must run and pass Unit test — no runtime errors allowed. |
+| **Zero compliance issue**     | All code must pass linter check 100% compliance — no runtime errors allowed. |
+| **Unit test**                 | All code must run and pass Unit test — no runtime errors allowed. |
 ---
 
 ## 💡 Copilot Usage Guidance
@@ -106,6 +106,41 @@ All GitHub Copilot output must result in:
 -  Fully typed
 -  Inline-commented
 -  Isolated within its owning module (no external bleed)
+-  Uses `get_logger` with DEBUG flag and full I/O tracing
+-  Modular, SRP-compliant, and version-safe
+-  OS-agnostic (no hardcoded paths or platform-specific logic)
+-  No legacy method edits
+-  No side effects on import
+-  No scattered logic
+-  No unused imports or variables
+-  No print statements or direct user I/O
+-  No hardcoded secrets, credentials, or sensitive data
+-  No external calls without mocks in tests
+-  No global state or mutable defaults
+-  No complex one-liners or nested logic
+-  No lambda functions for complex logic
+-  No wildcard imports
+-  No commented-out code or TODOs
+-  No unnecessary dependencies or bloat
+-  No PEP8 violations
+-  No flake8 or black violations
+-  No lint_checker.py violations
+-  No runtime errors when run in `.venv`
+-  No compliance issues
+-  No unit test failures
+-  No unhandled exceptions
+-  No deprecated or obsolete libraries
+-  No security vulnerabilities (e.g., injection risks)
+-  No performance anti-patterns (e.g., O(n^2) where O(n log n) is possible)
+-  No memory leaks or excessive resource usage
+-  No blocking I/O in async code
+-  No hardcoded configuration values (use environment variables or config files)
+-  No direct database calls without abstraction layers
+-  No direct file system manipulation without abstraction layers
+-  No direct network calls without abstraction layers
+-  No use of threading or multiprocessing without proper synchronization
+-  No use of time.sleep() in production code
+
 
 ### Tests
 -  Written with pytest
