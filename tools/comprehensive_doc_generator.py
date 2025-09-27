@@ -641,7 +641,9 @@ class DocumentationGenerator:
         # Add table of contents
         overview.append("## Table of Contents")
         overview.append("- [Repository Statistics](#repository-statistics)")
+        overview.append("- [Framework0 Enhanced Architecture](#framework0-enhanced-architecture)")
         overview.append("- [Architecture Overview](#architecture-overview)")
+        overview.append("- [Key Features](#key-features)")
         overview.append("- [Directory Structure](#directory-structure)")
         overview.append("- [Core Components](#core-components)")
         overview.append("- [Python Modules](#python-modules)")
@@ -652,8 +654,14 @@ class DocumentationGenerator:
         # Add statistics section
         overview.extend(self._generate_statistics_section())
         
+        # Add Framework0 enhanced architecture section
+        overview.extend(self._generate_enhanced_architecture_section())
+        
         # Add architecture section
         overview.extend(self._generate_architecture_section())
+        
+        # Add key features section
+        overview.extend(self._generate_key_features_section())
         
         # Add directory structure section
         overview.extend(self._generate_directory_structure_section())
@@ -693,6 +701,7 @@ class DocumentationGenerator:
         manual.append("- [Quick Start](#quick-start)")
         manual.append("- [Installation](#installation)")
         manual.append("- [Configuration](#configuration)")
+        manual.append("- [Framework0 Features](#framework0-features)")
         manual.append("- [Python Scripts Usage](#python-scripts-usage)")
         manual.append("- [Shell Scripts Usage](#shell-scripts-usage)")
         manual.append("- [API Reference](#api-reference)")
@@ -708,6 +717,9 @@ class DocumentationGenerator:
         
         # Add configuration section
         manual.extend(self._generate_configuration_section())
+        
+        # Add Framework0 features section
+        manual.extend(self._generate_framework0_features_section())
         
         # Add Python scripts usage section
         manual.extend(self._generate_python_usage_section())
@@ -740,6 +752,128 @@ class DocumentationGenerator:
         section.append(f"- **Total Lines of Code:** {self.analyzer.stats['total_lines']}")
         section.append("")
         
+        return section  # Return section content
+    
+    def _generate_enhanced_architecture_section(self) -> List[str]:
+        """Generate Framework0 enhanced architecture section."""
+        section = []  # Initialize section content
+        
+        section.append("## Framework0 Enhanced Architecture")
+        section.append("")
+        section.append("MyDevelopment implements Framework0's enhanced modular architecture with advanced capabilities:")
+        section.append("")
+        
+        # Core Architecture Components
+        section.append("### 🏗️ Core Architecture Components")
+        section.append("")
+        
+        # Component Factory & Dependency Injection
+        factory_exists = any(f['path'] == 'src/core/factory.py' for f in self.analyzer.all_files)
+        if factory_exists:
+            section.append("#### Component Factory & Dependency Injection (`src/core/factory.py`)")
+            section.append("- **Automatic dependency resolution** with circular dependency detection")
+            section.append("- **Thread-safe component registration** and creation")  
+            section.append("- **Singleton and non-singleton lifecycle** management")
+            section.append("- **Configuration-driven instantiation** with type safety")
+            section.append("- **Plugin integration** with hot-reload capabilities")
+            section.append("")
+            
+        # Interface & Protocol System
+        interfaces_exists = any(f['path'] == 'src/core/interfaces.py' for f in self.analyzer.all_files)
+        if interfaces_exists:
+            section.append("#### Interface & Protocol System (`src/core/interfaces.py`)")
+            section.append("- **Runtime-checkable protocols** for better modularity")
+            section.append("- **Component lifecycle management** with initialization/cleanup")
+            section.append("- **Event-driven components** with thread-safe event handling")
+            section.append("- **Configurable, Executable, and Debuggable** interfaces")
+            section.append("")
+            
+        # Advanced Debug Toolkit
+        debug_v2_exists = any(f['path'] == 'src/core/debug_toolkit_v2.py' for f in self.analyzer.all_files)
+        if debug_v2_exists:
+            section.append("#### Advanced Debug Toolkit (`src/core/debug_toolkit_v2.py`)")
+            section.append("- **Enhanced debugging capabilities** with context tracking")
+            section.append("- **Performance profiling** and resource monitoring")
+            section.append("- **Memory usage tracking** and optimization tools")
+            section.append("- **Execution flow visualization** and analysis")
+            section.append("")
+            
+        # Error Handling & Recovery
+        error_handling_exists = any(f['path'] == 'src/core/error_handling.py' for f in self.analyzer.all_files)
+        if error_handling_exists:
+            section.append("#### Error Handling & Recovery (`src/core/error_handling.py`)")
+            section.append("- **Multiple error recovery strategies** with fallback mechanisms")
+            section.append("- **Graceful degradation** and failure isolation")
+            section.append("- **Comprehensive error logging** and reporting")
+            section.append("- **Custom exception hierarchies** for better error handling")
+            section.append("")
+            
+        # Plugin Management
+        plugin_mgr_v2_exists = any(f['path'] == 'src/core/plugin_manager_v2.py' for f in self.analyzer.all_files)
+        if plugin_mgr_v2_exists:
+            section.append("#### Enhanced Plugin Management (`src/core/plugin_manager_v2.py`)")
+            section.append("- **Plugin hot-reload** and lifecycle management")
+            section.append("- **Dynamic plugin discovery** and registration")
+            section.append("- **Plugin dependency resolution** and versioning")
+            section.append("- **Sandboxed plugin execution** for security")
+            section.append("")
+            
+        return section  # Return section content
+    
+    def _generate_key_features_section(self) -> List[str]:
+        """Generate key features section highlighting major capabilities."""
+        section = []  # Initialize section content
+        
+        section.append("## Key Features")
+        section.append("")
+        section.append("### 🎯 Major Platform Features")
+        section.append("")
+        
+        # Quiz Dashboard
+        quiz_dashboard_exists = any(f['path'].startswith('src/quiz_dashboard') for f in self.analyzer.all_files)
+        if quiz_dashboard_exists:
+            section.append("#### 🧠 Advanced Quiz Dashboard")
+            section.append("- **Spaced Repetition Algorithm (SM-2)** with custom enhancements")
+            section.append("- **Multi-type Question Support**: Multiple choice, true/false, fill-in-blank, reorder, matching")
+            section.append("- **Adaptive Difficulty**: Dynamic question selection based on performance")
+            section.append("- **MathJax Integration**: Full LaTeX mathematical notation support")
+            section.append("- **User Progress Tracking**: Individual performance metrics and learning curves")
+            section.append("- **RESTful API**: Complete API for quiz operations and data access")
+            section.append("")
+            
+        # Visual Recipe Builder
+        visual_builder_exists = any(f['path'].startswith('visual_recipe_builder') for f in self.analyzer.all_files)
+        if visual_builder_exists:
+            section.append("#### 🎨 Visual Recipe Builder")
+            section.append("- **Scratch-like Visual Interface** for creating Framework0 automation recipes")
+            section.append("- **Drag-and-Drop Canvas**: Interactive canvas for arranging workflow steps")
+            section.append("- **Real-time Validation**: Instant feedback on recipe correctness")
+            section.append("- **YAML Generation**: Automatic conversion to Framework0-compatible recipes")
+            section.append("- **Step Properties Panel**: Configure parameters with appropriate input types")
+            section.append("- **Dependency Management**: Visual dependency linking between steps")
+            section.append("")
+            
+        # Excel Automation
+        excel_exists = any('excel' in f['path'].lower() for f in self.analyzer.all_files)
+        if excel_exists:
+            section.append("#### 📊 Excel Automation Suite")
+            section.append("- **Automated Excel Processing**: Read, analyze, and manipulate Excel files")
+            section.append("- **Data Validation and Cleaning**: Comprehensive data quality checks")
+            section.append("- **Chart Generation**: Automated visualization creation")
+            section.append("- **Batch Processing**: Handle multiple files with progress tracking")
+            section.append("")
+            
+        # Orchestration Engine
+        orchestrator_exists = any(f['path'].startswith('orchestrator') for f in self.analyzer.all_files)
+        if orchestrator_exists:
+            section.append("#### ⚙️ Advanced Orchestration Engine")
+            section.append("- **Recipe-based Automation**: YAML-driven workflow execution")
+            section.append("- **Dependency Graph Management**: Automatic step ordering and execution")
+            section.append("- **Context Management**: Shared state across automation steps")
+            section.append("- **Memory Bus**: Inter-component communication system")
+            section.append("- **Persistence Layer**: Save and restore execution state")
+            section.append("")
+            
         return section  # Return section content
         
     def _generate_architecture_section(self) -> List[str]:
@@ -1121,6 +1255,151 @@ class DocumentationGenerator:
         section.append("")
         
         return section  # Return section content
+    
+    def _generate_framework0_features_section(self) -> List[str]:
+        """Generate detailed Framework0 features usage section."""
+        section = []  # Initialize section content
+        
+        section.append("## Framework0 Features")
+        section.append("")
+        section.append("This section provides detailed usage instructions for Framework0's major features and capabilities.")
+        section.append("")
+        
+        # Quiz Dashboard Section
+        quiz_dashboard_exists = any(f['path'].startswith('src/quiz_dashboard') for f in self.analyzer.all_files)
+        if quiz_dashboard_exists:
+            section.append("### 🧠 Quiz Dashboard")
+            section.append("")
+            section.append("The Quiz Dashboard is an advanced interactive learning platform with spaced repetition algorithms.")
+            section.append("")
+            section.append("#### Starting the Quiz Dashboard")
+            section.append("```bash")
+            section.append("# Activate virtual environment")
+            section.append("source .venv/bin/activate")
+            section.append("")
+            section.append("# Run quiz dashboard")
+            section.append("python run_quiz_dashboard.py")
+            section.append("")
+            section.append("# Access via browser")
+            section.append("# http://localhost:5000")
+            section.append("```")
+            section.append("")
+            section.append("#### Key Features")
+            section.append("- **Spaced Repetition**: SM-2 algorithm implementation for optimal learning")
+            section.append("- **Multiple Question Types**: Support for MCQ, true/false, fill-in-blank, reorder, and matching")
+            section.append("- **Progress Tracking**: Individual performance analytics and mastery calculations")
+            section.append("- **MathJax Support**: Full LaTeX mathematical notation in questions")
+            section.append("- **Anti-Clustering**: Prevents similar questions from appearing consecutively")
+            section.append("")
+            
+        # Visual Recipe Builder Section
+        visual_builder_exists = any(f['path'].startswith('visual_recipe_builder') for f in self.analyzer.all_files)
+        if visual_builder_exists:
+            section.append("### 🎨 Visual Recipe Builder")
+            section.append("")
+            section.append("Create Framework0 automation recipes using a Scratch-like visual interface.")
+            section.append("")
+            section.append("#### Starting the Visual Recipe Builder")
+            section.append("```bash")
+            section.append("# Method 1: Using the launcher script")
+            section.append("python visual_recipe_builder/run_app.py --debug --port 8050")
+            section.append("")
+            section.append("# Method 2: Direct module execution")
+            section.append("cd visual_recipe_builder && python app.py")
+            section.append("")
+            section.append("# Access via browser")
+            section.append("# http://localhost:8050")
+            section.append("```")
+            section.append("")
+            section.append("#### Creating Recipes")
+            section.append("1. **Drag Blocks**: Drag blocks from the library to the canvas")
+            section.append("2. **Connect Steps**: Link blocks to create execution flow")
+            section.append("3. **Configure Parameters**: Set step properties in the properties panel")
+            section.append("4. **Validate Recipe**: Real-time validation ensures correctness")
+            section.append("5. **Generate YAML**: Export as Framework0-compatible YAML recipe")
+            section.append("")
+            
+        # Excel Automation Section
+        excel_exists = any('excel' in f['path'].lower() for f in self.analyzer.all_files)
+        if excel_exists:
+            section.append("### 📊 Excel Automation")
+            section.append("")
+            section.append("Automated processing and analysis of Excel files with comprehensive validation.")
+            section.append("")
+            section.append("#### Basic Excel Processing")
+            section.append("```bash")
+            section.append("# Process single Excel file")
+            section.append("python cli/excel_automation.py --file data/sample.xlsx --output results/")
+            section.append("")
+            section.append("# Batch processing multiple files")
+            section.append("python cli/excel_automation.py --batch --input-dir data/ --output-dir results/")
+            section.append("```")
+            section.append("")
+            section.append("#### Features")
+            section.append("- **Data Validation**: Comprehensive quality checks and error reporting")
+            section.append("- **Chart Generation**: Automatic visualization creation")
+            section.append("- **Batch Processing**: Handle multiple files with progress tracking")
+            section.append("- **Export Options**: Multiple output formats (CSV, JSON, HTML)")
+            section.append("")
+            
+        # Orchestration Engine
+        orchestrator_exists = any(f['path'].startswith('orchestrator') for f in self.analyzer.all_files)
+        if orchestrator_exists:
+            section.append("### ⚙️ Recipe Orchestration")
+            section.append("")
+            section.append("Execute complex automation workflows using YAML-based recipes.")
+            section.append("")
+            section.append("#### Running Recipes")
+            section.append("```bash")
+            section.append("# Execute a recipe")
+            section.append("python -m orchestrator.runner --recipe recipe_packages/example.yaml")
+            section.append("")
+            section.append("# Execute with context")
+            section.append("python -m orchestrator.runner --recipe recipe.yaml --context '{\"input\": \"data.csv\"}'")
+            section.append("")
+            section.append("# Debug mode execution")
+            section.append("DEBUG=1 python -m orchestrator.runner --recipe recipe.yaml --verbose")
+            section.append("```")
+            section.append("")
+            section.append("#### Recipe Structure")
+            section.append("```yaml")
+            section.append("name: Example Recipe")
+            section.append("description: Sample automation workflow")
+            section.append("steps:")
+            section.append("  - name: process_data")
+            section.append("    scriptlet: csv_processor")
+            section.append("    inputs:")
+            section.append("      file_path: \"data/input.csv\"")
+            section.append("    outputs:")
+            section.append("      - processed_data")
+            section.append("```")
+            section.append("")
+            
+        # Enhanced Debugging
+        debug_v2_exists = any(f['path'] == 'src/core/debug_toolkit_v2.py' for f in self.analyzer.all_files)
+        if debug_v2_exists:
+            section.append("### 🔧 Enhanced Debugging")
+            section.append("")
+            section.append("Advanced debugging capabilities with comprehensive tracing and profiling.")
+            section.append("")
+            section.append("#### Enabling Debug Mode")
+            section.append("```bash")
+            section.append("# Enable debug mode for detailed logging")
+            section.append("export DEBUG=1")
+            section.append("export LOG_LEVEL=DEBUG")
+            section.append("")
+            section.append("# Run with performance profiling")
+            section.append("python -m src.core.profiler your_script.py")
+            section.append("```")
+            section.append("")
+            section.append("#### Debug Features")
+            section.append("- **Context Tracking**: Full execution context preservation")
+            section.append("- **Performance Profiling**: Detailed timing and resource usage")
+            section.append("- **Memory Monitoring**: Memory usage tracking and leak detection")
+            section.append("- **Execution Visualization**: Flow analysis and bottleneck identification")
+            section.append("")
+            
+        return section  # Return section content
         
     def _generate_python_usage_section(self) -> List[str]:
         """Generate Python scripts usage section."""
@@ -1315,6 +1594,130 @@ class DocumentationGenerator:
         
         section.append("## Examples")
         section.append("")
+        section.append("This section provides practical examples of using Framework0 features and components.")
+        section.append("")
+        
+        # Framework0 Usage Examples
+        section.append("### 🚀 Framework0 Usage Examples")
+        section.append("")
+        
+        # Component Factory Example
+        factory_exists = any(f['path'] == 'src/core/factory.py' for f in self.analyzer.all_files)
+        if factory_exists:
+            section.append("#### Component Factory Usage")
+            section.append("```python")
+            section.append("from src.core.factory import register_component, create_component")
+            section.append("from src.core.interfaces import ComponentLifecycle")
+            section.append("")
+            section.append("class MyService(ComponentLifecycle):")
+            section.append("    def _do_initialize(self, config): pass")
+            section.append("    def _do_cleanup(self): pass")
+            section.append("")
+            section.append("# Register component")
+            section.append("register_component(MyService, name=\"my_service\", singleton=True)")
+            section.append("")
+            section.append("# Create instance with dependency injection")
+            section.append("service = create_component(\"my_service\")")
+            section.append("```")
+            section.append("")
+            
+        # Recipe Orchestration Example
+        orchestrator_exists = any(f['path'].startswith('orchestrator') for f in self.analyzer.all_files)
+        if orchestrator_exists:
+            section.append("#### Recipe Orchestration Example")
+            section.append("**Create a Recipe (example.yaml):**")
+            section.append("```yaml")
+            section.append("name: Data Processing Pipeline")
+            section.append("description: Process CSV data and generate reports")
+            section.append("")
+            section.append("context:")
+            section.append("  input_file: \"data/sales.csv\"")
+            section.append("  output_dir: \"results/\"")
+            section.append("")
+            section.append("steps:")
+            section.append("  - name: read_data")
+            section.append("    scriptlet: csv_processor")
+            section.append("    inputs:")
+            section.append("      file_path: \"{{input_file}}\"")
+            section.append("    outputs:")
+            section.append("      - data")
+            section.append("")
+            section.append("  - name: analyze_data")
+            section.append("    scriptlet: data_analyzer")
+            section.append("    depends_on: [read_data]")
+            section.append("    inputs:")
+            section.append("      data: \"{{read_data.data}}\"")
+            section.append("    outputs:")
+            section.append("      - analysis_report")
+            section.append("")
+            section.append("  - name: generate_charts")
+            section.append("    scriptlet: chart_generator")
+            section.append("    depends_on: [analyze_data]")
+            section.append("    inputs:")
+            section.append("      data: \"{{read_data.data}}\"")
+            section.append("      analysis: \"{{analyze_data.analysis_report}}\"")
+            section.append("      output_path: \"{{output_dir}}/charts/\"")
+            section.append("```")
+            section.append("")
+            section.append("**Execute the Recipe:**")
+            section.append("```bash")
+            section.append("python -m orchestrator.runner --recipe example.yaml")
+            section.append("```")
+            section.append("")
+            
+        # Quiz Dashboard Example
+        quiz_exists = any(f['path'].startswith('src/quiz_dashboard') for f in self.analyzer.all_files)
+        if quiz_exists:
+            section.append("#### Quiz Dashboard Usage")
+            section.append("**Starting the Dashboard:**")
+            section.append("```bash")
+            section.append("# Basic startup")
+            section.append("python run_quiz_dashboard.py")
+            section.append("")
+            section.append("# With custom configuration")
+            section.append("python run_quiz_dashboard.py --port 8080 --debug")
+            section.append("```")
+            section.append("")
+            section.append("**Creating Questions (JSON format):**")
+            section.append("```json")
+            section.append("{")
+            section.append("  \"questions\": [")
+            section.append("    {")
+            section.append("      \"id\": \"q1\",")
+            section.append("      \"type\": \"multiple_choice\",")
+            section.append("      \"question\": \"What is the capital of France?\",")
+            section.append("      \"options\": [\"London\", \"Berlin\", \"Paris\", \"Madrid\"],")
+            section.append("      \"correct_answer\": 2,")
+            section.append("      \"difficulty\": \"easy\",")
+            section.append("      \"hashtags\": [\"geography\", \"capitals\"]")
+            section.append("    }")
+            section.append("  ]")
+            section.append("}")
+            section.append("```")
+            section.append("")
+            
+        # Visual Recipe Builder Example
+        visual_exists = any(f['path'].startswith('visual_recipe_builder') for f in self.analyzer.all_files)
+        if visual_exists:
+            section.append("#### Visual Recipe Builder Usage")
+            section.append("```bash")
+            section.append("# Start the visual builder")
+            section.append("python visual_recipe_builder/run_app.py --port 8050")
+            section.append("")
+            section.append("# Open browser and navigate to:")
+            section.append("# http://localhost:8050")
+            section.append("")
+            section.append("# The interface provides:")
+            section.append("# 1. Block Library - Drag blocks to canvas")
+            section.append("# 2. Canvas - Arrange and connect blocks")
+            section.append("# 3. Properties Panel - Configure block parameters")
+            section.append("# 4. YAML Preview - See generated recipe code")
+            section.append("```")
+            section.append("")
+            
+        # Python Development Examples
+        section.append("### 💻 Python Development Examples")
+        section.append("")
         
         # Common usage patterns
         section.append("### Common Usage Patterns")
@@ -1402,6 +1805,62 @@ class DocumentationGenerator:
         section.append("- Use `--help` flag where available")
         section.append("- Enable debug mode with `DEBUG=1` environment variable")
         section.append("- Check log files in the `logs/` directory")
+        section.append("")
+        
+        # Framework0-specific troubleshooting
+        section.append("### Framework0 Specific Issues")
+        section.append("")
+        
+        section.append("#### Component Factory Issues")
+        section.append("**Problem:** Component not found or circular dependency")
+        section.append("```python")
+        section.append("# Check component registration")
+        section.append("from src.core.factory import list_components")
+        section.append("print(list_components())  # View all registered components")
+        section.append("")
+        section.append("# Enable factory debugging")
+        section.append("import logging")
+        section.append("logging.getLogger('src.core.factory').setLevel(logging.DEBUG)")
+        section.append("```")
+        section.append("")
+        
+        section.append("#### Recipe Execution Issues")
+        section.append("**Problem:** Recipe step fails or context issues")
+        section.append("```bash")
+        section.append("# Enable recipe debugging")
+        section.append("DEBUG=1 python -m orchestrator.runner --recipe recipe.yaml --verbose")
+        section.append("")
+        section.append("# Validate recipe structure")
+        section.append("python -m orchestrator.recipe_parser --validate recipe.yaml")
+        section.append("```")
+        section.append("")
+        
+        section.append("#### Quiz Dashboard Issues")
+        section.append("**Problem:** Database not accessible or question format errors")
+        section.append("```bash")
+        section.append("# Check database status")
+        section.append("ls -la quiz_dashboard.db*")
+        section.append("")
+        section.append("# Validate question format")
+        section.append("python -m src.quiz_dashboard.question_manager --validate questions.json")
+        section.append("")
+        section.append("# Reset database if needed")
+        section.append("rm quiz_dashboard.db* && python run_quiz_dashboard.py")
+        section.append("```")
+        section.append("")
+        
+        section.append("#### Visual Recipe Builder Issues")
+        section.append("**Problem:** Interface not loading or YAML generation errors")
+        section.append("```bash")
+        section.append("# Check for port conflicts")
+        section.append("lsof -i :8050")
+        section.append("")
+        section.append("# Try different port")
+        section.append("python visual_recipe_builder/run_app.py --port 8051")
+        section.append("")
+        section.append("# Enable debug mode")
+        section.append("python visual_recipe_builder/run_app.py --debug")
+        section.append("```")
         section.append("")
         
         section.append("### Debug Mode")
