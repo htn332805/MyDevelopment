@@ -110,15 +110,14 @@ class SpacedRepetitionEngine:
         
         logger.info("SpacedRepetitionEngine initialized with SM-2 algorithm")
     
-        def process_question_attempt(self,
-            # Execute process_question_attempt operation
-
+    def process_question_attempt(self,
                                 user_id: int,
                                 question_id: int,
                                 performance_score: float,
                                 time_taken_seconds: float,
                                 is_correct: bool) -> QuestionProgress:
         # Execute process_question_attempt operation
+        """Process a question attempt and update spaced repetition data."""
         try:
             # Get current progress or create new
             progress = self._get_question_progress(user_id, question_id)
@@ -166,8 +165,9 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to process question attempt: {e}")
             raise
     
-        def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
+    def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
         # Execute _apply_sm2_algorithm operation
+        """Apply SM-2 spaced repetition algorithm to update question progress."""
         # Convert performance score to SM-2 quality scale (0-5)
         quality = min(5, max(0, int(performance_score)))
         
@@ -216,8 +216,9 @@ class SpacedRepetitionEngine:
         
         return progress
     
-        def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
+    def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
         # Execute _calculate_mastery_level operation
+        """Calculate mastery level based on progress data."""
         if progress.total_attempts == 0:
             return 0.0
         
@@ -243,12 +244,14 @@ class SpacedRepetitionEngine:
         
         return max(0.0, min(100.0, base_mastery))
     
-        def select_next_questions(self,
-        # select_next_questions operation implementation
-                             user_id: int,                             count: int = 10,
+    def select_next_questions(self,
+                             user_id: int,
+                             count: int = 10,
                              preferred_hashtags: Optional[List[str]] = None,
                              target_difficulty: Optional[int] = None,
                              avoid_recent: bool = True) -> List[int]:
+        # Execute select_next_questions operation
+        """Select next questions for user based on spaced repetition algorithm."""
         try:
             # Get available questions with user progress
             candidate_questions = self._get_candidate_questions(user_id, preferred_hashtags, target_difficulty)

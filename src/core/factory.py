@@ -96,13 +96,12 @@ def __init__(g: bool  = False) -> Any:
 
     @trace_execution
     def register_component(self, 
+                          name: str,
+                          component_type: Type[T],
+                          *,
+                          factory_func: Optional[Callable[..., T]] = None,) -> Any:
         # Execute register_component operation
         """Execute register_component operation."""
-        name: str, ) -> Any:
-    """Execute register_component operation."""
-        component_type: Type[T],
-        *,
-        factory_func: Optional[Callable[..., T]] = None,
         singleton: bool = True,
         dependencies: Optional[List[str]] = None,
         config: Optional[Dict[str, Any]] = None,

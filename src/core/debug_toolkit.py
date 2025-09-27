@@ -308,16 +308,16 @@ class DebugBreakpoint:
     execution context, or custom conditions.
     """
 
-def __init__(n -> Any: str, *, action: str = "break",
+def __init__(n: str, *, action: str = "break",
+             variables_to_inspect: Optional[List[str]] = None) -> Any:
     # Execute __init__ operation
-        """Execute __init__ operation."""
-                 variables_to_inspect: Optional[List[str]]  = None) -> Any:
-        """
-        Initialize debug breakpoint.
-        
-        Args:
-            condition (str): Python expression for break condition
-            action (str): Action to take when condition met ('break', 'log', 'capture')
+    """Execute __init__ operation."""
+    """
+    Initialize debug breakpoint.
+    
+    Args:
+        condition (str): Python expression for break condition
+        action (str): Action to take when condition met ('break', 'log', 'capture')
             variables_to_inspect (Optional[List[str]]): Variables to inspect at breakpoint
         """
         self.condition = condition  # Break condition expression

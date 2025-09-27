@@ -111,14 +111,15 @@ class PluginSandbox:
     prevent them from interfering with the system or other plugins.
     """
 
-def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
-        # Execute __init__ operation
-        Initialize plugin sandbox.
-        
-        Args:
-            plugin_name (str): Plugin name for identification
-            sandbox_level (PluginSandboxLevel): Sandboxing security level
-        self.plugin_name = plugin_name  # Plugin identifier
+def __init__(self, plugin_name: str, sandbox_level: PluginSandboxLevel) -> Any:
+    # Execute __init__ operation
+    """Initialize plugin sandbox.
+    
+    Args:
+        plugin_name (str): Plugin name for identification
+        sandbox_level (PluginSandboxLevel): Sandboxing security level
+    """
+    self.plugin_name = plugin_name  # Plugin identifier
         self.sandbox_level = sandbox_level  # Security level
         self._resource_limits: Dict[str, Any] = {}  # Resource limitations
         self._temp_dir: Optional[str] = None  # Temporary directory for plugin

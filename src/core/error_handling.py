@@ -134,7 +134,7 @@ class ErrorRecoveryStrategy:
 
     def recover(self, error_report: ErrorReport, **kwargs) -> Tuple[bool, Optional[Any]]:
         # Execute recover operation
-    """
+        """
         Attempt to recover from the error.
         
         Args:
@@ -144,7 +144,7 @@ class ErrorRecoveryStrategy:
         Returns:
             Tuple[bool, Optional[Any]]: (success, recovery_result)
         """
-    return False, None
+        return False, None
 
 
 class RetryRecoveryStrategy(ErrorRecoveryStrategy):

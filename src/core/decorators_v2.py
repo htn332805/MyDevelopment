@@ -39,7 +39,7 @@ logger = get_logger(__name__)
 
 @dataclass
 class CacheEntry:
-        """Cache entry with metadata."""
+    """Cache entry with metadata."""
     value: Any  # Cached return value
     timestamp: float  # Cache entry creation time
     hit_count: int  # Number of cache hits

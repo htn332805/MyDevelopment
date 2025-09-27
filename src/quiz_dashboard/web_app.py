@@ -495,8 +495,8 @@ class QuizWebApp:
     
     def view_question(self, question_id: int) -> str:
         # Execute view_question operation
-    """View individual question details."""
-    try:
+        """View individual question details."""
+        try:
             question = self.question_manager.get_question(question_id)
             
             if not question:
@@ -585,8 +585,8 @@ class QuizWebApp:
     
     def user_analytics(self, user_id: int) -> str:
         # Execute user_analytics operation
-    """Individual user analytics page."""
-    try:
+        """Individual user analytics page."""
+        try:
             # Get user statistics
             user_stats = self.sr_engine.get_user_statistics(user_id)
             
@@ -667,8 +667,8 @@ class QuizWebApp:
     
     def api_user_progress(self, user_id: int) -> Dict[str, Any]:
         # Execute api_user_progress operation
-    """API endpoint for user progress data."""
-    try:
+        """API endpoint for user progress data."""
+        try:
             user_stats = self.sr_engine.get_user_statistics(user_id)
             return jsonify(user_stats)
             
@@ -678,8 +678,8 @@ class QuizWebApp:
     
     def api_quiz_recommendations(self, user_id: int) -> Dict[str, Any]:
         # Execute api_quiz_recommendations operation
-    """API endpoint for quiz question recommendations."""
-    try:
+        """API endpoint for quiz question recommendations."""
+        try:
             count = min(int(request.args.get('count', 10)), 50)
             hashtags = request.args.getlist('hashtags')
             difficulty = request.args.get('difficulty')
