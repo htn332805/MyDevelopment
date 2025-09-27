@@ -167,7 +167,7 @@ class DependencyInjector:
                 logger.debug(f"Returning existing singleton instance for '{name}'")
                 return registry.instance
             
-            # Resolve dependencies first
+            # Resolve dependencies first - pass empty set for top-level call
             resolved_deps = self._resolve_dependencies(name, set())
             
             # Create instance with dependencies
@@ -186,6 +186,42 @@ class DependencyInjector:
             trace_variable(f"component_instance_{name}", instance)
             
             return instance
+
+    def _get_component_with_visiting(self, name: str, visiting: Set[str]) -> Any:
+        """
+        Get component with cycle detection visiting set.
+        
+        Args:
+            name (str): Component name to retrieve
+            visiting (Set[str]): Set of components currently being resolved
+            
+        Returns:
+            Any: Component instance
+        """
+        if name not in self._components:
+            raise ValueError(f"Component '{name}' not registered")
+        
+        registry = self._components[name]
+        
+        # Return existing singleton instance if available
+        if registry.singleton and registry.instance is not None:
+            logger.debug(f"Returning existing singleton instance for '{name}'")
+            return registry.instance
+        
+        # Resolve dependencies with cycle detection
+        resolved_deps = self._resolve_dependencies(name, visiting)
+        
+        # Create instance with dependencies
+        instance = self._create_instance(registry, resolved_deps)
+        
+        # Cache singleton instances
+        if registry.singleton:
+            registry.instance = instance
+            registry.created_at = __import__('time').time()
+            registry.is_initialized = True
+        
+        logger.info(f"Component '{name}' instantiated successfully")
+        return instance
 
     def _resolve_dependencies(self, component_name: str, visiting: Set[str]) -> Dict[str, Any]:
         """
@@ -214,8 +250,8 @@ class DependencyInjector:
             if dep_name not in self._components:
                 raise ValueError(f"Dependency '{dep_name}' for '{component_name}' not registered")
             
-            # Recursively resolve nested dependencies
-            dependencies[dep_name] = self.get_component(dep_name)
+            # Recursively resolve nested dependencies with proper cycle detection
+            dependencies[dep_name] = self._get_component_with_visiting(dep_name, visiting.copy())
         
         visiting.remove(component_name)
         return dependencies

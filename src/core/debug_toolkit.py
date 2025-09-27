@@ -184,6 +184,34 @@ class VariableTracker:
         
         return changes
 
+    def get_all_states(self) -> Dict[str, List[Dict[str, Any]]]:
+        """
+        Get all variable states across all tracked variables.
+        
+        Returns:
+            Dict[str, List[Dict[str, Any]]]: All variable states by name
+        """
+        with self._lock:
+            result = {}
+            for name, states in self._variable_states.items():
+                result[name] = [asdict(state) for state in states]
+            return result
+
+    def clear_history(self, name: Optional[str] = None) -> None:
+        """
+        Clear variable tracking history.
+        
+        Args:
+            name (Optional[str]): Variable name to clear, or None for all
+        """
+        with self._lock:
+            if name is None:
+                self._variable_states.clear()
+                debug_tracer.debug("All variable history cleared")
+            elif name in self._variable_states:
+                del self._variable_states[name]
+                debug_tracer.debug(f"Variable history cleared: {name}")
+
 
 class ExecutionTracer:
     """

@@ -778,11 +778,41 @@ class AdvancedErrorHandler(ComponentLifecycle):
         
         log_level(log_message)
         
-        # Log additional context in debug mode
-        logger.debug(f"Error context: {asdict(error_report.context)}")
+        # Log additional context in debug mode - avoid problematic serialization
+        try:
+            # Create a safe context dict for logging, excluding non-serializable items
+            safe_context = {
+                'error_id': error_report.context.error_id,
+                'timestamp': error_report.context.timestamp,
+                'thread_id': error_report.context.thread_id,
+                'function_name': error_report.context.function_name,
+                'filename': error_report.context.filename,
+                'line_number': error_report.context.line_number,
+                'module_name': error_report.context.module_name,
+                'class_name': error_report.context.class_name,
+                'user_context': error_report.context.user_context,
+                'correlation_id': error_report.context.correlation_id,
+                'checkpoint_id': error_report.context.checkpoint_id
+            }
+            logger.debug(f"Error context: {safe_context}")
+        except Exception as e:
+            logger.debug(f"Error context logging failed: {e}")
         
         if error_report.debugging_hints:
             logger.info(f"Debugging hints: {', '.join(error_report.debugging_hints)}")
+
+    def __getstate__(self) -> Dict[str, Any]:
+        """Support for pickling by excluding non-serializable objects."""
+        state = self.__dict__.copy()
+        # Remove the lock object which cannot be pickled
+        state['_lock'] = None
+        return state
+
+    def __setstate__(self, state: Dict[str, Any]) -> None:
+        """Support for unpickling by recreating non-serializable objects."""
+        self.__dict__.update(state)
+        # Recreate the lock object
+        self._lock = threading.RLock()
 
 
 # Global error handler instance
