@@ -855,9 +855,7 @@ class QuizWebApp:
 
         return client_question
 
-    def _evaluate_answer(
-        self, question: Dict[str, Any], user_answer: Any
-    ) -> Dict[str, Any]:
+    def _evaluate_answer(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_answer operation
         """Evaluate user answer against correct answer."""
         question_type = question["type"]
@@ -881,16 +879,10 @@ class QuizWebApp:
 
         return result
 
-    def _evaluate_multiple_choice(
-        self, question: Dict[str, Any], user_answer: Any
-    ) -> Dict[str, Any]:
+    def _evaluate_multiple_choice(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_multiple_choice operation
         """Evaluate multiple choice answer."""
-<<<<<<< HEAD
         correct_answer = question["correct_answer"]
-=======
-        correct_answer = question['correct_answer']
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         is_correct = str(user_answer) == str(correct_answer)
 
         return {
@@ -899,18 +891,11 @@ class QuizWebApp:
             "correct_answer": correct_answer,
         }
 
-    def _evaluate_true_false(
-        self, question: Dict[str, Any], user_answer: Any
-    ) -> Dict[str, Any]:
+    def _evaluate_true_false(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_true_false operation
         """Evaluate true/false answer."""
-<<<<<<< HEAD
         correct_answer = question["correct_answer"]
         user_bool = str(user_answer).lower() in ("true", "1", "yes")
-=======
-        correct_answer = question['correct_answer']
-        user_bool = str(user_answer).lower() in ('true', '1', 'yes')
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         is_correct = user_bool == correct_answer
 
         return {
@@ -919,20 +904,11 @@ class QuizWebApp:
             "correct_answer": correct_answer,
         }
 
-    def _evaluate_fill_in_blank(
-        self, question: Dict[str, Any], user_answer: Any
-    ) -> Dict[str, Any]:
+    def _evaluate_fill_in_blank(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_fill_in_blank operation
         """Evaluate fill-in-blank answer."""
-<<<<<<< HEAD
         acceptable_answers = question["acceptable_answers"]
         case_sensitive = question.get("case_sensitive", False)
-
-=======
-        acceptable_answers = question['acceptable_answers']
-        case_sensitive = question.get('case_sensitive', False)
-        
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         user_text = str(user_answer).strip()
         if not case_sensitive:
             user_text = user_text.lower()
@@ -946,16 +922,10 @@ class QuizWebApp:
             "correct_answer": acceptable_answers[0] if acceptable_answers else "",
         }
 
-    def _evaluate_reorder(
-        self, question: Dict[str, Any], user_answer: Any
-    ) -> Dict[str, Any]:
+    def _evaluate_reorder(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_reorder operation
         """Evaluate reorder/sequence answer."""
-<<<<<<< HEAD
         correct_order = question["correct_order"]
-=======
-        correct_order = question['correct_order']
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         user_order = user_answer if isinstance(user_answer, list) else []
 
         # Calculate partial credit
@@ -977,16 +947,10 @@ class QuizWebApp:
             "correct_answer": correct_order,
         }
 
-    def _evaluate_matching(
-        self, question: Dict[str, Any], user_answer: Any
-    ) -> Dict[str, Any]:
+    def _evaluate_matching(self, question: Dict[str, Any], user_answer: Any) -> Dict[str, Any]:
         # Execute _evaluate_matching operation
         """Evaluate matching pairs answer."""
-<<<<<<< HEAD
         correct_matches = question["correct_matches"]
-=======
-        correct_matches = question['correct_matches']
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         user_matches = user_answer if isinstance(user_answer, list) else []
 
         # Convert to sets for comparison
@@ -1011,29 +975,11 @@ class QuizWebApp:
             "score": score,
             "correct_answer": correct_matches,
         }
-<<<<<<< HEAD
 
-    def _calculate_performance_score(
-        self,
-        is_correct: bool,
-        time_taken: float,
-        confidence_level: int,
-        estimated_time: int,
-    ) -> float:
+    def _calculate_performance_score(self, is_correct: bool, time_taken: float, confidence_level: int, estimated_time: int) -> float:
         # Execute _calculate_performance_score operation
         """Calculate performance score (0-5) for SM-2 algorithm."""
         # Base score from correctness
-=======
-    
-    def _calculate_performance_score(self, 
-                                   is_correct: bool,
-                                   time_taken: float,
-                                   confidence_level: int,
-                                   estimated_time: int) -> float:
-        # _calculate_performance_score operation implementation  
-        """Calculate performance score (0-5) for SM-2 algorithm."""
-    # Base score from correctness
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         if is_correct:
             base_score = 4.0  # Good performance
         else:
@@ -1111,23 +1057,9 @@ class QuizWebApp:
         """Track that a question was shown in session."""
         # This could be implemented to prevent showing the same question twice
         pass
-<<<<<<< HEAD
 
-    def _select_random_questions(
-        self,
-        count: int = 1,
-        difficulty_level: Optional[int] = None,
-        hashtags: Optional[List[str]] = None,
-    ) -> List[int]:
+    def _select_random_questions(self, count: int = 1, difficulty_level: Optional[int] = None, hashtags: Optional[List[str]] = None) -> List[int]:
         # Execute _select_random_questions operation
-=======
-    
-    def _select_random_questions(self, 
-                                count: int = 1,
-                                difficulty_level: Optional[int] = None,
-                                hashtags: Optional[List[str]] = None) -> List[int]:
-        # _select_random_questions operation implementation
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         """Simple random question selection with filters."""
         try:
             conditions = ["is_active = 1"]
@@ -1158,21 +1090,11 @@ class QuizWebApp:
         except Exception as e:
             logger.error(f"Random question selection error: {e}")
             return []
-<<<<<<< HEAD
 
     def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
         # Execute _extract_question_from_form operation
         """Extract question data from form submission."""
         question_type = form_data.get("question_type")
-
-=======
-    
-    def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
-        # Execute _extract_question_from_form operation
-        """Extract question data from form submission."""
-        question_type = form_data.get('question_type')
-        
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         # Base question data
         question_data = {
             "type": question_type,
@@ -1382,16 +1304,11 @@ class QuizWebApp:
             return {"error": str(e)}
 
     # Static file and error handlers
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
     def serve_static(self, filename: str) -> Any:
         # Execute serve_static operation
         """Serve static files."""
         return send_from_directory(self.app.static_folder, filename)
-<<<<<<< HEAD
 
     def handle_404(self, error: Any) -> Any:
         # Execute handle_404 operation
@@ -1413,25 +1330,6 @@ class QuizWebApp:
         )
 
     def run(self, host: str = "0.0.0.0", port: int = 5000, debug: bool = False) -> None:
-=======
-    
-    def handle_404(self, error) -> Any:
-        # Execute handle_404 operation
-        """Handle 404 errors."""
-        return render_template('error.html', 
-                             error="Page not found",
-                             error_code=404), 404
-    
-    def handle_500(self, error) -> Any:
-        # Execute handle_500 operation
-        """Handle 500 errors."""
-        logger.error(f"Internal server error: {error}")
-        return render_template('error.html',
-                             error="Internal server error",
-                             error_code=500), 500
-    
-    def run(self, host: str = '0.0.0.0', port: int = 5000, debug: bool = False) -> None:
->>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         # Execute run operation
         """Run Flask development server."""
         logger.info(f"Starting Quiz Dashboard web server on {host}:{port}")
