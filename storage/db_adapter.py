@@ -18,6 +18,7 @@ from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.exc import SQLAlchemyError
 import logging
+from typing import Any, Dict, List, Optional, Union
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -43,7 +44,7 @@ class DatabaseAdapter:
         drop_table(table_class: Base): Drops the table corresponding to the provided class.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """
         Initializes the DatabaseAdapter instance.
         """
@@ -51,7 +52,7 @@ class DatabaseAdapter:
         self.Session = None
         self.metadata = MetaData()
 
-    def connect(self, database_url: str):
+def connect(self, database_url -> Any: str):
         """
         Establishes a connection to the database.
 
@@ -70,7 +71,7 @@ class DatabaseAdapter:
             logger.error(f"Failed to connect to database: {e}")
             raise
 
-    def disconnect(self):
+def disconnect(self) -> Any:
         """
         Closes the database connection.
 
@@ -85,7 +86,7 @@ class DatabaseAdapter:
             logger.error(f"Failed to disconnect from database: {e}")
             raise
 
-    def create_session(self):
+def create_session(self) -> Any:
         """
         Creates a new session for database operations.
 
@@ -103,7 +104,7 @@ class DatabaseAdapter:
             logger.error(f"Failed to create session: {e}")
             raise
 
-    def execute_query(self, query: str, params: dict = None):
+def execute_query(self, query -> Any: str, params: dict = None):
         """
         Executes a raw SQL query.
 
@@ -126,7 +127,7 @@ class DatabaseAdapter:
             logger.error(f"Failed to execute query: {e}")
             raise
 
-    def create_table(self, table_class: Base):
+def create_table(self, table_class -> Any: Base):
         """
         Creates a table based on the provided class.
 
@@ -143,7 +144,7 @@ class DatabaseAdapter:
             logger.error(f"Failed to create table {table_class.__tablename__}: {e}")
             raise
 
-    def drop_table(self, table_class: Base):
+def drop_table(self, table_class -> Any: Base):
         """
         Drops the table corresponding to the provided class.
 

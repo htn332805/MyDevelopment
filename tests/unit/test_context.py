@@ -14,10 +14,11 @@ Test Cases:
 """
 
 import unittest
+from typing import Any, Dict, List, Optional, Union
 from contextlib import contextmanager
 
 @contextmanager
-def sample_context_manager():
+def sample_context_manager() -> Any:
     """
     A sample context manager that manages a simple resource.
 
@@ -37,7 +38,7 @@ class TestSampleContextManager(unittest.TestCase):
     exceptions as expected.
     """
 
-    def test_context_manager_setup(self):
+def test_context_manager_setup(self) -> Any:
         """
         Test Case: test_context_manager_setup
 
@@ -50,7 +51,7 @@ class TestSampleContextManager(unittest.TestCase):
         with sample_context_manager() as resource:
             self.assertEqual(resource, "resource", f"Expected 'resource', but got {resource}")
 
-    def test_context_manager_teardown(self):
+def test_context_manager_teardown(self) -> Any:
         """
         Test Case: test_context_manager_teardown
 
@@ -68,7 +69,7 @@ class TestSampleContextManager(unittest.TestCase):
         except Exception as e:
             self.fail(f"Exception occurred during context manager teardown: {e}")
 
-    def test_context_manager_exception_handling(self):
+def test_context_manager_exception_handling(self) -> Any:
         """
         Test Case: test_context_manager_exception_handling
 

@@ -12,7 +12,7 @@ import re
 import ast
 import sys
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional, Set
+from typing import List, Dict, Tuple, Optional, Set, Any
 import subprocess
 
 # Add project root to path
@@ -23,7 +23,7 @@ sys.path.insert(0, str(project_root))
 class LintComplianceFixer:
     """Automated fixer for lint compliance issues."""
     
-    def __init__(self):
+    def __init__(self) -> Any:
         """Initialize the lint compliance fixer."""
         self.project_root = project_root
         self.fixed_files = []
@@ -145,7 +145,7 @@ class LintComplianceFixer:
         
         while func_line_idx < len(lines):
             line = lines[func_line_idx]
-            if f'def {node.name}(' in line:
+            if f'def {node.name}(' in line -> Any:
                 break
             func_line_idx += 1
         
@@ -193,7 +193,7 @@ class LintComplianceFixer:
         func_line_idx = node.lineno - 1
         
         # Find the actual function line
-        while func_line_idx < len(lines) and f'def {node.name}(' not in lines[func_line_idx]:
+        while func_line_idx < len(lines) and f'def {node.name}(' not in lines[func_line_idx] -> Any:
             func_line_idx += 1
         
         if func_line_idx >= len(lines):
@@ -340,7 +340,7 @@ class LintComplianceFixer:
         return results
 
 
-def main():
+def main() -> Any:
     """Main function to run lint compliance fixes."""
     fixer = LintComplianceFixer()
     

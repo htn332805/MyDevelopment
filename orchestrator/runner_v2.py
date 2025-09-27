@@ -76,8 +76,8 @@ class EnhancedRunner:
     debugging capabilities, parallel execution support, and detailed analytics.
     """
 
-def __init__(self, *, enable_profiling -> Any: bool = True,
-"""Execute __init__ operation."""
+    def __init__(self, *, enable_profiling: bool = True,
+        # __init__ operation implementation
                  enable_debugging: bool = False,
                  max_parallel_steps: int = 4,
                  execution_timeout: float = 3600.0):
@@ -109,8 +109,8 @@ def __init__(self, *, enable_profiling -> Any: bool = True,
     @monitor_resources(log_metrics=True)
     @debug_trace(capture_vars=["recipe_path", "debug", "only", "skip"])
     def run_recipe(self,
+        # run_recipe operation implementation
                    recipe_path: str,
-    """Execute run_recipe operation."""
                    *,
                    debug: bool = False,
                    only: Optional[List[str]] = None,
@@ -118,6 +118,7 @@ def __init__(self, *, enable_profiling -> Any: bool = True,
                    context: Optional[ContextV2] = None,
                    parallel: bool = False,
                    validate_dependencies: bool = True) -> RecipeExecutionResult:
+        """Execute run_recipe operation."""
         """
         Execute a recipe with enhanced monitoring and analysis.
         

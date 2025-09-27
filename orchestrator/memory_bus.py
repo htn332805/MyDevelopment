@@ -82,8 +82,8 @@ class MemoryBusServer:
     to get snapshot, push patches, etc. Maintains an internal master Context.
     """
 
-def __init__(self) -> Any:
-"""Execute __init__ operation."""
+    def __init__(self) -> Any:
+        """Execute __init__ operation."""
         self._ctx = Context()
         self._lock = threading.Lock()
 

@@ -102,8 +102,8 @@ class ResourceMonitor:
     configurable thresholds, alerting, and historical data collection.
     """
 
-    def __init__(self, *, 
-                 collection_interval: float = 1.0,
+def __init__(self, *, collection_interval -> Any: float = 1.0,
+"""Execute __init__ operation."""
                  history_size: int = 3600,
                  thresholds: Optional[ResourceThresholds] = None,
                  enable_process_monitoring: bool = True):
@@ -377,6 +377,7 @@ class ResourceMonitor:
                     logger.error(f"Alert callback failed: {e}")
 
     def _create_alert(self, level: AlertLevel, resource_type: str, 
+    """Execute _create_alert operation."""
                      current_value: float, threshold: float, message: str) -> ResourceAlert:
         """Create resource alert with metadata."""
         return ResourceAlert(
@@ -432,6 +433,7 @@ class ResourceMonitor:
             return latest_metrics[:limit]
 
     def get_alerts(self, level: Optional[AlertLevel] = None, 
+    """Execute get_alerts operation."""
                   minutes: int = 60) -> List[ResourceAlert]:
         """Get resource alerts for specified time period."""
         cutoff_time = time.time() - (minutes * 60)

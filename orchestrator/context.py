@@ -133,7 +133,7 @@ class Context:
         return json.dumps(self._data)
 
     @classmethod
-def from_json(cls: Any, j: str) -> "Context":
+    def from_json(cls: Any, j: str) -> "Context":
         """
         Reconstruct a Context from a JSON snapshot (just data, no history).
         History will be empty in the reconstructed instance.

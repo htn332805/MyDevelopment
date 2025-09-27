@@ -1,8 +1,10 @@
 # tests/test_csv_reader.py
 import pytest
+from typing import Any, Dict, List, Optional, Union
 from src.modules.data_processing.csv_reader import read_csv
 
-def test_read_csv_success(tmp_path):
+def test_read_csv_success(tmp_path -> Any: Any):
+"""Execute test_read_csv_success operation."""
     test_file = tmp_path / "test.csv"
     test_file.write_text("a,b,c\n1,2,3")
     data = read_csv(str(test_file))

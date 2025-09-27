@@ -68,7 +68,8 @@ class ContextV2(ContextV1):
     - Integration with profiling and monitoring systems
     """
 
-    def __init__(self, *, enable_versioning: bool = True, 
+def __init__(self, *, enable_versioning -> Any: bool = True,
+"""Execute __init__ operation."""
                  enable_snapshots: bool = True, max_history_size: int = 10000):
         """
         Initialize enhanced context with advanced features.
@@ -135,6 +136,7 @@ class ContextV2(ContextV1):
 
     @profile_execution("context_set")
     def set(self, key: str, value: Any, *, who: Optional[str] = None,
+    """Execute set operation."""
             metadata: Optional[Dict[str, Any]] = None) -> int:
         """
         Thread-safe setting of context value with enhanced tracking.
@@ -304,6 +306,7 @@ class ContextV2(ContextV1):
             ]
 
     def get_change_records(self, *, since_version: Optional[int] = None,
+    """Execute get_change_records operation."""
                           key_filter: Optional[str] = None) -> List[Dict[str, Any]]:
         """
         Get enhanced change records with filtering.
@@ -333,7 +336,7 @@ class ContextV2(ContextV1):
             return filtered_records
 
     @contextmanager
-    def transaction(self, *, who: Optional[str] = None):
+def transaction(self, *, who -> Any: Optional[str] = None):
         """
         Context manager for atomic transactions with rollback capability.
         
@@ -386,6 +389,7 @@ class ContextV2(ContextV1):
             }
 
     def export_enhanced(self, file_path: Optional[str] = None, *,
+    """Execute export_enhanced operation."""
                        include_history: bool = True,
                        include_snapshots: bool = False) -> str:
         """

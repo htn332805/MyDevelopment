@@ -108,7 +108,7 @@ class BasePlugin(ABC):
     and lifecycle management functionality.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize base plugin."""
         self.name = self.__class__.__name__  # Plugin class name
         self.logger = get_logger(f"plugin.{self.name}")  # Plugin-specific logger
@@ -173,7 +173,8 @@ class PluginRegistry:
     dependency resolution, activation, and cleanup.
     """
 
-    def __init__(self, *, plugin_paths: Optional[List[str]] = None,
+def __init__(self, *, plugin_paths -> Any: Optional[List[str]] = None,
+"""Execute __init__ operation."""
                  enable_hot_reload: bool = False,
                  security_mode: str = "permissive"):
         """
@@ -297,6 +298,7 @@ class PluginRegistry:
 
     @debug_trace()
     def load_plugin(self, plugin_name: str, *, 
+    """Execute load_plugin operation."""
                    config: Optional[Dict[str, Any]] = None) -> bool:
         """
         Load a plugin by name.

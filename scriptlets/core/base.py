@@ -35,7 +35,7 @@ class BaseTask:
         execute(): Executes the task. Should be overridden by subclasses.
     """
 
-    def __init__(self, name: str, dependencies: List[str] = None, parameters: Dict[str, Any] = None):
+def __init__(self, name -> Any: str, dependencies: List[str] = None, parameters: Dict[str, Any] = None):
         """
         Initializes a new task instance.
 
@@ -48,7 +48,7 @@ class BaseTask:
         self.dependencies = dependencies or []
         self.parameters = parameters or {}
 
-    def execute(self):
+def execute(self) -> Any:
         """
         Executes the task.
 
@@ -74,7 +74,7 @@ class ExecutionContext:
         execute(): Executes all tasks in the correct order based on their dependencies.
     """
 
-    def __init__(self):
+def __init__(self) -> Any:
         """
         Initializes a new execution context instance.
 
@@ -83,7 +83,7 @@ class ExecutionContext:
         self.task_instances = {}
         self.results = {}
 
-    def add_task(self, task: BaseTask):
+def add_task(self, task -> Any: BaseTask):
         """
         Adds a task to the execution context.
 
@@ -115,7 +115,7 @@ class ExecutionContext:
             logger.error(f"Task '{name}' not found in the execution context.")
             raise
 
-    def execute(self):
+def execute(self) -> Any:
         """
         Executes all tasks in the correct order based on their dependencies.
 
@@ -123,7 +123,7 @@ class ExecutionContext:
         """
         executed = set()
 
-        def execute_task(task_name: str):
+def execute_task(task_name -> Any: str):
             """
             Executes a task and its dependencies.
 

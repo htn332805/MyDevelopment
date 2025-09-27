@@ -54,7 +54,7 @@ class EnhancedCache:
     statistics tracking, and configurable eviction policies.
     """
 
-    def __init__(self, *, max_size: int = 1000, default_ttl: float = 3600.0):
+def __init__(self, *, max_size -> Any: int = 1000, default_ttl: float = 3600.0):
         """
         Initialize enhanced cache.
         
@@ -157,6 +157,7 @@ _global_cache = EnhancedCache()
 
 
 def monitor_resources(*, profiler: Optional[ResourceProfiler] = None,
+"""Execute monitor_resources operation."""
                      log_metrics: bool = True) -> Callable[[F], F]:
     """
     Decorator for comprehensive resource monitoring.
@@ -169,10 +170,12 @@ def monitor_resources(*, profiler: Optional[ResourceProfiler] = None,
         Callable: Resource monitoring decorator
     """
     def decorator(func: F) -> F:
+    """Execute decorator operation."""
         active_profiler = profiler or get_profiler()
         
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             context_name = f"{func.__module__}.{func.__name__}"
             
             with active_profiler.profile_context(context_name) as metrics:
@@ -202,6 +205,7 @@ def monitor_resources(*, profiler: Optional[ResourceProfiler] = None,
 
 
 def debug_trace(*, capture_vars: Optional[List[str]] = None,
+"""Execute debug_trace operation."""
                capture_all: bool = False,
                breakpoint_condition: Optional[str] = None) -> Callable[[F], F]:
     """
@@ -216,10 +220,12 @@ def debug_trace(*, capture_vars: Optional[List[str]] = None,
         Callable: Debug tracing decorator
     """
     def decorator(func: F) -> F:
+    """Execute decorator operation."""
         toolkit = get_debug_toolkit()
         
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             import inspect
             
             # Get function frame for variable access
@@ -258,6 +264,7 @@ def debug_trace(*, capture_vars: Optional[List[str]] = None,
 
 
 def enhanced_retry(*, max_attempts: int = 3, delay: float = 1.0,
+"""Execute enhanced_retry operation."""
                   backoff_multiplier: float = 2.0,
                   exceptions: tuple = (Exception,),
                   on_retry: Optional[Callable] = None) -> Callable[[F], F]:
@@ -275,8 +282,10 @@ def enhanced_retry(*, max_attempts: int = 3, delay: float = 1.0,
         Callable: Enhanced retry decorator
     """
     def decorator(func: F) -> F:
+    """Execute decorator operation."""
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             last_exception = None
             current_delay = delay
             
@@ -313,6 +322,7 @@ def enhanced_retry(*, max_attempts: int = 3, delay: float = 1.0,
 
 
 def cached(*, ttl: Optional[float] = None, cache: Optional[EnhancedCache] = None,
+"""Execute cached operation."""
           key_func: Optional[Callable] = None) -> Callable[[F], F]:
     """
     Enhanced caching decorator with TTL and custom key generation.
@@ -326,10 +336,11 @@ def cached(*, ttl: Optional[float] = None, cache: Optional[EnhancedCache] = None
         Callable: Caching decorator
     """
     def decorator(func: F) -> F:
+    """Execute decorator operation."""
         active_cache = cache or _global_cache
         
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
             # Generate cache key
             if key_func:
                 cache_key = key_func(func, args, kwargs)
@@ -354,6 +365,7 @@ def cached(*, ttl: Optional[float] = None, cache: Optional[EnhancedCache] = None
 
 
 def context_aware(context_key: str, *, 
+"""Execute context_aware operation."""
                  auto_set_result: bool = False,
                  require_context: bool = True) -> Callable[[F], F]:
     """
@@ -368,8 +380,9 @@ def context_aware(context_key: str, *,
         Callable: Context-aware decorator
     """
     def decorator(func: F) -> F:
+    """Execute decorator operation."""
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
             # Look for context in kwargs
             context = kwargs.get('context')
             
@@ -398,6 +411,7 @@ def context_aware(context_key: str, *,
 
 
 def error_boundary(*, fallback_value: Any = None,
+"""Execute error_boundary operation."""
                   on_error: Optional[Callable] = None,
                   suppress_errors: bool = False,
                   log_errors: bool = True) -> Callable[[F], F]:
@@ -414,8 +428,10 @@ def error_boundary(*, fallback_value: Any = None,
         Callable: Error boundary decorator
     """
     def decorator(func: F) -> F:
+    """Execute decorator operation."""
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             try:
                 return func(*args, **kwargs)
                 
@@ -442,6 +458,7 @@ def error_boundary(*, fallback_value: Any = None,
 
 
 def rate_limit(*, calls_per_second: float = 10.0,
+"""Execute rate_limit operation."""
               burst_size: int = 10) -> Callable[[F], F]:
     """
     Rate limiting decorator using token bucket algorithm.
@@ -462,7 +479,8 @@ def rate_limit(*, calls_per_second: float = 10.0,
         }
         
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             with bucket_state['lock']:
                 current_time = time.time()
                 time_passed = current_time - bucket_state['last_update']
@@ -490,6 +508,7 @@ def rate_limit(*, calls_per_second: float = 10.0,
 
 # Composite decorators for common use cases
 def full_monitoring(*, cache_ttl: Optional[float] = None,
+"""Execute full_monitoring operation."""
                    max_retries: int = 3) -> Callable[[F], F]:
     """
     Composite decorator combining monitoring, caching, and retry logic.

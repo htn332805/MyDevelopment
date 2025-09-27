@@ -16,7 +16,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-def test_blocks_functionality():
+def test_blocks_functionality() -> Any:
     """Test core blocks functionality."""
     print("Testing blocks functionality...")
     
@@ -42,7 +42,7 @@ def test_blocks_functionality():
     print("✅ Blocks functionality tests passed\n")
 
 
-def test_recipe_generator_functionality():
+def test_recipe_generator_functionality() -> Any:
     """Test recipe generator functionality."""
     print("Testing recipe generator functionality...")
     
@@ -89,7 +89,7 @@ def test_recipe_generator_functionality():
     print("✅ Recipe generator functionality tests passed\n")
 
 
-def test_app_creation():
+def test_app_creation() -> Any:
     """Test application creation."""
     print("Testing application creation...")
     
@@ -108,7 +108,7 @@ def test_app_creation():
         print(f"⚠️  App creation test skipped due to: {e}\n")
 
 
-def test_yaml_recipe_compatibility():
+def test_yaml_recipe_compatibility() -> Any:
     """Test compatibility with existing Framework0 runner."""
     print("Testing YAML recipe compatibility...")
     
@@ -148,7 +148,7 @@ def test_yaml_recipe_compatibility():
     print("✅ YAML compatibility test passed\n")
 
 
-def main():
+def main() -> Any:
     """Run all tests."""
     print("🧪 Running Visual Recipe Builder Tests\n")
     print("=" * 50)
@@ -165,6 +165,7 @@ def main():
     except Exception as e:
         print(f"❌ Test failed with error: {e}")
         import traceback
+from typing import Any, Dict, List, Optional, Union
         traceback.print_exc()
         return 1
 

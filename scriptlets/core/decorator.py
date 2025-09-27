@@ -11,6 +11,7 @@ and more maintainable code.
 
 from functools import wraps
 import logging
+from typing import Any, Dict, List, Optional, Union
 
 # Configure the logger for the decorator module
 logger = logging.getLogger(__name__)
@@ -21,7 +22,7 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-def task_dependency(dependency_name):
+def task_dependency(dependency_name -> Any: Any):
     """
     Decorator to mark a task as dependent on another task.
 
@@ -31,9 +32,11 @@ def task_dependency(dependency_name):
     Returns:
         function: The decorator function.
     """
-    def decorator(func):
+def decorator(func -> Any: Any):
+"""Execute decorator operation."""
         @wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             logger.debug(f"Checking dependency: {dependency_name}")
             # Logic to check if the dependency is met
             # For example, check if the dependent task has been executed successfully
@@ -42,7 +45,7 @@ def task_dependency(dependency_name):
         return wrapper
     return decorator
 
-def task_retry(retries=3, delay=2):
+def task_retry(retries -> Any: Any=3, delay: Any=2):
     """
     Decorator to retry a task upon failure.
 
@@ -53,9 +56,11 @@ def task_retry(retries=3, delay=2):
     Returns:
         function: The decorator function.
     """
-    def decorator(func):
+def decorator(func -> Any: Any):
+"""Execute decorator operation."""
         @wraps(func)
-        def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
             attempt = 0
             while attempt < retries:
                 try:
@@ -73,7 +78,7 @@ def task_retry(retries=3, delay=2):
         return wrapper
     return decorator
 
-def task_logging(func):
+def task_logging(func -> Any: Any):
     """
     Decorator to log the execution of a task.
 
@@ -84,7 +89,8 @@ def task_logging(func):
         function: The decorator function.
     """
     @wraps(func)
-    def wrapper(*args, **kwargs):
+def wrapper(*args, **kwargs) -> Any:
+"""Execute wrapper operation."""
         logger.info(f"Starting task: {func.__name__}")
         result = func(*args, **kwargs)
         logger.info(f"Completed task: {func.__name__}")

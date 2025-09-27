@@ -16,7 +16,7 @@ Designed for maximum modularity and flexibility while maintaining type safety.
 
 import threading
 import inspect
-from typing import (
+from typing import (, Any
     Dict, Any, List, Optional, Type, TypeVar, Generic, Callable, 
     Protocol, Union, Set, get_type_hints
 )
@@ -74,7 +74,7 @@ class DependencyInjector:
     debugging and tracing capabilities.
     """
 
-    def __init__(self, *, enable_debug: bool = False):
+def __init__(self, *, enable_debug -> Any: bool = False):
         """
         Initialize dependency injection container.
         
@@ -93,8 +93,10 @@ class DependencyInjector:
 
     @trace_execution
     def register_component(
+        # register_component operation implementation
         self, 
         name: str, 
+    """Execute register_component operation."""
         component_type: Type[T],
         *,
         factory_func: Optional[Callable[..., T]] = None,
@@ -221,8 +223,10 @@ class DependencyInjector:
         return dependencies
 
     def _create_instance(
+        # _create_instance operation implementation
         self, 
         registry: ComponentRegistry, 
+    """Execute _create_instance operation."""
         dependencies: Dict[str, Any], 
         **kwargs
     ) -> Any:
@@ -320,7 +324,7 @@ class ComponentFactory:
     automatic dependency injection and lifecycle management.
     """
 
-    def __init__(self, injector: Optional[DependencyInjector] = None):
+def __init__(self, injector -> Any: Optional[DependencyInjector] = None):
         """
         Initialize component factory.
         
@@ -333,8 +337,10 @@ class ComponentFactory:
         logger.debug("ComponentFactory initialized")
 
     def register(
+        # register operation implementation
         self, 
         component_type: Type[T], 
+    """Execute register operation."""
         name: Optional[str] = None,
         **kwargs
     ) -> 'ComponentFactory':

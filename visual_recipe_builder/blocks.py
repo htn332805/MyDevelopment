@@ -119,7 +119,7 @@ class BlockLibrary:
     discovery of new blocks from the Framework0 scriptlet system.
     """
     
-    def __init__(self):
+def __init__(self) -> Any:
         """Initialize the block library with predefined blocks."""
         self.logger = get_logger(__name__)
         self._blocks: Dict[str, Block] = {}

@@ -17,13 +17,14 @@ Components:
 
 import sys
 import logging
+from typing import Any, Dict, List, Optional, Union
 from cli import CLI, commands, config, utils
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-def main():
+def main() -> Any:
     """
     Main function to initialize and run the Framework0 CLI.
 

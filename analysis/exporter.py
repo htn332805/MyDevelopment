@@ -15,8 +15,9 @@ Features:
 """
 
 import pandas as pd
+from typing import Any, Dict, List, Optional, Union
 
-def export_to_csv(df: pd.DataFrame, filepath: str, index: bool = False, **kwargs):
+def export_to_csv(df -> Any: pd.DataFrame, filepath: str, index: bool = False, **kwargs):
     """
     Exports the given DataFrame to a CSV file.
 
@@ -35,7 +36,7 @@ def export_to_csv(df: pd.DataFrame, filepath: str, index: bool = False, **kwargs
     except Exception as e:
         print(f"❌ Failed to export to CSV: {e}")
 
-def export_to_excel(df: pd.DataFrame, filepath: str, index: bool = False, **kwargs):
+def export_to_excel(df -> Any: pd.DataFrame, filepath: str, index: bool = False, **kwargs):
     """
     Exports the given DataFrame to an Excel file.
 
@@ -54,7 +55,7 @@ def export_to_excel(df: pd.DataFrame, filepath: str, index: bool = False, **kwar
     except Exception as e:
         print(f"❌ Failed to export to Excel: {e}")
 
-def export_to_json(df: pd.DataFrame, filepath: str, orient: str = 'records', **kwargs):
+def export_to_json(df -> Any: pd.DataFrame, filepath: str, orient: str = 'records', **kwargs):
     """
     Exports the given DataFrame to a JSON file.
 
@@ -73,7 +74,7 @@ def export_to_json(df: pd.DataFrame, filepath: str, orient: str = 'records', **k
     except Exception as e:
         print(f"❌ Failed to export to JSON: {e}")
 
-def export_to_html(df: pd.DataFrame, filepath: str, **kwargs):
+def export_to_html(df -> Any: pd.DataFrame, filepath: str, **kwargs):
     """
     Exports the given DataFrame to an HTML file.
 

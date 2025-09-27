@@ -42,7 +42,7 @@ from src.quiz_dashboard.web_app import create_app
 class TestQuizDatabase(unittest.TestCase):
     """Test database operations and models."""
     
-    def setUp(self):
+def setUp(self) -> Any:
         """Set up test database."""
         self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -53,12 +53,12 @@ class TestQuizDatabase(unittest.TestCase):
         )
         self.db = QuizDatabase(self.config)
     
-    def tearDown(self):
+def tearDown(self) -> Any:
         """Clean up test database."""
         self.db.close_all_connections()
         os.unlink(self.temp_db.name)
     
-    def test_database_initialization(self):
+def test_database_initialization(self) -> Any:
         """Test database schema creation."""
         # Verify tables exist
         tables_query = "SELECT name FROM sqlite_master WHERE type='table'"
@@ -72,7 +72,7 @@ class TestQuizDatabase(unittest.TestCase):
         
         self.assertTrue(expected_tables.issubset(table_names))
     
-    def test_question_crud_operations(self):
+def test_question_crud_operations(self) -> Any:
         """Test basic question CRUD operations."""
         # Insert a test question
         insert_query = """
@@ -105,14 +105,16 @@ class TestQuizDatabase(unittest.TestCase):
         self.assertEqual(results[0]['question_type'], QuestionType.MULTIPLE_CHOICE.value)
         self.assertEqual(results[0]['title'], "Test Question")
     
-    def test_thread_safety(self):
+def test_thread_safety(self) -> Any:
         """Test thread-safe database operations."""
         import threading
+from typing import Any, Dict, List, Optional, Union
         
         results = []
         errors = []
         
-        def insert_question(question_num):
+def insert_question(question_num -> Any: Any):
+"""Execute insert_question operation."""
             try:
                 query = "INSERT INTO questions (question_type, title, content, question_data_json, correct_answer_json) VALUES (?, ?, ?, ?, ?)"
                 params = (
@@ -147,7 +149,7 @@ class TestQuizDatabase(unittest.TestCase):
 class TestQuestionManager(unittest.TestCase):
     """Test question management and validation."""
     
-    def setUp(self):
+def setUp(self) -> Any:
         """Set up test environment."""
         self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -156,12 +158,12 @@ class TestQuestionManager(unittest.TestCase):
         self.question_manager = QuestionManager(self.database)
         self.validator = QuestionSchemaValidator()
     
-    def tearDown(self):
+def tearDown(self) -> Any:
         """Clean up test environment."""
         self.database.close_all_connections()
         os.unlink(self.temp_db.name)
     
-    def test_multiple_choice_validation(self):
+def test_multiple_choice_validation(self) -> Any:
         """Test multiple choice question validation."""
         valid_question = {
             "id": "test1",
@@ -182,7 +184,7 @@ class TestQuestionManager(unittest.TestCase):
         self.assertTrue(result.is_valid, f"Validation errors: {result.errors}")
         self.assertEqual(result.estimated_difficulty, 2)
     
-    def test_true_false_validation(self):
+def test_true_false_validation(self) -> Any:
         """Test true/false question validation."""
         valid_question = {
             "id": "test2",
@@ -197,7 +199,7 @@ class TestQuestionManager(unittest.TestCase):
         result = self.validator.validate_question(valid_question)
         self.assertTrue(result.is_valid, f"Validation errors: {result.errors}")
     
-    def test_fill_in_blank_validation(self):
+def test_fill_in_blank_validation(self) -> Any:
         """Test fill-in-blank question validation."""
         valid_question = {
             "id": "test3",
@@ -213,7 +215,7 @@ class TestQuestionManager(unittest.TestCase):
         result = self.validator.validate_question(valid_question)
         self.assertTrue(result.is_valid, f"Validation errors: {result.errors}")
     
-    def test_latex_detection(self):
+def test_latex_detection(self) -> Any:
         """Test LaTeX content detection."""
         latex_question = {
             "id": "test4",
@@ -230,7 +232,7 @@ class TestQuestionManager(unittest.TestCase):
         result = self.validator.validate_question(latex_question)
         self.assertTrue(result.latex_content)
     
-    def test_question_creation(self):
+def test_question_creation(self) -> Any:
         """Test question creation in database."""
         question_data = {
             "type": "multiple_choice",
@@ -255,7 +257,7 @@ class TestQuestionManager(unittest.TestCase):
         self.assertEqual(retrieved_question['title'], question_data['title'])
         self.assertEqual(retrieved_question['type'], question_data['type'])
     
-    def test_question_search(self):
+def test_question_search(self) -> Any:
         """Test question search functionality."""
         # Create test questions
         questions = [
@@ -306,7 +308,7 @@ class TestQuestionManager(unittest.TestCase):
 class TestSpacedRepetition(unittest.TestCase):
     """Test spaced repetition algorithms."""
     
-    def setUp(self):
+def setUp(self) -> Any:
         """Set up test environment."""
         self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -331,12 +333,12 @@ class TestSpacedRepetition(unittest.TestCase):
             question_id = self.question_manager.create_question(question_data)
             self.test_questions.append(question_id)
     
-    def tearDown(self):
+def tearDown(self) -> Any:
         """Clean up test environment."""
         self.database.close_all_connections()
         os.unlink(self.temp_db.name)
     
-    def test_sm2_algorithm_correct_answer(self):
+def test_sm2_algorithm_correct_answer(self) -> Any:
         """Test SM-2 algorithm with correct answer."""
         user_id = 1
         question_id = self.test_questions[0]
@@ -357,7 +359,7 @@ class TestSpacedRepetition(unittest.TestCase):
         self.assertGreater(progress.easiness_factor, 2.0)
         self.assertIsNotNone(progress.next_review_date)
     
-    def test_sm2_algorithm_incorrect_answer(self):
+def test_sm2_algorithm_incorrect_answer(self) -> Any:
         """Test SM-2 algorithm with incorrect answer."""
         user_id = 1
         question_id = self.test_questions[1]
@@ -376,7 +378,7 @@ class TestSpacedRepetition(unittest.TestCase):
         self.assertEqual(progress.repetition_count, 0)  # Reset on failure
         self.assertEqual(progress.interval_days, 1)  # Back to beginning
     
-    def test_question_selection(self):
+def test_question_selection(self) -> Any:
         """Test intelligent question selection."""
         user_id = 1
         
@@ -405,7 +407,7 @@ class TestSpacedRepetition(unittest.TestCase):
             self.assertIsInstance(question_id, int)
             self.assertIn(question_id, self.test_questions)
     
-    def test_mastery_calculation(self):
+def test_mastery_calculation(self) -> Any:
         """Test mastery level calculation."""
         user_id = 1
         question_id = self.test_questions[0]
@@ -426,7 +428,7 @@ class TestSpacedRepetition(unittest.TestCase):
         self.assertGreater(progress.mastery_level, 50.0)
         self.assertGreater(progress.repetition_count, 2)
     
-    def test_user_statistics(self):
+def test_user_statistics(self) -> Any:
         """Test user statistics generation."""
         user_id = 1
         
@@ -453,7 +455,7 @@ class TestSpacedRepetition(unittest.TestCase):
 class TestWebApplication(unittest.TestCase):
     """Test Flask web application."""
     
-    def setUp(self):
+def setUp(self) -> Any:
         """Set up test Flask app."""
         self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -477,35 +479,35 @@ class TestWebApplication(unittest.TestCase):
                 "difficulty": 2
             })
     
-    def tearDown(self):
+def tearDown(self) -> Any:
         """Clean up test environment."""
         os.unlink(self.temp_db.name)
     
-    def test_index_page(self):
+def test_index_page(self) -> Any:
         """Test index page loads."""
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Quiz Dashboard', response.data)
     
-    def test_dashboard_page(self):
+def test_dashboard_page(self) -> Any:
         """Test dashboard page loads."""
         response = self.client.get('/dashboard')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Choose Your Role', response.data)
     
-    def test_student_dashboard(self):
+def test_student_dashboard(self) -> Any:
         """Test student dashboard loads."""
         response = self.client.get('/student')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Welcome back', response.data)
     
-    def test_instructor_dashboard(self):
+def test_instructor_dashboard(self) -> Any:
         """Test instructor dashboard loads."""
         response = self.client.get('/instructor')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Instructor Dashboard', response.data)
     
-    def test_quiz_session_creation(self):
+def test_quiz_session_creation(self) -> Any:
         """Test quiz session creation."""
         response = self.client.post('/quiz/start', data={
             'question_count': '5',
@@ -517,7 +519,7 @@ class TestWebApplication(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn('/quiz/', response.location)
     
-    def test_api_question_search(self):
+def test_api_question_search(self) -> Any:
         """Test API question search endpoint."""
         response = self.client.get('/api/questions/search?limit=5')
         self.assertEqual(response.status_code, 200)
@@ -527,7 +529,7 @@ class TestWebApplication(unittest.TestCase):
         self.assertIn('total', data)
         self.assertIsInstance(data['questions'], list)
     
-    def test_api_question_validation(self):
+def test_api_question_validation(self) -> Any:
         """Test API question validation endpoint."""
         valid_question = {
             "type": "true_false",
@@ -544,7 +546,7 @@ class TestWebApplication(unittest.TestCase):
         data = json.loads(response.data)
         self.assertIn('is_valid', data)
     
-    def test_404_error_handling(self):
+def test_404_error_handling(self) -> Any:
         """Test 404 error handling."""
         response = self.client.get('/nonexistent-page')
         self.assertEqual(response.status_code, 404)
@@ -554,7 +556,7 @@ class TestWebApplication(unittest.TestCase):
 class TestIntegration(unittest.TestCase):
     """Integration tests for complete workflow."""
     
-    def setUp(self):
+def setUp(self) -> Any:
         """Set up integration test environment."""
         self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -564,12 +566,12 @@ class TestIntegration(unittest.TestCase):
         self.question_manager = get_question_manager(self.database)
         self.sr_engine = get_spaced_repetition_engine(self.database)
         
-    def tearDown(self):
+def tearDown(self) -> Any:
         """Clean up integration test environment."""
         self.database.close_all_connections()
         os.unlink(self.temp_db.name)
     
-    def test_complete_learning_workflow(self):
+def test_complete_learning_workflow(self) -> Any:
         """Test complete learning workflow from question creation to analysis."""
         
         # Step 1: Create questions
@@ -652,7 +654,7 @@ class TestIntegration(unittest.TestCase):
         self.assertGreater(len(programming_questions), 0)
 
 
-def run_tests():
+def run_tests() -> Any:
     """Run all test suites."""
     
     # Create test suite

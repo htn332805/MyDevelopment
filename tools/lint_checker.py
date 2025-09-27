@@ -1,7 +1,7 @@
 # tools/lint_checker.py
 import ast  # Abstract Syntax Tree parsing for Python code analysis
 import os  # Operating system interface for file operations
-from typing import List  # Type hints for better code quality
+from typing import List  # Type hints for better code quality, Any
 
 def check_comments_and_typing(file_path: str) -> List[str]:
     """Check Python file for compliance with team standards for comments and typing."""
@@ -25,7 +25,7 @@ def check_comments_and_typing(file_path: str) -> List[str]:
         for node in ast.walk(tree):  # Walk through all AST nodes
             if isinstance(node, ast.FunctionDef):  # Check if node is function definition
                 for arg in node.args.args:  # Check each function argument
-                    if arg.annotation is None:  # Check if argument has type annotation
+                    if arg.annotation is None and arg.arg not in ('self', 'cls'):  # Check if argument has type annotation (skip self/cls)
                         errors.append(f"❌ Missing type hint for argument '{arg.arg}' in function '{node.name}'")
     except Exception as e:
         errors.append(f"⚠️ Failed to parse {file_path}: {str(e)}")  # Handle parsing errors

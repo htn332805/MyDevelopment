@@ -31,27 +31,27 @@ class TestRecipePackager:
     """Test suite for recipe packaging functionality."""
 
     @pytest.fixture
-    def project_root(self):
+def project_root(self) -> Any:
         """Fixture providing project root path."""
         return Path(__file__).parent.parent
 
     @pytest.fixture
-    def packager(self, project_root):
+def packager(self, project_root -> Any: Any):
         """Fixture providing initialized RecipePackager."""
         return RecipePackager(project_root)
 
     @pytest.fixture
-    def temp_output_dir(self):
+def temp_output_dir(self) -> Any:
         """Fixture providing temporary output directory."""
         with tempfile.TemporaryDirectory() as temp_dir:
             yield Path(temp_dir)
 
     @pytest.fixture
-    def simple_test_recipe(self, project_root):
+def simple_test_recipe(self, project_root -> Any: Any):
         """Fixture providing path to simple test recipe."""
         return project_root / "orchestrator" / "recipes" / "simple_test.yaml"
 
-    def test_find_available_recipes(self, project_root):
+def test_find_available_recipes(self, project_root -> Any: Any):
         """Test finding available recipes in the project."""
         recipes = find_available_recipes(project_root)
         
@@ -59,7 +59,7 @@ class TestRecipePackager:
         assert len(recipes) >= 1
         assert any("simple_test.yaml" in str(recipe) for recipe in recipes)
 
-    def test_dependency_analyzer_initialization(self, project_root):
+def test_dependency_analyzer_initialization(self, project_root -> Any: Any):
         """Test DependencyAnalyzer initialization."""
         analyzer = DependencyAnalyzer(project_root)
         
@@ -67,7 +67,7 @@ class TestRecipePackager:
         assert analyzer.analyzed_modules == set()
         assert analyzer.required_files == set()
 
-    def test_analyze_simple_recipe(self, packager, simple_test_recipe):
+def test_analyze_simple_recipe(self, packager -> Any: Any, simple_test_recipe: Any):
         """Test analyzing a simple recipe."""
         analysis = packager.analyze_recipe(simple_test_recipe)
         
@@ -81,7 +81,7 @@ class TestRecipePackager:
         # Check that our test modules are detected
         assert 'scriptlets.steps.compute_numbers' in analysis['required_modules']
 
-    def test_create_package_structure(self, packager, simple_test_recipe, temp_output_dir):
+def test_create_package_structure(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
         """Test creating a complete package."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -107,7 +107,7 @@ class TestRecipePackager:
             # Scriptlet files should be present
             assert any('scriptlets/steps/compute_numbers.py' in f for f in file_list)
 
-    def test_packaged_recipe_execution(self, packager, simple_test_recipe, temp_output_dir):
+def test_packaged_recipe_execution(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
         """Test that a packaged recipe can be executed."""
         # Create package
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
@@ -132,7 +132,7 @@ class TestRecipePackager:
             assert "Recipe execution completed!" in result.stdout
             assert "Context keys:" in result.stdout
 
-    def test_package_metadata(self, packager, simple_test_recipe, temp_output_dir):
+def test_package_metadata(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
         """Test package metadata generation."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -147,6 +147,7 @@ class TestRecipePackager:
             assert metadata_path.exists()
             
             import json
+from typing import Any, Dict, List, Optional, Union
             with open(metadata_path, 'r') as f:
                 metadata = json.load(f)
             
@@ -157,7 +158,7 @@ class TestRecipePackager:
             assert 'recipe_name' in metadata
             assert 'usage' in metadata
 
-    def test_wrapper_script_functionality(self, packager, simple_test_recipe, temp_output_dir):
+def test_wrapper_script_functionality(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
         """Test that wrapper scripts are created correctly."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -186,7 +187,7 @@ class TestRecipePackager:
             assert result.returncode == 0
             assert "Run packaged recipe" in result.stdout
 
-    def test_minimal_dependencies(self, packager, simple_test_recipe, temp_output_dir):
+def test_minimal_dependencies(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
         """Test that packages contain minimal required dependencies."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -206,7 +207,7 @@ class TestRecipePackager:
                 assert not any(pattern in f for f in file_list), \
                     f"Package contains unnecessary files matching '{pattern}'"
 
-    def test_cross_platform_compatibility(self, packager, simple_test_recipe, temp_output_dir):
+def test_cross_platform_compatibility(self, packager -> Any: Any, simple_test_recipe: Any, temp_output_dir: Any):
         """Test that packages work across platforms."""
         zip_path = packager.create_package(simple_test_recipe, temp_output_dir)
         
@@ -222,11 +223,11 @@ class TestIntegrationWithCLI:
     """Integration tests with the Framework CLI."""
 
     @pytest.fixture
-    def project_root(self):
+def project_root(self) -> Any:
         """Fixture providing project root path."""
         return Path(__file__).parent.parent
 
-    def test_cli_package_list_command(self, project_root):
+def test_cli_package_list_command(self, project_root -> Any: Any):
         """Test CLI list command functionality."""
         result = subprocess.run([
             sys.executable,
@@ -239,7 +240,7 @@ class TestIntegrationWithCLI:
         assert "📦 Found" in result.stdout
         assert "recipes:" in result.stdout
 
-    def test_cli_package_specific_recipe(self, project_root):
+def test_cli_package_specific_recipe(self, project_root -> Any: Any):
         """Test CLI packaging of specific recipe."""
         with tempfile.TemporaryDirectory() as temp_dir:
             result = subprocess.run([
@@ -259,7 +260,7 @@ class TestIntegrationWithCLI:
             assert len(output_files) == 1
 
 
-def test_end_to_end_packaging_workflow():
+def test_end_to_end_packaging_workflow() -> Any:
     """
     End-to-end test of the complete packaging workflow.
     

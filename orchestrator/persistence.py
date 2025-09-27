@@ -4,7 +4,7 @@ import threading
 import time
 import json
 import os
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from orchestrator.context import Context
 
@@ -20,6 +20,7 @@ def __init__( self, persist_dir -> Any: str = "persist",
         flush_interval_sec: Optional[int] = 10,
         max_history: Optional[int] = None,
     ):
+        """Execute __init__ operation."""
         """
         :param persist_dir: Directory where serialized snapshots or delta files go.
         :param flush_interval_sec: If not None, flush dirty data every N seconds.
@@ -45,7 +46,8 @@ def __init__( self, persist_dir -> Any: str = "persist",
         if self.flush_interval_sec is None:
             return
 
-        def _flush_loop():
+        def _flush_loop() -> Any:
+            # _flush_loop operation implementation
             while not self._stop_event.is_set():
                 time.sleep(self.flush_interval_sec)
                 try:

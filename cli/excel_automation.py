@@ -126,7 +126,7 @@ Examples:
         
         return parser
 
-    def _add_clean_command(self, subparsers) -> None:
+def _add_clean_command(self, subparsers: Any) -> None:
         """Add data cleaning subcommand."""
         # Create clean subcommand parser
         clean_parser = subparsers.add_parser('clean', 
@@ -143,7 +143,7 @@ Examples:
         clean_parser.add_argument('--date-format', default='MM/DD/YYYY',
                                 help='Target date format')
 
-    def _add_analyze_command(self, subparsers) -> None:
+def _add_analyze_command(self, subparsers: Any) -> None:
         """Add data analysis subcommand."""
         # Create analyze subcommand parser
         analyze_parser = subparsers.add_parser('analyze', 
@@ -164,7 +164,7 @@ Examples:
         analyze_parser.add_argument('--create-summary', action='store_true',
                                   help='Create summary sheet')
 
-    def _add_visualize_command(self, subparsers) -> None:
+def _add_visualize_command(self, subparsers: Any) -> None:
         """Add visualization subcommand."""
         # Create visualize subcommand parser
         viz_parser = subparsers.add_parser('visualize',
@@ -181,7 +181,7 @@ Examples:
         viz_parser.add_argument('--conditional-formatting', action='store_true',
                               help='Apply conditional formatting')
 
-    def _add_auto_process_command(self, subparsers) -> None:
+def _add_auto_process_command(self, subparsers: Any) -> None:
         """Add auto-processing subcommand."""
         # Create auto-process subcommand parser
         auto_parser = subparsers.add_parser('auto-process',
@@ -190,7 +190,7 @@ Examples:
         auto_parser.add_argument('--create-toc', action='store_true', default=True,
                                help='Create table of contents for multi-sheet files')
 
-    def _add_batch_process_command(self, subparsers) -> None:
+def _add_batch_process_command(self, subparsers: Any) -> None:
         """Add batch processing subcommand."""
         # Create batch processing subcommand parser
         batch_parser = subparsers.add_parser('batch-process',
@@ -201,7 +201,7 @@ Examples:
         batch_parser.add_argument('--file-pattern', type=str, default='*.xlsx',
                                 help='File pattern to match (e.g., *.xlsx, *.xls)')
 
-    def _add_config_command(self, subparsers) -> None:
+def _add_config_command(self, subparsers: Any) -> None:
         """Add configuration management subcommand."""
         # Create config subcommand parser
         config_parser = subparsers.add_parser('create-config',
@@ -277,7 +277,7 @@ Examples:
             self.logger.error(f"Failed to load configuration: {e}")
             raise
 
-    def _execute_clean_command(self, args) -> int:
+def _execute_clean_command(self, args: Any) -> int:
         """
         Execute data cleaning command.
         
@@ -328,7 +328,7 @@ Examples:
             self.logger.error(f"Clean command failed: {e}")
             return 1
 
-    def _execute_analyze_command(self, args) -> int:
+def _execute_analyze_command(self, args: Any) -> int:
         """
         Execute data analysis command.
         
@@ -393,7 +393,7 @@ Examples:
             self.logger.error(f"Analyze command failed: {e}")
             return 1
 
-    def _execute_visualize_command(self, args) -> int:
+def _execute_visualize_command(self, args: Any) -> int:
         """
         Execute visualization command.
         
@@ -442,7 +442,7 @@ Examples:
             self.logger.error(f"Visualize command failed: {e}")
             return 1
 
-    def _execute_auto_process_command(self, args) -> int:
+def _execute_auto_process_command(self, args: Any) -> int:
         """
         Execute auto-processing command.
         
@@ -475,7 +475,7 @@ Examples:
             self.logger.error(f"Auto-process command failed: {e}")
             return 1
 
-    def _execute_batch_process_command(self, args) -> int:
+def _execute_batch_process_command(self, args: Any) -> int:
         """
         Execute batch processing command.
         
@@ -507,7 +507,7 @@ Examples:
             self.logger.error(f"Batch process command failed: {e}")
             return 1
 
-    def _execute_create_config_command(self, args) -> int:
+def _execute_create_config_command(self, args: Any) -> int:
         """
         Execute configuration creation command.
         

@@ -27,7 +27,7 @@ class CodeAnalyzer:
     classes, imports, and usage patterns for documentation generation.
     """
     
-    def __init__(self, repo_root: str):
+def __init__(self, repo_root -> Any: str):
         """
         Initialize the code analyzer with repository root.
         
@@ -612,7 +612,7 @@ class DocumentationGenerator:
     markdown documentation including repository overview and user manual.
     """
     
-    def __init__(self, analyzer: CodeAnalyzer):
+def __init__(self, analyzer -> Any: CodeAnalyzer):
         """
         Initialize documentation generator with analyzer results.
         
@@ -1873,7 +1873,7 @@ class DocumentationGenerator:
         return section  # Return section content
 
 
-def main():
+def main() -> Any:
     """
     Main function to generate comprehensive documentation for the repository.
     

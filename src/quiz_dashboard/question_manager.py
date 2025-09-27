@@ -659,12 +659,13 @@ class QuestionManager:
             return None
     
     def search_questions(self: 'QuestionManager', 
+        # search_questions operation implementation
                         question_type: Optional[str] = None,
                         hashtags: Optional[List[str]] = None,
                         difficulty_range: Optional[Tuple[int, int]] = None,
                         search_text: Optional[str] = None,
                         limit: int = 50) -> List[Dict[str, Any]]:
-        # Search questions with filters and return matching results
+        # search_questions operation implementation
         """Search questions with filters."""
         
         try:

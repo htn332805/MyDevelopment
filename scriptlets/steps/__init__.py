@@ -1,3 +1,6 @@
+
+from typing import Any, Dict, List, Optional, Union
+
 # scriptlets/steps/__init__.py
 
 """
@@ -20,7 +23,7 @@ __all__ = [
 ]
 
 # Package-level initialization tasks
-def initialize_package():
+def initialize_package() -> Any:
     """
     Perform any package-level initialization tasks.
 

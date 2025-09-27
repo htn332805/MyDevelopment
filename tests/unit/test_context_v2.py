@@ -27,17 +27,17 @@ except ImportError as e:
 class TestContextV2Basics:
     """Test basic functionality of ContextV2."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures for each test method."""
         self.context = ContextV2()
         
-    def test_context_initialization(self):
+def test_context_initialization(self) -> Any:
         """Test ContextV2 initializes with enhanced features."""
         assert self.context.context_id is not None
         assert len(self.context.context_id) > 0
         assert self.context.version == 0
         
-    def test_context_set_and_get_basic(self):
+def test_context_set_and_get_basic(self) -> Any:
         """Test basic set and get operations."""
         # Test setting and getting values
         self.context.set("test_key", "test_value")
@@ -46,7 +46,7 @@ class TestContextV2Basics:
         # Test default values - use keyword argument as required by ContextV2
         assert self.context.get("nonexistent_key", default="default") == "default"
         
-    def test_context_versioning(self):
+def test_context_versioning(self) -> Any:
         """Test context version tracking."""
         initial_version = self.context.version
         
@@ -57,7 +57,7 @@ class TestContextV2Basics:
         self.context.set("key2", "value2") 
         assert self.context.version == initial_version + 2
     
-    def test_context_metadata_tracking(self):
+def test_context_metadata_tracking(self) -> Any:
         """Test metadata tracking for changes."""
         self.context.set("key1", "value1", who="test_user")
         
@@ -65,7 +65,7 @@ class TestContextV2Basics:
         # Implementation may store metadata differently
         assert self.context.get("key1") == "value1"
     
-    def test_context_factory_function(self):
+def test_context_factory_function(self) -> Any:
         """Test the factory function for creating enhanced contexts."""
         context = create_enhanced_context(enable_versioning=True, enable_snapshots=False)
         assert isinstance(context, ContextV2)
@@ -75,13 +75,13 @@ class TestContextV2Basics:
 class TestContextV2ThreadSafety:
     """Test thread-safety features of ContextV2."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.context = ContextV2()
         self.results = []
         self.errors = []
     
-    def concurrent_writer(self, thread_id: int, num_operations: int):
+def concurrent_writer(self, thread_id -> Any: int, num_operations: int):
         """Helper method for concurrent writing."""
         try:
             for i in range(num_operations):
@@ -92,7 +92,7 @@ class TestContextV2ThreadSafety:
         except Exception as e:
             self.errors.append((thread_id, str(e)))
     
-    def concurrent_reader(self, thread_id: int, keys_to_read: list):
+def concurrent_reader(self, thread_id -> Any: int, keys_to_read: list):
         """Helper method for concurrent reading."""
         try:
             for key in keys_to_read:
@@ -101,7 +101,7 @@ class TestContextV2ThreadSafety:
         except Exception as e:
             self.errors.append((thread_id, str(e)))
     
-    def test_concurrent_writes(self):
+def test_concurrent_writes(self) -> Any:
         """Test concurrent write operations are thread-safe."""
         num_threads = 5
         operations_per_thread = 10
@@ -138,7 +138,7 @@ class TestContextV2ThreadSafety:
             actual_value = self.context.get(key)
             assert actual_value == expected_value, f"Value mismatch for {key}"
     
-    def test_concurrent_read_write_mix(self):
+def test_concurrent_read_write_mix(self) -> Any:
         """Test mixed concurrent read/write operations."""
         # Setup initial data
         initial_keys = []
@@ -184,11 +184,11 @@ class TestContextV2ThreadSafety:
 class TestContextV2Snapshots:
     """Test snapshot functionality of ContextV2."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.context = ContextV2(enable_snapshots=True)
     
-    def test_snapshot_creation(self):
+def test_snapshot_creation(self) -> Any:
         """Test creating context snapshots."""
         # Add some data
         self.context.set("key1", "value1")
@@ -200,7 +200,7 @@ class TestContextV2Snapshots:
         assert self.context.get("key1") == "value1"
         assert self.context.get("key2") == "value2"
     
-    def test_snapshot_isolation(self):
+def test_snapshot_isolation(self) -> Any:
         """Test that snapshots are properly isolated."""
         # Set initial values
         self.context.set("shared_key", "initial_value")
@@ -222,11 +222,11 @@ class TestContextV2Snapshots:
 class TestContextV2Performance:
     """Test performance-related features of ContextV2."""
     
-    def setup_method(self):
+def setup_method(self) -> Any:
         """Set up test fixtures."""
         self.context = ContextV2()
     
-    def test_large_data_handling(self):
+def test_large_data_handling(self) -> Any:
         """Test handling of large amounts of data."""
         # Add many key-value pairs
         num_entries = 1000
@@ -242,9 +242,10 @@ class TestContextV2Performance:
             actual_value = self.context.get(key)
             assert actual_value == expected_value
     
-    def test_context_memory_efficiency(self):
+def test_context_memory_efficiency(self) -> Any:
         """Test memory efficiency of context operations."""
         import sys
+from typing import Any, Dict, List, Optional, Union
         
         # Get initial memory usage (approximate)
         initial_keys = len(list(self.context.to_dict().keys()))
@@ -257,7 +258,7 @@ class TestContextV2Performance:
         final_keys = len(list(self.context.to_dict().keys()))
         assert final_keys >= initial_keys + 100
         
-    def test_context_serialization(self):
+def test_context_serialization(self) -> Any:
         """Test that context can be serialized (via to_dict)."""
         # Add various types of data
         self.context.set("string_key", "string_value")
@@ -277,7 +278,7 @@ class TestContextV2Performance:
 class TestContextV2Compatibility:
     """Test backward compatibility with original Context."""
     
-    def test_contextv2_inherits_from_context(self):
+def test_contextv2_inherits_from_context(self) -> Any:
         """Test that ContextV2 maintains compatibility with original Context."""
         context_v2 = ContextV2()
         
@@ -295,7 +296,7 @@ class TestContextV2Compatibility:
         assert "test_key" in context_dict
         assert context_dict["test_key"] == "test_value"
     
-    def test_contextv2_as_context_replacement(self):
+def test_contextv2_as_context_replacement(self) -> Any:
         """Test that ContextV2 can be used as a drop-in replacement."""
         from src.core.context_v2 import Context as ContextAlias
         
