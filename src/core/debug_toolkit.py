@@ -595,3 +595,34 @@ def debug_context(context_name: str):
 def generate_report(output_file: Optional[str] = None) -> str:
     """Generate debug report using global toolkit."""
     return _global_toolkit.generate_debug_report(output_file)
+
+
+# Additional convenience functions for compatibility
+def trace_variable(name: str, value: Any) -> None:
+    """Trace variable using global toolkit with compatibility."""
+    if _global_toolkit and hasattr(_global_toolkit, 'variable_tracker'):
+        _global_toolkit.variable_tracker.capture_variable(name, value, location="global_context")
+    else:
+        logger.debug(f"Variable trace: {name} = {value}")
+
+
+def trace_execution(func: Callable) -> Callable:
+    """Trace function execution using global toolkit with compatibility."""
+    if _global_toolkit and hasattr(_global_toolkit, 'execution_tracer'):
+        return _global_toolkit.execution_tracer.trace_function(func)
+    else:
+        # Fallback implementation
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            logger.debug(f"Executing function: {func.__name__}")
+            start_time = time.time()
+            try:
+                result = func(*args, **kwargs)
+                duration = time.time() - start_time
+                logger.debug(f"Function {func.__name__} completed in {duration:.3f}s")
+                return result
+            except Exception as e:
+                duration = time.time() - start_time
+                logger.debug(f"Function {func.__name__} failed after {duration:.3f}s: {e}")
+                raise
+        return wrapper
