@@ -20,7 +20,7 @@ import threading
 import time
 import uuid
 import json
-from typing import (
+from typing import (, Any
     Dict, List, Optional, Any, Callable, Type, Union, 
     TextIO, NamedTuple, Tuple
 )
@@ -556,6 +556,7 @@ def error_context( self, operation_name -> Any: str,
                 raise
 
     def _capture_error_context(
+        # _capture_error_context operation implementation
         self,
         exception: Exception,
         operation_name: str,
@@ -755,6 +756,7 @@ def error_context( self, operation_name -> Any: str,
         return False, None
 
     def _log_error_with_context(
+        # _log_error_with_context operation implementation
         self, 
         error_report: ErrorReport, 
         recovery_result: Optional[Tuple[bool, Any]]

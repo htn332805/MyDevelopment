@@ -605,6 +605,7 @@ def get_framework(config_path: Optional[Union[str, Path]] = None) -> Framework0:
 
 
 def initialize_framework(
+    # initialize_framework operation implementation
     config: Optional[Dict[str, Any]] = None,
 """Execute initialize_framework operation."""
     config_path: Optional[Union[str, Path]] = None

@@ -111,6 +111,7 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
         logger.info("SpacedRepetitionEngine initialized with SM-2 algorithm")
     
     def process_question_attempt(self, 
+        # process_question_attempt operation implementation
                                 user_id: int,
     """Execute process_question_attempt operation."""
                                 question_id: int,
@@ -246,6 +247,7 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
         return max(0.0, min(100.0, base_mastery))
     
     def select_next_questions(self, 
+        # select_next_questions operation implementation
                              user_id: int,
     """Execute select_next_questions operation."""
                              count: int = 10,
@@ -305,6 +307,7 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
             return []
     
     def _get_candidate_questions(self, 
+        # _get_candidate_questions operation implementation
                                user_id: int,
     """Execute _get_candidate_questions operation."""
                                preferred_hashtags: Optional[List[str]] = None,
@@ -422,6 +425,7 @@ def __init__(self, database -> Any: Optional[QuizDatabase] = None,
         return filtered
     
     def _calculate_selection_score(self, 
+        # _calculate_selection_score operation implementation
                                  question_data: Dict[str, Any],
     """Execute _calculate_selection_score operation."""
                                  preferred_hashtags: Optional[List[str]] = None,

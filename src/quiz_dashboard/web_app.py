@@ -895,6 +895,7 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         }
     
     def _calculate_performance_score(self, 
+        # _calculate_performance_score operation implementation
                                    is_correct: bool,
     """Execute _calculate_performance_score operation."""
                                    time_taken: float,
@@ -981,6 +982,7 @@ def __init__(self, database_path -> Any: str = "quiz_dashboard.db"):
         pass
     
     def _select_random_questions(self, 
+        # _select_random_questions operation implementation
                                 count: int = 1,
     """Execute _select_random_questions operation."""
                                 difficulty_level: Optional[int] = None,

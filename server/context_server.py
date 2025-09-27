@@ -36,7 +36,7 @@ class ServerContext:
         __exit__: Cleans up the resource.
     """
 
-    def __init__(self, resource: str):
+    def __init__(self, resource: str) -> Any:
         """
         Initializes the ServerContext with a specified resource.
 
@@ -56,7 +56,7 @@ def __enter__(self) -> Any:
         # Simulate resource setup
         return self.resource
 
-    def __exit__(self, exc_type: Any, exc_value: Any, traceback: Any):
+    def __exit__(self, exc_type: Any, exc_value: Any, traceback: Any) -> Any:
         """
         Cleans up the resource after use within the context.
 

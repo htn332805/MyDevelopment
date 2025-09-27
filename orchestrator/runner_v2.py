@@ -77,6 +77,7 @@ class EnhancedRunner:
     """
 
     def __init__(self, *, enable_profiling: bool = True,
+        # __init__ operation implementation
                  enable_debugging: bool = False,
                  max_parallel_steps: int = 4,
                  execution_timeout: float = 3600.0):
@@ -108,6 +109,7 @@ class EnhancedRunner:
     @monitor_resources(log_metrics=True)
     @debug_trace(capture_vars=["recipe_path", "debug", "only", "skip"])
     def run_recipe(self,
+        # run_recipe operation implementation
                    recipe_path: str,
                    *,
                    debug: bool = False,

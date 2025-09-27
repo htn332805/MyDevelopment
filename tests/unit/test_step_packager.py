@@ -81,7 +81,7 @@ def test_extract_imports(self) -> Any:
             test_content = """
 import os
 import sys
-from typing import List, Dict
+from typing import List, Dict, Any
 from orchestrator.context import Context
 from scriptlets.core import base
 from external_lib import something
@@ -136,7 +136,8 @@ import os
 from orchestrator.context import Context
 
 class TestStep:
-    def run(self, ctx, params):
+    def run(self, ctx, params) -> Any:
+        # run operation implementation
         return 0
 """)
             
@@ -337,10 +338,12 @@ from orchestrator.runner import run_recipe
             
             (orch_dir / "context.py").write_text("""
 class Context:
-    def __init__(self):
+    def __init__(self) -> Any:
+        # __init__ operation implementation
         self._data = {}
     
-    def to_dict(self):
+    def to_dict(self) -> Any:
+        # to_dict operation implementation
         return self._data.copy()
 """)
             
@@ -348,7 +351,8 @@ class Context:
 import yaml
 from orchestrator.context import Context
 
-def run_recipe(recipe_path, debug=False, only=None, skip=None):
+def run_recipe(recipe_path, debug=False, only=None, skip=None) -> Any:
+    # run_recipe operation implementation
     return Context()
 """)
             

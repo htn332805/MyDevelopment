@@ -414,7 +414,7 @@ sys.path.insert(0, str(current_dir))
 # Import the orchestrator runner
 from orchestrator.runner import run_recipe
 
-def main():
+def main() -> Any:
     """Main execution function for the packaged recipe."""
     import argparse
     

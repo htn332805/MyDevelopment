@@ -450,7 +450,7 @@ except ImportError as e:
     print("📁 Make sure all required files are in the current directory.", file=sys.stderr)
     sys.exit(1)
 
-def main():
+def main() -> Any:
     """Main function to run the packaged step."""
     parser = argparse.ArgumentParser(
         description=f"Run packaged Framework0 step: {step_name}",

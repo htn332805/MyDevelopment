@@ -17,7 +17,7 @@ def __init__(self) -> Any:
         """
         self.graph = nx.DiGraph()
 
-    def add_task(self, task_name: str, dependencies: List[str] = []):
+    def add_task(self, task_name: str, dependencies: List[str] = []) -> Any:
         """
         Adds a task to the graph with its dependencies.
 

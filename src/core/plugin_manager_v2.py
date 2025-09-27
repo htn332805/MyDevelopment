@@ -24,7 +24,7 @@ import threading
 import json
 import uuid
 import hashlib
-from typing import (
+from typing import (, Any
     Dict, List, Optional, Any, Set, Type, Callable, 
     Union, Tuple, NamedTuple
 )
@@ -287,6 +287,7 @@ def __init__(self) -> Any:
         return False
 
     def resolve_dependencies(
+        # resolve_dependencies operation implementation
         self, 
         plugin_manifests: Dict[str, PluginManifest],
     """Execute resolve_dependencies operation."""

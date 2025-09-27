@@ -16,7 +16,7 @@ Key interfaces:
 Follows Framework0 standards with full typing and backward compatibility.
 """
 
-from typing import (
+from typing import (, Any
     Protocol, runtime_checkable, Any, Dict, List, Optional, Union, 
     Callable, Iterator, TypeVar, Generic, Coroutine, AsyncIterator
 )
