@@ -45,6 +45,12 @@ known_third_party = ["requests", "numpy", "pandas"]
 [tool.pytest.ini_options]
 addopts = ["--maxfail=3", "--disable-warnings", "--strict-markers"]
 testpaths = ["tests"]
+markers = [
+    "integration_test: Integration tests that test component interactions",
+    "unit_test: Unit tests that test individual components",
+    "slow: Tests that take a long time to run",
+    "smoke: Smoke tests for basic functionality"
+]
 
 [tool.coverage.run]
 branch = true
