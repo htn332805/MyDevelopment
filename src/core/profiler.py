@@ -57,7 +57,6 @@ class ResourceProfiler:
 
     def __init__(
         self: "ResourceProfiler",
-    """Execute __init__ operation."""
         name: str = "default",
         enable_detailed_logging: bool = False,
     ) -> None:

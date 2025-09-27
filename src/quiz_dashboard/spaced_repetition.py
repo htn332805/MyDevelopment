@@ -166,8 +166,8 @@ class SpacedRepetitionEngine:
     
     def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
         # Execute _apply_sm2_algorithm operation
-    """Apply SM-2 algorithm to update intervals and easiness."""
-    # Convert performance score to SM-2 quality scale (0-5)
+        """Apply SM-2 algorithm to update intervals and easiness."""
+        # Convert performance score to SM-2 quality scale (0-5)
         quality = min(5, max(0, int(performance_score)))
         
         # Update easiness factor based on performance
