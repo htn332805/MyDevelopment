@@ -217,8 +217,8 @@ class SpacedRepetitionEngine:
     
     def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
         # Execute _calculate_mastery_level operation
-    """Calculate mastery level based on performance history."""
-    if progress.total_attempts == 0:
+        """Calculate mastery level based on performance history."""
+        if progress.total_attempts == 0:
             return 0.0
         
         # Base mastery from success rate

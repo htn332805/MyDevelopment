@@ -125,7 +125,7 @@ class ContextV2(ContextV1):
     @profile_execution("context_get")
     def get(self, key: str, *, default: Any = None) -> Any:
         # Execute get operation
-    """
+        """
         Thread-safe retrieval of context value.
         
         Args:
