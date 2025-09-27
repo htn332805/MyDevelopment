@@ -76,7 +76,7 @@ class DependencyInjector:
     debugging and tracing capabilities.
     """
 
-def __init__(g: bool  = False) -> Any::
+def __init__(g: bool  = False) -> Any:
     # Execute __init__ operation
         """
         Initialize dependency injection container.
@@ -332,7 +332,7 @@ class ComponentFactory:
     automatic dependency injection and lifecycle management.
     """
 
-def __init__(r: Optional[DependencyInjector]  = None) -> Any::
+def __init__(r: Optional[DependencyInjector]  = None) -> Any:
     # Execute __init__ operation
         """
         Initialize component factory.

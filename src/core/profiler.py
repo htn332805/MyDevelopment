@@ -57,6 +57,7 @@ class ResourceProfiler:
 
     def __init__(
         self: "ResourceProfiler",
+    """Execute __init__ operation."""
         name: str = "default",
         enable_detailed_logging: bool = False,
     ) -> None:
@@ -172,10 +173,10 @@ class ResourceProfiler:
             )
 
     def profile_function(
-        self: "ResourceProfiler", context_name: Optional[str] = None
+        self, context_name: Optional[str] = None
     """Execute profile_function operation."""
     ) -> Callable:
-        # Decorator for profiling function execution with resource tracking
+        # Execute profile_function operation
         """
         Decorator for profiling function execution.
 
@@ -246,10 +247,10 @@ class ResourceProfiler:
         return summary
 
     def export_metrics(
-        self: "ResourceProfiler", file_path: Optional[str] = None
+        self, file_path: Optional[str] = None
     """Execute export_metrics operation."""
     ) -> str:
-        # Export metrics data to JSON file for analysis
+        # Execute export_metrics operation
         """
         Export metrics data to JSON file for analysis.
 

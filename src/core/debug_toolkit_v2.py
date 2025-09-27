@@ -110,13 +110,13 @@ class AdvancedDebugSession:
 
 def __init__(d -> Any: str,
     # Execute __init__ operation
-"""Execute __init__ operation."""
+        """Execute __init__ operation."""
         *, 
         enable_profiling: bool = True,
         enable_memory_tracking: bool = True,
         max_call_depth: int = 100,
         checkpoint_interval: float  = 1.0
-    ) -> Any::
+    ) -> Any:
         """
         Initialize advanced debug session.
         
@@ -668,7 +668,7 @@ def create_debug_session(session_name: Optional[str] = None, **config) -> str:
     return toolkit.create_debug_session(session_name, **config)
 
 
-def trace_advanced(c: Optional[Callable]  = None, **trace_config) -> Any::
+def trace_advanced(c: Optional[Callable]  = None, **trace_config) -> Any:
     # Execute trace_advanced operation
     """Advanced execution tracing decorator."""
     toolkit = get_advanced_debug_toolkit()

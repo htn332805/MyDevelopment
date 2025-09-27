@@ -216,7 +216,7 @@ class ExecutionTracer:
 
     def trace_function(self, func: Callable) -> Callable:
         # Execute trace_function operation
-    """
+        """
         Decorator to trace function execution.
         
         Args:
@@ -310,8 +310,8 @@ class DebugBreakpoint:
 
 def __init__(n -> Any: str, *, action: str = "break",
     # Execute __init__ operation
-"""Execute __init__ operation."""
-                 variables_to_inspect: Optional[List[str]]  = None) -> Any::
+        """Execute __init__ operation."""
+                 variables_to_inspect: Optional[List[str]]  = None) -> Any:
         """
         Initialize debug breakpoint.
         
@@ -414,7 +414,7 @@ class DebugToolkit:
     breakpoint management, and debug session coordination.
     """
 
-def __init__(e: str  = "debug_session") -> Any::
+def __init__(e: str  = "debug_session") -> Any:
     # Execute __init__ operation
         """
         Initialize debug toolkit.

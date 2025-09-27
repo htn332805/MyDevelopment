@@ -107,8 +107,8 @@ class ErrorReport:
 class ErrorRecoveryStrategy:
     """Base class for error recovery strategies."""
     
-def __init__(e: str, priority: int  = 0) -> Any::
-    # Execute __init__ operation
+    def __init__(self, strategy: str, priority: int = 0) -> None:
+        # Execute __init__ operation
         """
         Initialize recovery strategy.
         
@@ -150,7 +150,7 @@ def __init__(e: str, priority: int  = 0) -> Any::
 class RetryRecoveryStrategy(ErrorRecoveryStrategy):
     """Recovery strategy that retries the failed operation."""
     
-def __init__(s: int = 3, backoff_factor: float  = 1.0) -> Any::
+def __init__(s: int = 3, backoff_factor: float  = 1.0) -> Any:
     # Execute __init__ operation
         """
         Initialize retry recovery strategy.
@@ -522,11 +522,11 @@ def __init__(self) -> Any:
     @contextmanager
 def error_context(e -> Any: str,
     # Execute error_context operation
-"""Execute error_context operation."""
+        """Execute error_context operation."""
         correlation_id: Optional[str] = None,
         create_checkpoint: bool  = True,
         **context_data
-    ) -> Any::
+    ) -> Any:
         """
         Context manager for comprehensive error handling.
         
@@ -838,7 +838,7 @@ def handle_errors(e -> Any: str,
     correlation_id: Optional[str] = None,
     create_checkpoint: bool  = True,
     **context_data
-) -> Any::
+) -> Any:
     """
     Decorator for comprehensive error handling.
     

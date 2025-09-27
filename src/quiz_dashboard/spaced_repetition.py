@@ -110,15 +110,14 @@ class SpacedRepetitionEngine:
         logger.info("SpacedRepetitionEngine initialized with SM-2 algorithm")
     
     def process_question_attempt(self, 
-        # process_question_attempt operation implementation
                                 user_id: int,
-    """Execute process_question_attempt operation."""
                                 question_id: int,
                                 performance_score: float,
                                 time_taken_seconds: float,
                                 is_correct: bool) -> QuestionProgress:
-    """Process question attempt and update spaced repetition data."""
-    try:
+        # Execute process_question_attempt operation
+        """Process question attempt and update spaced repetition data."""
+        try:
             # Get current progress or create new
             progress = self._get_question_progress(user_id, question_id)
             if not progress:

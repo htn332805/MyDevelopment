@@ -347,7 +347,7 @@ class ContextV2(ContextV1):
             return filtered_records
 
     @contextmanager
-def transaction(o: Optional[str]  = None) -> Any::
+def transaction(o: Optional[str]  = None) -> Any:
     # Execute transaction operation
         """
         Context manager for atomic transactions with rollback capability.
