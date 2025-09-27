@@ -715,8 +715,8 @@ class QuizWebApp:
     
     def _get_quiz_session(self, session_id: str) -> Optional[Dict[str, Any]]:
         # Execute _get_quiz_session operation
-    """Get quiz session data by UUID."""
-    try:
+        """Get quiz session data by UUID."""
+        try:
             query = """
                 SELECT user_id, session_uuid, started_at, completed_at, status,
                        total_questions, questions_answered, correct_answers,
@@ -1191,7 +1191,7 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
 def serve_static(self, filename -> Any: str):
     # Execute serve_static operation
         """Serve static files."""
-        return send_from_directory(self.app.static_folder, filename)
+                return send_from_directory(self.app.static_folder, filename)
     
 def handle_404(self, error -> Any: Any):
         """Handle 404 errors."""

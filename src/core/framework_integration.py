@@ -569,7 +569,7 @@ def error_handling(self, operation_name -> Any: str, **context):
             operation_name (str): Operation name
             **context: Additional context data
         """
-        with self._error_handler.error_context(operation_name, **context):
+                with self._error_handler.error_context(operation_name, **context):
             yield
 
 

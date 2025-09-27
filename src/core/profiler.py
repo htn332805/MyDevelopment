@@ -60,8 +60,7 @@ class ResourceProfiler:
 
         self: "ResourceProfiler",
         name: str = "default",
-        enable_detailed_logging: bool = False,
-    ) -> None:
+        enable_detailed_logging: bool = False,) -> None:
         # Initialize resource profiler instance with configuration options
         """
         Execute __init__ operation.
@@ -87,8 +86,7 @@ class ResourceProfiler:
         # Execute _collect_current_metrics operation
 
         self: "ResourceProfiler", context: str = "unknown"
-    """Execute _collect_current_metrics operation."""
-    ) -> ResourceMetrics:
+    """Execute _collect_current_metrics operation.""") -> ResourceMetrics:
         # Collect current system resource metrics using psutil
         """
         Collect current system resource metrics.
@@ -136,8 +134,7 @@ class ResourceProfiler:
         # Execute profile_context operation
 
         self: "ResourceProfiler", context_name: str = "context"
-    """Execute profile_context operation."""
-    ) -> Generator[None, None, None]:
+    """Execute profile_context operation.""") -> Generator[None, None, None]:
         # Context manager for profiling code blocks with resource monitoring
         """
         Context manager for profiling code blocks.
@@ -178,8 +175,8 @@ class ResourceProfiler:
             )
 
     def profile_function(
-        self, context_name: Optional[str] = None
-    ) -> Callable:
+        # Execute profile_function operation
+        self, context_name: Optional[str] = None) -> Callable:
         # Execute profile_function operation
         """Execute profile_function operation."""
         # Execute profile_function operation
@@ -254,11 +251,9 @@ class ResourceProfiler:
 
     def export_metrics(
         # Execute export_metrics operation
-
-        self, file_path: Optional[str] = None
-    """Execute export_metrics operation."""
-    ) -> str:
+        self, file_path: Optional[str] = None) -> str:
         # Execute export_metrics operation
+        """Execute export_metrics operation."""
         """
         Export metrics data to JSON file for analysis.
 
