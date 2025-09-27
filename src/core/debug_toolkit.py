@@ -325,6 +325,7 @@ class DebugBreakpoint:
     execution context, or custom conditions.
     """
 
+<<<<<<< HEAD
     def __init__(
         self,
         condition: str,
@@ -336,6 +337,14 @@ class DebugBreakpoint:
         """
         Initialize debug breakpoint.
 
+=======
+    def __init__(self, condition: str, *, action: str = "break",
+                 variables_to_inspect: Optional[List[str]] = None) -> None:
+        # Execute __init__ operation
+        """
+        Initialize debug breakpoint.
+        
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         Args:
             condition (str): Python expression for break condition
             action (str): Action to take when condition met ('break', 'log', 'capture')
@@ -430,9 +439,13 @@ class DebugBreakpoint:
         # Execute _capture_variable_state operation
         """Capture variable state for analysis."""
         # This could be enhanced to store in a dedicated capture system
+<<<<<<< HEAD
         debug_tracer.debug(
             f"Captured variables at breakpoint: {self.variables_to_inspect}"
         )
+=======
+        debug_tracer.debug(f"Captured variables at breakpoint: {self.variables_to_inspect}")
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
 
 
 class DebugToolkit:

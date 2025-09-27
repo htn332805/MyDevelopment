@@ -56,7 +56,11 @@ class ResourceProfiler:
     """
 
     def __init__(self, name: str = "default", enable_detailed_logging: bool = False) -> None:
+<<<<<<< HEAD
         # Initialize resource profiler with name and logging settings
+=======
+        # Execute __init__ operation
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         """
         Initialize resource profiler instance.
 

@@ -152,7 +152,11 @@ class RetryRecoveryStrategy(ErrorRecoveryStrategy):
     """Recovery strategy that retries the failed operation."""
     
     def __init__(self, max_retries: int = 3, backoff_factor: float = 1.0) -> None:
+<<<<<<< HEAD
     # Execute __init__ operation
+=======
+        # Execute __init__ operation
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
         """
         Initialize retry recovery strategy.
         

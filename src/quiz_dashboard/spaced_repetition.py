@@ -620,7 +620,11 @@ class SpacedRepetitionEngine:
         except Exception as e:
             logger.error(f"Failed to get question progress: {e}")
             return None
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
     def _save_question_progress(self, progress: QuestionProgress) -> None:
         # Execute _save_question_progress operation
         """Save question progress data to database."""
@@ -633,7 +637,10 @@ class SpacedRepetitionEngine:
                     current_difficulty, mastery_level, last_updated
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """
+<<<<<<< HEAD
 
+=======
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
             params = (
                 progress.user_id,
                 progress.question_id,
@@ -659,13 +666,21 @@ class SpacedRepetitionEngine:
         except Exception as e:
             logger.error(f"Failed to save question progress: {e}")
             raise
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
     def get_user_statistics(self, user_id: int) -> Dict[str, Any]:
         # Execute get_user_statistics operation
         """Get comprehensive learning statistics for a user."""
         try:
             # Basic progress statistics
+<<<<<<< HEAD
             stats_query = """
+=======
+            query = """
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
                 SELECT 
                     COUNT(*) as total_questions_attempted,
                     COUNT(CASE WHEN mastery_level >= 80 THEN 1 END) as mastered_questions,
@@ -675,8 +690,13 @@ class SpacedRepetitionEngine:
                 FROM user_progress 
                 WHERE user_id = ? AND total_attempts > 0
             """
+<<<<<<< HEAD
 
             stats_results = self.database.execute_query(stats_query, (user_id,))
+=======
+            
+            stats_results = self.database.execute_query(query, (user_id,))
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
             stats_row = stats_results[0] if stats_results else {}
 
             # Learning streak calculation
@@ -688,7 +708,11 @@ class SpacedRepetitionEngine:
                   AND questions_attempted > 0
                 ORDER BY analytics_date DESC
             """
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
             streak_results = self.database.execute_query(streak_query, (user_id,))
             current_streak = (
                 streak_results[0]["current_streak"] if streak_results else 0
@@ -706,10 +730,15 @@ class SpacedRepetitionEngine:
                 GROUP BY q.difficulty_level
                 ORDER BY q.difficulty_level
             """
+<<<<<<< HEAD
 
             difficulty_results = self.database.execute_query(
                 difficulty_query, (user_id,)
             )
+=======
+            
+            difficulty_results = self.database.execute_query(difficulty_query, (user_id,))
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
             difficulty_distribution = {
                 row["difficulty_level"]: {
                     "count": row["count"],
@@ -745,6 +774,7 @@ _sr_engine: Optional[SpacedRepetitionEngine] = None
 _engine_lock = threading.Lock()
 
 
+<<<<<<< HEAD
 def get_spaced_repetition_engine(
     database: Optional[QuizDatabase] = None,
 ) -> SpacedRepetitionEngine:
@@ -761,3 +791,14 @@ def get_spaced_repetition_engine(
 
 # Import json for hashtag parsing
 import json
+=======
+def get_spaced_repetition_engine(database: Optional[QuizDatabase] = None) -> SpacedRepetitionEngine:
+    # Execute get_spaced_repetition_engine operation
+    global _sr_engine
+    
+    with _engine_lock:
+        if _sr_engine is None:
+            _sr_engine = SpacedRepetitionEngine(database)
+    
+    return _sr_engine
+>>>>>>> 09358808f3e803617735c925d71ec563c5edd780
