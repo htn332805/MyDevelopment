@@ -76,8 +76,8 @@ class DependencyInjector:
     debugging and tracing capabilities.
     """
 
-def __init__(g: bool  = False) -> Any:
-    # Execute __init__ operation
+    def __init__(self, enable_debug: bool = False) -> None:
+        # Execute __init__ operation
         """
         Initialize dependency injection container.
         
@@ -106,8 +106,7 @@ def __init__(g: bool  = False) -> Any:
                           lifecycle: str = "managed"
                           ) -> None:
         # Execute register_component operation
-        """Execute register_component operation."""
-    """
+        """
         Register a component in the dependency injection container.
         
         Args:
@@ -227,14 +226,11 @@ def __init__(g: bool  = False) -> Any:
         return dependencies
 
     def _create_instance(self, 
+                         registry: ComponentRegistry,
+                         dependencies: Dict[str, Any], 
+                         **kwargs) -> Any:
         # Execute _create_instance operation
-        """Execute _create_instance operation."""
-        registry: ComponentRegistry, ) -> Any:
-    """Execute _create_instance operation."""
-        dependencies: Dict[str, Any], 
-        **kwargs
-    ) -> Any:
-    """
+        """
         Create component instance using factory function or constructor.
         
         Args:
