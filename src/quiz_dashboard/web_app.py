@@ -1189,6 +1189,7 @@ def _extract_question_from_form(self, form_data: Any) -> Dict[str, Any]:
     # Static file and error handlers
     
 def serve_static(self, filename -> Any: str):
+    # Execute serve_static operation
         """Serve static files."""
         return send_from_directory(self.app.static_folder, filename)
     
