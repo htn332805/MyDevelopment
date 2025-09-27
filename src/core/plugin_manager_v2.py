@@ -112,14 +112,12 @@ class PluginSandbox:
     """
 
 def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
-    # Execute __init__ operation
-        """
+        # Execute __init__ operation
         Initialize plugin sandbox.
         
         Args:
             plugin_name (str): Plugin name for identification
             sandbox_level (PluginSandboxLevel): Sandboxing security level
-        """
         self.plugin_name = plugin_name  # Plugin identifier
         self.sandbox_level = sandbox_level  # Security level
         self._resource_limits: Dict[str, Any] = {}  # Resource limitations
@@ -129,15 +127,13 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
         
         logger.debug(f"PluginSandbox created for {plugin_name} with level {sandbox_level.value}")
 
-    def setup_sandbox(self, resource_limits: Optional[Dict[str, Any]] = None) -> None:
+        def setup_sandbox(self, resource_limits: Optional[Dict[str, Any]] = None) -> None:
         # Execute setup_sandbox operation
-    """
         Setup sandbox environment for plugin.
         
         Args:
             resource_limits (Optional[Dict[str, Any]]): Resource limitations
-        """
-    self._resource_limits = resource_limits or {}
+        self._resource_limits = resource_limits or {}
         
         if self.sandbox_level == PluginSandboxLevel.NONE:
             return  # No sandboxing
@@ -148,9 +144,8 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
             self._allowed_paths.add(self._temp_dir)
             logger.debug(f"Created sandbox directory: {self._temp_dir}")
 
-    def check_import(self, module_name: str) -> bool:
+        def check_import(self, module_name: str) -> bool:
         # Execute check_import operation
-    """
         Check if module import is allowed in sandbox.
         
         Args:
@@ -158,8 +153,7 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
             
         Returns:
             bool: True if import is allowed
-        """
-    if self.sandbox_level == PluginSandboxLevel.NONE:
+        if self.sandbox_level == PluginSandboxLevel.NONE:
             return True
         
         # Block dangerous modules
@@ -169,9 +163,8 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
         
         return True
 
-    def check_file_access(self, file_path: str, operation: str) -> bool:
+        def check_file_access(self, file_path: str, operation: str) -> bool:
         # Execute check_file_access operation
-    """
         Check if file access is allowed in sandbox.
         
         Args:
@@ -180,8 +173,7 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
             
         Returns:
             bool: True if access is allowed
-        """
-    if self.sandbox_level in [PluginSandboxLevel.NONE, PluginSandboxLevel.BASIC]:
+        if self.sandbox_level in [PluginSandboxLevel.NONE, PluginSandboxLevel.BASIC]:
             return True
         
         # Check against allowed paths
@@ -195,7 +187,6 @@ def __init__(self, plugin_name -> Any: str, sandbox_level: PluginSandboxLevel):
 
     def cleanup_sandbox(self) -> None:
         # Execute cleanup_sandbox operation
-        """Cleanup sandbox resources."""
         if self._temp_dir and Path(self._temp_dir).exists():
             import shutil
             try:
@@ -214,14 +205,12 @@ class PluginVersionResolver:
     """
 
 def __init__(self) -> Any:
-    # Execute __init__ operation
-    """Initialize version resolver."""
-    self._version_cache: Dict[str, List[str]] = {}  # Cached available versions
+        # Execute __init__ operation
+        self._version_cache: Dict[str, List[str]] = {}  # Cached available versions
         self._resolution_cache: Dict[str, Dict[str, str]] = {}  # Cached resolutions
 
-    def parse_version_spec(self, spec: str) -> Dict[str, Any]:
+        def parse_version_spec(self, spec: str) -> Dict[str, Any]:
         # Execute parse_version_spec operation
-        """
         Parse version specification string.
         
         Args:
@@ -229,7 +218,6 @@ def __init__(self) -> Any:
             
         Returns:
             Dict[str, Any]: Parsed version constraints
-        """
         # Simple version parsing - could be enhanced with proper semver library
         constraints = []
         
@@ -252,7 +240,6 @@ def __init__(self) -> Any:
 
     def check_version_compatibility(self, version: str, spec: str) -> bool:
         # Execute check_version_compatibility operation
-    """
         Check if version satisfies specification.
         
         Args:
@@ -261,8 +248,7 @@ def __init__(self) -> Any:
             
         Returns:
             bool: True if version satisfies spec
-        """
-    parsed_spec = self.parse_version_spec(spec)
+        parsed_spec = self.parse_version_spec(spec)
         
         for op, target_version in parsed_spec['constraints']:
             if not self._compare_versions(version, op, target_version):
@@ -272,8 +258,7 @@ def __init__(self) -> Any:
 
     def _compare_versions(self, version1: str, operator: str, version2: str) -> bool:
         # Execute _compare_versions operation
-    """Compare two version strings with given operator."""
-    # Simple version comparison - could be enhanced with proper semver
+        # Simple version comparison - could be enhanced with proper semver
         v1_parts = [int(x) for x in version1.split('.')]
         v2_parts = [int(x) for x in version2.split('.')]
         
@@ -295,14 +280,10 @@ def __init__(self) -> Any:
         
         return False
 
-    def resolve_dependencies(self, 
-        # Execute resolve_dependencies operation
-        """Execute resolve_dependencies operation."""
-        plugin_manifests: Dict[str, PluginManifest],) -> Any:
-    """Execute resolve_dependencies operation."""
+        def resolve_dependencies(self,
+        # Execute resolve_dependencies operation        plugin_manifests: Dict[str, PluginManifest],) -> Any:
         target_plugins: List[str]
-    ) -> Tuple[Dict[str, str], List[str]]:
-    """
+        ) -> Tuple[Dict[str, str], List[str]]:
         Resolve plugin dependencies.
         
         Args:
@@ -311,8 +292,7 @@ def __init__(self) -> Any:
             
         Returns:
             Tuple[Dict[str, str], List[str]]: (resolved_versions, conflicts)
-        """
-    resolved = {}  # Plugin name -> version
+        resolved = {}  # Plugin name -> version
         conflicts = []  # List of conflict messages
         
         # Simple dependency resolution - could be enhanced with proper SAT solver
@@ -359,10 +339,9 @@ class EnhancedPluginManager(ComponentLifecycle, EventDrivenComponent):
     """
 
 def __init__(self) -> Any:
-    # Execute __init__ operation
-    """Initialize enhanced plugin manager."""
-    super().__init__()
-    EventDrivenComponent.__init__(self)
+        # Execute __init__ operation
+        super().__init__()
+        EventDrivenComponent.__init__(self)
         
         self._plugin_registry = PluginRegistry()  # Core plugin registry
         self._dependency_injector = DependencyInjector()  # Dependency injection
@@ -386,10 +365,9 @@ def __init__(self) -> Any:
         
         logger.info("EnhancedPluginManager initialized")
 
-    def _do_initialize(self, config: Dict[str, Any]) -> None:
+        def _do_initialize(self, config: Dict[str, Any]) -> None:
         # Execute _do_initialize operation
-    """Initialize plugin manager with configuration."""
-    # Initialize base plugin registry
+        # Initialize base plugin registry
         self._plugin_registry.initialize(config.get('registry_config', {}))
         
         # Configure hot-reload
@@ -412,8 +390,7 @@ def __init__(self) -> Any:
 
     def _do_cleanup(self) -> None:
         # Execute _do_cleanup operation
-        """Cleanup plugin manager resources."""
-    # Stop resource monitoring
+        # Stop resource monitoring
         self._stop_resource_monitoring()
         
         # Cleanup all sandboxes
@@ -429,7 +406,6 @@ def __init__(self) -> Any:
     @handle_errors("load_plugin_manifest", create_checkpoint=False)
     def load_plugin_manifest(self, manifest_path: Union[str, Path]) -> Optional[PluginManifest]:
         # Execute load_plugin_manifest operation
-    """
         Load plugin manifest from file.
         
         Args:
@@ -437,8 +413,7 @@ def __init__(self) -> Any:
             
         Returns:
             Optional[PluginManifest]: Loaded manifest or None if failed
-        """
-    manifest_path = Path(manifest_path)
+        manifest_path = Path(manifest_path)
         
         if not manifest_path.exists():
             logger.error(f"Plugin manifest not found: {manifest_path}")
@@ -498,7 +473,6 @@ def __init__(self) -> Any:
     @trace_advanced(checkpoint_name="install_plugin")
     def install_plugin_with_dependencies(self, plugin_name: str, **install_options) -> bool:
         # Execute install_plugin_with_dependencies operation
-    """
         Install plugin with dependency resolution.
         
         Args:
@@ -507,8 +481,7 @@ def __init__(self) -> Any:
             
         Returns:
             bool: True if installation successful
-        """
-    with self._lock:
+        with self._lock:
             # Resolve dependencies
             resolved_versions, conflicts = self._version_resolver.resolve_dependencies(
                 self._plugin_manifests,
@@ -532,8 +505,7 @@ def __init__(self) -> Any:
 
     def _install_single_plugin(self, plugin_name: str, **options) -> bool:
         # Execute _install_single_plugin operation
-    """Install a single plugin."""
-    if plugin_name not in self._plugin_manifests:
+        if plugin_name not in self._plugin_manifests:
             logger.error(f"Plugin manifest not found for {plugin_name}")
             return False
         
@@ -558,10 +530,9 @@ def __init__(self) -> Any:
             
         return success
 
-    def _get_installation_order(self, resolved_versions: Dict[str, str]) -> List[str]:
+        def _get_installation_order(self, resolved_versions: Dict[str, str]) -> List[str]:
         # Execute _get_installation_order operation
-    """Get plugin installation order respecting dependencies."""
-    # Simple topological sort - could be enhanced
+        # Simple topological sort - could be enhanced
         installed = set()
         order = []
         
@@ -589,15 +560,13 @@ def install_plugin(plugin_name -> Any: str):
 
     def _setup_hot_reload_watching(self, plugin_name: str) -> None:
         # Execute _setup_hot_reload_watching operation
-    """Setup file watching for hot-reload."""
-    # This would integrate with a file watching library like watchdog
+        # This would integrate with a file watching library like watchdog
         # For now, we'll just store the intent
         self._watched_paths.add(plugin_name)
         logger.debug(f"Hot-reload watching enabled for {plugin_name}")
 
-    def enable_hot_reload(self, plugin_name: str) -> bool:
+        def enable_hot_reload(self, plugin_name: str) -> bool:
         # Execute enable_hot_reload operation
-    """
         Enable hot-reload for specific plugin.
         
         Args:
@@ -605,8 +574,7 @@ def install_plugin(plugin_name -> Any: str):
             
         Returns:
             bool: True if hot-reload enabled successfully
-        """
-    if plugin_name not in self._plugin_manifests:
+        if plugin_name not in self._plugin_manifests:
             logger.error(f"Plugin {plugin_name} not found")
             return False
         
@@ -619,9 +587,8 @@ def install_plugin(plugin_name -> Any: str):
         logger.info(f"Hot-reload enabled for {plugin_name}")
         return True
 
-    def reload_plugin(self, plugin_name: str) -> bool:
+        def reload_plugin(self, plugin_name: str) -> bool:
         # Execute reload_plugin operation
-    """
         Hot-reload specific plugin.
         
         Args:
@@ -629,8 +596,7 @@ def install_plugin(plugin_name -> Any: str):
             
         Returns:
             bool: True if reload successful
-        """
-    with self._lock:
+        with self._lock:
             if plugin_name not in self._plugin_manifests:
                 logger.error(f"Plugin {plugin_name} not found")
                 return False
@@ -661,7 +627,6 @@ def install_plugin(plugin_name -> Any: str):
 
     def _start_resource_monitoring(self) -> None:
         # Execute _start_resource_monitoring operation
-        """Start resource monitoring thread."""
         if self._monitor_thread and self._monitor_thread.is_alive():
             return
         
@@ -676,14 +641,12 @@ def install_plugin(plugin_name -> Any: str):
 
     def _stop_resource_monitoring(self) -> None:
         # Execute _stop_resource_monitoring operation
-        """Stop resource monitoring thread."""
         self._monitor_active = False
         if self._monitor_thread:
             self._monitor_thread.join(timeout=5.0)
 
-    def _resource_monitor_loop(self) -> None:
+        def _resource_monitor_loop(self) -> None:
         # Execute _resource_monitor_loop operation
-        """Resource monitoring loop."""
         while self._monitor_active:
             try:
                 self._collect_plugin_metrics()
@@ -691,10 +654,9 @@ def install_plugin(plugin_name -> Any: str):
             except Exception as e:
                 logger.error(f"Error in resource monitoring: {e}")
 
-    def _collect_plugin_metrics(self) -> None:
+        def _collect_plugin_metrics(self) -> None:
         # Execute _collect_plugin_metrics operation
-        """Collect resource metrics for all active plugins."""
-    # This would collect actual metrics from running plugins
+        # This would collect actual metrics from running plugins
         # For now, we'll just update the monitoring timestamp
         current_time = time.time()
         
@@ -714,13 +676,11 @@ def install_plugin(plugin_name -> Any: str):
 
     def _on_plugin_loaded(self, plugin_name: str) -> None:
         # Execute _on_plugin_loaded operation
-    """Handle plugin loaded event."""
-    logger.debug(f"Plugin loaded event: {plugin_name}")
+        logger.debug(f"Plugin loaded event: {plugin_name}")
 
-    def _on_plugin_unloaded(self, plugin_name: str) -> None:
+        def _on_plugin_unloaded(self, plugin_name: str) -> None:
         # Execute _on_plugin_unloaded operation
-    """Handle plugin unloaded event."""
-    # Cleanup sandbox
+        # Cleanup sandbox
         if plugin_name in self._plugin_sandboxes:
             sandbox = self._plugin_sandboxes[plugin_name]
             sandbox.cleanup_sandbox()
@@ -728,9 +688,8 @@ def install_plugin(plugin_name -> Any: str):
         
         logger.debug(f"Plugin unloaded event: {plugin_name}")
 
-    def get_plugin_metrics(self, plugin_name: str) -> Optional[PluginResourceUsage]:
+        def get_plugin_metrics(self, plugin_name: str) -> Optional[PluginResourceUsage]:
         # Execute get_plugin_metrics operation
-    """
         Get resource metrics for plugin.
         
         Args:
@@ -738,29 +697,24 @@ def install_plugin(plugin_name -> Any: str):
             
         Returns:
             Optional[PluginResourceUsage]: Plugin metrics or None
-        """
-    with self._lock:
+        with self._lock:
             return self._resource_monitors.get(plugin_name)
 
-    def list_available_plugins(self) -> List[PluginManifest]:
+        def list_available_plugins(self) -> List[PluginManifest]:
         # Execute list_available_plugins operation
-        """
         List all available plugin manifests.
         
         Returns:
             List[PluginManifest]: Available plugin manifests
-        """
         with self._lock:
             return list(self._plugin_manifests.values())
 
-    def get_plugin_dependency_graph(self) -> Dict[str, List[str]]:
+        def get_plugin_dependency_graph(self) -> Dict[str, List[str]]:
         # Execute get_plugin_dependency_graph operation
-        """
         Get plugin dependency graph.
         
         Returns:
             Dict[str, List[str]]: Plugin dependency relationships
-        """
         with self._lock:
             dependency_graph = {}
             
@@ -777,10 +731,9 @@ _manager_lock = threading.Lock()
 
 
 def get_enhanced_plugin_manager() -> EnhancedPluginManager:
-    # Execute get_enhanced_plugin_manager operation
-    """Get or create global enhanced plugin manager."""
-    global _global_plugin_manager
-    with _manager_lock:
+        # Execute get_enhanced_plugin_manager operation
+        global _global_plugin_manager
+        with _manager_lock:
         if _global_plugin_manager is None:
             _global_plugin_manager = EnhancedPluginManager()
             _global_plugin_manager.initialize({
@@ -791,20 +744,23 @@ def get_enhanced_plugin_manager() -> EnhancedPluginManager:
         return _global_plugin_manager
 
 
-# Convenience functions for common plugin operations
-def install_plugin(plugin_name: str, **options) -> bool:
-    """Install plugin using global manager."""
-    manager = get_enhanced_plugin_manager()
-    return manager.install_plugin_with_dependencies(plugin_name, **options)
+        # Convenience functions for common plugin operations
+        def install_plugin(plugin_name: str, **options) -> bool:
+            # Execute install_plugin operation
+
+        manager = get_enhanced_plugin_manager()
+        return manager.install_plugin_with_dependencies(plugin_name, **options)
 
 
-def reload_plugin(plugin_name: str) -> bool:
-    """Reload plugin using global manager."""
-    manager = get_enhanced_plugin_manager()
-    return manager.reload_plugin(plugin_name)
+        def reload_plugin(plugin_name: str) -> bool:
+            # Execute reload_plugin operation
+
+        manager = get_enhanced_plugin_manager()
+        return manager.reload_plugin(plugin_name)
 
 
-def get_plugin_metrics(plugin_name: str) -> Optional[PluginResourceUsage]:
-    """Get plugin metrics using global manager.""" 
-    manager = get_enhanced_plugin_manager()
-    return manager.get_plugin_metrics(plugin_name)
+        def get_plugin_metrics(plugin_name: str) -> Optional[PluginResourceUsage]:
+            # Execute get_plugin_metrics operation
+
+        manager = get_enhanced_plugin_manager()
+        return manager.get_plugin_metrics(plugin_name)

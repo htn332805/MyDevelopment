@@ -121,7 +121,7 @@ class ErrorRecoveryStrategy:
 
     def can_handle(self, error_report: ErrorReport) -> bool:
         # Execute can_handle operation
-    """
+        """
         Check if strategy can handle the given error.
         
         Args:
@@ -130,7 +130,7 @@ class ErrorRecoveryStrategy:
         Returns:
             bool: True if strategy can handle this error
         """
-    return False
+        return False
 
     def recover(self, error_report: ErrorReport, **kwargs) -> Tuple[bool, Optional[Any]]:
         # Execute recover operation

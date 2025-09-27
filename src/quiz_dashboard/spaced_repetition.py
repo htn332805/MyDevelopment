@@ -94,10 +94,11 @@ class SpacedRepetitionEngine:
     """
     
     def __init__(self, database: Optional[QuizDatabase] = None,
+        # Execute __init__ operation
+
                  sm2_params: Optional[SM2Parameters] = None,
                  selection_weights: Optional[SelectionWeights] = None) -> Any:
         # Execute __init__ operation
-        """Initialize spaced repetition engine."""
         self.database = database or get_quiz_database()  # Database connection
         self.sm2_params = sm2_params or SM2Parameters()  # SM-2 parameters
         self.selection_weights = selection_weights or SelectionWeights()  # Selection weights
@@ -109,14 +110,15 @@ class SpacedRepetitionEngine:
         
         logger.info("SpacedRepetitionEngine initialized with SM-2 algorithm")
     
-    def process_question_attempt(self, 
+        def process_question_attempt(self,
+            # Execute process_question_attempt operation
+
                                 user_id: int,
                                 question_id: int,
                                 performance_score: float,
                                 time_taken_seconds: float,
                                 is_correct: bool) -> QuestionProgress:
         # Execute process_question_attempt operation
-        """Process question attempt and update spaced repetition data."""
         try:
             # Get current progress or create new
             progress = self._get_question_progress(user_id, question_id)
@@ -164,10 +166,9 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to process question attempt: {e}")
             raise
     
-    def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
+        def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
         # Execute _apply_sm2_algorithm operation
-    """Apply SM-2 algorithm to update intervals and easiness."""
-    # Convert performance score to SM-2 quality scale (0-5)
+        # Convert performance score to SM-2 quality scale (0-5)
         quality = min(5, max(0, int(performance_score)))
         
         # Update easiness factor based on performance
@@ -215,10 +216,9 @@ class SpacedRepetitionEngine:
         
         return progress
     
-    def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
+        def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
         # Execute _calculate_mastery_level operation
-    """Calculate mastery level based on performance history."""
-    if progress.total_attempts == 0:
+        if progress.total_attempts == 0:
             return 0.0
         
         # Base mastery from success rate
@@ -243,16 +243,13 @@ class SpacedRepetitionEngine:
         
         return max(0.0, min(100.0, base_mastery))
     
-    def select_next_questions(self, 
+        def select_next_questions(self,
         # select_next_questions operation implementation
-                             user_id: int,
-    """Execute select_next_questions operation."""
-                             count: int = 10,
+                             user_id: int,                             count: int = 10,
                              preferred_hashtags: Optional[List[str]] = None,
                              target_difficulty: Optional[int] = None,
                              avoid_recent: bool = True) -> List[int]:
-    """Select next questions using weighted multi-factor algorithm."""
-    try:
+        try:
             # Get available questions with user progress
             candidate_questions = self._get_candidate_questions(user_id, preferred_hashtags, target_difficulty)
             
@@ -304,14 +301,10 @@ class SpacedRepetitionEngine:
     
     def _get_candidate_questions(self, 
         # _get_candidate_questions operation implementation
-                               user_id: int,
-    """Execute _get_candidate_questions operation."""
-                               preferred_hashtags: Optional[List[str]] = None,
+                               user_id: int,                               preferred_hashtags: Optional[List[str]] = None,
                                target_difficulty: Optional[int] = None) -> List[Dict[str, Any]]:
-    """Get candidate questions with user progress data."""
-    try:
+        try:
             # Build query with optional filters
-            base_query = """
                 SELECT 
                     q.id as question_id,
                     q.question_type,
@@ -328,7 +321,6 @@ class SpacedRepetitionEngine:
                 FROM questions q
                 LEFT JOIN user_progress up ON q.id = up.question_id AND up.user_id = ?
                 WHERE q.is_active = 1
-            """
             
             params = [user_id]
             conditions = []
@@ -351,7 +343,6 @@ class SpacedRepetitionEngine:
                 base_query += " AND " + " AND ".join(conditions)
             
             # Order by review priority
-            base_query += """ 
                 ORDER BY 
                     CASE 
                         WHEN up.next_review_date <= date('now') THEN 0
@@ -360,7 +351,6 @@ class SpacedRepetitionEngine:
                     review_date ASC,
                     RANDOM()
                 LIMIT 100
-            """
             
             results = self.database.execute_query(base_query, tuple(params))
             
@@ -389,20 +379,18 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to get candidate questions: {e}")
             return []
     
-    def _calculate_due_days(self, review_date_str: str) -> int:
+        def _calculate_due_days(self, review_date_str: str) -> int:
         # Execute _calculate_due_days operation
-    """Calculate days until/since review date."""
-    try:
+        try:
             review_date = datetime.strptime(review_date_str, "%Y-%m-%d").date()
             today = date.today()
             return (review_date - today).days
         except:
             return 0
     
-    def _filter_recent_questions(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        def _filter_recent_questions(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         # Execute _filter_recent_questions operation
-    """Filter out recently shown questions for anti-clustering."""
-    filtered = []
+        filtered = []
         for candidate in candidates:
             question_id = candidate["question_id"]
             hashtags = candidate["hashtags"]
@@ -422,12 +410,9 @@ class SpacedRepetitionEngine:
     
     def _calculate_selection_score(self, 
         # _calculate_selection_score operation implementation
-                                 question_data: Dict[str, Any],
-    """Execute _calculate_selection_score operation."""
-                                 preferred_hashtags: Optional[List[str]] = None,
+                                 question_data: Dict[str, Any],                                 preferred_hashtags: Optional[List[str]] = None,
                                  target_difficulty: Optional[int] = None) -> float:
-    """Calculate weighted selection score for question."""
-    weights = self.selection_weights
+        weights = self.selection_weights
         score = 0.0
         
         # Due date factor (higher score for overdue questions)
@@ -479,10 +464,9 @@ class SpacedRepetitionEngine:
         
         return max(0.0, score)
     
-    def _weighted_random_choice(self, weights: List[float]) -> int:
+        def _weighted_random_choice(self, weights: List[float]) -> int:
         # Execute _weighted_random_choice operation
-    """Select index using weighted random selection."""
-    if not weights:
+        if not weights:
             return 0
         
         total = sum(weights)
@@ -501,8 +485,7 @@ class SpacedRepetitionEngine:
     
     def _update_recent_questions(self, question_ids: List[int]) -> None:
         # Execute _update_recent_questions operation
-    """Update anti-clustering state with recently shown questions."""
-    # Add new question IDs
+        # Add new question IDs
         self._recent_questions.extend(question_ids)
         
         # Trim to window size
@@ -531,18 +514,15 @@ class SpacedRepetitionEngine:
         except Exception as e:
             logger.warning(f"Failed to update recent hashtags: {e}")
     
-    def _get_question_progress(self, user_id: int, question_id: int) -> Optional[QuestionProgress]:
+        def _get_question_progress(self, user_id: int, question_id: int) -> Optional[QuestionProgress]:
         # Execute _get_question_progress operation
-    """Retrieve question progress from database."""
-    try:
-            query = """
+        try:
                 SELECT user_id, question_id, easiness_factor, repetition_count,
                        interval_days, next_review_date, last_reviewed_at,
                        total_attempts, correct_attempts, average_time_seconds,
                        current_difficulty, mastery_level
                 FROM user_progress
                 WHERE user_id = ? AND question_id = ?
-            """
             
             results = self.database.execute_query(query, (user_id, question_id))
             
@@ -574,18 +554,15 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to get question progress: {e}")
             return None
     
-    def _save_question_progress(self, progress: QuestionProgress) -> None:
+        def _save_question_progress(self, progress: QuestionProgress) -> None:
         # Execute _save_question_progress operation
-    """Save question progress to database."""
-    try:
-            query = """
+        try:
                 INSERT OR REPLACE INTO user_progress (
                     user_id, question_id, easiness_factor, repetition_count,
                     interval_days, next_review_date, last_reviewed_at,
                     total_attempts, correct_attempts, average_time_seconds,
                     current_difficulty, mastery_level, last_updated
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """
             
             params = (
                 progress.user_id,
@@ -609,12 +586,10 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to save question progress: {e}")
             raise
     
-    def get_user_statistics(self, user_id: int) -> Dict[str, Any]:
+        def get_user_statistics(self, user_id: int) -> Dict[str, Any]:
         # Execute get_user_statistics operation
-    """Get comprehensive learning statistics for user."""
-    try:
+        try:
             # Basic progress statistics
-            stats_query = """
                 SELECT 
                     COUNT(*) as total_questions_attempted,
                     COUNT(CASE WHEN mastery_level >= 80 THEN 1 END) as mastered_questions,
@@ -623,26 +598,22 @@ class SpacedRepetitionEngine:
                     AVG(correct_attempts * 1.0 / total_attempts) as overall_accuracy
                 FROM user_progress 
                 WHERE user_id = ? AND total_attempts > 0
-            """
             
             stats_results = self.database.execute_query(stats_query, (user_id,))
             stats_row = stats_results[0] if stats_results else {}
             
             # Learning streak calculation
-            streak_query = """
                 SELECT COUNT(*) as current_streak
                 FROM performance_analytics
                 WHERE user_id = ? 
                   AND analytics_date >= date('now', '-30 days')
                   AND questions_attempted > 0
                 ORDER BY analytics_date DESC
-            """
             
             streak_results = self.database.execute_query(streak_query, (user_id,))
             current_streak = streak_results[0]["current_streak"] if streak_results else 0
             
             # Difficulty distribution
-            difficulty_query = """
                 SELECT 
                     q.difficulty_level,
                     COUNT(*) as count,
@@ -652,7 +623,6 @@ class SpacedRepetitionEngine:
                 WHERE up.user_id = ? AND up.total_attempts > 0
                 GROUP BY q.difficulty_level
                 ORDER BY q.difficulty_level
-            """
             
             difficulty_results = self.database.execute_query(difficulty_query, (user_id,))
             difficulty_distribution = {
@@ -682,23 +652,22 @@ class SpacedRepetitionEngine:
             return {"user_id": user_id, "error": str(e)}
 
 
-# Global spaced repetition engine instance
-_sr_engine: Optional[SpacedRepetitionEngine] = None
-_engine_lock = threading.Lock()
+        # Global spaced repetition engine instance
+        _sr_engine: Optional[SpacedRepetitionEngine] = None
+        _engine_lock = threading.Lock()
 
 
-def get_spaced_repetition_engine(database: Optional[QuizDatabase] = None) -> SpacedRepetitionEngine:
-    # Execute get_spaced_repetition_engine operation
-    """Get global spaced repetition engine instance."""
-    global _sr_engine
+        def get_spaced_repetition_engine(database: Optional[QuizDatabase] = None) -> SpacedRepetitionEngine:
+        # Execute get_spaced_repetition_engine operation
+        global _sr_engine
     
-    with _engine_lock:
+        with _engine_lock:
         if _sr_engine is None:
             _sr_engine = SpacedRepetitionEngine(database)
     
-    return _sr_engine
+        return _sr_engine
 
 
-# Import json for hashtag parsing
-import json
-import threading
+        # Import json for hashtag parsing
+        import json
+        import threading

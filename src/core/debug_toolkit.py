@@ -225,8 +225,8 @@ class ExecutionTracer:
         Returns:
             Callable: Traced function wrapper
         """
-    @wraps(func)
-def wrapper(*args, **kwargs) -> Any:
+        @wraps(func)
+        def wrapper(*args, **kwargs) -> Any:
             # Create execution frame
             frame_info = inspect.currentframe()
             filename = frame_info.f_code.co_filename

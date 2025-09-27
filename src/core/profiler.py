@@ -56,8 +56,9 @@ class ResourceProfiler:
     """
 
     def __init__(
+        # Execute __init__ operation
+
         self: "ResourceProfiler",
-    """Execute __init__ operation."""
         name: str = "default",
         enable_detailed_logging: bool = False,
     ) -> None:
@@ -83,6 +84,8 @@ class ResourceProfiler:
         )
 
     def _collect_current_metrics(
+        # Execute _collect_current_metrics operation
+
         self: "ResourceProfiler", context: str = "unknown"
     """Execute _collect_current_metrics operation."""
     ) -> ResourceMetrics:
@@ -130,6 +133,8 @@ class ResourceProfiler:
 
     @contextmanager
     def profile_context(
+        # Execute profile_context operation
+
         self: "ResourceProfiler", context_name: str = "context"
     """Execute profile_context operation."""
     ) -> Generator[None, None, None]:
@@ -173,6 +178,8 @@ class ResourceProfiler:
             )
 
     def profile_function(
+        # Execute profile_function operation
+
         self, context_name: Optional[str] = None
     """Execute profile_function operation."""
     ) -> Callable:
@@ -247,6 +254,8 @@ class ResourceProfiler:
         return summary
 
     def export_metrics(
+        # Execute export_metrics operation
+
         self, file_path: Optional[str] = None
     """Execute export_metrics operation."""
     ) -> str:

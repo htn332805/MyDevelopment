@@ -43,7 +43,7 @@ class Component(Protocol):
     
     def initialize(self, config: Dict[str, Any]) -> None:
         # Execute initialize operation
-    """Initialize component with configuration."""
+        """Initialize component with configuration."""
     ...
     
     def cleanup(self) -> None:

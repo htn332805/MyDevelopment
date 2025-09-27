@@ -1,0 +1,83 @@
+⚠️ Compliance Issues Detected:
+❌ Missing comment after function at line 661 in src/quiz_dashboard/question_manager.py
+❌ Missing return type hint at line 661 in src/quiz_dashboard/question_manager.py
+⚠️ Failed to parse src/quiz_dashboard/question_manager.py: invalid syntax (question_manager.py, line 663)
+❌ Missing return type hint at line 899 in src/quiz_dashboard/web_app.py
+❌ Missing return type hint at line 986 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1196 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1202 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1209 in src/quiz_dashboard/web_app.py
+❌ Missing comment after function at line 1215 in src/quiz_dashboard/web_app.py
+⚠️ Failed to parse src/quiz_dashboard/web_app.py: expected an indented block after function definition on line 496 (web_app.py, line 498)
+❌ Missing comment after function at line 96 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 96 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing comment after function at line 111 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 111 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 242 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 298 in src/quiz_dashboard/spaced_repetition.py
+❌ Missing return type hint at line 407 in src/quiz_dashboard/spaced_repetition.py
+⚠️ Failed to parse src/quiz_dashboard/spaced_repetition.py: expected an indented block after function definition on line 111 (spaced_repetition.py, line 118)
+❌ Missing comment after function at line 186 in src/core/logger.py
+❌ Missing return type hint at line 186 in src/core/logger.py
+❌ Missing comment after function at line 205 in src/core/logger.py
+❌ Missing return type hint at line 205 in src/core/logger.py
+⚠️ Failed to parse src/core/logger.py: invalid syntax (logger.py, line 207)
+❌ Missing comment after function at line 633 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 641 in src/core/debug_toolkit.py
+❌ Missing comment after function at line 648 in src/core/debug_toolkit.py
+⚠️ Failed to parse src/core/debug_toolkit.py: invalid syntax (debug_toolkit.py, line 311)
+❌ Missing comment after function at line 58 in src/core/profiler.py
+❌ Missing return type hint at line 58 in src/core/profiler.py
+❌ Missing comment after function at line 84 in src/core/profiler.py
+❌ Missing return type hint at line 84 in src/core/profiler.py
+❌ Missing comment after function at line 131 in src/core/profiler.py
+❌ Missing return type hint at line 131 in src/core/profiler.py
+❌ Missing comment after function at line 174 in src/core/profiler.py
+❌ Missing return type hint at line 174 in src/core/profiler.py
+❌ Missing comment after function at line 248 in src/core/profiler.py
+❌ Missing return type hint at line 248 in src/core/profiler.py
+⚠️ Failed to parse src/core/profiler.py: invalid syntax. Perhaps you forgot a comma? (profiler.py, line 175)
+❌ Missing return type hint at line 580 in src/core/error_handling.py
+❌ Missing return type hint at line 789 in src/core/error_handling.py
+❌ Missing comment after function at line 836 in src/core/error_handling.py
+⚠️ Failed to parse src/core/error_handling.py: expected an indented block after function definition on line 135 (error_handling.py, line 137)
+❌ Missing return type hint at line 98 in src/core/factory.py
+❌ Missing return type hint at line 230 in src/core/factory.py
+❌ Missing return type hint at line 348 in src/core/factory.py
+❌ Missing comment after function at line 432 in src/core/factory.py
+⚠️ Failed to parse src/core/factory.py: unindent does not match any outer indentation level (factory.py, line 97)
+❌ Missing comment after function at line 71 in src/core/context_v2.py
+❌ Missing return type hint at line 71 in src/core/context_v2.py
+⚠️ Failed to parse src/core/context_v2.py: invalid syntax (context_v2.py, line 74)
+❌ Missing comment after function at line 105 in src/core/resource_monitor.py
+❌ Missing return type hint at line 105 in src/core/resource_monitor.py
+❌ Missing comment after function at line 542 in src/core/resource_monitor.py
+❌ Missing comment after function at line 547 in src/core/resource_monitor.py
+❌ Missing comment after function at line 551 in src/core/resource_monitor.py
+⚠️ Failed to parse src/core/resource_monitor.py: invalid syntax (resource_monitor.py, line 110)
+❌ Missing return type hint at line 217 in src/core/debug_toolkit_v2.py
+❌ Missing return type hint at line 462 in src/core/debug_toolkit_v2.py
+❌ Missing return type hint at line 503 in src/core/debug_toolkit_v2.py
+❌ Missing comment after function at line 645 in src/core/debug_toolkit_v2.py
+❌ Missing comment after function at line 655 in src/core/debug_toolkit_v2.py
+⚠️ Failed to parse src/core/debug_toolkit_v2.py: invalid syntax (debug_toolkit_v2.py, line 111)
+❌ Missing comment after function at line 546 in src/core/interfaces.py
+❌ Missing comment after function at line 558 in src/core/interfaces.py
+⚠️ Failed to parse src/core/interfaces.py: invalid syntax (interfaces.py, line 46)
+❌ Missing return type hint at line 283 in src/core/plugin_manager_v2.py
+❌ Missing comment after function at line 748 in src/core/plugin_manager_v2.py
+❌ Missing comment after function at line 753 in src/core/plugin_manager_v2.py
+❌ Missing comment after function at line 758 in src/core/plugin_manager_v2.py
+⚠️ Failed to parse src/core/plugin_manager_v2.py: invalid syntax (plugin_manager_v2.py, line 114)
+❌ Missing comment after function at line 639 in src/core/framework_integration.py
+⚠️ Failed to parse src/core/framework_integration.py: unmatched ')' (framework_integration.py, line 600)
+❌ Missing comment after function at line 529 in src/core/decorators_v2.py
+❌ Missing comment after function at line 537 in src/core/decorators_v2.py
+❌ Missing comment after function at line 541 in src/core/decorators_v2.py
+❌ Missing comment after function at line 545 in src/core/decorators_v2.py
+⚠️ Failed to parse src/core/decorators_v2.py: unindent does not match any outer indentation level (decorators_v2.py, line 43)
+❌ Missing comment after function at line 631 in src/core/plugin_registry.py
+❌ Missing comment after function at line 640 in src/core/plugin_registry.py
+❌ Missing comment after function at line 644 in src/core/plugin_registry.py
+❌ Missing comment after function at line 648 in src/core/plugin_registry.py
+⚠️ Failed to parse src/core/plugin_registry.py: expected an indented block after function definition on line 88 (plugin_registry.py, line 90)
