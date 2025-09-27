@@ -585,8 +585,8 @@ class QuizWebApp:
     
     def user_analytics(self, user_id: int) -> str:
         # Execute user_analytics operation
-    """Individual user analytics page."""
-    try:
+        """Individual user analytics page."""
+        try:
             # Get user statistics
             user_stats = self.sr_engine.get_user_statistics(user_id)
             
@@ -667,8 +667,8 @@ class QuizWebApp:
     
     def api_user_progress(self, user_id: int) -> Dict[str, Any]:
         # Execute api_user_progress operation
-    """API endpoint for user progress data."""
-    try:
+        """API endpoint for user progress data."""
+        try:
             user_stats = self.sr_engine.get_user_statistics(user_id)
             return jsonify(user_stats)
             

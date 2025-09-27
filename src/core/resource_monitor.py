@@ -109,13 +109,14 @@ class ResourceMonitor:
                  thresholds: Optional[ResourceThresholds] = None,
                  enable_process_monitoring: bool = True) -> None:
         # Execute __init__ operation
-        Initialize resource monitor.
+        """Initialize resource monitor.
         
         Args:
             collection_interval (float): Metric collection interval in seconds
             history_size (int): Number of historical metrics to retain
             thresholds (Optional[ResourceThresholds]): Resource alert thresholds
             enable_process_monitoring (bool): Monitor individual processes
+        """
         self.collection_interval = collection_interval  # Collection frequency
         self.history_size = history_size  # Historical data retention
         self.thresholds = thresholds or ResourceThresholds()  # Alert thresholds

@@ -73,12 +73,13 @@ class ContextV2(ContextV1):
 
                  enable_snapshots: bool = True, max_history_size: int = 10000) -> None:
         # Execute __init__ operation
-        Initialize enhanced context with advanced features.
+        """Initialize enhanced context with advanced features.
         
         Args:
             enable_versioning (bool): Enable version tracking for conflict resolution
             enable_snapshots (bool): Enable automatic snapshot creation
             max_history_size (int): Maximum number of history records to retain
+        """
         # Initialize parent class
         super().__init__()
     

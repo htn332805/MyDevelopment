@@ -165,8 +165,9 @@ class SpacedRepetitionEngine:
             logger.error(f"Failed to process question attempt: {e}")
             raise
     
-        def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
+    def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
         # Execute _apply_sm2_algorithm operation
+        """Apply SM-2 spaced repetition algorithm to update question progress."""
         # Convert performance score to SM-2 quality scale (0-5)
         quality = min(5, max(0, int(performance_score)))
         
@@ -215,8 +216,9 @@ class SpacedRepetitionEngine:
         
         return progress
     
-        def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
+    def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
         # Execute _calculate_mastery_level operation
+        """Calculate mastery level based on progress data."""
         if progress.total_attempts == 0:
             return 0.0
         
