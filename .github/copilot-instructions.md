@@ -1,57 +1,152 @@
-Title: Team Copilot Instructions — Modular, Version-Safe Python Automation
+# Team Copilot Instructions — Modular, Version-Safe Python Automation
 
-Context
-- Project spans macOS, Windows, Linux; everything must be cross-platform and IDE-uniform.
-- Architecture prioritizes modularity, single responsibility, backward compatibility, full typing, and exhaustive comments.
+## 🔍 Overview
 
-Absolute rules
-- Single responsibility: each function/class does one task; compose small pure units.
-- Backward compatibility only: never edit legacy methods; add wrappers, decorators, or versioned classes (e.g., CsvReaderV2).
-- Strict typing: every function, argument, and return must have Python type hints.
-- Full comments: every line of code must have a clear, helpful comment.
-- Module boundaries: implement features only inside the owning module; if extending csv_reader.py, keep all changes in that file or subclass in place.
-- Logging and debug: use src/core/logger.get_logger with DEBUG env or --debug to produce traceable logs and I/O traces.
-- Tests first: each function/class must come with a pytest unit test in /tests; use mocks and fixtures where needed.
-- Compliance: generated code must pass tools/lint_checker.py and follow naming, typing, docstring, and no-legacy-edits rules.
-- Docs: update docs via tools/documentation_updater.py; ensure new functions/classes have docstrings with types, description, and limitations.
-- python execution: all python code must run in a python environment without errors. The python environment is activate by 'source .venv/bin/activate'
+This guide defines strict standards for using GitHub Copilot in our Python automation projects. These standards ensure:
+- Cross-platform compatibility (macOS, Windows, Linux)
+- IDE-uniformity
+- Modular, testable, and maintainable code
 
-Generation guidance
-- Prefer factories, adapters, wrappers for extensibility; avoid breaking public APIs.
-- Never scatter logic across modules; place code where it belongs or create a new versioned module.
-- Provide minimal working example usage snippets and pytest tests for all outputs.
-- Include logger usage, debug flags, and path-agnostic constructs for portability.
-- Maintain consistent import style and avoid side effects on import.
+> ✳️ **Key Goals:** Modularity, backward compatibility, strict typing, complete documentation, and platform-neutral execution.
 
-Required patterns
-- Version-safe extension:
-  class CsvReaderV2(CsvReader):
-      # new behavior here; no legacy signature breaks
+---
 
-- Composition:
-  def process_data(path: str) -> list[dict]:
-      # read -> clean -> transform composition
+## 📐 Architectural Principles
 
-- Logging:
-  logger = get_logger(__name__, debug=os.getenv("DEBUG") == "1")
-  logger.info("start")
-  logger.debug("inputs: ...")
+All generated code must adhere to these foundational principles:
 
-- Test layout:
-  tests/test_csv_reader.py::test_csv_reader_happy_path
-  tests/test_csv_reader.py::test_csv_reader_invalid_input
+- **Cross-Platform**: Code must run identically across macOS, Windows, and Linux.
+- **IDE-Uniformity**: All tooling and file structure must support VSCode and PyCharm without custom configuration.
+- **Modular Design**: Follow Single Responsibility Principle (SRP) at all levels — functions, classes, and files.
+- **Backward Compatibility**: Existing code must never be modified directly; only extend via wrappers, versioned classes, or decorators.
+- **Full Typing**: Use Python 3 type hints for all arguments, return types, and class members.
+- **Inline Documentation**: Every line of code must be commented with meaningful context.
+- **Module Boundaries**: Keep implementation within the owning module. No cross-module leakage.
+- **Test-Driven Development**: Write tests *before* or *alongside* new code using `pytest`, mocks, and fixtures.
+- **Logging**: Always include `src/core/logger.get_logger` and support debug logging.
+- **Compliance & Formatting**:
+  - Pass `tools/lint_checker.py`
+  - Conform to `flake8`, `black`, and internal naming conventions.
+  - No legacy method edits—ever.
 
-Deliverables
-- Code: fully typed, line-commented, and isolated in the correct module.
-- Tests: pytest-ready with mocks/fixtures; no I/O or network unless mocked.
-- Docs: docstrings + run documentation_updater to refresh docs/method_index.md.
-- Compliance: passes tools/lint_checker.py and flake8/black; no edits to legacy methods.
+---
 
-Checklist before finish
-- Types complete
-- Every line commented
-- No cross-module bleed
-- Logger used with DEBUG support
-- Unit tests included and passing
-- Documentation updated via automation
-- Lint/compliance passing
+## 📌 Absolute Rules
+
+| Rule                         | Description |
+|------------------------------|-------------|
+| **Single Responsibility**     | Each function/class should perform one well-defined task. |
+| **No Legacy Edits**           | Wrap or version old methods—never modify them directly. |
+| **Strict Typing**             | Use type hints for every input/output. |
+| **Full Inline Comments**      | Comment every line to explain purpose, intent, or logic. |
+| **No Module Leakage**         | All logic must remain within its defining module. |
+| **Logger Integration**        | Use `get_logger(name)` with DEBUG flag and full I/O tracing. |
+| **Tests First**               | All new code must be covered by `pytest` tests. |
+| **Compliance Tools**          | Must pass all linter and checker tools provided. |
+| **Auto-Generated Docs**       | Use `tools/documentation_updater.py` to refresh documentation. |
+| **Executable Code**           | All code must run with `source .venv/bin/activate` — no runtime errors allowed. |
+
+---
+
+## 💡 Copilot Usage Guidance
+
+When prompting GitHub Copilot, guide it with these strategies:
+
+- Use **factories**, **adapters**, and **wrappers** to extend behavior.
+- Never modify public APIs — extend safely using versioning.
+- Code should never be scattered — use or create appropriate versioned modules.
+- Include:
+  - Example usage snippets (minimal working examples)
+  - Pytest test cases with mocks
+  - Logger usage and debug flag support
+  - OS-independent paths and configurations
+- Keep **consistent imports** and **avoid side effects on import**.
+
+---
+
+## 📏 Required Patterns
+
+### 🔁 Version-Safe Extension
+```python
+class CsvReaderV2(CsvReader):
+    # New behavior here; do not break or alter legacy method signatures
+```
+
+## Examples
+
+### 🔀 Functional Composition
+```python
+def process_data(path: str) -> list[dict]:
+    # read -> clean -> transform in a pipeline
+```
+
+### 🪵 Logging with Debug Flag
+```python
+import os
+from src.core.logger import get_logger
+
+logger = get_logger(__name__, debug=os.getenv("DEBUG") == "1")
+logger.info("Processing started")
+logger.debug("Input path: %s", path)
+```
+
+### 🧪 Test Layout & Structure
+```python
+tests/test_csv_reader.py::test_csv_reader_happy_path
+tests/test_csv_reader.py::test_csv_reader_invalid_input
+```
+
+---
+
+## ✅ Deliverables
+All GitHub Copilot output must result in:
+
+### Code
+-  Fully typed
+-  Inline-commented
+-  Isolated within its owning module (no external bleed)
+
+### Tests
+-  Written with pytest
+-  Use mocks, fixtures, and simulate I/O or network interactions
+-  No unmocked external calls
+
+### Documentation
+-  Include class/function docstrings with:
+  a)  Type annotations
+  b)  Clear purpose/description
+  c)  Limitations
+  d)  required dependencies/input and output formats and type
+-  Update docs/method_index.md via tools/documentation_updater.py
+
+### Compliance
+-  Pass all:
+  a) tools/lint_checker.py
+  b) flake8
+  c) black
+-  No edits to legacy methods
+
+### 🧾 Final Checklist Before Submit
+-  Typing: All functions, args, and returns have type hints
+-  Comments: Every line is clearly commented
+-  Isolation: No cross-module logic or leakage
+-  Logging: Uses get_logger and supports DEBUG flag
+-  Tests: Unit tests are included, complete, and passing
+-  Docs: Docstrings written, docs auto-updated
+-  Compliance: Linter and checker tools pass
+-  Runtime: Python code runs cleanly under .venv
+-  Python computation code: use Cpython for faster and efficient code
+
+### 🛠 Python Environment Setup
+- Make sure the Python virtual environment is activated:
+```python
+source .venv/bin/activate
+
+```
+All code must run error-free in this environment.
+
+### 📎 Notes
+-  When in doubt: don’t edit existing methods. Always extend.
+-  If behavior differs between OSs: use os, platform, and path-agnostic techniques.
+-  Use Copilot as a tool — not a crutch. Guide it with intent.
+
