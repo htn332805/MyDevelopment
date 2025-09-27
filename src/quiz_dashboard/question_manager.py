@@ -666,7 +666,6 @@ class QuestionManager:
                         search_text: Optional[str] = None,
                         limit: int = 50) -> List[Dict[str, Any]]:
         # Execute search_questions operation
-        # search_questions operation implementation
         """Search questions with filters."""
         
         try:

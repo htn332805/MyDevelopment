@@ -188,9 +188,9 @@ class PluginRegistry:
 
 def __init__(s -> Any: Optional[List[str]] = None,
     # Execute __init__ operation
-"""Execute __init__ operation."""
+        """Execute __init__ operation."""
                  enable_hot_reload: bool = False,
-                 security_mode: str  = "permissive") -> Any::
+                 security_mode: str  = "permissive") -> Any:
         """
         Initialize plugin registry.
         

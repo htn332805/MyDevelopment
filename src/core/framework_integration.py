@@ -585,7 +585,7 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
         return True
 
     @contextmanager
-def debug_session(e: str  = None) -> Any::
+def debug_session(e: str  = None) -> Any:
     # Execute debug_session operation
         """
         Context manager for debug sessions.

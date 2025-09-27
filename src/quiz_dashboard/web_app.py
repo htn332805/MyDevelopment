@@ -214,8 +214,8 @@ class QuizWebApp:
     
     def quiz_interface(self, session_id: str) -> str:
         # Execute quiz_interface operation
-    """Main quiz taking interface."""
-    try:
+        """Main quiz taking interface."""
+        try:
             # Validate session
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -239,8 +239,8 @@ class QuizWebApp:
     
     def get_next_question(self, session_id: str) -> Dict[str, Any]:
         # Execute get_next_question operation
-    """API endpoint to get next question in quiz session."""
-    try:
+        """API endpoint to get next question in quiz session."""
+        try:
             # Validate session
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -299,8 +299,8 @@ class QuizWebApp:
     
     def submit_question_answer(self, session_id: str) -> Dict[str, Any]:
         # Execute submit_question_answer operation
-    """API endpoint to submit question answer."""
-    try:
+        """API endpoint to submit question answer."""
+        try:
             # Validate session
             session_data = self._get_quiz_session(session_id)
             if not session_data:
@@ -375,8 +375,8 @@ class QuizWebApp:
     
     def complete_quiz_session(self, session_id: str) -> Dict[str, Any]:
         # Execute complete_quiz_session operation
-    """API endpoint to complete quiz session."""
-    try:
+        """API endpoint to complete quiz session."""
+        try:
             # Get session data
             session_data = self._get_quiz_session(session_id)
             if not session_data:

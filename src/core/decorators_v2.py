@@ -164,7 +164,7 @@ _global_cache = EnhancedCache()
 
 def monitor_resources(*, profiler -> Any: Optional[ResourceProfiler] = None,
     # Execute monitor_resources operation
-"""Execute monitor_resources operation."""
+        """Execute monitor_resources operation."""
                      log_metrics: bool = True) -> Callable[[F], F]:
     """
     Decorator for comprehensive resource monitoring.
@@ -215,7 +215,7 @@ def wrapper(*args, **kwargs) -> Any:
 
 def debug_trace(*, capture_vars -> Any: Optional[List[str]] = None,
     # Execute debug_trace operation
-"""Execute debug_trace operation."""
+        """Execute debug_trace operation."""
                capture_all: bool = False,
                breakpoint_condition: Optional[str] = None) -> Callable[[F], F]:
     """
@@ -277,7 +277,7 @@ def wrapper(*args, **kwargs) -> Any:
 
 def enhanced_retry(*, max_attempts -> Any: int = 3, delay: float = 1.0,
     # Execute enhanced_retry operation
-"""Execute enhanced_retry operation."""
+        """Execute enhanced_retry operation."""
                   backoff_multiplier: float = 2.0,
                   exceptions: tuple = (Exception,),
                   on_retry: Optional[Callable] = None) -> Callable[[F], F]:
@@ -338,7 +338,7 @@ def wrapper(*args, **kwargs) -> Any:
 
 def cached(*, ttl -> Any: Optional[float] = None, cache: Optional[EnhancedCache] = None,
     # Execute cached operation
-"""Execute cached operation."""
+        """Execute cached operation."""
           key_func: Optional[Callable] = None) -> Callable[[F], F]:
     """
     Enhanced caching decorator with TTL and custom key generation.
@@ -383,7 +383,7 @@ def wrapper(*args, **kwargs) -> Any:
 
 def context_aware(context_key -> Any: str, *, 
     # Execute context_aware operation
-"""Execute context_aware operation."""
+        """Execute context_aware operation."""
                  auto_set_result: bool = False,
                  require_context: bool = True) -> Callable[[F], F]:
     """
@@ -431,7 +431,7 @@ def wrapper(*args, **kwargs) -> Any:
 
 def error_boundary(*, fallback_value -> Any: Any = None,
     # Execute error_boundary operation
-"""Execute error_boundary operation."""
+        """Execute error_boundary operation."""
                   on_error: Optional[Callable] = None,
                   suppress_errors: bool = False,
                   log_errors: bool = True) -> Callable[[F], F]:
@@ -481,7 +481,7 @@ def wrapper(*args, **kwargs) -> Any:
 
 def rate_limit(*, calls_per_second -> Any: float = 10.0,
     # Execute rate_limit operation
-"""Execute rate_limit operation."""
+        """Execute rate_limit operation."""
               burst_size: int = 10) -> Callable[[F], F]:
     """
     Rate limiting decorator using token bucket algorithm.
@@ -533,7 +533,7 @@ def wrapper(*args, **kwargs) -> Any:
 # Composite decorators for common use cases
 def full_monitoring(*, cache_ttl -> Any: Optional[float] = None,
     # Execute full_monitoring operation
-"""Execute full_monitoring operation."""
+        """Execute full_monitoring operation."""
                    max_retries: int = 3) -> Callable[[F], F]:
     """
     Composite decorator combining monitoring, caching, and retry logic.
