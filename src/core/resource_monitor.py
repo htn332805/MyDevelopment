@@ -102,12 +102,12 @@ class ResourceMonitor:
     configurable thresholds, alerting, and historical data collection.
     """
 
-def __init__(l -> Any: float = 1.0,
-    # Execute __init__ operation
-"""Execute __init__ operation."""
+    def __init__(self, polling_interval: float = 1.0,
                  history_size: int = 3600,
                  thresholds: Optional[ResourceThresholds] = None,
-                 enable_process_monitoring: bool  = True) -> Any::
+                 enable_process_monitoring: bool = True) -> None:
+        # Execute __init__ operation
+        """Execute __init__ operation."""
         """
         Initialize resource monitor.
         

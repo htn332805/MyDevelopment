@@ -94,8 +94,8 @@ class Framework0(ComponentLifecycle, EventDrivenComponent):
     lifecycle management, configuration, monitoring, and event coordination.
     """
 
-def __init__(h: Optional[Union[str, Path]]  = None) -> Any::
-    # Execute __init__ operation
+    def __init__(self, config_path: Optional[Union[str, Path]] = None) -> None:
+        # Execute __init__ operation
         """
         Initialize Framework0 instance.
         

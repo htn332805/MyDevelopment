@@ -40,8 +40,8 @@ class QuizWebApp:
     RESTful API, and responsive UI with advanced quiz functionality.
     """
     
-def __init__(self, database_path: str = "quiz_dashboard.db") -> Any:
-    # Execute __init__ operation
+    def __init__(self, database_path: str = "quiz_dashboard.db") -> None:
+        # Execute __init__ operation
         """Initialize Flask web application."""
         # Initialize Flask app
         self.app = Flask(__name__, 
@@ -70,8 +70,8 @@ def __init__(self, database_path: str = "quiz_dashboard.db") -> Any:
     
     def _register_routes(self) -> None:
         # Execute _register_routes operation
-    """Register all Flask routes."""
-    # Main dashboard routes
+        """Register all Flask routes."""
+        # Main dashboard routes
         self.app.route('/', methods=['GET'])(self.index)
         self.app.route('/dashboard', methods=['GET'])(self.dashboard)
         self.app.route('/student', methods=['GET'])(self.student_dashboard)

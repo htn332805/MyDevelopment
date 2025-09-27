@@ -82,8 +82,8 @@ class PluginProtocol(Protocol):
     @abstractmethod
     def initialize(self, config: Dict[str, Any]) -> None:
         # Execute initialize operation
-    """Initialize plugin with configuration."""
-    ...
+        """Initialize plugin with configuration."""
+        ...
     
     @abstractmethod
     def activate(self) -> None:
