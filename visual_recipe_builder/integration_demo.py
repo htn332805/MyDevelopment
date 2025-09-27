@@ -23,6 +23,7 @@ from visual_recipe_builder.blocks import get_block_library
 
 
 def main() -> Any:
+    # Execute main operation
     """Run complete integration demonstration."""
     print("🔧 Visual Recipe Builder - Integration Demonstration")
     print("=" * 60)

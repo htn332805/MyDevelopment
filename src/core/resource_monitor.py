@@ -102,7 +102,8 @@ class ResourceMonitor:
     configurable thresholds, alerting, and historical data collection.
     """
 
-def __init__(l: float = 1.0,
+def __init__(l -> Any: float = 1.0,
+    # Execute __init__ operation
 """Execute __init__ operation."""
                  history_size: int = 3600,
                  thresholds: Optional[ResourceThresholds] = None,
@@ -141,6 +142,7 @@ def __init__(l: float = 1.0,
                    f"history_size={history_size}")
 
     def start_monitoring(self) -> None:
+        # Execute start_monitoring operation
     """Start real-time resource monitoring."""
     if self._monitoring:
             logger.warning("Resource monitoring already started")
@@ -160,6 +162,7 @@ def __init__(l: float = 1.0,
         logger.info("Resource monitoring started")
 
     def stop_monitoring(self) -> None:
+        # Execute stop_monitoring operation
     """Stop resource monitoring."""
     if not self._monitoring:
             logger.warning("Resource monitoring not active")
@@ -175,6 +178,7 @@ def __init__(l: float = 1.0,
         logger.info("Resource monitoring stopped")
 
     def _monitoring_loop(self) -> None:
+        # Execute _monitoring_loop operation
     """Main monitoring loop running in separate thread."""
     logger.debug("Resource monitoring loop started")
         
@@ -204,6 +208,7 @@ def __init__(l: float = 1.0,
         logger.debug("Resource monitoring loop stopped")
 
     def _collect_system_metrics(self) -> SystemMetrics:
+        # Execute _collect_system_metrics operation
     """Collect comprehensive system resource metrics."""
     try:
             # CPU metrics
@@ -274,6 +279,7 @@ def __init__(l: float = 1.0,
             )
 
     def _collect_process_metrics(self) -> None:
+        # Execute _collect_process_metrics operation
     """Collect metrics for all processes."""
     try:
             current_time = time.time()
@@ -313,6 +319,7 @@ def __init__(l: float = 1.0,
             logger.error(f"Failed to collect process metrics: {e}")
 
     def _check_thresholds(self, metrics: SystemMetrics) -> None:
+        # Execute _check_thresholds operation
     """Check resource metrics against thresholds and generate alerts."""
     alerts = []
         
@@ -376,7 +383,8 @@ def __init__(l: float = 1.0,
                 except Exception as e:
                     logger.error(f"Alert callback failed: {e}")
 
-    def _create_alert(self, level: AlertLevel, resource_type: str, 
+    def _create_alert(self, level -> Any: AlertLevel, resource_type: str, 
+        # Execute _create_alert operation
     """Execute _create_alert operation."""
                      current_value: float, threshold: float, message: str) -> ResourceAlert:
     """Create resource alert with metadata."""
@@ -391,11 +399,13 @@ def __init__(l: float = 1.0,
         )
 
     def get_current_metrics(self) -> Optional[SystemMetrics]:
+        # Execute get_current_metrics operation
     """Get most recent system metrics."""
     with self._lock:
             return self._system_metrics[-1] if self._system_metrics else None
 
     def get_metrics_history(self, minutes: int = 60) -> List[SystemMetrics]:
+        # Execute get_metrics_history operation
     """Get system metrics history for specified time period."""
     cutoff_time = time.time() - (minutes * 60)
         
@@ -403,6 +413,7 @@ def __init__(l: float = 1.0,
             return [m for m in self._system_metrics if m.timestamp >= cutoff_time]
 
     def get_process_metrics(self, pid: int, minutes: int = 60) -> List[ProcessMetrics]:
+        # Execute get_process_metrics operation
     """Get metrics history for specific process."""
     cutoff_time = time.time() - (minutes * 60)
         
@@ -413,6 +424,7 @@ def __init__(l: float = 1.0,
             return [m for m in self._process_metrics[pid] if m.timestamp >= cutoff_time]
 
     def get_top_processes(self, by: str = "cpu", limit: int = 10) -> List[ProcessMetrics]:
+        # Execute get_top_processes operation
     """Get top processes by resource usage."""
     if by not in ["cpu", "memory"]:
             raise ValueError("Sort criteria must be 'cpu' or 'memory'")
@@ -432,7 +444,8 @@ def __init__(l: float = 1.0,
             
             return latest_metrics[:limit]
 
-    def get_alerts(self, level: Optional[AlertLevel] = None, 
+    def get_alerts(self, level -> Any: Optional[AlertLevel] = None, 
+        # Execute get_alerts operation
     """Execute get_alerts operation."""
                   minutes: int = 60) -> List[ResourceAlert]:
     """Get resource alerts for specified time period."""
@@ -447,11 +460,13 @@ def __init__(l: float = 1.0,
             return list(alerts)
 
     def add_alert_callback(self, callback: Callable[[ResourceAlert], None]) -> None:
+        # Execute add_alert_callback operation
     """Add callback function to be called when alerts are generated."""
     self._alert_callbacks.append(callback)
         logger.debug(f"Added alert callback: {callback.__name__}")
 
     def generate_performance_report(self, minutes: int = 60) -> Dict[str, Any]:
+        # Execute generate_performance_report operation
     """Generate comprehensive performance analysis report."""
     metrics_history = self.get_metrics_history(minutes)
         
@@ -494,6 +509,7 @@ def __init__(l: float = 1.0,
         return report
 
     def cleanup_old_data(self, older_than_hours: int = 24) -> None:
+        # Execute cleanup_old_data operation
     """Clean up old metrics and process data."""
     cutoff_time = time.time() - (older_than_hours * 3600)
         
@@ -520,6 +536,7 @@ _global_monitor: Optional[ResourceMonitor] = None
 
 
 def get_resource_monitor(*, auto_start: bool = True) -> ResourceMonitor:
+    # Execute get_resource_monitor operation
     """
     Get global resource monitor instance.
     
@@ -541,6 +558,7 @@ def get_resource_monitor(*, auto_start: bool = True) -> ResourceMonitor:
 
 
 def start_resource_monitoring() -> None:
+    # Execute start_resource_monitoring operation
     """Start global resource monitoring."""
     monitor = get_resource_monitor()
     monitor.start_monitoring()

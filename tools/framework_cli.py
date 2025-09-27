@@ -49,6 +49,7 @@ class Framework0CLI:
     """
 
 def __init__(self) -> Any:
+    # Execute __init__ operation
     """Initialize Framework0 CLI."""
     self.registry = get_plugin_registry()
         self.template_generator = get_template_generator()
@@ -59,6 +60,7 @@ def __init__(self) -> Any:
         logger.info("Framework0 CLI initialized")
 
     def setup_argument_parser(self) -> argparse.ArgumentParser:
+        # Execute setup_argument_parser operation
     """Setup comprehensive argument parser."""
     parser = argparse.ArgumentParser(
             description="Framework0 - Advanced Python Automation Framework",
@@ -184,6 +186,7 @@ Examples:
         return parser
 
 def handle_plugin_commands(self, args: Any) -> int:
+    # Execute handle_plugin_commands operation
     """Handle plugin management commands."""
     if args.plugin_action == 'list':
             plugins = self.registry.list_plugins()
@@ -243,6 +246,7 @@ def handle_plugin_commands(self, args: Any) -> int:
         return 0
 
 def handle_template_commands(self, args: Any) -> int:
+    # Execute handle_template_commands operation
     """Handle template management commands."""
     if args.template_action == 'list':
             templates = list_available_templates()
@@ -276,11 +280,13 @@ def handle_template_commands(self, args: Any) -> int:
         return 0
 
 def handle_monitor_commands(self, args: Any) -> int:
+    # Execute handle_monitor_commands operation
     """Handle resource monitoring commands."""
     if args.monitor_action == 'start':
             if args.alerts:
                 # Add alert callback
 def alert_callback(alert -> Any: Any):
+    # Execute alert_callback operation
 """Execute alert_callback operation."""
                     print(f"ALERT [{alert.level.value.upper()}]: {alert.message}")
                 
@@ -317,6 +323,7 @@ def alert_callback(alert -> Any: Any):
         return 0
 
 def handle_recipe_commands(self, args: Any) -> int:
+    # Execute handle_recipe_commands operation
     """Handle recipe execution and management commands."""
     if args.recipe_action == 'run':
             # Parse filter arguments
@@ -440,6 +447,7 @@ def handle_recipe_commands(self, args: Any) -> int:
         return 0
 
 def handle_debug_commands(self, args: Any) -> int:
+    # Execute handle_debug_commands operation
     """Handle debug management commands."""
     if args.debug_action == 'start':
             print(f"Debug session '{args.session}' started")
@@ -458,6 +466,7 @@ def handle_debug_commands(self, args: Any) -> int:
         return 0
 
 def handle_system_commands(self, args: Any) -> int:
+    # Execute handle_system_commands operation
     """Handle system diagnostic commands."""
     if args.system_action == 'status':
             print("Framework0 System Status:")
@@ -495,6 +504,7 @@ def handle_system_commands(self, args: Any) -> int:
         return 0
 
     def run(self, args: List[str]) -> int:
+        # Execute run operation
     """Run CLI with provided arguments."""
     parser = self.setup_argument_parser()
         parsed_args = parser.parse_args(args)

@@ -29,6 +29,7 @@ class TestVisualStep:
     """Test VisualStep functionality."""
     
 def test_visual_step_creation(self) -> Any:
+    # Execute test_visual_step_creation operation
     """Test creating a VisualStep instance."""
     step = VisualStep(
             block_id="csv_processor",
@@ -46,6 +47,7 @@ def test_visual_step_creation(self) -> Any:
         assert step.enabled is True
     
 def test_visual_step_to_dict(self) -> Any:
+    # Execute test_visual_step_to_dict operation
     """Test VisualStep serialization."""
     step = VisualStep(
             block_id="compute_numbers",
@@ -73,6 +75,7 @@ class TestVisualRecipe:
     """Test VisualRecipe functionality."""
     
 def test_visual_recipe_creation(self) -> Any:
+    # Execute test_visual_recipe_creation operation
     """Test creating a VisualRecipe instance."""
     now = datetime.now()
         recipe = VisualRecipe(
@@ -98,6 +101,7 @@ class TestRecipeGenerator:
     """Test RecipeGenerator functionality."""
     
 def test_recipe_generator_initialization(self) -> Any:
+    # Execute test_recipe_generator_initialization operation
     """Test RecipeGenerator initialization."""
     generator = RecipeGenerator()
         assert generator.block_library is not None
@@ -108,6 +112,7 @@ def test_recipe_generator_initialization(self) -> Any:
         assert generator2.block_library is custom_library
     
 def test_create_visual_recipe(self) -> Any:
+    # Execute test_create_visual_recipe operation
     """Test creating a new visual recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe(
@@ -125,6 +130,7 @@ def test_create_visual_recipe(self) -> Any:
         assert isinstance(recipe.modified_at, datetime)
     
 def test_add_step_to_recipe(self) -> Any:
+    # Execute test_add_step_to_recipe operation
     """Test adding steps to a recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -145,6 +151,7 @@ def test_add_step_to_recipe(self) -> Any:
         assert step.parameters["max_rows"] == 1000
     
 def test_add_step_with_custom_name(self) -> Any:
+    # Execute test_add_step_with_custom_name operation
     """Test adding step with custom name."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -160,6 +167,7 @@ def test_add_step_with_custom_name(self) -> Any:
         assert step.step_name == "calculate_factorial"
     
 def test_add_step_nonexistent_block(self) -> Any:
+    # Execute test_add_step_nonexistent_block operation
     """Test adding step with nonexistent block ID."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -172,6 +180,7 @@ def test_add_step_nonexistent_block(self) -> Any:
             )
     
 def test_set_step_dependencies(self) -> Any:
+    # Execute test_set_step_dependencies operation
     """Test setting dependencies between steps."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -192,6 +201,7 @@ def test_set_step_dependencies(self) -> Any:
         assert process_step.dependencies == ["read_file"]
     
 def test_set_dependencies_invalid_step(self) -> Any:
+    # Execute test_set_dependencies_invalid_step operation
     """Test setting dependencies for non-existent step."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -200,6 +210,7 @@ def test_set_dependencies_invalid_step(self) -> Any:
             generator.set_step_dependencies(recipe, "nonexistent", ["dep"])
     
 def test_set_dependencies_invalid_dependency(self) -> Any:
+    # Execute test_set_dependencies_invalid_dependency operation
     """Test setting dependencies to non-existent step."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -210,6 +221,7 @@ def test_set_dependencies_invalid_dependency(self) -> Any:
             generator.set_step_dependencies(recipe, "step1", ["nonexistent_dep"])
     
 def test_update_step_parameters(self) -> Any:
+    # Execute test_update_step_parameters operation
     """Test updating step parameters."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -228,6 +240,7 @@ def test_update_step_parameters(self) -> Any:
         assert step.parameters["encoding"] == "latin1"
     
 def test_remove_step_from_recipe(self) -> Any:
+    # Execute test_remove_step_from_recipe operation
     """Test removing step from recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe")
@@ -253,6 +266,7 @@ def test_remove_step_from_recipe(self) -> Any:
         assert "process" not in validate_step.dependencies
     
 def test_validate_recipe_empty(self) -> Any:
+    # Execute test_validate_recipe_empty operation
     """Test validation of empty recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Empty Recipe")
@@ -263,6 +277,7 @@ def test_validate_recipe_empty(self) -> Any:
         assert "Recipe has no steps" in errors
     
 def test_validate_recipe_valid(self) -> Any:
+    # Execute test_validate_recipe_valid operation
     """Test validation of valid recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Valid Recipe")
@@ -278,6 +293,7 @@ def test_validate_recipe_valid(self) -> Any:
         assert len(errors) == 0
     
 def test_validate_recipe_missing_parameters(self) -> Any:
+    # Execute test_validate_recipe_missing_parameters operation
     """Test validation with missing required parameters."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Invalid Recipe")
@@ -293,6 +309,7 @@ def test_validate_recipe_missing_parameters(self) -> Any:
         assert any("missing required parameter" in error for error in errors)
     
 def test_generate_yaml_recipe(self) -> Any:
+    # Execute test_generate_yaml_recipe operation
     """Test generating YAML recipe from visual recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Test Recipe", "Test description", "Test Author")
@@ -334,6 +351,7 @@ def test_generate_yaml_recipe(self) -> Any:
         assert process_step["function"] == "CSVProcessorScriptlet"
     
 def test_generate_yaml_invalid_recipe(self) -> Any:
+    # Execute test_generate_yaml_invalid_recipe operation
     """Test generating YAML from invalid recipe."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Invalid Recipe")
@@ -342,6 +360,7 @@ def test_generate_yaml_invalid_recipe(self) -> Any:
             generator.generate_yaml_recipe(recipe)
     
 def test_export_import_visual_recipe(self) -> Any:
+    # Execute test_export_import_visual_recipe operation
     """Test exporting and importing visual recipe."""
     generator = RecipeGenerator()
         original = generator.create_visual_recipe("Export Test", "Test export/import")
@@ -377,6 +396,7 @@ class TestRecipeIntegration:
     """Integration tests for recipe functionality."""
     
 def test_complex_recipe_workflow(self) -> Any:
+    # Execute test_complex_recipe_workflow operation
     """Test complete workflow with multiple steps and dependencies."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe(
@@ -427,6 +447,7 @@ def test_complex_recipe_workflow(self) -> Any:
         assert step_names.index("process_csv") < step_names.index("validate_data")
     
 def test_recipe_with_circular_dependency(self) -> Any:
+    # Execute test_recipe_with_circular_dependency operation
     """Test detection of circular dependencies."""
     generator = RecipeGenerator()
         recipe = generator.create_visual_recipe("Circular Dependency Test")

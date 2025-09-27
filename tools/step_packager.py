@@ -37,6 +37,7 @@ try:
 except ImportError:
     import logging
     def get_logger(name: str, debug: bool = False) -> logging.Logger:
+        # Execute get_logger operation
     """Fallback logger implementation."""
     logger = logging.getLogger(name)
         if not logger.handlers:
@@ -61,6 +62,7 @@ class DependencyAnalyzer:
     """
     
 def __init__(self, project_root -> Any: Path):
+    # Execute __init__ operation
         """
         Initialize the dependency analyzer.
         
@@ -73,6 +75,7 @@ def __init__(self, project_root -> Any: Path):
         logger.debug(f"Initialized DependencyAnalyzer with project root: {project_root}")
     
     def analyze_step_dependencies(self, step_config: Dict[str, Any]) -> Set[Path]:
+        # Execute analyze_step_dependencies operation
     """
         Analyze dependencies for a specific step configuration.
         
@@ -101,6 +104,7 @@ def __init__(self, project_root -> Any: Path):
         return self.required_files.copy()
     
     def _analyze_module_recursive(self, module_name: str) -> None:
+        # Execute _analyze_module_recursive operation
     """
         Recursively analyze a module and its dependencies.
         
@@ -132,6 +136,7 @@ def __init__(self, project_root -> Any: Path):
             logger.warning(f"Failed to analyze module {module_name}: {e}")
     
     def _find_module_file(self, module_name: str) -> Optional[Path]:
+        # Execute _find_module_file operation
     """
         Find the file path for a given module name.
         
@@ -158,6 +163,7 @@ def __init__(self, project_root -> Any: Path):
         return None
     
     def _extract_imports(self, module_path: Path) -> Set[str]:
+        # Execute _extract_imports operation
     """
         Extract import statements from a Python module file.
         
@@ -189,6 +195,7 @@ def __init__(self, project_root -> Any: Path):
         return imports
     
     def _is_local_import(self, module_name: str) -> bool:
+        # Execute _is_local_import operation
     """
         Check if an import is local to the project.
         
@@ -203,6 +210,7 @@ def __init__(self, project_root -> Any: Path):
         return any(module_name.startswith(prefix) for prefix in local_prefixes)
     
     def _include_core_orchestrator_files(self) -> None:
+        # Execute _include_core_orchestrator_files operation
     """Include essential orchestrator files that are always needed."""
     core_files = [
             self.project_root / 'orchestrator' / '__init__.py',
@@ -228,6 +236,7 @@ class StepPackager:
     """
     
 def __init__(self, project_root -> Any: Path):
+    # Execute __init__ operation
         """
         Initialize the step packager.
         
@@ -239,6 +248,7 @@ def __init__(self, project_root -> Any: Path):
         logger.debug(f"Initialized StepPackager with project root: {project_root}")
     
     def list_available_recipes(self) -> List[Path]:
+        # Execute list_available_recipes operation
     """
         List all available recipe files in the project.
         
@@ -260,6 +270,7 @@ def __init__(self, project_root -> Any: Path):
         return recipe_files
     
     def list_steps_in_recipe(self, recipe_path: Path) -> List[Dict[str, Any]]:
+        # Execute list_steps_in_recipe operation
     """
         Extract steps from a recipe file.
         
@@ -287,6 +298,7 @@ def __init__(self, project_root -> Any: Path):
             return []
     
     def interactive_step_selection(self) -> Optional[Tuple[Path, Dict[str, Any]]]:
+        # Execute interactive_step_selection operation
     """
         Interactive menu for selecting a step to package.
         
@@ -345,7 +357,8 @@ def __init__(self, project_root -> Any: Path):
             print("\n❌ Invalid input or operation cancelled!")
             return None
     
-    def package_step(self, recipe_path: Path, step_config: Dict[str, Any], 
+    def package_step(self, recipe_path -> Any: Path, step_config: Dict[str, Any], 
+        # Execute package_step operation
     """Execute package_step operation."""
                     output_path: Optional[Path] = None) -> Path:
     """
@@ -403,6 +416,7 @@ def __init__(self, project_root -> Any: Path):
         return output_path
     
     def _create_execution_wrapper(self, recipe_path: Path, step_config: Dict[str, Any]) -> str:
+        # Execute _create_execution_wrapper operation
     """
         Create a portable execution wrapper script for the packaged step.
         
@@ -451,6 +465,7 @@ except ImportError as e:
     sys.exit(1)
 
 def main() -> Any:
+    # Execute main operation
     """Main function to run the packaged step."""
     parser = argparse.ArgumentParser(
         description=f"Run packaged Framework0 step: {step_name}",
@@ -510,6 +525,7 @@ if __name__ == "__main__":
         return wrapper_script
     
     def _create_package_readme(self, step_name: str, step_config: Dict[str, Any]) -> str:
+        # Execute _create_package_readme operation
     """
         Create README documentation for the package.
         
@@ -585,6 +601,7 @@ For more help, run with `--debug` flag to see detailed execution information.
 
 
 def create_cli_parser() -> argparse.ArgumentParser:
+    # Execute create_cli_parser operation
     """
     Create command-line argument parser for the step packager.
     
@@ -635,6 +652,7 @@ Examples:
 
 
 def main() -> None:
+    # Execute main operation
     """
     Main entry point for the step packager CLI.
     

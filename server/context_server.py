@@ -37,6 +37,7 @@ class ServerContext:
     """
 
     def __init__(self, resource: str) -> Any:
+        # Execute __init__ operation
     """
         Initializes the ServerContext with a specified resource.
 
@@ -46,6 +47,7 @@ class ServerContext:
     self.resource = resource
 
 def __enter__(self) -> Any:
+    # Execute __enter__ operation
     """
         Sets up the resource for use within the context.
 
@@ -57,6 +59,7 @@ def __enter__(self) -> Any:
         return self.resource
 
     def __exit__(self, exc_type: Any, exc_value: Any, traceback: Any) -> Any:
+        # Execute __exit__ operation
     """
         Cleans up the resource after use within the context.
 
@@ -73,6 +76,7 @@ def __enter__(self) -> Any:
 
 @contextmanager
 def get_server_context(resource -> Any: str):
+    # Execute get_server_context operation
     """
     A function to retrieve the current server context.
 

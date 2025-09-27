@@ -68,7 +68,8 @@ class ContextV2(ContextV1):
     - Integration with profiling and monitoring systems
     """
 
-def __init__(g: bool = True,
+def __init__(g -> Any: bool = True,
+    # Execute __init__ operation
 """Execute __init__ operation."""
                  enable_snapshots: bool = True, max_history_size: int  = 10000) -> Any::
         """
@@ -110,17 +111,20 @@ def __init__(g: bool = True,
 
     @property
     def context_id(self) -> str:
+        # Execute context_id operation
     """Get unique context identifier."""
     return self._context_id
 
     @property
     def version(self) -> int:
+        # Execute version operation
     """Get current context version."""
     with self._rw_lock:
             return self._version
 
     @profile_execution("context_get")
     def get(self, key: str, *, default: Any = None) -> Any:
+        # Execute get operation
     """
         Thread-safe retrieval of context value.
         
@@ -135,7 +139,8 @@ def __init__(g: bool = True,
             return self._data.get(key, default)
 
     @profile_execution("context_set")
-    def set(self, key: str, value: Any, *, who: Optional[str] = None,
+    def set(self, key -> Any: str, value: Any, *, who: Optional[str] = None,
+        # Execute set operation
     """Execute set operation."""
             metadata: Optional[Dict[str, Any]] = None) -> int:
     """
@@ -209,6 +214,7 @@ def __init__(g: bool = True,
             return self._version
 
     def _manage_history_size(self) -> None:
+        # Execute _manage_history_size operation
     """Manage history size to prevent memory leaks."""
     if len(self._change_records) > self._max_history_size:
             # Remove oldest records while preserving recent ones
@@ -219,11 +225,13 @@ def __init__(g: bool = True,
             logger.debug(f"Trimmed {excess_count} old history records")
 
     def _create_auto_snapshot(self) -> str:
+        # Execute _create_auto_snapshot operation
     """Create automatic snapshot and return snapshot ID."""
     snapshot_id = f"auto_{int(time.time())}_{self._version}"
         return self.create_snapshot(snapshot_id)
 
     def create_snapshot(self, snapshot_id: Optional[str] = None) -> str:
+        # Execute create_snapshot operation
     """
         Create immutable snapshot of current context state.
         
@@ -253,6 +261,7 @@ def __init__(g: bool = True,
             return snapshot_id
 
     def restore_snapshot(self, snapshot_id: str, *, who: Optional[str] = None) -> bool:
+        # Execute restore_snapshot operation
     """
         Restore context to a previous snapshot state.
         
@@ -287,6 +296,7 @@ def __init__(g: bool = True,
             return True
 
     def get_snapshots(self) -> List[Dict[str, Any]]:
+        # Execute get_snapshots operation
     """
         Get list of available snapshots with metadata.
         
@@ -305,7 +315,8 @@ def __init__(g: bool = True,
                 for snap in self._snapshots.values()
             ]
 
-    def get_change_records(self, *, since_version: Optional[int] = None,
+    def get_change_records(self, *, since_version -> Any: Optional[int] = None,
+        # Execute get_change_records operation
     """Execute get_change_records operation."""
                           key_filter: Optional[str] = None) -> List[Dict[str, Any]]:
     """
@@ -337,6 +348,7 @@ def __init__(g: bool = True,
 
     @contextmanager
 def transaction(o: Optional[str]  = None) -> Any::
+    # Execute transaction operation
         """
         Context manager for atomic transactions with rollback capability.
         
@@ -369,6 +381,7 @@ def transaction(o: Optional[str]  = None) -> Any::
                 del self._snapshots[snapshot_id]
 
     def get_performance_stats(self) -> Dict[str, Any]:
+        # Execute get_performance_stats operation
     """
         Get performance statistics for context operations.
         
@@ -388,7 +401,8 @@ def transaction(o: Optional[str]  = None) -> Any::
                 "snapshots_enabled": self._enable_snapshots
             }
 
-    def export_enhanced(self, file_path: Optional[str] = None, *,
+    def export_enhanced(self, file_path -> Any: Optional[str] = None, *,
+        # Execute export_enhanced operation
     """Execute export_enhanced operation."""
                        include_history: bool = True,
                        include_snapshots: bool = False) -> str:
@@ -437,6 +451,7 @@ def transaction(o: Optional[str]  = None) -> Any::
 
 # Factory function for creating enhanced contexts
 def create_enhanced_context(**kwargs) -> ContextV2:
+    # Execute create_enhanced_context operation
     """
     Factory function for creating ContextV2 instances.
     

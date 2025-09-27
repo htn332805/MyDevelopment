@@ -22,6 +22,7 @@ from tools.recipe_packager import RecipePackager, find_available_recipes
 
 
 def main() -> Any:
+    # Execute main operation
     """Run the recipe packaging demonstration."""
     print("🎯 Recipe Packaging System Demo")
     print("=" * 50)

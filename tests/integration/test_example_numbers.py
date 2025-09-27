@@ -21,6 +21,7 @@ from framework0.math_operations import add, subtract, multiply, divide
 
 @pytest.mark.integration_test
 def test_addition() -> Any:
+    # Execute test_addition operation
     """
     Test Case: test_addition
 
@@ -35,6 +36,7 @@ def test_addition() -> Any:
 
 @pytest.mark.integration_test
 def test_subtraction() -> Any:
+    # Execute test_subtraction operation
     """
     Test Case: test_subtraction
 
@@ -49,6 +51,7 @@ def test_subtraction() -> Any:
 
 @pytest.mark.integration_test
 def test_multiplication() -> Any:
+    # Execute test_multiplication operation
     """
     Test Case: test_multiplication
 
@@ -63,6 +66,7 @@ def test_multiplication() -> Any:
 
 @pytest.mark.integration_test
 def test_division() -> Any:
+    # Execute test_division operation
     """
     Test Case: test_division
 

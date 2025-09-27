@@ -19,6 +19,7 @@ from contextlib import contextmanager
 
 @contextmanager
 def sample_context_manager() -> Any:
+    # Execute sample_context_manager operation
     """
     A sample context manager that manages a simple resource.
 
@@ -39,6 +40,7 @@ class TestSampleContextManager(unittest.TestCase):
     """
 
 def test_context_manager_setup(self) -> Any:
+    # Execute test_context_manager_setup operation
     """
         Test Case: test_context_manager_setup
 
@@ -52,6 +54,7 @@ def test_context_manager_setup(self) -> Any:
             self.assertEqual(resource, "resource", f"Expected 'resource', but got {resource}")
 
 def test_context_manager_teardown(self) -> Any:
+    # Execute test_context_manager_teardown operation
     """
         Test Case: test_context_manager_teardown
 
@@ -70,6 +73,7 @@ def test_context_manager_teardown(self) -> Any:
             self.fail(f"Exception occurred during context manager teardown: {e}")
 
 def test_context_manager_exception_handling(self) -> Any:
+    # Execute test_context_manager_exception_handling operation
     """
         Test Case: test_context_manager_exception_handling
 

@@ -17,6 +17,7 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 def test_blocks_functionality() -> Any:
+    # Execute test_blocks_functionality operation
     """Test core blocks functionality."""
     print("Testing blocks functionality...")
     
@@ -43,6 +44,7 @@ def test_blocks_functionality() -> Any:
 
 
 def test_recipe_generator_functionality() -> Any:
+    # Execute test_recipe_generator_functionality operation
     """Test recipe generator functionality."""
     print("Testing recipe generator functionality...")
     
@@ -90,6 +92,7 @@ def test_recipe_generator_functionality() -> Any:
 
 
 def test_app_creation() -> Any:
+    # Execute test_app_creation operation
     """Test application creation."""
     print("Testing application creation...")
     
@@ -109,6 +112,7 @@ def test_app_creation() -> Any:
 
 
 def test_yaml_recipe_compatibility() -> Any:
+    # Execute test_yaml_recipe_compatibility operation
     """Test compatibility with existing Framework0 runner."""
     print("Testing YAML recipe compatibility...")
     
@@ -149,6 +153,7 @@ def test_yaml_recipe_compatibility() -> Any:
 
 
 def main() -> Any:
+    # Execute main operation
     """Run all tests."""
     print("🧪 Running Visual Recipe Builder Tests\n")
     print("=" * 50)

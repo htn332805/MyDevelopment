@@ -93,7 +93,8 @@ class SpacedRepetitionEngine:
     question scheduling and difficulty adjustment.
     """
     
-def __init__(self, database: Optional[QuizDatabase] = None,
+def __init__(self, database -> Any: Optional[QuizDatabase] = None,
+    # Execute __init__ operation
                  sm2_params: Optional[SM2Parameters] = None,
                  selection_weights: Optional[SelectionWeights] = None) -> Any:
     """Initialize spaced repetition engine."""
@@ -165,6 +166,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
             raise
     
     def _apply_sm2_algorithm(self, progress: QuestionProgress, performance_score: float) -> QuestionProgress:
+        # Execute _apply_sm2_algorithm operation
     """Apply SM-2 algorithm to update intervals and easiness."""
     # Convert performance score to SM-2 quality scale (0-5)
         quality = min(5, max(0, int(performance_score)))
@@ -215,6 +217,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
         return progress
     
     def _calculate_mastery_level(self, progress: QuestionProgress) -> float:
+        # Execute _calculate_mastery_level operation
     """Calculate mastery level based on performance history."""
     if progress.total_attempts == 0:
             return 0.0
@@ -388,6 +391,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
             return []
     
     def _calculate_due_days(self, review_date_str: str) -> int:
+        # Execute _calculate_due_days operation
     """Calculate days until/since review date."""
     try:
             review_date = datetime.strptime(review_date_str, "%Y-%m-%d").date()
@@ -397,6 +401,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
             return 0
     
     def _filter_recent_questions(self, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        # Execute _filter_recent_questions operation
     """Filter out recently shown questions for anti-clustering."""
     filtered = []
         for candidate in candidates:
@@ -476,6 +481,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
         return max(0.0, score)
     
     def _weighted_random_choice(self, weights: List[float]) -> int:
+        # Execute _weighted_random_choice operation
     """Select index using weighted random selection."""
     if not weights:
             return 0
@@ -495,6 +501,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
         return len(weights) - 1
     
     def _update_recent_questions(self, question_ids: List[int]) -> None:
+        # Execute _update_recent_questions operation
     """Update anti-clustering state with recently shown questions."""
     # Add new question IDs
         self._recent_questions.extend(question_ids)
@@ -526,6 +533,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
             logger.warning(f"Failed to update recent hashtags: {e}")
     
     def _get_question_progress(self, user_id: int, question_id: int) -> Optional[QuestionProgress]:
+        # Execute _get_question_progress operation
     """Retrieve question progress from database."""
     try:
             query = """
@@ -568,6 +576,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
             return None
     
     def _save_question_progress(self, progress: QuestionProgress) -> None:
+        # Execute _save_question_progress operation
     """Save question progress to database."""
     try:
             query = """
@@ -602,6 +611,7 @@ def __init__(self, database: Optional[QuizDatabase] = None,
             raise
     
     def get_user_statistics(self, user_id: int) -> Dict[str, Any]:
+        # Execute get_user_statistics operation
     """Get comprehensive learning statistics for user."""
     try:
             # Basic progress statistics
@@ -679,6 +689,7 @@ _engine_lock = threading.Lock()
 
 
 def get_spaced_repetition_engine(database: Optional[QuizDatabase] = None) -> SpacedRepetitionEngine:
+    # Execute get_spaced_repetition_engine operation
     """Get global spaced repetition engine instance."""
     global _sr_engine
     

@@ -51,6 +51,7 @@ class TestExcelProcessorV1:
     
     @pytest.fixture
 def sample_excel_file(self) -> Any:
+    # Execute sample_excel_file operation
     """Create temporary Excel file with test data."""
     # Create temporary file
         temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
@@ -83,6 +84,7 @@ def sample_excel_file(self) -> Any:
         Path(temp_file.name).unlink(missing_ok=True)
     
 def test_processor_initialization(self, sample_excel_file -> Any: Any):
+    # Execute test_processor_initialization operation
         """Test processor initialization with valid file."""
         # Initialize processor
         processor = ExcelProcessorV1(sample_excel_file, debug=True)
@@ -95,6 +97,7 @@ def test_processor_initialization(self, sample_excel_file -> Any: Any):
         assert processor.logger is not None
     
 def test_load_workbook_existing_file(self, sample_excel_file -> Any: Any):
+    # Execute test_load_workbook_existing_file operation
         """Test loading existing Excel workbook."""
         # Initialize and load
         processor = ExcelProcessorV1(sample_excel_file)
@@ -108,6 +111,7 @@ def test_load_workbook_existing_file(self, sample_excel_file -> Any: Any):
         assert 'Customers' in processor.original_sheets
     
 def test_load_workbook_new_file(self) -> Any:
+    # Execute test_load_workbook_new_file operation
     """Test creating new workbook for non-existent file."""
     # Use non-existent file path
         temp_path = tempfile.mktemp(suffix='.xlsx')
@@ -127,6 +131,7 @@ def test_load_workbook_new_file(self) -> Any:
             Path(temp_path).unlink(missing_ok=True)
     
 def test_remove_duplicates(self, sample_excel_file -> Any: Any):
+    # Execute test_remove_duplicates operation
         """Test duplicate removal functionality."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -144,6 +149,7 @@ def test_remove_duplicates(self, sample_excel_file -> Any: Any):
         assert len(data_rows) == 3  # Original 4 rows minus 1 duplicate
     
 def test_normalize_column_names(self, sample_excel_file -> Any: Any):
+    # Execute test_normalize_column_names operation
         """Test column name normalization."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -167,6 +173,7 @@ def test_normalize_column_names(self, sample_excel_file -> Any: Any):
         assert 'cost' not in headers
     
 def test_clean_text_casing(self, sample_excel_file -> Any: Any):
+    # Execute test_clean_text_casing operation
         """Test text casing standardization."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -191,6 +198,7 @@ def test_clean_text_casing(self, sample_excel_file -> Any: Any):
         assert customer_names == expected_names
     
 def test_create_table_of_contents(self, sample_excel_file -> Any: Any):
+    # Execute test_create_table_of_contents operation
         """Test table of contents creation."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -217,6 +225,7 @@ def test_create_table_of_contents(self, sample_excel_file -> Any: Any):
         assert 'Customers' in sheet_links
     
 def test_add_navigation_buttons(self, sample_excel_file -> Any: Any):
+    # Execute test_add_navigation_buttons operation
         """Test navigation button addition."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -244,6 +253,7 @@ def test_add_navigation_buttons(self, sample_excel_file -> Any: Any):
             assert toc_button_found, f"TOC button not found in sheet {sheet_name}"
     
 def test_invalid_sheet_operations(self, sample_excel_file -> Any: Any):
+    # Execute test_invalid_sheet_operations operation
         """Test error handling for invalid sheet operations."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -260,6 +270,7 @@ def test_invalid_sheet_operations(self, sample_excel_file -> Any: Any):
             processor.clean_text_casing('NonExistentSheet', ['Column'], 'title')
     
 def test_save_workbook(self, sample_excel_file -> Any: Any):
+    # Execute test_save_workbook operation
         """Test workbook saving functionality."""
         # Initialize and load workbook
         processor = ExcelProcessorV1(sample_excel_file)
@@ -290,6 +301,7 @@ class TestExcelConfigV1:
     """Test suite for ExcelConfigV1 class."""
     
 def test_config_initialization(self) -> Any:
+    # Execute test_config_initialization operation
     """Test configuration initialization with defaults."""
     # Create config
         config = ExcelConfigV1()
@@ -310,6 +322,7 @@ def test_config_initialization(self) -> Any:
         assert config.navigation['toc_threshold'] == 6
     
 def test_config_json_serialization(self) -> Any:
+    # Execute test_config_json_serialization operation
     """Test configuration JSON save/load functionality."""
     # Create config with custom settings
         config = ExcelConfigV1()
@@ -339,6 +352,7 @@ def test_config_json_serialization(self) -> Any:
             Path(temp_file.name).unlink(missing_ok=True)
     
 def test_config_invalid_json(self) -> Any:
+    # Execute test_config_invalid_json operation
     """Test handling of invalid JSON configuration."""
     # Create invalid JSON file
         temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False)
@@ -362,11 +376,13 @@ class TestExcelAutomationCLI:
     
     @pytest.fixture
 def cli(self) -> Any:
+    # Execute cli operation
     """Create CLI instance for testing."""
     return ExcelAutomationCLI()
     
     @pytest.fixture
 def sample_excel_file(self) -> Any:
+    # Execute sample_excel_file operation
     """Create temporary Excel file for CLI testing."""
     # Create temporary file
         temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
@@ -387,6 +403,7 @@ def sample_excel_file(self) -> Any:
         Path(temp_file.name).unlink(missing_ok=True)
     
 def test_cli_initialization(self, cli -> Any: Any):
+    # Execute test_cli_initialization operation
         """Test CLI initialization."""
         # Verify CLI components initialized
         assert cli.parser is not None
@@ -395,6 +412,7 @@ def test_cli_initialization(self, cli -> Any: Any):
         assert cli.logger is not None
     
 def test_cli_help_output(self, cli -> Any: Any):
+    # Execute test_cli_help_output operation
         """Test CLI help output."""
         # Test main help
         with pytest.raises(SystemExit) as exc_info:
@@ -402,6 +420,7 @@ def test_cli_help_output(self, cli -> Any: Any):
         assert exc_info.value.code == 0
     
 def test_cli_create_config_command(self, cli -> Any: Any):
+    # Execute test_cli_create_config_command operation
         """Test create-config CLI command."""
         # Create temporary output file
         output_file = tempfile.mktemp(suffix='.json')
@@ -428,6 +447,7 @@ def test_cli_create_config_command(self, cli -> Any: Any):
             Path(output_file).unlink(missing_ok=True)
     
 def test_cli_auto_process_command(self, cli -> Any: Any, sample_excel_file: Any):
+    # Execute test_cli_auto_process_command operation
         """Test auto-process CLI command."""
         # Create temporary output file
         output_file = tempfile.mktemp(suffix='_processed.xlsx')
@@ -449,6 +469,7 @@ def test_cli_auto_process_command(self, cli -> Any: Any, sample_excel_file: Any)
             Path(output_file).unlink(missing_ok=True)
     
 def test_cli_nonexistent_file_error(self, cli -> Any: Any):
+    # Execute test_cli_nonexistent_file_error operation
         """Test CLI error handling for non-existent files."""
         # Run command with non-existent file
         result = cli.run(['auto-process', '/nonexistent/file.xlsx'])
@@ -462,6 +483,7 @@ class TestUtilityFunctions:
     
     @pytest.fixture
 def sample_excel_file(self) -> Any:
+    # Execute sample_excel_file operation
     """Create temporary Excel file for utility testing."""
     temp_file = tempfile.NamedTemporaryFile(suffix='.xlsx', delete=False)
         temp_file.close()
@@ -482,6 +504,7 @@ def sample_excel_file(self) -> Any:
         Path(temp_file.name).unlink(missing_ok=True)
     
 def test_auto_clean_excel_file(self, sample_excel_file -> Any: Any):
+    # Execute test_auto_clean_excel_file operation
         """Test auto_clean_excel_file utility function."""
         # Create output path
         output_path = tempfile.mktemp(suffix='_cleaned.xlsx')
@@ -510,6 +533,7 @@ def test_auto_clean_excel_file(self, sample_excel_file -> Any: Any):
             Path(output_path).unlink(missing_ok=True)
     
 def test_auto_clean_with_custom_config(self, sample_excel_file -> Any: Any):
+    # Execute test_auto_clean_with_custom_config operation
         """Test auto-cleaning with custom configuration."""
         # Create custom configuration
         config = ExcelConfigV1()

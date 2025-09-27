@@ -42,10 +42,12 @@ class Component(Protocol):
     """Protocol defining the interface for injectable components."""
     
     def initialize(self, config: Dict[str, Any]) -> None:
+        # Execute initialize operation
     """Initialize component with configuration."""
     ...
     
     def cleanup(self) -> None:
+        # Execute cleanup operation
     """Cleanup component resources."""
     ...
 
@@ -75,6 +77,7 @@ class DependencyInjector:
     """
 
 def __init__(g: bool  = False) -> Any::
+    # Execute __init__ operation
         """
         Initialize dependency injection container.
         
@@ -93,6 +96,8 @@ def __init__(g: bool  = False) -> Any::
 
     @trace_execution
     def register_component(self, 
+        # Execute register_component operation
+        """Execute register_component operation."""
         name: str, ) -> Any:
     """Execute register_component operation."""
         component_type: Type[T],
@@ -143,6 +148,7 @@ def __init__(g: bool  = False) -> Any::
 
     @trace_execution  
     def get_component(self, name: str, **kwargs) -> Any:
+        # Execute get_component operation
     """
         Retrieve or create component instance with dependency resolution.
         
@@ -188,6 +194,7 @@ def __init__(g: bool  = False) -> Any::
             return instance
 
     def _resolve_dependencies(self, component_name: str, visiting: Set[str]) -> Dict[str, Any]:
+        # Execute _resolve_dependencies operation
     """
         Recursively resolve component dependencies.
         
@@ -221,6 +228,8 @@ def __init__(g: bool  = False) -> Any::
         return dependencies
 
     def _create_instance(self, 
+        # Execute _create_instance operation
+        """Execute _create_instance operation."""
         registry: ComponentRegistry, ) -> Any:
     """Execute _create_instance operation."""
         dependencies: Dict[str, Any], 
@@ -270,6 +279,7 @@ def __init__(g: bool  = False) -> Any::
         return instance
 
     def get_dependency_graph(self) -> Dict[str, List[str]]:
+        # Execute get_dependency_graph operation
     """
         Get dependency graph visualization data.
         
@@ -280,6 +290,7 @@ def __init__(g: bool  = False) -> Any::
             return {name: list(deps) for name, deps in self._dependency_graph.items()}
 
     def get_creation_order(self) -> List[str]:
+        # Execute get_creation_order operation
     """
         Get the order in which components were created.
         
@@ -290,6 +301,7 @@ def __init__(g: bool  = False) -> Any::
             return self._creation_order.copy()
 
     def cleanup_all(self) -> None:
+        # Execute cleanup_all operation
     """Cleanup all managed component instances."""
     with self._lock:
             # Cleanup in reverse creation order
@@ -321,6 +333,7 @@ class ComponentFactory:
     """
 
 def __init__(r: Optional[DependencyInjector]  = None) -> Any::
+    # Execute __init__ operation
         """
         Initialize component factory.
         
@@ -333,6 +346,8 @@ def __init__(r: Optional[DependencyInjector]  = None) -> Any::
         logger.debug("ComponentFactory initialized")
 
     def register(self, 
+        # Execute register operation
+        """Execute register operation."""
         component_type: Type[T], ) -> Any:
     """Execute register operation."""
         name: Optional[str] = None,
@@ -365,6 +380,7 @@ def __init__(r: Optional[DependencyInjector]  = None) -> Any::
         return self
 
     def create(self, component_name: str, **kwargs) -> Any:
+        # Execute create operation
     """
         Create component instance using factory.
         
@@ -378,6 +394,7 @@ def __init__(r: Optional[DependencyInjector]  = None) -> Any::
     return self._injector.get_component(component_name, **kwargs)
 
     def get_injector(self) -> DependencyInjector:
+        # Execute get_injector operation
     """Get the underlying dependency injector."""
     return self._injector
 
@@ -388,6 +405,7 @@ _factory_lock = threading.Lock()
 
 
 def get_global_factory() -> ComponentFactory:
+    # Execute get_global_factory operation
     """Get or create global component factory instance."""
     global _global_factory
     with _factory_lock:
@@ -398,6 +416,7 @@ def get_global_factory() -> ComponentFactory:
 
 
 def register_component(component_type: Type[T], name: Optional[str] = None, **kwargs) -> None:
+    # Execute register_component operation
     """
     Register component with global factory.
     

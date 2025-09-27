@@ -43,6 +43,7 @@ class TestQuizDatabase(unittest.TestCase):
     """Test database operations and models."""
     
 def setUp(self) -> Any:
+    # Execute setUp operation
     """Set up test database."""
     self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -54,11 +55,13 @@ def setUp(self) -> Any:
         self.db = QuizDatabase(self.config)
     
 def tearDown(self) -> Any:
+    # Execute tearDown operation
     """Clean up test database."""
     self.db.close_all_connections()
         os.unlink(self.temp_db.name)
     
 def test_database_initialization(self) -> Any:
+    # Execute test_database_initialization operation
     """Test database schema creation."""
     # Verify tables exist
         tables_query = "SELECT name FROM sqlite_master WHERE type='table'"
@@ -73,6 +76,7 @@ def test_database_initialization(self) -> Any:
         self.assertTrue(expected_tables.issubset(table_names))
     
 def test_question_crud_operations(self) -> Any:
+    # Execute test_question_crud_operations operation
     """Test basic question CRUD operations."""
     # Insert a test question
         insert_query = """
@@ -106,6 +110,7 @@ def test_question_crud_operations(self) -> Any:
         self.assertEqual(results[0]['title'], "Test Question")
     
 def test_thread_safety(self) -> Any:
+    # Execute test_thread_safety operation
     """Test thread-safe database operations."""
     import threading
 from typing import Any, Dict, List, Optional, Union
@@ -114,6 +119,7 @@ from typing import Any, Dict, List, Optional, Union
         errors = []
         
 def insert_question(question_num -> Any: Any):
+    # Execute insert_question operation
 """Execute insert_question operation."""
             try:
                 query = "INSERT INTO questions (question_type, title, content, question_data_json, correct_answer_json) VALUES (?, ?, ?, ?, ?)"
@@ -150,6 +156,7 @@ class TestQuestionManager(unittest.TestCase):
     """Test question management and validation."""
     
 def setUp(self) -> Any:
+    # Execute setUp operation
     """Set up test environment."""
     self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -159,11 +166,13 @@ def setUp(self) -> Any:
         self.validator = QuestionSchemaValidator()
     
 def tearDown(self) -> Any:
+    # Execute tearDown operation
     """Clean up test environment."""
     self.database.close_all_connections()
         os.unlink(self.temp_db.name)
     
 def test_multiple_choice_validation(self) -> Any:
+    # Execute test_multiple_choice_validation operation
     """Test multiple choice question validation."""
     valid_question = {
             "id": "test1",
@@ -185,6 +194,7 @@ def test_multiple_choice_validation(self) -> Any:
         self.assertEqual(result.estimated_difficulty, 2)
     
 def test_true_false_validation(self) -> Any:
+    # Execute test_true_false_validation operation
     """Test true/false question validation."""
     valid_question = {
             "id": "test2",
@@ -200,6 +210,7 @@ def test_true_false_validation(self) -> Any:
         self.assertTrue(result.is_valid, f"Validation errors: {result.errors}")
     
 def test_fill_in_blank_validation(self) -> Any:
+    # Execute test_fill_in_blank_validation operation
     """Test fill-in-blank question validation."""
     valid_question = {
             "id": "test3",
@@ -216,6 +227,7 @@ def test_fill_in_blank_validation(self) -> Any:
         self.assertTrue(result.is_valid, f"Validation errors: {result.errors}")
     
 def test_latex_detection(self) -> Any:
+    # Execute test_latex_detection operation
     """Test LaTeX content detection."""
     latex_question = {
             "id": "test4",
@@ -233,6 +245,7 @@ def test_latex_detection(self) -> Any:
         self.assertTrue(result.latex_content)
     
 def test_question_creation(self) -> Any:
+    # Execute test_question_creation operation
     """Test question creation in database."""
     question_data = {
             "type": "multiple_choice",
@@ -258,6 +271,7 @@ def test_question_creation(self) -> Any:
         self.assertEqual(retrieved_question['type'], question_data['type'])
     
 def test_question_search(self) -> Any:
+    # Execute test_question_search operation
     """Test question search functionality."""
     # Create test questions
         questions = [
@@ -309,6 +323,7 @@ class TestSpacedRepetition(unittest.TestCase):
     """Test spaced repetition algorithms."""
     
 def setUp(self) -> Any:
+    # Execute setUp operation
     """Set up test environment."""
     self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -334,11 +349,13 @@ def setUp(self) -> Any:
             self.test_questions.append(question_id)
     
 def tearDown(self) -> Any:
+    # Execute tearDown operation
     """Clean up test environment."""
     self.database.close_all_connections()
         os.unlink(self.temp_db.name)
     
 def test_sm2_algorithm_correct_answer(self) -> Any:
+    # Execute test_sm2_algorithm_correct_answer operation
     """Test SM-2 algorithm with correct answer."""
     user_id = 1
         question_id = self.test_questions[0]
@@ -360,6 +377,7 @@ def test_sm2_algorithm_correct_answer(self) -> Any:
         self.assertIsNotNone(progress.next_review_date)
     
 def test_sm2_algorithm_incorrect_answer(self) -> Any:
+    # Execute test_sm2_algorithm_incorrect_answer operation
     """Test SM-2 algorithm with incorrect answer."""
     user_id = 1
         question_id = self.test_questions[1]
@@ -379,6 +397,7 @@ def test_sm2_algorithm_incorrect_answer(self) -> Any:
         self.assertEqual(progress.interval_days, 1)  # Back to beginning
     
 def test_question_selection(self) -> Any:
+    # Execute test_question_selection operation
     """Test intelligent question selection."""
     user_id = 1
         
@@ -408,6 +427,7 @@ def test_question_selection(self) -> Any:
             self.assertIn(question_id, self.test_questions)
     
 def test_mastery_calculation(self) -> Any:
+    # Execute test_mastery_calculation operation
     """Test mastery level calculation."""
     user_id = 1
         question_id = self.test_questions[0]
@@ -429,6 +449,7 @@ def test_mastery_calculation(self) -> Any:
         self.assertGreater(progress.repetition_count, 2)
     
 def test_user_statistics(self) -> Any:
+    # Execute test_user_statistics operation
     """Test user statistics generation."""
     user_id = 1
         
@@ -456,6 +477,7 @@ class TestWebApplication(unittest.TestCase):
     """Test Flask web application."""
     
 def setUp(self) -> Any:
+    # Execute setUp operation
     """Set up test Flask app."""
     self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -480,34 +502,40 @@ def setUp(self) -> Any:
             })
     
 def tearDown(self) -> Any:
+    # Execute tearDown operation
     """Clean up test environment."""
     os.unlink(self.temp_db.name)
     
 def test_index_page(self) -> Any:
+    # Execute test_index_page operation
     """Test index page loads."""
     response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Quiz Dashboard', response.data)
     
 def test_dashboard_page(self) -> Any:
+    # Execute test_dashboard_page operation
     """Test dashboard page loads."""
     response = self.client.get('/dashboard')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Choose Your Role', response.data)
     
 def test_student_dashboard(self) -> Any:
+    # Execute test_student_dashboard operation
     """Test student dashboard loads."""
     response = self.client.get('/student')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Welcome back', response.data)
     
 def test_instructor_dashboard(self) -> Any:
+    # Execute test_instructor_dashboard operation
     """Test instructor dashboard loads."""
     response = self.client.get('/instructor')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Instructor Dashboard', response.data)
     
 def test_quiz_session_creation(self) -> Any:
+    # Execute test_quiz_session_creation operation
     """Test quiz session creation."""
     response = self.client.post('/quiz/start', data={
             'question_count': '5',
@@ -520,6 +548,7 @@ def test_quiz_session_creation(self) -> Any:
         self.assertIn('/quiz/', response.location)
     
 def test_api_question_search(self) -> Any:
+    # Execute test_api_question_search operation
     """Test API question search endpoint."""
     response = self.client.get('/api/questions/search?limit=5')
         self.assertEqual(response.status_code, 200)
@@ -530,6 +559,7 @@ def test_api_question_search(self) -> Any:
         self.assertIsInstance(data['questions'], list)
     
 def test_api_question_validation(self) -> Any:
+    # Execute test_api_question_validation operation
     """Test API question validation endpoint."""
     valid_question = {
             "type": "true_false",
@@ -547,6 +577,7 @@ def test_api_question_validation(self) -> Any:
         self.assertIn('is_valid', data)
     
 def test_404_error_handling(self) -> Any:
+    # Execute test_404_error_handling operation
     """Test 404 error handling."""
     response = self.client.get('/nonexistent-page')
         self.assertEqual(response.status_code, 404)
@@ -557,6 +588,7 @@ class TestIntegration(unittest.TestCase):
     """Integration tests for complete workflow."""
     
 def setUp(self) -> Any:
+    # Execute setUp operation
     """Set up integration test environment."""
     self.temp_db = tempfile.NamedTemporaryFile(delete=False)
         self.temp_db.close()
@@ -567,11 +599,13 @@ def setUp(self) -> Any:
         self.sr_engine = get_spaced_repetition_engine(self.database)
         
 def tearDown(self) -> Any:
+    # Execute tearDown operation
     """Clean up integration test environment."""
     self.database.close_all_connections()
         os.unlink(self.temp_db.name)
     
 def test_complete_learning_workflow(self) -> Any:
+    # Execute test_complete_learning_workflow operation
     """Test complete learning workflow from question creation to analysis."""
     # Step 1: Create questions
         questions_data = [

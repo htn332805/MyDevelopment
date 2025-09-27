@@ -36,6 +36,7 @@ logger = get_logger(__name__)
 
 
 def create_sample_questions() -> Any:
+    # Execute create_sample_questions operation
     """Create sample questions for demonstration."""
     sample_questions = [
         {
@@ -148,6 +149,7 @@ def create_sample_questions() -> Any:
 
 
 def initialize_sample_data() -> Any:
+    # Execute initialize_sample_data operation
     """Initialize database with sample questions."""
     try:
         logger.info("Initializing sample data...")
@@ -184,6 +186,7 @@ def initialize_sample_data() -> Any:
 
 
 def main() -> Any:
+    # Execute main operation
     """Main application entry point."""
     parser = argparse.ArgumentParser(description="Quiz Dashboard Application")
     parser.add_argument("--host", default="127.0.0.1", help="Host address to bind to")

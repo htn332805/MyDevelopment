@@ -24,6 +24,7 @@ class LintComplianceFixer:
     """Automated fixer for lint compliance issues."""
     
     def __init__(self) -> Any:
+        # Execute __init__ operation
         """Initialize the lint compliance fixer."""
         self.project_root = project_root
         self.fixed_files = []
@@ -44,6 +45,7 @@ class LintComplianceFixer:
         }
         
     def find_python_files(self) -> List[Path]:
+        # Execute find_python_files operation
     """Find all Python files in the project excluding .venv and __pycache__."""
     python_files = []
         
@@ -58,6 +60,7 @@ class LintComplianceFixer:
         return python_files
     
     def analyze_function(self, node: ast.FunctionDef) -> Dict[str, str]:
+        # Execute analyze_function operation
     """Analyze a function and determine missing type hints."""
     missing_hints = {}
         
@@ -83,6 +86,7 @@ class LintComplianceFixer:
         }
     
     def get_function_signature_line(self, lines: List[str], func_def_line: int) -> Tuple[int, str]:
+        # Execute get_function_signature_line operation
     """Get the complete function signature including multi-line definitions."""
     signature_lines = []
         current_line = func_def_line
@@ -100,6 +104,7 @@ class LintComplianceFixer:
         return current_line, ' '.join(signature_lines)
     
     def add_type_imports(self, content: str) -> str:
+        # Execute add_type_imports operation
     """Add necessary typing imports to the file."""
     lines = content.split('\n')
         
@@ -137,6 +142,7 @@ class LintComplianceFixer:
         return '\n'.join(lines)
     
     def fix_function_signature(self, content: str, node: ast.FunctionDef, analysis: Dict) -> str:
+        # Execute fix_function_signature operation
     """Fix function signature by adding type hints."""
     lines = content.split('\n')
         
@@ -171,6 +177,7 @@ class LintComplianceFixer:
         return '\n'.join(lines)
     
     def modify_function_signature(self, signature: str, missing_hints: Dict[str, str], needs_return: bool) -> str:
+        # Execute modify_function_signature operation
     """Modify function signature string to add type hints."""
     # Simple approach: add type hints to parameters
         for param_name, type_hint in missing_hints.items():
@@ -188,6 +195,7 @@ class LintComplianceFixer:
         return signature
     
     def add_function_comment(self, content: str, node: ast.FunctionDef) -> str:
+        # Execute add_function_comment operation
     """Add a comment after function definition if missing."""
     lines = content.split('\n')
         func_line_idx = node.lineno - 1
@@ -223,6 +231,7 @@ class LintComplianceFixer:
         return '\n'.join(lines)
     
     def fix_file_compliance(self, file_path: Path) -> int:
+        # Execute fix_file_compliance operation
     """Fix compliance issues in a single file."""
     try:
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -274,6 +283,7 @@ class LintComplianceFixer:
             return 0
     
     def run_lint_checker_after_fix(self) -> bool:
+        # Execute run_lint_checker_after_fix operation
     """Run the lint checker after fixes to verify improvements."""
     try:
             print("\n🔍 Running lint checker to verify improvements...")
@@ -297,6 +307,7 @@ class LintComplianceFixer:
             return False
     
     def fix_all_files(self, max_files: Optional[int] = None) -> Dict[str, int]:
+        # Execute fix_all_files operation
     """Fix compliance issues in all Python files."""
     print("🚀 Starting Automated Lint Compliance Fixes")
         print(f"Project Root: {self.project_root}")
@@ -341,6 +352,7 @@ class LintComplianceFixer:
 
 
 def main() -> Any:
+    # Execute main operation
     """Main function to run lint compliance fixes."""
     fixer = LintComplianceFixer()
     

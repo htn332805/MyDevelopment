@@ -45,6 +45,7 @@ class DatabaseAdapter:
     """
 
 def __init__(self) -> Any:
+    # Execute __init__ operation
     """
         Initializes the DatabaseAdapter instance.
         """
@@ -53,6 +54,7 @@ def __init__(self) -> Any:
         self.metadata = MetaData()
 
 def connect(self, database_url -> Any: str):
+    # Execute connect operation
         """
         Establishes a connection to the database.
 
@@ -72,6 +74,7 @@ def connect(self, database_url -> Any: str):
             raise
 
 def disconnect(self) -> Any:
+    # Execute disconnect operation
     """
         Closes the database connection.
 
@@ -87,6 +90,7 @@ def disconnect(self) -> Any:
             raise
 
 def create_session(self) -> Any:
+    # Execute create_session operation
     """
         Creates a new session for database operations.
 
@@ -105,6 +109,7 @@ def create_session(self) -> Any:
             raise
 
 def execute_query(y: str, params: dict  = None) -> Any::
+    # Execute execute_query operation
         """
         Executes a raw SQL query.
 
@@ -128,6 +133,7 @@ def execute_query(y: str, params: dict  = None) -> Any::
             raise
 
 def create_table(self, table_class -> Any: Base):
+    # Execute create_table operation
         """
         Creates a table based on the provided class.
 
@@ -145,6 +151,7 @@ def create_table(self, table_class -> Any: Base):
             raise
 
 def drop_table(self, table_class -> Any: Base):
+    # Execute drop_table operation
         """
         Drops the table corresponding to the provided class.
 

@@ -26,6 +26,7 @@ class ComprehensiveTestRunner:
     """Comprehensive test runner for the entire framework."""
     
 def __init__(self) -> Any:
+    # Execute __init__ operation
     """Initialize the test runner."""
     self.project_root = project_root
         self.test_results = {
@@ -71,6 +72,7 @@ def __init__(self) -> Any:
         }
         
     def run_pytest_suite(self, test_paths: List[str], suite_name: str) -> Dict[str, Any]:
+        # Execute run_pytest_suite operation
     """Run a pytest suite and return results."""
     print(f"\n{'='*60}")
         print(f"Running {suite_name}")
@@ -173,6 +175,7 @@ def __init__(self) -> Any:
         return suite_result
     
     def run_custom_test(self, test_script: str, suite_name: str) -> Dict[str, Any]:
+        # Execute run_custom_test operation
     """Run a custom test script."""
     print(f"\n{'='*60}")
         print(f"Running Custom Test: {suite_name}")
@@ -230,6 +233,7 @@ def __init__(self) -> Any:
         return suite_result
     
     def run_all_tests(self) -> Dict[str, Any]:
+        # Execute run_all_tests operation
     """Run all test suites."""
     print("🚀 Starting Comprehensive Test Suite")
         print(f"Project Root: {self.project_root}")
@@ -260,6 +264,7 @@ def __init__(self) -> Any:
         return self.test_results
     
 def _calculate_summary(self) -> Any:
+    # Execute _calculate_summary operation
     """Calculate test summary statistics."""
     summary = self.test_results['summary']
         
@@ -277,6 +282,7 @@ def _calculate_summary(self) -> Any:
             summary['success_rate'] = 0.0
     
 def print_summary(self) -> Any:
+    # Execute print_summary operation
     """Print test summary."""
     print(f"\n{'='*80}")
         print("🎯 COMPREHENSIVE TEST RESULTS SUMMARY")
@@ -311,6 +317,7 @@ def print_summary(self) -> Any:
         return overall_success
     
 def save_results(e: str  = 'test_results.json') -> Any::
+    # Execute save_results operation
         """Save test results to JSON file."""
         try:
             output_path = self.project_root / output_file
@@ -322,6 +329,7 @@ def save_results(e: str  = 'test_results.json') -> Any::
 
 
 def main() -> Any:
+    # Execute main operation
     """Main function to run comprehensive tests."""
     runner = ComprehensiveTestRunner()
     

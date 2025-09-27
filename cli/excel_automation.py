@@ -62,6 +62,7 @@ class ExcelAutomationCLI:
     """
     
     def __init__(self) -> None:
+        # Execute __init__ operation
     """Initialize CLI with argument parser and configuration."""
     # Initialize CLI state
         self.parser: argparse.ArgumentParser = self._create_argument_parser()
@@ -73,6 +74,7 @@ class ExcelAutomationCLI:
         self.logger.info("Excel Automation CLI initialized")
 
     def _create_argument_parser(self) -> argparse.ArgumentParser:
+        # Execute _create_argument_parser operation
     """
         Create comprehensive argument parser for CLI operations.
         
@@ -127,6 +129,7 @@ Examples:
         return parser
 
 def _add_clean_command(self, subparsers: Any) -> None:
+    # Execute _add_clean_command operation
     """Add data cleaning subcommand."""
     # Create clean subcommand parser
         clean_parser = subparsers.add_parser('clean', 
@@ -144,6 +147,7 @@ def _add_clean_command(self, subparsers: Any) -> None:
                                 help='Target date format')
 
 def _add_analyze_command(self, subparsers: Any) -> None:
+    # Execute _add_analyze_command operation
     """Add data analysis subcommand."""
     # Create analyze subcommand parser
         analyze_parser = subparsers.add_parser('analyze', 
@@ -165,6 +169,7 @@ def _add_analyze_command(self, subparsers: Any) -> None:
                                   help='Create summary sheet')
 
 def _add_visualize_command(self, subparsers: Any) -> None:
+    # Execute _add_visualize_command operation
     """Add visualization subcommand."""
     # Create visualize subcommand parser
         viz_parser = subparsers.add_parser('visualize',
@@ -182,6 +187,7 @@ def _add_visualize_command(self, subparsers: Any) -> None:
                               help='Apply conditional formatting')
 
 def _add_auto_process_command(self, subparsers: Any) -> None:
+    # Execute _add_auto_process_command operation
     """Add auto-processing subcommand."""
     # Create auto-process subcommand parser
         auto_parser = subparsers.add_parser('auto-process',
@@ -191,6 +197,7 @@ def _add_auto_process_command(self, subparsers: Any) -> None:
                                help='Create table of contents for multi-sheet files')
 
 def _add_batch_process_command(self, subparsers: Any) -> None:
+    # Execute _add_batch_process_command operation
     """Add batch processing subcommand."""
     # Create batch processing subcommand parser
         batch_parser = subparsers.add_parser('batch-process',
@@ -202,6 +209,7 @@ def _add_batch_process_command(self, subparsers: Any) -> None:
                                 help='File pattern to match (e.g., *.xlsx, *.xls)')
 
 def _add_config_command(self, subparsers: Any) -> None:
+    # Execute _add_config_command operation
     """Add configuration management subcommand."""
     # Create config subcommand parser
         config_parser = subparsers.add_parser('create-config',
@@ -212,6 +220,7 @@ def _add_config_command(self, subparsers: Any) -> None:
                                  help='Output path for configuration file')
 
     def run(self, args: Optional[List[str]] = None) -> int:
+        # Execute run operation
     """
         Run the CLI with provided arguments.
         
@@ -263,6 +272,7 @@ def _add_config_command(self, subparsers: Any) -> None:
             return 1
 
     def _load_config(self, config_path: str) -> None:
+        # Execute _load_config operation
     """
         Load configuration from JSON file.
         
@@ -278,6 +288,7 @@ def _add_config_command(self, subparsers: Any) -> None:
             raise
 
 def _execute_clean_command(self, args: Any) -> int:
+    # Execute _execute_clean_command operation
     """
         Execute data cleaning command.
         
@@ -329,6 +340,7 @@ def _execute_clean_command(self, args: Any) -> int:
             return 1
 
 def _execute_analyze_command(self, args: Any) -> int:
+    # Execute _execute_analyze_command operation
     """
         Execute data analysis command.
         
@@ -394,6 +406,7 @@ def _execute_analyze_command(self, args: Any) -> int:
             return 1
 
 def _execute_visualize_command(self, args: Any) -> int:
+    # Execute _execute_visualize_command operation
     """
         Execute visualization command.
         
@@ -443,6 +456,7 @@ def _execute_visualize_command(self, args: Any) -> int:
             return 1
 
 def _execute_auto_process_command(self, args: Any) -> int:
+    # Execute _execute_auto_process_command operation
     """
         Execute auto-processing command.
         
@@ -476,6 +490,7 @@ def _execute_auto_process_command(self, args: Any) -> int:
             return 1
 
 def _execute_batch_process_command(self, args: Any) -> int:
+    # Execute _execute_batch_process_command operation
     """
         Execute batch processing command.
         
@@ -508,6 +523,7 @@ def _execute_batch_process_command(self, args: Any) -> int:
             return 1
 
 def _execute_create_config_command(self, args: Any) -> int:
+    # Execute _execute_create_config_command operation
     """
         Execute configuration creation command.
         
@@ -552,6 +568,7 @@ def _execute_create_config_command(self, args: Any) -> int:
 
 
 def main() -> int:
+    # Execute main operation
     """
     Main entry point for Excel automation CLI.
     

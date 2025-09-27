@@ -51,6 +51,7 @@ class BlockInput:
     description: str = ""  # Help text for the input
     
     def to_dict(self) -> Dict[str, Any]:
+        # Execute to_dict operation
     """Convert to dictionary for JSON serialization."""
     return {
             "name": self.name,
@@ -71,6 +72,7 @@ class BlockOutput:
     data_type: str = "any"  # Expected data type
     
     def to_dict(self) -> Dict[str, Any]:
+        # Execute to_dict operation
     """Convert to dictionary for JSON serialization."""
     return {
             "name": self.name,
@@ -95,6 +97,7 @@ class Block:
     dependencies: List[str] = field(default_factory=list)  # Block dependencies
     
     def to_dict(self) -> Dict[str, Any]:
+        # Execute to_dict operation
     """Convert to dictionary for JSON serialization."""
     return {
             "id": self.id,
@@ -120,6 +123,7 @@ class BlockLibrary:
     """
     
 def __init__(self) -> Any:
+    # Execute __init__ operation
     """Initialize the block library with predefined blocks."""
     self.logger = get_logger(__name__)
         self._blocks: Dict[str, Block] = {}
@@ -127,6 +131,7 @@ def __init__(self) -> Any:
         self._discover_scriptlet_blocks()
     
     def _initialize_core_blocks(self) -> None:
+        # Execute _initialize_core_blocks operation
     """Initialize core Framework0 blocks."""
     self.logger.info("Initializing core block library")
         
@@ -298,6 +303,7 @@ def __init__(self) -> Any:
         self.logger.info(f"Initialized {len(self._blocks)} core blocks")
     
     def _discover_scriptlet_blocks(self) -> None:
+        # Execute _discover_scriptlet_blocks operation
     """Discover blocks from existing scriptlets in the system."""
     self.logger.info("Discovering scriptlet blocks from system")
         
@@ -313,10 +319,12 @@ def __init__(self) -> Any:
             self.logger.warning(f"Failed to discover scriptlet blocks: {e}")
     
     def get_blocks(self) -> Dict[str, Block]:
+        # Execute get_blocks operation
     """Get all available blocks."""
     return self._blocks.copy()
     
     def get_blocks_by_type(self, block_type: BlockType) -> Dict[str, Block]:
+        # Execute get_blocks_by_type operation
     """Get blocks filtered by type."""
     return {
             block_id: block for block_id, block in self._blocks.items()
@@ -324,19 +332,23 @@ def __init__(self) -> Any:
         }
     
     def get_block(self, block_id: str) -> Optional[Block]:
+        # Execute get_block operation
     """Get a specific block by ID."""
     return self._blocks.get(block_id)
     
     def add_custom_block(self, block: Block) -> None:
+        # Execute add_custom_block operation
     """Add a custom block to the library."""
     self.logger.info(f"Adding custom block: {block.id}")
         self._blocks[block.id] = block
     
     def get_block_types(self) -> List[str]:
+        # Execute get_block_types operation
     """Get all available block types."""
     return [block_type.value for block_type in BlockType]
     
     def export_blocks_definition(self) -> Dict[str, Any]:
+        # Execute export_blocks_definition operation
     """Export all blocks as a JSON-serializable definition."""
     return {
             block_id: block.to_dict()
@@ -349,5 +361,6 @@ _block_library = BlockLibrary()
 
 
 def get_block_library() -> BlockLibrary:
+    # Execute get_block_library operation
     """Get the global block library instance."""
     return _block_library

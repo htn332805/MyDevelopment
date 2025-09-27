@@ -28,6 +28,7 @@ class CodeAnalyzer:
     """
     
 def __init__(self, repo_root -> Any: str):
+    # Execute __init__ operation
         """
         Initialize the code analyzer with repository root.
         
@@ -45,6 +46,7 @@ def __init__(self, repo_root -> Any: str):
         }
         
     def find_all_code_files(self) -> List[str]:
+        # Execute find_all_code_files operation
     """
         Find all Python and shell script files in the repository.
         
@@ -69,6 +71,7 @@ def __init__(self, repo_root -> Any: str):
         return sorted(code_files)  # Return sorted list for consistency
         
     def analyze_python_file(self, file_path: str) -> Dict[str, Any]:
+        # Execute analyze_python_file operation
     """
         Analyze a Python file and extract comprehensive information.
         
@@ -134,6 +137,7 @@ def __init__(self, repo_root -> Any: str):
         return file_info  # Return complete file analysis
         
     def analyze_shell_file(self, file_path: str) -> Dict[str, Any]:
+        # Execute analyze_shell_file operation
     """
         Analyze a shell script file and extract information.
         
@@ -192,6 +196,7 @@ def __init__(self, repo_root -> Any: str):
         return file_info  # Return complete shell analysis
         
     def _extract_imports(self, tree: ast.AST) -> List[Dict[str, str]]:
+        # Execute _extract_imports operation
     """
         Extract all import statements from Python AST.
         
@@ -228,6 +233,7 @@ def __init__(self, repo_root -> Any: str):
         return imports  # Return all found imports
         
     def _extract_functions(self, tree: ast.AST) -> List[Dict[str, Any]]:
+        # Execute _extract_functions operation
     """
         Extract all function definitions from Python AST.
         
@@ -258,6 +264,7 @@ def __init__(self, repo_root -> Any: str):
         return functions  # Return all found functions
         
     def _extract_classes(self, tree: ast.AST) -> List[Dict[str, Any]]:
+        # Execute _extract_classes operation
     """
         Extract all class definitions from Python AST.
         
@@ -298,6 +305,7 @@ def __init__(self, repo_root -> Any: str):
         return classes  # Return all found classes
         
     def _calculate_complexity(self, tree: ast.AST) -> int:
+        # Execute _calculate_complexity operation
     """
         Calculate basic complexity score for Python file.
         
@@ -320,6 +328,7 @@ def __init__(self, repo_root -> Any: str):
         return complexity  # Return calculated complexity
         
     def _find_usage_examples(self, content: str) -> List[str]:
+        # Execute _find_usage_examples operation
     """
         Find usage examples in comments and docstrings.
         
@@ -354,6 +363,7 @@ def __init__(self, repo_root -> Any: str):
         return cleaned_examples  # Return cleaned examples
         
     def _find_dependencies(self, content: str, file_path: str) -> List[str]:
+        # Execute _find_dependencies operation
     """
         Find dependencies to other files in the repository.
         
@@ -381,6 +391,7 @@ def __init__(self, repo_root -> Any: str):
         return list(set(dependencies))  # Return unique dependencies
         
     def _extract_shell_functions(self, content: str) -> List[Dict[str, Any]]:
+        # Execute _extract_shell_functions operation
     """
         Extract function definitions from shell script content.
         
@@ -410,6 +421,7 @@ def __init__(self, repo_root -> Any: str):
         return functions  # Return all found functions
         
     def _extract_shell_variables(self, content: str) -> List[Dict[str, str]]:
+        # Execute _extract_shell_variables operation
     """
         Extract variable assignments from shell script.
         
@@ -439,6 +451,7 @@ def __init__(self, repo_root -> Any: str):
         return variables  # Return all found variables
         
     def _extract_shell_commands(self, content: str) -> List[str]:
+        # Execute _extract_shell_commands operation
     """
         Extract main commands used in shell script.
         
@@ -465,6 +478,7 @@ def __init__(self, repo_root -> Any: str):
         return list(set(commands))  # Return unique commands
         
     def _extract_shell_description(self, content: str) -> str:
+        # Execute _extract_shell_description operation
     """
         Extract description from shell script comments.
         
@@ -495,6 +509,7 @@ def __init__(self, repo_root -> Any: str):
             return "No description available"  # Default message
             
     def _find_shell_usage_examples(self, content: str) -> List[str]:
+        # Execute _find_shell_usage_examples operation
     """
         Find usage examples in shell script comments.
         
@@ -520,6 +535,7 @@ def __init__(self, repo_root -> Any: str):
         return [ex.strip() for ex in examples if ex.strip()]  # Return cleaned examples
         
     def _extract_shell_parameters(self, content: str) -> List[Dict[str, str]]:
+        # Execute _extract_shell_parameters operation
     """
         Extract command line parameters from shell script.
         
@@ -550,6 +566,7 @@ def __init__(self, repo_root -> Any: str):
         return parameters  # Return unique parameters
         
     def _extract_function_description(self, func_name: str, content: str) -> str:
+        # Execute _extract_function_description operation
     """
         Extract description for a specific function from comments.
         
@@ -575,6 +592,7 @@ def __init__(self, repo_root -> Any: str):
         return f"Function: {func_name}"  # Default description
         
     def analyze_all_files(self) -> None:
+        # Execute analyze_all_files operation
     """
         Analyze all code files in the repository.
         
@@ -613,6 +631,7 @@ class DocumentationGenerator:
     """
     
 def __init__(self, analyzer -> Any: CodeAnalyzer):
+    # Execute __init__ operation
         """
         Initialize documentation generator with analyzer results.
         
@@ -623,6 +642,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         self.repo_root = analyzer.repo_root  # Store repository root
         
     def generate_repository_overview(self) -> str:
+        # Execute generate_repository_overview operation
     """
         Generate comprehensive repository overview documentation.
         
@@ -681,6 +701,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return '\n'.join(overview)  # Join all sections into single string
         
     def generate_user_manual(self) -> str:
+        # Execute generate_user_manual operation
     """
         Generate comprehensive user manual documentation.
         
@@ -739,6 +760,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return '\n'.join(manual)  # Join all sections into single string
         
     def _generate_statistics_section(self) -> List[str]:
+        # Execute _generate_statistics_section operation
     """Generate repository statistics section."""
     section = []  # Initialize section content
         
@@ -755,6 +777,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
     
     def _generate_enhanced_architecture_section(self) -> List[str]:
+        # Execute _generate_enhanced_architecture_section operation
     """Generate Framework0 enhanced architecture section."""
     section = []  # Initialize section content
         
@@ -821,6 +844,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
     
     def _generate_key_features_section(self) -> List[str]:
+        # Execute _generate_key_features_section operation
     """Generate key features section highlighting major capabilities."""
     section = []  # Initialize section content
         
@@ -877,6 +901,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_architecture_section(self) -> List[str]:
+        # Execute _generate_architecture_section operation
     """Generate architecture overview section."""
     section = []  # Initialize section content
         
@@ -909,6 +934,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_directory_structure_section(self) -> List[str]:
+        # Execute _generate_directory_structure_section operation
     """Generate directory structure section."""
     section = []  # Initialize section content
         
@@ -942,6 +968,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_core_components_section(self) -> List[str]:
+        # Execute _generate_core_components_section operation
     """Generate core components section."""
     section = []  # Initialize section content
         
@@ -988,6 +1015,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_python_modules_section(self) -> List[str]:
+        # Execute _generate_python_modules_section operation
     """Generate detailed Python modules section."""
     section = []  # Initialize section content
         
@@ -1054,6 +1082,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_shell_scripts_section(self) -> List[str]:
+        # Execute _generate_shell_scripts_section operation
     """Generate detailed shell scripts section."""
     section = []  # Initialize section content
         
@@ -1108,6 +1137,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_dependencies_section(self) -> List[str]:
+        # Execute _generate_dependencies_section operation
     """Generate dependencies analysis section."""
     section = []  # Initialize section content
         
@@ -1148,6 +1178,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_quick_start_section(self) -> List[str]:
+        # Execute _generate_quick_start_section operation
     """Generate quick start section for user manual."""
     section = []  # Initialize section content
         
@@ -1177,6 +1208,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_installation_section(self) -> List[str]:
+        # Execute _generate_installation_section operation
     """Generate installation section for user manual."""
     section = []  # Initialize section content
         
@@ -1221,6 +1253,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_configuration_section(self) -> List[str]:
+        # Execute _generate_configuration_section operation
     """Generate configuration section for user manual."""
     section = []  # Initialize section content
         
@@ -1257,6 +1290,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
     
     def _generate_framework0_features_section(self) -> List[str]:
+        # Execute _generate_framework0_features_section operation
     """Generate detailed Framework0 features usage section."""
     section = []  # Initialize section content
         
@@ -1402,6 +1436,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_python_usage_section(self) -> List[str]:
+        # Execute _generate_python_usage_section operation
     """Generate Python scripts usage section."""
     section = []  # Initialize section content
         
@@ -1475,6 +1510,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_shell_usage_section(self) -> List[str]:
+        # Execute _generate_shell_usage_section operation
     """Generate shell scripts usage section."""
     section = []  # Initialize section content
         
@@ -1531,6 +1567,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_api_reference_section(self) -> List[str]:
+        # Execute _generate_api_reference_section operation
     """Generate API reference section."""
     section = []  # Initialize section content
         
@@ -1589,6 +1626,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_examples_section(self) -> List[str]:
+        # Execute _generate_examples_section operation
     """Generate comprehensive examples section."""
     section = []  # Initialize section content
         
@@ -1765,6 +1803,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
         return section  # Return section content
         
     def _generate_troubleshooting_section(self) -> List[str]:
+        # Execute _generate_troubleshooting_section operation
     """Generate troubleshooting section."""
     section = []  # Initialize section content
         
@@ -1874,6 +1913,7 @@ def __init__(self, analyzer -> Any: CodeAnalyzer):
 
 
 def main() -> Any:
+    # Execute main operation
     """
     Main function to generate comprehensive documentation for the repository.
     

@@ -32,6 +32,7 @@ class TestDependencyAnalyzer:
     """Test cases for the DependencyAnalyzer class."""
     
 def test_analyzer_initialization(self) -> Any:
+    # Execute test_analyzer_initialization operation
     """Test DependencyAnalyzer initialization."""
     # Create analyzer with test project root
         test_root = Path("/test/project")
@@ -43,6 +44,7 @@ def test_analyzer_initialization(self) -> Any:
         assert len(analyzer.required_files) == 0
     
 def test_find_module_file(self) -> Any:
+    # Execute test_find_module_file operation
     """Test module file discovery functionality."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -71,6 +73,7 @@ def test_find_module_file(self) -> Any:
             assert not_found is None
     
 def test_extract_imports(self) -> Any:
+    # Execute test_extract_imports operation
     """Test Python import extraction from module files."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -99,6 +102,7 @@ from external_lib import something
             assert imports == expected_imports
     
 def test_is_local_import(self) -> Any:
+    # Execute test_is_local_import operation
     """Test local import detection."""
     analyzer = DependencyAnalyzer(Path("/test"))
         
@@ -115,6 +119,7 @@ def test_is_local_import(self) -> Any:
         assert analyzer._is_local_import("requests") == False
     
 def test_analyze_step_dependencies(self) -> Any:
+    # Execute test_analyze_step_dependencies operation
     """Test complete step dependency analysis."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -160,6 +165,7 @@ class TestStepPackager:
     """Test cases for the StepPackager class."""
     
 def test_packager_initialization(self) -> Any:
+    # Execute test_packager_initialization operation
     """Test StepPackager initialization."""
     test_root = Path("/test/project")
         packager = StepPackager(test_root)
@@ -169,6 +175,7 @@ def test_packager_initialization(self) -> Any:
         assert isinstance(packager.analyzer, DependencyAnalyzer)
     
 def test_list_available_recipes(self) -> Any:
+    # Execute test_list_available_recipes operation
     """Test recipe file discovery."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -193,6 +200,7 @@ def test_list_available_recipes(self) -> Any:
             assert "test2.yml" in recipe_names
     
 def test_list_steps_in_recipe(self) -> Any:
+    # Execute test_list_steps_in_recipe operation
     """Test step extraction from recipe files."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -224,6 +232,7 @@ steps:
             assert steps[1]["args"]["param1"] == "value1"
     
 def test_create_execution_wrapper(self) -> Any:
+    # Execute test_create_execution_wrapper operation
     """Test portable execution wrapper generation."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -247,6 +256,7 @@ def test_create_execution_wrapper(self) -> Any:
             assert "--debug" in wrapper_content
     
 def test_create_package_readme(self) -> Any:
+    # Execute test_create_package_readme operation
     """Test package README generation."""
     packager = StepPackager(Path("/test"))
         
@@ -268,6 +278,7 @@ def test_create_package_readme(self) -> Any:
         assert "Requirements" in readme_content
     
 def test_package_step_complete(self) -> Any:
+    # Execute test_package_step_complete operation
     """Test complete step packaging functionality."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -323,6 +334,7 @@ class TestPackagerIntegration:
     
     @pytest.fixture
 def sample_project(self) -> Any:
+    # Execute sample_project operation
     """Create a sample project structure for testing."""
     with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
@@ -370,6 +382,7 @@ steps:
             yield temp_path
     
 def test_end_to_end_packaging(self, sample_project -> Any: Any):
+    # Execute test_end_to_end_packaging operation
         """Test complete end-to-end packaging workflow."""
         packager = StepPackager(sample_project)
         

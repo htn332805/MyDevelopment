@@ -27,6 +27,7 @@ class TestRunnerV1:
     """Test cases for the original orchestrator runner."""
     
 def setup_method(self) -> Any:
+    # Execute setup_method operation
     """Set up test fixtures for each test method."""
     # Create a temporary directory for test files
         self.test_dir = tempfile.mkdtemp()
@@ -60,6 +61,7 @@ def setup_method(self) -> Any:
             yaml.dump(self.sample_recipe, f)
     
 def teardown_method(self) -> Any:
+    # Execute teardown_method operation
     """Clean up test fixtures after each test method."""
     # Clean up temporary files
         if os.path.exists(self.test_recipe_path):
@@ -68,6 +70,7 @@ def teardown_method(self) -> Any:
             os.rmdir(self.test_dir)
     
 def test_run_recipe_loads_yaml_file(self) -> Any:
+    # Execute test_run_recipe_loads_yaml_file operation
     """Test that run_recipe correctly loads YAML file."""
     # Create a mock step class to avoid actual execution
         with patch('importlib.import_module') as mock_import:
@@ -91,6 +94,7 @@ def test_run_recipe_loads_yaml_file(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_debug_mode(self) -> Any:
+    # Execute test_run_recipe_with_debug_mode operation
     """Test run_recipe with debug mode enabled."""
     with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
@@ -109,6 +113,7 @@ def test_run_recipe_with_debug_mode(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_only_filter(self) -> Any:
+    # Execute test_run_recipe_with_only_filter operation
     """Test run_recipe with only specific steps included."""
     with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
@@ -127,6 +132,7 @@ def test_run_recipe_with_only_filter(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_skip_filter(self) -> Any:
+    # Execute test_run_recipe_with_skip_filter operation
     """Test run_recipe with specific steps skipped."""
     with patch('importlib.import_module') as mock_import:
             # Test with skip filter excluding our step
@@ -137,11 +143,13 @@ def test_run_recipe_with_skip_filter(self) -> Any:
             mock_import.assert_not_called()
     
 def test_run_recipe_handles_missing_file(self) -> Any:
+    # Execute test_run_recipe_handles_missing_file operation
     """Test run_recipe handles missing recipe files gracefully."""
     with pytest.raises(FileNotFoundError):
             run_recipe("/nonexistent/recipe.yaml")
     
 def test_run_recipe_handles_invalid_yaml(self) -> Any:
+    # Execute test_run_recipe_handles_invalid_yaml operation
     """Test run_recipe handles invalid YAML gracefully."""
     # Create invalid YAML file
         invalid_yaml_path = os.path.join(self.test_dir, "invalid.yaml")
@@ -155,6 +163,7 @@ def test_run_recipe_handles_invalid_yaml(self) -> Any:
             os.remove(invalid_yaml_path)
     
 def test_run_recipe_step_execution_failure(self) -> Any:
+    # Execute test_run_recipe_step_execution_failure operation
     """Test run_recipe handles step execution failures."""
     with patch('importlib.import_module') as mock_import:
             mock_module = MagicMock()
@@ -173,6 +182,7 @@ def test_run_recipe_step_execution_failure(self) -> Any:
             mock_instance.run.assert_called_once()
     
 def test_run_recipe_with_multiple_steps(self) -> Any:
+    # Execute test_run_recipe_with_multiple_steps operation
     """Test run_recipe with multiple steps in correct order."""
     # Create recipe with multiple steps
         multi_step_recipe = {
@@ -232,16 +242,19 @@ class TestRunnerErrorHandling:
     """Test error handling scenarios in the runner."""
     
 def setup_method(self) -> Any:
+    # Execute setup_method operation
     """Set up test fixtures."""
     self.test_dir = tempfile.mkdtemp()
         
 def teardown_method(self) -> Any:
+    # Execute teardown_method operation
     """Clean up test fixtures."""
     if os.path.exists(self.test_dir):
             import shutil
             shutil.rmtree(self.test_dir)
     
 def test_runner_handles_import_errors(self) -> Any:
+    # Execute test_runner_handles_import_errors operation
     """Test runner handles module import errors gracefully."""
     recipe = {
             "steps": [{
@@ -264,6 +277,7 @@ def test_runner_handles_import_errors(self) -> Any:
             run_recipe(recipe_path)
     
 def test_runner_handles_missing_function(self) -> Any:
+    # Execute test_runner_handles_missing_function operation
     """Test runner handles missing function/class in module."""
     recipe = {
             "steps": [{

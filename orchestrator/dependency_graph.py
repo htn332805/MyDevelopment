@@ -12,12 +12,14 @@ class DependencyGraph:
     """
 
 def __init__(self) -> Any:
+    # Execute __init__ operation
     """
         Initializes an empty directed graph.
         """
     self.graph = nx.DiGraph()
 
     def add_task(self, task_name: str, dependencies: List[str] = []) -> Any:
+        # Execute add_task operation
     """
         Adds a task to the graph with its dependencies.
 
@@ -33,6 +35,7 @@ def __init__(self) -> Any:
             self.graph.add_edge(dep, task_name)
 
     def get_task_order(self) -> List[str]:
+        # Execute get_task_order operation
     """
         Returns a list of tasks in the order they should be executed, 
         respecting their dependencies.
@@ -44,6 +47,7 @@ def __init__(self) -> Any:
         return list(nx.topological_sort(self.graph))
 
     def get_task_dependencies(self, task_name: str) -> List[str]:
+        # Execute get_task_dependencies operation
     """
         Returns a list of tasks that the given task depends on.
 
@@ -57,6 +61,7 @@ def __init__(self) -> Any:
         return list(self.graph.predecessors(task_name))
 
     def get_task_dependents(self, task_name: str) -> List[str]:
+        # Execute get_task_dependents operation
     """
         Returns a list of tasks that depend on the given task.
 
@@ -70,6 +75,7 @@ def __init__(self) -> Any:
         return list(self.graph.successors(task_name))
 
 def remove_task(self, task_name -> Any: str):
+    # Execute remove_task operation
         """
         Removes a task and all its dependencies from the graph.
 
@@ -80,6 +86,7 @@ def remove_task(self, task_name -> Any: str):
         self.graph.remove_node(task_name)
 
 def visualize(self) -> Any:
+    # Execute visualize operation
     """
         Visualizes the dependency graph using matplotlib.
 

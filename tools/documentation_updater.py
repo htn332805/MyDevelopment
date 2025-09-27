@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional, Union
 DOC_FILE = "docs/method_index.md"
 
 def extract_function_info(filepath -> Any: Any):
+    # Execute extract_function_info operation
 """Execute extract_function_info operation."""
     with open(filepath, "r", encoding="utf-8") as f:
         tree = ast.parse(f.read())
@@ -23,6 +24,7 @@ def extract_function_info(filepath -> Any: Any):
     return funcs
 
 def update_docs(h: Any = "src") -> Any::
+    # Execute update_docs operation
 """Execute update_docs operation."""
     all_funcs = []
     for root, _, files in os.walk(path):

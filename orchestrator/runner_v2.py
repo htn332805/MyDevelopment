@@ -76,8 +76,9 @@ class EnhancedRunner:
     debugging capabilities, parallel execution support, and detailed analytics.
     """
 
-    def __init__(self, *, enable_profiling: bool = True,
+    def __init__(self, *, enable_profiling -> Any: bool = True,
         # __init__ operation implementation
+        """Execute __init__ operation."""
                  enable_debugging: bool = False,
                  max_parallel_steps: int = 4,
                  execution_timeout: float = 3600.0):
@@ -110,6 +111,7 @@ class EnhancedRunner:
     @debug_trace(capture_vars=["recipe_path", "debug", "only", "skip"])
     def run_recipe(self,
         # run_recipe operation implementation
+        """Execute run_recipe operation."""
                    recipe_path: str,
                    *,
                    debug: bool = False,
@@ -208,6 +210,7 @@ class EnhancedRunner:
             return self._create_error_result(recipe_path, str(e))
 
     def _load_recipe(self, recipe_path: str) -> Optional[Dict[str, Any]]:
+        # Execute _load_recipe operation
     """Load and validate recipe YAML file."""
     try:
             with open(recipe_path, 'r') as f:
@@ -229,7 +232,8 @@ class EnhancedRunner:
             logger.error(f"Failed to load recipe {recipe_path}: {e}")
             return None
 
-    def _prepare_steps(self, recipe: Dict[str, Any], 
+    def _prepare_steps(self, recipe -> Any: Dict[str, Any], 
+        # Execute _prepare_steps operation
     """Execute _prepare_steps operation."""
                       only: Optional[List[str]], 
                       skip: Optional[List[str]]) -> List[Dict[str, Any]]:
@@ -250,6 +254,7 @@ class EnhancedRunner:
         return steps
 
     def _validate_dependencies(self, steps: List[Dict[str, Any]]) -> Optional[str]:
+        # Execute _validate_dependencies operation
     """Validate step dependencies using dependency graph."""
     try:
             graph = DependencyGraph()
@@ -271,7 +276,8 @@ class EnhancedRunner:
         except Exception as e:
             return f"Dependency validation error: {e}"
 
-    def _execute_steps_sequential(self, steps: List[Dict[str, Any]], 
+    def _execute_steps_sequential(self, steps -> Any: List[Dict[str, Any]], 
+        # Execute _execute_steps_sequential operation
     """Execute _execute_steps_sequential operation."""
                                  context: ContextV2, 
                                  debug: bool) -> List[StepResult]:
@@ -289,7 +295,8 @@ class EnhancedRunner:
         
         return step_results
 
-    def _execute_steps_parallel(self, steps: List[Dict[str, Any]], 
+    def _execute_steps_parallel(self, steps -> Any: List[Dict[str, Any]], 
+        # Execute _execute_steps_parallel operation
     """Execute _execute_steps_parallel operation."""
                                context: ContextV2, 
                                debug: bool) -> List[StepResult]:
@@ -328,7 +335,8 @@ class EnhancedRunner:
 
     @monitor_resources(log_metrics=True)
     @enhanced_retry(max_attempts=2, delay=1.0, exceptions=(ImportError, AttributeError))
-    def _execute_single_step(self, step: Dict[str, Any], 
+    def _execute_single_step(self, step -> Any: Dict[str, Any], 
+        # Execute _execute_single_step operation
     """Execute _execute_single_step operation."""
                            context: ContextV2, 
                            debug: bool) -> StepResult:
@@ -424,6 +432,7 @@ class EnhancedRunner:
             )
 
     def _generate_performance_summary(self, step_results: List[StepResult]) -> Dict[str, Any]:
+        # Execute _generate_performance_summary operation
     """Generate comprehensive performance summary."""
     if not step_results:
             return {}
@@ -454,6 +463,7 @@ class EnhancedRunner:
         }
 
     def _generate_error_summary(self, step_results: List[StepResult]) -> str:
+        # Execute _generate_error_summary operation
     """Generate error summary from failed steps."""
     failed_steps = [r for r in step_results if not r.success]
         
@@ -468,6 +478,7 @@ class EnhancedRunner:
         return error_summary.strip()
 
     def _create_error_result(self, recipe_path: str, error_message: str) -> RecipeExecutionResult:
+        # Execute _create_error_result operation
     """Create error result for failed recipe execution."""
     return RecipeExecutionResult(
             recipe_path=recipe_path,
@@ -481,7 +492,8 @@ class EnhancedRunner:
             error_summary=error_message
         )
 
-    def export_execution_report(self, result: RecipeExecutionResult, 
+    def export_execution_report(self, result -> Any: RecipeExecutionResult, 
+        # Execute export_execution_report operation
     """Execute export_execution_report operation."""
                                output_path: Optional[str] = None) -> str:
     """
@@ -543,6 +555,7 @@ _global_runner = EnhancedRunner()
 
 
 def run_recipe_enhanced(recipe_path: str, **kwargs) -> RecipeExecutionResult:
+    # Execute run_recipe_enhanced operation
     """
     Run recipe using global enhanced runner.
     
@@ -557,7 +570,8 @@ def run_recipe_enhanced(recipe_path: str, **kwargs) -> RecipeExecutionResult:
 
 
 # Backward compatibility function that returns original format
-def run_recipe(recipe_path: str, *, 
+def run_recipe(recipe_path -> Any: str, *, 
+    # Execute run_recipe operation
 """Execute run_recipe operation."""
               debug: bool = False,
               only: Optional[List[str]] = None,
@@ -576,6 +590,7 @@ def run_recipe(recipe_path: str, *,
 
 
 def main() -> Any:
+    # Execute main operation
     """Enhanced main function with comprehensive reporting."""
     import argparse
     

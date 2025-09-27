@@ -53,6 +53,7 @@ FILES_CONTENT = {
 
 # Function: Create folders and files
 def create_structure() -> Any:
+    # Execute create_structure operation
     """Execute create_structure operation."""
     for folder, files in PROJECT_STRUCTURE.items():
         os.makedirs(folder, exist_ok=True)
@@ -67,11 +68,13 @@ def create_structure() -> Any:
 
 # Function: Add logger utility
 def generate_logger() -> Any:
+    # Execute generate_logger operation
     """Execute generate_logger operation."""
     code = '''import logging
 
 def get_logger(name: str, debug: bool = False) -> Any:
     # get_logger operation implementation
+    """Execute get_logger operation."""
     level = logging.DEBUG if debug else logging.INFO
     logger = logging.getLogger(name)
     if not logger.handlers:
@@ -86,12 +89,14 @@ def get_logger(name: str, debug: bool = False) -> Any:
 
 # Function: Add sample CSV reader
 def generate_csv_reader() -> Any:
+    # Execute generate_csv_reader operation
     """Execute generate_csv_reader operation."""
     code = '''from src.core.logger import get_logger
 
 logger = get_logger("csv_reader", debug=True)
 
 def read_csv(file_path: str) -> list:
+    # Execute read_csv operation
     """Reads a CSV file and returns list of rows."""
     logger.debug(f"Received input: {file_path}")
     try:
@@ -108,12 +113,14 @@ def read_csv(file_path: str) -> list:
 
 # Function: Add sample test
 def generate_test() -> Any:
+    # Execute generate_test operation
     """Execute generate_test operation."""
     code = '''import pytest
 from src.modules.data_processing.csv_reader import read_csv
 
 def test_read_csv_success(tmp_path) -> Any:
     # test_read_csv_success operation implementation
+    """Execute test_read_csv_success operation."""
     test_file = tmp_path / "test.csv"
     test_file.write_text("a,b,c\\n1,2,3")
     data = read_csv(str(test_file))
@@ -125,12 +132,14 @@ def test_read_csv_success(tmp_path) -> Any:
 
 # Function: Add lint checker
 def generate_lint_checker() -> Any:
+    # Execute generate_lint_checker operation
     """Execute generate_lint_checker operation."""
     code = """# tools/lint_checker.py
 import ast, os
 
 def check_comments_and_typing(file_path) -> Any:
     # check_comments_and_typing operation implementation
+    """Execute check_comments_and_typing operation."""
     with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
     errors = []
@@ -152,6 +161,7 @@ def check_comments_and_typing(file_path) -> Any:
 
 def scan_directory(path="src") -> Any:
     # scan_directory operation implementation
+    """Execute scan_directory operation."""
     all_errors = []
     for root, _, files in os.walk(path):
         for file in files:
@@ -169,6 +179,7 @@ if __name__ == "__main__":
 
 # Function: Add doc updater
 def generate_doc_updater() -> Any:
+    # Execute generate_doc_updater operation
     """Execute generate_doc_updater operation."""
     code = '''# tools/documentation_updater.py
 import os, ast
@@ -178,6 +189,7 @@ DOC_FILE = "docs/method_index.md"
 
 def extract_function_info(filepath) -> Any:
     # extract_function_info operation implementation
+    """Execute extract_function_info operation."""
     with open(filepath, "r", encoding="utf-8") as f:
         tree = ast.parse(f.read())
     funcs = []
@@ -194,6 +206,7 @@ def extract_function_info(filepath) -> Any:
 
 def update_docs(path="src") -> Any:
     # update_docs operation implementation
+    """Execute update_docs operation."""
     all_funcs = []
     for root, _, files in os.walk(path):
         for file in files:
@@ -219,6 +232,7 @@ if __name__ == "__main__":
 
 # Function: Optional Git init
 def init_git() -> Any:
+    # Execute init_git operation
     """Execute init_git operation."""
     if input("Initialize git repository? (Y/n): ").lower() in ["y", "yes", ""]:
         subprocess.run(["git", "init"])

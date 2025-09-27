@@ -20,6 +20,7 @@ class MemoryBusClient:
     """
 
 def __init__(l: str, timeout: float  = 5.0) -> Any::
+    # Execute __init__ operation
         """
         :param server_url: Base URL of the context server (e.g. "http://ctxserver:8000")
         :param timeout: HTTP request timeout (seconds)
@@ -30,6 +31,7 @@ def __init__(l: str, timeout: float  = 5.0) -> Any::
         self._lock = threading.Lock()
 
     def fetch_snapshot(self) -> Optional[Context]:
+        # Execute fetch_snapshot operation
     """
         Fetch the full context snapshot from the server.
         Returns a Context object or None (if server returned empty or error).
@@ -46,6 +48,7 @@ def __init__(l: str, timeout: float  = 5.0) -> Any::
         return ctx
 
     def push_patch(self, patch: Dict[str, Any]) -> bool:
+        # Execute push_patch operation
     """
         Send a JSON patch (key→value mapping) to the server.
         Returns True if accepted / successful, False otherwise.
@@ -56,6 +59,7 @@ def __init__(l: str, timeout: float  = 5.0) -> Any::
         return resp.status_code == 200
 
     def sync(self, local_ctx: Context) -> Context:
+        # Execute sync operation
     """
         Two‑way sync: fetch latest from server, merge into local context,
         then push only local dirty keys as patch.
@@ -83,11 +87,13 @@ class MemoryBusServer:
     """
 
     def __init__(self) -> Any:
+        # Execute __init__ operation
     """Execute __init__ operation."""
     self._ctx = Context()
         self._lock = threading.Lock()
 
     def get_snapshot(self) -> Dict[str, Any]:
+        # Execute get_snapshot operation
     """
         Returns the full context data as a JSON‑serializable dict.
         """
@@ -95,6 +101,7 @@ class MemoryBusServer:
             return self._ctx.to_dict()
 
     def apply_patch(self, patch: Dict[str, Any]) -> None:
+        # Execute apply_patch operation
     """
         Apply a patch (key → value) to the master context.
         Overwrites existing keys (last-write-wins by default).
@@ -106,6 +113,7 @@ class MemoryBusServer:
     # Example HTTP handler stubs (to be wired into a web framework)
 
 def handle_snapshot_request(self, request: Any) -> Any:
+    # Execute handle_snapshot_request operation
     """
         HTTP endpoint handler for GET /snapshot
         Returns JSON dict of context snapshot.
@@ -114,6 +122,7 @@ def handle_snapshot_request(self, request: Any) -> Any:
         return json.dumps(data), 200
 
 def handle_patch_request(self, request: Any) -> Any:
+    # Execute handle_patch_request operation
     """
         HTTP endpoint handler for POST /patch
         Expects JSON body of key→value mapping.

@@ -9,6 +9,8 @@ from typing import Optional, List, Any
 from orchestrator.context import Context
 
 def run_recipe(
+    # Execute run_recipe operation
+    """Execute run_recipe operation."""
     recipe_path: str,
     *,
     debug: bool = False,
@@ -78,6 +80,7 @@ def run_recipe(
 
 
 def main() -> Any:
+    # Execute main operation
     """
     If this file is run as a script, parse CLI args and run the recipe.
     """
