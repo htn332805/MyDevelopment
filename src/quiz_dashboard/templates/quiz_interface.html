@@ -1,0 +1,925 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Session{% endblock %}
+
+{% block content %}
+<div class="quiz-container">
+    <!-- Quiz header -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <h5 class="mb-0">
+                        <i class="bi bi-journal-check text-primary"></i> Quiz Session
+                    </h5>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-primary" id="quiz-progress" style="width: 0%"></div>
+                    </div>
+                    <small class="text-muted mt-1 d-block">
+                        Question <span id="current-question">0</span> of <span id="total-questions">{{ session_data.total_questions }}</span>
+                    </small>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="quiz-timer text-primary" id="quiz-timer">00:00</div>
+                    <small class="text-muted d-block">Elapsed Time</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quiz question area -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg" id="question-card" style="min-height: 500px;">
+                <!-- Loading state -->
+                <div class="card-body text-center py-5" id="loading-state">
+                    <div class="spinner-border text-primary mb-3" role="status"></div>
+                    <h5>Loading your next question...</h5>
+                    <p class="text-muted">Optimizing for your learning progress</p>
+                </div>
+                
+                <!-- Question content (hidden initially) -->
+                <div class="card-body p-4 d-none" id="question-content">
+                    <!-- Question header -->
+                    <div class="question-header mb-4">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="question-title mb-2" id="question-title"></h4>
+                                <div class="question-meta">
+                                    <span class="badge bg-secondary me-2" id="question-type"></span>
+                                    <span class="badge difficulty-3 me-2" id="question-difficulty"></span>
+                                    <span class="text-muted" id="estimated-time"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="toggleQuestionHelp()" data-bs-toggle="tooltip" title="Question Help">
+                                    <i class="bi bi-question-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question text -->
+                    <div class="question-content mb-4" id="question-text"></div>
+                    
+                    <!-- Question help (collapsible) -->
+                    <div class="collapse mb-3" id="question-help">
+                        <div class="alert alert-info">
+                            <h6><i class="bi bi-lightbulb"></i> Question Tips:</h6>
+                            <ul class="mb-0">
+                                <li>Read the question carefully before answering</li>
+                                <li>Take your time - accuracy is more important than speed</li>
+                                <li>Use the confidence slider to indicate how sure you are</li>
+                                <li id="type-specific-help">Specific tips will appear here based on question type</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Answer area (dynamically populated) -->
+                    <div class="answer-area mb-4" id="answer-area"></div>
+                    
+                    <!-- Confidence and submit -->
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <label for="confidence-slider" class="form-label">How confident are you?</label>
+                            <div class="d-flex align-items-center">
+                                <small class="text-muted me-2">Not sure</small>
+                                <input type="range" class="form-range flex-grow-1" id="confidence-slider" 
+                                       min="1" max="5" value="3" step="1">
+                                <small class="text-muted ms-2">Very confident</small>
+                            </div>
+                            <div class="text-center mt-1">
+                                <small class="text-primary" id="confidence-label">Moderately confident</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <button type="button" class="btn btn-primary btn-lg px-4" id="submit-answer" onclick="submitAnswer()">
+                                <i class="bi bi-check-circle"></i> Submit Answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Answer feedback (hidden initially) -->
+                <div class="card-body p-4 d-none" id="answer-feedback">
+                    <div class="text-center mb-4">
+                        <div class="feedback-icon mb-3" id="feedback-icon"></div>
+                        <h4 class="feedback-title" id="feedback-title"></h4>
+                        <p class="feedback-message" id="feedback-message"></p>
+                    </div>
+                    
+                    <!-- Explanation -->
+                    <div class="alert alert-light border" id="explanation-area" style="display: none;">
+                        <h6><i class="bi bi-book"></i> Explanation:</h6>
+                        <div id="explanation-text"></div>
+                    </div>
+                    
+                    <!-- Performance metrics -->
+                    <div class="row text-center mb-4" id="performance-metrics">
+                        <div class="col-md-3">
+                            <div class="h5 text-primary" id="score-display">-</div>
+                            <small class="text-muted">Score</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h5 text-info" id="time-taken">-</div>
+                            <small class="text-muted">Time</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h5 text-warning" id="mastery-level">-</div>
+                            <small class="text-muted">Mastery</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h5 text-success" id="next-review">-</div>
+                            <small class="text-muted">Next Review</small>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success btn-lg px-4" id="next-question" onclick="loadNextQuestion()">
+                            <i class="bi bi-arrow-right"></i> Next Question
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quiz completion (hidden initially) -->
+                <div class="card-body p-4 d-none text-center" id="quiz-completion">
+                    <div class="display-6 text-success mb-3">
+                        <i class="bi bi-trophy-fill"></i>
+                    </div>
+                    <h3 class="text-success mb-3">Quiz Completed!</h3>
+                    <p class="lead mb-4">Congratulations on finishing your learning session.</p>
+                    
+                    <div class="row mb-4" id="final-stats">
+                        <div class="col-md-3">
+                            <div class="h4 text-primary" id="final-score">-</div>
+                            <small class="text-muted">Overall Score</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 text-success" id="final-accuracy">-</div>
+                            <small class="text-muted">Accuracy</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 text-info" id="final-time">-</div>
+                            <small class="text-muted">Total Time</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 text-warning" id="final-questions">-</div>
+                            <small class="text-muted">Questions</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a href="{{ url_for('student_dashboard') }}" class="btn btn-primary btn-lg me-md-2">
+                            <i class="bi bi-house"></i> Back to Dashboard
+                        </a>
+                        <a href="{{ url_for('student_dashboard') }}" class="btn btn-outline-primary btn-lg" onclick="location.reload()">
+                            <i class="bi bi-arrow-repeat"></i> Take Another Quiz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Question type templates (hidden) -->
+<div id="question-templates" style="display: none;">
+    <!-- Multiple Choice Template -->
+    <div id="multiple-choice-template">
+        <div class="options-container"></div>
+    </div>
+    
+    <!-- True/False Template -->
+    <div id="true-false-template">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success btn-lg option-btn" data-value="true">
+                        <i class="bi bi-check-circle me-2"></i> True
+                    </button>
+                    <button type="button" class="btn btn-outline-danger btn-lg option-btn" data-value="false">
+                        <i class="bi bi-x-circle me-2"></i> False
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fill in Blank Template -->
+    <div id="fill-blank-template">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-floating">
+                    <input type="text" class="form-control form-control-lg" id="fill-blank-input" placeholder="Enter your answer">
+                    <label for="fill-blank-input">Your answer</label>
+                </div>
+                <div class="form-text">Type your answer in the field above</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reorder Template -->
+    <div id="reorder-template">
+        <div class="alert alert-info mb-3">
+            <i class="bi bi-arrows-move"></i> Drag and drop the items below to arrange them in the correct order:
+        </div>
+        <div class="reorder-container" id="reorder-items"></div>
+    </div>
+    
+    <!-- Matching Template -->
+    <div id="matching-template">
+        <div class="alert alert-info mb-3">
+            <i class="bi bi-shuffle"></i> Click items from both columns to create matching pairs:
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="text-center mb-3">Column A</h6>
+                <div class="matching-column" id="matching-left"></div>
+            </div>
+            <div class="col-md-6">
+                <h6 class="text-center mb-3">Column B</h6>
+                <div class="matching-column" id="matching-right"></div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <h6>Your Matches:</h6>
+            <div id="match-display" class="border rounded p-3 bg-light min-height-100"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .quiz-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .option-item {
+        background: white;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .option-item:hover {
+        border-color: #007bff;
+        background: #f8f9fa;
+        transform: translateX(5px);
+    }
+    
+    .option-item.selected {
+        border-color: #0d6efd;
+        background: linear-gradient(135deg, #cfe2ff 0%, #e7f3ff 100%);
+    }
+    
+    .option-btn {
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-width: 2px;
+    }
+    
+    .option-btn.selected {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+        color: white;
+    }
+    
+    .reorder-item {
+        background: white;
+        border: 2px dashed #dee2e6;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        cursor: move;
+        transition: all 0.3s ease;
+        user-select: none;
+    }
+    
+    .reorder-item:hover {
+        border-color: #007bff;
+        border-style: solid;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.2);
+    }
+    
+    .reorder-item.drag-over {
+        border-color: #ffc107;
+        background: #fff3cd;
+    }
+    
+    .matching-item {
+        background: white;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .matching-item:hover {
+        border-color: #007bff;
+        background: #f8f9fa;
+    }
+    
+    .matching-item.selected {
+        border-color: #28a745;
+        background: #d1ecf1;
+    }
+    
+    .matching-item.matched {
+        border-color: #6c757d;
+        background: #e9ecef;
+        opacity: 0.7;
+        cursor: default;
+    }
+    
+    .feedback-icon {
+        font-size: 4rem;
+    }
+    
+    .correct .feedback-icon {
+        color: #28a745;
+    }
+    
+    .incorrect .feedback-icon {
+        color: #dc3545;
+    }
+    
+    .quiz-timer {
+        font-family: 'Courier New', monospace;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .min-height-100 {
+        min-height: 100px;
+    }
+    
+    .form-range {
+        cursor: pointer;
+    }
+    
+    .form-range::-webkit-slider-thumb {
+        background: #007bff;
+    }
+    
+    .form-range::-moz-range-thumb {
+        background: #007bff;
+        border: none;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+class QuizSession {
+    constructor(sessionId) {
+        this.sessionId = sessionId;
+        this.currentQuestion = null;
+        this.questionStartTime = null;
+        this.totalQuestions = {{ session_data.total_questions }};
+        this.currentQuestionNumber = 0;
+        this.sessionStartTime = Date.now();
+        this.userAnswer = null;
+        this.selectedMatches = [];
+        
+        // Initialize timer
+        this.startTimer();
+        
+        // Initialize confidence slider
+        this.initConfidenceSlider();
+        
+        // Load first question
+        this.loadNextQuestion();
+    }
+    
+    startTimer() {
+        setInterval(() => {
+            const elapsed = Math.floor((Date.now() - this.sessionStartTime) / 1000);
+            document.getElementById('quiz-timer').textContent = QuizDashboard.formatTime(elapsed);
+        }, 1000);
+    }
+    
+    initConfidenceSlider() {
+        const slider = document.getElementById('confidence-slider');
+        const label = document.getElementById('confidence-label');
+        
+        const labels = {
+            1: 'Not confident at all',
+            2: 'Slightly confident', 
+            3: 'Moderately confident',
+            4: 'Very confident',
+            5: 'Extremely confident'
+        };
+        
+        slider.addEventListener('input', function() {
+            label.textContent = labels[this.value];
+        });
+    }
+    
+    async loadNextQuestion() {
+        try {
+            // Show loading state
+            this.showState('loading');
+            
+            const response = await fetch(`/quiz/${this.sessionId}/question`);
+            const data = await response.json();
+            
+            if (data.complete) {
+                this.completeQuiz();
+                return;
+            }
+            
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            
+            this.currentQuestion = data.question;
+            this.questionStartTime = Date.now();
+            this.userAnswer = null;
+            this.selectedMatches = [];
+            
+            // Update progress
+            this.updateProgress(data.session_progress);
+            
+            // Display question
+            this.displayQuestion();
+            
+        } catch (error) {
+            console.error('Failed to load question:', error);
+            QuizDashboard.showNotification('Failed to load question: ' + error.message, 'error');
+        }
+    }
+    
+    updateProgress(progress) {
+        this.currentQuestionNumber = progress.current;
+        
+        document.getElementById('current-question').textContent = progress.current;
+        document.getElementById('total-questions').textContent = progress.total;
+        
+        const percentage = (progress.current - 1) / progress.total * 100;
+        document.getElementById('quiz-progress').style.width = percentage + '%';
+    }
+    
+    displayQuestion() {
+        const question = this.currentQuestion;
+        
+        // Update question header
+        document.getElementById('question-title').textContent = question.title;
+        document.getElementById('question-type').textContent = question.type.replace('_', ' ').toUpperCase();
+        document.getElementById('question-difficulty').textContent = `Level ${question.difficulty}`;
+        document.getElementById('question-difficulty').className = `badge difficulty-${question.difficulty} me-2`;
+        document.getElementById('estimated-time').textContent = `Est. ${question.estimated_time}s`;
+        
+        // Update question content
+        document.getElementById('question-text').innerHTML = question.content;
+        
+        // Update type-specific help
+        this.updateTypeSpecificHelp(question.type);
+        
+        // Generate answer interface
+        this.generateAnswerInterface();
+        
+        // Process MathJax if present
+        if (question.latex_content && window.MathJax) {
+            MathJax.typesetPromise();
+        }
+        
+        // Show question state
+        this.showState('question');
+    }
+    
+    updateTypeSpecificHelp(questionType) {
+        const helpElement = document.getElementById('type-specific-help');
+        const helpTexts = {
+            'multiple_choice': 'Select the best answer from the options provided',
+            'true_false': 'Choose whether the statement is true or false',
+            'fill_in_blank': 'Type your answer in the text field',
+            'reorder_sequence': 'Drag items to arrange them in the correct order',
+            'matching_pairs': 'Click items from both columns to create pairs'
+        };
+        
+        helpElement.textContent = helpTexts[questionType] || 'Follow the question instructions';
+    }
+    
+    generateAnswerInterface() {
+        const answerArea = document.getElementById('answer-area');
+        const question = this.currentQuestion;
+        
+        switch (question.type) {
+            case 'multiple_choice':
+                this.generateMultipleChoice(answerArea);
+                break;
+            case 'true_false':
+                this.generateTrueFalse(answerArea);
+                break;
+            case 'fill_in_blank':
+                this.generateFillInBlank(answerArea);
+                break;
+            case 'reorder_sequence':
+                this.generateReorderSequence(answerArea);
+                break;
+            case 'matching_pairs':
+                this.generateMatchingPairs(answerArea);
+                break;
+        }
+    }
+    
+    generateMultipleChoice(container) {
+        const question = this.currentQuestion;
+        const optionsHtml = question.options.map(option => `
+            <div class="option-item" data-value="${option.id}" onclick="selectOption('${option.id}')">
+                <div class="d-flex align-items-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer" value="${option.id}" id="option-${option.id}">
+                    </div>
+                    <label class="form-check-label ms-2 flex-grow-1" for="option-${option.id}">
+                        ${option.text}
+                    </label>
+                </div>
+            </div>
+        `).join('');
+        
+        container.innerHTML = `<div class="options-container">${optionsHtml}</div>`;
+    }
+    
+    generateTrueFalse(container) {
+        container.innerHTML = document.getElementById('true-false-template').innerHTML;
+        
+        // Add click handlers
+        container.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                container.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                this.userAnswer = btn.dataset.value === 'true';
+            });
+        });
+    }
+    
+    generateFillInBlank(container) {
+        container.innerHTML = document.getElementById('fill-blank-template').innerHTML;
+        
+        // Add input handler
+        const input = container.querySelector('#fill-blank-input');
+        input.addEventListener('input', () => {
+            this.userAnswer = input.value.trim();
+        });
+    }
+    
+    generateReorderSequence(container) {
+        const question = this.currentQuestion;
+        
+        // Shuffle items for display
+        const shuffledItems = [...question.items].sort(() => Math.random() - 0.5);
+        
+        const itemsHtml = shuffledItems.map(item => `
+            <div class="reorder-item drag-item" data-id="${item.id}" draggable="true">
+                <i class="bi bi-grip-vertical text-muted me-2"></i>
+                ${item.text}
+            </div>
+        `).join('');
+        
+        container.innerHTML = `
+            <div class="alert alert-info mb-3">
+                <i class="bi bi-arrows-move"></i> Drag and drop the items below to arrange them in the correct order:
+            </div>
+            <div class="reorder-container" id="reorder-items">${itemsHtml}</div>
+        `;
+        
+        // Initialize drag and drop
+        QuizDashboard.initDragAndDrop(container.querySelector('.reorder-container'));
+        
+        // Update answer when items are reordered
+        this.updateReorderAnswer();
+        
+        // Add mutation observer to track changes
+        const observer = new MutationObserver(() => this.updateReorderAnswer());
+        observer.observe(container.querySelector('.reorder-container'), { childList: true });
+    }
+    
+    generateMatchingPairs(container) {
+        const question = this.currentQuestion;
+        
+        // Shuffle right items for display
+        const shuffledRight = [...question.right_items].sort(() => Math.random() - 0.5);
+        
+        const leftHtml = question.left_items.map(item => `
+            <div class="matching-item" data-id="${item.id}" data-side="left" onclick="selectMatchingItem(this)">
+                ${item.text}
+            </div>
+        `).join('');
+        
+        const rightHtml = shuffledRight.map(item => `
+            <div class="matching-item" data-id="${item.id}" data-side="right" onclick="selectMatchingItem(this)">
+                ${item.text}
+            </div>
+        `).join('');
+        
+        container.innerHTML = `
+            <div class="alert alert-info mb-3">
+                <i class="bi bi-shuffle"></i> Click items from both columns to create matching pairs:
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-center mb-3">Column A</h6>
+                    <div class="matching-column" id="matching-left">${leftHtml}</div>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-center mb-3">Column B</h6>
+                    <div class="matching-column" id="matching-right">${rightHtml}</div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h6>Your Matches:</h6>
+                <div id="match-display" class="border rounded p-3 bg-light min-height-100">
+                    <small class="text-muted">Click items from both columns to create pairs</small>
+                </div>
+            </div>
+        `;
+    }
+    
+    updateReorderAnswer() {
+        const container = document.querySelector('.reorder-container');
+        if (container) {
+            const items = container.querySelectorAll('.reorder-item');
+            this.userAnswer = Array.from(items).map(item => item.dataset.id);
+        }
+    }
+    
+    async submitAnswer() {
+        try {
+            if (this.userAnswer === null || this.userAnswer === undefined) {
+                QuizDashboard.showNotification('Please provide an answer before submitting', 'warning');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submit-answer');
+            const originalText = submitBtn.innerHTML;
+            QuizDashboard.showLoading(submitBtn);
+            
+            const timeTaken = (Date.now() - this.questionStartTime) / 1000;
+            const confidenceLevel = parseInt(document.getElementById('confidence-slider').value);
+            
+            const response = await fetch(`/quiz/${this.sessionId}/submit`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    question_id: this.currentQuestion.id,
+                    answer: this.userAnswer,
+                    time_taken_seconds: timeTaken,
+                    confidence_level: confidenceLevel
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (result.error) {
+                throw new Error(result.error);
+            }
+            
+            // Show feedback
+            this.showAnswerFeedback(result, timeTaken);
+            
+        } catch (error) {
+            console.error('Failed to submit answer:', error);
+            QuizDashboard.showNotification('Failed to submit answer: ' + error.message, 'error');
+        } finally {
+            QuizDashboard.hideLoading(document.getElementById('submit-answer'), 'Submit Answer');
+        }
+    }
+    
+    showAnswerFeedback(result, timeTaken) {
+        // Update feedback content
+        const feedbackIcon = document.getElementById('feedback-icon');
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackMessage = document.getElementById('feedback-message');
+        
+        if (result.correct) {
+            feedbackIcon.innerHTML = '<i class="bi bi-check-circle-fill text-success"></i>';
+            feedbackTitle.textContent = 'Correct!';
+            feedbackTitle.className = 'text-success';
+            feedbackMessage.textContent = 'Great job! You got it right.';
+        } else {
+            feedbackIcon.innerHTML = '<i class="bi bi-x-circle-fill text-danger"></i>';
+            feedbackTitle.textContent = 'Incorrect';
+            feedbackTitle.className = 'text-danger';
+            feedbackMessage.textContent = 'Not quite right. Review the explanation below.';
+        }
+        
+        // Show explanation if available
+        if (result.explanation) {
+            document.getElementById('explanation-text').innerHTML = result.explanation;
+            document.getElementById('explanation-area').style.display = 'block';
+        }
+        
+        // Update performance metrics
+        document.getElementById('score-display').textContent = result.score + '%';
+        document.getElementById('time-taken').textContent = QuizDashboard.formatTime(Math.round(timeTaken));
+        document.getElementById('mastery-level').textContent = result.mastery_level + '%';
+        
+        if (result.next_review_date) {
+            const reviewDate = new Date(result.next_review_date);
+            const days = Math.ceil((reviewDate - new Date()) / (1000 * 60 * 60 * 24));
+            document.getElementById('next-review').textContent = days > 0 ? days + 'd' : 'Today';
+        } else {
+            document.getElementById('next-review').textContent = '-';
+        }
+        
+        // Show feedback state
+        this.showState('feedback');
+    }
+    
+    async completeQuiz() {
+        try {
+            const response = await fetch(`/quiz/${this.sessionId}/complete`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.error) {
+                throw new Error(result.error);
+            }
+            
+            // Update final statistics
+            const stats = result.statistics;
+            document.getElementById('final-score').textContent = stats.accuracy_percentage + '%';
+            document.getElementById('final-accuracy').textContent = stats.accuracy_percentage + '%';
+            document.getElementById('final-time').textContent = QuizDashboard.formatTime(stats.total_time || 0);
+            document.getElementById('final-questions').textContent = stats.questions_answered;
+            
+            // Show completion state
+            this.showState('completion');
+            
+            QuizDashboard.showNotification('Quiz completed successfully!', 'success');
+            
+        } catch (error) {
+            console.error('Failed to complete quiz:', error);
+            QuizDashboard.showNotification('Failed to complete quiz: ' + error.message, 'error');
+        }
+    }
+    
+    showState(state) {
+        // Hide all states
+        document.getElementById('loading-state').classList.add('d-none');
+        document.getElementById('question-content').classList.add('d-none');
+        document.getElementById('answer-feedback').classList.add('d-none');
+        document.getElementById('quiz-completion').classList.add('d-none');
+        
+        // Show requested state
+        switch (state) {
+            case 'loading':
+                document.getElementById('loading-state').classList.remove('d-none');
+                break;
+            case 'question':
+                document.getElementById('question-content').classList.remove('d-none');
+                break;
+            case 'feedback':
+                document.getElementById('answer-feedback').classList.remove('d-none');
+                break;
+            case 'completion':
+                document.getElementById('quiz-completion').classList.remove('d-none');
+                break;
+        }
+    }
+}
+
+// Global functions
+function selectOption(optionId) {
+    // Update UI
+    document.querySelectorAll('.option-item').forEach(item => {
+        item.classList.remove('selected');
+        item.querySelector('input').checked = false;
+    });
+    
+    const selectedItem = document.querySelector(`[data-value="${optionId}"]`);
+    selectedItem.classList.add('selected');
+    selectedItem.querySelector('input').checked = true;
+    
+    // Update answer
+    window.quizSession.userAnswer = optionId;
+}
+
+function selectMatchingItem(element) {
+    const allItems = document.querySelectorAll('.matching-item');
+    const selectedItems = document.querySelectorAll('.matching-item.selected');
+    
+    if (element.classList.contains('selected')) {
+        // Deselect item
+        element.classList.remove('selected');
+    } else if (selectedItems.length < 2) {
+        // Select item
+        element.classList.add('selected');
+    } else {
+        return; // Already have 2 items selected
+    }
+    
+    // Check if we have a pair
+    const nowSelected = document.querySelectorAll('.matching-item.selected');
+    if (nowSelected.length === 2) {
+        const leftItem = Array.from(nowSelected).find(item => item.dataset.side === 'left');
+        const rightItem = Array.from(nowSelected).find(item => item.dataset.side === 'right');
+        
+        if (leftItem && rightItem) {
+            // Create match
+            window.quizSession.selectedMatches.push({
+                left_id: leftItem.dataset.id,
+                right_id: rightItem.dataset.id
+            });
+            
+            // Mark items as matched
+            leftItem.classList.remove('selected');
+            rightItem.classList.remove('selected');
+            leftItem.classList.add('matched');
+            rightItem.classList.add('matched');
+            
+            // Update display
+            updateMatchDisplay();
+            
+            // Update answer
+            window.quizSession.userAnswer = window.quizSession.selectedMatches;
+        }
+    }
+}
+
+function updateMatchDisplay() {
+    const display = document.getElementById('match-display');
+    const matches = window.quizSession.selectedMatches;
+    
+    if (matches.length === 0) {
+        display.innerHTML = '<small class="text-muted">Click items from both columns to create pairs</small>';
+        return;
+    }
+    
+    const matchesHtml = matches.map((match, index) => {
+        const leftItem = document.querySelector(`[data-side="left"][data-id="${match.left_id}"]`);
+        const rightItem = document.querySelector(`[data-side="right"][data-id="${match.right_id}"]`);
+        
+        return `
+            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                <span>${leftItem ? leftItem.textContent : 'Unknown'}</span>
+                <i class="bi bi-arrow-left-right text-muted"></i>
+                <span>${rightItem ? rightItem.textContent : 'Unknown'}</span>
+                <button class="btn btn-sm btn-outline-danger" onclick="removeMatch(${index})">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+        `;
+    }).join('');
+    
+    display.innerHTML = matchesHtml;
+}
+
+function removeMatch(index) {
+    const match = window.quizSession.selectedMatches[index];
+    
+    // Remove match from array
+    window.quizSession.selectedMatches.splice(index, 1);
+    
+    // Unmark items as matched
+    const leftItem = document.querySelector(`[data-side="left"][data-id="${match.left_id}"]`);
+    const rightItem = document.querySelector(`[data-side="right"][data-id="${match.right_id}"]`);
+    
+    if (leftItem) leftItem.classList.remove('matched');
+    if (rightItem) rightItem.classList.remove('matched');
+    
+    // Update display
+    updateMatchDisplay();
+    
+    // Update answer
+    window.quizSession.userAnswer = window.quizSession.selectedMatches;
+}
+
+function toggleQuestionHelp() {
+    const helpElement = document.getElementById('question-help');
+    const collapse = new bootstrap.Collapse(helpElement);
+    collapse.toggle();
+}
+
+function submitAnswer() {
+    window.quizSession.submitAnswer();
+}
+
+function loadNextQuestion() {
+    window.quizSession.loadNextQuestion();
+}
+
+// Initialize quiz session when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    window.quizSession = new QuizSession('{{ session_id }}');
+});
+</script>
+{% endblock %}
