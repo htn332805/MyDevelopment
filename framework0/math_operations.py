@@ -22,8 +22,8 @@ except ImportError:
     import logging
     def get_logger(name: str, debug: bool = False) -> logging.Logger:
         # Execute get_logger operation
-    """Fallback logger implementation."""
-    logger = logging.getLogger(name)
+        """Fallback logger implementation."""
+        logger = logging.getLogger(name)
         if not logger.handlers:
             handler = logging.StreamHandler()
             formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
