@@ -40,14 +40,16 @@ class ScriptletTemplateGenerator:
     documentation, and Framework0 integration patterns.
     """
 
-    def __init__(self):
+    def __init__(self: 'ScriptletTemplateGenerator') -> None:
+        # Initialize template generator with built-in templates
         """Initialize template generator."""
         self.templates: Dict[str, ScriptletTemplate] = {}
         self._load_builtin_templates()
         
         logger.info("ScriptletTemplateGenerator initialized")
 
-    def _load_builtin_templates(self) -> None:
+    def _load_builtin_templates(self: 'ScriptletTemplateGenerator') -> None:
+        # Load built-in scriptlet templates for common patterns
         """Load built-in scriptlet templates."""
         
         # Basic scriptlet template
@@ -69,7 +71,8 @@ class ScriptletTemplateGenerator:
         
         logger.debug(f"Loaded {len(self.templates)} built-in templates")
 
-    def _get_basic_scriptlet_template(self) -> str:
+    def _get_basic_scriptlet_template(self: 'ScriptletTemplateGenerator') -> str:
+        # Get basic scriptlet template content with Framework0 patterns
         """Get basic scriptlet template content."""
         return '''# ${filename}
 
@@ -102,6 +105,7 @@ class ${class_name}(BaseScriptletV2):
     """
 
     def validate_custom(self, context: ContextV2, params: Dict[str, Any]) -> bool:
+        # Custom validation logic for scriptlet with parameter checking
         """
         Custom validation logic for ${class_name}.
         
@@ -118,6 +122,7 @@ class ${class_name}(BaseScriptletV2):
         return True
 
     def execute(self, context: ContextV2, params: Dict[str, Any]) -> ScriptletResult:
+        # Execute scriptlet with comprehensive monitoring and error handling  
         """
         Execute ${class_name} with comprehensive monitoring.
         
@@ -161,6 +166,7 @@ class ${class_name}(BaseScriptletV2):
             )
 
     def _perform_operation(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        # Perform the main operation logic with parameter processing
         """
         Perform the main operation logic.
         
@@ -178,6 +184,7 @@ class ${class_name}(BaseScriptletV2):
 
 # Factory function for creating scriptlet instances
 def create_${class_name_lower}(**config_kwargs) -> ${class_name}:
+    # Create scriptlet instance with configuration parameters
     """Create ${class_name} instance with configuration."""
     config = ScriptletConfig(
         enable_monitoring=${enable_monitoring},
@@ -187,7 +194,8 @@ def create_${class_name_lower}(**config_kwargs) -> ${class_name}:
     return ${class_name}(config=config)
 '''
 
-    def list_templates(self) -> List[Dict[str, Any]]:
+    def list_templates(self: 'ScriptletTemplateGenerator') -> List[Dict[str, Any]]:
+        # List available templates with metadata and descriptions
         """
         List available templates.
         
@@ -205,10 +213,8 @@ def create_${class_name_lower}(**config_kwargs) -> ${class_name}:
             for template in self.templates.values()
         ]
 
-    def generate_scriptlet(self, 
-                          template_name: str, 
-                          output_path: str,
-                          **template_params) -> bool:
+    def generate_scriptlet(self: 'ScriptletTemplateGenerator', template_name: str, output_path: str, **template_params) -> bool:
+        # Generate scriptlet from template with parameter substitution
         """
         Generate scriptlet from template.
         
@@ -257,7 +263,8 @@ def create_${class_name_lower}(**config_kwargs) -> ${class_name}:
             logger.error(f"Failed to generate {template_name}: {e}")
             return False
 
-    def _generate_derived_params(self, template_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_derived_params(self: 'ScriptletTemplateGenerator', template_name: str, params: Dict[str, Any]) -> Dict[str, Any]:
+        # Generate derived parameters from base parameters for template processing  
         """Generate derived parameters from base parameters."""
         derived = {}
         
@@ -284,6 +291,7 @@ _generator: Optional[ScriptletTemplateGenerator] = None
 
 
 def get_template_generator() -> ScriptletTemplateGenerator:
+    # Get global template generator instance using singleton pattern
     """Get global template generator instance."""
     global _generator
     
@@ -294,10 +302,12 @@ def get_template_generator() -> ScriptletTemplateGenerator:
 
 
 def generate_scriptlet(template_name: str, output_path: str, **params) -> bool:
+    # Generate scriptlet using global template generator with parameters
     """Generate scriptlet using global template generator."""
     return get_template_generator().generate_scriptlet(template_name, output_path, **params)
 
 
 def list_available_templates() -> List[Dict[str, Any]]:
+    # List available templates using global generator instance
     """List available templates using global generator."""
     return get_template_generator().list_templates()
