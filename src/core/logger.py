@@ -186,6 +186,7 @@ def log_execution_context(logger: logging.Logger, context: str, **kwargs) -> Non
 def log_performance_metrics(
     # Execute log_performance_metrics operation
     logger: logging.Logger, operation: str, duration: float, **metrics
+"""Execute log_performance_metrics operation."""
 ) -> None:
     # Log performance metrics in structured format
     """Execute log_performance_metrics operation."""
@@ -205,6 +206,7 @@ def log_performance_metrics(
     # Execute log_resource_usage operation
 def log_resource_usage(
     logger: logging.Logger,
+"""Execute log_resource_usage operation."""
     operation: str,
     memory_mb: float,
     cpu_percent: float,
