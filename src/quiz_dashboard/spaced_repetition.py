@@ -521,15 +521,18 @@ class SpacedRepetitionEngine:
         except Exception as e:
             logger.warning(f"Failed to update recent hashtags: {e}")
     
-        def _get_question_progress(self, user_id: int, question_id: int) -> Optional[QuestionProgress]:
+    def _get_question_progress(self, user_id: int, question_id: int) -> Optional[QuestionProgress]:
         # Execute _get_question_progress operation
+        """Get progress data for a specific user and question."""
         try:
+            query = """
                 SELECT user_id, question_id, easiness_factor, repetition_count,
                        interval_days, next_review_date, last_reviewed_at,
                        total_attempts, correct_attempts, average_time_seconds,
                        current_difficulty, mastery_level
                 FROM user_progress
                 WHERE user_id = ? AND question_id = ?
+            """
             
             results = self.database.execute_query(query, (user_id, question_id))
             
