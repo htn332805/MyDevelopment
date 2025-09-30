@@ -1,0 +1,22 @@
+{
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "-q",
+    "--disable-warnings"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "python.linting.flake8Enabled": true,
+  "flake8.args": [
+    "--max-line-length=88",
+    "--extend-ignore=E203,E704"
+  ],
+  "github.copilot.chat.reviewSelection.instructions": [
+    { "file": ".github/copilot-instructions.md" }
+  ],
+  "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
+    { "file": ".github/copilot-instructions.md" }
+  ]
+}
