@@ -1,0 +1,31 @@
+{
+  "name": "GESetup",
+  "options": {
+    "mouse": true,
+    "border_highlight": true
+  },
+  "windows": [
+    {
+      "name": "GE",
+      "layout": "tiled",
+      "panes": [
+        {"name": "IFM1","title": "IFM1",  "command": "bash", "command": "script -f logs/IFM1.log -c 'bash'"},
+        {"name": "IFM2","title": "IFM2", "command": "bash", "command": "script -f logs/IFM2.log -c 'bash'"},
+        {"name": "XFM1","title": "XFM1", "command": "bash", "command": "script -f logs/XFM1.log -c 'bash'"},
+        {"name": "XFM2","title": "XFM2", "command": "bash", "command": "script -f logs/XFM2.log -c 'bash'"},
+        {"name": "GE34","title": "GE34", "command": "bash", "command": "script -f logs/GE34.log -c 'bash'"},
+        {"name": "GE56","title": "GE56", "command": "bash", "command": "script -f logs/GE56.log -c 'bash'"},
+        {"name": "BMC1","title": "BMC1", "command": "bash", "command": "script -f logs/BMC1.log -c 'bash'"},
+        {"name": "BMC2","title": "BMC2", "command": "bash", "command": "script -f logs/BMC2.log -c 'bash'"},
+        {"name": "BMC5","title": "BMC5", "command": "bash", "command": "script -f logs/BMC5.log -c 'bash'"},
+        {"name": "BMC6","title": "BMC6", "command": "bash", "command": "script -f logs/BMC6.log -c 'bash'"},
+        {"name": "DAQ","title": "DAQ", "command": "bash", "command": "script -f logs/DAQ.log -c 'bash'"},
+        {"name": "LOG","title": "LOG", "command": "bash", "command": "script -f logs/LOG.log -c 'bash'"},
+        {"name": "MISC","title": "MISC", "command": "bash", "command": "script -f logs/MISC.log -c 'bash'"},
+        {"name": "SHELL","title": "SHELL", "command": "bash", "command": "script -f logs/SHELL.log -c 'bash'"},
+        {"name": "DASH","title": "DASH", "command": "bash", "command": "script -f logs/DASH.log -c 'bash'"},
+        {"name": "MON","title": "MON", "command": "bash", "command": "script -f logs/MON.log -c 'bash'"}
+      ]
+    }
+  ]
+}

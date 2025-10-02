@@ -1,0 +1,166 @@
+Script started on 2025-10-01 21:42:34+00:00 [COMMAND="bash" TERM="tmux-256color" TTY="/dev/pts/18" COLUMNS="9" LINES="11"]
+[?2004htester@LC1UNVME:~/Projects/MyDevelopment$ [KM[KM[KM[KM[Ktester@LC1UNVME:~/Projects/MyDevelopment$ [KM[KM[Ktester@LC1UNVME:~/Projects/MyDevelopment$ telne t 1276[K[K[K72.25.27.3 2028
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+ÿ
+Unexpected character inputted: 0
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive 
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: admin
+Password:  
+
+Generating Challenge..................................... 
+Challenge String (Please copy everything between the asterisk lines exclusively):
+*****************************************************************************************
+i+wgKwAAAQYBAAQAAAABAgAEAAAAAAMACDBwph4V6QuLBAAQ+RxM4gWQQ6GpTf1NbLFZXwUABAAAAAoGAAdDSU1DX0NUBwAFTThfQ1QIAAxVQ1NYLTIxMEMtTTgJAAtGQ0gyODQyNzI4Qg==
+*****************************************************************************************
+
+Please input the response when you are ready .........................
+
+ERROR: Base64 decode of the response failed! 
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive 
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+************************************************
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+********************************
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controlle
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+telnet> q
+Connection closed.
+[?2004htester@LC1UNVME:~/Projects/MyDevelopment$ telnet 172.25.27.3 2028[K[K30
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive 
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive 
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please p
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 

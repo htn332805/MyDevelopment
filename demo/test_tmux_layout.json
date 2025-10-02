@@ -1,0 +1,56 @@
+{
+  "name": "my_session",
+  "options": {
+    "mouse": true,
+    "border_highlight": true
+  },
+  "pre_commands": [
+    "set-option -g history-limit 5000"
+  ],
+  "post_commands": [
+    "display-message 'Session setup complete!'"
+  ],
+  "windows": [
+    {
+      "name": "editor",
+      "layout": "tiled",
+      "panes": [
+        {
+          "name": "vim",
+          "title": "Vim Editor",
+          "command": "vim",
+          "prompt": "Editing files...",
+          "layout": "vertical",
+          "size": 80
+        },
+        {
+          "name": "shell",
+          "title": "Shell Prompt",
+          "command": "bash",
+          "prompt": "Shell pane",
+          "layout": "horizontal",
+          "size": 20,
+          "delay": 1.0
+        }
+      ]
+    },
+    {
+      "name": "server",
+      "layout": "main-vertical",
+      "panes": [
+        {
+          "name": "logs",
+          "title": "Server Logs",
+          "command": "tail -f /var/log/syslog",
+          "prompt": "Watching logs..."
+        },
+        {
+          "name": "shell",
+          "title": "Server Shell",
+          "command": "bash",
+          "prompt": "Server shell"
+        }
+      ]
+    }
+  ]
+}

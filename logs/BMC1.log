@@ -1,0 +1,198 @@
+Script started on 2025-10-01 21:42:34+00:00 [COMMAND="bash" TERM="tmux-256color" TTY="/dev/pts/34" COLUMNS="19" LINES="2"]
+[?2004htester@LC1UNVME:~/Projects/MyDevelopment$ [KM[KM[Ktester@LC1UNVME:~/Projects/MyDevelopment$ [KM[KM[Ktester@LC1UNVME:~/Projects/MyDevelopment$ teln et 162[K[K72.25.27.3 2002[K[K26
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive 
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+********************************
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please p
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+********************************
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
+telnet> q
+Connection closed.
+[?2004htester@LC1UNVME:~/Projects/MyDevelopment$ telnet 172.25.27.3 2026[KM[Ktester@LC1UNVME:~/Projects/MyDevelopment$ telnet 172.25.27.3 2026[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Krm key response
+[?2004lrm: cannot remove 'key': No such file or directory
+rm: cannot remove 'response': No such file or directory
+[?2004htester@LC1UNVME:~/Projects/MyDevelopment$ telnet 172.25.27.3 2026
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: admin
+Password:  
+
+Generating Challenge..................................... 
+Challenge String (Please copy everything between the asterisk lines exclusively):
+*****************************************************************************************
+gyN6PQAAAQYBAAQAAAABAgAEAAAAAAMACLrzNepT9IILBAAQa8zSM3kuQquIVgjNCLQ+6gUABAAAAAoGAAdDSU1DX0NUBwAFTThfQ1QIAAxVQ1NYLTIxMEMtTTgJAAtGQ0gyODQyNzJCNQ==
+*****************************************************************************************
+
+Please input the response when you are ready .........................
+s7W/kwAAAQYBAAQAAAABAgAEAAAAAAMCwFdqOUZ1eXpUMXBzR1RudGtTL0VHdmpFNHJDL0VtdkhXM1ZBcFhwelgzcDcydDhtdVhKcW80NXhSbEJRcnlCNFgNCnB2ODhBSUxqR2pIUWc2UUM1cFZiZUV5RFAyTGR1R3FWbC92SmgzOTE4VU0xZHRTZ1VNbmRwOExaNFNpdXBjckcNCnRPaDdYejlnM1dZaEN5Q0pLTDRsaGs2QXY3WTNvQkZJL1UxTkl5djYxemJac0YwMkFNZXFSa3M2dGhTWVRnOG4NCnJjbzNUd2N2aXNiS3M3KzRpejcyZWdoY1g4RjRtNU1FKzVKeG1uSGdjTnBUU291RHorRTFrTVdmcGU5WDdrL3cNCmV2ZFB3SW44dFVjZ1JsbzgwZDR4MkdlakRPWHFiTHZMQkoxUjQ4dm9peVlVRWQzV1ppWkVYTzBlelFXVlJvQ3gNCm1BM3hQQ05EdTduZlY5TVUwMG4rTks4R2NnbXYyT3FhbjF0SGcxQi9LdzgrR3BSbG9nQjErTEMxUElOdjQrQW0NClI5TENoUXhxSGZIVzBEUjVZUjd4RWVvY0F6OUZnT2I5aXRHVzI4SXl4Nmhjb1dRaGprK2Zhek1HSFpLQVVOU1INCnRiNEh0THVlNjV6cHFiZDFaSmYzTTIycFdBUzNpMVQ3bURYaTVnNUdMMW5wYW9RWjVUaVpOcXgrMmIrM29yamcNCjJ4NzBpN0pKWnB5TmlRODFZZW1jN3dVdzZucmhHdXV3d2Iwc2haVVZza05pS3dYQ2xzVld0ZWpYSGk1WWp5clINCldLbjJaeFFRTlB2S0pNNXdFTG5FY21UNkJLNjNLSkpPWUZiRFBjcjJ0UGQwSEJ4eDRORHlJT2ZMYS9objdHZEUNCnZxbVkwbmNKNzZFZjI1bVFlQ3d6VUJ3Q3pmajlmODJEbzh6aFRXcFM0cEU9
+
+ERROR: Verifying response signature 
+ERROR: Sig
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: sed -i "s/^export TMOUT=600;/export TMOUT=00;/" /etc/bashrc
+Password:  
+Authentication failed.
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: logout
+Password:  
+Authentication failed.
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: s7W/kwAAAQYBAAQAAAABAgAEAAAAAAMCwFdqOUZ1eXpUMXBzR1RudGtTL0VHdmpFNHJDL0VtdkhXM1ZBcFhwelgzcDcydDhtdVhKcW80NXhSbEJRcnlCNFgNCnB2ODhBSUxqR2pIUWc2UUM1cFZiZUV5RFAyTGR1R3FWbC92SmgzOTE4VU0xZHRTZ1VNbmRwOExaNFNpdXBjckcNCnRPaDdYejlnM1dZaEN5Q0pLTDRsaGs2QXY3WTNvQkZJL1UxTkl5djYxemJac0YwMkFNZXFSa3M2dGhTWVRnOG4NCnJjbzNUd2N2aXNiS3M3KzRpejcyZWdoY1g4RjRtNU1FKzVKeG1uSGdjTnBUU291RHorRTFrTVdmcGU5WDdrL3cNCmV2ZFB3SW44dFVjZ1JsbzgwZDR4MkdlakRPWHFiTHZMQkoxUjQ4dm9peVlVRWQzV1ppWkVYTzBlelFXVlJvQ3gNCm1BM3hQQ05EdTduZlY5TVUwMG4rTks4R2NnbXYyT3FhbjF0SGcxQi9LdzgrR3BSbG9nQjErTEMxUElOdjQrQW0NClI5TENoUXhxSGZIVzBEUjVZUjd4RWVvY0F6OUZnT2I5aXRHVzI4SXl4Nmhjb1dRaGprK2Zhek1HSFpLQVVOU1INCnRiNEh0THVlNjV6cHFiZDFaSmYzTTIycFdBUzNpMVQ3bURYaTVnNUdMMW5wYW9RWjVUaVpOcXgrMmIrM29yamcNCjJ4NzBpN0pKWnB5TmlRODFZZW1jN3dVdzZucmhHdXV3d2Iwc2haVVZza05pS3dYQ2xzVld0ZWpYSGk1WWp5clINCldLbjJaeFFRTlB2S0pNNXdFTG5FY21UNkJLNjNLSkpPWUZiRFBjcjJ0UGQwSEJ4eDRORHlJT2ZMYS9objdHZEUNCnZxbVkwbmNKNzZFZjI1bVFlQ3d6VUJ3Q3pmajlmODJEbzh6aFRXcFM0cEU9
+
+Authentication f
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: rm key response
+Password:  
+telnet> q
+Connection closed.
+[?2004htester@LC1UNVME:~/Projects/MyDevelopment$ telnet 172.25.27.3 2026
+[?2004lTrying 172.25.27.3...
+Connected to 172.25.27.3.
+Escape character is '^]'.
+
+Authentication failed.
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: admin
+Password:  
+
+Generating Challenge..................................... 
+Challenge String (Please copy everything between the asterisk lines exclusively):
+*****************************************************************************************
+XnQaYgAAAQYBAAQAAAABAgAEAAAAAAMACLrzNepT9IIMBAAQXKw/hTh5kkui/zr54sCXlQUABAAAAAoGAAdDSU1DX0NUBwAFTThfQ1QIAAxVQ1NYLTIxMEMtTTgJAAtGQ0gyODQyNzJCNQ==
+*****************************************************************************************
+
+Please input the response when you are ready .........................
+s7W/kwAAAQYBAAQAAAABAgAEAAAAAAMCwFdqOUZ1eXpUMXBzR1RudGtTL0VHdmpFNHJDL0VtdkhXM1ZBcFhwelgzcDcydDhtdVhKcW80NXhSbEJRcnlCNFgNCnB2ODhBSUxqR2pIUWc2UUM1cFZiZUV5RFAyTGR1R3FWbC92SmgzOTE4VU0xZHRTZ1VNbmRwOExaNFNpdXBjckcNCnRPaDdYejlnM1dZaEN5Q0pLTDRsaGs2QXY3WTNvQkZJL1UxTkl5djYxemJac0YwMkFNZXFSa3M2dGhTWVRnOG4NCnJjbzNUd2N2aXNiS3M3KzRpejcyZWdoY1g4RjRtNU1FKzVKeG1uSGdjTnBUU291RHorRTFrTVdmcGU5WDdrL3cNCmV2ZFB3SW44dFVjZ1JsbzgwZDR4MkdlakRPWHFiTHZMQkoxUjQ4dm9peVlVRWQzV1ppWkVYTzBlelFXVlJvQ3gNCm1BM3hQQ05EdTduZlY5TVUwMG4rTks4R2NnbXYyT3FhbjF0SGcxQi9LdzgrR3BSbG9nQjErTEMxUElOdjQrQW0NClI5TENoUXhxSGZIVzBEUjVZUjd4RWVvY0F6OUZnT2I5aXRHVzI4SXl4Nmhjb1dRaGprK2Zhek1HSFpLQVVOU1INCnRiNEh0THVlNjV6cHFiZDFaSmYzTTIycFdBUzNpMVQ3bURYaTVnNUdMMW5wYW9RWjVUaVpOcXgrMmIrM29yamcNCjJ4NzBpN0pKWnB5TmlRODFZZW1jN3dVdzZucmhHdXV3d2Iwc2haVVZza05pS3dYQ2xzVld0ZWpYSGk1WWp5clINCldLbjJaeFFRTlB2S0pNNXdFTG5FY21UNkJLNjNLSkpPWUZiRFBjcjJ0UGQwSEJ4eDRORHlJT2ZMYS9objdHZEUNCnZxbVkwbmNKNzZFZjI1bVFlQ3d6VUJ3Q3pmajlmODJEbzh6aFRXcFM0cEU9
+
+ERROR: Verifying response signature 
+ERROR: Sig
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: sed -i "s/^export TMOUT=600;/export TMOUT=00;/" /etc/bashrc
+Password:  
+Authentication failed.
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: admin
+Password:  
+
+Generating Challenge..................................... 
+Challenge String (Please copy everything between the asterisk lines exclusively):
+*****************************************************************************************
+ra7/bAAAAQYBAAQAAAABAgAEAAAAAAMACLrzNepT9IINBAAQ/abuJcT8bX0JjZBn+3+xjQUABAAAAAoGAAdDSU1DX0NUBwAFTThfQ1QIAAxVQ1NYLTIxMEMtTTgJAAtGQ0gyODQyNzJCNQ==
+*****************************************************************************************
+
+Please input the response when you are ready .........................
+s7W/kwAAAQYBAAQAAAABAgAEAAAAAAMCwFdqOUZ1eXpUMXBzR1RudGtTL0VHdmpFNHJDL0VtdkhXM1ZBcFhwelgzcDcydDhtdVhKcW80NXhSbEJRcnlCNFgNCnB2ODhBSUxqR2pIUWc2UUM1cFZiZUV5RFAyTGR1R3FWbC92SmgzOTE4VU0xZHRTZ1VNbmRwOExaNFNpdXBjckcNCnRPaDdYejlnM1dZaEN5Q0pLTDRsaGs2QXY3WTNvQkZJL1UxTkl5djYxemJac0YwMkFNZXFSa3M2dGhTWVRnOG4NCnJjbzNUd2N2aXNiS3M3KzRpejcyZWdoY1g4RjRtNU1FKzVKeG1uSGdjTnBUU291RHorRTFrTVdmcGU5WDdrL3cNCmV2ZFB3SW44dFVjZ1JsbzgwZDR4MkdlakRPWHFiTHZMQkoxUjQ4dm9peVlVRWQzV1ppWkVYTzBlelFXVlJvQ3gNCm1BM3hQQ05EdTduZlY5TVUwMG4rTks4R2NnbXYyT3FhbjF0SGcxQi9LdzgrR3BSbG9nQjErTEMxUElOdjQrQW0NClI5TENoUXhxSGZIVzBEUjVZUjd4RWVvY0F6OUZnT2I5aXRHVzI4SXl4Nmhjb1dRaGprK2Zhek1HSFpLQVVOU1INCnRiNEh0THVlNjV6cHFiZDFaSmYzTTIycFdBUzNpMVQ3bURYaTVnNUdMMW5wYW9RWjVUaVpOcXgrMmIrM29yamcNCjJ4NzBpN0pKWnB5TmlRODFZZW1jN3dVdzZucmhHdXV3d2Iwc2haVVZza05pS3dYQ2xzVld0ZWpYSGk1WWp5clINCldLbjJaeFFRTlB2S0pNNXdFTG5FY21UNkJLNjNLSkpPWUZiRFBjcjJ0UGQwSEJ4eDRORHlJT2ZMYS9objdHZEUNCnZxbVkwbmNKNzZFZjI1bVFlQ3d6VUJ3Q3pmajlmODJEbzh6aFRXcFM0cEU9
+
+ERROR: Verifying response signature 
+ERROR: Signature verification failed! 
+
+****************************************************************************
+
+Welcome to Cisco Integrated Management Controller's Interactive Debug.
+Please provide your credentials in order to proceed.
+
+****************************************************************************
+
+login: 
