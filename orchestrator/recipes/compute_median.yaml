@@ -1,0 +1,29 @@
+# orchestrator/recipes/compute_median.yaml
+# This YAML file serves as an example extended recipe in the IAF0 framework, building on the basic example_numbers.yaml.
+# It demonstrates computing a median from data, potentially as a follow-up or composite step.
+# Recipes like this are loaded by recipe_parser.py, validated for schema (e.g., required fields) and compliance (e.g., JSON-safe args, file existence).
+# The structure supports dependencies, retries, and parallelism for more complex workflows.
+# This specific recipe computes the median of numbers from a CSV, storing results in the shared context.
+
+# Start of the test_meta section, which captures essential metadata for the test run.
+test_meta:
+  # test_id: A unique identifier for this test case, used for logging, versioning, and DB storage.
+  test_id: NUM-002
+  # tester: Identifier of the user or system executing the test, for traceability in history and reports.
+  tester: user
+  # description: A short description of the test's objective, aiding in documentation and searchability.
+  description: Compute median
+
+# Start of the steps section, defining the sequence of executable scriptlets.
+steps:
+  # Each step is a dict in a list; this recipe has one step for simplicity, but can be extended with more.
+  - idx: 1  # idx: Sequential integer index for basic ordering (though DAG uses names for dependencies).
+    name: compute_median  # name: Unique step identifier, used for depends_on, filtering (--only/--skip), and logging.
+    type: python  # type: Specifies the scriptlet language/type (python, shell, or c; enforced in parser and registry).
+    module: orchestrator.scriptlets.python.steps.compute_median  # module: Dotted path to the Python module containing the scriptlet class.
+    function: ComputeMedian  # function: The CamelCase class name of the scriptlet, which must extend BaseScriptlet.
+    args:  # args: Dictionary of parameters passed to the scriptlet's validate and run methods.
+      src: orchestrator/Data/numbers.csv  # src: Example parameter - file path to input data (validated for existence in compliance checks).
+    success:  # success: Optional section for post-execution validations (processed in executor.py).
+      ctx_has_keys:  # ctx_has_keys: List of expected context keys after successful run (asserted to exist in context).
+        - numbers.median_v1  # Example key: Namespaced dotted key (with version suffix) where results are stored.

@@ -1,0 +1,51 @@
+# server/config.yaml
+# This YAML file contains configuration settings for the ContextServer in the IAF0 framework.
+# It defines parameters such as host, port, debug mode, database connection details,
+# flush intervals, and logging endpoints.
+# The file is loaded by context_server.py using a load_config function (e.g., via yaml.safe_load).
+# Values can be environment-overridden if needed; defaults are provided for quick setup.
+# Structure: Top-level keys for sections like server, db, persistence, logging.
+
+# Server section: Configures the HTTP/socket server basics.
+server:
+  # host: IP address or hostname to bind the server to (e.g., '0.0.0.0' for all interfaces).
+  host: 0.0.0.0
+  # port: TCP port number for the server to listen on (default 8080 for HTTP).
+  port: 8080
+  # debug: Boolean to enable Flask debug mode (True for development, False for production).
+  debug: false
+
+# Database section: Settings for the DBAdapter used in persistence and versioning.
+db:
+  # type: Database backend type (e.g., 'mysql' or 'sqlite3'; swappable via db_adapter.py).
+  type: mysql
+  # url: Connection URL string (e.g., for MySQL: 'mysql://user:pass@host/db'; for SQLite: 'sqlite:///path.db').
+  url: mysql://user:pass@localhost/iaf0_db
+
+# Persistence section: Configures flush behavior for Persistence class.
+persistence:
+  # flush_interval: Seconds between automatic diff-based flushes (default 10 for low I/O).
+  flush_interval: 10
+  # flush_dir: Directory path for disk-based flush files (e.g., JSON.gz snapshots).
+  flush_dir: ./persistence
+
+# Logging section: Endpoints for aggregated logging (e.g., ELK integration).
+logging:
+  # elk_endpoint: URL for Logstash or Elasticsearch for sending logs (e.g., 'http://logstash:5044').
+  elk_endpoint: http://localhost:5044
+  # log_level: Logging level (e.g., 'INFO', 'DEBUG'; overrides basicConfig if set).
+  log_level: INFO
+
+# Distributed section: Optional settings for distributed context access (if extended).
+distributed:
+  # allow_remote: Boolean to allow remote host access (True enables, False restricts to localhost).
+  allow_remote: true
+
+# Security section: Basic auth or other security configs (extend with API keys if needed).
+security:
+  # auth_enabled: Boolean to enable basic authentication (False by default; implement in app).
+  auth_enabled: false
+  # username: Basic auth username (if enabled).
+  username: admin
+  # password: Basic auth password (if enabled; store securely in prod).
+  password: secret

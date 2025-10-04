@@ -1,0 +1,116 @@
+# Context.py Master Exercise Curriculum
+
+This comprehensive curriculum provides interactive, accumulative exercises to master all features and capabilities of [`Context`](orchestrator/context.py). Each exercise builds upon previous knowledge with hands-on implementation and validation.
+
+---
+
+## Exercise 1: Basic Context Operations & Initialization
+
+### Learning Objectives
+- Master [`Context`](orchestrator/context.py) instantiation and fundamental operations
+- Understand dotted notation for hierarchical keys
+- Learn proper data validation and JSON-serializable constraints
+- Practice error handling and edge cases
+
+### Theory
+The [`Context`](orchestrator/context.py) class serves as Framework0's central shared state container. It stores JSON-serializable values using dotted notation for namespacing, enabling clean separation of concerns across scriptlets.
+
+### Code Example
+
+````python
+# filepath: context_exercises/exercise_1_basic_context.py
+"""
+Exercise 1: Basic Context Operations
+Master Context instantiation, get/set operations, and data validation.
+"""
+
+import os
+import sys
+from typing import Dict, Any, List, Optional
+import json
+
+# Add orchestrator to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+from orchestrator.context import Context
+from src.core.logger import get_logger
+
+# Initialize logger with debug support from environment
+logger = get_logger(__name__, debug=os.getenv("DEBUG") == "1")
+
+def demonstrate_basic_operations() -> Context:
+    """
+    Demonstrate basic Context operations with comprehensive logging.
+    
+    Returns:
+        Context: Populated context instance for further exercises
+    """
+    logger.info("Starting Exercise 1: Basic Context Operations")
+    
+    # Step 1: Initialize a new Context instance
+    ctx = Context()  # Create empty context
+    logger.debug("Created new Context instance")
+    
+    # Step 2: Setting values with dotted notation for proper namespacing
+    ctx.set("app.config.database.host", "localhost", who="setup")  # Database host configuration
+    ctx.set("app.config.database.port", 5432, who="setup")  # Database port configuration
+    ctx.set("metrics.performance.cpu_usage", 45.7, who="monitor")  # Performance metric
+    ctx.set("user.session.id", "sess_12345", who="auth")  # User session data
+    
+    logger.debug("Set configuration and metrics with proper namespacing")
+    
+    # Step 3: Getting values - basic retrieval patterns
+    db_host = ctx.get("app.config.database.host")  # Retrieve database host
+    db_port = ctx.get("app.config.database.port")  # Retrieve database port
+    cpu_usage = ctx.get("metrics.performance.cpu_usage")  # Retrieve CPU metric
+    session_id = ctx.get("user.session.id")  # Retrieve session ID
+    
+    # Display retrieved values
+    print(f"Database Host: {db_host}")  # Output: localhost
+    print(f"Database Port: {db_port}")  # Output: 5432
+    print(f"CPU Usage: {cpu_usage}%")   # Output: 45.7%
+    print(f"Session ID: {session_id}")  # Output: sess_12345
+    
+    # Step 4: Handling non-existent values (returns None by default)
+    missing_value = ctx.get("non.existent.key")  # Try to get missing key
+    print(f"Missing value: {missing_value}")  # Output: None
+    
+    # Step 5: Using default values for missing keys
+    timeout = ctx.get("app.config.timeout", default=30)  # Use default if missing
+    max_connections = ctx.get("app.config.max_connections", default=100)  # Another default
+    print(f"Timeout (default): {timeout}")  # Output: 30
+    print(f"Max Connections (default): {max_connections}")  # Output: 100
+    
+    # Step 6: Test JSON-serializable data types
+    ctx.set("data.string", "Hello Framework0", who="test")  # String type
+    ctx.set("data.integer", 42, who="test")  # Integer type
+    ctx.set("data.float", 3.14159, who="test")  # Float type
+    ctx.set("data.boolean", True, who="test")  # Boolean type
+    ctx.set("data.list", [1, 2, 3, "four"], who="test")  # List type
+    ctx.set("data.dict", {"nested": "value", "count": 5}, who="test")  # Dictionary type
+    ctx.set("data.null", None, who="test")  # None/null type
+    
+    logger.debug("Added diverse JSON-serializable data types")
+    
+    # Step 7: Verify data integrity
+    assert ctx.get("data.string") == "Hello Framework0", "String data should match"
+    assert ctx.get("data.integer") == 42, "Integer data should match"
+    assert ctx.get("data.float") == 3.14159, "Float data should match"
+    assert ctx.get("data.boolean") is True, "Boolean data should match"
+    assert ctx.get("data.list") == [1, 2, 3, "four"], "List data should match"
+    assert ctx.get("data.dict")["nested"] == "value", "Nested dict data should match"
+    assert ctx.get("data.null") is None, "None data should match"
+    
+    logger.debug("✓ All data types verified successfully")
+    
+    # Step 8: Display complete context state
+    context_dict = ctx.to_dict()  # Get complete context as dictionary
+    print(f"\nComplete context contains {len(context_dict)} keys:")
+    for key, value in sorted(context_dict.items()):  # Display sorted keys
+        print(f"  {key}: {value}")
+    
+    logger.info("✅ Exercise 1 completed successfully")
+    return ctx
+
+if __name__ == "__main__":
+    demonstrate_basic_operations()

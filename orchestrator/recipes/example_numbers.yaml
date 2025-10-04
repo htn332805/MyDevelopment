@@ -1,81 +1,30 @@
-# orchestrator/recipes/example_number.yaml
+# orchestrator/recipes/example_numbers.yaml
+# This YAML file serves as an example recipe in the IAF0 framework.
+# Recipes define test metadata and a sequence of steps (scriptlets) to execute.
+# Each recipe is loaded by recipe_parser.py, validated for schema and compliance,
+# then executed via executor.py using the DAG from dependency_graph.py.
+# This example demonstrates a simple computation on numbers data, storing results in context.
+# Recipes support extensions like depends_on, retry, timeout, parallel, cache_key (as per roadmap).
 
-# Define the version of the orchestrator DSL being used
-tosca_definitions_version: orchestrator_dsl_1_3
+# Start of the test_meta section, which provides metadata about the test.
+test_meta:
+  # test_id: Unique identifier for the test case.
+  test_id: ID-123
+  # tester: Name or identifier of the person or system running the test.
+  tester: user
+  # description: Brief description of the test's purpose.
+  description: Demo
 
-# A brief description of the blueprint's purpose
-description: >
-  This blueprint demonstrates a simple orchestration workflow
-  that includes tasks for initializing a number, performing
-  arithmetic operations, and outputting the result.
-
-# Imports necessary plugins or modules for the orchestration
-imports:
-  - plugin: orchestrator-math-plugin
-
-# Define the inputs required for the orchestration
-inputs:
-  initial_value:
-    type: integer
-    description: The starting number for the operations
-    default: 5
-
-# Define the outputs that the orchestration will produce
-outputs:
-  final_result:
-    description: The result after performing arithmetic operations
-
-# Define the tasks that make up the orchestration workflow
-tasks:
-  # Task to initialize the number
-  initialize_number:
-    description: "Initialize the number with the provided input value"
-    implementation:
-      plugin: orchestrator-math-plugin
-      action: initialize
-    inputs:
-      value: { get_input: initial_value }
-
-  # Task to add 10 to the number
-  add_ten:
-    description: "Add 10 to the initialized number"
-    implementation:
-      plugin: orchestrator-math-plugin
-      action: add
-    inputs:
-      value: 10
-    dependencies:
-      - initialize_number
-
-  # Task to multiply the number by 2
-  multiply_by_two:
-    description: "Multiply the result by 2"
-    implementation:
-      plugin: orchestrator-math-plugin
-      action: multiply
-    inputs:
-      value: 2
-    dependencies:
-      - add_ten
-
-  # Task to subtract 5 from the number
-  subtract_five:
-    description: "Subtract 5 from the current result"
-    implementation:
-      plugin: orchestrator-math-plugin
-      action: subtract
-    inputs:
-      value: 5
-    dependencies:
-      - multiply_by_two
-
-  # Task to output the final result
-  output_result:
-    description: "Output the final result after all operations"
-    implementation:
-      plugin: orchestrator-math-plugin
-      action: output
-    inputs:
-      value: { get_attribute: [subtract_five, result] }
-    dependencies:
-      - subtract_five
+# Start of the steps section, which is a list of ordered or dependent steps.
+steps:
+  # First (and only) step in this example; each step is a dict.
+  - idx: 1  # idx: Integer index for ordering (used in DAG building).
+    name: compute_numbers  # name: Unique string name for the step (used in dependencies and filtering).
+    type: python  # type: Specifies the scriptlet type (python, shell, c; validated in parser).
+    module: orchestrator.scriptlets.python.steps.compute_numbers  # module: Dotted path to the Python module for the scriptlet.
+    function: ComputeNumbers  # function: Class name of the scriptlet (must extend BaseScriptlet).
+    args:  # args: Dict of arguments passed to the scriptlet's run method.
+      src: orchestrator/Data/numbers.csv  # src: Example arg - path to input CSV file.
+    success:  # success: Optional dict for post-execution assertions.
+      ctx_has_keys:  # ctx_has_keys: List of context keys that must exist after success (enforced in executor).
+        - numbers.stats_v1  # Example key: Namespaced dotted key expected in context after run.
