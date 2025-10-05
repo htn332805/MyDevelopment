@@ -1,0 +1,17 @@
+# Enhanced recipe using new unified framework
+test_meta:
+  test_id: ENHANCED-001
+  tester: enhanced_runner
+  description: Demo of enhanced runner with unified scriptlet framework
+
+steps:
+  - idx: 1
+    name: compute_numbers_enhanced
+    type: python
+    module: enhanced_scriptlets.compute_numbers_enhanced
+    function: ComputeNumbersEnhanced
+    args:
+      src: orchestrator/Data/numbers.csv
+    success:
+      ctx_has_keys:
+        - numbers.stats_v2

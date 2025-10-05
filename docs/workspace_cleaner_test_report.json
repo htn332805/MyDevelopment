@@ -1,0 +1,51 @@
+{
+  "test_summary": {
+    "total_tests": 7,
+    "passed_tests": 7,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "test_workspace": "/tmp/cleaner_test_zvw9ufpr"
+  },
+  "detailed_results": [
+    {
+      "name": "Cleaner Initialization",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "name": "Standard Rules Addition",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "name": "Configuration Save/Load",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "name": "Dry-Run Execution",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "name": "Context Integration",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "name": "Error Handling",
+      "status": "PASSED",
+      "error": null
+    },
+    {
+      "name": "Backup System",
+      "status": "PASSED",
+      "error": null
+    }
+  ],
+  "test_environment": {
+    "python_version": "3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0]",
+    "platform": "posix",
+    "debug_enabled": true
+  }
+}

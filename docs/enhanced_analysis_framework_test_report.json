@@ -1,0 +1,203 @@
+{
+  "suite_name": "Enhanced Analysis Framework Test Suite",
+  "start_time": "2025-10-04T17:17:40.016602",
+  "tests": {
+    "Enhanced Framework Initialization": {
+      "test_name": "Enhanced Framework Initialization",
+      "start_time": "2025-10-04T17:17:40.016787",
+      "status": "running",
+      "subtests": {
+        "config_creation": {
+          "passed": true,
+          "config_keys": 27,
+          "enhanced_keys": [
+            "max_memory_mb",
+            "debug_mode",
+            "statistical_precision",
+            "pattern_threshold",
+            "quality_threshold",
+            "include_raw_data",
+            "format_output",
+            "save_intermediate",
+            "pre_analysis_hooks",
+            "post_analysis_hooks",
+            "enable_context_integration",
+            "context_namespace",
+            "track_execution_metrics",
+            "enable_pipeline_mode",
+            "pipeline_name",
+            "enable_inter_analyzer_communication",
+            "enable_memory_optimization",
+            "enable_result_caching",
+            "cache_expiry_seconds",
+            "enable_performance_monitoring",
+            "enable_resource_tracking",
+            "alert_on_resource_limits",
+            "enable_error_recovery",
+            "max_retry_attempts",
+            "retry_delay_seconds"
+          ]
+        },
+        "analyzer_initialization": {
+          "passed": true,
+          "analyzer_name": "test_analyzer",
+          "has_context": true,
+          "namespace": "test_init"
+        },
+        "context_integration": {
+          "passed": true,
+          "total_context_keys": 3,
+          "analyzer_keys": 3,
+          "sample_keys": [
+            "test_init.test_analyzer.initialized",
+            "test_init.test_analyzer.config",
+            "test_init.test_analyzer.created_at"
+          ]
+        },
+        "result_structure": {
+          "passed": true,
+          "has_execution_id": true,
+          "has_context_namespace": true,
+          "enhanced_fields": [
+            "execution_id",
+            "context_namespace",
+            "context_keys_created"
+          ]
+        }
+      },
+      "errors": [],
+      "success": true,
+      "end_time": "2025-10-04T17:17:40.019641"
+    },
+    "Context Integration Validation": {
+      "test_name": "Context Integration Validation",
+      "start_time": "2025-10-04T17:17:40.019928",
+      "status": "running",
+      "subtests": {
+        "context_key_management": {
+          "passed": true,
+          "context_keys_created": 10,
+          "analysis_successful": true,
+          "sample_keys": [
+            "test_analysis.context_test_analyzer.initialized",
+            "test_analysis.context_test_analyzer.config",
+            "test_analysis.context_test_analyzer.created_at",
+            "test_analysis.context_test_analyzer.executions.exec_context_test_analyzer_1759623460022",
+            "test_analysis.context_test_analyzer.latest_summary"
+          ]
+        },
+        "history_tracking": {
+          "passed": true,
+          "history_entries": 4,
+          "latest_timestamp": "2025-10-04T17:17:40.048457"
+        },
+        "metrics_integration": {
+          "passed": true,
+          "has_metrics": true,
+          "total_analyses": 4,
+          "metric_keys": [
+            "total_analyses",
+            "total_data_points",
+            "average_processing_time",
+            "cache_hit_rate",
+            "error_rate"
+          ]
+        },
+        "context_sharing": {
+          "passed": true,
+          "data_shared": true,
+          "shared_value": 42
+        }
+      },
+      "errors": [],
+      "success": true,
+      "end_time": "2025-10-04T17:17:40.054476"
+    },
+    "Enhanced Components Functionality": {
+      "test_name": "Enhanced Components Functionality",
+      "start_time": "2025-10-04T17:17:40.054843",
+      "status": "running",
+      "subtests": {
+        "context_aware_summarizer": {
+          "passed": true,
+          "numeric_analysis_success": true,
+          "dict_analysis_success": true,
+          "has_context_integration": true,
+          "execution_time": 0.003099679946899414
+        },
+        "metrics_analyzer": {
+          "passed": true,
+          "analysis_success": true,
+          "has_metrics_collected": true,
+          "has_performance_analysis": true,
+          "alerts_generated": 0
+        },
+        "enhanced_result_features": {
+          "passed": true,
+          "has_execution_id": true,
+          "has_context_namespace": true,
+          "dict_conversion_successful": true
+        }
+      },
+      "errors": [],
+      "success": true,
+      "end_time": "2025-10-04T17:17:40.078591"
+    },
+    "Inter-Analyzer Communication": {
+      "test_name": "Inter-Analyzer Communication",
+      "start_time": "2025-10-04T17:17:40.078887",
+      "status": "running",
+      "subtests": {
+        "message_communication": {
+          "passed": true,
+          "messages_received": 1,
+          "test_message_found": true,
+          "message_content_correct": true
+        },
+        "data_sharing": {
+          "passed": true,
+          "data_shared_successfully": true,
+          "quality_score_correct": true,
+          "metadata_preserved": true
+        },
+        "dependency_management": {
+          "passed": true,
+          "dependency_added": true,
+          "dependency_satisfied": true
+        }
+      },
+      "errors": [],
+      "success": true,
+      "end_time": "2025-10-04T17:17:40.083288"
+    },
+    "Error Handling and Recovery": {
+      "test_name": "Error Handling and Recovery",
+      "start_time": "2025-10-04T17:17:40.083571",
+      "status": "running",
+      "subtests": {
+        "enhanced_error_structure": {
+          "passed": true,
+          "has_analyzer_name": true,
+          "has_error_code": true,
+          "has_execution_trace": true
+        },
+        "error_recovery_mechanism": {
+          "passed": true,
+          "normal_operation_successful": true,
+          "retry_config_active": true,
+          "max_retries_configured": 2
+        }
+      },
+      "errors": [],
+      "success": true,
+      "end_time": "2025-10-04T17:17:40.092813"
+    }
+  },
+  "summary": {
+    "total_tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "success_rate": 100.0
+  },
+  "end_time": "2025-10-04T17:17:40.092892"
+}

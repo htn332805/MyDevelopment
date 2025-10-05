@@ -8,6 +8,7 @@ from typing import Dict, List, Optional
 
 from orchestrator.context import Context
 
+
 class PersistenceManager:
     """
     PersistenceManager handles writing the Context state (or deltas) to
@@ -53,9 +54,13 @@ class PersistenceManager:
                     self.flush(ctx)
                 except Exception as e:
                     # Logging — in real usage, log to stderr or a logger
-                    print(f"[persistence] background flush failed: {e}", file=sys.stderr)
+                    print(
+                        f"[persistence] background flush failed: {e}", file=sys.stderr
+                    )
 
-        t = threading.Thread(target=_flush_loop, name="PersistenceFlushThread", daemon=True)
+        t = threading.Thread(
+            target=_flush_loop, name="PersistenceFlushThread", daemon=True
+        )
         self._timer_thread = t
         t.start()
 

@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-10-04T16:17:36.655933",
+  "workspace_path": "/home/hai/hai_vscode/MyDevelopment",
+  "backup_location": "/home/hai/hai_vscode/MyDevelopment/backup_pre_cleanup",
+  "files_removed": 155,
+  "files_preserved": 6,
+  "errors": 0,
+  "integrity_check": {
+    "essential_files": {
+      "status": "complete",
+      "files": [
+        "orchestrator/context/context.py",
+        "scriptlets/framework.py",
+        "src/analysis/framework.py",
+        "src/analysis/components.py",
+        "src/analysis/registry.py",
+        "src/core/logger.py",
+        "tests/test_analysis_framework.py",
+        "tests/test_scriptlet_framework.py"
+      ],
+      "missing": []
+    },
+    "directory_structure": {
+      "status": "complete",
+      "dirs": [
+        "src",
+        "src/core",
+        "src/analysis",
+        "orchestrator",
+        "orchestrator/context",
+        "scriptlets",
+        "tests",
+        "tools",
+        "docs",
+        "examples"
+      ],
+      "missing": []
+    },
+    "import_integrity": {
+      "status": "checking",
+      "imports": [],
+      "errors": []
+    },
+    "overall_status": "passed"
+  },
+  "summary": {
+    "status": "success",
+    "removed_files": [
+      "cli/",
+      "engine/",
+      "orchestrator/context0.py",
+      "orchestrator/runner_v2.py",
+      "orchestrator/runner/",
+      "scriptlets/core/",
+      "scriptlets/steps/",
+      "storage/",
+      "examples/",
+      "enhanced_scriptlets/"
+    ],
+    "preserved_files": [
+      "orchestrator/context/context.py",
+      "scriptlets/framework.py",
+      "src/analysis/framework.py",
+      "src/analysis/components.py",
+      "src/analysis/registry.py",
+      "src/core/logger.py"
+    ],
+    "error_messages": []
+  }
+}

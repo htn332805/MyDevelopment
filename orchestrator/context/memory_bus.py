@@ -10,7 +10,12 @@
 
 import json  # Imported for JSON serialization validation to ensure data safety.
 import threading  # Imported for thread safety using locks to handle concurrent access.
-from typing import Any, Dict, Optional  # Imported for type hints to enhance code clarity and type checking.
+from typing import (
+    Any,
+    Dict,
+    Optional,
+)  # Imported for type hints to enhance code clarity and type checking.
+
 
 class MemoryBus:
     """
@@ -22,8 +27,12 @@ class MemoryBus:
     def __init__(self) -> None:
         # Initializes the MemoryBus instance.
         # Sets up the internal cache and lock for thread safety.
-        self._cache: Dict[str, Any] = {}  # Private dict to hold the in-memory key-value pairs.
-        self._lock = threading.Lock()  # Private lock to ensure thread-safe operations on the cache.
+        self._cache: Dict[str, Any] = (
+            {}
+        )  # Private dict to hold the in-memory key-value pairs.
+        self._lock = (
+            threading.Lock()
+        )  # Private lock to ensure thread-safe operations on the cache.
 
     def set(self, key: str, value: Any) -> None:
         # Sets a value in the cache for the given key.
@@ -31,7 +40,9 @@ class MemoryBus:
         # Args:
         #   key: String key for the value (dotted notation recommended for namespacing).
         #   value: JSON-serializable value to store.
-        self._validate_json_serializable(value)  # Calls private validation method to check JSON compatibility.
+        self._validate_json_serializable(
+            value
+        )  # Calls private validation method to check JSON compatibility.
         with self._lock:  # Acquires the lock to ensure atomic operation in multi-threaded environments.
             self._cache[key] = value  # Stores the value in the cache dict.
 
@@ -43,7 +54,9 @@ class MemoryBus:
         #   default: Optional default value if key is missing.
         # Returns: The cached value or default.
         with self._lock:  # Acquires the lock for safe read in concurrent scenarios.
-            return self._cache.get(key, default)  # Uses dict.get for safe retrieval without KeyError.
+            return self._cache.get(
+                key, default
+            )  # Uses dict.get for safe retrieval without KeyError.
 
     def clear(self) -> None:
         # Clears the entire cache.
@@ -64,12 +77,15 @@ class MemoryBus:
         try:
             json.dumps(value)  # Attempts to serialize the value to JSON string.
         except (TypeError, ValueError) as e:
-            raise ValueError(f"Value for key is not JSON-serializable: {value}. Error: {str(e)}")  # Raises informative error if invalid.
+            raise ValueError(
+                f"Value for key is not JSON-serializable: {value}. Error: {str(e)}"
+            )  # Raises informative error if invalid.
 
     def __repr__(self) -> str:
         # Provides a string representation of the MemoryBus for debugging.
         # Returns: A formatted string showing cache size.
         return f"MemoryBus(cache_size={len(self._cache)})"  # Returns a simple debug string with cache length.
+
 
 # No additional code outside the class; this module is dedicated to the MemoryBus class.
 # In the framework, the central server (context_server.py) instantiates and uses MemoryBus

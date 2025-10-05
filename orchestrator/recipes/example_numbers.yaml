@@ -21,7 +21,7 @@ steps:
   - idx: 1  # idx: Integer index for ordering (used in DAG building).
     name: compute_numbers  # name: Unique string name for the step (used in dependencies and filtering).
     type: python  # type: Specifies the scriptlet type (python, shell, c; validated in parser).
-    module: orchestrator.scriptlets.python.steps.compute_numbers  # module: Dotted path to the Python module for the scriptlet.
+    module: engine.steps.python.compute_numbers  # module: Dotted path to the Python module for the scriptlet.
     function: ComputeNumbers  # function: Class name of the scriptlet (must extend BaseScriptlet).
     args:  # args: Dict of arguments passed to the scriptlet's run method.
       src: orchestrator/Data/numbers.csv  # src: Example arg - path to input CSV file.

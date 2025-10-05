@@ -9,6 +9,7 @@ import requests  # using HTTP client as an example — you could choose sockets,
 
 from orchestrator.context import Context
 
+
 class MemoryBusClient:
     """
     MemoryBusClient is a client-side interface for interacting

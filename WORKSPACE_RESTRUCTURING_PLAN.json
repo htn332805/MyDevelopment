@@ -1,0 +1,1396 @@
+{
+  "version": "1.0.0-baseline",
+  "timestamp": "2025-10-05T01:14:24.398986",
+  "workspace_root": "/home/hai/hai_vscode/MyDevelopment",
+  "target_structure": {
+    "orchestrator/": [
+      "context/",
+      "enhanced_memory_bus.py",
+      "enhanced_recipe_parser.py",
+      "dependency_graph.py",
+      "persistence/",
+      "recipes/",
+      "__init__.py"
+    ],
+    "scriptlets/": [
+      "framework.py",
+      "core/",
+      "steps/",
+      "__init__.py"
+    ],
+    "src/": [
+      "core/",
+      "analysis/",
+      "visualization/",
+      "modules/",
+      "__init__.py"
+    ],
+    "server/": [
+      "enhanced_context_server.py",
+      "__init__.py"
+    ],
+    "tests/": [
+      "unit/",
+      "integration/",
+      "performance/",
+      "__init__.py"
+    ],
+    "tools/": [
+      "baseline_framework_analyzer.py",
+      "comprehensive_doc_generator.py",
+      "documentation_updater.py",
+      "lint_checker.py",
+      "workspace_restructurer.py",
+      "__init__.py"
+    ],
+    "docs/": [
+      "api_reference.md",
+      "getting_started.md",
+      "architecture.md",
+      "deployment_guide.md",
+      "troubleshooting.md"
+    ],
+    "cli/": [
+      "main.py",
+      "__init__.py"
+    ],
+    "storage/": [
+      "db_adapter.py",
+      "__init__.py"
+    ],
+    "analysis/": [
+      "charting.py",
+      "exporter.py",
+      "summarizer.py",
+      "__init__.py"
+    ]
+  },
+  "backup_location": "/home/hai/hai_vscode/MyDevelopment/.restructuring_backup",
+  "operations": [
+    {
+      "operation_type": "create",
+      "source_path": "",
+      "destination_path": "/home/hai/hai_vscode/MyDevelopment/.restructuring_backup",
+      "description": "Create backup directory for restructuring safety",
+      "priority": 0,
+      "requires_backup": false,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": []
+    },
+    {
+      "operation_type": "move",
+      "source_path": "docs/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".github/copilot-instructions.md",
+      "destination_path": "docs/copilot-instructions.md",
+      "description": "Relocate copilot-instructions.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": true,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/copilot-instructions.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".github/prompts/Copilot-prompt.md",
+      "destination_path": "docs/Copilot-prompt.md",
+      "description": "Relocate Copilot-prompt.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": true,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/Copilot-prompt.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": "orchestrator/enhanced_context_server.py",
+      "destination_path": "server/enhanced_context_server.py",
+      "description": "Relocate enhanced_context_server.py: Server infrastructure belongs in server/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File server/enhanced_context_server.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_enhanced_analysis_framework.py",
+      "destination_path": "tests/test_enhanced_analysis_framework.py",
+      "description": "Relocate test_enhanced_analysis_framework.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_enhanced_analysis_framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_workspace_cleaner_v2.py",
+      "destination_path": "tests/test_workspace_cleaner_v2.py",
+      "description": "Relocate test_workspace_cleaner_v2.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_workspace_cleaner_v2.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_delta_module.py",
+      "destination_path": "tests/test_delta_module.py",
+      "description": "Relocate test_delta_module.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_delta_module.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_framework0_integration.py",
+      "destination_path": "tests/test_framework0_integration.py",
+      "description": "Relocate test_framework0_integration.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_framework0_integration.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_enhanced_memory_bus.py",
+      "destination_path": "tests/test_enhanced_memory_bus.py",
+      "description": "Relocate test_enhanced_memory_bus.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_enhanced_memory_bus.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/PERFORMANCE_TESTING_COMPLETION.md",
+      "destination_path": "docs/PERFORMANCE_TESTING_COMPLETION.md",
+      "description": "Relocate PERFORMANCE_TESTING_COMPLETION.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/PERFORMANCE_TESTING_COMPLETION.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/debug_enhanced_memory_bus.py",
+      "destination_path": "src/debug_enhanced_memory_bus.py",
+      "description": "Relocate debug_enhanced_memory_bus.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/debug_enhanced_memory_bus.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/WEBSOCKET_ASYNC_PERFORMANCE_COMPLETION.md",
+      "destination_path": "docs/WEBSOCKET_ASYNC_PERFORMANCE_COMPLETION.md",
+      "description": "Relocate WEBSOCKET_ASYNC_PERFORMANCE_COMPLETION.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/WEBSOCKET_ASYNC_PERFORMANCE_COMPLETION.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_visualization_system.py",
+      "destination_path": "tests/test_visualization_system.py",
+      "description": "Relocate test_visualization_system.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_visualization_system.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/PERFORMANCE_TESTING_REPORT.md",
+      "destination_path": "docs/PERFORMANCE_TESTING_REPORT.md",
+      "description": "Relocate PERFORMANCE_TESTING_REPORT.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/PERFORMANCE_TESTING_REPORT.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_execution_report.md",
+      "destination_path": "docs/test_execution_report.md",
+      "description": "Relocate test_execution_report.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/test_execution_report.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/PROJECT_COMPLETION_REPORT.md",
+      "destination_path": "docs/PROJECT_COMPLETION_REPORT.md",
+      "description": "Relocate PROJECT_COMPLETION_REPORT.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/PROJECT_COMPLETION_REPORT.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/test_enhanced_recipe_parser.py",
+      "destination_path": "tests/test_enhanced_recipe_parser.py",
+      "description": "Relocate test_enhanced_recipe_parser.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_enhanced_recipe_parser.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/deployment_guide.md",
+      "destination_path": "docs/deployment_guide.md",
+      "description": "Relocate deployment_guide.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/deployment_guide.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/integration_patterns.md",
+      "destination_path": "docs/integration_patterns.md",
+      "description": "Relocate integration_patterns.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/integration_patterns.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/getting_started.md",
+      "destination_path": "docs/getting_started.md",
+      "description": "Relocate getting_started.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/getting_started.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/troubleshooting.md",
+      "destination_path": "docs/troubleshooting.md",
+      "description": "Relocate troubleshooting.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/troubleshooting.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/method_index.md",
+      "destination_path": "docs/method_index.md",
+      "description": "Relocate method_index.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/method_index.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/delta_compression.md",
+      "destination_path": "docs/delta_compression.md",
+      "description": "Relocate delta_compression.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/delta_compression.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/docs/api_reference.md",
+      "destination_path": "docs/api_reference.md",
+      "description": "Relocate api_reference.md: Documentation files should be in the docs/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File docs/api_reference.md must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/examples/basic_usage.py",
+      "destination_path": "src/basic_usage.py",
+      "description": "Relocate basic_usage.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/basic_usage.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/examples/dash_demo.py",
+      "destination_path": "src/dash_demo.py",
+      "description": "Relocate dash_demo.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/dash_demo.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/examples/integration_demo.py",
+      "destination_path": "src/integration_demo.py",
+      "description": "Relocate integration_demo.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/integration_demo.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence.py",
+      "destination_path": "src/persistence.py",
+      "description": "Relocate persistence.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/persistence.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/dependency_graph.py",
+      "destination_path": "orchestrator/dependency_graph.py",
+      "description": "Relocate dependency_graph.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/dependency_graph.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/enhanced_memory_bus.py",
+      "destination_path": "orchestrator/enhanced_memory_bus.py",
+      "description": "Relocate enhanced_memory_bus.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/enhanced_memory_bus.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/runner.py",
+      "destination_path": "orchestrator/runner.py",
+      "description": "Relocate runner.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/runner.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/recipe_parser.py",
+      "destination_path": "orchestrator/recipe_parser.py",
+      "description": "Relocate recipe_parser.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/recipe_parser.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/memory_bus.py",
+      "destination_path": "orchestrator/memory_bus.py",
+      "description": "Relocate memory_bus.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/memory_bus.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/enhanced_recipe_parser.py",
+      "destination_path": "orchestrator/enhanced_recipe_parser.py",
+      "description": "Relocate enhanced_recipe_parser.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/enhanced_recipe_parser.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/persistence.py",
+      "destination_path": "src/persistence.py",
+      "description": "Relocate persistence.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/persistence.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/context.py",
+      "destination_path": "orchestrator/context.py",
+      "description": "Relocate context.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/context.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/version_control.py",
+      "destination_path": "src/version_control.py",
+      "description": "Relocate version_control.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/version_control.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/db_adapter.py",
+      "destination_path": "src/db_adapter.py",
+      "description": "Relocate db_adapter.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/db_adapter.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/memory_bus.py",
+      "destination_path": "orchestrator/memory_bus.py",
+      "description": "Relocate memory_bus.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/memory_bus.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/.ipynb_checkpoints/memory_bus-checkpoint.py",
+      "destination_path": "src/memory_bus-checkpoint.py",
+      "description": "Relocate memory_bus-checkpoint.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/memory_bus-checkpoint.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/.ipynb_checkpoints/__init__-checkpoint.py",
+      "destination_path": "src/__init__-checkpoint.py",
+      "description": "Relocate __init__-checkpoint.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__-checkpoint.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/context/.ipynb_checkpoints/context-checkpoint.py",
+      "destination_path": "orchestrator/context-checkpoint.py",
+      "description": "Relocate context-checkpoint.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/context-checkpoint.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence/snapshot.py",
+      "destination_path": "src/snapshot.py",
+      "description": "Relocate snapshot.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/snapshot.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence/enhanced.py",
+      "destination_path": "src/enhanced.py",
+      "description": "Relocate enhanced.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/enhanced.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence/delta.py",
+      "destination_path": "src/delta.py",
+      "description": "Relocate delta.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/delta.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence/cache.py",
+      "destination_path": "src/cache.py",
+      "description": "Relocate cache.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/cache.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/orchestrator/persistence/core.py",
+      "destination_path": "src/core.py",
+      "description": "Relocate core.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/core.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/configs/server_config.py",
+      "destination_path": "server/server_config.py",
+      "description": "Relocate server_config.py: Server infrastructure belongs in server/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File server/server_config.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/scriptlets/__init__.py",
+      "destination_path": "scriptlets/__init__.py",
+      "description": "Relocate __init__.py: Scriptlet components belong in scriptlets/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File scriptlets/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/scriptlets/framework.py",
+      "destination_path": "scriptlets/framework.py",
+      "description": "Relocate framework.py: Scriptlet components belong in scriptlets/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File scriptlets/framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/server/enhanced_context_server.py",
+      "destination_path": "orchestrator/enhanced_context_server.py",
+      "description": "Relocate enhanced_context_server.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/enhanced_context_server.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/dash_integration.py",
+      "destination_path": "src/dash_integration.py",
+      "description": "Relocate dash_integration.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/dash_integration.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/context_client.py",
+      "destination_path": "orchestrator/context_client.py",
+      "description": "Relocate context_client.py: Orchestration components belong in orchestrator/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File orchestrator/context_client.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/visualization/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/visualization/performance_dashboard.py",
+      "destination_path": "src/performance_dashboard.py",
+      "description": "Relocate performance_dashboard.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/performance_dashboard.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/visualization/execution_flow.py",
+      "destination_path": "src/execution_flow.py",
+      "description": "Relocate execution_flow.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/execution_flow.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/visualization/timeline_visualizer.py",
+      "destination_path": "src/timeline_visualizer.py",
+      "description": "Relocate timeline_visualizer.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/timeline_visualizer.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/visualization/enhanced_visualizer.py",
+      "destination_path": "src/enhanced_visualizer.py",
+      "description": "Relocate enhanced_visualizer.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/enhanced_visualizer.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/core/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/core/logger.py",
+      "destination_path": "src/logger.py",
+      "description": "Relocate logger.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/logger.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/analysis/__init__.py",
+      "destination_path": "src/__init__.py",
+      "description": "Relocate __init__.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/__init__.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/analysis/components.py",
+      "destination_path": "src/components.py",
+      "description": "Relocate components.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/components.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/analysis/enhanced_components.py",
+      "destination_path": "src/enhanced_components.py",
+      "description": "Relocate enhanced_components.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/enhanced_components.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/analysis/framework.py",
+      "destination_path": "src/framework.py",
+      "description": "Relocate framework.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/analysis/enhanced_framework.py",
+      "destination_path": "src/enhanced_framework.py",
+      "description": "Relocate enhanced_framework.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/enhanced_framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/src/analysis/registry.py",
+      "destination_path": "src/registry.py",
+      "description": "Relocate registry.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/registry.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/baseline_framework_analyzer.py",
+      "destination_path": "tools/baseline_framework_analyzer.py",
+      "description": "Relocate baseline_framework_analyzer.py: Development tools belong in the tools/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tools/baseline_framework_analyzer.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/workspace_cleaner_clean.py",
+      "destination_path": "src/workspace_cleaner_clean.py",
+      "description": "Relocate workspace_cleaner_clean.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/workspace_cleaner_clean.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/workspace_restructurer.py",
+      "destination_path": "tools/workspace_restructurer.py",
+      "description": "Relocate workspace_restructurer.py: Development tools belong in the tools/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tools/workspace_restructurer.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/workspace_cleaner_v2.py",
+      "destination_path": "src/workspace_cleaner_v2.py",
+      "description": "Relocate workspace_cleaner_v2.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/workspace_cleaner_v2.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/phased_restructurer.py",
+      "destination_path": "src/phased_restructurer.py",
+      "description": "Relocate phased_restructurer.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/phased_restructurer.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/workspace_cleaner.py",
+      "destination_path": "src/workspace_cleaner.py",
+      "description": "Relocate workspace_cleaner.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/workspace_cleaner.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/documentation_updater.py",
+      "destination_path": "tools/documentation_updater.py",
+      "description": "Relocate documentation_updater.py: Development tools belong in the tools/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tools/documentation_updater.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tools/baseline_documentation_updater.py",
+      "destination_path": "src/baseline_documentation_updater.py",
+      "description": "Relocate baseline_documentation_updater.py: Core framework code belongs in src/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/baseline_documentation_updater.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_delta_compression.py",
+      "destination_path": "tests/test_delta_compression.py",
+      "description": "Relocate test_delta_compression.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_delta_compression.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_analysis_framework.py",
+      "destination_path": "tests/test_analysis_framework.py",
+      "description": "Relocate test_analysis_framework.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_analysis_framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_async_integration.py",
+      "destination_path": "tests/test_async_integration.py",
+      "description": "Relocate test_async_integration.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_async_integration.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_async_load_framework.py",
+      "destination_path": "tests/test_async_load_framework.py",
+      "description": "Relocate test_async_load_framework.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_async_load_framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_simple_validation.py",
+      "destination_path": "tests/test_simple_validation.py",
+      "description": "Relocate test_simple_validation.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_simple_validation.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_enhanced_persistence.py",
+      "destination_path": "tests/test_enhanced_persistence.py",
+      "description": "Relocate test_enhanced_persistence.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_enhanced_persistence.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_realtime_performance.py",
+      "destination_path": "tests/test_realtime_performance.py",
+      "description": "Relocate test_realtime_performance.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_realtime_performance.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_integration.py",
+      "destination_path": "tests/test_integration.py",
+      "description": "Relocate test_integration.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_integration.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_performance_load.py",
+      "destination_path": "tests/test_performance_load.py",
+      "description": "Relocate test_performance_load.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_performance_load.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_enhanced_context_server.py",
+      "destination_path": "tests/test_enhanced_context_server.py",
+      "description": "Relocate test_enhanced_context_server.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_enhanced_context_server.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_basic_performance.py",
+      "destination_path": "tests/test_basic_performance.py",
+      "description": "Relocate test_basic_performance.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_basic_performance.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_websocket_performance.py",
+      "destination_path": "tests/test_websocket_performance.py",
+      "description": "Relocate test_websocket_performance.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_websocket_performance.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_scriptlet_framework.py",
+      "destination_path": "tests/test_scriptlet_framework.py",
+      "description": "Relocate test_scriptlet_framework.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_scriptlet_framework.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": ".restructuring_backup/tests/test_core_functionality.py",
+      "destination_path": "tests/test_core_functionality.py",
+      "description": "Relocate test_core_functionality.py: Test files should be organized in the tests/ directory",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File tests/test_core_functionality.py must exist and be identical to original"
+      ]
+    },
+    {
+      "operation_type": "move",
+      "source_path": "analysis/__init__.py",
+      "destination_path": "src/analysis/__init__.py",
+      "description": "Relocate __init__.py: Analysis tools belong in src/analysis/",
+      "priority": 3,
+      "requires_backup": true,
+      "git_tracked": false,
+      "dependencies": [],
+      "validation_rules": [
+        "File src/analysis/__init__.py must exist and be identical to original"
+      ]
+    }
+  ],
+  "validation_checks": [
+    "File src/dash_demo.py must exist and be identical to original",
+    "File src/db_adapter.py must exist and be identical to original",
+    "File scriptlets/framework.py must exist and be identical to original",
+    "All moved files retained their original content and permissions",
+    "File orchestrator/memory_bus.py must exist and be identical to original",
+    "File tests/test_core_functionality.py must exist and be identical to original",
+    "File src/__init__.py must exist and be identical to original",
+    "File docs/PERFORMANCE_TESTING_REPORT.md must exist and be identical to original",
+    "File src/__init__-checkpoint.py must exist and be identical to original",
+    "No files were lost or corrupted during restructuring",
+    "File docs/integration_patterns.md must exist and be identical to original",
+    "File src/dash_integration.py must exist and be identical to original",
+    "File src/memory_bus-checkpoint.py must exist and be identical to original",
+    "File docs/getting_started.md must exist and be identical to original",
+    "File src/registry.py must exist and be identical to original",
+    "File tests/test_delta_compression.py must exist and be identical to original",
+    "File tests/test_visualization_system.py must exist and be identical to original",
+    "File src/analysis/__init__.py must exist and be identical to original",
+    "All Framework0 required directories exist and are accessible",
+    "File tests/test_performance_load.py must exist and be identical to original",
+    "File tests/test_enhanced_analysis_framework.py must exist and be identical to original",
+    "File docs/api_reference.md must exist and be identical to original",
+    "File src/basic_usage.py must exist and be identical to original",
+    "File docs/Copilot-prompt.md must exist and be identical to original",
+    "File docs/delta_compression.md must exist and be identical to original",
+    "File src/core.py must exist and be identical to original",
+    "File src/execution_flow.py must exist and be identical to original",
+    "File tools/documentation_updater.py must exist and be identical to original",
+    "File docs/copilot-instructions.md must exist and be identical to original",
+    "File tests/test_simple_validation.py must exist and be identical to original",
+    "File src/snapshot.py must exist and be identical to original",
+    "File src/timeline_visualizer.py must exist and be identical to original",
+    "File tests/test_enhanced_persistence.py must exist and be identical to original",
+    "File server/server_config.py must exist and be identical to original",
+    "File src/performance_dashboard.py must exist and be identical to original",
+    "File tools/workspace_restructurer.py must exist and be identical to original",
+    "File orchestrator/recipe_parser.py must exist and be identical to original",
+    "File src/baseline_documentation_updater.py must exist and be identical to original",
+    "File orchestrator/context_client.py must exist and be identical to original",
+    "File tests/test_basic_performance.py must exist and be identical to original",
+    "File tests/test_scriptlet_framework.py must exist and be identical to original",
+    "File src/components.py must exist and be identical to original",
+    "File tests/test_workspace_cleaner_v2.py must exist and be identical to original",
+    "File src/enhanced_visualizer.py must exist and be identical to original",
+    "File tests/test_analysis_framework.py must exist and be identical to original",
+    "File tests/test_enhanced_recipe_parser.py must exist and be identical to original",
+    "File tests/test_enhanced_context_server.py must exist and be identical to original",
+    "File src/framework.py must exist and be identical to original",
+    "File src/enhanced_components.py must exist and be identical to original",
+    "File src/delta.py must exist and be identical to original",
+    "File src/workspace_cleaner_v2.py must exist and be identical to original",
+    "File orchestrator/context-checkpoint.py must exist and be identical to original",
+    "Framework0 baseline compliance score is 100%",
+    "File tests/test_realtime_performance.py must exist and be identical to original",
+    "File src/persistence.py must exist and be identical to original",
+    "File tests/test_integration.py must exist and be identical to original",
+    "File src/enhanced.py must exist and be identical to original",
+    "File src/phased_restructurer.py must exist and be identical to original",
+    "File orchestrator/context.py must exist and be identical to original",
+    "File docs/deployment_guide.md must exist and be identical to original",
+    "Python imports continue to work after restructuring",
+    "File tests/test_async_integration.py must exist and be identical to original",
+    "File server/enhanced_context_server.py must exist and be identical to original",
+    "File tests/test_enhanced_memory_bus.py must exist and be identical to original",
+    "File tests/test_delta_module.py must exist and be identical to original",
+    "File orchestrator/runner.py must exist and be identical to original",
+    "File src/workspace_cleaner_clean.py must exist and be identical to original",
+    "File src/enhanced_framework.py must exist and be identical to original",
+    "File src/integration_demo.py must exist and be identical to original",
+    "File orchestrator/enhanced_memory_bus.py must exist and be identical to original",
+    "File tests/test_async_load_framework.py must exist and be identical to original",
+    "File docs/method_index.md must exist and be identical to original",
+    "File tools/baseline_framework_analyzer.py must exist and be identical to original",
+    "File src/version_control.py must exist and be identical to original",
+    "File tests/test_websocket_performance.py must exist and be identical to original",
+    "File src/cache.py must exist and be identical to original",
+    "File orchestrator/enhanced_context_server.py must exist and be identical to original",
+    "Git repository integrity is maintained",
+    "File docs/PERFORMANCE_TESTING_COMPLETION.md must exist and be identical to original",
+    "File src/logger.py must exist and be identical to original",
+    "File src/debug_enhanced_memory_bus.py must exist and be identical to original",
+    "File docs/troubleshooting.md must exist and be identical to original",
+    "File tests/test_framework0_integration.py must exist and be identical to original",
+    "File docs/PROJECT_COMPLETION_REPORT.md must exist and be identical to original",
+    "File orchestrator/dependency_graph.py must exist and be identical to original",
+    "File docs/WEBSOCKET_ASYNC_PERFORMANCE_COMPLETION.md must exist and be identical to original",
+    "File scriptlets/__init__.py must exist and be identical to original",
+    "All Python packages have valid __init__.py files",
+    "File src/workspace_cleaner.py must exist and be identical to original",
+    "File docs/test_execution_report.md must exist and be identical to original",
+    "File orchestrator/enhanced_recipe_parser.py must exist and be identical to original"
+  ],
+  "rollback_plan": [
+    "Stop all Framework0 processes and services",
+    "Create emergency backup of current state",
+    "Restore files from backup location: /home/hai/hai_vscode/MyDevelopment/.restructuring_backup",
+    "Verify git repository integrity with 'git status'",
+    "Run 'git fsck' to check repository consistency",
+    "Restore original file permissions and ownership",
+    "Verify Python imports work with test execution",
+    "Document rollback reason and lessons learned",
+    "Clean up temporary restructuring files",
+    "Restore workspace to pre-restructuring state"
+  ]
+}

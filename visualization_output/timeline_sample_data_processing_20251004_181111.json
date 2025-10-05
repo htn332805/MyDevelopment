@@ -1,0 +1,120 @@
+{
+  "recipe_id": "sample_data_processing",
+  "recipe_name": "Sample Data Processing Pipeline",
+  "start_time": 1759626667.5757515,
+  "end_time": 1759626671.593425,
+  "total_duration": 4.017673492431641,
+  "status": "error",
+  "steps": [
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_0",
+      "name": "Load Data",
+      "status": "completed",
+      "start_time": 1759626667.584975,
+      "end_time": 1759626668.0855026,
+      "execution_time": 0.5005276203155518,
+      "dependencies": [],
+      "memory_usage": 105.00215104453339,
+      "cpu_usage": 33.75146591845596,
+      "io_operations": 328
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_1",
+      "name": "Data Validation",
+      "status": "completed",
+      "start_time": 1759626668.0859337,
+      "end_time": 1759626668.5862963,
+      "execution_time": 0.5003626346588135,
+      "dependencies": [
+        "Load Data"
+      ],
+      "memory_usage": 120.4990352343015,
+      "cpu_usage": 57.03338723338379,
+      "io_operations": 658
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_2",
+      "name": "Data Cleaning",
+      "status": "completed",
+      "start_time": 1759626668.5866115,
+      "end_time": 1759626669.087013,
+      "execution_time": 0.500401496887207,
+      "dependencies": [
+        "Data Validation"
+      ],
+      "memory_usage": 184.3843639370541,
+      "cpu_usage": 21.489860971903518,
+      "io_operations": 323
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_3",
+      "name": "Feature Engineering",
+      "status": "error",
+      "start_time": 1759626669.087467,
+      "end_time": 1759626669.5878253,
+      "execution_time": 0.5003583431243896,
+      "dependencies": [
+        "Data Cleaning"
+      ],
+      "memory_usage": 320.40374580999605,
+      "cpu_usage": 76.8373518881584,
+      "io_operations": 0
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_4",
+      "name": "Model Training",
+      "status": "completed",
+      "start_time": 1759626669.5882854,
+      "end_time": 1759626670.088878,
+      "execution_time": 0.5005924701690674,
+      "dependencies": [
+        "Feature Engineering"
+      ],
+      "memory_usage": 240.26499471804718,
+      "cpu_usage": 40.97599104808293,
+      "io_operations": 559
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_5",
+      "name": "Model Evaluation",
+      "status": "completed",
+      "start_time": 1759626670.0898676,
+      "end_time": 1759626670.5907476,
+      "execution_time": 0.5008800029754639,
+      "dependencies": [
+        "Model Training"
+      ],
+      "memory_usage": 261.8860913355653,
+      "cpu_usage": 20.32493798390305,
+      "io_operations": 925
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_6",
+      "name": "Generate Report",
+      "status": "completed",
+      "start_time": 1759626670.591574,
+      "end_time": 1759626671.0923676,
+      "execution_time": 0.5007936954498291,
+      "dependencies": [
+        "Model Evaluation"
+      ],
+      "memory_usage": 184.52287963070052,
+      "cpu_usage": 33.89356708358209,
+      "io_operations": 320
+    },
+    {
+      "step_id": "execution_Sample Data Processing Pipeline_1759626667_step_7",
+      "name": "Save Results",
+      "status": "completed",
+      "start_time": 1759626671.0928068,
+      "end_time": 1759626671.5931392,
+      "execution_time": 0.5003323554992676,
+      "dependencies": [
+        "Generate Report"
+      ],
+      "memory_usage": 167.31890902252536,
+      "cpu_usage": 24.637292169007395,
+      "io_operations": 199
+    }
+  ]
+}

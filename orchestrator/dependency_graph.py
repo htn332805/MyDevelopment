@@ -3,6 +3,7 @@
 import networkx as nx
 from typing import List, Dict, Any
 
+
 class DependencyGraph:
     """
     A class to represent a directed acyclic graph (DAG) of tasks and their dependencies.
@@ -34,7 +35,7 @@ class DependencyGraph:
 
     def get_task_order(self) -> List[str]:
         """
-        Returns a list of tasks in the order they should be executed, 
+        Returns a list of tasks in the order they should be executed,
         respecting their dependencies.
 
         Returns:
@@ -88,8 +89,13 @@ class DependencyGraph:
         """
         try:
             import matplotlib.pyplot as plt
+
             pos = nx.spring_layout(self.graph)
-            nx.draw(self.graph, pos, with_labels=True, node_size=3000, node_color="skyblue")
+            nx.draw(
+                self.graph, pos, with_labels=True, node_size=3000, node_color="skyblue"
+            )
             plt.show()
         except ImportError:
-            print("matplotlib is required for visualization. Install it using 'pip install matplotlib'.")
+            print(
+                "matplotlib is required for visualization. Install it using 'pip install matplotlib'."
+            )

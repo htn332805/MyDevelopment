@@ -1,0 +1,668 @@
+{
+  "graph_id": "recipe_execution_1759626640_0",
+  "created_at": 1759626640.682899,
+  "nodes": [
+    {
+      "id": "recipe_root",
+      "label": "Sample Data Processing Pipeline",
+      "type": "recipe",
+      "status": "pending",
+      "metadata": {
+        "recipe_data": {
+          "id": "sample_data_processing",
+          "name": "Sample Data Processing Pipeline",
+          "description": "Comprehensive data processing workflow with multiple steps",
+          "version": "1.0.0",
+          "steps": [
+            {
+              "name": "Load Data",
+              "module": "data_loader",
+              "function": "load_csv_data",
+              "parameters": {
+                "file_path": "/data/input.csv",
+                "encoding": "utf-8"
+              },
+              "dependencies": [],
+              "metadata": {
+                "estimated_duration": 5.0,
+                "memory_requirement": "100MB",
+                "cpu_intensive": false
+              }
+            },
+            {
+              "name": "Data Validation",
+              "module": "data_validator",
+              "function": "validate_schema",
+              "parameters": {
+                "schema_file": "/schemas/input_schema.json",
+                "strict_mode": true
+              },
+              "dependencies": [
+                "Load Data"
+              ],
+              "metadata": {
+                "estimated_duration": 2.0,
+                "memory_requirement": "50MB",
+                "cpu_intensive": false
+              }
+            },
+            {
+              "name": "Data Cleaning",
+              "module": "data_cleaner",
+              "function": "clean_dataset",
+              "parameters": {
+                "remove_nulls": true,
+                "normalize_strings": true,
+                "deduplicate": true
+              },
+              "dependencies": [
+                "Data Validation"
+              ],
+              "metadata": {
+                "estimated_duration": 15.0,
+                "memory_requirement": "200MB",
+                "cpu_intensive": true
+              }
+            },
+            {
+              "name": "Feature Engineering",
+              "module": "feature_engineer",
+              "function": "extract_features",
+              "parameters": {
+                "feature_sets": [
+                  "basic",
+                  "advanced"
+                ],
+                "normalization": "standard"
+              },
+              "dependencies": [
+                "Data Cleaning"
+              ],
+              "metadata": {
+                "estimated_duration": 25.0,
+                "memory_requirement": "300MB",
+                "cpu_intensive": true
+              }
+            },
+            {
+              "name": "Model Training",
+              "module": "ml_trainer",
+              "function": "train_model",
+              "parameters": {
+                "algorithm": "random_forest",
+                "hyperparameters": {
+                  "n_estimators": 100,
+                  "max_depth": 10
+                }
+              },
+              "dependencies": [
+                "Feature Engineering"
+              ],
+              "metadata": {
+                "estimated_duration": 60.0,
+                "memory_requirement": "500MB",
+                "cpu_intensive": true
+              }
+            },
+            {
+              "name": "Model Evaluation",
+              "module": "model_evaluator",
+              "function": "evaluate_performance",
+              "parameters": {
+                "metrics": [
+                  "accuracy",
+                  "precision",
+                  "recall",
+                  "f1"
+                ],
+                "cross_validation": true
+              },
+              "dependencies": [
+                "Model Training"
+              ],
+              "metadata": {
+                "estimated_duration": 10.0,
+                "memory_requirement": "100MB",
+                "cpu_intensive": false
+              }
+            },
+            {
+              "name": "Generate Report",
+              "module": "report_generator",
+              "function": "create_analysis_report",
+              "parameters": {
+                "format": "html",
+                "include_visualizations": true
+              },
+              "dependencies": [
+                "Model Evaluation"
+              ],
+              "metadata": {
+                "estimated_duration": 8.0,
+                "memory_requirement": "75MB",
+                "cpu_intensive": false
+              }
+            },
+            {
+              "name": "Save Results",
+              "module": "data_saver",
+              "function": "save_results",
+              "parameters": {
+                "output_path": "/results/",
+                "format": "json",
+                "compress": true
+              },
+              "dependencies": [
+                "Generate Report"
+              ],
+              "metadata": {
+                "estimated_duration": 3.0,
+                "memory_requirement": "50MB",
+                "cpu_intensive": false
+              }
+            }
+          ],
+          "metadata": {
+            "author": "Framework0 Team",
+            "created_at": 1759626640.6794865,
+            "tags": [
+              "data_processing",
+              "ml",
+              "pipeline"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "step_0_Load Data",
+      "label": "Load Data",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Load Data",
+          "module": "data_loader",
+          "function": "load_csv_data",
+          "parameters": {
+            "file_path": "/data/input.csv",
+            "encoding": "utf-8"
+          },
+          "dependencies": [],
+          "metadata": {
+            "estimated_duration": 5.0,
+            "memory_requirement": "100MB",
+            "cpu_intensive": false
+          }
+        },
+        "index": 0
+      }
+    },
+    {
+      "id": "step_1_Data Validation",
+      "label": "Data Validation",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Data Validation",
+          "module": "data_validator",
+          "function": "validate_schema",
+          "parameters": {
+            "schema_file": "/schemas/input_schema.json",
+            "strict_mode": true
+          },
+          "dependencies": [
+            "Load Data"
+          ],
+          "metadata": {
+            "estimated_duration": 2.0,
+            "memory_requirement": "50MB",
+            "cpu_intensive": false
+          }
+        },
+        "index": 1
+      }
+    },
+    {
+      "id": "step_2_Data Cleaning",
+      "label": "Data Cleaning",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Data Cleaning",
+          "module": "data_cleaner",
+          "function": "clean_dataset",
+          "parameters": {
+            "remove_nulls": true,
+            "normalize_strings": true,
+            "deduplicate": true
+          },
+          "dependencies": [
+            "Data Validation"
+          ],
+          "metadata": {
+            "estimated_duration": 15.0,
+            "memory_requirement": "200MB",
+            "cpu_intensive": true
+          }
+        },
+        "index": 2
+      }
+    },
+    {
+      "id": "step_3_Feature Engineering",
+      "label": "Feature Engineering",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Feature Engineering",
+          "module": "feature_engineer",
+          "function": "extract_features",
+          "parameters": {
+            "feature_sets": [
+              "basic",
+              "advanced"
+            ],
+            "normalization": "standard"
+          },
+          "dependencies": [
+            "Data Cleaning"
+          ],
+          "metadata": {
+            "estimated_duration": 25.0,
+            "memory_requirement": "300MB",
+            "cpu_intensive": true
+          }
+        },
+        "index": 3
+      }
+    },
+    {
+      "id": "step_4_Model Training",
+      "label": "Model Training",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Model Training",
+          "module": "ml_trainer",
+          "function": "train_model",
+          "parameters": {
+            "algorithm": "random_forest",
+            "hyperparameters": {
+              "n_estimators": 100,
+              "max_depth": 10
+            }
+          },
+          "dependencies": [
+            "Feature Engineering"
+          ],
+          "metadata": {
+            "estimated_duration": 60.0,
+            "memory_requirement": "500MB",
+            "cpu_intensive": true
+          }
+        },
+        "index": 4
+      }
+    },
+    {
+      "id": "step_5_Model Evaluation",
+      "label": "Model Evaluation",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Model Evaluation",
+          "module": "model_evaluator",
+          "function": "evaluate_performance",
+          "parameters": {
+            "metrics": [
+              "accuracy",
+              "precision",
+              "recall",
+              "f1"
+            ],
+            "cross_validation": true
+          },
+          "dependencies": [
+            "Model Training"
+          ],
+          "metadata": {
+            "estimated_duration": 10.0,
+            "memory_requirement": "100MB",
+            "cpu_intensive": false
+          }
+        },
+        "index": 5
+      }
+    },
+    {
+      "id": "step_6_Generate Report",
+      "label": "Generate Report",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Generate Report",
+          "module": "report_generator",
+          "function": "create_analysis_report",
+          "parameters": {
+            "format": "html",
+            "include_visualizations": true
+          },
+          "dependencies": [
+            "Model Evaluation"
+          ],
+          "metadata": {
+            "estimated_duration": 8.0,
+            "memory_requirement": "75MB",
+            "cpu_intensive": false
+          }
+        },
+        "index": 6
+      }
+    },
+    {
+      "id": "step_7_Save Results",
+      "label": "Save Results",
+      "type": "step",
+      "status": "pending",
+      "metadata": {
+        "step_data": {
+          "name": "Save Results",
+          "module": "data_saver",
+          "function": "save_results",
+          "parameters": {
+            "output_path": "/results/",
+            "format": "json",
+            "compress": true
+          },
+          "dependencies": [
+            "Generate Report"
+          ],
+          "metadata": {
+            "estimated_duration": 3.0,
+            "memory_requirement": "50MB",
+            "cpu_intensive": false
+          }
+        },
+        "index": 7
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "recipe_root",
+      "target": "step_0_Load Data",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_0_Load Data",
+      "target": "step_1_Data Validation",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_0_Load Data",
+      "target": "step_1_Data Validation",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    },
+    {
+      "source": "step_1_Data Validation",
+      "target": "step_2_Data Cleaning",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_1_Data Validation",
+      "target": "step_2_Data Cleaning",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    },
+    {
+      "source": "step_2_Data Cleaning",
+      "target": "step_3_Feature Engineering",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_2_Data Cleaning",
+      "target": "step_3_Feature Engineering",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    },
+    {
+      "source": "step_3_Feature Engineering",
+      "target": "step_4_Model Training",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_3_Feature Engineering",
+      "target": "step_4_Model Training",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    },
+    {
+      "source": "step_4_Model Training",
+      "target": "step_5_Model Evaluation",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_4_Model Training",
+      "target": "step_5_Model Evaluation",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    },
+    {
+      "source": "step_5_Model Evaluation",
+      "target": "step_6_Generate Report",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_5_Model Evaluation",
+      "target": "step_6_Generate Report",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    },
+    {
+      "source": "step_6_Generate Report",
+      "target": "step_7_Save Results",
+      "type": "sequence",
+      "label": null,
+      "metadata": {}
+    },
+    {
+      "source": "step_6_Generate Report",
+      "target": "step_7_Save Results",
+      "type": "dependency",
+      "label": "requires",
+      "metadata": {}
+    }
+  ],
+  "recipe_data": {
+    "id": "sample_data_processing",
+    "name": "Sample Data Processing Pipeline",
+    "description": "Comprehensive data processing workflow with multiple steps",
+    "version": "1.0.0",
+    "steps": [
+      {
+        "name": "Load Data",
+        "module": "data_loader",
+        "function": "load_csv_data",
+        "parameters": {
+          "file_path": "/data/input.csv",
+          "encoding": "utf-8"
+        },
+        "dependencies": [],
+        "metadata": {
+          "estimated_duration": 5.0,
+          "memory_requirement": "100MB",
+          "cpu_intensive": false
+        }
+      },
+      {
+        "name": "Data Validation",
+        "module": "data_validator",
+        "function": "validate_schema",
+        "parameters": {
+          "schema_file": "/schemas/input_schema.json",
+          "strict_mode": true
+        },
+        "dependencies": [
+          "Load Data"
+        ],
+        "metadata": {
+          "estimated_duration": 2.0,
+          "memory_requirement": "50MB",
+          "cpu_intensive": false
+        }
+      },
+      {
+        "name": "Data Cleaning",
+        "module": "data_cleaner",
+        "function": "clean_dataset",
+        "parameters": {
+          "remove_nulls": true,
+          "normalize_strings": true,
+          "deduplicate": true
+        },
+        "dependencies": [
+          "Data Validation"
+        ],
+        "metadata": {
+          "estimated_duration": 15.0,
+          "memory_requirement": "200MB",
+          "cpu_intensive": true
+        }
+      },
+      {
+        "name": "Feature Engineering",
+        "module": "feature_engineer",
+        "function": "extract_features",
+        "parameters": {
+          "feature_sets": [
+            "basic",
+            "advanced"
+          ],
+          "normalization": "standard"
+        },
+        "dependencies": [
+          "Data Cleaning"
+        ],
+        "metadata": {
+          "estimated_duration": 25.0,
+          "memory_requirement": "300MB",
+          "cpu_intensive": true
+        }
+      },
+      {
+        "name": "Model Training",
+        "module": "ml_trainer",
+        "function": "train_model",
+        "parameters": {
+          "algorithm": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 100,
+            "max_depth": 10
+          }
+        },
+        "dependencies": [
+          "Feature Engineering"
+        ],
+        "metadata": {
+          "estimated_duration": 60.0,
+          "memory_requirement": "500MB",
+          "cpu_intensive": true
+        }
+      },
+      {
+        "name": "Model Evaluation",
+        "module": "model_evaluator",
+        "function": "evaluate_performance",
+        "parameters": {
+          "metrics": [
+            "accuracy",
+            "precision",
+            "recall",
+            "f1"
+          ],
+          "cross_validation": true
+        },
+        "dependencies": [
+          "Model Training"
+        ],
+        "metadata": {
+          "estimated_duration": 10.0,
+          "memory_requirement": "100MB",
+          "cpu_intensive": false
+        }
+      },
+      {
+        "name": "Generate Report",
+        "module": "report_generator",
+        "function": "create_analysis_report",
+        "parameters": {
+          "format": "html",
+          "include_visualizations": true
+        },
+        "dependencies": [
+          "Model Evaluation"
+        ],
+        "metadata": {
+          "estimated_duration": 8.0,
+          "memory_requirement": "75MB",
+          "cpu_intensive": false
+        }
+      },
+      {
+        "name": "Save Results",
+        "module": "data_saver",
+        "function": "save_results",
+        "parameters": {
+          "output_path": "/results/",
+          "format": "json",
+          "compress": true
+        },
+        "dependencies": [
+          "Generate Report"
+        ],
+        "metadata": {
+          "estimated_duration": 3.0,
+          "memory_requirement": "50MB",
+          "cpu_intensive": false
+        }
+      }
+    ],
+    "metadata": {
+      "author": "Framework0 Team",
+      "created_at": 1759626640.6794865,
+      "tags": [
+        "data_processing",
+        "ml",
+        "pipeline"
+      ]
+    }
+  }
+}
