@@ -1,0 +1,319 @@
+# File Processing Recipe Template
+#
+# This template provides comprehensive file processing capabilities with:
+# - Safe file operations with backup and rollback
+# - Multiple format support (text, JSON, CSV, XML, binary)
+# - Content validation and transformation
+# - Integration with Foundation monitoring (5A-5D)
+# - Error handling and recovery
+# - Performance optimization
+#
+# Template Parameters:
+#   source_file: Path to input file (required)
+#   target_file: Path to output file (optional, defaults to source_file)
+#   operation: Type of operation (read, write, transform, validate)
+#   format: File format (auto, text, json, csv, xml, binary)
+#   encoding: File encoding (auto, utf-8, latin-1, etc.)
+#   backup: Whether to create backup before modification
+#   validation: Validation rules to apply
+#   transformation: Transformation operations to perform
+#
+# Usage Examples:
+#   # Simple file copy with validation
+#   python tools/template_generator.py --template file_processing 
+#     --source_file input.json --target_file output.json --operation copy
+#
+#   # Transform CSV to JSON with validation
+#   python tools/template_generator.py --template file_processing
+#     --source_file data.csv --target_file data.json --operation transform
+#     --format csv --validation schema_validation
+
+name: "file_processing_from_template"
+description: "Process files with validation, transformation, and monitoring"
+
+# Template metadata for generation
+template_metadata:
+  category: "core_patterns"
+  version: "1.0.0"
+  author: "Framework0 Core Team"
+  tags: ["file", "processing", "validation", "transformation"]
+  
+# Parameters with validation and defaults
+parameters:
+  source_file:
+    type: "string"
+    required: true
+    description: "Path to source file"
+    validation:
+      pattern: "^[^<>:\"|?*]+\\.[a-zA-Z0-9]+$"
+      
+  target_file:
+    type: "string" 
+    required: false
+    description: "Path to target file (defaults to source_file)"
+    validation:
+      pattern: "^[^<>:\"|?*]+\\.[a-zA-Z0-9]+$"
+      
+  operation:
+    type: "string"
+    required: true
+    description: "File operation to perform"
+    default: "read"
+    validation:
+      enum: ["read", "write", "copy", "move", "transform", "validate", "backup"]
+      
+  file_format:
+    type: "string"
+    required: false
+    description: "File format for processing"
+    default: "auto"
+    validation:
+      enum: ["auto", "text", "json", "csv", "xml", "yaml", "binary"]
+      
+  encoding:
+    type: "string"
+    required: false
+    description: "File encoding"
+    default: "auto"
+    validation:
+      enum: ["auto", "utf-8", "utf-16", "latin-1", "ascii"]
+      
+  create_backup:
+    type: "boolean"
+    required: false
+    description: "Create backup before modification"
+    default: true
+    
+  validation_rules:
+    type: "object"
+    required: false
+    description: "Validation rules to apply"
+    default: {}
+    
+  transformation_rules:
+    type: "object"
+    required: false
+    description: "Transformation operations"
+    default: {}
+    
+  performance_tracking:
+    type: "boolean"
+    required: false
+    description: "Enable performance monitoring"
+    default: true
+
+# Recipe steps with Foundation integration
+steps:
+  # Step 1: Initialize and validate parameters
+  - name: "initialize_file_processing"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "initialize_processing"
+    parameters:
+      source_file: "{{ parameters.source_file }}"
+      target_file: "{{ parameters.target_file or parameters.source_file }}"
+      operation: "{{ parameters.operation }}"
+      file_format: "{{ parameters.file_format }}"
+      encoding: "{{ parameters.encoding }}"
+      create_backup: "{{ parameters.create_backup }}"
+      validation_rules: "{{ parameters.validation_rules }}"
+      transformation_rules: "{{ parameters.transformation_rules }}"
+      performance_tracking: "{{ parameters.performance_tracking }}"
+    on_error: "fail_fast"
+    monitoring:
+      performance: true
+      health_check: true
+      
+  # Step 2: Validate source file and permissions
+  - name: "validate_source_file"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "validate_source_file"
+    parameters:
+      file_path: "{{ steps.initialize_file_processing.validated_source }}"
+      required_permissions: ["read"]
+      validation_rules: "{{ parameters.validation_rules }}"
+    dependencies: ["initialize_file_processing"]
+    on_error: "fail_fast"
+    monitoring:
+      performance: true
+      
+  # Step 3: Create backup if requested
+  - name: "create_backup"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "create_backup"
+    parameters:
+      source_file: "{{ steps.validate_source_file.file_path }}"
+      create_backup: "{{ parameters.create_backup }}"
+    dependencies: ["validate_source_file"]
+    condition: "{{ parameters.create_backup == true }}"
+    on_error: "warn_continue"
+    monitoring:
+      performance: true
+      
+  # Step 4: Read and process file content
+  - name: "read_file_content"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "read_file_content"
+    parameters:
+      file_path: "{{ steps.validate_source_file.file_path }}"
+      file_format: "{{ parameters.file_format }}"
+      encoding: "{{ steps.initialize_file_processing.detected_encoding }}"
+      validation_rules: "{{ parameters.validation_rules }}"
+    dependencies: ["validate_source_file"]
+    on_error: "fail_fast"
+    monitoring:
+      performance: true
+      memory_usage: true
+      
+  # Step 5: Apply transformations if specified
+  - name: "apply_transformations"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "apply_transformations"
+    parameters:
+      content: "{{ steps.read_file_content.content }}"
+      file_format: "{{ parameters.file_format }}"
+      transformation_rules: "{{ parameters.transformation_rules }}"
+      source_file: "{{ parameters.source_file }}"
+    dependencies: ["read_file_content"]
+    condition: "{{ parameters.transformation_rules | length > 0 }}"
+    on_error: "rollback"
+    monitoring:
+      performance: true
+      
+  # Step 6: Validate transformed content
+  - name: "validate_transformed_content"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "validate_content"
+    parameters:
+      content: "{{ steps.apply_transformations.transformed_content or steps.read_file_content.content }}"
+      file_format: "{{ parameters.file_format }}"
+      validation_rules: "{{ parameters.validation_rules }}"
+      validation_type: "output"
+    dependencies: ["apply_transformations", "read_file_content"]
+    on_error: "rollback"
+    monitoring:
+      performance: true
+      
+  # Step 7: Write processed content to target file
+  - name: "write_file_content"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "write_file_content"
+    parameters:
+      target_file: "{{ steps.initialize_file_processing.validated_target }}"
+      content: "{{ steps.validate_transformed_content.validated_content or steps.read_file_content.content }}"
+      file_format: "{{ parameters.file_format }}"
+      encoding: "{{ steps.initialize_file_processing.target_encoding }}"
+      operation: "{{ parameters.operation }}"
+    dependencies: ["validate_transformed_content"]
+    condition: "{{ parameters.operation in ['write', 'copy', 'move', 'transform'] }}"
+    on_error: "rollback"
+    monitoring:
+      performance: true
+      
+  # Step 8: Verify written file integrity
+  - name: "verify_file_integrity"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "verify_file_integrity"
+    parameters:
+      file_path: "{{ steps.write_file_content.written_file }}"
+      expected_content: "{{ steps.validate_transformed_content.validated_content or steps.read_file_content.content }}"
+      file_format: "{{ parameters.file_format }}"
+    dependencies: ["write_file_content"]
+    condition: "{{ parameters.operation in ['write', 'copy', 'move', 'transform'] }}"
+    on_error: "rollback"
+    monitoring:
+      performance: true
+      
+  # Step 9: Cleanup and finalize
+  - name: "finalize_processing"
+    type: "scriptlet"
+    scriptlet: "core.file_processing"
+    function: "finalize_processing"
+    parameters:
+      operation: "{{ parameters.operation }}"
+      source_file: "{{ parameters.source_file }}"
+      target_file: "{{ steps.initialize_file_processing.validated_target }}"
+      backup_file: "{{ steps.create_backup.backup_file }}"
+      cleanup_backup: false
+    dependencies: ["verify_file_integrity"]
+    on_error: "warn_continue"
+    monitoring:
+      performance: true
+
+# Global error handling and rollback
+error_handling:
+  strategy: "rollback_on_failure"
+  rollback_steps:
+    - name: "restore_from_backup"
+      condition: "{{ steps.create_backup.backup_created == true }}"
+      scriptlet: "core.file_processing"
+      function: "restore_from_backup"
+      parameters:
+        backup_file: "{{ steps.create_backup.backup_file }}"
+        target_file: "{{ parameters.source_file }}"
+        
+    - name: "cleanup_partial_files"
+      scriptlet: "core.file_processing"
+      function: "cleanup_partial_files"
+      parameters:
+        target_file: "{{ steps.initialize_file_processing.validated_target }}"
+        source_file: "{{ parameters.source_file }}"
+
+# Performance and monitoring configuration
+monitoring:
+  foundation_integration: true
+  performance_metrics:
+    - "file_size_processed"
+    - "processing_duration"
+    - "memory_usage_peak"
+    - "io_operations_count"
+  health_checks:
+    - "file_accessibility"
+    - "disk_space_available"
+    - "memory_availability"
+  error_tracking:
+    - "file_permission_errors"
+    - "encoding_errors"
+    - "validation_failures"
+    - "transformation_errors"
+
+# Output specification
+outputs:
+  processing_summary:
+    description: "Summary of file processing operation"
+    type: "object"
+    properties:
+      operation_completed: "{{ steps.finalize_processing.success }}"
+      source_file: "{{ parameters.source_file }}"
+      target_file: "{{ steps.initialize_file_processing.validated_target }}"
+      files_processed: "{{ steps.finalize_processing.files_processed }}"
+      processing_duration: "{{ monitoring.total_duration }}"
+      backup_created: "{{ steps.create_backup.backup_created }}"
+      validation_passed: "{{ steps.validate_transformed_content.validation_passed }}"
+      
+  file_metadata:
+    description: "Processed file metadata"
+    type: "object"
+    properties:
+      file_size: "{{ steps.read_file_content.file_size }}"
+      file_format: "{{ steps.initialize_file_processing.detected_format }}"
+      encoding: "{{ steps.initialize_file_processing.detected_encoding }}"
+      checksum: "{{ steps.verify_file_integrity.file_checksum }}"
+      modification_time: "{{ steps.finalize_processing.modification_time }}"
+      
+  performance_metrics:
+    description: "Performance monitoring results"
+    type: "object"
+    properties:
+      total_duration: "{{ monitoring.performance.total_duration }}"
+      read_duration: "{{ monitoring.performance.read_duration }}"
+      write_duration: "{{ monitoring.performance.write_duration }}"
+      transformation_duration: "{{ monitoring.performance.transformation_duration }}"
+      memory_peak_usage: "{{ monitoring.performance.memory_peak_usage }}"

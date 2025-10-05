@@ -1,0 +1,9 @@
+name: test_missing_dependencies
+description: Test recipe with missing dependencies to verify CLI notification
+
+steps:
+  - name: missing_step
+    module: engine.steps.python.missing_module
+    args:
+      src: orchestrator/Data/missing_file.csv
+      output: results

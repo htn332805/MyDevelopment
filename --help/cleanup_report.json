@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-10-05T08:28:20.156091",
+  "workspace_path": "--help",
+  "backup_location": "--help/backup_pre_cleanup",
+  "files_removed": 1,
+  "files_preserved": 0,
+  "errors": 1,
+  "integrity_check": {
+    "essential_files": {
+      "status": "complete",
+      "files": [],
+      "missing": [
+        "orchestrator/context/context.py",
+        "scriptlets/framework.py",
+        "src/analysis/framework.py",
+        "src/analysis/components.py",
+        "src/analysis/registry.py",
+        "src/core/logger.py",
+        "tests/test_analysis_framework.py",
+        "tests/test_scriptlet_framework.py"
+      ]
+    },
+    "directory_structure": {
+      "status": "complete",
+      "dirs": [
+        "src",
+        "src/core",
+        "src/analysis",
+        "orchestrator",
+        "orchestrator/context",
+        "scriptlets",
+        "tests",
+        "tools",
+        "docs",
+        "examples"
+      ],
+      "missing": []
+    },
+    "import_integrity": {
+      "status": "checking",
+      "imports": [],
+      "errors": []
+    },
+    "overall_status": "failed"
+  },
+  "summary": {
+    "status": "partial",
+    "removed_files": [
+      "examples/"
+    ],
+    "preserved_files": [],
+    "error_messages": [
+      "Missing essential files: ['orchestrator/context/context.py', 'scriptlets/framework.py', 'src/analysis/framework.py', 'src/analysis/components.py', 'src/analysis/registry.py', 'src/core/logger.py']"
+    ]
+  }
+}

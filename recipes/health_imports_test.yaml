@@ -1,0 +1,18 @@
+# Health Monitoring Framework - Import Test Recipe
+
+test_meta:
+  test_id: health-monitoring-imports
+  tester: framework0_system  
+  description: "Test health monitoring module imports"
+
+steps:
+  - idx: 1
+    name: test_health_imports
+    type: python
+    module: engine.steps.python.test_health_monitoring
+    function: TestHealthMonitoringScriptlet
+    args:
+      test_type: import_validation
+    success:
+      ctx_has_keys:
+        - health_test.success

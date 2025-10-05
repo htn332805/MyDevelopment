@@ -1,0 +1,18 @@
+# Foundation Logging Framework - Simple Test Recipe
+
+test_meta:
+  test_id: foundation-logging-simple
+  tester: framework0_system  
+  description: "Simple test of modular logging framework"
+
+steps:
+  - idx: 1
+    name: test_logging_import
+    type: python
+    module: engine.steps.python.test_logging_framework
+    function: TestLoggingFramework
+    args:
+      test_type: import_validation
+    success:
+      ctx_has_keys:
+        - logging_test.import_success

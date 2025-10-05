@@ -1,0 +1,64 @@
+# Health Monitoring Framework - Integration Test Recipe
+
+test_meta:
+  test_id: health-monitoring-integration
+  tester: framework0_system  
+  description: "Test health monitoring scriptlet integration"
+
+steps:
+  - idx: 1
+    name: setup_health_monitoring
+    type: python
+    module: scriptlets.foundation.health_monitoring
+    function: HealthMonitoringScriptlet
+    args:
+      action: setup
+      initial_check: true
+      config:
+        monitoring:
+          enabled: true
+          check_interval: 30
+        thresholds:
+          cpu_usage_total:
+            warning_max: 80.0
+            critical_max: 95.0
+          memory_usage_percent:
+            warning_max: 85.0
+            critical_max: 95.0
+    success:
+      ctx_has_keys:
+        - health.monitoring_enabled
+        
+  - idx: 2  
+    name: run_health_checks
+    type: python
+    module: scriptlets.foundation.health_monitoring
+    function: HealthMonitoringScriptlet
+    args:
+      action: check
+    success:
+      ctx_has_keys:
+        - health.latest_results
+        
+  - idx: 3
+    name: generate_health_report
+    type: python
+    module: scriptlets.foundation.health_monitoring
+    function: HealthMonitoringScriptlet
+    args:
+      action: report
+      format: text
+    success:
+      ctx_has_keys:
+        - health.latest_report
+        
+  - idx: 4
+    name: validate_health_system
+    type: python
+    module: engine.steps.python.test_health_monitoring
+    function: TestHealthMonitoringScriptlet
+    args:
+      test_type: full_validation
+    success:
+      ctx_has_keys:
+        - health_test.success

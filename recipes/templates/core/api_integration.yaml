@@ -1,0 +1,727 @@
+# Framework0 Core Recipe Template - API Integration
+# Comprehensive HTTP request handling with authentication, rate limiting, and monitoring
+#
+# This template provides enterprise-grade API integration capabilities including:
+# - Multiple authentication methods (Bearer, Basic, API Key, OAuth2)
+# - Configurable rate limiting and retry logic
+# - Request/response validation and transformation
+# - Foundation system integration for monitoring and health checks
+# - Comprehensive error handling with circuit breaker patterns
+# - Performance metrics and request analytics
+
+name: api_integration_template
+version: "1.0.0"
+description: "Comprehensive API integration template with authentication, rate limiting, and monitoring"
+category: "core_patterns"
+author: "Framework0 Core Team"
+created_date: "2024-10-05"
+tags:
+  - "http"
+  - "api"
+  - "authentication"
+  - "rate_limiting" 
+  - "monitoring"
+  - "foundation_integration"
+
+# Template parameters with comprehensive validation
+parameters:
+  # Core API configuration
+  base_url:
+    type: "string"
+    description: "Base URL for the API endpoint"
+    required: true
+    validation:
+      pattern: "^https?://[\\w\\.-]+(:\\d+)?(/.*)?$"
+      examples:
+        - "https://api.example.com"
+        - "https://api.example.com:8443/v1"
+      error_message: "Must be a valid HTTP/HTTPS URL"
+  
+  endpoint:
+    type: "string" 
+    description: "API endpoint path (will be appended to base_url)"
+    required: true
+    validation:
+      pattern: "^/.*$"
+      examples:
+        - "/users"
+        - "/v1/data/records"
+        - "/auth/token"
+      error_message: "Endpoint must start with forward slash"
+  
+  method:
+    type: "string"
+    description: "HTTP method for the request"
+    required: true
+    default: "GET"
+    validation:
+      enum: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+      error_message: "Must be a valid HTTP method"
+  
+  # Authentication configuration
+  authentication:
+    type: "object"
+    description: "Authentication configuration for API requests"
+    required: false
+    default:
+      type: "none"
+    validation:
+      schema:
+        type: "object"
+        properties:
+          type:
+            type: "string"
+            enum: ["none", "bearer", "basic", "api_key", "oauth2", "custom"]
+          token:
+            type: "string"
+            description: "Authentication token (for bearer/api_key)"
+          username:
+            type: "string"
+            description: "Username (for basic auth)"
+          password:
+            type: "string"
+            description: "Password (for basic auth)"
+          api_key_header:
+            type: "string"
+            description: "Header name for API key (default: X-API-Key)"
+          oauth2_config:
+            type: "object"
+            description: "OAuth2 configuration"
+            properties:
+              client_id:
+                type: "string"
+              client_secret:
+                type: "string"
+              token_url:
+                type: "string"
+              scope:
+                type: "string"
+          custom_headers:
+            type: "object"
+            description: "Custom authentication headers"
+        required: ["type"]
+      error_message: "Invalid authentication configuration"
+  
+  # Request configuration
+  headers:
+    type: "object"
+    description: "Additional HTTP headers for the request"
+    required: false
+    default: {}
+    validation:
+      additional_properties: true
+      examples:
+        - {"Content-Type": "application/json", "User-Agent": "Framework0/1.0"}
+      error_message: "Headers must be key-value pairs"
+  
+  query_params:
+    type: "object"
+    description: "URL query parameters"
+    required: false
+    default: {}
+    validation:
+      additional_properties: true
+      examples:
+        - {"limit": 100, "offset": 0, "filter": "active"}
+      error_message: "Query parameters must be key-value pairs"
+  
+  request_body:
+    type: ["object", "string", "null"]
+    description: "Request body data (for POST/PUT/PATCH requests)"
+    required: false
+    default: null
+    validation:
+      examples:
+        - {"name": "John Doe", "email": "john@example.com"}
+        - '{"data": {"key": "value"}}'
+      error_message: "Request body must be object or string"
+  
+  content_type:
+    type: "string"
+    description: "Content-Type header for request body"
+    required: false
+    default: "application/json"
+    validation:
+      enum: ["application/json", "application/xml", "application/x-www-form-urlencoded", "text/plain", "multipart/form-data"]
+      error_message: "Must be a supported content type"
+  
+  # Rate limiting and retry configuration
+  rate_limiting:
+    type: "object"
+    description: "Rate limiting configuration"
+    required: false
+    default:
+      enabled: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          requests_per_second:
+            type: "number"
+            minimum: 0.1
+            maximum: 1000
+          requests_per_minute:
+            type: "number"
+            minimum: 1
+            maximum: 60000
+          burst_size:
+            type: "number"
+            minimum: 1
+            maximum: 1000
+        required: ["enabled"]
+      error_message: "Invalid rate limiting configuration"
+  
+  retry_config:
+    type: "object"
+    description: "Retry configuration for failed requests"
+    required: false
+    default:
+      enabled: true
+      max_attempts: 3
+      backoff_strategy: "exponential"
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          max_attempts:
+            type: "integer"
+            minimum: 1
+            maximum: 10
+          backoff_strategy:
+            type: "string"
+            enum: ["fixed", "linear", "exponential"]
+          initial_delay:
+            type: "number"
+            minimum: 0.1
+            maximum: 60
+          max_delay:
+            type: "number"
+            minimum: 1
+            maximum: 300
+          retry_on_status:
+            type: "array"
+            items:
+              type: "integer"
+              minimum: 400
+              maximum: 599
+        required: ["enabled", "max_attempts", "backoff_strategy"]
+      error_message: "Invalid retry configuration"
+  
+  # Response handling configuration
+  response_validation:
+    type: "object"
+    description: "Response validation configuration"
+    required: false
+    default:
+      enabled: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          expected_status_codes:
+            type: "array"
+            items:
+              type: "integer"
+              minimum: 100
+              maximum: 599
+          response_schema:
+            type: "object"
+            description: "JSON schema for response validation"
+          required_fields:
+            type: "array"
+            items:
+              type: "string"
+          content_type_validation:
+            type: "boolean"
+        required: ["enabled"]
+      error_message: "Invalid response validation configuration"
+  
+  response_transformation:
+    type: "object"
+    description: "Response transformation rules"
+    required: false
+    default:
+      enabled: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          extract_fields:
+            type: "array"
+            items:
+              type: "string"
+          field_mappings:
+            type: "object"
+            additional_properties: true
+          data_filters:
+            type: "object"
+            additional_properties: true
+        required: ["enabled"]
+      error_message: "Invalid response transformation configuration"
+  
+  # Timeout and connection configuration
+  timeout_config:
+    type: "object"
+    description: "Request timeout configuration"
+    required: false
+    default:
+      connect_timeout: 30
+      read_timeout: 60
+    validation:
+      schema:
+        type: "object"
+        properties:
+          connect_timeout:
+            type: "number"
+            minimum: 1
+            maximum: 300
+          read_timeout:
+            type: "number"
+            minimum: 1
+            maximum: 600
+          total_timeout:
+            type: "number"
+            minimum: 1
+            maximum: 900
+        required: ["connect_timeout", "read_timeout"]
+      error_message: "Invalid timeout configuration"
+  
+  # Security configuration
+  security_config:
+    type: "object"
+    description: "Security configuration for API requests"
+    required: false
+    default:
+      verify_ssl: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          verify_ssl:
+            type: "boolean"
+          ssl_cert_path:
+            type: "string"
+          ssl_key_path:
+            type: "string"
+          ca_cert_path:
+            type: "string"
+          allow_redirects:
+            type: "boolean"
+          max_redirects:
+            type: "integer"
+            minimum: 0
+            maximum: 10
+        required: ["verify_ssl"]
+      error_message: "Invalid security configuration"
+  
+  # Monitoring and Foundation integration
+  monitoring_config:
+    type: "object"
+    description: "Monitoring and performance tracking configuration"
+    required: false
+    default:
+      enabled: true
+      track_performance: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          track_performance:
+            type: "boolean"
+          log_requests:
+            type: "boolean"
+          log_responses:
+            type: "boolean"
+          log_response_body:
+            type: "boolean"
+          performance_thresholds:
+            type: "object"
+            properties:
+              warning_ms:
+                type: "number"
+              error_ms:
+                type: "number"
+        required: ["enabled", "track_performance"]
+      error_message: "Invalid monitoring configuration"
+
+# Recipe steps with comprehensive API handling workflow
+steps:
+  - name: "initialize_api_client"
+    description: "Initialize API client with configuration and authentication"
+    scriptlet: "core.api_integration"
+    function: "initialize_api_client"
+    parameters:
+      base_url: "{{ base_url }}"
+      authentication: "{{ authentication }}"
+      security_config: "{{ security_config }}"
+      timeout_config: "{{ timeout_config }}"
+      monitoring_config: "{{ monitoring_config }}"
+    outputs:
+      - name: "api_client_config"
+        description: "Initialized API client configuration"
+      - name: "authentication_status" 
+        description: "Authentication initialization status"
+    error_handling:
+      on_failure: "rollback"
+      max_retries: 2
+      retry_delay: 1
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Initializing API client for {{ base_url }}"
+      performance:
+        track: true
+        threshold_warning_ms: 1000
+      health_check:
+        endpoint: "client_initialization"
+        timeout: 5
+  
+  - name: "validate_request_parameters"
+    description: "Validate request parameters and configuration"
+    scriptlet: "core.api_integration"
+    function: "validate_request_parameters"
+    parameters:
+      endpoint: "{{ endpoint }}"
+      method: "{{ method }}"
+      headers: "{{ headers }}"
+      query_params: "{{ query_params }}"
+      request_body: "{{ request_body }}"
+      content_type: "{{ content_type }}"
+    outputs:
+      - name: "validated_request_config"
+        description: "Validated and normalized request configuration"
+    depends_on: ["initialize_api_client"]
+    error_handling:
+      on_failure: "fail_fast"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Validating request parameters for {{ method }} {{ endpoint }}"
+      performance:
+        track: true
+  
+  - name: "apply_rate_limiting"
+    description: "Apply rate limiting before making request"
+    scriptlet: "core.api_integration"
+    function: "apply_rate_limiting"
+    parameters:
+      rate_limiting: "{{ rate_limiting }}"
+      api_client_config: "{{ steps.initialize_api_client.outputs.api_client_config }}"
+    outputs:
+      - name: "rate_limit_status"
+        description: "Rate limiting application status"
+    depends_on: ["validate_request_parameters"]
+    error_handling:
+      on_failure: "wait_and_retry"
+      max_retries: 3
+      retry_delay: 5
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Applying rate limiting for API request"
+      performance:
+        track: true
+  
+  - name: "execute_api_request"
+    description: "Execute the API request with retry logic"
+    scriptlet: "core.api_integration"
+    function: "execute_api_request"
+    parameters:
+      validated_request_config: "{{ steps.validate_request_parameters.outputs.validated_request_config }}"
+      retry_config: "{{ retry_config }}"
+      api_client_config: "{{ steps.initialize_api_client.outputs.api_client_config }}"
+    outputs:
+      - name: "api_response"
+        description: "Raw API response data"
+      - name: "response_metadata"
+        description: "Response timing and metadata"
+    depends_on: ["apply_rate_limiting"]
+    error_handling:
+      on_failure: "retry_with_backoff"
+      max_retries: "{{ retry_config.max_attempts | default(3) }}"
+      backoff_strategy: "{{ retry_config.backoff_strategy | default('exponential') }}"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Executing {{ method }} request to {{ base_url }}{{ endpoint }}"
+      performance:
+        track: true
+        threshold_warning_ms: "{{ monitoring_config.performance_thresholds.warning_ms | default(5000) }}"
+        threshold_error_ms: "{{ monitoring_config.performance_thresholds.error_ms | default(10000) }}"
+      health_check:
+        endpoint: "api_request"
+        timeout: "{{ timeout_config.total_timeout | default(60) }}"
+  
+  - name: "validate_response"
+    description: "Validate API response against expected criteria"
+    scriptlet: "core.api_integration"
+    function: "validate_response"
+    parameters:
+      api_response: "{{ steps.execute_api_request.outputs.api_response }}"
+      response_validation: "{{ response_validation }}"
+      response_metadata: "{{ steps.execute_api_request.outputs.response_metadata }}"
+    outputs:
+      - name: "validation_results"
+        description: "Response validation results"
+      - name: "validated_response"
+        description: "Validated response data"
+    depends_on: ["execute_api_request"]
+    error_handling:
+      on_failure: "log_and_continue"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Validating API response"
+      performance:
+        track: true
+  
+  - name: "transform_response"
+    description: "Apply transformation rules to response data"
+    scriptlet: "core.api_integration"
+    function: "transform_response"
+    parameters:
+      validated_response: "{{ steps.validate_response.outputs.validated_response }}"
+      response_transformation: "{{ response_transformation }}"
+    outputs:
+      - name: "transformed_response"
+        description: "Transformed response data"
+      - name: "transformation_metadata"
+        description: "Transformation operation metadata"
+    depends_on: ["validate_response"]
+    error_handling:
+      on_failure: "use_original_response"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Applying response transformations"
+      performance:
+        track: true
+  
+  - name: "generate_api_report"
+    description: "Generate comprehensive API operation report"
+    scriptlet: "core.api_integration"
+    function: "generate_api_report"
+    parameters:
+      api_client_config: "{{ steps.initialize_api_client.outputs.api_client_config }}"
+      validated_request_config: "{{ steps.validate_request_parameters.outputs.validated_request_config }}"
+      api_response: "{{ steps.execute_api_request.outputs.api_response }}"
+      response_metadata: "{{ steps.execute_api_request.outputs.response_metadata }}"
+      validation_results: "{{ steps.validate_response.outputs.validation_results }}"
+      transformed_response: "{{ steps.transform_response.outputs.transformed_response }}"
+    outputs:
+      - name: "api_operation_report"
+        description: "Complete API operation report"
+      - name: "performance_metrics"
+        description: "Detailed performance metrics"
+    depends_on: ["transform_response"]
+    error_handling:
+      on_failure: "log_error_continue"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "API operation completed successfully"
+      performance:
+        track: true
+        summary: true
+      health_check:
+        endpoint: "api_operation_complete"
+        success_indicator: true
+
+# Error handling and rollback procedures
+error_handling:
+  global_strategy: "progressive_fallback"
+  rollback_procedures:
+    - name: "cleanup_partial_operations"
+      description: "Clean up any partial API operations or cached data"
+      scriptlet: "core.api_integration"
+      function: "cleanup_partial_operations"
+    - name: "reset_rate_limiters"
+      description: "Reset rate limiting counters if needed"
+      scriptlet: "core.api_integration"
+      function: "reset_rate_limiters"
+    - name: "log_operation_failure"
+      description: "Log detailed failure information for debugging"
+      scriptlet: "core.api_integration"
+      function: "log_operation_failure"
+  
+  circuit_breaker:
+    enabled: true
+    failure_threshold: 5
+    timeout_seconds: 30
+    half_open_max_calls: 3
+
+# Foundation system integration
+foundation_integration:
+  logging:
+    component_name: "api_integration_template"
+    default_level: "INFO"
+    structured_logging: true
+    include_request_id: true
+  
+  health_monitoring:
+    endpoints:
+      - name: "api_connectivity"
+        check_interval_seconds: 30
+        timeout_seconds: 10
+      - name: "authentication_status"
+        check_interval_seconds: 300
+        timeout_seconds: 5
+  
+  performance_monitoring:
+    metrics:
+      - name: "api_request_duration"
+        type: "histogram"
+        unit: "milliseconds"
+      - name: "api_request_count"
+        type: "counter"
+        labels: ["method", "endpoint", "status_code"]
+      - name: "authentication_events"
+        type: "counter"
+        labels: ["auth_type", "result"]
+    
+    alerts:
+      - name: "high_response_time"
+        condition: "api_request_duration > 5000"
+        severity: "warning"
+      - name: "authentication_failures"
+        condition: "authentication_events{result='failure'} > 3"
+        severity: "error"
+  
+  error_tracking:
+    capture_request_body: false  # Security consideration
+    capture_response_body: false  # Security consideration
+    capture_headers: false       # Security consideration
+    include_stack_trace: true
+
+# Template metadata and usage
+metadata:
+  usage_examples:
+    - name: "simple_get_request"
+      description: "Simple GET request with bearer token"
+      parameters:
+        base_url: "https://api.example.com"
+        endpoint: "/v1/users"
+        method: "GET"
+        authentication:
+          type: "bearer"
+          token: "${API_TOKEN}"
+    
+    - name: "post_with_retry"
+      description: "POST request with retry configuration"
+      parameters:
+        base_url: "https://api.example.com"
+        endpoint: "/v1/data"
+        method: "POST"
+        request_body: {"name": "test", "value": 123}
+        retry_config:
+          enabled: true
+          max_attempts: 5
+          backoff_strategy: "exponential"
+    
+    - name: "oauth2_request"
+      description: "Request with OAuth2 authentication"
+      parameters:
+        base_url: "https://api.example.com"
+        endpoint: "/v1/protected"
+        method: "GET"
+        authentication:
+          type: "oauth2"
+          oauth2_config:
+            client_id: "${OAUTH_CLIENT_ID}"
+            client_secret: "${OAUTH_CLIENT_SECRET}"
+            token_url: "https://auth.example.com/token"
+            scope: "read write"
+  
+  integration_patterns:
+    - "REST API consumption"
+    - "Webhook processing"
+    - "Third-party service integration"
+    - "Microservice communication"
+    - "Data synchronization"
+  
+  performance_characteristics:
+    typical_response_time: "100-2000ms"
+    memory_usage: "low"
+    cpu_usage: "low-medium"
+    network_intensive: true
+  
+  security_considerations:
+    - "Credentials should be stored in environment variables"
+    - "SSL/TLS verification enabled by default"
+    - "Request/response logging disabled for sensitive data"
+    - "Rate limiting prevents API abuse"
+    - "Circuit breaker prevents cascading failures"
+
+# Output specifications
+outputs:
+  primary_outputs:
+    - name: "api_operation_report"
+      description: "Comprehensive report of the API operation"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          request_summary:
+            type: "object"
+          response_summary:
+            type: "object"
+          performance_metrics:
+            type: "object"
+          validation_results:
+            type: "object"
+        required: ["request_summary", "response_summary"]
+    
+    - name: "transformed_response"
+      description: "API response data after transformation"
+      type: ["object", "array", "string"]
+    
+    - name: "performance_metrics"
+      description: "Detailed performance and timing metrics"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          total_duration_ms:
+            type: "number"
+          request_duration_ms:
+            type: "number"
+          response_size_bytes:
+            type: "number"
+          retry_count:
+            type: "integer"
+        required: ["total_duration_ms", "request_duration_ms"]
+  
+  debug_outputs:
+    - name: "request_details"
+      description: "Detailed request configuration and headers"
+      type: "object"
+    
+    - name: "response_headers"
+      description: "Complete response headers"
+      type: "object"
+    
+    - name: "rate_limit_status"
+      description: "Current rate limiting status"
+      type: "object"
+
+# Version and compatibility information
+compatibility:
+  framework0_version: ">=1.0.0"
+  python_version: ">=3.11"
+  required_packages:
+    - "requests>=2.31.0"
+    - "urllib3>=2.0.0"
+    - "certifi>=2023.7.22"
+  optional_packages:
+    - "requests-oauthlib>=1.3.1"  # For OAuth2 support
+    - "pyjwt>=2.8.0"              # For JWT token handling

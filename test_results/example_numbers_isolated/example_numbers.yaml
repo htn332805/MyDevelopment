@@ -1,0 +1,30 @@
+# orchestrator/recipes/example_numbers.yaml
+# This YAML file serves as an example recipe in the IAF0 framework.
+# Recipes define test metadata and a sequence of steps (scriptlets) to execute.
+# Each recipe is loaded by recipe_parser.py, validated for schema and compliance,
+# then executed via executor.py using the DAG from dependency_graph.py.
+# This example demonstrates a simple computation on numbers data, storing results in context.
+# Recipes support extensions like depends_on, retry, timeout, parallel, cache_key (as per roadmap).
+
+# Start of the test_meta section, which provides metadata about the test.
+test_meta:
+  # test_id: Unique identifier for the test case.
+  test_id: ID-123
+  # tester: Name or identifier of the person or system running the test.
+  tester: user
+  # description: Brief description of the test's purpose.
+  description: Demo
+
+# Start of the steps section, which is a list of ordered or dependent steps.
+steps:
+  # First (and only) step in this example; each step is a dict.
+  - idx: 1  # idx: Integer index for ordering (used in DAG building).
+    name: compute_numbers  # name: Unique string name for the step (used in dependencies and filtering).
+    type: python  # type: Specifies the scriptlet type (python, shell, c; validated in parser).
+    module: engine.steps.python.compute_numbers  # module: Dotted path to the Python module for the scriptlet.
+    function: ComputeNumbers  # function: Class name of the scriptlet (must extend BaseScriptlet).
+    args:  # args: Dict of arguments passed to the scriptlet's run method.
+      src: orchestrator/Data/numbers.csv  # src: Example arg - path to input CSV file.
+    success:  # success: Optional dict for post-execution assertions.
+      ctx_has_keys:  # ctx_has_keys: List of context keys that must exist after success (enforced in executor).
+        - numbers.stats_v1  # Example key: Namespaced dotted key expected in context after run.

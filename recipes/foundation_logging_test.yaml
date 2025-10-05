@@ -1,0 +1,270 @@
+# Framework0 Foundation - Logging Framework Test Recipe
+# Validates the modular logging infrastructure implementation
+# Tests all components: core, formatters, adapters, and main scriptlet
+
+test_meta:
+  test_id: foundation-logging-001
+  tester: framework0_system
+  description: "Comprehensive validation of modular logging framework"
+
+steps:
+  # Step 1: Test logging framework setup
+  - idx: 1
+    name: test_logging_setup
+    type: python
+    module: scriptlets.foundation.logging_framework
+    function: LoggingFrameworkScriptlet
+    args:
+      action: setup
+      log_dir: "./logs/foundation_test"
+      config_profile: development
+    success:
+      ctx_has_keys:
+        - logging.framework_ready
+    
+  # Step 2: Test basic logging functionality
+  - name: "test_basic_logging"
+    scriptlet: "framework.python_runner"
+    description: "Test basic logging operations with Framework0 context"
+    parameters:
+      script: |
+        # Test basic framework logging
+        import logging
+        
+        # Get the framework logger that was set up
+        framework_logger = logging.getLogger("framework0")
+        
+        # Test different log levels
+        framework_logger.debug("🔍 Debug message - detailed information")
+        framework_logger.info("ℹ️ Info message - general information")
+        framework_logger.warning("⚠️ Warning message - attention needed")
+        framework_logger.error("❌ Error message - something went wrong")
+        
+        print("✅ Basic logging tests completed")
+        
+        return {"status": "success", "tests_run": 4}
+  
+  # Step 3: Test Framework0 context-aware logging
+  - name: "test_context_logging"
+    scriptlet: "framework.python_runner" 
+    description: "Test Framework0 context-aware logging features"
+    parameters:
+      script: |
+        # Test context-aware logging using utilities
+        utilities = context.get("logging.utilities")
+        
+        if utilities:
+            # Test getting a context-aware logger
+            test_logger = utilities["get_logger"]("context_test")
+            
+            # Test logging with Framework0 context
+            test_logger.info("🔗 Context-aware logging test")
+            test_logger.debug("📋 This should include recipe and step information")
+            
+            # Test performance logging utility
+            utilities["log_performance"]("test_metric", 42.0, "seconds", 
+                                       operation="context_logging_test")
+            
+            # Test audit logging utility
+            utilities["log_audit"]("test_event", {
+                "action": "context_logging_validation",
+                "result": "success",
+                "details": "Framework0 context integration working"
+            })
+            
+            print("✅ Context-aware logging tests completed")
+            return {"status": "success", "context_logging": True}
+        else:
+            print("❌ Logging utilities not found in context")
+            return {"status": "error", "context_logging": False}
+  
+  # Step 4: Test logging utilities and performance tracking
+  - name: "test_logging_utilities"
+    scriptlet: "framework.python_runner"
+    description: "Test specialized logging utilities for performance and audit"
+    parameters:
+      script: |
+        import time
+        
+        # Get logging utilities from context
+        utilities = context.get("logging.utilities")
+        
+        if utilities:
+            # Test performance metric logging
+            start_time = time.time()
+            
+            # Simulate some work
+            time.sleep(0.1)
+            
+            end_time = time.time()
+            duration = end_time - start_time
+            
+            # Log performance metrics
+            utilities["log_performance"]("test_operation_duration", duration, "seconds",
+                                       test_type="utility_validation",
+                                       expected_range="0.1-0.2")
+            
+            utilities["log_performance"]("memory_usage", 1024, "bytes",
+                                       component="logging_test")
+            
+            # Test audit event logging
+            utilities["log_audit"]("system_test", {
+                "test_name": "logging_utilities_validation",
+                "components_tested": ["performance_logging", "audit_logging"],
+                "test_duration": duration,
+                "status": "completed"
+            }, compliance_level="testing")
+            
+            # Test error logging with context
+            try:
+                # Simulate an error for testing
+                raise ValueError("Test error for logging validation")
+            except Exception as e:
+                utilities["log_error"](e, "logging_utilities_test", 
+                                     test_scenario=True,
+                                     recovery_action="continue_testing")
+            
+            print("✅ Logging utilities tests completed")
+            return {
+                "status": "success", 
+                "utilities_tested": ["performance", "audit", "error"],
+                "test_duration": duration
+            }
+        else:
+            print("❌ Logging utilities not available")
+            return {"status": "error", "utilities_available": False}
+  
+  # Step 5: Validate log files and output
+  - name: "validate_log_outputs"
+    scriptlet: "framework.python_runner"
+    description: "Validate that log files were created and contain expected content"
+    parameters:
+      script: |
+        import os
+        import json
+        from pathlib import Path
+        
+        validation_results = {
+            "files_created": [],
+            "files_missing": [],
+            "content_validation": {},
+            "total_log_entries": 0
+        }
+        
+        # Expected log files
+        expected_files = [
+            "logs/test_framework.log",
+            "logs/test_audit.log", 
+            "logs/test_performance.log"
+        ]
+        
+        # Check if log files exist
+        for log_file in expected_files:
+            file_path = Path(log_file)
+            if file_path.exists():
+                validation_results["files_created"].append(str(file_path))
+                
+                # Read and validate content
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        lines = content.strip().split('\n') if content.strip() else []
+                        
+                        validation_results["content_validation"][str(file_path)] = {
+                            "size_bytes": len(content),
+                            "line_count": len(lines),
+                            "contains_json": any(line.strip().startswith('{') for line in lines),
+                            "sample_lines": lines[:3] if lines else []
+                        }
+                        
+                        validation_results["total_log_entries"] += len(lines)
+                        
+                except Exception as e:
+                    validation_results["content_validation"][str(file_path)] = {
+                        "error": str(e)
+                    }
+            else:
+                validation_results["files_missing"].append(str(file_path))
+        
+        # Print summary
+        print(f"📁 Log Files Created: {len(validation_results['files_created'])}")
+        print(f"📄 Total Log Entries: {validation_results['total_log_entries']}")
+        
+        for file_path in validation_results["files_created"]:
+            file_info = validation_results["content_validation"][file_path]
+            print(f"   {file_path}: {file_info.get('line_count', 0)} entries, "
+                  f"{file_info.get('size_bytes', 0)} bytes")
+        
+        if validation_results["files_missing"]:
+            print(f"❌ Missing Files: {validation_results['files_missing']}")
+        
+        success = len(validation_results["files_created"]) > 0 and len(validation_results["files_missing"]) == 0
+        
+        print(f"✅ Log validation: {'PASSED' if success else 'FAILED'}")
+        
+        return {
+            "status": "success" if success else "partial",
+            "validation_results": validation_results
+        }
+
+# Summary step to report test results  
+  - name: "test_summary"
+    scriptlet: "framework.python_runner"
+    description: "Generate comprehensive test summary for logging framework"
+    parameters:
+      script: |
+        print("🎯 Framework0 Modular Logging Framework - Test Summary")
+        print("="*60)
+        
+        # Collect results from previous steps
+        test_results = {
+            "framework_initialization": context.get("initialize_logging_framework.result", {}),
+            "basic_logging": context.get("test_basic_logging.result", {}), 
+            "context_logging": context.get("test_context_logging.result", {}),
+            "utilities_testing": context.get("test_logging_utilities.result", {}),
+            "output_validation": context.get("validate_log_outputs.result", {})
+        }
+        
+        # Count successes
+        successful_tests = sum(1 for result in test_results.values() 
+                             if result.get("status") == "success")
+        total_tests = len(test_results)
+        
+        print(f"📊 Test Results: {successful_tests}/{total_tests} tests passed")
+        print()
+        
+        # Detailed results
+        for test_name, result in test_results.items():
+            status_icon = "✅" if result.get("status") == "success" else "❌"
+            print(f"{status_icon} {test_name.replace('_', ' ').title()}: {result.get('status', 'unknown')}")
+        
+        print()
+        
+        # Framework0 integration summary
+        logging_config = test_results.get("framework_initialization", {})
+        if logging_config.get("status") == "success":
+            print("🧩 Modular Architecture Summary:")
+            print(f"   📋 Version: {logging_config.get('version', 'Unknown')}")
+            print(f"   🗂️ Loggers Configured: {logging_config.get('loggers_configured', 0)}")
+            print(f"   📤 Handlers Created: {logging_config.get('handlers_created', 0)}")
+            print(f"   🔄 Rotation Handlers: {logging_config.get('rotation_handlers', 0)}")
+            print(f"   ⏱️ Setup Time: {logging_config.get('setup_time_seconds', 0):.3f}s")
+        
+        # Validation summary
+        validation = test_results.get("output_validation", {}).get("validation_results", {})
+        if validation:
+            print()
+            print("📁 Log Output Summary:")
+            print(f"   📄 Files Created: {len(validation.get('files_created', []))}")
+            print(f"   📝 Total Entries: {validation.get('total_log_entries', 0)}")
+        
+        print()
+        print("🎉 Modular logging framework test completed!")
+        
+        return {
+            "status": "success",
+            "tests_passed": successful_tests,
+            "tests_total": total_tests,
+            "success_rate": successful_tests / total_tests if total_tests > 0 else 0,
+            "framework_ready": successful_tests >= 4  # Most critical tests passed
+        }

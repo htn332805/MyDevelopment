@@ -1,0 +1,33 @@
+# Foundation Logging Framework - Integration Test Recipe
+
+test_meta:
+  test_id: foundation-logging-integration
+  tester: framework0_system  
+  description: "Test actual logging framework setup and usage"
+
+steps:
+  - idx: 1
+    name: setup_logging_framework
+    type: python
+    module: scriptlets.foundation.logging_framework
+    function: LoggingFrameworkScriptlet
+    args:
+      action: setup
+      log_dir: "./logs/integration_test"
+      config_profile: development
+      enable_audit: true
+      enable_performance: true
+    success:
+      ctx_has_keys:
+        - logging.framework_initialized
+        
+  - idx: 2  
+    name: test_logging_usage
+    type: python
+    module: engine.steps.python.test_logging_framework
+    function: TestLoggingFramework
+    args:
+      test_type: full_validation
+    success:
+      ctx_has_keys:
+        - logging_test.results

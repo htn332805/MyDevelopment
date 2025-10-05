@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-10-05 14:14:19",
+  "execution_time_seconds": 216.95,
+  "total_tests": 32,
+  "passed_tests": 14,
+  "failed_tests": 6,
+  "error_tests": 12,
+  "success_rate": 43.75,
+  "failures": [
+    "test_metrics_configuration (__main__.TestMetricsCore.test_metrics_configuration)",
+    "test_custom_metrics_integration (__main__.TestUnifiedAPI.test_custom_metrics_integration)",
+    "test_report_generation (__main__.TestUnifiedAPI.test_report_generation)",
+    "test_metrics_collection_performance (__main__.TestPerformanceBenchmarks.test_metrics_collection_performance)",
+    "test_configuration_validation (__main__.TestEdgeCasesAndErrorHandling.test_configuration_validation)",
+    "test_invalid_metric_values (__main__.TestEdgeCasesAndErrorHandling.test_invalid_metric_values)"
+  ],
+  "errors": [
+    "test_application_metrics_collector (__main__.TestMetricsCollectors.test_application_metrics_collector)",
+    "test_custom_metrics_collector (__main__.TestMetricsCollectors.test_custom_metrics_collector)",
+    "test_system_collector_with_mocked_psutil (__main__.TestMetricsCollectors.test_system_collector_with_mocked_psutil)",
+    "test_system_metrics_collector_collection (__main__.TestMetricsCollectors.test_system_metrics_collector_collection)",
+    "test_system_metrics_collector_initialization (__main__.TestMetricsCollectors.test_system_metrics_collector_initialization)",
+    "test_anomaly_detector (__main__.TestMetricsAnalyzers.test_anomaly_detector)",
+    "test_metrics_analyzer_initialization (__main__.TestMetricsAnalyzers.test_metrics_analyzer_initialization)",
+    "test_metrics_reporter (__main__.TestMetricsAnalyzers.test_metrics_reporter)",
+    "test_performance_profiler (__main__.TestMetricsAnalyzers.test_performance_profiler)",
+    "test_statistical_analysis (__main__.TestMetricsAnalyzers.test_statistical_analysis)",
+    "test_unified_monitor_creation (__main__.TestUnifiedAPI.test_unified_monitor_creation)",
+    "test_configuration_updates (__main__.TestPerformanceMetricsScriptlet.test_configuration_updates)"
+  ],
+  "framework_validation": {
+    "core_components": "FAILED",
+    "collectors": "PASSED",
+    "analyzers": "PASSED",
+    "unified_api": "FAILED",
+    "scriptlet_integration": "PASSED",
+    "performance_benchmarks": "FAILED",
+    "error_handling": "FAILED"
+  }
+}

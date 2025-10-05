@@ -1,0 +1,40 @@
+# Foundation Logging Framework - Comprehensive Test Recipe
+
+test_meta:
+  test_id: foundation-logging-full
+  tester: framework0_system  
+  description: "Comprehensive test of modular logging framework"
+
+steps:
+  - idx: 1
+    name: test_imports
+    type: python
+    module: engine.steps.python.test_logging_framework
+    function: TestLoggingFramework
+    args:
+      test_type: import_validation
+    success:
+      ctx_has_keys:
+        - logging_test.import_success
+        
+  - idx: 2
+    name: test_functionality
+    type: python
+    module: engine.steps.python.test_logging_framework
+    function: TestLoggingFramework
+    args:
+      test_type: functionality_test
+    success:
+      ctx_has_keys:
+        - logging_test.results
+        
+  - idx: 3
+    name: test_integration
+    type: python
+    module: engine.steps.python.test_logging_framework
+    function: TestLoggingFramework
+    args:
+      test_type: framework_integration
+    success:
+      ctx_has_keys:
+        - logging_test.results

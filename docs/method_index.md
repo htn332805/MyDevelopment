@@ -1,6 +1,6 @@
 # Framework0 Enhanced Context Server - Method Index
 
-*Generated on 2025-10-05 08:48:12 UTC*
+*Generated on 2025-10-05 18:53:51 UTC*
 
 Alphabetical index of all methods, functions, and classes in the Framework0 Enhanced Context Server.
 
@@ -455,6 +455,180 @@ Args:
 
 **Type:** Method
 
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize thread-local request tracing context.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `__init__(self, name: str, debug: bool = None, max_active_requests: int = 1000, max_completed_requests: int = 5000, auto_cleanup_interval: int = 300)`
+
+**Description:** Initialize enhanced request tracer.
+
+Args:
+    name: Tracer name (usually __name__)
+    debug: Enable debug mode (overrides environment)
+    max_active_requests: Maximum active requests to track
+    max_completed_requests: Maximum completed requests to keep
+    auto_cleanup_interval: Cleanup interval in seconds
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize base Framework0 plugin with common attributes.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize thread-local trace context storage.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `__init__(self, name: str, debug: bool = None, trace_file: Optional[Path] = None, enable_io_tracing: bool = None, enable_timing: bool = True, max_trace_entries: int = 10000)`
+
+**Description:** Initialize enhanced trace logger.
+
+Args:
+    name: Logger name (usually __name__)
+    debug: Enable debug mode (overrides environment)
+    trace_file: File path for trace output
+    enable_io_tracing: Enable I/O tracing (overrides environment)
+    enable_timing: Enable execution timing
+    max_trace_entries: Maximum entries to keep in memory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.PluginDiscoveryCache`
+
+**Signature:** `__init__(self, cache_duration: int = 3600)`
+
+**Description:** Initialize discovery cache with specified duration.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `__init__(self, base_directories: Optional[List[str]] = None, config: Optional[PluginDiscoveryConfig] = None)`
+
+**Description:** Initialize plugin discovery system.
+
+Args:
+    base_directories: Base directories to search for plugins
+    config: Discovery configuration (uses defaults if None)
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize base Framework0 plugin with common attributes.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `__init__(self, base_directory: Optional[str] = None, auto_initialize: bool = True)`
+
+**Description:** Initialize unified Framework0 plugin manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `__init__(self, config: Optional[IntegratedDiscoveryConfig] = None, plugin_manager: Optional[Framework0PluginManagerV2] = None)`
+
+**Description:** Initialize integrated plugin discovery manager.
+
+Args:
+    config: Integrated discovery configuration
+    plugin_manager: Unified plugin manager (creates if None)
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize base plugin with common attributes.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `__init__(self, name: str = 'Framework0PluginManager', plugin_directories: Optional[List[str]] = None, enable_auto_discovery: bool = True, enable_dependency_resolution: bool = True, max_plugins: int = 1000)`
+
+**Description:** Initialize plugin manager.
+
+Args:
+    name: Plugin manager name
+    plugin_directories: Directories to scan for plugins
+    enable_auto_discovery: Enable automatic plugin discovery
+    enable_dependency_resolution: Enable dependency resolution
+    max_plugins: Maximum number of plugins to manage
+
+---
+
+### __init__
+
+**Type:** Method
+
 **Location:** `src.core.logger.LoggerConfig`
 
 **Signature:** `__init__(self) -> None`
@@ -492,6 +666,65 @@ Args:
 Args:
     name: Logger name (typically module name)
     debug: Optional debug flag override
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `__init__(self, base_directory: Optional[str] = None, auto_initialize: bool = True)`
+
+**Description:** Initialize unified Framework0 plugin manager.
+
+Args:
+    base_directory: Base directory for plugin operations
+    auto_initialize: Whether to auto-initialize enhanced logging
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0ComponentIntegrator`
+
+**Signature:** `__init__(self, plugin_manager: Framework0PluginManagerV2)`
+
+**Description:** Initialize component integrator with plugin manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize plugin discovery manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `__init__(self, name: str, debug_level: str = 'INFO', enable_breakpoints: bool = True, enable_variable_watching: bool = True, max_debug_sessions: int = 100)`
+
+**Description:** Initialize debug environment manager.
+
+Args:
+    name: Manager name (usually __name__)
+    debug_level: Default debug level (DEBUG, INFO, WARNING, ERROR)
+    enable_breakpoints: Enable breakpoint functionality
+    enable_variable_watching: Enable variable watching
+    max_debug_sessions: Maximum debug sessions to maintain
 
 ---
 
@@ -1278,6 +1511,21 @@ Args:
 
 **Type:** Method
 
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize comprehensive recipe execution validator.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
+
+---
+
+### __init__
+
+**Type:** Method
+
 **Location:** `tools.baseline_framework_analyzer.BaselineFrameworkAnalyzer`
 
 **Signature:** `__init__(self, workspace_root: str) -> None`
@@ -1313,6 +1561,21 @@ Args:
 
 Args:
     workspace_root: Absolute path to the workspace root directory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `__init__(self, workspace_root: Optional[str] = None) -> None`
+
+**Description:** Initialize enhanced recipe CLI with workspace detection.
+
+Args:
+    workspace_root: Optional explicit workspace root path
 
 ---
 
@@ -1390,11 +1653,116 @@ Args:
 
 **Type:** Method
 
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize comprehensive recipe test CLI.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize framework enhancer with current workspace configuration.
+
+Args:
+    workspace_root: Absolute path to the workspace root directory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize recipe dependency analyzer with workspace configuration.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize workspace execution validator with comprehensive configuration.
+
+Args:
+    workspace_root: Absolute path to the workspace root directory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize recipe validation engine with workspace configuration.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
+
+---
+
+### __init__
+
+**Type:** Method
+
 **Location:** `tools.framework0_workspace_cleaner.Framework0WorkspaceCleaner`
 
 **Signature:** `__init__(self, workspace_path: str = None)`
 
 **Description:** Initialize Framework0 workspace cleaner.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.PathWrapperGenerator`
+
+**Signature:** `__init__(self, package_root: str) -> None`
+
+**Description:** Initialize path wrapper generator.
+
+Args:
+    package_root: Root directory of the isolated package
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize minimal dependency resolver with workspace configuration.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
 
 ---
 
@@ -1446,6 +1814,30 @@ Args:
 **Signature:** `__post_init__(self) -> None`
 
 **Description:** Initialize edge with default styling based on type.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.PluginExecutionContext`
+
+**Signature:** `__post_init__(self)`
+
+**Description:** Initialize default values after dataclass creation.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.PluginExecutionResult`
+
+**Signature:** `__post_init__(self)`
+
+**Description:** Initialize default values after dataclass creation.
 
 ---
 
@@ -1654,6 +2046,40 @@ Returns:
 
 ---
 
+### _add_infrastructure_files
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_add_infrastructure_files(self, framework_dir: str, file_list: List[str]) -> None`
+
+**Description:** Add Framework0 infrastructure files to the required files list.
+
+Args:
+    framework_dir: Framework directory to add
+    file_list: List to append files to
+
+---
+
+### _analyze_common_errors
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `_analyze_common_errors(self, suite_results: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Analyze common errors and patterns across failed recipes.
+
+Args:
+    suite_results: Complete test suite results
+    
+Returns:
+    Dict[str, Any]: Error analysis results
+
+---
+
 ### _analyze_compliance
 
 **Type:** Method
@@ -1691,6 +2117,25 @@ Returns:
 
 ---
 
+### _analyze_component
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_component(self, component_path: str, full_path: Path) -> Dict[str, Any]`
+
+**Description:** Analyze individual component for enhancement opportunities.
+
+Args:
+    component_path: Relative path to component
+    full_path: Full path to component file
+
+Returns:
+    Dict[str, Any]: Component analysis with identified opportunities
+
+---
+
 ### _analyze_dependencies
 
 **Type:** Method
@@ -1700,6 +2145,24 @@ Returns:
 **Signature:** `_analyze_dependencies(self) -> None`
 
 **Description:** Analyze component dependencies and build dependency graph.
+
+---
+
+### _analyze_deployment_readiness
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `_analyze_deployment_readiness(self, suite_results: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Analyze deployment readiness across all tested recipes.
+
+Args:
+    suite_results: Complete test suite results
+    
+Returns:
+    Dict[str, Any]: Deployment readiness analysis
 
 ---
 
@@ -1724,6 +2187,79 @@ Returns:
 **Signature:** `_analyze_dictionary(self, data: Dict) -> Dict[str, Any]`
 
 **Description:** Analyze dictionary data structure.
+
+---
+
+### _analyze_execution_result
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `_analyze_execution_result(self, result: ExecutionResult) -> None`
+
+**Description:** Analyze execution result and categorize errors.
+
+Args:
+    result: Execution result to analyze
+
+---
+
+### _analyze_expandability
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_expandability(self, component_path: str, tree: ast.AST, source_code: str) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze component for expandability enhancement opportunities.
+
+Args:
+    component_path: Path to component being analyzed
+    tree: AST tree of component source code
+    source_code: Raw source code of component
+
+Returns:
+    List[EnhancementOpportunity]: List of expandability opportunities
+
+---
+
+### _analyze_flexibility
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_flexibility(self, component_path: str, tree: ast.AST, source_code: str) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze component for flexibility enhancement opportunities.
+
+Args:
+    component_path: Path to component being analyzed
+    tree: AST tree of component source code
+    source_code: Raw source code of component
+
+Returns:
+    List[EnhancementOpportunity]: List of flexibility opportunities
+
+---
+
+### _analyze_framework_compatibility
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `_analyze_framework_compatibility(self, suite_results: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Analyze Framework0 compatibility across all tested recipes.
+
+Args:
+    suite_results: Complete test suite results
+    
+Returns:
+    Dict[str, Any]: Framework compatibility analysis
 
 ---
 
@@ -1888,6 +2424,24 @@ Returns:
 
 ---
 
+### _analyze_integration_opportunities
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_integration_opportunities(self, component_analysis: Dict[str, Dict[str, Any]]) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze cross-component integration enhancement opportunities.
+
+Args:
+    component_analysis: Analysis results for all components
+
+Returns:
+    List[EnhancementOpportunity]: List of integration opportunities
+
+---
+
 ### _analyze_markdown_component
 
 **Type:** Method
@@ -1916,6 +2470,44 @@ Args:
 
 ---
 
+### _analyze_modularity
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_modularity(self, component_path: str, tree: ast.AST, source_code: str) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze component for modularity enhancement opportunities.
+
+Args:
+    component_path: Path to component being analyzed
+    tree: AST tree of component source code
+    source_code: Raw source code of component
+
+Returns:
+    List[EnhancementOpportunity]: List of modularity opportunities
+
+---
+
+### _analyze_module_dependencies
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_analyze_module_dependencies(self, module_name: str) -> List[RecipeDependency]`
+
+**Description:** Analyze Python module and extract its dependencies recursively.
+
+Args:
+    module_name: Name of module to analyze
+
+Returns:
+    List[RecipeDependency]: Module and transitive dependencies
+
+---
+
 ### _analyze_numeric_data
 
 **Type:** Method
@@ -1925,6 +2517,26 @@ Args:
 **Signature:** `_analyze_numeric_data(self, numeric_data: List[Union[int, float]]) -> Dict[str, Any]`
 
 **Description:** Perform comprehensive numeric data analysis.
+
+---
+
+### _analyze_observability
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_observability(self, component_path: str, tree: ast.AST, source_code: str) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze component for observability enhancement opportunities.
+
+Args:
+    component_path: Path to component being analyzed
+    tree: AST tree of component source code
+    source_code: Raw source code of component
+
+Returns:
+    List[EnhancementOpportunity]: List of observability opportunities
 
 ---
 
@@ -1952,6 +2564,36 @@ Args:
 
 ---
 
+### _analyze_performance_metrics
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `_analyze_performance_metrics(self, suite_results: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Analyze performance metrics across all tested recipes.
+
+Args:
+    suite_results: Complete test suite results
+    
+Returns:
+    Dict[str, Any]: Performance analysis results
+
+---
+
+### _analyze_plugin_file
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_analyze_plugin_file(self, file_path: str, discovery_method: str) -> Optional[PluginDiscoveryResult]`
+
+**Description:** Analyze a Python file to determine if it contains plugins.
+
+---
+
 ### _analyze_python_component
 
 **Type:** Method
@@ -1965,6 +2607,46 @@ Args:
 Args:
     component: Component to analyze and update
     content: Python source code content
+
+---
+
+### _analyze_reusability
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_reusability(self, component_path: str, tree: ast.AST, source_code: str) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze component for reusability enhancement opportunities.
+
+Args:
+    component_path: Path to component being analyzed
+    tree: AST tree of component source code
+    source_code: Raw source code of component
+
+Returns:
+    List[EnhancementOpportunity]: List of reusability opportunities
+
+---
+
+### _analyze_scalability
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_analyze_scalability(self, component_path: str, tree: ast.AST, source_code: str) -> List[EnhancementOpportunity]`
+
+**Description:** Analyze component for scalability enhancement opportunities.
+
+Args:
+    component_path: Path to component being analyzed
+    tree: AST tree of component source code
+    source_code: Raw source code of component
+
+Returns:
+    List[EnhancementOpportunity]: List of scalability opportunities
 
 ---
 
@@ -2081,6 +2763,24 @@ Args:
 **Signature:** `_assess_dictionary_quality(self, data: Dict) -> Dict[str, Any]`
 
 **Description:** Assess quality of dictionary data.
+
+---
+
+### _assess_implementation_complexity
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_assess_implementation_complexity(self, opportunities: List[EnhancementOpportunity]) -> Dict[str, Any]`
+
+**Description:** Assess overall implementation complexity for all opportunities.
+
+Args:
+    opportunities: List of all enhancement opportunities
+
+Returns:
+    Dict[str, Any]: Implementation complexity assessment
 
 ---
 
@@ -2203,6 +2903,26 @@ Returns:
 
 ---
 
+### _build_complete_file_list
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_build_complete_file_list(self, recipe_file: Path, dependencies: List[str], framework_dirs: List[str]) -> List[str]`
+
+**Description:** Build complete list of files required for isolated recipe execution.
+
+Args:
+    recipe_file: Path to recipe file
+    dependencies: List of module dependencies
+    framework_dirs: List of Framework0 directories needed
+    
+Returns:
+    List[str]: Complete list of required files
+
+---
+
 ### _build_context_display
 
 **Type:** Method
@@ -2263,6 +2983,21 @@ Returns:
 
 ---
 
+### _build_required_files_list
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_build_required_files_list(self, package: IsolatedRecipePackage) -> None`
+
+**Description:** Build complete list of files required for isolated recipe execution.
+
+Args:
+    package: Package to build file list for
+
+---
+
 ### _build_signature
 
 **Type:** Method
@@ -2278,6 +3013,18 @@ Args:
     
 Returns:
     String representation of function signature
+
+---
+
+### _build_span_subtree
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTrace`
+
+**Signature:** `_build_span_subtree(self, span_id: str) -> Dict[str, Any]`
+
+**Description:** Build subtree for a span and its children.
 
 ---
 
@@ -2301,6 +3048,24 @@ Returns:
 
 ---
 
+### _calculate_enhancement_score
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_calculate_enhancement_score(self, opportunities: List[EnhancementOpportunity]) -> float`
+
+**Description:** Calculate enhancement potential score for a component.
+
+Args:
+    opportunities: List of opportunities for the component
+
+Returns:
+    float: Enhancement score (0-100)
+
+---
+
 ### _calculate_event_statistics
 
 **Type:** Method
@@ -2310,6 +3075,24 @@ Returns:
 **Signature:** `_calculate_event_statistics(self, events: List[TimelineEvent]) -> Dict[str, Any]`
 
 **Description:** Calculate statistical metrics for timeline events.
+
+---
+
+### _calculate_file_hash
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_calculate_file_hash(self, file_path: Path) -> str`
+
+**Description:** Calculate SHA256 hash of file content for integrity verification.
+
+Args:
+    file_path: Path to file to hash
+    
+Returns:
+    str: SHA256 hash of file content
 
 ---
 
@@ -2412,6 +3195,56 @@ Returns:
 **Signature:** `_calculate_timeline_span(self, events: List[TimelineEvent]) -> Dict[str, Any]`
 
 **Description:** Calculate timeline temporal span information.
+
+---
+
+### _calculate_total_effort
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_calculate_total_effort(self, opportunities: List[EnhancementOpportunity]) -> str`
+
+**Description:** Calculate total implementation effort estimate.
+
+Args:
+    opportunities: List of all opportunities
+
+Returns:
+    str: Total effort estimate (low, medium, high, very_high)
+
+---
+
+### _capture_function_inputs
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `_capture_function_inputs(self, func: Callable, args: tuple, kwargs: dict) -> Dict[str, Any]`
+
+**Description:** Capture function inputs with parameter names.
+
+Maps positional and keyword arguments to parameter names for clear tracing.
+
+---
+
+### _categorize_opportunities
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_categorize_opportunities(self, opportunities: List[EnhancementOpportunity]) -> Dict[str, int]`
+
+**Description:** Categorize enhancement opportunities by type.
+
+Args:
+    opportunities: List of all enhancement opportunities
+
+Returns:
+    Dict[str, int]: Count of opportunities by category
 
 ---
 
@@ -2536,6 +3369,33 @@ Returns:
 
 ---
 
+### _cleanup_old_requests
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `_cleanup_old_requests(self) -> None`
+
+**Description:** Clean up old completed requests to manage memory usage.
+
+---
+
+### _cleanup_validation_environment
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_cleanup_validation_environment(self, validation_env: ValidationEnvironment) -> None`
+
+**Description:** Clean up validation environment by removing temporary files.
+
+Args:
+    validation_env: Validation environment to clean up
+
+---
+
 ### _clear
 
 **Type:** Method
@@ -2620,6 +3480,22 @@ Returns:
 
 ---
 
+### _collect_performance_metrics
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_collect_performance_metrics(self, validation_env: ValidationEnvironment, result: ValidationResult) -> None`
+
+**Description:** Collect performance metrics from validation environment.
+
+Args:
+    validation_env: Validation environment to analyze
+    result: Validation result to update with metrics
+
+---
+
 ### _compare_with_history
 
 **Type:** Method
@@ -2690,6 +3566,42 @@ Returns:
 **Signature:** `_contains(self) -> Callable`
 
 **Description:** Get the contains method with lock if needed.
+
+---
+
+### _copy_file_with_verification
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_copy_file_with_verification(self, source_path: str, target_dir: Path, relative_path: str) -> bool`
+
+**Description:** Copy file with integrity verification and path wrapper support.
+
+Args:
+    source_path: Source file path
+    target_dir: Target directory
+    relative_path: Relative path within target directory
+    
+Returns:
+    bool: True if copy was successful and verified
+
+---
+
+### _copy_recipe_to_root
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_copy_recipe_to_root(self, target_dir: Path, recipe_file: Path) -> None`
+
+**Description:** Copy recipe file to package root for validation and easy access.
+
+Args:
+    target_dir: Target directory for isolated package
+    recipe_file: Source recipe file path
 
 ---
 
@@ -2786,6 +3698,18 @@ Returns:
 
 ---
 
+### _create_discovery_result_from_class
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_create_discovery_result_from_class(self, plugin_class: Type, file_path: str, discovery_method: str) -> Optional[PluginDiscoveryResult]`
+
+**Description:** Create discovery result from plugin class.
+
+---
+
 ### _create_enhanced_summary
 
 **Type:** Method
@@ -2807,6 +3731,25 @@ Returns:
 **Signature:** `_create_essential_configs(self) -> None`
 
 **Description:** Create essential configuration files for fresh baseline.
+
+---
+
+### _create_execution_validation_script
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_create_execution_validation_script(self, recipe_file: str, validation_env: ValidationEnvironment) -> str`
+
+**Description:** Create script to validate recipe execution.
+
+Args:
+    recipe_file: Path to recipe file to validate
+    validation_env: Validation environment for script
+
+Returns:
+    str: Path to created execution validation script
 
 ---
 
@@ -2855,6 +3798,42 @@ Returns:
 
 ---
 
+### _create_import_validation_script
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_create_import_validation_script(self, validation_env: ValidationEnvironment) -> str`
+
+**Description:** Create Python script to validate all required imports.
+
+Args:
+    validation_env: Validation environment for script creation
+
+Returns:
+    str: Path to created validation script
+
+---
+
+### _create_initialization_context
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `_create_initialization_context(self, metadata: PluginMetadata) -> Dict[str, Any]`
+
+**Description:** Create initialization context for plugin.
+
+Args:
+    metadata: Plugin metadata for context creation
+
+Returns:
+    Plugin initialization context
+
+---
+
 ### _create_json_timeline
 
 **Type:** Method
@@ -2894,6 +3873,41 @@ Returns:
 
 ---
 
+### _create_missing_scriptlet
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_create_missing_scriptlet(self, module_name: str) -> Optional[Path]`
+
+**Description:** Create missing scriptlet with working implementation.
+
+Args:
+    module_name: Module name to create scriptlet for
+    
+Returns:
+    Optional[Path]: Path to created scriptlet file if successful
+
+---
+
+### _create_package_manifest
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_create_package_manifest(self, target_dir: Path, analysis_result: RecipeAnalysisResult, copied_count: int) -> None`
+
+**Description:** Create package manifest with metadata about the isolated package.
+
+Args:
+    target_dir: Target directory for isolated package
+    analysis_result: Analysis results
+    copied_count: Number of files copied
+
+---
+
 ### _create_plotly_timeline
 
 **Type:** Method
@@ -2915,6 +3929,72 @@ Returns:
 **Signature:** `_create_snapshot(self, tag: Optional[str] = None, description: Optional[str] = None) -> str`
 
 **Description:** Internal implementation of create_snapshot (without lock).
+
+---
+
+### _create_startup_script
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_create_startup_script(self, target_dir: Path, recipe_name: str) -> None`
+
+**Description:** Create startup script for easy recipe execution in isolated environment.
+
+Args:
+    target_dir: Target directory for isolated package
+    recipe_name: Name of the recipe
+
+---
+
+### _create_startup_script_with_wrapper
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_create_startup_script_with_wrapper(self, target_dir: Path, recipe_name: str) -> None`
+
+**Description:** Create startup script with integrated path wrapper.
+
+Args:
+    target_dir: Target directory for package
+    recipe_name: Name of the recipe
+
+---
+
+### _create_validation_environment
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_create_validation_environment(self) -> ValidationEnvironment`
+
+**Description:** Create isolated validation environment for recipe testing.
+
+Returns:
+    ValidationEnvironment: Configured validation environment
+
+---
+
+### _create_validation_script
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `_create_validation_script(self, environment: ExecutionEnvironment, validation_mode: str) -> str`
+
+**Description:** Create validation script for specified execution mode.
+
+Args:
+    environment: Execution environment configuration
+    validation_mode: Type of validation to perform
+    
+Returns:
+    str: Python validation script
 
 ---
 
@@ -3002,6 +4082,36 @@ Returns:
 
 ---
 
+### _detect_component_types
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `_detect_component_types(self, validation_result: Dict[str, Any]) -> List[Framework0ComponentType]`
+
+**Description:** Auto-detect compatible Framework0 components based on plugin interfaces.
+
+---
+
+### _detect_component_types
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `_detect_component_types(self, validation_result: Dict[str, Any]) -> List[Framework0ComponentType]`
+
+**Description:** Auto-detect compatible Framework0 components based on plugin interfaces.
+
+Args:
+    validation_result: Plugin validation result with implemented interfaces
+
+Returns:
+    List of compatible Framework0 component types
+
+---
+
 ### _detect_framework_version
 
 **Type:** Method
@@ -3041,6 +4151,24 @@ Returns:
 **Signature:** `_detect_patterns(self, data: Any, threshold: float = None) -> List[Dict[str, Any]]`
 
 **Description:** Detect patterns in data using configurable threshold.
+
+---
+
+### _detect_workspace_root
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_detect_workspace_root(self, explicit_root: Optional[str] = None) -> Path`
+
+**Description:** Detect Framework0 workspace root directory with enhanced logic.
+
+Args:
+    explicit_root: Optional explicit workspace root path
+    
+Returns:
+    Path: Detected or specified workspace root
 
 ---
 
@@ -3101,6 +4229,54 @@ Returns:
 
 ---
 
+### _discover_by_directory_scan
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_discover_by_directory_scan(self, directory: str) -> List[PluginDiscoveryResult]`
+
+**Description:** Discover plugins by scanning directory for Python files.
+
+---
+
+### _discover_by_manifest
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_discover_by_manifest(self, directory: str) -> List[PluginDiscoveryResult]`
+
+**Description:** Discover plugins using manifest files.
+
+---
+
+### _discover_by_module_import
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_discover_by_module_import(self, directory: str) -> List[PluginDiscoveryResult]`
+
+**Description:** Discover plugins by importing and inspecting modules.
+
+---
+
+### _discover_by_recursive_search
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_discover_by_recursive_search(self, directory: str) -> List[PluginDiscoveryResult]`
+
+**Description:** Discover plugins using recursive directory search.
+
+---
+
 ### _discover_framework_files
 
 **Type:** Method
@@ -3116,6 +4292,24 @@ Returns:
 
 ---
 
+### _discover_plugins_in_directory
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `_discover_plugins_in_directory(self, directory: Path) -> int`
+
+**Description:** Discover plugins in a specific directory.
+
+Args:
+    directory: Directory to scan for plugins
+
+Returns:
+    Number of plugins discovered in directory
+
+---
+
 ### _enforce_snapshot_limit
 
 **Type:** Method
@@ -3125,6 +4319,22 @@ Returns:
 **Signature:** `_enforce_snapshot_limit(self) -> None`
 
 **Description:** Enforce the maximum number of snapshots if configured.
+
+---
+
+### _enter_interactive_debug
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `_enter_interactive_debug(self, session_id: str, context: Dict[str, Any]) -> None`
+
+**Description:** Enter interactive debugging mode.
+
+Args:
+    session_id: Active debug session ID
+    context: Current execution context
 
 ---
 
@@ -3143,6 +4353,24 @@ and optimization purposes.
 
 Returns:
     Estimated memory usage in bytes
+
+---
+
+### _estimate_package_size
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_estimate_package_size(self, package_spec: MinimalPackageSpec) -> int`
+
+**Description:** Estimate total size of minimal package in bytes.
+
+Args:
+    package_spec: Package specification to estimate size for
+    
+Returns:
+    int: Estimated package size in bytes
 
 ---
 
@@ -3219,6 +4447,18 @@ Args:
 
 ---
 
+### _execute_discovery_strategy
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_execute_discovery_strategy(self, strategy: PluginDiscoveryStrategy, directory: str, component_type: Optional[Framework0ComponentType]) -> List[PluginDiscoveryResult]`
+
+**Description:** Execute specific discovery strategy in directory.
+
+---
+
 ### _execute_hooks
 
 **Type:** Method
@@ -3278,6 +4518,26 @@ Args:
     
 Returns:
     int: Number of successfully executed steps
+
+---
+
+### _execute_recipe_validation
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_execute_recipe_validation(self, recipe_file: str, validation_env: ValidationEnvironment, result: ValidationResult) -> bool`
+
+**Description:** Execute recipe file in validation environment for testing.
+
+Args:
+    recipe_file: Path to recipe file to execute
+    validation_env: Validation environment for execution
+    result: Validation result to update
+
+Returns:
+    bool: True if recipe execution successful
 
 ---
 
@@ -3385,6 +4645,24 @@ Returns:
 
 ---
 
+### _extract_data_files
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `_extract_data_files(self, recipe_data: Dict[str, Any]) -> List[str]`
+
+**Description:** Extract data file references from parsed recipe data.
+
+Args:
+    recipe_data: Parsed recipe configuration
+    
+Returns:
+    List[str]: List of referenced data file paths
+
+---
+
 ### _extract_function_info
 
 **Type:** Method
@@ -3455,6 +4733,36 @@ Returns:
 
 ---
 
+### _extract_plugin_classes_from_ast
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `_extract_plugin_classes_from_ast(self, tree: ast.AST) -> List[str]`
+
+**Description:** Extract potential plugin class names from AST.
+
+---
+
+### _extract_plugin_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `_extract_plugin_metadata(self, file_path: Path) -> Optional[PluginMetadata]`
+
+**Description:** Extract plugin metadata from Python file.
+
+Args:
+    file_path: Path to Python file to analyze
+
+Returns:
+    Plugin metadata if found, None otherwise
+
+---
+
 ### _extract_result_data
 
 **Type:** Method
@@ -3476,6 +4784,24 @@ Returns:
 
 ---
 
+### _extract_step_dependencies
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_extract_step_dependencies(self, recipe_data: Dict[str, Any]) -> List[str]`
+
+**Description:** Extract module dependencies from recipe step definitions.
+
+Args:
+    recipe_data: Parsed recipe data dictionary
+    
+Returns:
+    List[str]: List of module dependencies
+
+---
+
 ### _finalize_context
 
 **Type:** Method
@@ -3489,6 +4815,78 @@ Returns:
 Args:
     ctx: Context to finalize
     execution_result: Execution result to store
+
+---
+
+### _find_existing_scriptlet
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_find_existing_scriptlet(self, module_name: str) -> Optional[Path]`
+
+**Description:** Find existing scriptlet file for module name.
+
+Args:
+    module_name: Module name to find
+    
+Returns:
+    Optional[Path]: Path to existing scriptlet file if found
+
+---
+
+### _find_module_path
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_find_module_path(self, module_name: str) -> Optional[Path]`
+
+**Description:** Find file path for a given module name within Framework0.
+
+Args:
+    module_name: Dotted module name to locate
+
+Returns:
+    Optional[Path]: Path to module file if found
+
+---
+
+### _find_package_init_files
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_find_package_init_files(self, module_path: Path) -> List[str]`
+
+**Description:** Find package __init__.py files needed for module import.
+
+Args:
+    module_path: Path to module file
+    
+Returns:
+    List[str]: List of __init__.py file paths
+
+---
+
+### _find_recipe_files
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_find_recipe_files(self, validation_env: ValidationEnvironment) -> List[str]`
+
+**Description:** Find recipe files in validation environment.
+
+Args:
+    validation_env: Validation environment to search
+
+Returns:
+    List[str]: List of found recipe file paths
 
 ---
 
@@ -3611,6 +5009,18 @@ Returns:
 **Signature:** `_generate_context_recommendations(self, summary: Dict[str, Any], data: Any) -> List[str]`
 
 **Description:** Generate context-aware recommendations for data improvement.
+
+---
+
+### _generate_correlation_id
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `_generate_correlation_id(self) -> str`
+
+**Description:** Generate unique correlation ID for request tracking.
 
 ---
 
@@ -3870,6 +5280,18 @@ Returns:
 
 ---
 
+### _generate_span_id
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `_generate_span_id(self) -> str`
+
+**Description:** Generate unique span ID for operation tracking.
+
+---
+
 ### _generate_trend_recommendations
 
 **Type:** Method
@@ -3996,6 +5418,18 @@ Returns:
 
 ---
 
+### _get_debug_output_file
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `_get_debug_output_file(self) -> Optional[Path]`
+
+**Description:** Get debug output file path from environment or configuration.
+
+---
+
 ### _get_decorator_name
 
 **Type:** Method
@@ -4011,6 +5445,18 @@ Args:
     
 Returns:
     str: Decorator name
+
+---
+
+### _get_default_directories
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `_get_default_directories(self) -> List[str]`
+
+**Description:** Get default plugin directories to scan.
 
 ---
 
@@ -4035,6 +5481,18 @@ Returns:
 **Signature:** `_get_default_style(self) -> Dict[str, str]`
 
 **Description:** Generate default visual styling based on edge type.
+
+---
+
+### _get_default_trace_file
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `_get_default_trace_file(self) -> Optional[Path]`
+
+**Description:** Get default trace file path from environment or configuration.
 
 ---
 
@@ -4074,6 +5532,21 @@ Returns:
 
 ---
 
+### _get_essential_config_deps
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_get_essential_config_deps(self) -> Tuple[List[str], List[str]]`
+
+**Description:** Get essential configuration files for standalone operation.
+
+Returns:
+    Tuple[List[str], List[str]]: List of essential configuration file paths and missing files
+
+---
+
 ### _get_keys
 
 **Type:** Method
@@ -4095,6 +5568,21 @@ Returns:
 **Signature:** `_get_keys(self) -> Callable`
 
 **Description:** Get the get_keys method with lock if needed.
+
+---
+
+### _get_minimal_framework_deps
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_get_minimal_framework_deps(self) -> Tuple[List[MinimalDependency], List[str]]`
+
+**Description:** Get minimal Framework0 dependencies required for any recipe execution.
+
+Returns:
+    Tuple[List[MinimalDependency], List[str]]: List of minimal Framework0 dependencies and missing files
 
 ---
 
@@ -4227,6 +5715,21 @@ Returns:
 
 ---
 
+### _identify_external_requirements
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_identify_external_requirements(self, package: IsolatedRecipePackage) -> None`
+
+**Description:** Identify external Python packages required by dependencies.
+
+Args:
+    package: Package to analyze for external requirements
+
+---
+
 ### _identify_patterns_and_extensions
 
 **Type:** Method
@@ -4236,6 +5739,24 @@ Returns:
 **Signature:** `_identify_patterns_and_extensions(self) -> None`
 
 **Description:** Identify framework patterns and extension points.
+
+---
+
+### _identify_required_infrastructure
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_identify_required_infrastructure(self, dependencies: List[str]) -> List[str]`
+
+**Description:** Identify required Framework0 infrastructure based on dependencies.
+
+Args:
+    dependencies: List of module dependencies
+    
+Returns:
+    List[str]: List of required Framework0 directories
 
 ---
 
@@ -4272,6 +5793,30 @@ Returns:
 **Signature:** `_init_db(self) -> None`
 
 **Description:** Initialize database schema.
+
+---
+
+### _initialize
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `_initialize(self) -> None`
+
+**Description:** Initialize integrated discovery manager.
+
+---
+
+### _initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `_initialize(self) -> None`
+
+**Description:** Initialize discovery manager components.
 
 ---
 
@@ -4345,6 +5890,42 @@ Args:
 
 Returns:
     bool: True if file is executable script
+
+---
+
+### _is_script_file
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `_is_script_file(self, file_path: Path) -> bool`
+
+**Description:** Determine if a Python file is an executable script.
+
+Args:
+    file_path: Path to Python file
+    
+Returns:
+    bool: True if file appears to be an executable script
+
+---
+
+### _is_stdlib_module
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_is_stdlib_module(self, module_name: str) -> bool`
+
+**Description:** Check if module is part of Python standard library.
+
+Args:
+    module_name: Module name to check
+
+Returns:
+    bool: True if module is standard library
 
 ---
 
@@ -4456,6 +6037,42 @@ Raises:
 
 ---
 
+### _load_package_manifest
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_load_package_manifest(self, isolated_path: Path) -> Optional[Dict[str, Any]]`
+
+**Description:** Load package manifest from isolated recipe directory.
+
+Args:
+    isolated_path: Path to isolated recipe package
+
+Returns:
+    Optional[Dict[str, Any]]: Loaded manifest data or None if failed
+
+---
+
+### _load_plugin_instance
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `_load_plugin_instance(self, metadata: PluginMetadata) -> Optional[PluginInstance]`
+
+**Description:** Load plugin instance from metadata.
+
+Args:
+    metadata: Plugin metadata for loading
+
+Returns:
+    Plugin instance if successful, None otherwise
+
+---
+
 ### _load_recipe
 
 **Type:** Method
@@ -4518,6 +6135,18 @@ Raises:
 
 ---
 
+### _manage_trace_memory
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `_manage_trace_memory(self) -> None`
+
+**Description:** Manage trace entry memory usage by removing old entries.
+
+---
+
 ### _message_cleanup_worker
 
 **Type:** Method
@@ -4557,6 +6186,60 @@ Returns:
 **Signature:** `_optimize_chain(self) -> None`
 
 **Description:** Optimize the delta chain by merging deltas.
+
+---
+
+### _parse_recipe_dependencies
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_parse_recipe_dependencies(self, recipe_file: Path) -> Tuple[List[str], List[str], List[str]]`
+
+**Description:** Parse recipe file and extract module dependencies and data files.
+
+Args:
+    recipe_file: Path to recipe file to parse
+    
+Returns:
+    Tuple[List[str], List[str], List[str]]: Module dependencies, data file paths, and missing data files
+
+---
+
+### _parse_recipe_file
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_parse_recipe_file(self, recipe_file: Path) -> Optional[Dict[str, Any]]`
+
+**Description:** Parse recipe file with support for YAML and JSON formats.
+
+Args:
+    recipe_file: Path to recipe file to parse
+    
+Returns:
+    Optional[Dict[str, Any]]: Parsed recipe data or None if failed
+
+---
+
+### _parse_recipe_file
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_parse_recipe_file(self, recipe_path: Path) -> List[RecipeDependency]`
+
+**Description:** Parse recipe file and extract direct step dependencies.
+
+Args:
+    recipe_path: Path to recipe file to parse
+
+Returns:
+    List[RecipeDependency]: Direct recipe dependencies
 
 ---
 
@@ -4612,6 +6295,75 @@ Returns:
 
 ---
 
+### _recommend_implementation_phases
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `_recommend_implementation_phases(self, opportunities: List[EnhancementOpportunity]) -> List[Dict[str, Any]]`
+
+**Description:** Recommend implementation phases for opportunities.
+
+Args:
+    opportunities: List of all opportunities
+
+Returns:
+    List[Dict[str, Any]]: Recommended implementation phases
+
+---
+
+### _record_execution
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `_record_execution(self, execution_time: float) -> None`
+
+**Description:** Record plugin execution statistics.
+
+---
+
+### _record_execution
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `_record_execution(self, execution_time: float) -> None`
+
+**Description:** Record plugin execution statistics.
+
+Args:
+    execution_time: Execution time in seconds
+
+---
+
+### _register_discovered_plugins
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `_register_discovered_plugins(self, discovery_results: List[PluginDiscoveryResult], component_type: Framework0ComponentType) -> int`
+
+**Description:** Register discovered plugins with unified plugin manager.
+
+---
+
+### _register_discovered_plugins
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `_register_discovered_plugins(self, discovery_results, component_type) -> int`
+
+**Description:** Register discovered plugins with the unified plugin manager.
+
+---
+
 ### _remove_obsolete_files
 
 **Type:** Method
@@ -4621,6 +6373,75 @@ Returns:
 **Signature:** `_remove_obsolete_files(self) -> None`
 
 **Description:** Remove obsolete files and directories.
+
+---
+
+### _resolve_dependencies
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `_resolve_dependencies(self, plugin_id: str) -> bool`
+
+**Description:** Resolve plugin dependencies recursively.
+
+Args:
+    plugin_id: Plugin ID to resolve dependencies for
+
+Returns:
+    True if all dependencies resolved, False otherwise
+
+---
+
+### _resolve_dependency_files
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_resolve_dependency_files(self, dependency: str) -> List[str]`
+
+**Description:** Resolve file paths for a specific module dependency.
+
+Args:
+    dependency: Module dependency to resolve
+    
+Returns:
+    List[str]: List of resolved file paths
+
+---
+
+### _resolve_dependency_paths
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `_resolve_dependency_paths(self, package: IsolatedRecipePackage) -> None`
+
+**Description:** Resolve file paths for all dependencies in the package.
+
+Args:
+    package: Package to resolve dependencies for
+
+---
+
+### _resolve_scriptlet_dependencies
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_resolve_scriptlet_dependencies(self, module_names: List[str]) -> Tuple[List[str], List[str]]`
+
+**Description:** Resolve scriptlet dependencies, creating missing ones if needed.
+
+Args:
+    module_names: List of module names needed by recipe
+    
+Returns:
+    Tuple[List[str], List[str]]: List of scriptlet file paths and missing modules
 
 ---
 
@@ -4676,6 +6497,20 @@ Args:
 
 Returns:
     bool: True if tests pass or can be executed
+
+---
+
+### _sanitize_for_json
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `_sanitize_for_json(self, obj: Any) -> Any`
+
+**Description:** Sanitize object for JSON serialization.
+
+Handles complex objects that cannot be directly serialized to JSON.
 
 ---
 
@@ -4841,6 +6676,54 @@ Args:
 
 ---
 
+### _setup_component_directories
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `_setup_component_directories(self) -> None`
+
+**Description:** Setup default component directories for plugin discovery.
+
+---
+
+### _setup_component_directories
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `_setup_component_directories(self) -> None`
+
+**Description:** Setup default component directories for plugin discovery.
+
+---
+
+### _setup_default_configurations
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `_setup_default_configurations(self) -> None`
+
+**Description:** Setup default integration configurations for Framework0 components.
+
+---
+
+### _setup_default_configurations
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `_setup_default_configurations(self) -> None`
+
+**Description:** Setup default integration configurations for Framework0 components.
+
+---
+
 ### _setup_default_validators
 
 **Type:** Method
@@ -4862,6 +6745,21 @@ Args:
 **Signature:** `_setup_layout(self) -> None`
 
 **Description:** Configure the dashboard HTML layout with interactive components.
+
+---
+
+### _setup_python_path
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `_setup_python_path(self) -> None`
+
+**Description:** Set up Python path to include all necessary directories for imports.
+
+This method ensures that all Framework0 components can be imported
+during validation by adding required directories to sys.path.
 
 ---
 
@@ -4889,6 +6787,22 @@ Args:
 
 ---
 
+### _setup_validation_environment
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_setup_validation_environment(self, isolated_path: Path, validation_env: ValidationEnvironment) -> None`
+
+**Description:** Set up validation environment by copying isolated recipe package.
+
+Args:
+    isolated_path: Path to isolated recipe package
+    validation_env: Validation environment to setup
+
+---
+
 ### _setup_websocket_handlers
 
 **Type:** Method
@@ -4898,6 +6812,42 @@ Args:
 **Signature:** `_setup_websocket_handlers(self) -> None`
 
 **Description:** Configure WebSocket event handlers for real-time client communication.
+
+---
+
+### _should_exclude_file
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_should_exclude_file(self, file_path: Path) -> bool`
+
+**Description:** Check if file should be excluded from copying.
+
+Args:
+    file_path: Path to check for exclusion
+    
+Returns:
+    bool: True if file should be excluded
+
+---
+
+### _should_include_file
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `_should_include_file(self, file_path: Path) -> bool`
+
+**Description:** Check if file should be included in minimal package.
+
+Args:
+    file_path: Path to file to check
+    
+Returns:
+    bool: True if file should be included
 
 ---
 
@@ -4914,6 +6864,18 @@ Args:
 Args:
     signum: Signal number received
     frame: Current stack frame
+
+---
+
+### _simple_plugin_discovery
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `_simple_plugin_discovery(self, directory: str, component_type: Framework0ComponentType, auto_register: bool) -> Tuple[int, int]`
+
+**Description:** Simple fallback plugin discovery for directory scanning.
 
 ---
 
@@ -5055,6 +7017,24 @@ Args:
 
 ---
 
+### _validate_basic_execution
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_validate_basic_execution(self, package_path: Path) -> Dict[str, Any]`
+
+**Description:** Validate basic execution capability using startup script.
+
+Args:
+    package_path: Path to package directory
+    
+Returns:
+    Dict[str, Any]: Execution validation results
+
+---
+
 ### _validate_config
 
 **Type:** Method
@@ -5085,6 +7065,25 @@ Returns:
 
 ---
 
+### _validate_dependencies
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_validate_dependencies(self, validation_env: ValidationEnvironment, result: ValidationResult) -> bool`
+
+**Description:** Validate that all dependencies are properly resolved and available.
+
+Args:
+    validation_env: Validation environment for testing
+    result: Validation result to update
+
+Returns:
+    bool: True if dependencies are resolved
+
+---
+
 ### _validate_dependency_graph
 
 **Type:** Method
@@ -5094,6 +7093,43 @@ Returns:
 **Signature:** `_validate_dependency_graph(self, recipe_data: Dict[str, Any]) -> List[ValidationMessage]`
 
 **Description:** Validate step dependency graph for cycles and missing dependencies.
+
+---
+
+### _validate_imports
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_validate_imports(self, validation_env: ValidationEnvironment, result: ValidationResult) -> bool`
+
+**Description:** Validate that all required Python modules can be imported successfully.
+
+Args:
+    validation_env: Validation environment for testing
+    result: Validation result to update
+
+Returns:
+    bool: True if all imports successful
+
+---
+
+### _validate_infrastructure
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_validate_infrastructure(self, package_path: Path) -> Dict[str, Any]`
+
+**Description:** Validate Framework0 infrastructure availability.
+
+Args:
+    package_path: Path to package directory
+    
+Returns:
+    Dict[str, Any]: Infrastructure validation results
 
 ---
 
@@ -5154,6 +7190,24 @@ Args:
 
 Returns:
     bool: True if validation passed
+
+---
+
+### _validate_package_structure
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_validate_package_structure(self, package_path: Path) -> Dict[str, Any]`
+
+**Description:** Validate isolated package directory structure.
+
+Args:
+    package_path: Path to package directory
+    
+Returns:
+    Dict[str, Any]: Structure validation results
 
 ---
 
@@ -5231,6 +7285,43 @@ Args:
 
 Returns:
     bool: True if syntax is valid
+
+---
+
+### _validate_recipe_execution
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `_validate_recipe_execution(self, validation_env: ValidationEnvironment, result: ValidationResult) -> bool`
+
+**Description:** Validate that the recipe can execute successfully in isolation.
+
+Args:
+    validation_env: Validation environment for testing
+    result: Validation result to update
+
+Returns:
+    bool: True if recipe executes successfully
+
+---
+
+### _validate_recipe_file
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_validate_recipe_file(self, package_path: Path) -> Dict[str, Any]`
+
+**Description:** Validate recipe file syntax and structure.
+
+Args:
+    package_path: Path to package directory
+    
+Returns:
+    Dict[str, Any]: Recipe validation results
 
 ---
 
@@ -5325,6 +7416,24 @@ Args:
 
 Returns:
     List[ValidationResult]: Validation results for test files
+
+---
+
+### _validate_workspace_root
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `_validate_workspace_root(self, workspace_path: Path) -> bool`
+
+**Description:** Validate that directory is a valid Framework0 workspace.
+
+Args:
+    workspace_path: Path to validate as workspace
+    
+Returns:
+    bool: True if valid Framework0 workspace
 
 ---
 
@@ -5452,6 +7561,18 @@ Args:
 
 ---
 
+### _write_trace_to_file
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `_write_trace_to_file(self, trace_entry: TraceEntry) -> None`
+
+**Description:** Write trace entry to file if file tracing is enabled.
+
+---
+
 ## A
 
 ### access
@@ -5463,6 +7584,50 @@ Args:
 **Signature:** `access(self) -> None`
 
 **Description:** Record an access to this cache entry.
+
+---
+
+### add_annotation
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestSpan`
+
+**Signature:** `add_annotation(self, message: str) -> None`
+
+**Description:** Add annotation to span for debugging.
+
+---
+
+### add_annotation
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugSession`
+
+**Signature:** `add_annotation(self, message: str) -> None`
+
+**Description:** Add annotation to debug session.
+
+---
+
+### add_breakpoint
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `add_breakpoint(self, name: str, condition: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None) -> str`
+
+**Description:** Add conditional breakpoint.
+
+Args:
+    name: Breakpoint name
+    condition: Python expression condition (optional)
+    metadata: Additional breakpoint metadata
+
+Returns:
+    Breakpoint ID
 
 ---
 
@@ -5557,6 +7722,18 @@ Args:
 **Signature:** `add_dependency_resolved(self, dependency: str) -> None`
 
 **Description:** Record that a dependency was resolved.
+
+---
+
+### add_entry
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceSession`
+
+**Signature:** `add_entry(self, entry: TraceEntry) -> None`
+
+**Description:** Add a trace entry to this session.
 
 ---
 
@@ -5655,6 +7832,18 @@ Args:
 
 ---
 
+### add_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTrace`
+
+**Signature:** `add_span(self, span: RequestSpan) -> None`
+
+**Description:** Add span to request trace.
+
+---
+
 ### add_standard_rules
 
 **Type:** Method
@@ -5713,6 +7902,18 @@ Returns:
 
 ---
 
+### add_tag
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestSpan`
+
+**Signature:** `add_tag(self, key: str, value: str) -> None`
+
+**Description:** Add tag to span for filtering and organization.
+
+---
+
 ### add_task
 
 **Type:** Method
@@ -5756,6 +7957,18 @@ Args:
 
 :param name: Validator name/identifier
 :param validator: Validation function returning ValidationMessage list
+
+---
+
+### add_variable
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugSession`
+
+**Signature:** `add_variable(self, name: str, value: Any) -> None`
+
+**Description:** Add variable to debug session context.
 
 ---
 
@@ -5842,6 +8055,21 @@ Returns:
 
 ---
 
+### analyze_current_framework
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `analyze_current_framework(self) -> Dict[str, Any]`
+
+**Description:** Analyze current framework capabilities and identify enhancement opportunities.
+
+Returns:
+    Dict[str, Any]: Complete analysis of current framework state and opportunities
+
+---
+
 ### analyze_current_structure
 
 **Type:** Method
@@ -5854,6 +8082,62 @@ Returns:
 
 Returns:
     Dict[str, Any]: Complete analysis of current workspace structure
+
+---
+
+### analyze_data
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IAnalysisPlugin`
+
+**Signature:** `analyze_data(self, data_source: Any, analysis_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Analyze data with specified configuration and methods.
+
+Args:
+    data_source: Data source for analysis
+    analysis_config: Analysis configuration and parameters
+    context: Execution context for analysis
+
+Returns:
+    PluginExecutionResult containing analysis results and insights
+
+---
+
+### analyze_recipe_dependencies
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `analyze_recipe_dependencies(self, recipe_path: str) -> RecipeAnalysisResult`
+
+**Description:** Analyze recipe dependencies with comprehensive Framework0 infrastructure.
+
+Args:
+    recipe_path: Path to recipe file to analyze
+    
+Returns:
+    RecipeAnalysisResult: Complete analysis results
+
+---
+
+### analyze_recipe_dependencies
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `analyze_recipe_dependencies(self, recipe_path: str) -> IsolatedRecipePackage`
+
+**Description:** Analyze complete dependency tree for a recipe file.
+
+Args:
+    recipe_path: Path to recipe file to analyze
+
+Returns:
+    IsolatedRecipePackage: Complete dependency analysis results
 
 ---
 
@@ -5904,6 +8188,18 @@ Raises:
 
 **Description:** Apply a patch (key → value) to the master context.
 Overwrites existing keys (last-write-wins by default).
+
+---
+
+### average_execution_time
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginInstance`
+
+**Signature:** `average_execution_time(self) -> float`
+
+**Description:** Calculate average execution time.
 
 ---
 
@@ -5963,6 +8259,25 @@ Returns:
 
 ---
 
+### backup_data
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IToolPlugin`
+
+**Signature:** `backup_data(self, backup_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Perform backup operations on specified data or workspace.
+
+Args:
+    backup_config: Backup configuration and target specification
+    context: Execution context for backup
+
+Returns:
+    PluginExecutionResult containing backup operation outcome
+
+---
+
 ## C
 
 ### calculate_delta
@@ -6000,6 +8315,18 @@ to enable graceful termination of recipe execution.
 
 ---
 
+### capture_stack
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugSession`
+
+**Signature:** `capture_stack(self) -> None`
+
+**Description:** Capture current stack trace for debugging.
+
+---
+
 ### check_and_flush
 
 **Type:** Method
@@ -6007,6 +8334,42 @@ to enable graceful termination of recipe execution.
 **Location:** `orchestrator.context.persistence.Persistence`
 
 **Signature:** `check_and_flush(self) -> None`
+
+---
+
+### check_breakpoints
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `check_breakpoints(self, context: Dict[str, Any]) -> List[str]`
+
+**Description:** Check all breakpoints against current context.
+
+Args:
+    context: Variable context for breakpoint evaluation
+
+Returns:
+    List of triggered breakpoint IDs
+
+---
+
+### check_condition
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugBreakpoint`
+
+**Signature:** `check_condition(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Check if breakpoint condition is met.
+
+Args:
+    context: Variable context for condition evaluation
+
+Returns:
+    True if condition is met or no condition set
 
 ---
 
@@ -6055,6 +8418,105 @@ Returns:
 
 ---
 
+### clean_isolated_packages
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `clean_isolated_packages(self, confirm: bool = False) -> int`
+
+**Description:** Clean up previously created isolated recipe packages.
+
+Args:
+    confirm: Whether to skip confirmation prompt
+    
+Returns:
+    int: Number of packages cleaned up
+
+---
+
+### cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IPlugin`
+
+**Signature:** `cleanup(self) -> bool`
+
+**Description:** Cleanup plugin resources and prepare for unloading.
+
+---
+
+### cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `cleanup(self) -> bool`
+
+**Description:** Cleanup plugin resources with enhanced logging.
+
+---
+
+### cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `cleanup(self) -> bool`
+
+**Description:** Cleanup plugin resources and prepare for unloading.
+
+Returns:
+    True if cleanup successful, False otherwise
+
+---
+
+### cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `cleanup(self) -> bool`
+
+**Description:** Cleanup plugin resources with enhanced logging.
+
+Returns:
+    True if cleanup successful, False otherwise
+
+---
+
+### cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.IPlugin`
+
+**Signature:** `cleanup(self) -> bool`
+
+**Description:** Cleanup plugin resources.
+
+---
+
+### cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `cleanup(self) -> bool`
+
+**Description:** Cleanup plugin resources.
+
+Returns:
+    True if cleanup successful, False otherwise
+
+---
+
 ### cleanup
 
 **Type:** Method
@@ -6094,6 +8556,54 @@ Args:
     
 Returns:
     int: Number of graphs cleaned up
+
+---
+
+### cleanup_python_path
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `cleanup_python_path(self) -> None`
+
+**Description:** Clean up Python path extensions made during validation.
+
+---
+
+### clear
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `clear(self) -> None`
+
+**Description:** Clear all request tracing context.
+
+---
+
+### clear
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `clear(self) -> None`
+
+**Description:** Clear all trace context information.
+
+---
+
+### clear
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.PluginDiscoveryCache`
+
+**Signature:** `clear(self) -> None`
+
+**Description:** Clear all cached results.
 
 ---
 
@@ -6279,6 +8789,18 @@ Use with caution! This will permanently delete all snapshot data.
 
 ---
 
+### clear_error
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginInstance`
+
+**Signature:** `clear_error(self) -> None`
+
+**Description:** Clear plugin error state.
+
+---
+
 ### clear_history
 
 **Type:** Method
@@ -6306,6 +8828,72 @@ Returns:
 **Signature:** `clear_registry() -> None`
 
 **Description:** Clear all registered analyzers (primarily for testing).
+
+---
+
+### clear_traces
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `clear_traces(self) -> None`
+
+**Description:** Clear all trace entries and sessions.
+
+---
+
+### close_debug_session
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `close_debug_session(self, session_id: str) -> Optional[DebugSession]`
+
+**Description:** Close debug session and move to history.
+
+Args:
+    session_id: Debug session ID to close
+
+Returns:
+    Closed debug session or None if not found
+
+---
+
+### close_session
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceSession`
+
+**Signature:** `close_session(self) -> None`
+
+**Description:** Mark session as complete with end timestamp.
+
+---
+
+### close_session
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugSession`
+
+**Signature:** `close_session(self) -> None`
+
+**Description:** Mark debug session as complete.
+
+---
+
+### collect_metrics
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.ICorePlugin`
+
+**Signature:** `collect_metrics(self, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Collect system metrics and performance data.
 
 ---
 
@@ -6373,6 +8961,146 @@ Raises:
 
 ---
 
+### complete_request
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTrace`
+
+**Signature:** `complete_request(self, status: str = 'completed') -> None`
+
+**Description:** Mark request as complete with end timestamp.
+
+---
+
+### complete_request
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `complete_request(self, correlation_id: Optional[str] = None, status: str = 'completed') -> Optional[RequestTrace]`
+
+**Description:** Complete request and move to completed requests.
+
+Args:
+    correlation_id: Request correlation ID (uses context if not provided)
+    status: Completion status
+
+Returns:
+    Completed request trace or None if not found
+
+---
+
+### complete_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestSpan`
+
+**Signature:** `complete_span(self, status: str = 'completed') -> None`
+
+**Description:** Mark span as complete with end timestamp.
+
+---
+
+### complete_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `complete_span(self, span_id: Optional[str] = None, status: str = 'completed', annotation: Optional[str] = None, tags: Optional[Dict[str, str]] = None) -> None`
+
+**Description:** Complete span with status and optional annotation.
+
+Args:
+    span_id: Span ID to complete (uses context if not provided)
+    status: Completion status (completed, error, cancelled)
+    annotation: Optional completion annotation
+    tags: Additional tags to add at completion
+
+---
+
+### comprehensive_recipe_validation
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `comprehensive_recipe_validation(self, package_path: str, recipe_name: str) -> ValidationReport`
+
+**Description:** Perform comprehensive validation across all validation modes.
+
+Args:
+    package_path: Path to isolated recipe package
+    recipe_name: Name of recipe to validate
+    
+Returns:
+    ValidationReport: Complete validation report
+
+---
+
+### configuration
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `configuration(self) -> Dict[str, Any]`
+
+**Description:** Get plugin configuration.
+
+---
+
+### configuration
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `configuration(self) -> Dict[str, Any]`
+
+**Description:** Get plugin configuration.
+
+---
+
+### configure
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `configure(self, configuration: Dict[str, Any]) -> bool`
+
+**Description:** Update plugin configuration dynamically.
+
+Args:
+    configuration: New configuration parameters
+
+Returns:
+    True if configuration updated successfully, False otherwise
+
+---
+
+### configure
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `configure(self, configuration: Dict[str, Any]) -> bool`
+
+**Description:** Update plugin configuration dynamically.
+
+Args:
+    configuration: New configuration parameters
+
+Returns:
+    True if configuration updated successfully, False otherwise
+
+---
+
 ### contains
 
 **Type:** Method
@@ -6406,6 +9134,78 @@ Args:
     
 Returns:
     bool: True if the key exists in any cache level
+
+---
+
+### context
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `context(self) -> Dict[str, Any]`
+
+**Description:** Get plugin context.
+
+---
+
+### context
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `context(self) -> Dict[str, Any]`
+
+**Description:** Get plugin context.
+
+---
+
+### correlation_id
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `correlation_id(self) -> Optional[str]`
+
+**Description:** Get current correlation ID for request tracing.
+
+---
+
+### correlation_id
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `correlation_id(self, value: Optional[str]) -> None`
+
+**Description:** Set correlation ID for request tracing.
+
+---
+
+### correlation_id
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `correlation_id(self) -> Optional[str]`
+
+**Description:** Get current correlation ID for trace correlation.
+
+---
+
+### correlation_id
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `correlation_id(self, value: Optional[str]) -> None`
+
+**Description:** Set correlation ID for trace correlation.
 
 ---
 
@@ -6496,6 +9296,26 @@ Returns:
 **Signature:** `create_context_table(self, all_data)`
 
 **Description:** Create a table showing recent context data.
+
+---
+
+### create_debug_session
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `create_debug_session(self, component: str, debug_level: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None) -> str`
+
+**Description:** Create new debug session.
+
+Args:
+    component: Component being debugged
+    debug_level: Debug level for session
+    metadata: Additional session metadata
+
+Returns:
+    Debug session ID
 
 ---
 
@@ -6634,6 +9454,25 @@ Returns:
 
 ---
 
+### create_execution_environment
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `create_execution_environment(self, package_path: str, recipe_name: str) -> ExecutionEnvironment`
+
+**Description:** Create isolated execution environment for recipe validation.
+
+Args:
+    package_path: Path to isolated recipe package
+    recipe_name: Name of recipe to execute
+    
+Returns:
+    ExecutionEnvironment: Configured execution environment
+
+---
+
 ### create_execution_timeline
 
 **Type:** Method
@@ -6675,6 +9514,62 @@ Returns:
 
 ---
 
+### create_isolated_package
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `create_isolated_package(self, recipe_path: str, output_dir: Optional[str] = None) -> str`
+
+**Description:** Create isolated recipe package with complete Framework0 infrastructure.
+
+Args:
+    recipe_path: Path to recipe file to isolate
+    output_dir: Optional custom output directory
+    
+Returns:
+    str: Path to created isolated package directory
+
+---
+
+### create_isolated_package
+
+**Type:** Method
+
+**Location:** `tools.recipe_dependency_analyzer.RecipeDependencyAnalyzer`
+
+**Signature:** `create_isolated_package(self, package: IsolatedRecipePackage) -> str`
+
+**Description:** Create isolated recipe package by copying required files.
+
+Args:
+    package: Package definition to create
+
+Returns:
+    str: Path to created isolated package directory
+
+---
+
+### create_minimal_package
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `create_minimal_package(self, package_spec: MinimalPackageSpec, target_dir: str) -> bool`
+
+**Description:** Create minimal isolated package with only required files.
+
+Args:
+    package_spec: Package specification with file lists
+    target_dir: Target directory for isolated package
+    
+Returns:
+    bool: True if package created successfully
+
+---
+
 ### create_realtime_dashboard
 
 **Type:** Method
@@ -6711,6 +9606,26 @@ Args:
     
 Returns:
     str: Graph identifier for further operations
+
+---
+
+### create_report
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IAnalysisPlugin`
+
+**Signature:** `create_report(self, report_template: Dict[str, Any], report_data: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Create report from template and data.
+
+Args:
+    report_template: Report template configuration
+    report_data: Data for report generation
+    context: Execution context for report creation
+
+Returns:
+    PluginExecutionResult containing generated report and metadata
 
 ---
 
@@ -6790,6 +9705,18 @@ Args:
 
 ---
 
+### current_span_id
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `current_span_id(self) -> Optional[str]`
+
+**Description:** Get current active span ID.
+
+---
+
 ## D
 
 ### debug
@@ -6806,6 +9733,52 @@ Args:
     message: Debug message to log
     *args: Positional arguments for message formatting
     **kwargs: Keyword arguments for logger
+
+---
+
+### debug_context
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `debug_context(self, component: str, capture_locals: bool = True, metadata: Optional[Dict[str, Any]] = None)`
+
+**Description:** Context manager for debug environments.
+
+Args:
+    component: Component being debugged
+    capture_locals: Capture local variables
+    metadata: Additional debug metadata
+
+---
+
+### debug_function
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `debug_function(self, enable_tracing: bool = True, enable_timing: bool = True, capture_variables: bool = True)`
+
+**Description:** Decorator for comprehensive function debugging.
+
+Args:
+    enable_tracing: Enable function call tracing
+    enable_timing: Enable execution timing
+    capture_variables: Enable variable capture
+
+---
+
+### debug_manager
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `debug_manager(self)`
+
+**Description:** Get plugin debug manager.
 
 ---
 
@@ -7023,6 +9996,72 @@ Returns:
 
 ---
 
+### discover_all_components
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `discover_all_components(self, force_refresh: bool = False) -> Dict[Framework0ComponentType, DiscoverySession]`
+
+**Description:** Discover plugins for all Framework0 components.
+
+Args:
+    force_refresh: Force refresh bypassing cache
+
+Returns:
+    Dictionary mapping component types to discovery sessions
+
+---
+
+### discover_all_components
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `discover_all_components(self) -> Dict[str, List[Path]]`
+
+**Description:** Discover all workspace components for validation.
+
+Returns:
+    Dict[str, List[Path]]: Components organized by type
+
+---
+
+### discover_all_plugins
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `discover_all_plugins(self, auto_register: bool = True) -> Dict[Framework0ComponentType, ComponentDiscoveryResult]`
+
+**Description:** Discover plugins for all Framework0 components.
+
+Args:
+    auto_register: Whether to automatically register discovered plugins
+
+Returns:
+    Dictionary mapping component types to discovery results
+
+---
+
+### discover_all_recipes
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `discover_all_recipes(self) -> List[Path]`
+
+**Description:** Discover all recipe files in the Framework0 workspace.
+
+Returns:
+    List[Path]: List of discovered recipe file paths
+
+---
+
 ### discover_components
 
 **Type:** Method
@@ -7035,6 +10074,102 @@ Returns:
 
 Returns:
     Dict[str, List[Path]]: Components organized by type
+
+---
+
+### discover_plugins
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `discover_plugins(self, target_directory: Optional[str] = None, component_type: Optional[Framework0ComponentType] = None, force_refresh: bool = False) -> List[PluginDiscoveryResult]`
+
+**Description:** Discover plugins using configured strategies.
+
+Args:
+    target_directory: Specific directory to search (overrides base directories)
+    component_type: Target component type for filtering
+    force_refresh: Force refresh bypassing cache
+
+Returns:
+    List of plugin discovery results
+
+---
+
+### discover_plugins
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `discover_plugins(self, directories: Optional[List[str]] = None) -> int`
+
+**Description:** Discover plugins in specified directories.
+
+Args:
+    directories: Directories to scan (uses default if None)
+
+Returns:
+    Number of plugins discovered
+
+---
+
+### discover_plugins_for_component
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `discover_plugins_for_component(self, component_type: Framework0ComponentType, force_refresh: bool = False, auto_register: Optional[bool] = None) -> DiscoverySession`
+
+**Description:** Discover plugins for specific Framework0 component.
+
+Args:
+    component_type: Target component type
+    force_refresh: Force refresh bypassing cache
+    auto_register: Whether to auto-register (overrides config)
+
+Returns:
+    Discovery session with results
+
+---
+
+### discover_plugins_for_component
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `discover_plugins_for_component(self, component_type: Framework0ComponentType, auto_register: bool = True) -> List[str]`
+
+**Description:** Discover plugins for specified Framework0 component.
+
+Args:
+    component_type: Framework0 component type to discover plugins for
+    auto_register: Whether to automatically register discovered plugins
+
+Returns:
+    List of discovered plugin IDs
+
+---
+
+### discover_plugins_for_component
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `discover_plugins_for_component(self, component_type: Framework0ComponentType, auto_register: bool = True) -> ComponentDiscoveryResult`
+
+**Description:** Discover plugins for specific Framework0 component.
+
+Args:
+    component_type: Target component type
+    auto_register: Whether to automatically register discovered plugins
+
+Returns:
+    Component discovery result
 
 ---
 
@@ -7125,6 +10260,45 @@ Returns:
 
 ---
 
+### enhance_component
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IEnhancementPlugin`
+
+**Signature:** `enhance_component(self, component_name: str, enhancement_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Enhance Framework0 component with additional capabilities.
+
+Args:
+    component_name: Name of component to enhance
+    enhancement_config: Enhancement configuration and parameters
+    context: Execution context for enhancement
+
+Returns:
+    PluginExecutionResult containing enhancement outcome and details
+
+---
+
+### enhance_security
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IEnhancementPlugin`
+
+**Signature:** `enhance_security(self, security_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Enhance security features and capabilities.
+
+Args:
+    security_config: Security enhancement configuration
+    context: Execution context for security enhancement
+
+Returns:
+    PluginExecutionResult containing security enhancement outcome
+
+---
+
 ### error
 
 **Type:** Method
@@ -7206,6 +10380,84 @@ Args:
 
 **Type:** Method
 
+**Location:** `src.core.plugin_interfaces_v2.IPlugin`
+
+**Signature:** `execute(self, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute plugin functionality with execution context.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `execute(self, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute plugin functionality - must be implemented by subclasses.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `execute(self, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute plugin functionality with execution context.
+
+Args:
+    context: Plugin execution context with parameters and environment
+
+Returns:
+    PluginExecutionResult containing execution outcome and data
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `execute(self, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute plugin functionality - must be implemented by subclasses.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.IPlugin`
+
+**Signature:** `execute(self) -> Any`
+
+**Description:** Execute plugin functionality.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `execute(self) -> Any`
+
+**Description:** Execute plugin functionality - must be implemented by subclasses.
+
+---
+
+### execute
+
+**Type:** Method
+
 **Location:** `scriptlets.framework.BaseScriptlet`
 
 **Signature:** `execute(self, context: Context, params: Dict[str, Any]) -> ScriptletResult`
@@ -7272,6 +10524,21 @@ Example:
 
 ---
 
+### execute_comprehensive_validation
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `execute_comprehensive_validation(self) -> ValidationSummary`
+
+**Description:** Execute comprehensive validation of all workspace components.
+
+Returns:
+    ValidationSummary: Complete validation results and statistics
+
+---
+
 ### execute_phase
 
 **Type:** Method
@@ -7288,6 +10555,140 @@ Args:
 
 Returns:
     bool: True if phase executed successfully, False otherwise
+
+---
+
+### execute_plugin
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `execute_plugin(self, plugin_id: str, execution_context: PluginExecutionContext, component_type: Optional[Framework0ComponentType] = None) -> PluginExecutionResult`
+
+**Description:** Execute a plugin with enhanced logging and tracing.
+
+---
+
+### execute_plugin
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `execute_plugin(self, plugin_id: str) -> Any`
+
+**Description:** Execute specific plugin with arguments.
+
+Args:
+    plugin_id: Plugin identifier to execute
+    *args: Positional arguments for plugin execution
+    **kwargs: Keyword arguments for plugin execution
+
+Returns:
+    Plugin execution result or None if failed
+
+---
+
+### execute_plugin
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `execute_plugin(self, plugin_id: str, execution_context: PluginExecutionContext, component_type: Optional[Framework0ComponentType] = None) -> PluginExecutionResult`
+
+**Description:** Execute a plugin with enhanced logging and tracing.
+
+Args:
+    plugin_id: Plugin identifier to execute
+    execution_context: Plugin execution context
+    component_type: Framework0 component type invoking plugin
+
+Returns:
+    Plugin execution result with enhanced metadata
+
+---
+
+### execute_recipe_validation
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `execute_recipe_validation(self, environment: ExecutionEnvironment, validation_mode: str = 'basic_execution') -> ExecutionResult`
+
+**Description:** Execute recipe validation in specified mode.
+
+Args:
+    environment: Configured execution environment
+    validation_mode: Type of validation to perform
+    
+Returns:
+    ExecutionResult: Comprehensive execution results
+
+---
+
+### execute_script
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IScriptletPlugin`
+
+**Signature:** `execute_script(self, script_content: str, script_type: str, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute script content with specified type and context.
+
+---
+
+### execute_script
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IScriptletPlugin`
+
+**Signature:** `execute_script(self, script_content: str, script_type: str, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute script content with specified type and context.
+
+Args:
+    script_content: Script source code or commands
+    script_type: Script type (python, shell, javascript, etc.)
+    context: Execution context with parameters and environment
+
+Returns:
+    PluginExecutionResult containing script execution outcome
+
+---
+
+### execute_workflow
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IOrchestrationPlugin`
+
+**Signature:** `execute_workflow(self, workflow_definition: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute workflow with given definition and context.
+
+---
+
+### execute_workflow
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IOrchestrationPlugin`
+
+**Signature:** `execute_workflow(self, workflow_definition: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Execute workflow with given definition and context.
+
+Args:
+    workflow_definition: Workflow configuration and steps
+    context: Execution context with parameters and environment
+
+Returns:
+    PluginExecutionResult containing workflow execution outcome
 
 ---
 
@@ -7394,6 +10795,21 @@ Raises:
 
 ---
 
+### export_debug_data
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `export_debug_data(self, file_path: Path) -> None`
+
+**Description:** Export all debug data to file.
+
+Args:
+    file_path: Path for debug data export
+
+---
+
 ### export_performance_report
 
 **Type:** Method
@@ -7433,6 +10849,18 @@ Returns:
     
 Raises:
     SnapshotNotFoundError: If snapshot with given version ID doesn't exist
+
+---
+
+### export_traces
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `export_traces(self, file_path: Path) -> None`
+
+**Description:** Export all trace entries to a file.
 
 ---
 
@@ -7490,6 +10918,18 @@ Args:
 
 Returns:
     Formatted log message string
+
+---
+
+### from_dict
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginMetadata`
+
+**Signature:** `from_dict(cls, data: Dict[str, Any]) -> 'PluginMetadata'`
+
+**Description:** Create plugin metadata from dictionary.
 
 ---
 
@@ -7640,6 +11080,25 @@ Returns:
 
 ---
 
+### generate_comprehensive_report
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `generate_comprehensive_report(self, suite_results: Dict[str, Any], output_path: Optional[str] = None) -> str`
+
+**Description:** Generate comprehensive test report with detailed analysis.
+
+Args:
+    suite_results: Complete test suite results
+    output_path: Optional path for saving report
+    
+Returns:
+    str: Path to generated comprehensive report file
+
+---
+
 ### generate_deployment_guide
 
 **Type:** Method
@@ -7652,6 +11111,24 @@ Returns:
 
 Returns:
     Markdown-formatted deployment guide documentation
+
+---
+
+### generate_enhancement_plan
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `generate_enhancement_plan(self, framework_analysis: Dict[str, Any]) -> EnhancementPlan`
+
+**Description:** Generate comprehensive enhancement plan based on framework analysis.
+
+Args:
+    framework_analysis: Complete framework analysis results
+
+Returns:
+    EnhancementPlan: Complete enhancement plan with implementation strategy
 
 ---
 
@@ -7685,6 +11162,41 @@ Args:
     
 Returns:
     Markdown-formatted method index documentation
+
+---
+
+### generate_metrics
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IAnalysisPlugin`
+
+**Signature:** `generate_metrics(self, metric_definitions: List[Dict[str, Any]], data_sources: List[Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Generate metrics from data sources using metric definitions.
+
+Args:
+    metric_definitions: List of metric calculation definitions
+    data_sources: List of data sources for metric calculation
+    context: Execution context for metrics generation
+
+Returns:
+    PluginExecutionResult containing calculated metrics and metadata
+
+---
+
+### generate_path_wrapper
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.PathWrapperGenerator`
+
+**Signature:** `generate_path_wrapper(self) -> str`
+
+**Description:** Generate unified path wrapper content for isolated package.
+
+Returns:
+    str: Complete path wrapper Python code
 
 ---
 
@@ -7755,6 +11267,55 @@ Args:
 
 Returns:
     str: Formatted validation report
+
+---
+
+### generate_validation_report
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `generate_validation_report(self, summary: ValidationSummary, output_path: Optional[Path] = None) -> Path`
+
+**Description:** Generate comprehensive validation report.
+
+Args:
+    summary: Validation summary data
+    output_path: Optional custom output path
+    
+Returns:
+    Path: Path to generated report file
+
+---
+
+### generate_validation_report
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `generate_validation_report(self, result: ValidationResult) -> str`
+
+**Description:** Generate comprehensive validation report from results.
+
+Args:
+    result: Validation result to generate report from
+
+Returns:
+    str: Formatted validation report
+
+---
+
+### get
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.PluginDiscoveryCache`
+
+**Signature:** `get(self, cache_key: str) -> Optional[PluginDiscoveryResult]`
+
+**Description:** Get cached discovery result if still valid.
 
 ---
 
@@ -8144,6 +11705,60 @@ Returns:
 
 **Type:** Method
 
+**Location:** `src.core.plugin_interfaces_v2.IPlugin`
+
+**Signature:** `get_capabilities(self) -> List[PluginCapability]`
+
+**Description:** Get list of plugin capabilities.
+
+---
+
+### get_capabilities
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `get_capabilities(self) -> List[PluginCapability]`
+
+**Description:** Get plugin capabilities - can be overridden by subclasses.
+
+---
+
+### get_capabilities
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `get_capabilities(self) -> List[PluginCapability]`
+
+**Description:** Get list of plugin capabilities.
+
+Returns:
+    List of PluginCapability enums declaring plugin features
+
+---
+
+### get_capabilities
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `get_capabilities(self) -> List[PluginCapability]`
+
+**Description:** Get plugin capabilities - can be overridden by subclasses.
+
+Returns:
+    List of plugin capabilities (default: basic capabilities)
+
+---
+
+### get_capabilities
+
+**Type:** Method
+
 **Location:** `scriptlets.framework.BaseScriptlet`
 
 **Signature:** `get_capabilities(self) -> List[str]`
@@ -8266,6 +11881,18 @@ Returns:
 
 ---
 
+### get_debug_summary
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `get_debug_summary(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive debug environment summary.
+
+---
+
 ### get_delta_at_index
 
 **Type:** Method
@@ -8305,6 +11932,42 @@ Raises:
 
 ---
 
+### get_discovery_statistics
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.Framework0PluginDiscovery`
+
+**Signature:** `get_discovery_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive plugin discovery statistics.
+
+---
+
+### get_discovery_status
+
+**Type:** Method
+
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `get_discovery_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive discovery system status.
+
+---
+
+### get_discovery_status
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery_integration.PluginDiscoveryManager`
+
+**Signature:** `get_discovery_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive discovery status and statistics.
+
+---
+
 ### get_duration
 
 **Type:** Method
@@ -8326,6 +11989,30 @@ Raises:
 **Signature:** `get_duration(self) -> Optional[float]`
 
 **Description:** Calculate node execution duration.
+
+---
+
+### get_duration_ms
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestSpan`
+
+**Signature:** `get_duration_ms(self) -> Optional[float]`
+
+**Description:** Get span duration in milliseconds.
+
+---
+
+### get_duration_ms
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTrace`
+
+**Signature:** `get_duration_ms(self) -> Optional[float]`
+
+**Description:** Get total request duration in milliseconds.
 
 ---
 
@@ -8536,6 +12223,18 @@ Raises:
 
 ---
 
+### get_loaded_plugins
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `get_loaded_plugins(self) -> Dict[str, Dict[str, Any]]`
+
+**Description:** Get information about all loaded plugins.
+
+---
+
 ### get_logger_stats
 
 **Type:** Method
@@ -8548,6 +12247,81 @@ Raises:
 
 Returns:
     Dictionary containing logger statistics
+
+---
+
+### get_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IPlugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata information.
+
+---
+
+### get_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata - must be implemented by subclasses.
+
+---
+
+### get_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata information.
+
+Returns:
+    PluginMetadata containing plugin identification and configuration
+
+---
+
+### get_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata - must be implemented by subclasses.
+
+---
+
+### get_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.IPlugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata information.
+
+---
+
+### get_metadata
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata - must be implemented by subclasses.
 
 ---
 
@@ -8645,6 +12419,62 @@ Returns:
 
 ---
 
+### get_plugin_stats
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `get_plugin_stats(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive plugin manager statistics.
+
+---
+
+### get_plugins_for_component
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `get_plugins_for_component(self, component_type: Framework0ComponentType, interface_filter: Optional[str] = None) -> List[PluginRegistration]`
+
+**Description:** Get plugins compatible with specified Framework0 component.
+
+---
+
+### get_plugins_for_component
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `get_plugins_for_component(self, component_type: Framework0ComponentType, interface_filter: Optional[str] = None, priority_filter: Optional[PluginPriority] = None) -> List[PluginRegistration]`
+
+**Description:** Get plugins compatible with specified Framework0 component.
+
+Args:
+    component_type: Target Framework0 component type
+    interface_filter: Filter by specific interface (optional)
+    priority_filter: Filter by plugin priority (optional)
+
+Returns:
+    List of compatible plugin registrations
+
+---
+
+### get_request_trace
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `get_request_trace(self, correlation_id: str) -> Optional[RequestTrace]`
+
+**Description:** Get request trace by correlation ID.
+
+---
+
 ### get_shared_data
 
 **Type:** Method
@@ -8733,6 +12563,18 @@ Raises:
 
 ---
 
+### get_span_tree
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTrace`
+
+**Signature:** `get_span_tree(self) -> Dict[str, Any]`
+
+**Description:** Get hierarchical span tree for visualization.
+
+---
+
 ### get_state_at_index
 
 **Type:** Method
@@ -8800,6 +12642,87 @@ Returns:
 
 **Type:** Method
 
+**Location:** `src.core.plugin_interfaces_v2.IPlugin`
+
+**Signature:** `get_status(self) -> Dict[str, Any]`
+
+**Description:** Get current plugin status and health information.
+
+---
+
+### get_status
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `get_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive plugin status with enhanced metrics.
+
+---
+
+### get_status
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `get_status(self) -> Dict[str, Any]`
+
+**Description:** Get current plugin status and health information.
+
+Returns:
+    Dictionary containing plugin status, metrics, and health data
+
+---
+
+### get_status
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `get_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive plugin status with enhanced metrics.
+
+Returns:
+    Dictionary containing detailed plugin status information
+
+---
+
+### get_status
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.IPlugin`
+
+**Signature:** `get_status(self) -> Dict[str, Any]`
+
+**Description:** Get current plugin status.
+
+---
+
+### get_status
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `get_status(self) -> Dict[str, Any]`
+
+**Description:** Get current plugin status.
+
+Returns:
+    Dictionary containing plugin status information
+
+---
+
+### get_status
+
+**Type:** Method
+
 **Location:** `server.server_config.ServerManager`
 
 **Signature:** `get_status(self) -> Dict[str, Any]`
@@ -8839,6 +12762,33 @@ Raises:
 **Signature:** `get_step_by_id(self, step_id: str) -> Optional[ExecutionStep]`
 
 **Description:** Find step by identifier.
+
+---
+
+### get_system_status
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `get_system_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive unified plugin system status.
+
+---
+
+### get_system_status
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `get_system_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive unified plugin system status.
+
+Returns:
+    Dictionary containing system status and metrics
 
 ---
 
@@ -8918,6 +12868,30 @@ Returns:
 
 ---
 
+### get_trace_summary
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `get_trace_summary(self) -> Dict[str, Any]`
+
+**Description:** Get summary of current trace information.
+
+---
+
+### get_tracer_stats
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `get_tracer_stats(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive tracer statistics.
+
+---
+
 ### get_validation_summary
 
 **Type:** Method
@@ -8965,6 +12939,26 @@ Returns:
 
 ## H
 
+### handle_memory_bus_event
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IOrchestrationPlugin`
+
+**Signature:** `handle_memory_bus_event(self, event_type: str, event_data: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Handle memory bus events for inter-component communication.
+
+Args:
+    event_type: Type of memory bus event
+    event_data: Event payload and metadata
+    context: Execution context for event handling
+
+Returns:
+    PluginExecutionResult containing event handling outcome
+
+---
+
 ### handle_patch_request
 
 **Type:** Method
@@ -9003,6 +12997,18 @@ Returns JSON dict of context snapshot.
 
 Returns:
     Health status information
+
+---
+
+### hit
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugBreakpoint`
+
+**Signature:** `hit(self) -> None`
+
+**Description:** Register breakpoint hit and increment counter.
 
 ---
 
@@ -9101,6 +13107,178 @@ Args:
     message: Info message to log
     *args: Positional arguments for message formatting
     **kwargs: Keyword arguments for logger
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IPlugin`
+
+**Signature:** `initialize(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Initialize plugin with provided context.
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `initialize(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Initialize plugin with Framework0 context and enhanced logging.
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IPlugin`
+
+**Signature:** `initialize(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Initialize plugin with provided context.
+
+Args:
+    context: Plugin initialization context with configuration and services
+
+Returns:
+    True if initialization successful, False otherwise
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `initialize(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Initialize plugin with Framework0 context and enhanced logging.
+
+Args:
+    context: Plugin initialization context with services and configuration
+
+Returns:
+    True if initialization successful, False otherwise
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `initialize(self) -> bool`
+
+**Description:** Initialize the unified plugin manager with enhanced logging.
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.IPlugin`
+
+**Signature:** `initialize(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Initialize plugin with provided context.
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `initialize(self, context: Dict[str, Any]) -> bool`
+
+**Description:** Initialize plugin with provided context.
+
+Args:
+    context: Plugin initialization context
+
+Returns:
+    True if initialization successful, False otherwise
+
+---
+
+### initialize
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `initialize(self) -> bool`
+
+**Description:** Initialize the unified plugin manager with enhanced logging.
+
+Returns:
+    True if initialization successful, False otherwise
+
+---
+
+### inspect_object
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `inspect_object(self, obj: Any, depth: int = 2) -> Dict[str, Any]`
+
+**Description:** Inspect object and return detailed information.
+
+Args:
+    obj: Object to inspect
+    depth: Inspection depth level
+
+Returns:
+    Dictionary containing object inspection data
+
+---
+
+### integrate_with_orchestrator
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0ComponentIntegrator`
+
+**Signature:** `integrate_with_orchestrator(self) -> Dict[str, Any]`
+
+**Description:** Integrate plugins with Framework0 orchestrator component.
+
+---
+
+### integrate_with_scriptlets
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0ComponentIntegrator`
+
+**Signature:** `integrate_with_scriptlets(self) -> Dict[str, Any]`
+
+**Description:** Integrate plugins with Framework0 scriptlet component.
+
+---
+
+### integrate_with_tools
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0ComponentIntegrator`
+
+**Signature:** `integrate_with_tools(self) -> Dict[str, Any]`
+
+**Description:** Integrate plugins with Framework0 tools component.
 
 ---
 
@@ -9209,6 +13387,28 @@ Returns:
 **Signature:** `is_valid(self) -> bool`
 
 **Description:** Check if recipe has no validation errors.
+
+---
+
+### isolate_recipe_minimal
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `isolate_recipe_minimal(self, recipe_path: str, target_dir: Optional[str] = None) -> bool`
+
+**Description:** Create minimal isolated recipe package using precise dependency analysis.
+
+This method uses the MinimalDependencyResolver to copy only required files
+with content integrity verification and unified path resolution wrapper.
+
+Args:
+    recipe_path: Path to recipe file to isolate
+    target_dir: Target directory for isolated package (optional)
+    
+Returns:
+    bool: True if isolation successful
 
 ---
 
@@ -9322,6 +13522,24 @@ Raises:
 **Signature:** `list_files(self) -> list`
 
 **Description:** List all JSON files in storage directory.
+
+---
+
+### list_recipes
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `list_recipes(self, directory: Optional[str] = None) -> List[str]`
+
+**Description:** List available recipe files in workspace or specified directory.
+
+Args:
+    directory: Optional directory to search (defaults to workspace)
+    
+Returns:
+    List[str]: List of found recipe file paths
 
 ---
 
@@ -9566,6 +13784,25 @@ Returns None if no snapshot exists.
 
 ---
 
+### load_plugin
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `load_plugin(self, plugin_id: str, force_reload: bool = False) -> bool`
+
+**Description:** Load specific plugin by ID.
+
+Args:
+    plugin_id: Plugin identifier to load
+    force_reload: Force reload if already loaded
+
+Returns:
+    True if plugin loaded successfully, False otherwise
+
+---
+
 ### load_restructuring_plan
 
 **Type:** Method
@@ -9599,7 +13836,107 @@ Args:
 
 ---
 
+### logger
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `logger(self)`
+
+**Description:** Get plugin enhanced logger.
+
+---
+
+### logger
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `logger(self)`
+
+**Description:** Get plugin enhanced logger.
+
+---
+
+### logger
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `logger(self)`
+
+**Description:** Get plugin logger instance.
+
+---
+
 ## M
+
+### manage_configuration
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.ICorePlugin`
+
+**Signature:** `manage_configuration(self, context: PluginExecutionContext, config_operation: str, config_data: Dict[str, Any]) -> PluginExecutionResult`
+
+**Description:** Manage plugin or system configuration.
+
+---
+
+### manage_context
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IOrchestrationPlugin`
+
+**Signature:** `manage_context(self, operation: str, context_data: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Manage execution context and state.
+
+Args:
+    operation: Context operation (create, update, delete, query)
+    context_data: Context data to manage
+    context: Execution context for operation
+
+Returns:
+    PluginExecutionResult containing context management outcome
+
+---
+
+### manage_workspace
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IToolPlugin`
+
+**Signature:** `manage_workspace(self, operation: str, workspace_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Perform workspace management operations.
+
+---
+
+### manage_workspace
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IToolPlugin`
+
+**Signature:** `manage_workspace(self, operation: str, workspace_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Perform workspace management operations.
+
+Args:
+    operation: Workspace operation (create, clean, backup, restore)
+    workspace_config: Workspace configuration and parameters
+    context: Execution context for operation
+
+Returns:
+    PluginExecutionResult containing workspace operation outcome
+
+---
 
 ### merge_deltas
 
@@ -9642,6 +13979,25 @@ Raises:
 
 ---
 
+### monitor_system
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IToolPlugin`
+
+**Signature:** `monitor_system(self, monitoring_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Monitor system health and performance.
+
+Args:
+    monitoring_config: Monitoring configuration and metrics
+    context: Execution context for monitoring
+
+Returns:
+    PluginExecutionResult containing monitoring data and outcome
+
+---
+
 ## O
 
 ### on
@@ -9657,6 +14013,25 @@ Raises:
 Args:
     event_type: Type of event to handle (connect, disconnect, context_updated, etc.)
     handler: Async function to call when event occurs
+
+---
+
+### optimize_performance
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IEnhancementPlugin`
+
+**Signature:** `optimize_performance(self, optimization_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Optimize component or system performance.
+
+Args:
+    optimization_config: Optimization configuration and targets
+    context: Execution context for optimization
+
+Returns:
+    PluginExecutionResult containing optimization outcome and metrics
 
 ---
 
@@ -9704,6 +14079,49 @@ Args:
 
 ---
 
+### perform_cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IToolPlugin`
+
+**Signature:** `perform_cleanup(self, cleanup_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Perform cleanup operations on workspace or system.
+
+---
+
+### perform_cleanup
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IToolPlugin`
+
+**Signature:** `perform_cleanup(self, cleanup_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Perform cleanup operations on workspace or system.
+
+Args:
+    cleanup_config: Cleanup configuration and rules
+    context: Execution context for cleanup
+
+Returns:
+    PluginExecutionResult containing cleanup operation outcome
+
+---
+
+### perform_health_check
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.ICorePlugin`
+
+**Signature:** `perform_health_check(self, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Perform health check operations.
+
+---
+
 ### persist
 
 **Type:** Method
@@ -9746,6 +14164,33 @@ Returns:
 
 ---
 
+### plugin_execution_context
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `plugin_execution_context(self, plugin_id: str)`
+
+**Description:** Context manager for plugin execution with tracing and error handling.
+
+Args:
+    plugin_id: Plugin identifier for execution context
+
+---
+
+### plugin_id
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginInstance`
+
+**Signature:** `plugin_id(self) -> str`
+
+**Description:** Get plugin ID from metadata.
+
+---
+
 ### pop_dirty_keys
 
 **Type:** Method
@@ -9779,6 +14224,18 @@ Returns:
 
 ---
 
+### pop_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `pop_span(self) -> Optional[str]`
+
+**Description:** Pop span ID from stack when span completes.
+
+---
+
 ### preserve_framework0_baseline
 
 **Type:** Method
@@ -9788,6 +14245,38 @@ Returns:
 **Signature:** `preserve_framework0_baseline(self) -> None`
 
 **Description:** Ensure Framework0 baseline components are preserved.
+
+---
+
+### process_data
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IScriptletPlugin`
+
+**Signature:** `process_data(self, input_data: Any, processing_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Process data with specified configuration.
+
+---
+
+### process_data
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IScriptletPlugin`
+
+**Signature:** `process_data(self, input_data: Any, processing_config: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Process data with specified configuration.
+
+Args:
+    input_data: Data to process (any type)
+    processing_config: Processing configuration and parameters
+    context: Execution context for processing
+
+Returns:
+    PluginExecutionResult containing processed data and outcome
 
 ---
 
@@ -9819,6 +14308,30 @@ Returns:
 
 **Description:** Send a JSON patch (key→value mapping) to the server.
 Returns True if accepted / successful, False otherwise.
+
+---
+
+### push_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `push_span(self, span_id: str) -> None`
+
+**Description:** Push span ID onto stack for hierarchical tracing.
+
+---
+
+### put
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.PluginDiscoveryCache`
+
+**Signature:** `put(self, cache_key: str, result: PluginDiscoveryResult) -> None`
+
+**Description:** Cache discovery result with current timestamp.
 
 ---
 
@@ -9890,6 +14403,56 @@ Raises:
 
 ---
 
+### register_plugin
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system_v2.Framework0PluginManagerV2`
+
+**Signature:** `register_plugin(self, plugin_class: Type, component_types: Optional[List[Framework0ComponentType]] = None, force: bool = False) -> bool`
+
+**Description:** Register a plugin class with the unified system.
+
+---
+
+### register_plugin
+
+**Type:** Method
+
+**Location:** `src.core.unified_plugin_system.Framework0PluginManagerV2`
+
+**Signature:** `register_plugin(self, plugin_class: Type, component_types: Optional[List[Framework0ComponentType]] = None, force: bool = False) -> bool`
+
+**Description:** Register a plugin class with the unified system.
+
+Args:
+    plugin_class: Plugin class to register
+    component_types: Compatible Framework0 components (auto-detected if None)
+    force: Force registration even if validation fails
+
+Returns:
+    True if registration successful, False otherwise
+
+---
+
+### remove_breakpoint
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `remove_breakpoint(self, breakpoint_id: str) -> bool`
+
+**Description:** Remove breakpoint.
+
+Args:
+    breakpoint_id: Breakpoint ID to remove
+
+Returns:
+    True if removed, False if not found
+
+---
+
 ### remove_dependency
 
 **Type:** Method
@@ -9950,6 +14513,18 @@ Returns:
 
 ---
 
+### request_tracer
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `request_tracer(self)`
+
+**Description:** Get plugin request tracer.
+
+---
+
 ### reset
 
 **Type:** Method
@@ -9980,6 +14555,24 @@ Returns:
 
 Raises:
     ValueError: If circular dependencies are detected
+
+---
+
+### resolve_minimal_dependencies
+
+**Type:** Method
+
+**Location:** `tools.minimal_dependency_resolver.MinimalDependencyResolver`
+
+**Signature:** `resolve_minimal_dependencies(self, recipe_path: str) -> MinimalPackageSpec`
+
+**Description:** Resolve minimal dependencies required for recipe execution.
+
+Args:
+    recipe_path: Path to recipe file to analyze
+    
+Returns:
+    MinimalPackageSpec: Complete minimal package specification
 
 ---
 
@@ -10468,6 +15061,24 @@ Raises:
 
 ---
 
+### save_enhancement_plan
+
+**Type:** Method
+
+**Location:** `tools.framework_enhancer.Framework0Enhancer`
+
+**Signature:** `save_enhancement_plan(self, output_path: Optional[Path] = None) -> Path`
+
+**Description:** Save comprehensive enhancement plan to file for review.
+
+Args:
+    output_path: Optional custom output path for plan file
+
+Returns:
+    Path: Path to saved enhancement plan file
+
+---
+
 ### save_restructuring_plan
 
 **Type:** Method
@@ -10516,6 +15127,38 @@ Returns:
 
 ---
 
+### schedule_task
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.IOrchestrationPlugin`
+
+**Signature:** `schedule_task(self, task_definition: Dict[str, Any], schedule: str, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Schedule task for future execution.
+
+---
+
+### schedule_task
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IOrchestrationPlugin`
+
+**Signature:** `schedule_task(self, task_definition: Dict[str, Any], schedule: str, context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Schedule task for future execution.
+
+Args:
+    task_definition: Task configuration and parameters
+    schedule: Schedule specification (cron-like or delay)
+    context: Execution context for task
+
+Returns:
+    PluginExecutionResult containing scheduling outcome
+
+---
+
 ### send_message
 
 **Type:** Method
@@ -10543,6 +15186,30 @@ Args:
     
 Returns:
     bytes: Serialized delta data
+
+---
+
+### session_id
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `session_id(self) -> Optional[str]`
+
+**Description:** Get current session identifier.
+
+---
+
+### session_id
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `session_id(self, value: Optional[str]) -> None`
+
+**Description:** Set session identifier.
 
 ---
 
@@ -10780,6 +15447,69 @@ Raises:
 
 ---
 
+### set_correlation_id
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `set_correlation_id(self, correlation_id: str) -> None`
+
+**Description:** Set correlation ID for request tracking.
+
+---
+
+### set_debug_level
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `set_debug_level(self, level: str) -> None`
+
+**Description:** Set debug level for the environment.
+
+Args:
+    level: Debug level (DEBUG, INFO, WARNING, ERROR)
+
+---
+
+### set_error
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestSpan`
+
+**Signature:** `set_error(self, error: Exception, details: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Mark span as error with exception details.
+
+---
+
+### set_error
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginInstance`
+
+**Signature:** `set_error(self, error_message: str) -> None`
+
+**Description:** Set plugin error state.
+
+---
+
+### set_user_context
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `set_user_context(self, user_context: Dict[str, Any]) -> None`
+
+**Description:** Set user context for action tracking.
+
+---
+
 ### setup_callbacks
 
 **Type:** Method
@@ -10892,11 +15622,47 @@ Raises:
 
 **Type:** Method
 
+**Location:** `src.core.integrated_plugin_discovery.IntegratedPluginDiscoveryManager`
+
+**Signature:** `shutdown(self) -> None`
+
+**Description:** Shutdown discovery manager and cleanup resources.
+
+---
+
+### shutdown
+
+**Type:** Method
+
 **Location:** `orchestrator.enhanced_memory_bus.EnhancedMemoryBus`
 
 **Signature:** `shutdown(self) -> None`
 
 **Description:** Gracefully shutdown memory bus.
+
+---
+
+### size
+
+**Type:** Method
+
+**Location:** `src.core.plugin_discovery.PluginDiscoveryCache`
+
+**Signature:** `size(self) -> int`
+
+**Description:** Get cache size.
+
+---
+
+### span_stack
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `span_stack(self) -> List[str]`
+
+**Description:** Get current span stack for hierarchical tracing.
 
 ---
 
@@ -10925,6 +15691,18 @@ Returns:
 
 **Description:** Begin a background thread that periodically flushes dirty keys
 from the context to disk / persistent storage.
+
+---
+
+### start_background_task
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.ICorePlugin`
+
+**Signature:** `start_background_task(self, context: PluginExecutionContext, task_definition: Dict[str, Any]) -> PluginExecutionResult`
+
+**Description:** Start background task or service.
 
 ---
 
@@ -10959,6 +15737,51 @@ Returns:
 
 ---
 
+### start_request
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `start_request(self, request_type: str = 'unknown', user_id: Optional[str] = None, user_context: Optional[Dict[str, Any]] = None, correlation_id: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None) -> str`
+
+**Description:** Start new request trace with correlation ID.
+
+Args:
+    request_type: Type of request being traced
+    user_id: User initiating the request
+    user_context: User context information
+    correlation_id: Existing correlation ID (optional)
+    metadata: Additional request metadata
+
+Returns:
+    Correlation ID for the request
+
+---
+
+### start_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `start_span(self, operation: str, component: Optional[str] = None, correlation_id: Optional[str] = None, parent_span_id: Optional[str] = None, tags: Optional[Dict[str, str]] = None, metadata: Optional[Dict[str, Any]] = None) -> str`
+
+**Description:** Start new span within current or specified request.
+
+Args:
+    operation: Operation being performed in this span
+    component: Component handling this operation
+    correlation_id: Request correlation ID (uses context if not provided)
+    parent_span_id: Parent span ID (uses context if not provided)
+    tags: Span tags for filtering
+    metadata: Additional span metadata
+
+Returns:
+    Span ID for the new span
+
+---
+
 ### stop
 
 **Type:** Method
@@ -10983,6 +15806,18 @@ Returns:
 **Signature:** `stop_background_flush(self) -> None`
 
 **Description:** Signal the background flush thread to stop, and join it.
+
+---
+
+### stop_background_task
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.ICorePlugin`
+
+**Signature:** `stop_background_task(self, context: PluginExecutionContext, task_id: str) -> PluginExecutionResult`
+
+**Description:** Stop background task or service.
 
 ---
 
@@ -11062,6 +15897,139 @@ Args:
     
 Raises:
     SnapshotNotFoundError: If snapshot with given version ID doesn't exist
+
+---
+
+### test_all_recipes
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `test_all_recipes(self, recipe_filter: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Test all discovered recipes with comprehensive validation.
+
+Args:
+    recipe_filter: Optional filter pattern for recipe names
+    
+Returns:
+    Dict[str, Any]: Comprehensive test suite results
+
+---
+
+### test_single_recipe
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_recipe_test_cli.ComprehensiveRecipeTestCLI`
+
+**Signature:** `test_single_recipe(self, recipe_path: Path, target_dir: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Test a single recipe with comprehensive validation.
+
+Args:
+    recipe_path: Path to recipe file to test
+    target_dir: Optional target directory for isolated package
+    
+Returns:
+    Dict[str, Any]: Comprehensive test results
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestSpan`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert span to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTrace`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert request trace to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceEntry`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert trace entry to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceSession`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert trace session to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginMetadata`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert plugin metadata to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginInstance`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert plugin instance to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugBreakpoint`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert breakpoint to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugSession`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert debug session to dictionary for serialization.
 
 ---
 
@@ -11346,7 +16314,162 @@ Raises:
 
 ---
 
+### trace_function
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `trace_function(self, operation: Optional[str] = None, component: Optional[str] = None, tags: Optional[Dict[str, str]] = None)`
+
+**Description:** Decorator for automatic function tracing.
+
+Args:
+    operation: Operation name (uses function name if not provided)
+    component: Component name (uses tracer name if not provided)
+    tags: Span tags for filtering
+
+---
+
+### trace_io
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `trace_io(self, include_inputs: bool = True, include_outputs: bool = True, debug_level: str = 'DEBUG')`
+
+**Description:** Decorator for automatic I/O tracing of function calls.
+
+Args:
+    include_inputs: Whether to trace function inputs
+    include_outputs: Whether to trace function outputs
+    debug_level: Debug level for trace messages
+
+---
+
+### trace_logger
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces_v2.BaseFrameworkPlugin`
+
+**Signature:** `trace_logger(self)`
+
+**Description:** Get plugin trace logger.
+
+---
+
+### trace_logger
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.BaseFrameworkPlugin`
+
+**Signature:** `trace_logger(self)`
+
+**Description:** Get plugin trace logger.
+
+---
+
+### trace_request
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `trace_request(self, request_type: str, user_id: Optional[str] = None, user_context: Optional[Dict[str, Any]] = None, metadata: Optional[Dict[str, Any]] = None)`
+
+**Description:** Context manager for request tracing.
+
+Automatically starts and completes request with proper cleanup.
+
+---
+
+### trace_session
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `trace_session(self, operation_type: str, user_id: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None)`
+
+**Description:** Context manager for trace sessions.
+
+Groups related operations under a common session for better organization.
+
+---
+
+### trace_span
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerV2`
+
+**Signature:** `trace_span(self, operation: str, component: Optional[str] = None, tags: Optional[Dict[str, str]] = None, metadata: Optional[Dict[str, Any]] = None)`
+
+**Description:** Context manager for span tracing.
+
+Automatically starts and completes span with proper cleanup.
+
+---
+
+### trace_user_action
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceLoggerV2`
+
+**Signature:** `trace_user_action(self, action: str, user_id: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Log a user action for audit and traceability.
+
+Args:
+    action: Description of user action
+    user_id: User identifier
+    metadata: Additional action metadata
+
+---
+
+### transform_data
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IScriptletPlugin`
+
+**Signature:** `transform_data(self, source_data: Any, transformation_rules: List[Dict[str, Any]], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Transform data using specified transformation rules.
+
+Args:
+    source_data: Source data for transformation
+    transformation_rules: List of transformation rule definitions
+    context: Execution context for transformation
+
+Returns:
+    PluginExecutionResult containing transformed data and outcome
+
+---
+
 ## U
+
+### unload_plugin
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginManager`
+
+**Signature:** `unload_plugin(self, plugin_id: str) -> bool`
+
+**Description:** Unload specific plugin by ID.
+
+Args:
+    plugin_id: Plugin identifier to unload
+
+Returns:
+    True if plugin unloaded successfully, False otherwise
+
+---
 
 ### unregister
 
@@ -11419,6 +16542,18 @@ Returns:
 
 ---
 
+### update_context
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.BasePlugin`
+
+**Signature:** `update_context(self, updates: Dict[str, Any]) -> None`
+
+**Description:** Update plugin context with new values.
+
+---
+
 ### update_execution_state
 
 **Type:** Method
@@ -11434,6 +16569,18 @@ Args:
     step_id: Identifier of step to update
     status: New status for step
     metadata: Optional additional metadata for step
+
+---
+
+### update_execution_stats
+
+**Type:** Method
+
+**Location:** `src.core.plugin_manager.PluginInstance`
+
+**Signature:** `update_execution_stats(self, execution_time: float) -> None`
+
+**Description:** Update plugin execution statistics.
 
 ---
 
@@ -11567,6 +16714,54 @@ Args:
     result: Optional execution result data
     error_message: Optional error message if step failed
     performance_data: Optional performance metrics for step
+
+---
+
+### user_context
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `user_context(self) -> Dict[str, Any]`
+
+**Description:** Get current user context information.
+
+---
+
+### user_context
+
+**Type:** Method
+
+**Location:** `src.core.request_tracer_v2.RequestTracerContext`
+
+**Signature:** `user_context(self, value: Dict[str, Any]) -> None`
+
+**Description:** Set user context information.
+
+---
+
+### user_context
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `user_context(self) -> Dict[str, Any]`
+
+**Description:** Get current user context information.
+
+---
+
+### user_context
+
+**Type:** Method
+
+**Location:** `src.core.trace_logger_v2.TraceContext`
+
+**Signature:** `user_context(self, value: Dict[str, Any]) -> None`
+
+**Description:** Set user context information.
 
 ---
 
@@ -11717,6 +16912,152 @@ Returns:
 
 ---
 
+### validate_input
+
+**Type:** Method
+
+**Location:** `src.core.plugin_interfaces.IScriptletPlugin`
+
+**Signature:** `validate_input(self, input_data: Any, validation_schema: Dict[str, Any], context: PluginExecutionContext) -> PluginExecutionResult`
+
+**Description:** Validate input data against schema or rules.
+
+Args:
+    input_data: Data to validate
+    validation_schema: Validation schema or rules
+    context: Execution context for validation
+
+Returns:
+    PluginExecutionResult containing validation outcome and errors
+
+---
+
+### validate_isolated_package
+
+**Type:** Method
+
+**Location:** `tools.recipe_isolation_cli.Framework0RecipeCliV2`
+
+**Signature:** `validate_isolated_package(self, package_dir: str) -> Dict[str, Any]`
+
+**Description:** Validate isolated recipe package for deployment readiness.
+
+Args:
+    package_dir: Path to isolated package directory
+    
+Returns:
+    Dict[str, Any]: Validation results
+
+---
+
+### validate_isolated_recipe
+
+**Type:** Method
+
+**Location:** `tools.recipe_validation_engine.RecipeValidationEngine`
+
+**Signature:** `validate_isolated_recipe(self, isolated_directory: str) -> ValidationResult`
+
+**Description:** Perform comprehensive validation of an isolated recipe package.
+
+Args:
+    isolated_directory: Path to isolated recipe package directory
+
+Returns:
+    ValidationResult: Complete validation results with metrics
+
+---
+
+### validate_json_config
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `validate_json_config(self, file_path: Path) -> ValidationResult`
+
+**Description:** Validate a JSON configuration file for syntax and structure.
+
+Args:
+    file_path: Path to JSON configuration file
+    
+Returns:
+    ValidationResult: Detailed validation result
+
+---
+
+### validate_python_module
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `validate_python_module(self, file_path: Path) -> ValidationResult`
+
+**Description:** Validate a Python module for syntax, imports, and executability.
+
+Args:
+    file_path: Path to Python module file
+    
+Returns:
+    ValidationResult: Detailed validation result
+
+---
+
+### validate_recipe_dependencies
+
+**Type:** Method
+
+**Location:** `tools.recipe_execution_validator.RecipeExecutionValidator`
+
+**Signature:** `validate_recipe_dependencies(self, environment: ExecutionEnvironment) -> Dict[str, Any]`
+
+**Description:** Validate recipe dependencies in isolated environment.
+
+Args:
+    environment: Configured execution environment
+    
+Returns:
+    Dict[str, Any]: Dependency validation results
+
+---
+
+### validate_shell_script
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `validate_shell_script(self, file_path: Path) -> ValidationResult`
+
+**Description:** Validate a shell script for syntax and executability.
+
+Args:
+    file_path: Path to shell script file
+    
+Returns:
+    ValidationResult: Detailed validation result
+
+---
+
+### validate_yaml_recipe
+
+**Type:** Method
+
+**Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
+
+**Signature:** `validate_yaml_recipe(self, file_path: Path) -> ValidationResult`
+
+**Description:** Validate a YAML recipe file for syntax and structure.
+
+Args:
+    file_path: Path to YAML recipe file
+    
+Returns:
+    ValidationResult: Detailed validation result
+
+---
+
 ### visualize
 
 **Type:** Method
@@ -11760,6 +17101,22 @@ Args:
 **Signature:** `warning_count(self) -> int`
 
 **Description:** Count of validation warnings.
+
+---
+
+### watch_variable
+
+**Type:** Method
+
+**Location:** `src.core.debug_manager.DebugEnvironmentManager`
+
+**Signature:** `watch_variable(self, name: str, value: Any) -> None`
+
+**Description:** Watch variable for changes.
+
+Args:
+    name: Variable name to watch
+    value: Current variable value
 
 ---
 

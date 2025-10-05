@@ -1,0 +1,841 @@
+# Framework0 Core Recipe Template - Data Validation
+# Comprehensive data validation with schema validation, quality checks, and business rules
+#
+# This template provides enterprise-grade data validation capabilities including:
+# - JSON Schema validation with custom formats and patterns
+# - Data quality checks (completeness, consistency, accuracy)
+# - Business rule validation with custom logic
+# - Statistical analysis and anomaly detection
+# - Data profiling and quality scoring
+# - Foundation system integration for monitoring and reporting
+# - Comprehensive error reporting with severity levels
+# - Data sanitization and transformation options
+
+name: data_validation_template
+version: "1.0.0"
+description: "Comprehensive data validation template with schema validation, quality checks, and business rules"
+category: "core_patterns"
+author: "Framework0 Core Team"
+created_date: "2024-10-05"
+tags:
+  - "data_validation"
+  - "schema_validation"
+  - "data_quality"
+  - "business_rules"
+  - "monitoring"
+  - "foundation_integration"
+
+# Template parameters with comprehensive validation
+parameters:
+  # Core data configuration
+  data_source:
+    type: "object"
+    description: "Data source configuration"
+    required: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          type:
+            type: "string"
+            enum: ["inline", "file", "database", "api", "stream"]
+          data:
+            type: ["object", "array", "string"]
+            description: "Inline data for validation"
+          file_path:
+            type: "string"
+            description: "Path to file containing data"
+          connection_config:
+            type: "object"
+            description: "Database or API connection configuration"
+          query:
+            type: "string"
+            description: "Query or filter for data extraction"
+        required: ["type"]
+      error_message: "Invalid data source configuration"
+  
+  # Schema validation configuration
+  schema_validation:
+    type: "object"
+    description: "JSON Schema validation configuration"
+    required: false
+    default:
+      enabled: true
+      strict_mode: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          strict_mode:
+            type: "boolean"
+            description: "Fail on any schema violation"
+          json_schema:
+            type: "object"
+            description: "JSON Schema definition"
+          custom_formats:
+            type: "object"
+            description: "Custom format validators"
+            additional_properties: true
+          allow_additional_properties:
+            type: "boolean"
+          required_fields:
+            type: "array"
+            items:
+              type: "string"
+          field_types:
+            type: "object"
+            description: "Expected field types"
+            additional_properties: true
+          field_patterns:
+            type: "object"
+            description: "Regex patterns for field validation"
+            additional_properties: true
+          field_constraints:
+            type: "object"
+            description: "Min/max constraints for fields"
+            additional_properties: true
+        required: ["enabled"]
+      error_message: "Invalid schema validation configuration"
+  
+  # Data quality checks configuration
+  data_quality_checks:
+    type: "object"
+    description: "Data quality validation configuration"
+    required: false
+    default:
+      enabled: true
+      completeness_threshold: 0.95
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          completeness_checks:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              threshold:
+                type: "number"
+                minimum: 0.0
+                maximum: 1.0
+              required_fields:
+                type: "array"
+                items:
+                  type: "string"
+              null_tolerance:
+                type: "object"
+                additional_properties:
+                  type: "number"
+          consistency_checks:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              duplicate_detection:
+                type: "boolean"
+              cross_field_validation:
+                type: "array"
+                items:
+                  type: "object"
+              referential_integrity:
+                type: "array"
+                items:
+                  type: "object"
+          accuracy_checks:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              format_validation:
+                type: "boolean"
+              range_validation:
+                type: "object"
+                additional_properties: true
+              pattern_validation:
+                type: "object"
+                additional_properties: true
+          statistical_analysis:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              outlier_detection:
+                type: "boolean"
+              distribution_analysis:
+                type: "boolean"
+              correlation_analysis:
+                type: "boolean"
+        required: ["enabled"]
+      error_message: "Invalid data quality configuration"
+  
+  # Business rules validation
+  business_rules:
+    type: "object"
+    description: "Business rule validation configuration"
+    required: false
+    default:
+      enabled: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          rules:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                name:
+                  type: "string"
+                description:
+                  type: "string"
+                rule_type:
+                  type: "string"
+                  enum: ["conditional", "aggregation", "cross_record", "temporal", "custom"]
+                condition:
+                  type: "string"
+                  description: "Rule condition expression"
+                severity:
+                  type: "string"
+                  enum: ["info", "warning", "error", "critical"]
+                action:
+                  type: "string"
+                  enum: ["log", "correct", "reject", "flag"]
+                parameters:
+                  type: "object"
+                  additional_properties: true
+              required: ["name", "rule_type", "condition", "severity"]
+          custom_validators:
+            type: "object"
+            description: "Custom validation functions"
+            additional_properties: true
+          rule_execution_order:
+            type: "array"
+            items:
+              type: "string"
+        required: ["enabled"]
+      error_message: "Invalid business rules configuration"
+  
+  # Data profiling configuration
+  data_profiling:
+    type: "object"
+    description: "Data profiling and analysis configuration"
+    required: false
+    default:
+      enabled: true
+      include_statistics: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          include_statistics:
+            type: "boolean"
+          include_distributions:
+            type: "boolean"
+          include_correlations:
+            type: "boolean"
+          sample_size:
+            type: "integer"
+            minimum: 1
+            maximum: 1000000
+          profile_fields:
+            type: "array"
+            items:
+              type: "string"
+          exclude_fields:
+            type: "array"
+            items:
+              type: "string"
+          statistical_measures:
+            type: "array"
+            items:
+              type: "string"
+              enum: ["mean", "median", "mode", "std_dev", "variance", "min", "max", "quartiles"]
+        required: ["enabled"]
+      error_message: "Invalid data profiling configuration"
+  
+  # Error handling configuration
+  error_handling:
+    type: "object"
+    description: "Validation error handling configuration"
+    required: false
+    default:
+      strategy: "collect_and_report"
+      fail_fast: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          strategy:
+            type: "string"
+            enum: ["fail_fast", "collect_and_report", "collect_and_continue", "auto_correct"]
+          fail_fast:
+            type: "boolean"
+          max_errors:
+            type: "integer"
+            minimum: 1
+            maximum: 10000
+          error_severity_threshold:
+            type: "string"
+            enum: ["info", "warning", "error", "critical"]
+          auto_correction:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              correction_rules:
+                type: "object"
+                additional_properties: true
+          error_reporting:
+            type: "object"
+            properties:
+              include_context:
+                type: "boolean"
+              include_suggestions:
+                type: "boolean"
+              group_similar_errors:
+                type: "boolean"
+        required: ["strategy"]
+      error_message: "Invalid error handling configuration"
+  
+  # Output configuration
+  output_config:
+    type: "object"
+    description: "Validation output configuration"
+    required: false
+    default:
+      generate_report: true
+      include_raw_data: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          generate_report:
+            type: "boolean"
+          include_raw_data:
+            type: "boolean"
+          include_corrected_data:
+            type: "boolean"
+          report_format:
+            type: "string"
+            enum: ["json", "html", "csv", "xml"]
+          save_to_file:
+            type: "boolean"
+          output_file_path:
+            type: "string"
+          quality_score_calculation:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              weights:
+                type: "object"
+                properties:
+                  completeness:
+                    type: "number"
+                  consistency:
+                    type: "number"
+                  accuracy:
+                    type: "number"
+                  business_rules:
+                    type: "number"
+        required: ["generate_report"]
+      error_message: "Invalid output configuration"
+  
+  # Performance configuration
+  performance_config:
+    type: "object"
+    description: "Performance optimization configuration"
+    required: false
+    default:
+      batch_processing: true
+      batch_size: 1000
+    validation:
+      schema:
+        type: "object"
+        properties:
+          batch_processing:
+            type: "boolean"
+          batch_size:
+            type: "integer"
+            minimum: 1
+            maximum: 100000
+          parallel_processing:
+            type: "boolean"
+          max_workers:
+            type: "integer"
+            minimum: 1
+            maximum: 32
+          memory_limit_mb:
+            type: "integer"
+            minimum: 100
+            maximum: 8192
+          timeout_seconds:
+            type: "integer"
+            minimum: 1
+            maximum: 3600
+          cache_validation_results:
+            type: "boolean"
+        required: ["batch_processing"]
+      error_message: "Invalid performance configuration"
+  
+  # Foundation integration configuration
+  monitoring_config:
+    type: "object"
+    description: "Foundation monitoring and integration configuration"
+    required: false
+    default:
+      enabled: true
+      track_performance: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          track_performance:
+            type: "boolean"
+          log_validation_events:
+            type: "boolean"
+          alert_on_quality_threshold:
+            type: "boolean"
+          quality_threshold:
+            type: "number"
+            minimum: 0.0
+            maximum: 1.0
+          health_check_integration:
+            type: "boolean"
+          metrics_collection:
+            type: "object"
+            properties:
+              validation_duration:
+                type: "boolean"
+              error_counts:
+                type: "boolean"
+              quality_scores:
+                type: "boolean"
+              data_volume:
+                type: "boolean"
+        required: ["enabled"]
+      error_message: "Invalid monitoring configuration"
+
+# Recipe steps with comprehensive data validation workflow
+steps:
+  - name: "initialize_validation_engine"
+    description: "Initialize data validation engine with configuration"
+    scriptlet: "core.data_validation"
+    function: "initialize_validation_engine"
+    parameters:
+      schema_validation: "{{ schema_validation }}"
+      data_quality_checks: "{{ data_quality_checks }}"
+      business_rules: "{{ business_rules }}"
+      data_profiling: "{{ data_profiling }}"
+      performance_config: "{{ performance_config }}"
+      monitoring_config: "{{ monitoring_config }}"
+    outputs:
+      - name: "validation_engine_config"
+        description: "Initialized validation engine configuration"
+      - name: "validator_instances"
+        description: "Configured validator instances"
+    error_handling:
+      on_failure: "rollback"
+      max_retries: 2
+      retry_delay: 1
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Initializing data validation engine"
+      performance:
+        track: true
+        threshold_warning_ms: 2000
+      health_check:
+        endpoint: "validation_engine_init"
+        timeout: 10
+  
+  - name: "load_and_prepare_data"
+    description: "Load data from source and prepare for validation"
+    scriptlet: "core.data_validation"
+    function: "load_and_prepare_data"
+    parameters:
+      data_source: "{{ data_source }}"
+      performance_config: "{{ performance_config }}"
+      validation_engine_config: "{{ steps.initialize_validation_engine.outputs.validation_engine_config }}"
+    outputs:
+      - name: "prepared_data"
+        description: "Loaded and prepared data for validation"
+      - name: "data_metadata"
+        description: "Data loading metadata and statistics"
+    depends_on: ["initialize_validation_engine"]
+    error_handling:
+      on_failure: "fail_fast"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Loading data from {{ data_source.type }} source"
+      performance:
+        track: true
+  
+  - name: "execute_schema_validation"
+    description: "Execute JSON schema validation against data"
+    scriptlet: "core.data_validation"
+    function: "execute_schema_validation"
+    parameters:
+      prepared_data: "{{ steps.load_and_prepare_data.outputs.prepared_data }}"
+      schema_validation: "{{ schema_validation }}"
+      validator_instances: "{{ steps.initialize_validation_engine.outputs.validator_instances }}"
+    outputs:
+      - name: "schema_validation_results"
+        description: "Schema validation results and errors"
+    depends_on: ["load_and_prepare_data"]
+    error_handling:
+      on_failure: "{{ error_handling.strategy | default('collect_and_report') }}"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Executing schema validation"
+      performance:
+        track: true
+  
+  - name: "execute_quality_checks"
+    description: "Execute comprehensive data quality checks"
+    scriptlet: "core.data_validation"
+    function: "execute_quality_checks"
+    parameters:
+      prepared_data: "{{ steps.load_and_prepare_data.outputs.prepared_data }}"
+      data_quality_checks: "{{ data_quality_checks }}"
+      validator_instances: "{{ steps.initialize_validation_engine.outputs.validator_instances }}"
+    outputs:
+      - name: "quality_check_results"
+        description: "Data quality check results and scores"
+    depends_on: ["execute_schema_validation"]
+    error_handling:
+      on_failure: "{{ error_handling.strategy | default('collect_and_report') }}"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Executing data quality checks"
+      performance:
+        track: true
+        threshold_warning_ms: 5000
+  
+  - name: "execute_business_rules"
+    description: "Execute business rule validation"
+    scriptlet: "core.data_validation"
+    function: "execute_business_rules"
+    parameters:
+      prepared_data: "{{ steps.load_and_prepare_data.outputs.prepared_data }}"
+      business_rules: "{{ business_rules }}"
+      validator_instances: "{{ steps.initialize_validation_engine.outputs.validator_instances }}"
+    outputs:
+      - name: "business_rules_results"
+        description: "Business rule validation results"
+    depends_on: ["execute_quality_checks"]
+    error_handling:
+      on_failure: "{{ error_handling.strategy | default('collect_and_report') }}"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Executing business rule validation"
+      performance:
+        track: true
+  
+  - name: "generate_data_profile"
+    description: "Generate comprehensive data profile and statistics"
+    scriptlet: "core.data_validation"
+    function: "generate_data_profile"
+    parameters:
+      prepared_data: "{{ steps.load_and_prepare_data.outputs.prepared_data }}"
+      data_profiling: "{{ data_profiling }}"
+      validation_results:
+        schema_results: "{{ steps.execute_schema_validation.outputs.schema_validation_results }}"
+        quality_results: "{{ steps.execute_quality_checks.outputs.quality_check_results }}"
+        business_results: "{{ steps.execute_business_rules.outputs.business_rules_results }}"
+    outputs:
+      - name: "data_profile"
+        description: "Comprehensive data profile and statistics"
+    depends_on: ["execute_business_rules"]
+    error_handling:
+      on_failure: "log_and_continue"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Generating data profile"
+      performance:
+        track: true
+  
+  - name: "calculate_quality_score"
+    description: "Calculate overall data quality score"
+    scriptlet: "core.data_validation"
+    function: "calculate_quality_score"
+    parameters:
+      schema_validation_results: "{{ steps.execute_schema_validation.outputs.schema_validation_results }}"
+      quality_check_results: "{{ steps.execute_quality_checks.outputs.quality_check_results }}"
+      business_rules_results: "{{ steps.execute_business_rules.outputs.business_rules_results }}"
+      output_config: "{{ output_config }}"
+    outputs:
+      - name: "quality_score"
+        description: "Overall data quality score and breakdown"
+    depends_on: ["generate_data_profile"]
+    error_handling:
+      on_failure: "use_default_score"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Calculating data quality score"
+      performance:
+        track: true
+  
+  - name: "generate_validation_report"
+    description: "Generate comprehensive validation report"
+    scriptlet: "core.data_validation"
+    function: "generate_validation_report"
+    parameters:
+      validation_engine_config: "{{ steps.initialize_validation_engine.outputs.validation_engine_config }}"
+      data_metadata: "{{ steps.load_and_prepare_data.outputs.data_metadata }}"
+      schema_validation_results: "{{ steps.execute_schema_validation.outputs.schema_validation_results }}"
+      quality_check_results: "{{ steps.execute_quality_checks.outputs.quality_check_results }}"
+      business_rules_results: "{{ steps.execute_business_rules.outputs.business_rules_results }}"
+      data_profile: "{{ steps.generate_data_profile.outputs.data_profile }}"
+      quality_score: "{{ steps.calculate_quality_score.outputs.quality_score }}"
+      output_config: "{{ output_config }}"
+    outputs:
+      - name: "validation_report"
+        description: "Comprehensive validation report"
+      - name: "performance_metrics"
+        description: "Validation performance metrics"
+    depends_on: ["calculate_quality_score"]
+    error_handling:
+      on_failure: "log_error_continue"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Data validation completed successfully"
+      performance:
+        track: true
+        summary: true
+      health_check:
+        endpoint: "validation_complete"
+        success_indicator: true
+
+# Error handling and recovery procedures
+error_handling:
+  global_strategy: "comprehensive_validation"
+  rollback_procedures:
+    - name: "cleanup_validation_cache"
+      description: "Clean up validation cache and temporary data"
+      scriptlet: "core.data_validation"
+      function: "cleanup_validation_cache"
+    - name: "reset_validator_state"
+      description: "Reset validator instances to clean state"
+      scriptlet: "core.data_validation"
+      function: "reset_validator_state"
+    - name: "log_validation_failure"
+      description: "Log detailed validation failure information"
+      scriptlet: "core.data_validation"
+      function: "log_validation_failure"
+  
+  validation_recovery:
+    enabled: true
+    auto_correction_attempts: 3
+    fallback_validation_modes: ["schema_only", "basic_quality", "minimal"]
+
+# Foundation system integration
+foundation_integration:
+  logging:
+    component_name: "data_validation_template"
+    default_level: "INFO"
+    structured_logging: true
+    include_data_context: true
+  
+  health_monitoring:
+    endpoints:
+      - name: "validation_engine_status"
+        check_interval_seconds: 60
+        timeout_seconds: 15
+      - name: "data_quality_metrics"
+        check_interval_seconds: 300
+        timeout_seconds: 30
+  
+  performance_monitoring:
+    metrics:
+      - name: "validation_duration"
+        type: "histogram"
+        unit: "milliseconds"
+      - name: "validation_count"
+        type: "counter"
+        labels: ["validation_type", "result"]
+      - name: "data_quality_score"
+        type: "gauge"
+        labels: ["data_source", "validation_run"]
+      - name: "validation_errors"
+        type: "counter"
+        labels: ["error_type", "severity"]
+    
+    alerts:
+      - name: "low_data_quality"
+        condition: "data_quality_score < 0.7"
+        severity: "warning"
+      - name: "validation_failures"
+        condition: "validation_errors{severity='critical'} > 0"
+        severity: "error"
+  
+  error_tracking:
+    capture_validation_data: false  # Privacy consideration
+    capture_error_context: true
+    include_data_sample: false
+    include_stack_trace: true
+
+# Template metadata and usage examples
+metadata:
+  usage_examples:
+    - name: "json_schema_validation"
+      description: "Validate JSON data against schema"
+      parameters:
+        data_source:
+          type: "inline"
+          data: [{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]
+        schema_validation:
+          enabled: true
+          json_schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                name: {"type": "string"}
+                age: {"type": "integer", "minimum": 0}
+              required: ["name", "age"]
+    
+    - name: "data_quality_assessment"
+      description: "Comprehensive data quality assessment"
+      parameters:
+        data_source:
+          type: "file"
+          file_path: "/data/customer_data.csv"
+        data_quality_checks:
+          enabled: true
+          completeness_checks:
+            enabled: true
+            threshold: 0.95
+          consistency_checks:
+            enabled: true
+            duplicate_detection: true
+    
+    - name: "business_rules_validation"
+      description: "Validate data against business rules"
+      parameters:
+        business_rules:
+          enabled: true
+          rules:
+            - name: "age_consistency"
+              rule_type: "conditional"
+              condition: "age >= 18 if account_type == 'adult'"
+              severity: "error"
+            - name: "email_format"
+              rule_type: "custom"
+              condition: "valid_email_format(email)"
+              severity: "warning"
+  
+  integration_patterns:
+    - "ETL data validation"
+    - "API input validation" 
+    - "Database data quality monitoring"
+    - "File processing validation"
+    - "Real-time data stream validation"
+  
+  performance_characteristics:
+    typical_validation_time: "50-500ms per 1000 records"
+    memory_usage: "low-medium"
+    cpu_usage: "medium"
+    scalability: "horizontal and vertical"
+  
+  security_considerations:
+    - "Sensitive data should not be logged in validation reports"
+    - "Validation rules may expose business logic"
+    - "Data profiling results should be access-controlled"
+    - "Cache validation results carefully for data privacy"
+
+# Output specifications
+outputs:
+  primary_outputs:
+    - name: "validation_report"
+      description: "Comprehensive validation report with all results"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          summary:
+            type: "object"
+          schema_validation:
+            type: "object"
+          quality_assessment:
+            type: "object"
+          business_rules:
+            type: "object"
+          data_profile:
+            type: "object"
+          quality_score:
+            type: "object"
+        required: ["summary", "quality_score"]
+    
+    - name: "quality_score"
+      description: "Overall data quality score (0-1)"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          overall_score:
+            type: "number"
+          component_scores:
+            type: "object"
+          recommendations:
+            type: "array"
+        required: ["overall_score"]
+    
+    - name: "performance_metrics"
+      description: "Validation performance and timing metrics"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          total_duration_ms:
+            type: "number"
+          records_processed:
+            type: "integer"
+          validation_steps_timing:
+            type: "object"
+        required: ["total_duration_ms", "records_processed"]
+  
+  debug_outputs:
+    - name: "detailed_errors"
+      description: "Detailed validation errors with context"
+      type: "array"
+    
+    - name: "data_profile"
+      description: "Comprehensive data profiling results"
+      type: "object"
+    
+    - name: "corrected_data"
+      description: "Auto-corrected data (if enabled)"
+      type: ["array", "object"]
+
+# Version and compatibility information
+compatibility:
+  framework0_version: ">=1.0.0"
+  python_version: ">=3.11"
+  required_packages:
+    - "jsonschema>=4.19.0"
+    - "pandas>=2.1.0"
+    - "numpy>=1.24.0"
+    - "scipy>=1.11.0"
+  optional_packages:
+    - "cerberus>=1.3.4"         # Alternative validation library
+    - "great_expectations>=0.17" # Advanced data validation
+    - "pandera>=0.17.0"         # Pandas data validation
+    - "pydantic>=2.4.0"         # Data modeling and validation

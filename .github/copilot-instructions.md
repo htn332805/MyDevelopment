@@ -6,6 +6,11 @@ Context
 
 Absolute rules
 - Single responsibility: each function/class does one task; compose small pure units.
+- All response should be interactive and step-by-step with prompting for user feedback before proceeding to the next step.
+- User feedback: actively seek user input and confirmation at each stage of the process.
+- Contextual awareness: maintain context throughout the conversation and refer back to previous messages when relevant.
+- Use and integrate modularity: leverage the modular architecture of the project to keep code isolated and maintainable. No code should be longer than 1936 lines.
+- All code that longer than 1700 lines should be broken/refactor/modularized into smaller module before move on to the next step.
 - Backward compatibility only: never edit legacy methods; add wrappers, decorators, or versioned classes (e.g., CsvReaderV2).
 - Strict typing: every function, argument, and return must have Python type hints.
 - Full comments: every line of code must have a clear, helpful comment.

@@ -1,0 +1,25 @@
+{
+  "recipe_name": "example_numbers",
+  "recipe_path": "/home/hai/hai_vscode/MyDevelopment/orchestrator/recipes/example_numbers.yaml",
+  "creation_timestamp": "2025-10-05T10:44:47",
+  "framework_version": "2.0.0-enhanced",
+  "dependencies_count": 1,
+  "framework_dirs_count": 3,
+  "required_files_count": 29,
+  "copied_files_count": 29,
+  "analysis_time_seconds": 0.011606454849243164,
+  "framework_directories": [
+    "orchestrator",
+    "scriptlets",
+    "src/core"
+  ],
+  "dependencies": [
+    "engine.steps.python.compute_numbers"
+  ],
+  "execution_instructions": [
+    "1. Ensure Python 3.x is installed",
+    "2. Install any external dependencies if needed",
+    "3. Run: python run_recipe.py",
+    "4. Or execute recipe manually with Framework0 runner"
+  ]
+}

@@ -1,0 +1,40 @@
+# Health Monitoring Framework - Comprehensive Test Recipe
+
+test_meta:
+  test_id: health-monitoring-comprehensive
+  tester: framework0_system  
+  description: "Comprehensive test of health monitoring system"
+
+steps:
+  - idx: 1
+    name: test_imports
+    type: python
+    module: engine.steps.python.test_health_monitoring
+    function: TestHealthMonitoringScriptlet
+    args:
+      test_type: import_validation
+    success:
+      ctx_has_keys:
+        - health_test.success
+        
+  - idx: 2
+    name: test_health_functionality
+    type: python
+    module: engine.steps.python.test_health_monitoring
+    function: TestHealthMonitoringScriptlet
+    args:
+      test_type: health_checks
+    success:
+      ctx_has_keys:
+        - health_test.results
+        
+  - idx: 3
+    name: test_framework_integration
+    type: python
+    module: engine.steps.python.test_health_monitoring
+    function: TestHealthMonitoringScriptlet
+    args:
+      test_type: integration_test
+    success:
+      ctx_has_keys:
+        - health_test.results

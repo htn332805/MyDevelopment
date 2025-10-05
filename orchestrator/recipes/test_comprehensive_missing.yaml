@@ -1,0 +1,22 @@
+test_meta:
+  test_id: MISSING-123
+  tester: user  
+  description: Test recipe with missing dependencies
+
+steps:
+  - idx: 1
+    name: load_missing_data
+    type: python
+    module: engine.steps.python.missing_module
+    function: MissingLoader
+    args:
+      src: orchestrator/Data/missing_file.csv
+      backup: orchestrator/Data/another_missing.txt
+      
+  - idx: 2  
+    name: use_missing_scriptlet
+    type: python
+    module: scriptlets.missing_scriptlet
+    function: MissingProcessor
+    args:
+      input_file: orchestrator/Data/nonexistent.json

@@ -1,0 +1,47 @@
+# requirements.txt
+
+# Framework0 Core Dependencies
+framework0==0.1.0  # Pinning to a specific version ensures consistency across environments.
+
+# HTTP Requests
+requests>=2.25.0  # Allows for minor and patch updates, ensuring compatibility with the latest features and security patches.
+
+# Context Server Dependencies
+flask>=2.0.0  # Flask web framework for REST API
+flask-socketio>=5.0.0  # Socket.IO support for real-time WebSocket connections
+python-socketio>=5.0.0  # Socket.IO client library for Python
+aiohttp>=3.8.0  # Async HTTP client for async operations
+
+# Dash Dependencies for Web Dashboard
+dash>=2.10.0  # Dash framework for interactive web applications
+plotly>=5.14.0  # Plotly graphing library for visualizations
+
+# Data Handling
+pandas>=1.3.0,<2.0.0  # Restricting to a major version ensures compatibility and stability.
+
+# Numerical Computations
+numpy>=1.21.0,<2.0.0  # Restricting to a major version ensures compatibility and stability.
+
+# Development Dependencies
+# These packages are essential for development and testing workflows.
+
+# Testing Framework
+pytest>=6.2.0  # Specifies the minimum version required for testing.
+
+# Code Formatting
+black>=21.6b0  # Specifies the minimum version required for code formatting.
+
+# Linting
+flake8>=3.9.0  # Specifies the minimum version required for linting.
+
+# Documentation
+sphinx>=4.0.0  # Specifies the minimum version required for documentation generation.
+
+# Version Control
+gitpython>=3.1.0  # Specifies the minimum version required for interacting with Git repositories.
+
+# Database
+sqlalchemy>=1.4.0  # Specifies the minimum version required for SQLAlchemy ORM.
+
+# Optional: If you're using a virtual environment, you can generate this file using:
+# pip freeze > requirements.txt
