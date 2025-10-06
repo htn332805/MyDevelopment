@@ -47,7 +47,7 @@ Before starting, ensure you have:
 
 ### **Expert Track** (Exercises 10-12)
 - **Exercise 10**: [Framework Extensions - Contributing New Features](exercise_10.md)
-- **Exercise 11**: [Advanced Patterns - Complex Orchestration](exercise_11.md)
+- **Exercise 11**: [Production Ecosystem - Enterprise Integration & Distribution](exercise_11.md)
 - **Exercise 12**: [Capstone Project - Complete System Integration](exercise_12.md)
 
 ## 🚀 Getting Started

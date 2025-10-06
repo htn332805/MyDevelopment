@@ -1,0 +1,73 @@
+{
+  "advancedmetrics-41441563": {
+    "plugin_id": "advancedmetrics-41441563",
+    "metadata": {
+      "name": "AdvancedMetrics",
+      "version": "2.1.0",
+      "description": "Advanced metrics and analytics plugin",
+      "author": "Framework0 Team",
+      "license": "",
+      "homepage": "",
+      "capabilities": {
+        "provides_analytics": true,
+        "consumes_analytics": false,
+        "analytics_metrics": [
+          "performance",
+          "usage",
+          "errors"
+        ],
+        "supports_containers": false,
+        "provides_isolation": false,
+        "requires_isolation": false,
+        "workflow_integration": false,
+        "provides_stages": false,
+        "cli_commands": [
+          "metrics",
+          "analyze",
+          "report"
+        ],
+        "hot_reloadable": false,
+        "configurable": false,
+        "event_driven": false,
+        "template_support": false
+      },
+      "dependencies": [],
+      "min_framework_version": "1.0.0",
+      "max_framework_version": "*",
+      "exercise_requirements": "{'exercise_7'}",
+      "entry_point": "",
+      "configuration_schema": {},
+      "plugin_id": "plugin-6a7c6f68",
+      "created_timestamp": "2025-10-06T00:21:14.948513+00:00"
+    },
+    "capabilities": {
+      "provides_analytics": true,
+      "consumes_analytics": true,
+      "analytics_metrics": [],
+      "supports_containers": false,
+      "provides_isolation": false,
+      "requires_isolation": false,
+      "workflow_integration": false,
+      "provides_stages": false,
+      "cli_commands": [],
+      "hot_reloadable": false,
+      "configurable": false,
+      "event_driven": false,
+      "template_support": false
+    },
+    "dependencies": [],
+    "registration_time": "2025-10-06T00:21:15.281229+00:00",
+    "last_updated": "2025-10-06T00:21:15.281358+00:00",
+    "registration_source": "persistence_test",
+    "is_validated": false,
+    "validation_errors": [],
+    "compatibility_score": 0.0,
+    "install_path": null,
+    "module_name": "__main__",
+    "file_hash": null,
+    "load_count": 0,
+    "activation_count": 0,
+    "error_count": 0,
+    "last_used": null
+  }
+}

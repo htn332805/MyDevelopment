@@ -193,6 +193,13 @@ __all__ = [
     "PluginValidator",
     "get_plugin_manager",
 
+    # Plugin registry components
+    "PluginRegistry",
+    "PluginRegistryEntry",
+    "PluginDependencyGraph",
+    "RegistryStorageType",
+    "get_plugin_registry",
+
     # Integration status flags
     "ANALYTICS_INTEGRATION",
     "DEPLOYMENT_INTEGRATION",

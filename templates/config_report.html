@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Configuration Report - {{ super() }}{% endblock %}
+
+{% block content %}
+<h2>⚙️ Configuration Report</h2>
+
+<div class="config-info">
+    <h3>Report Generated</h3>
+    <p><strong>Timestamp:</strong> {{ generation_time | timestamp }}</p>
+    <p><strong>Environment:</strong> {{ environment | upper }}</p>
+    <p><strong>Reporter:</strong> {{ reporter | default('System') }}</p>
+</div>
+
+<h3>📋 Configuration Sections</h3>
+{% for section_name, section_data in configurations.items() %}
+<div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
+    <h4 style="color: #007acc;">{{ section_name | upper_first | snake_case | replace('_', ' ') | title }}</h4>
+    
+    {% if section_data is mapping %}
+        <table border="1" cellpadding="3" cellspacing="0" style="width: 100%; font-size: 12px;">
+            <thead style="background: #f0f0f0;">
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in section_data.items() %}
+                <tr>
+                    <td><code>{{ key | camel_case }}</code></td>
+                    <td>{{ value | string | truncate(50) }}</td>
+                    <td><em>{{ value.__class__.__name__ }}</em></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p><strong>Value:</strong> {{ section_data }}</p>
+    {% endif %}
+</div>
+{% else %}
+<p style="color: #666;">No configuration sections available.</p>
+{% endfor %}
+
+<h3>🧮 Statistics</h3>
+<ul>
+    <li><strong>Total Sections:</strong> {{ len(configurations) }}</li>
+    <li><strong>Total Keys:</strong> {{ total_keys | default(0) }}</li>
+    <li><strong>Report Size:</strong> {{ report_size | default('Unknown') }}</li>
+</ul>
+
+{% endblock %}

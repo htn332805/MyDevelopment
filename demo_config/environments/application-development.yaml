@@ -1,0 +1,6 @@
+database:
+  host: localhost
+  name: framework0_dev
+logging:
+  level: DEBUG
+debug_mode: true

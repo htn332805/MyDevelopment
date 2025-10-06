@@ -1,0 +1,110 @@
+{
+  "available_plugins": [
+    {
+      "plugin_id": "framework0-analytics-enhancer",
+      "name": "Analytics Enhancement Plugin",
+      "version": "1.0.0",
+      "description": "Enhances analytics capabilities with advanced visualizations",
+      "author": "Framework0 Team",
+      "plugin_type": "analytics_plugin",
+      "permissions": [
+        "read_write",
+        "system_access"
+      ],
+      "dependencies": [],
+      "entry_point": "main",
+      "configuration_schema": {},
+      "supported_versions": [],
+      "tags": [
+        "analytics",
+        "visualization",
+        "enhancement"
+      ]
+    },
+    {
+      "plugin_id": "framework0-recipe-optimizer",
+      "name": "Recipe Optimizer Plugin",
+      "version": "1.2.0",
+      "description": "Optimizes recipe execution performance and resource usage",
+      "author": "Framework0 Team",
+      "plugin_type": "recipe_plugin",
+      "permissions": [
+        "read_write",
+        "system_access"
+      ],
+      "dependencies": [],
+      "entry_point": "main",
+      "configuration_schema": {},
+      "supported_versions": [],
+      "tags": [
+        "recipe",
+        "optimization",
+        "performance"
+      ]
+    },
+    {
+      "plugin_id": "framework0-container-monitor",
+      "name": "Container Monitoring Plugin",
+      "version": "2.1.0",
+      "description": "Advanced container performance monitoring and alerting",
+      "author": "Framework0 Team",
+      "plugin_type": "container_plugin",
+      "permissions": [
+        "system_access",
+        "network_access"
+      ],
+      "dependencies": [],
+      "entry_point": "main",
+      "configuration_schema": {},
+      "supported_versions": [],
+      "tags": [
+        "container",
+        "monitoring",
+        "kubernetes"
+      ]
+    },
+    {
+      "plugin_id": "framework0-workflow-accelerator",
+      "name": "Workflow Acceleration Plugin",
+      "version": "1.5.0",
+      "description": "Accelerates workflow execution with intelligent caching",
+      "author": "Framework0 Team",
+      "plugin_type": "workflow_plugin",
+      "permissions": [
+        "read_write",
+        "file_system"
+      ],
+      "dependencies": [],
+      "entry_point": "main",
+      "configuration_schema": {},
+      "supported_versions": [],
+      "tags": [
+        "workflow",
+        "acceleration",
+        "caching"
+      ]
+    },
+    {
+      "plugin_id": "framework0-integration-bridge",
+      "name": "External Integration Bridge",
+      "version": "1.0.0",
+      "description": "Bridges Framework0 with external systems and APIs",
+      "author": "Framework0 Team",
+      "plugin_type": "integration_plugin",
+      "permissions": [
+        "network_access",
+        "read_write"
+      ],
+      "dependencies": [],
+      "entry_point": "main",
+      "configuration_schema": {},
+      "supported_versions": [],
+      "tags": [
+        "integration",
+        "api",
+        "bridge"
+      ]
+    }
+  ],
+  "last_updated": "2025-10-05T20:03:29.324039"
+}

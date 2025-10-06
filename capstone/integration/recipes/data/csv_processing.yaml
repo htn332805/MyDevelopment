@@ -1,0 +1,118 @@
+# Framework0 Recipe: Data Processing Basics - Context & Variables
+# Exercise 2 Integration - Data Processing Recipe Pattern  
+# Category: Data Processing | Complexity: Intermediate
+
+metadata:
+  name: "data_processing_basics"
+  version: "1.0.0"
+  description: "Advanced Context operations, CSV processing, and data transformation"
+  author: "Framework0 Team"
+  category: "data_processing"
+  complexity: "intermediate"
+  exercise_source: "Exercise 2"
+  estimated_duration: "45-60 minutes"
+  
+  learning_objectives:
+    - "Master Context operations (get, set, contains, keys)"
+    - "Process CSV data with validation"
+    - "Implement variable substitution"
+    - "Handle multiple data formats"
+  
+  prerequisites:
+    - "Exercise 1 completion"
+    - "Basic understanding of CSV format"
+    - "Python data structures knowledge"
+  
+  tags: ["data-processing", "csv", "context", "validation", "intermediate"]
+
+execution:
+  timeout_seconds: 120
+  retry_attempts: 3
+  parallel_execution: false
+
+steps:
+  - name: "initialize_data_context"
+    idx: 1
+    type: "python"
+    description: "Initialize Context with sample data for processing"
+    module: "scriptlets.data"
+    function: "DataContextInitializer"
+    args:
+      sample_datasets:
+        - name: "users"
+          format: "csv"
+          path: "data/sample_users.csv"
+        - name: "products" 
+          format: "json"
+          path: "data/sample_products.json"
+      context_namespace: "data_processing"
+    
+  - name: "csv_data_processing"
+    idx: 2
+    type: "python"
+    description: "Process CSV data with validation and transformation"
+    module: "scriptlets.data"
+    function: "CsvProcessor"
+    args:
+      input_source: "context://data_processing.users"
+      validation_rules:
+        required_columns: ["id", "name", "email"]
+        data_types:
+          id: "integer"
+          name: "string"
+          email: "email"
+      transformations:
+        - type: "normalize_email"
+          column: "email"
+        - type: "title_case"
+          column: "name"
+      output_target: "context://processed.users"
+    depends_on: ["initialize_data_context"]
+    
+  - name: "context_operations_demo"
+    idx: 3
+    type: "python"
+    description: "Demonstrate advanced Context operations and patterns"
+    module: "scriptlets.data"
+    function: "ContextOperationsDemo"
+    args:
+      operations_to_demonstrate:
+        - "get_with_default"
+        - "pattern_matching"
+        - "history_tracking"
+        - "conditional_updates"
+      test_scenarios:
+        - scenario: "data_retrieval"
+          keys: ["processed.users", "data_processing.users"]
+        - scenario: "pattern_search"
+          pattern: "*.users"
+    depends_on: ["csv_data_processing"]
+    
+  - name: "data_validation_report"
+    idx: 4
+    type: "python"
+    description: "Generate comprehensive data processing and validation report"
+    module: "scriptlets.data"
+    function: "DataValidationReporter"
+    args:
+      include_metrics: true
+      include_transformations: true
+      include_context_summary: true
+      export_format: "json"
+      output_path: "reports/data_processing_report.json"
+    depends_on: ["context_operations_demo"]
+
+success_criteria:
+  - "CSV data processed without validation errors"
+  - "Context variables properly managed and accessed"
+  - "Data transformations applied successfully"
+  - "Validation report generated with metrics"
+
+troubleshooting:
+  common_issues:
+    - issue: "CSV parsing errors"
+      solution: "Check file encoding and delimiter settings"
+    - issue: "Context data not found"
+      solution: "Verify Context key naming and namespaces"
+    - issue: "Validation failures"
+      solution: "Review data format requirements"

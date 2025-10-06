@@ -1,0 +1,9 @@
+database:
+  host: production-db.example.com
+  port: 5432
+  name: framework0_prod
+api:
+  version: v2.1
+  timeout_seconds: 60
+logging:
+  level: WARNING

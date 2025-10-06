@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""
+Framework0 CLI Entry Point
+Command-line interface for Framework0 Extension System
+"""
+
+import sys  # System-specific parameters and functions
+from pathlib import Path  # Object-oriented filesystem paths
+
+# Add current directory to path for imports
+current_dir = Path(__file__).parent
+sys.path.insert(0, str(current_dir))
+
+# Import CLI system
+try:
+    from scriptlets.extensions.cli_system import FrameworkCLI
+except ImportError as e:
+    print(f"Error importing CLI system: {e}", file=sys.stderr)
+    print("Make sure you're running from the Framework0 root directory",
+          file=sys.stderr)
+    sys.exit(1)
+
+
+def main():
+    """Main entry point for Framework0 CLI."""
+    # Initialize and run CLI
+    cli = FrameworkCLI()
+    exit_code = cli.run()
+    sys.exit(exit_code)
+
+
+if __name__ == "__main__":
+    main()

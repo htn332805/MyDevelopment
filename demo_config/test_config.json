@@ -1,0 +1,11 @@
+{
+  "test": {
+    "json_format": true,
+    "yaml_format": true,
+    "values": [
+      1,
+      2,
+      3
+    ]
+  }
+}

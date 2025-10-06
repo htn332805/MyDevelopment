@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Plugin Dashboard - {{ super() }}{% endblock %}
+
+{% block content %}
+<h2>🔌 Plugin Dashboard</h2>
+
+<div class="config-info">
+    <h3>System Information</h3>
+    <ul>
+        <li><strong>Environment:</strong> {{ env('ENVIRONMENT', 'development') }}</li>
+        <li><strong>Debug Mode:</strong> {{ env('DEBUG', 'false') | upper_first }}</li>
+        <li><strong>Timestamp:</strong> {{ now() | timestamp }}</li>
+    </ul>
+</div>
+
+<h3>📊 Plugin Statistics</h3>
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+    <thead style="background: #007acc; color: white;">
+        <tr>
+            <th>Plugin Name</th>
+            <th>Version</th>
+            <th>Status</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plugin in plugins %}
+        <tr style="background: {{ loop.cycle('#f9f9f9', '#ffffff') }};">
+            <td><strong>{{ plugin.name | upper_first }}</strong></td>
+            <td>{{ plugin.version }}</td>
+            <td style="color: {{ 'green' if plugin.status == 'active' else 'red' }};">
+                {{ plugin.status | upper }}
+            </td>
+            <td>{{ plugin.description | default('No description') }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4" style="text-align: center; color: #666;">
+                No plugins available
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>⚙️ Configuration Details</h3>
+<pre style="background: #f0f0f0; padding: 10px; border: 1px solid #ddd;">{{ config_data | to_json }}</pre>
+
+{% endblock %}

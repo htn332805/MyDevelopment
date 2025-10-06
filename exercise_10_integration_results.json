@@ -1,0 +1,7 @@
+{
+  "imports": true,
+  "system_initialization": true,
+  "success": false,
+  "error": "'str' object has no attribute 'value'",
+  "timestamp": "2025-10-05T18:33:53.275696"
+}

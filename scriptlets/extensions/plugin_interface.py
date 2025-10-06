@@ -458,10 +458,14 @@ def create_plugin_capabilities(
     analytics_metrics: Optional[List[str]] = None,
     supports_containers: bool = False,
     provides_isolation: bool = False,
-    deployment_targets: Optional[List[str]] = None,
+    requires_isolation: bool = False,
     workflow_integration: bool = False,
     provides_stages: bool = False,
-    cli_commands: Optional[List[str]] = None
+    cli_commands: Optional[List[str]] = None,
+    hot_reloadable: bool = False,
+    configurable: bool = False,
+    event_driven: bool = False,
+    template_support: bool = False
 ) -> PluginCapabilities:
     """
     Create plugin capabilities with sensible defaults.
@@ -472,10 +476,14 @@ def create_plugin_capabilities(
         analytics_metrics: Analytics metrics provided
         supports_containers: Plugin supports containerization
         provides_isolation: Plugin provides isolation features
-        deployment_targets: Deployment targets supported
+        requires_isolation: Plugin requires isolation
         workflow_integration: Plugin integrates with workflows
         provides_stages: Plugin provides workflow stages
         cli_commands: CLI commands provided
+        hot_reloadable: Plugin supports hot reloading
+        configurable: Plugin has configuration options
+        event_driven: Plugin uses event system
+        template_support: Plugin supports templates
         
     Returns:
         PluginCapabilities: Created plugin capabilities
@@ -486,10 +494,14 @@ def create_plugin_capabilities(
         analytics_metrics=analytics_metrics or [],
         supports_containers=supports_containers,
         provides_isolation=provides_isolation,
-        deployment_targets=deployment_targets or [],
+        requires_isolation=requires_isolation,
         workflow_integration=workflow_integration,
         provides_stages=provides_stages,
-        cli_commands=cli_commands or []
+        cli_commands=cli_commands or [],
+        hot_reloadable=hot_reloadable,
+        configurable=configurable,
+        event_driven=event_driven,
+        template_support=template_support
     )
 
 

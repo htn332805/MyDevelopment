@@ -1,0 +1,31 @@
+{
+  "workspace_root": "/home/hai/hai_vscode/MyDevelopment",
+  "analysis_timestamp": "2025-10-05T21:24:10.636885",
+  "total_files_analyzed": 358,
+  "framework_capabilities": [
+    "Context Management System",
+    "Data Analysis Framework",
+    "Data Visualization",
+    "Recipe Execution Engine",
+    "Shell Script Integration",
+    "Web Server Framework",
+    "YAML/JSON Recipe Processing"
+  ],
+  "integration_patterns": [
+    "Context-based component integration",
+    "Recipe execution and orchestration",
+    "Web API and WebSocket integration",
+    "YAML/JSON configuration-driven workflows",
+    "Automated testing and validation"
+  ],
+  "documentation_status": {
+    "total_files": 358,
+    "python_modules": 256,
+    "shell_scripts": 3,
+    "recipe_files": 93,
+    "config_files": 6,
+    "needs_documentation": 358,
+    "has_examples": 125,
+    "has_limitations": 7
+  }
+}

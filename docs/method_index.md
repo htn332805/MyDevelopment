@@ -1,6 +1,6 @@
 # Framework0 Enhanced Context Server - Method Index
 
-*Generated on 2025-10-05 18:53:51 UTC*
+*Generated on 2025-10-06 04:25:00 UTC*
 
 Alphabetical index of all methods, functions, and classes in the Framework0 Enhanced Context Server.
 
@@ -21,6 +21,42 @@ Args:
     
 Returns:
     Callable: Decorated function
+
+---
+
+### __call__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateFilter`
+
+**Signature:** `__call__(self, value: Any) -> Any`
+
+**Description:** Apply filter to value.
+
+---
+
+### __call__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateFunction`
+
+**Signature:** `__call__(self) -> Any`
+
+**Description:** Execute template function.
+
+---
+
+### __call__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventHandlerProtocol`
+
+**Signature:** `__call__(self, event: Event) -> Union[Any, Awaitable[Any]]`
+
+**Description:** Handle event processing.
 
 ---
 
@@ -1460,6 +1496,31 @@ Args:
 
 **Type:** Method
 
+**Location:** `scriptlets.performance_metrics.PerformanceMetricsScriptlet`
+
+**Signature:** `__init__(self, context: Optional[ContextManager] = None) -> None`
+
+**Description:** Initialize the performance metrics scriptlet.
+
+Args:
+    context: Framework0 context manager for integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.performance_metrics.ContextManager`
+
+**Signature:** `__init__(self)`
+
+---
+
+### __init__
+
+**Type:** Method
+
 **Location:** `scriptlets.framework.BaseScriptlet`
 
 **Signature:** `__init__(self, config: Optional[ScriptletConfig] = None) -> None`
@@ -1504,6 +1565,1824 @@ Args:
 **Signature:** `__init__(self) -> None`
 
 **Description:** Initialize execution context with management structures.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricsAggregator`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize the aggregator.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize empty query.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize in-memory storage.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.DataRetentionManager`
+
+**Signature:** `__init__(self, storage_backend: StorageBackend)`
+
+**Description:** Initialize retention manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `__init__(self, storage_backend: Optional[StorageBackend] = None)`
+
+**Description:** Initialize data manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnalyticsTemplate`
+
+**Signature:** `__init__(self, config: TemplateConfig)`
+
+**Description:** Initialize template with configuration.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitoringTemplate`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize performance monitoring template.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TrendAnalysisTemplate`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize trend analysis template.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetectionTemplate`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize anomaly detection template.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationTemplate`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize optimization template.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitor`
+
+**Signature:** `__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, monitoring_interval: int, alert_thresholds: Dict[str, float], template_config: TemplateConfig)`
+
+**Description:** Initialize performance monitor.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TrendAnalyzer`
+
+**Signature:** `__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, analysis_window_days: int, forecast_horizon_hours: int, trend_sensitivity: float, seasonal_analysis: bool, template_config: TemplateConfig)`
+
+**Description:** Initialize trend analyzer.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetector`
+
+**Signature:** `__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, detection_method: str, sensitivity: float, training_window_hours: int, alert_on_anomaly: bool, template_config: TemplateConfig)`
+
+**Description:** Initialize anomaly detector.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationEngine`
+
+**Signature:** `__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, optimization_goals: List[str], analysis_depth: str, recommendation_threshold: float, auto_apply: bool, template_config: TemplateConfig)`
+
+**Description:** Initialize optimization engine.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize template manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.MockAnalyticsEngine`
+
+**Signature:** `__init__(self, data_manager)`
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize chart renderer.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize alert system.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.DataExporter`
+
+**Signature:** `__init__(self, data_manager: AnalyticsDataManager)`
+
+**Description:** Initialize data exporter.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `__init__(self, analytics_engine: RecipeAnalyticsEngine)`
+
+**Description:** Initialize dashboard system.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `__init__(self, analytics_engine: 'RecipeAnalyticsEngine')`
+
+**Description:** Initialize monitor with reference to analytics engine.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `__init__(self, analytics_engine: 'RecipeAnalyticsEngine')`
+
+**Description:** Initialize analyzer with reference to analytics engine.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `__init__(self, context: Optional[Context] = None)`
+
+**Description:** Initialize the recipe analytics engine.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.RateLimiter`
+
+**Signature:** `__init__(self, requests_per_second: float = 1.0, burst_size: int = 10) -> None`
+
+**Description:** Initialize rate limiter.
+
+Args:
+    requests_per_second: Rate limit for requests per second
+    burst_size: Maximum burst capacity
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.CircuitBreaker`
+
+**Signature:** `__init__(self, failure_threshold: int = 5, timeout_seconds: int = 30) -> None`
+
+**Description:** Initialize circuit breaker.
+
+Args:
+    failure_threshold: Number of failures before opening
+    timeout_seconds: Timeout before trying half-open
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.APIClient`
+
+**Signature:** `__init__(self, base_url: str, context: Optional[Context] = None) -> None`
+
+**Description:** Initialize API client.
+
+Args:
+    base_url: Base URL for API requests
+    context: Optional Framework0 context for integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointManager`
+
+**Signature:** `__init__(self, config: Dict[str, Any]) -> None`
+
+**Description:** Initialize checkpoint manager.
+
+Args:
+    config: Checkpoint configuration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `__init__(self, config: Dict[str, Any]) -> None`
+
+**Description:** Initialize resource monitor.
+
+Args:
+    config: Resource monitoring configuration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `__init__(self, config: Dict[str, Any], context: Optional[Context] = None) -> None`
+
+**Description:** Initialize batch processing manager.
+
+Args:
+    config: Batch processing configuration
+    context: Optional Framework0 context
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.ValidationResult`
+
+**Signature:** `__init__(self, field: str = None, rule: str = None, severity: str = 'error', message: str = '', value: Any = None, expected: Any = None, suggestion: str = None) -> None`
+
+**Description:** Initialize validation result.
+
+Args:
+    field: Field name that failed validation
+    rule: Validation rule that failed
+    severity: Severity level (info, warning, error, critical)
+    message: Human-readable error message
+    value: Actual value that failed
+    expected: Expected value or format
+    suggestion: Suggested correction
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize data profiler.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.SchemaValidator`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize schema validator.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize quality checker.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize business rule validator.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `__init__(self, config: Dict[str, Any]) -> None`
+
+**Description:** Initialize connection pool.
+
+Args:
+    config: Database and pool configuration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `__init__(self, config: Dict[str, Any], context: Optional[Context] = None) -> None`
+
+**Description:** Initialize database operations manager.
+
+Args:
+    config: Database configuration
+    context: Optional Framework0 context
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.core.file_processing.FileProcessor`
+
+**Signature:** `__init__(self, context: Optional[Context] = None) -> None`
+
+**Description:** Initialize file processor.
+
+Args:
+    context: Optional Framework0 context for integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.FileSystemTemplateLoader`
+
+**Signature:** `__init__(self, template_dirs: List[Path], encoding: str = 'utf-8') -> None`
+
+**Description:** Initialize filesystem template loader.
+
+Args:
+    template_dirs: List of template directories to search
+    encoding: File encoding for template files
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.InMemoryTemplateLoader`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize in-memory template loader.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `__init__(self, loader: TemplateLoader, auto_reload: bool = True, enable_async: bool = False, strict_undefined: bool = False) -> None`
+
+**Description:** Initialize template engine.
+
+Args:
+    loader: Template loader for template source
+    auto_reload: Whether to auto-reload changed templates
+    enable_async: Enable async template rendering
+    strict_undefined: Raise errors on undefined variables
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `__init__(self, template_dirs: Optional[List[Path]] = None, auto_reload: bool = True, enable_events: bool = True) -> None`
+
+**Description:** Initialize template manager.
+
+Args:
+    template_dirs: Template directories to search
+    auto_reload: Auto-reload changed templates
+    enable_events: Enable event system integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.CustomJinjaLoader`
+
+**Signature:** `__init__(self, template_loader: TemplateLoader)`
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `__init__(self, plugin_metadata: PluginMetadata) -> None`
+
+**Description:** Initialize the Framework0 plugin.
+
+Args:
+    plugin_metadata: Plugin metadata and configuration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.AnalyticsPlugin`
+
+**Signature:** `__init__(self, plugin_metadata: PluginMetadata) -> None`
+
+**Description:** Initialize Analytics plugin.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.DeploymentPlugin`
+
+**Signature:** `__init__(self, plugin_metadata: PluginMetadata) -> None`
+
+**Description:** Initialize Deployment plugin.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.ProductionPlugin`
+
+**Signature:** `__init__(self, plugin_metadata: PluginMetadata) -> None`
+
+**Description:** Initialize Production plugin.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `__init__(self, max_workers: int = 4, event_history_size: int = 1000, enable_metrics: bool = True) -> None`
+
+**Description:** Initialize Framework0 event bus.
+
+Args:
+    max_workers: Maximum worker threads for sync handlers
+    event_history_size: Maximum events to keep in history
+    enable_metrics: Whether to collect event metrics
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize configuration loader.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `__init__(self, config_directory: Optional[Path] = None) -> None`
+
+**Description:** Initialize configuration manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommand`
+
+**Signature:** `__init__(self, name: str, description: str)`
+
+**Description:** Initialize CLI command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandRegistry`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize command registry.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.FrameworkCLI`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize Framework0 CLI.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.StatusCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize status command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.HelpCommand`
+
+**Signature:** `__init__(self, registry: CLICommandRegistry)`
+
+**Description:** Initialize help command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginListCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize plugin list command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginInstallCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize plugin install command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginStatusCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize plugin status command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigGetCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize config get command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigSetCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize config set command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigListCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize config list command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.TemplateListCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize template list command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.TemplateRenderCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize template render command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.EventEmitCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize event emit command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.EventHistoryCommand`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize event history command.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginLoader`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize plugin loader.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginDiscovery`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize plugin discovery.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize plugin validator.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize plugin manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginStorageBackend`
+
+**Signature:** `__init__(self, storage_path: Optional[Path] = None) -> None`
+
+**Description:** Initialize storage backend.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.MemoryStorageBackend`
+
+**Signature:** `__init__(self, storage_path: Optional[Path] = None) -> None`
+
+**Description:** Initialize memory storage backend.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `__init__(self, storage_path: Optional[Path] = None) -> None`
+
+**Description:** Initialize file storage backend.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `__init__(self, storage_path: Optional[Path] = None) -> None`
+
+**Description:** Initialize SQLite storage backend.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `__init__(self, storage_type: RegistryStorageType = RegistryStorageType.MEMORY, storage_path: Optional[Path] = None) -> None`
+
+**Description:** Initialize plugin registry.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.environment_rollback.EnvironmentController`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize environment controller with configuration management.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.environment_rollback.RollbackSystem`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize rollback system with monitoring and configuration.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `__init__(self, jwt_secret: str = None, session_timeout: int = 3600, max_login_attempts: int = 5)`
+
+**Description:** Initialize authentication manager with security configuration.
+
+Args:
+    jwt_secret: Secret key for JWT token signing
+    session_timeout: Default session timeout in seconds
+    max_login_attempts: Maximum failed login attempts before lockout
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize authorization engine with default roles and permissions.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.EncryptionService`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize encryption service with key management.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `__init__(self, retention_days: int = 365, max_events: int = 100000)`
+
+**Description:** Initialize audit trail system with retention settings.
+
+Args:
+    retention_days: How long to retain audit events
+    max_events: Maximum audit events to keep in memory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.SecurityFramework`
+
+**Signature:** `__init__(self, session_timeout: int = 3600, audit_retention_days: int = 365)`
+
+**Description:** Initialize comprehensive security framework.
+
+Args:
+    session_timeout: Default user session timeout
+    audit_retention_days: Audit log retention period
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.MetricsCollector`
+
+**Signature:** `__init__(self, collection_interval: int = 30, retention_hours: int = 24)`
+
+**Description:** Initialize metrics collector with configuration.
+
+Args:
+    collection_interval: Metrics collection interval in seconds
+    retention_hours: How long to retain metrics in memory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize distributed tracing system.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `__init__(self)`
+
+**Description:** Initialize centralized log aggregation system.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.AlertingEngine`
+
+**Signature:** `__init__(self, metrics_collector: MetricsCollector)`
+
+**Description:** Initialize alerting engine with metrics collector integration.
+
+Args:
+    metrics_collector: MetricsCollector instance for monitoring
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.ObservabilityPlatform`
+
+**Signature:** `__init__(self, metrics_interval: int = 30, retention_hours: int = 24)`
+
+**Description:** Initialize comprehensive observability platform.
+
+Args:
+    metrics_interval: Metrics collection interval in seconds
+    retention_hours: Data retention period in hours
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.deployment_engine.DeploymentPipeline`
+
+**Signature:** `__init__(self, config: DeploymentConfig, work_directory: Optional[str] = None)`
+
+**Description:** Initialize deployment pipeline with configuration.
+
+Args:
+    config: Deployment configuration parameters
+    work_directory: Working directory for pipeline execution
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.deployment_engine.InfrastructureManager`
+
+**Signature:** `__init__(self, provider: InfrastructureProvider)`
+
+**Description:** Initialize infrastructure manager for specified provider.
+
+Args:
+    provider: Cloud infrastructure provider to use
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize the logging framework scriptlet.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.BaseScriptlet`
+
+**Signature:** `__init__(self, context = None)`
+
+**Description:** Initialize base scriptlet.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize health monitoring scriptlet.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.BaseScriptlet`
+
+**Signature:** `__init__(self, context = None)`
+
+**Description:** Initialize base scriptlet.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `__init__(self, config_path: Optional[str] = None, context: Optional[Context] = None) -> None`
+
+**Description:** Initialize Foundation orchestrator.
+
+Args:
+    config_path: Optional path to unified Foundation configuration
+    context: Optional Framework0 context for integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `__init__(self, context: Optional[Context] = None) -> None`
+
+**Description:** Initialize Foundation integration bridge.
+
+Args:
+    context: Optional Framework0 context for integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.Framework0LoggerAdapter`
+
+**Signature:** `__init__(self, logger: logging.Logger, context: Optional[Context] = None) -> None`
+
+**Description:** Initialize the Framework0 logger adapter.
+
+Args:
+    logger: The base logger instance to wrap
+    context: Framework0 context for extracting contextual information
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.LoggerManager`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize the logger manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `__init__(self, format_type: LogFormat, include_context: bool = True) -> None`
+
+**Description:** Initialize the context-aware formatter.
+
+Args:
+    format_type: The type of formatting to apply (JSON, text, etc.)
+    include_context: Whether to include Framework0 context information
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.AuditFormatter`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize audit formatter with JSON format.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.PerformanceFormatter`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize performance formatter with JSON format.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.core.LoggingConfiguration`
+
+**Signature:** `__init__(self, config_dict: Dict[str, Any]) -> None`
+
+**Description:** Initialize logging configuration from dictionary.
+
+Args:
+    config_dict: Configuration dictionary with logging settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `__init__(self, config_dict: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Initialize configuration with optional dictionary.
+
+Args:
+    config_dict: Optional configuration dictionary
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `__init__(self, collection_interval: float = 10.0) -> None`
+
+**Description:** Initialize system metrics collector.
+
+Args:
+    collection_interval: Seconds between automatic collections
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.ApplicationMetricsCollector`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize application metrics collector.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.NetworkMetricsCollector`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize network metrics collector.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize custom metrics collector.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `__init__(self, window_size: int = 1000) -> None`
+
+**Description:** Initialize metrics analyzer.
+
+Args:
+    window_size: Maximum number of metrics to keep in sliding window
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.AnomalyDetector`
+
+**Signature:** `__init__(self, sensitivity: float = 2.0) -> None`
+
+**Description:** Initialize anomaly detector.
+
+Args:
+    sensitivity: Detection sensitivity (higher = more sensitive)
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.PerformanceProfiler`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize performance profiler.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsReporter`
+
+**Signature:** `__init__(self, analyzer: MetricsAnalyzer, anomaly_detector: AnomalyDetector, profiler: PerformanceProfiler) -> None`
+
+**Description:** Initialize metrics reporter.
+
+Args:
+    analyzer: MetricsAnalyzer for statistical data
+    anomaly_detector: AnomalyDetector for anomaly information
+    profiler: PerformanceProfiler for bottleneck analysis
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize bulkhead isolation system.
+
+Args:
+    config: Error configuration containing bulkhead settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.TimeoutManager`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize timeout manager.
+
+Args:
+    config: Error configuration containing timeout settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize resilience metrics system.
+
+Args:
+    config: Error configuration containing metrics settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `__init__(self, config_dict: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Initialize error handling configuration.
+
+Args:
+    config_dict: Configuration dictionary with error handling settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize error detector with configuration.
+
+Args:
+    config: Error configuration containing detection settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorClassifier`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize error classifier with configuration.
+
+Args:
+    config: Error configuration containing classification settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize error router with configuration.
+
+Args:
+    config: Error configuration containing routing settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorAggregator`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize error aggregator with configuration.
+
+Args:
+    config: Error configuration containing aggregation settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `__init__(self, config: ErrorConfiguration) -> None`
+
+**Description:** Initialize error notifier with configuration.
+
+Args:
+    config: Error configuration containing notification settings
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `__init__(self, max_attempts: int = 3, backoff_strategy: BackoffStrategy = BackoffStrategy.EXPONENTIAL, initial_delay: float = 1.0, max_delay: float = 60.0, backoff_multiplier: float = 2.0, jitter_factor: float = 0.1) -> None`
+
+**Description:** Initialize retry strategy with configuration.
+
+Args:
+    max_attempts: Maximum number of retry attempts
+    backoff_strategy: Strategy for calculating retry delays
+    initial_delay: Initial delay before first retry (seconds)
+    max_delay: Maximum delay between retries (seconds)
+    backoff_multiplier: Multiplier for exponential backoff
+    jitter_factor: Random jitter factor (0.0-1.0) for jitter strategies
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `__init__(self, failure_threshold: int = 5, recovery_timeout: float = 60.0, half_open_max_calls: int = 3, name: str = 'default') -> None`
+
+**Description:** Initialize circuit breaker with configuration.
+
+Args:
+    failure_threshold: Number of failures before opening circuit
+    recovery_timeout: Time to wait before testing recovery (seconds)
+    half_open_max_calls: Maximum calls allowed in half-open state
+    name: Name for identification and logging
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.FallbackStrategy`
+
+**Signature:** `__init__(self, name: str = 'default') -> None`
+
+**Description:** Initialize fallback strategy.
+
+Args:
+    name: Name for identification and logging
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `__init__(self, config: ErrorConfiguration, context: Optional[Context] = None) -> None`
+
+**Description:** Initialize recovery orchestrator.
+
+Args:
+    config: Error configuration containing recovery settings
+    context: Optional Framework0 context for integration
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `__init__(self, config_path: Optional[str] = None) -> None`
+
+**Description:** Initialize error handling orchestrator.
+
+Args:
+    config_path: Optional path to error handling configuration file
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.SystemResourceChecker`
+
+**Signature:** `__init__(self, sample_duration: float = 1.0) -> None`
+
+**Description:** Initialize system resource checker with sampling duration.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.NetworkHealthChecker`
+
+**Signature:** `__init__(self, timeout: float = 5.0) -> None`
+
+**Description:** Initialize network health checker with connection timeout.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.ServiceHealthChecker`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize service health checker.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.CustomHealthChecker`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize custom health checker with empty registry.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthAnalyzer`
+
+**Signature:** `__init__(self, max_history: int = 1000) -> None`
+
+**Description:** Initialize health analyzer with metric history storage.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.AlertManager`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize alert manager with empty alert history.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthReporter`
+
+**Signature:** `__init__(self, analyzer: Optional[HealthAnalyzer] = None, alert_manager: Optional[AlertManager] = None) -> None`
+
+**Description:** Initialize health reporter with analysis and alerting components.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `__init__(self, config_dict: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Initialize configuration with optional config dictionary.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.production.production_workflow_engine.ProductionWorkflowEngine`
+
+**Signature:** `__init__(self, analytics_manager: Optional[Any] = None) -> None`
+
+**Description:** Initialize the Production Workflow Engine.
+
+Args:
+    analytics_manager: Optional analytics manager for monitoring
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.isolation_framework.IsolationFramework`
+
+**Signature:** `__init__(self, analytics_manager: Optional[Any] = None) -> None`
+
+**Description:** Initialize the Isolation Framework.
+
+Args:
+    analytics_manager: Optional analytics manager for monitoring
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerDeploymentEngine`
+
+**Signature:** `__init__(self, analytics_manager: Optional[Any] = None) -> None`
+
+**Description:** Initialize the Container Deployment Engine.
+
+Args:
+    analytics_manager: Optional analytics manager for deployment monitoring
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerBuilder`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize the Container Builder.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.RegistryManager`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize the Registry Manager.
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.SecurityScanner`
+
+**Signature:** `__init__(self) -> None`
+
+**Description:** Initialize the Security Scanner.
 
 ---
 
@@ -1698,6 +3577,21 @@ Args:
 
 **Type:** Method
 
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `__init__(self, workspace_root: str) -> None`
+
+**Description:** Initialize comprehensive workspace scanner with configuration.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root directory
+
+---
+
+### __init__
+
+**Type:** Method
+
 **Location:** `tools.workspace_execution_validator.WorkspaceExecutionValidator`
 
 **Signature:** `__init__(self, workspace_root: str) -> None`
@@ -1706,6 +3600,22 @@ Args:
 
 Args:
     workspace_root: Absolute path to the workspace root directory
+
+---
+
+### __init__
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `__init__(self, workspace_root: str, analysis_file: str) -> None`
+
+**Description:** Initialize documentation generator with workspace analysis results.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
+    analysis_file: Path to workspace analysis JSON file
 
 ---
 
@@ -1850,6 +3760,114 @@ Args:
 **Signature:** `__post_init__(self) -> None`
 
 **Description:** Validate step information after initialization.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricPoint`
+
+**Signature:** `__post_init__(self)`
+
+**Description:** Validate metric point data.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateMetadata`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Post-initialization setup.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.Event`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Post-initialization event setup.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.PerformanceMetric`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Initialize optional fields with empty defaults if not provided.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricFilter`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Validate filter configuration parameters.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadCompartment`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Initialize compartment resources.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorPattern`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Compile regex pattern after initialization.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthMetric`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Initialize metric after creation with validation.
+
+---
+
+### __post_init__
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthCheckResult`
+
+**Signature:** `__post_init__(self) -> None`
+
+**Description:** Initialize result after creation with validation.
 
 ---
 
@@ -2062,6 +4080,18 @@ Args:
 
 ---
 
+### _analyze_anomaly_patterns
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_analyze_anomaly_patterns(self, anomalies: List[Dict[str, Any]]) -> List[str]`
+
+**Description:** Analyze patterns in detected anomalies.
+
+---
+
 ### _analyze_common_errors
 
 **Type:** Method
@@ -2136,6 +4166,46 @@ Returns:
 
 ---
 
+### _analyze_config_file
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_analyze_config_file(self, file_path: Path, analysis: FileAnalysis) -> None`
+
+**Description:** Perform comprehensive analysis of configuration file for documentation.
+
+Args:
+    file_path: Path to configuration file
+    analysis: FileAnalysis object to populate with results
+
+---
+
+### _analyze_correlations
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_analyze_correlations(self, df: pd.DataFrame) -> Dict[str, Any]`
+
+**Description:** Analyze correlations between numeric fields.
+
+---
+
+### _analyze_datetime_field
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_analyze_datetime_field(self, series: pd.Series) -> Dict[str, Any]`
+
+**Description:** Analyze datetime field characteristics.
+
+---
+
 ### _analyze_dependencies
 
 **Type:** Method
@@ -2187,6 +4257,54 @@ Returns:
 **Signature:** `_analyze_dictionary(self, data: Dict) -> Dict[str, Any]`
 
 **Description:** Analyze dictionary data structure.
+
+---
+
+### _analyze_distributions
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_analyze_distributions(self, df: pd.DataFrame) -> Dict[str, Any]`
+
+**Description:** Analyze data distributions for numeric fields.
+
+---
+
+### _analyze_error_patterns
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationEngine`
+
+**Signature:** `_analyze_error_patterns(self) -> Optional[Dict[str, Any]]`
+
+**Description:** Analyze error patterns for optimization opportunities.
+
+---
+
+### _analyze_event_correlations
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_analyze_event_correlations(self) -> Dict[str, Any]`
+
+**Description:** Analyze event correlations for insights.
+
+---
+
+### _analyze_execution_duration
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationEngine`
+
+**Signature:** `_analyze_execution_duration(self) -> Optional[Dict[str, Any]]`
+
+**Description:** Analyze execution duration for optimization opportunities.
 
 ---
 
@@ -2424,6 +4542,25 @@ Returns:
 
 ---
 
+### _analyze_individual_file
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_analyze_individual_file(self, file_path: Path, file_type: str) -> FileAnalysis`
+
+**Description:** Perform comprehensive analysis of individual file for documentation.
+
+Args:
+    file_path: Path to file for analysis
+    file_type: Type of file being analyzed
+    
+Returns:
+    FileAnalysis: Complete analysis of individual file
+
+---
+
 ### _analyze_integration_opportunities
 
 **Type:** Method
@@ -2520,6 +4657,18 @@ Returns:
 
 ---
 
+### _analyze_numeric_field
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_analyze_numeric_field(self, series: pd.Series) -> Dict[str, Any]`
+
+**Description:** Analyze numeric field statistics.
+
+---
+
 ### _analyze_observability
 
 **Type:** Method
@@ -2582,6 +4731,18 @@ Returns:
 
 ---
 
+### _analyze_performance_trends
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_analyze_performance_trends(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, List[float]]`
+
+**Description:** Analyze performance trends over time.
+
+---
+
 ### _analyze_plugin_file
 
 **Type:** Method
@@ -2607,6 +4768,38 @@ Returns:
 Args:
     component: Component to analyze and update
     content: Python source code content
+
+---
+
+### _analyze_python_module
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_analyze_python_module(self, file_path: Path, analysis: FileAnalysis) -> None`
+
+**Description:** Perform comprehensive analysis of Python module for documentation.
+
+Args:
+    file_path: Path to Python module file
+    analysis: FileAnalysis object to populate with results
+
+---
+
+### _analyze_recipe_file
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_analyze_recipe_file(self, file_path: Path, analysis: FileAnalysis) -> None`
+
+**Description:** Perform comprehensive analysis of recipe file for documentation.
+
+Args:
+    file_path: Path to recipe file
+    analysis: FileAnalysis object to populate with results
 
 ---
 
@@ -2690,6 +4883,22 @@ Args:
 
 ---
 
+### _analyze_shell_script
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_analyze_shell_script(self, file_path: Path, analysis: FileAnalysis) -> None`
+
+**Description:** Perform comprehensive analysis of shell script for documentation.
+
+Args:
+    file_path: Path to shell script file
+    analysis: FileAnalysis object to populate with results
+
+---
+
 ### _analyze_string
 
 **Type:** Method
@@ -2711,6 +4920,30 @@ Args:
 **Signature:** `_analyze_string_data(self, string_data: List[str]) -> Dict[str, Any]`
 
 **Description:** Analyze string data for text characteristics.
+
+---
+
+### _analyze_text_field
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_analyze_text_field(self, series: pd.Series) -> Dict[str, Any]`
+
+**Description:** Analyze text field characteristics.
+
+---
+
+### _analyze_throughput
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationEngine`
+
+**Signature:** `_analyze_throughput(self) -> Optional[Dict[str, Any]]`
+
+**Description:** Analyze throughput for optimization opportunities.
 
 ---
 
@@ -2739,6 +4972,70 @@ Args:
 Args:
     component: Component to analyze and update
     content: YAML content
+
+---
+
+### _apply_custom_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.isolation_framework.IsolationFramework`
+
+**Signature:** `_apply_custom_configuration(self, isolation_env: IsolationEnvironment, custom_config: Dict[str, Any]) -> None`
+
+**Description:** Apply custom configuration to isolation environment.
+
+Args:
+    isolation_env: Isolation environment to modify
+    custom_config: Custom configuration to apply
+
+---
+
+### _apply_defaults
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `_apply_defaults(self) -> None`
+
+**Description:** Apply default configuration values for missing settings.
+
+---
+
+### _apply_filter
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `_apply_filter(self, point: MetricPoint, filter_criteria: QueryFilter) -> bool`
+
+**Description:** Apply a filter to a metric point.
+
+---
+
+### _apply_filters
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `_apply_filters(self, event: Event, filters: List[EventFilter]) -> bool`
+
+**Description:** Apply filters to event and return whether it should be processed.
+
+---
+
+### _apply_rate_limiting
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.APIClient`
+
+**Signature:** `_apply_rate_limiting(self) -> None`
+
+**Description:** Apply rate limiting before making request.
 
 ---
 
@@ -2854,6 +5151,18 @@ Returns:
 
 ---
 
+### _background_update_loop
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `_background_update_loop(self) -> None`
+
+**Description:** Background loop to send real-time updates.
+
+---
+
 ### _backup_git_state
 
 **Type:** Method
@@ -2947,6 +5256,24 @@ Returns:
 
 ---
 
+### _build_dependency_graph
+
+**Type:** Method
+
+**Location:** `scriptlets.production.production_workflow_engine.ProductionWorkflowEngine`
+
+**Signature:** `_build_dependency_graph(self, stages: List[PipelineStage]) -> Dict[str, List[str]]`
+
+**Description:** Build stage dependency graph for execution ordering.
+
+Args:
+    stages: List of pipeline stages
+
+Returns:
+    Dict[str, List[str]]: Dependency graph mapping stage -> dependencies
+
+---
+
 ### _build_execution_state
 
 **Type:** Method
@@ -3028,6 +5355,42 @@ Returns:
 
 ---
 
+### _build_sql_connection_string
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_build_sql_connection_string(self, db_config: Dict[str, Any]) -> str`
+
+**Description:** Build SQL database connection string.
+
+---
+
+### _calculate_aggregation
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricsAggregator`
+
+**Signature:** `_calculate_aggregation(self, points: List[MetricPoint], aggregation_type: AggregationType) -> float`
+
+**Description:** Calculate aggregation for a set of points.
+
+---
+
+### _calculate_checksum
+
+**Type:** Method
+
+**Location:** `scriptlets.core.file_processing.FileProcessor`
+
+**Signature:** `_calculate_checksum(self, content: Union[str, bytes]) -> str`
+
+**Description:** Calculate MD5 checksum for content verification.
+
+---
+
 ### _calculate_compliance_score
 
 **Type:** Method
@@ -3045,6 +5408,36 @@ Args:
     
 Returns:
     float: Compliance score as percentage (0-100)
+
+---
+
+### _calculate_documentation_status
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_calculate_documentation_status(self, analysis: WorkspaceAnalysis) -> Dict[str, int]`
+
+**Description:** Calculate documentation coverage statistics for workspace.
+
+Args:
+    analysis: Complete workspace analysis
+    
+Returns:
+    Dict[str, int]: Documentation coverage statistics
+
+---
+
+### _calculate_efficiency_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `_calculate_efficiency_metrics(self, metrics: RecipeExecutionMetrics) -> None`
+
+**Description:** Calculate efficiency and optimization metrics.
 
 ---
 
@@ -3078,6 +5471,30 @@ Returns:
 
 ---
 
+### _calculate_execution_time_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_calculate_execution_time_stats(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, float]`
+
+**Description:** Calculate statistical summary of execution times.
+
+---
+
+### _calculate_file_hash
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `_calculate_file_hash(self, file_path: str) -> str`
+
+**Description:** Calculate file hash for integrity checking.
+
+---
+
 ### _calculate_file_hash
 
 **Type:** Method
@@ -3093,6 +5510,24 @@ Args:
     
 Returns:
     str: SHA256 hash of file content
+
+---
+
+### _calculate_group_key
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorAggregator`
+
+**Signature:** `_calculate_group_key(self, error_context: ErrorContext) -> str`
+
+**Description:** Calculate group key for error aggregation.
+
+Args:
+    error_context: Error context to group
+    
+Returns:
+    Group key string
 
 ---
 
@@ -3132,6 +5567,18 @@ Returns:
 
 ---
 
+### _calculate_performance_score
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_calculate_performance_score(self, metrics: List[RecipeExecutionMetrics], analysis: PerformanceAnalysisResult) -> float`
+
+**Description:** Calculate overall performance score (0-100).
+
+---
+
 ### _calculate_python_complexity
 
 **Type:** Method
@@ -3147,6 +5594,30 @@ Args:
     
 Returns:
     int: Complexity score
+
+---
+
+### _calculate_quality_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_calculate_quality_metrics(self, df: pd.DataFrame) -> Dict[str, float]`
+
+**Description:** Calculate overall data quality metrics.
+
+---
+
+### _calculate_resource_usage_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_calculate_resource_usage_stats(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, float]`
+
+**Description:** Calculate resource usage statistics.
 
 ---
 
@@ -3171,6 +5642,18 @@ Returns:
 **Signature:** `_calculate_status_distribution(self, events: List[TimelineEvent]) -> Dict[str, int]`
 
 **Description:** Calculate distribution of event statuses.
+
+---
+
+### _calculate_success_rate_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_calculate_success_rate_stats(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, float]`
+
+**Description:** Calculate success rate statistics.
 
 ---
 
@@ -3213,6 +5696,75 @@ Args:
 
 Returns:
     str: Total effort estimate (low, medium, high, very_high)
+
+---
+
+### _calculate_trace_duration
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `_calculate_trace_duration(self, spans: List[TraceSpan]) -> float`
+
+**Description:** Calculate total trace duration in milliseconds.
+
+---
+
+### _calculate_trend_slope
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TrendAnalyzer`
+
+**Signature:** `_calculate_trend_slope(self, x: List[float], y: List[float]) -> float`
+
+**Description:** Calculate trend slope using simple linear regression.
+
+---
+
+### _can_accept_request
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_can_accept_request(self, compartment: BulkheadCompartment) -> bool`
+
+**Description:** Check if compartment can accept new requests.
+
+Args:
+    compartment: Compartment to check
+    
+Returns:
+    True if compartment can accept requests, False otherwise
+
+---
+
+### _can_attempt_call
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `_can_attempt_call(self) -> bool`
+
+**Description:** Check if call can be attempted in current state.
+
+Returns:
+    True if call can be attempted, False otherwise
+
+---
+
+### _capture_environment_info
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `_capture_environment_info(self) -> Dict[str, Any]`
+
+**Description:** Capture current environment information.
 
 ---
 
@@ -3272,6 +5824,18 @@ Returns:
 
 ---
 
+### _check_component_health
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_check_component_health(self) -> None`
+
+**Description:** Check health of all system components.
+
+---
+
 ### _check_dependencies
 
 **Type:** Method
@@ -3281,6 +5845,30 @@ Returns:
 **Signature:** `_check_dependencies(self) -> List[str]`
 
 **Description:** Check if all dependencies are satisfied.
+
+---
+
+### _check_format_accuracy
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `_check_format_accuracy(self, df: pd.DataFrame, config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Check format accuracy of fields.
+
+---
+
+### _check_integration_events
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_check_integration_events(self) -> List[Dict[str, Any]]`
+
+**Description:** Check for new integration events from the bridge.
 
 ---
 
@@ -3323,6 +5911,70 @@ Returns:
 
 ---
 
+### _check_pattern_accuracy
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `_check_pattern_accuracy(self, df: pd.DataFrame, pattern_config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Check pattern accuracy for text fields.
+
+---
+
+### _check_range_accuracy
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `_check_range_accuracy(self, df: pd.DataFrame, range_config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Check range accuracy for numeric fields.
+
+---
+
+### _check_security_alerts
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `_check_security_alerts(self, event: AuditEvent) -> None`
+
+**Description:** Check if event triggers security alerts.
+
+---
+
+### _check_sla_compliance
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `_check_sla_compliance(self, service_name: str, operation_data: Dict[str, Any]) -> None`
+
+**Description:** Check SLA compliance for recorded operation.
+
+Args:
+    service_name: Name of service
+    operation_data: Operation data to check
+
+---
+
+### _check_sla_compliance
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_check_sla_compliance(self) -> None`
+
+**Description:** Check SLA compliance and log violations.
+
+---
+
 ### _check_state_management
 
 **Type:** Method
@@ -3354,6 +6006,24 @@ Returns:
 
 ---
 
+### _classify_from_features
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorClassifier`
+
+**Signature:** `_classify_from_features(self, features: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Classify error based on extracted features.
+
+Args:
+    features: Extracted features for classification
+    
+Returns:
+    Classification result with category, severity, and confidence
+
+---
+
 ### _clean_expired_entries
 
 **Type:** Method
@@ -3366,6 +6036,42 @@ Returns:
 
 Returns:
     int: Number of entries removed
+
+---
+
+### _cleanup_old_events
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `_cleanup_old_events(self) -> None`
+
+**Description:** Remove old audit events beyond retention period.
+
+---
+
+### _cleanup_old_logs
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `_cleanup_old_logs(self) -> None`
+
+**Description:** Remove oldest logs when limit is exceeded.
+
+---
+
+### _cleanup_old_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.MetricsCollector`
+
+**Signature:** `_cleanup_old_metrics(self) -> None`
+
+**Description:** Remove metrics older than retention period.
 
 ---
 
@@ -3496,6 +6202,18 @@ Args:
 
 ---
 
+### _collection_loop
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `_collection_loop(self) -> None`
+
+**Description:** Background loop for continuous metrics collection.
+
+---
+
 ### _compare_with_history
 
 **Type:** Method
@@ -3545,6 +6263,18 @@ Args:
 
 ---
 
+### _configure_security_policies
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.SecurityFramework`
+
+**Signature:** `_configure_security_policies(self) -> None`
+
+**Description:** Configure default security policies.
+
+---
+
 ### _contains
 
 **Type:** Method
@@ -3566,6 +6296,23 @@ Args:
 **Signature:** `_contains(self) -> Callable`
 
 **Description:** Get the contains method with lock if needed.
+
+---
+
+### _continuous_monitoring_loop
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_continuous_monitoring_loop(self, context, args: Dict[str, Any], interval: int) -> None`
+
+**Description:** Continuous monitoring loop executed in background thread.
+
+Args:
+    context: Framework0 context for state management
+    args: Monitoring configuration arguments
+    interval: Check interval in seconds
 
 ---
 
@@ -3602,6 +6349,18 @@ Returns:
 Args:
     target_dir: Target directory for isolated package
     recipe_file: Source recipe file path
+
+---
+
+### _count_recent_events
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `_count_recent_events(self, event_type: AuditEventType, hours: int = 1, user_id: str = None) -> int`
+
+**Description:** Count recent events of specified type.
 
 ---
 
@@ -3653,6 +6412,24 @@ Returns:
 
 ---
 
+### _create_config_manual
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_create_config_manual(self, config) -> str`
+
+**Description:** Create comprehensive user manual content for configuration file.
+
+Args:
+    config: FileAnalysis object for configuration file
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+---
+
 ### _create_console_handler
 
 **Type:** Method
@@ -3665,6 +6442,18 @@ Returns:
 
 Returns:
     Configured console handler
+
+---
+
+### _create_default_roles
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `_create_default_roles(self) -> None`
+
+**Description:** Create default system roles with appropriate permissions.
 
 ---
 
@@ -3710,6 +6499,18 @@ Returns:
 
 ---
 
+### _create_empty_chart
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `_create_empty_chart(self, chart_config: ChartConfig) -> Dict[str, Any]`
+
+**Description:** Create empty chart placeholder.
+
+---
+
 ### _create_enhanced_summary
 
 **Type:** Method
@@ -3719,6 +6520,18 @@ Returns:
 **Signature:** `_create_enhanced_summary(self, base_summary: Dict[str, Any], data: Any, config: EnhancedAnalysisConfig) -> Dict[str, Any]`
 
 **Description:** Create enhanced summary with context integration.
+
+---
+
+### _create_error_chart
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `_create_error_chart(self, chart_config: ChartConfig, error_message: str) -> Dict[str, Any]`
+
+**Description:** Create error chart placeholder.
 
 ---
 
@@ -3750,6 +6563,25 @@ Args:
 
 Returns:
     str: Path to created execution validation script
+
+---
+
+### _create_fallback_format
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `_create_fallback_format(self, record: logging.LogRecord, error: Exception) -> str`
+
+**Description:** Create fallback format when normal formatting fails.
+
+Args:
+    record: Original log record
+    error: Formatting error that occurred
+    
+Returns:
+    Basic formatted string with error information
 
 ---
 
@@ -3798,6 +6630,30 @@ Returns:
 
 ---
 
+### _create_health_change_event
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_create_health_change_event(self, health_status: HealthStatus, details: Dict[str, Any], correlation_id: Optional[str] = None) -> IntegrationEvent`
+
+**Description:** Create health change integration event.
+
+---
+
+### _create_health_critical_event
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_create_health_critical_event(self, critical_issues: List[Any]) -> IntegrationEvent`
+
+**Description:** Create integration event for critical health issues.
+
+---
+
 ### _create_import_validation_script
 
 **Type:** Method
@@ -3843,6 +6699,72 @@ Returns:
 **Signature:** `_create_json_timeline(self, recipe_execution: RecipeExecution, include_performance: bool) -> str`
 
 **Description:** Create JSON export of timeline data.
+
+---
+
+### _create_log_directories
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_create_log_directories(self) -> List[str]`
+
+**Description:** Create necessary log directories.
+
+---
+
+### _create_log_entry_from_record
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `_create_log_entry_from_record(self, record: logging.LogRecord) -> LogEntry`
+
+**Description:** Create structured LogEntry from logging.LogRecord.
+
+Args:
+    record: Standard logging record
+    
+Returns:
+    Structured LogEntry with Framework0 context
+
+---
+
+### _create_log_entry_from_record
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.AuditFormatter`
+
+**Signature:** `_create_log_entry_from_record(self, record: logging.LogRecord) -> LogEntry`
+
+**Description:** Create audit log entry with additional compliance fields.
+
+Args:
+    record: Standard logging record
+    
+Returns:
+    LogEntry enhanced for audit purposes
+
+---
+
+### _create_log_entry_from_record
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.PerformanceFormatter`
+
+**Signature:** `_create_log_entry_from_record(self, record: logging.LogRecord) -> LogEntry`
+
+**Description:** Create performance log entry with metrics data.
+
+Args:
+    record: Standard logging record
+    
+Returns:
+    LogEntry enhanced for performance analysis
 
 ---
 
@@ -3908,6 +6830,18 @@ Args:
 
 ---
 
+### _create_performance_anomaly_event
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_create_performance_anomaly_event(self, analysis: Dict[str, Any]) -> IntegrationEvent`
+
+**Description:** Create integration event for performance anomalies.
+
+---
+
 ### _create_plotly_timeline
 
 **Type:** Method
@@ -3917,6 +6851,84 @@ Args:
 **Signature:** `_create_plotly_timeline(self, recipe_execution: RecipeExecution, include_performance: bool) -> str`
 
 **Description:** Create interactive Plotly timeline visualization.
+
+---
+
+### _create_python_manual
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_create_python_manual(self, module) -> str`
+
+**Description:** Create comprehensive user manual content for Python module.
+
+Args:
+    module: FileAnalysis object for Python module
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+---
+
+### _create_recipe_manual
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_create_recipe_manual(self, recipe) -> str`
+
+**Description:** Create comprehensive user manual content for recipe file.
+
+Args:
+    recipe: FileAnalysis object for recipe file
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+---
+
+### _create_recovery_event
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_create_recovery_event(self, recovery_type: str, recovery_data: Dict[str, Any], correlation_id: Optional[str] = None) -> IntegrationEvent`
+
+**Description:** Create recovery process integration event.
+
+---
+
+### _create_session
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `_create_session(self, user: User, ip_address: str, user_agent: str) -> str`
+
+**Description:** Create authenticated user session with JWT token.
+
+---
+
+### _create_shell_manual
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_create_shell_manual(self, script) -> str`
+
+**Description:** Create comprehensive user manual content for shell script.
+
+Args:
+    script: FileAnalysis object for shell script
+    
+Returns:
+    str: Complete manual content in Markdown format
 
 ---
 
@@ -3961,6 +6973,18 @@ Args:
 Args:
     target_dir: Target directory for package
     recipe_name: Name of the recipe
+
+---
+
+### _create_storage_backend
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `_create_storage_backend(self, storage_type: RegistryStorageType, storage_path: Optional[Path]) -> PluginStorageBackend`
+
+**Description:** Create storage backend based on type.
 
 ---
 
@@ -4011,6 +7035,30 @@ Returns:
 Args:
     base: Base dictionary to update
     update: Dictionary with updates to apply
+
+---
+
+### _deep_merge
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationSchema`
+
+**Signature:** `_deep_merge(self, base: Dict[str, Any], overlay: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Deep merge two dictionaries.
+
+---
+
+### _deep_merge
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `_deep_merge(self, base: Dict[str, Any], overlay: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Deep merge two dictionaries.
 
 ---
 
@@ -4070,6 +7118,18 @@ Returns:
 
 ---
 
+### _detect_anomaly
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.AlertingEngine`
+
+**Signature:** `_detect_anomaly(self, metric_name: str, current_value: Union[float, int]) -> bool`
+
+**Description:** Detect anomalies using statistical analysis of baseline data.
+
+---
+
 ### _detect_capabilities
 
 **Type:** Method
@@ -4112,6 +7172,66 @@ Returns:
 
 ---
 
+### _detect_encoding
+
+**Type:** Method
+
+**Location:** `scriptlets.core.file_processing.FileProcessor`
+
+**Signature:** `_detect_encoding(self, file_path: str) -> str`
+
+**Description:** Detect file encoding automatically.
+
+Args:
+    file_path: Path to file for encoding detection
+    
+Returns:
+    Detected encoding string
+
+---
+
+### _detect_environment
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `_detect_environment(self) -> str`
+
+**Description:** Detect current environment from environment variables.
+
+---
+
+### _detect_format
+
+**Type:** Method
+
+**Location:** `scriptlets.core.file_processing.FileProcessor`
+
+**Signature:** `_detect_format(self, file_path: str) -> str`
+
+**Description:** Detect file format from extension and content.
+
+Args:
+    file_path: Path to file for format detection
+    
+Returns:
+    Detected format string
+
+---
+
+### _detect_format
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `_detect_format(self, config_path: Path) -> ConfigurationFormat`
+
+**Description:** Detect configuration format from file extension.
+
+---
+
 ### _detect_framework_version
 
 **Type:** Method
@@ -4142,6 +7262,42 @@ Returns:
 
 ---
 
+### _detect_log_patterns
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `_detect_log_patterns(self, log_entry: Dict[str, Any]) -> None`
+
+**Description:** Detect patterns in log messages for analysis.
+
+---
+
+### _detect_outliers_iqr
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_detect_outliers_iqr(self, series: pd.Series) -> Dict[str, Any]`
+
+**Description:** Detect outliers using IQR method.
+
+---
+
+### _detect_outliers_zscore
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_detect_outliers_zscore(self, series: pd.Series, threshold: float = 3.0) -> Dict[str, Any]`
+
+**Description:** Detect outliers using Z-score method.
+
+---
+
 ### _detect_patterns
 
 **Type:** Method
@@ -4151,6 +7307,30 @@ Returns:
 **Signature:** `_detect_patterns(self, data: Any, threshold: float = None) -> List[Dict[str, Any]]`
 
 **Description:** Detect patterns in data using configurable threshold.
+
+---
+
+### _detect_performance_anomalies
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_detect_performance_anomalies(self, metrics: List[RecipeExecutionMetrics]) -> List[Dict[str, Any]]`
+
+**Description:** Detect performance anomalies using statistical methods.
+
+---
+
+### _detect_potential_issues
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_detect_potential_issues(self) -> None`
+
+**Description:** Detect potential issues before they become critical.
 
 ---
 
@@ -4209,6 +7389,18 @@ Returns:
 
 ---
 
+### _determine_trend_directions
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_determine_trend_directions(self, trends: Dict[str, List[float]]) -> Dict[str, str]`
+
+**Description:** Determine the direction of performance trends.
+
+---
+
 ### _dict_delta
 
 **Type:** Method
@@ -4226,6 +7418,18 @@ Args:
     
 Returns:
     Dict[str, Any]: Delta information
+
+---
+
+### _dict_to_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `_dict_to_entry(self, entry_dict: Dict[str, Any]) -> PluginRegistryEntry`
+
+**Description:** Convert dictionary to registry entry from JSON deserialization.
 
 ---
 
@@ -4310,6 +7514,47 @@ Returns:
 
 ---
 
+### _discover_workspace_files
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_discover_workspace_files(self) -> Dict[str, List[Path]]`
+
+**Description:** Discover all relevant files in workspace for analysis.
+
+Returns:
+    Dict[str, List[Path]]: Files organized by type for analysis
+
+---
+
+### _display_dashboard
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_display_dashboard(self, dashboard: Dict[str, Any]) -> None`
+
+**Description:** Display dashboard in terminal.
+
+---
+
+### _display_generation_summary
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_display_generation_summary(self) -> None`
+
+**Description:** Display comprehensive summary of documentation generation results.
+
+Shows statistics about generated documentation files and coverage.
+
+---
+
 ### _enforce_snapshot_limit
 
 **Type:** Method
@@ -4319,6 +7564,30 @@ Returns:
 **Signature:** `_enforce_snapshot_limit(self) -> None`
 
 **Description:** Enforce the maximum number of snapshots if configured.
+
+---
+
+### _ensure_storage_directory
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `_ensure_storage_directory(self) -> None`
+
+**Description:** Ensure storage directory exists.
+
+---
+
+### _ensure_storage_directory
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `_ensure_storage_directory(self) -> None`
+
+**Description:** Ensure storage directory exists.
 
 ---
 
@@ -4335,6 +7604,18 @@ Returns:
 Args:
     session_id: Active debug session ID
     context: Current execution context
+
+---
+
+### _entry_to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `_entry_to_dict(self, entry: PluginRegistryEntry) -> Dict[str, Any]`
+
+**Description:** Convert registry entry to dictionary for JSON serialization.
 
 ---
 
@@ -4389,6 +7670,42 @@ Args:
     
 Returns:
     int: Estimated size in bytes
+
+---
+
+### _evaluate_condition
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `_evaluate_condition(self, condition: str, row: pd.Series) -> bool`
+
+**Description:** Evaluate a simple condition against a data row.
+
+---
+
+### _evaluate_condition
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `_evaluate_condition(self, condition: str, row: pd.Series) -> bool`
+
+**Description:** Evaluate a condition against a data row.
+
+---
+
+### _evaluate_condition
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.AlertingEngine`
+
+**Signature:** `_evaluate_condition(self, value: Union[float, int], condition: str, threshold: Union[float, int]) -> bool`
+
+**Description:** Evaluate alert condition against current value.
 
 ---
 
@@ -4447,6 +7764,30 @@ Args:
 
 ---
 
+### _execute_circuit_breaker_recovery
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `_execute_circuit_breaker_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute recovery using circuit breaker.
+
+---
+
+### _execute_combined_recovery
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `_execute_combined_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute recovery using combined strategies.
+
+---
+
 ### _execute_discovery_strategy
 
 **Type:** Method
@@ -4456,6 +7797,30 @@ Args:
 **Signature:** `_execute_discovery_strategy(self, strategy: PluginDiscoveryStrategy, directory: str, component_type: Optional[Framework0ComponentType]) -> List[PluginDiscoveryResult]`
 
 **Description:** Execute specific discovery strategy in directory.
+
+---
+
+### _execute_fallback_recovery
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `_execute_fallback_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute recovery using fallback strategy.
+
+---
+
+### _execute_general_recovery
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_execute_general_recovery(self) -> list`
+
+**Description:** Execute general system recovery procedures.
 
 ---
 
@@ -4473,6 +7838,18 @@ Args:
     hooks: List of hook functions to execute
     *args: Positional arguments to pass to hooks
     **kwargs: Keyword arguments to pass to hooks
+
+---
+
+### _execute_monitoring_cycle
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_execute_monitoring_cycle(self) -> Dict[str, Any]`
+
+**Description:** Execute one complete monitoring cycle across all components.
 
 ---
 
@@ -4541,6 +7918,18 @@ Returns:
 
 ---
 
+### _execute_retry_recovery
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `_execute_retry_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute recovery using retry strategy.
+
+---
+
 ### _execute_single_rule
 
 **Type:** Method
@@ -4585,6 +7974,30 @@ Returns:
 
 ---
 
+### _execute_sql_operation
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `_execute_sql_operation(self, operation: str, target_config: Dict[str, Any], data_config: Dict[str, Any], transaction_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]`
+
+**Description:** Execute SQL database operation.
+
+---
+
+### _execute_targeted_recovery
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_execute_targeted_recovery(self, error_id: str) -> Dict[str, Any]`
+
+**Description:** Execute recovery for a specific error.
+
+---
+
 ### _execution_context
 
 **Type:** Method
@@ -4597,6 +8010,18 @@ Returns:
 
 ---
 
+### _export_csv
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.DataExporter`
+
+**Signature:** `_export_csv(self, result: Any, chart_config: ChartConfig) -> Dict[str, Any]`
+
+**Description:** Export data as CSV.
+
+---
+
 ### _export_data
 
 **Type:** Method
@@ -4606,6 +8031,30 @@ Returns:
 **Signature:** `_export_data(self, export_path: str) -> str`
 
 **Description:** Internal implementation of export_data (without lock).
+
+---
+
+### _export_excel
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.DataExporter`
+
+**Signature:** `_export_excel(self, result: Any, chart_config: ChartConfig) -> Dict[str, Any]`
+
+**Description:** Export data as Excel (requires pandas).
+
+---
+
+### _export_json
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.DataExporter`
+
+**Signature:** `_export_json(self, result: Any, chart_config: ChartConfig) -> Dict[str, Any]`
+
+**Description:** Export data as JSON.
 
 ---
 
@@ -4624,6 +8073,24 @@ Args:
     
 Returns:
     Dictionary containing class documentation data
+
+---
+
+### _extract_class_info
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_class_info(self, node: ast.ClassDef) -> Dict[str, Any]`
+
+**Description:** Extract comprehensive information about a class from AST node.
+
+Args:
+    node: AST ClassDef node to analyze
+    
+Returns:
+    Dict[str, Any]: Complete class information for documentation
 
 ---
 
@@ -4663,6 +8130,42 @@ Returns:
 
 ---
 
+### _extract_features
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorClassifier`
+
+**Signature:** `_extract_features(self, error_context: ErrorContext) -> Dict[str, Any]`
+
+**Description:** Extract features from error context for classification.
+
+Args:
+    error_context: Error context to analyze
+    
+Returns:
+    Dictionary of extracted features
+
+---
+
+### _extract_framework_capabilities
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_framework_capabilities(self, analysis: WorkspaceAnalysis) -> List[str]`
+
+**Description:** Extract framework-wide capabilities from workspace analysis.
+
+Args:
+    analysis: Complete workspace analysis
+    
+Returns:
+    List[str]: List of framework capabilities and features
+
+---
+
 ### _extract_function_info
 
 **Type:** Method
@@ -4682,6 +8185,24 @@ Returns:
 
 ---
 
+### _extract_function_info
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_function_info(self, node: ast.FunctionDef) -> Dict[str, Any]`
+
+**Description:** Extract comprehensive information about a function from AST node.
+
+Args:
+    node: AST FunctionDef node to analyze
+    
+Returns:
+    Dict[str, Any]: Complete function information for documentation
+
+---
+
 ### _extract_import_info
 
 **Type:** Method
@@ -4697,6 +8218,42 @@ Args:
     
 Returns:
     List of import information dictionaries
+
+---
+
+### _extract_import_info
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_import_info(self, node) -> List[str]`
+
+**Description:** Extract import information from AST import node.
+
+Args:
+    node: AST Import or ImportFrom node
+    
+Returns:
+    List[str]: List of imported modules and packages
+
+---
+
+### _extract_integration_patterns
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_integration_patterns(self, analysis: WorkspaceAnalysis) -> List[str]`
+
+**Description:** Extract common integration patterns from workspace analysis.
+
+Args:
+    analysis: Complete workspace analysis
+    
+Returns:
+    List[str]: List of integration patterns and usage examples
 
 ---
 
@@ -4763,6 +8320,43 @@ Returns:
 
 ---
 
+### _extract_plugin_metadata
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginLoader`
+
+**Signature:** `_extract_plugin_metadata(self, module: Any, plugin_class: Type[Framework0Plugin]) -> PluginMetadata`
+
+**Description:** Extract plugin metadata from module and class.
+
+Args:
+    module: Python module containing plugin
+    plugin_class: Plugin class
+    
+Returns:
+    PluginMetadata: Extracted metadata
+
+---
+
+### _extract_python_features
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_python_features(self, analysis: FileAnalysis) -> List[str]`
+
+**Description:** Extract key features from Python module analysis.
+
+Args:
+    analysis: FileAnalysis object with function and class information
+    
+Returns:
+    List[str]: List of key features and capabilities
+
+---
+
 ### _extract_result_data
 
 **Type:** Method
@@ -4799,6 +8393,66 @@ Args:
     
 Returns:
     List[str]: List of module dependencies
+
+---
+
+### _extract_thresholds_from_args
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_extract_thresholds_from_args(self, args: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Extract threshold configurations from arguments.
+
+---
+
+### _extract_thresholds_from_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_extract_thresholds_from_config(self, config_dict: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Extract threshold configurations from config dictionary.
+
+---
+
+### _extract_usage_examples
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_extract_usage_examples(self, source_code: str) -> List[str]`
+
+**Description:** Extract usage examples from Python source code comments and docstrings.
+
+Args:
+    source_code: Complete Python source code content
+    
+Returns:
+    List[str]: List of usage examples found in code
+
+---
+
+### _file_contains_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginDiscovery`
+
+**Signature:** `_file_contains_plugin(self, file_path: Path) -> bool`
+
+**Description:** Check if file contains Framework0Plugin class.
+
+Args:
+    file_path: Python file to check
+    
+Returns:
+    bool: True if file contains plugin class
 
 ---
 
@@ -4872,6 +8526,24 @@ Returns:
 
 ---
 
+### _find_plugin_class
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginLoader`
+
+**Signature:** `_find_plugin_class(self, module: Any) -> Optional[Type[Framework0Plugin]]`
+
+**Description:** Find Framework0Plugin class in module.
+
+Args:
+    module: Python module to search
+    
+Returns:
+    Optional[Type[Framework0Plugin]]: Found plugin class or None
+
+---
+
 ### _find_recipe_files
 
 **Type:** Method
@@ -4910,6 +8582,139 @@ Returns:
 
 ---
 
+### _format_alert_message
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.AlertManager`
+
+**Signature:** `_format_alert_message(self, metric: HealthMetric, threshold: HealthThreshold, status: HealthStatus) -> str`
+
+**Description:** Format human-readable alert message.
+
+---
+
+### _format_as_detailed_text
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `_format_as_detailed_text(self, entry: LogEntry) -> str`
+
+**Description:** Format log entry with detailed context information.
+
+Args:
+    entry: Structured log entry
+    
+Returns:
+    Detailed text formatted string with context
+
+---
+
+### _format_as_json
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `_format_as_json(self, entry: LogEntry) -> str`
+
+**Description:** Format log entry as structured JSON.
+
+Args:
+    entry: Structured log entry
+    
+Returns:
+    JSON formatted string
+
+---
+
+### _format_as_simple_text
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `_format_as_simple_text(self, entry: LogEntry) -> str`
+
+**Description:** Format log entry as simple readable text.
+
+Args:
+    entry: Structured log entry
+    
+Returns:
+    Simple text formatted string
+
+---
+
+### _format_html_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsReporter`
+
+**Signature:** `_format_html_report(self, report: Dict[str, Any]) -> str`
+
+**Description:** Format report as HTML dashboard.
+
+---
+
+### _format_markdown_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthReporter`
+
+**Signature:** `_format_markdown_report(self, dashboard: Dict[str, Any]) -> str`
+
+**Description:** Format dashboard as Markdown report.
+
+---
+
+### _format_message
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `_format_message(self, error_context: ErrorContext, additional_context: Optional[Dict[str, Any]]) -> str`
+
+**Description:** Format error message for notification.
+
+Args:
+    error_context: Error context to format
+    additional_context: Optional additional context
+    
+Returns:
+    Formatted message string
+
+---
+
+### _format_text_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsReporter`
+
+**Signature:** `_format_text_report(self, report: Dict[str, Any]) -> str`
+
+**Description:** Format report as human-readable text.
+
+---
+
+### _format_text_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthReporter`
+
+**Signature:** `_format_text_report(self, dashboard: Dict[str, Any]) -> str`
+
+**Description:** Format dashboard as plain text report.
+
+---
+
 ### _generate_alerts_html
 
 **Type:** Method
@@ -4931,6 +8736,21 @@ Returns:
 **Signature:** `_generate_analysis_metrics(self) -> None`
 
 **Description:** Generate comprehensive analysis metrics.
+
+---
+
+### _generate_api_reference
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_api_reference(self) -> None`
+
+**Description:** Generate comprehensive API reference documentation.
+
+Creates detailed API reference covering all Python modules,
+functions, and classes in the Framework0 system.
 
 ---
 
@@ -4982,6 +8802,21 @@ Returns:
 
 ---
 
+### _generate_config_manuals
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_config_manuals(self) -> None`
+
+**Description:** Generate individual user manuals for all configuration files.
+
+Creates comprehensive documentation for each configuration file
+including sections, settings, and usage instructions.
+
+---
+
 ### _generate_consolidated_readme
 
 **Type:** Method
@@ -5021,6 +8856,18 @@ Returns:
 **Signature:** `_generate_correlation_id(self) -> str`
 
 **Description:** Generate unique correlation ID for request tracking.
+
+---
+
+### _generate_dashboard
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_generate_dashboard(self) -> Dict[str, Any]`
+
+**Description:** Generate current dashboard data.
 
 ---
 
@@ -5089,6 +8936,37 @@ Args:
 
 ---
 
+### _generate_health_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_generate_health_report(self, context, args: Dict[str, Any]) -> int`
+
+**Description:** Generate and output health monitoring report.
+
+Args:
+    context: Framework0 context for state management
+    args: Report generation arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+---
+
+### _generate_integrated_recommendations
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_generate_integrated_recommendations(self, report: Dict[str, Any]) -> List[str]`
+
+**Description:** Generate recommendations based on integrated report data.
+
+---
+
 ### _generate_metadata_html
 
 **Type:** Method
@@ -5142,6 +9020,54 @@ Args:
 
 ---
 
+### _generate_monitoring_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_generate_monitoring_statistics(self) -> Dict[str, Any]`
+
+**Description:** Generate comprehensive monitoring statistics.
+
+---
+
+### _generate_optimization_recommendations
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_generate_optimization_recommendations(self, metrics: List[RecipeExecutionMetrics], analysis: PerformanceAnalysisResult) -> List[Dict[str, Any]]`
+
+**Description:** Generate actionable optimization recommendations.
+
+---
+
+### _generate_orchestrator_recommendations
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_generate_orchestrator_recommendations(self, analysis: Dict[str, Any]) -> List[str]`
+
+**Description:** Generate orchestrator-level recommendations.
+
+---
+
+### _generate_orchestrator_status
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_generate_orchestrator_status(self) -> Dict[str, Any]`
+
+**Description:** Generate current orchestrator status.
+
+---
+
 ### _generate_performance_report_html
 
 **Type:** Method
@@ -5151,6 +9077,33 @@ Args:
 **Signature:** `_generate_performance_report_html(self, report_data: Dict[str, Any], include_charts: bool) -> str`
 
 **Description:** Generate comprehensive HTML performance report.
+
+---
+
+### _generate_plugin_id
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `_generate_plugin_id(self, metadata: PluginMetadata) -> str`
+
+**Description:** Generate unique plugin ID from metadata.
+
+---
+
+### _generate_python_manuals
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_python_manuals(self) -> None`
+
+**Description:** Generate individual user manuals for all Python modules.
+
+Creates comprehensive documentation for each Python file including
+functions, classes, usage examples, and complete API information.
 
 ---
 
@@ -5262,6 +9215,51 @@ Args:
 
 ---
 
+### _generate_recipe_manuals
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_recipe_manuals(self) -> None`
+
+**Description:** Generate individual user manuals for all recipe files.
+
+Creates comprehensive documentation for each recipe including
+steps, configuration, and execution instructions.
+
+---
+
+### _generate_recommendations
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.PerformanceProfiler`
+
+**Signature:** `_generate_recommendations(self, bottlenecks: Dict[str, Any]) -> List[str]`
+
+**Description:** Generate optimization recommendations based on detected bottlenecks.
+
+Args:
+    bottlenecks: Dictionary containing bottleneck analysis results
+    
+Returns:
+    List[str]: List of actionable optimization recommendations
+
+---
+
+### _generate_recommendations
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_generate_recommendations(self) -> list`
+
+**Description:** Generate recommendations based on current system state.
+
+---
+
 ### _generate_rollback_plan
 
 **Type:** Method
@@ -5277,6 +9275,21 @@ Args:
     
 Returns:
     List[str]: List of rollback procedure steps
+
+---
+
+### _generate_shell_manuals
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_shell_manuals(self) -> None`
+
+**Description:** Generate individual user manuals for all shell scripts.
+
+Creates comprehensive documentation for each shell script including
+functions, usage patterns, and execution examples.
 
 ---
 
@@ -5301,6 +9314,21 @@ Returns:
 **Signature:** `_generate_trend_recommendations(self, patterns: List[Dict[str, Any]]) -> List[str]`
 
 **Description:** Generate recommendations based on detected patterns.
+
+---
+
+### _generate_usage_guide
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_usage_guide(self) -> None`
+
+**Description:** Generate comprehensive usage guide documentation.
+
+Creates a user guide covering common usage patterns,
+examples, and getting started information for Framework0.
 
 ---
 
@@ -5349,6 +9377,36 @@ Returns:
 **Signature:** `_generate_version_id(self) -> str`
 
 **Description:** Generate a unique version ID.
+
+---
+
+### _generate_workspace_structure
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `_generate_workspace_structure(self) -> Dict[str, List[str]]`
+
+**Description:** Generate complete workspace directory structure mapping.
+
+Returns:
+    Dict[str, List[str]]: Directory structure with file listings
+
+---
+
+### _generate_workspace_summary
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_generate_workspace_summary(self) -> None`
+
+**Description:** Generate comprehensive workspace summary documentation.
+
+Creates an overview document that summarizes the entire Framework0
+workspace structure, capabilities, and file organization.
 
 ---
 
@@ -5406,6 +9464,37 @@ Returns:
 
 ---
 
+### _get_channels_for_severity
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `_get_channels_for_severity(self, severity: ErrorSeverity, thresholds: Dict[str, str]) -> List[str]`
+
+**Description:** Get notification channels appropriate for error severity.
+
+Args:
+    severity: Error severity level
+    thresholds: Severity thresholds for each channel
+    
+Returns:
+    List of channel names to use for notification
+
+---
+
+### _get_chart_data
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `_get_chart_data(self, chart_config: ChartConfig) -> Dict[str, Any]`
+
+**Description:** Get data for a specific chart.
+
+---
+
 ### _get_color_map
 
 **Type:** Method
@@ -5415,6 +9504,30 @@ Returns:
 **Signature:** `_get_color_map(self) -> Dict[str, str]`
 
 **Description:** Get comprehensive color mapping for statuses.
+
+---
+
+### _get_connection
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `_get_connection(self)`
+
+**Description:** Get database connection with proper cleanup.
+
+---
+
+### _get_dataset_info
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_get_dataset_info(self, df: pd.DataFrame) -> Dict[str, Any]`
+
+**Description:** Get basic dataset information.
 
 ---
 
@@ -5445,6 +9558,21 @@ Args:
     
 Returns:
     str: Decorator name
+
+---
+
+### _get_default_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `_get_default_configuration(self) -> Dict[str, Any]`
+
+**Description:** Get default error handling configuration.
+
+Returns:
+    Default configuration dictionary with standard settings
 
 ---
 
@@ -5586,6 +9714,42 @@ Returns:
 
 ---
 
+### _get_mongodb_connection
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_get_mongodb_connection(self)`
+
+**Description:** Get MongoDB database connection.
+
+---
+
+### _get_monitoring_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_get_monitoring_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive monitoring statistics.
+
+---
+
+### _get_nested_value
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationValidationRule`
+
+**Signature:** `_get_nested_value(self, data: Dict[str, Any], path: str) -> Any`
+
+**Description:** Get nested value using dot notation path.
+
+---
+
 ### _get_recent_metric_data
 
 **Type:** Method
@@ -5595,6 +9759,18 @@ Returns:
 **Signature:** `_get_recent_metric_data(self, metric_type: MetricType, hours: float = 1.0) -> List[MetricPoint]`
 
 **Description:** Get recent metric data points for specified time period.
+
+---
+
+### _get_redis_connection
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_get_redis_connection(self)`
+
+**Description:** Get Redis database connection.
 
 ---
 
@@ -5614,6 +9790,42 @@ Args:
     
 Returns:
     str: Human-readable relocation reason
+
+---
+
+### _get_retention_period
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.DataRetentionManager`
+
+**Signature:** `_get_retention_period(self, metric: TimeSeriesMetric) -> timedelta`
+
+**Description:** Get retention period for a metric.
+
+---
+
+### _get_sql_connection
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_get_sql_connection(self)`
+
+**Description:** Get SQL database connection.
+
+---
+
+### _get_statistical_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_get_statistical_summary(self, df: pd.DataFrame) -> Dict[str, Any]`
+
+**Description:** Get statistical summary of numeric fields.
 
 ---
 
@@ -5653,6 +9865,18 @@ Returns:
 
 ---
 
+### _get_window_size
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricsAggregator`
+
+**Signature:** `_get_window_size(self, granularity: TimeGranularity) -> timedelta`
+
+**Description:** Get window size for granularity.
+
+---
+
 ### _group_events_by_field
 
 **Type:** Method
@@ -5662,6 +9886,18 @@ Returns:
 **Signature:** `_group_events_by_field(self, events: List[TimelineEvent], field: str) -> Dict[str, List[TimelineEvent]]`
 
 **Description:** Group timeline events by specified field.
+
+---
+
+### _group_handlers_by_priority
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `_group_handlers_by_priority(self, registrations: List[EventHandlerRegistration]) -> Dict[EventPriority, List[EventHandlerRegistration]]`
+
+**Description:** Group handler registrations by priority level.
 
 ---
 
@@ -5700,6 +9936,153 @@ Returns:
 
 ---
 
+### _handle_error_detected
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_error_detected(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle error detection event with cross-component coordination.
+
+---
+
+### _handle_error_health_impact
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_error_health_impact(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle error events that might impact health.
+
+---
+
+### _handle_failure
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `_handle_failure(self, exception: Exception) -> None`
+
+**Description:** Handle failed call execution.
+
+---
+
+### _handle_health_changed
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_health_changed(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle health status change with error system integration.
+
+---
+
+### _handle_health_status_change
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_health_status_change(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle health status changes for error classification.
+
+---
+
+### _handle_oauth2_authentication
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.APIClient`
+
+**Signature:** `_handle_oauth2_authentication(self, oauth_config: Dict[str, Any]) -> None`
+
+**Description:** Handle OAuth2 authentication flow.
+
+Args:
+    oauth_config: OAuth2 configuration
+
+---
+
+### _handle_performance_anomaly
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_performance_anomaly(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle performance anomalies for error correlation.
+
+---
+
+### _handle_performance_anomaly_detected
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_performance_anomaly_detected(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle performance anomaly with error escalation.
+
+---
+
+### _handle_performance_threshold
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_performance_threshold(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle performance threshold violations.
+
+---
+
+### _handle_recovery_completed
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_recovery_completed(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle recovery process completion with status updates.
+
+---
+
+### _handle_recovery_started
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_handle_recovery_started(self, event: IntegrationEvent) -> None`
+
+**Description:** Handle recovery process start with system-wide notifications.
+
+---
+
+### _handle_success
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `_handle_success(self) -> None`
+
+**Description:** Handle successful call execution.
+
+---
+
 ### _has_changes_since_last_snapshot
 
 **Type:** Method
@@ -5712,6 +10095,36 @@ Returns:
 
 Returns:
     bool: True if changes detected, False otherwise
+
+---
+
+### _has_circular_dependencies
+
+**Type:** Method
+
+**Location:** `scriptlets.production.production_workflow_engine.ProductionWorkflowEngine`
+
+**Signature:** `_has_circular_dependencies(self, stages: List[PipelineStage]) -> bool`
+
+**Description:** Check for circular dependencies in stage graph.
+
+Args:
+    stages: List of pipeline stages
+
+Returns:
+    bool: True if circular dependencies exist
+
+---
+
+### _hash_password
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `_hash_password(self, password: str, salt: str) -> str`
+
+**Description:** Create secure password hash with salt.
 
 ---
 
@@ -5730,6 +10143,18 @@ Args:
 
 ---
 
+### _identify_optimization_opportunities
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_identify_optimization_opportunities(self, metrics: List[RecipeExecutionMetrics]) -> List[Dict[str, Any]]`
+
+**Description:** Identify optimization opportunities.
+
+---
+
 ### _identify_patterns_and_extensions
 
 **Type:** Method
@@ -5739,6 +10164,18 @@ Args:
 **Signature:** `_identify_patterns_and_extensions(self) -> None`
 
 **Description:** Identify framework patterns and extension points.
+
+---
+
+### _identify_performance_bottlenecks
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `_identify_performance_bottlenecks(self, metrics: List[RecipeExecutionMetrics]) -> List[Dict[str, Any]]`
+
+**Description:** Identify performance bottlenecks across executions.
 
 ---
 
@@ -5760,6 +10197,18 @@ Returns:
 
 ---
 
+### _identify_text_patterns
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_identify_text_patterns(self, series: pd.Series) -> Dict[str, int]`
+
+**Description:** Identify common text patterns.
+
+---
+
 ### _import_data
 
 **Type:** Method
@@ -5769,6 +10218,18 @@ Returns:
 **Signature:** `_import_data(self, import_path: str) -> Dict[str, Any]`
 
 **Description:** Internal implementation of import_data (without lock).
+
+---
+
+### _infer_data_type
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `_infer_data_type(self, value: Any) -> MetricDataType`
+
+**Description:** Infer data type from value.
 
 ---
 
@@ -5820,6 +10281,30 @@ Returns:
 
 ---
 
+### _initialize_builtin_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `_initialize_builtin_templates(self) -> None`
+
+**Description:** Initialize built-in analytics templates.
+
+---
+
+### _initialize_components
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_initialize_components(self) -> None`
+
+**Description:** Initialize all error handling components.
+
+---
+
 ### _initialize_context
 
 **Type:** Method
@@ -5849,6 +10334,42 @@ Args:
 
 ---
 
+### _initialize_database
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `_initialize_database(self) -> None`
+
+**Description:** Initialize database schema.
+
+---
+
+### _initialize_default_rules
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `_initialize_default_rules(self) -> None`
+
+**Description:** Initialize default routing rules.
+
+---
+
+### _initialize_default_strategies
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `_initialize_default_strategies(self) -> None`
+
+**Description:** Initialize default recovery strategies from configuration.
+
+---
+
 ### _initialize_default_thresholds
 
 **Type:** Method
@@ -5858,6 +10379,66 @@ Args:
 **Signature:** `_initialize_default_thresholds(self) -> None`
 
 **Description:** Initialize default alert thresholds for performance monitoring.
+
+---
+
+### _initialize_log_collection
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.ObservabilityPlatform`
+
+**Signature:** `_initialize_log_collection(self) -> None`
+
+**Description:** Initialize centralized log collection.
+
+---
+
+### _initialize_mongodb_pool
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_initialize_mongodb_pool(self) -> None`
+
+**Description:** Initialize MongoDB connection pool.
+
+---
+
+### _initialize_pool
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_initialize_pool(self) -> None`
+
+**Description:** Initialize the appropriate connection pool.
+
+---
+
+### _initialize_redis_pool
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_initialize_redis_pool(self) -> None`
+
+**Description:** Initialize Redis connection pool.
+
+---
+
+### _initialize_sql_pool
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `_initialize_sql_pool(self) -> None`
+
+**Description:** Initialize SQL database connection pool.
 
 ---
 
@@ -5872,6 +10453,37 @@ Args:
 **Description:** Initialize the storage backend.
 
 Creates necessary directories and loads existing snapshot registry.
+
+---
+
+### _initialize_tracing
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.ObservabilityPlatform`
+
+**Signature:** `_initialize_tracing(self) -> None`
+
+**Description:** Initialize distributed tracing for Framework0 components.
+
+---
+
+### _is_duplicate
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorAggregator`
+
+**Signature:** `_is_duplicate(self, error_context: ErrorContext, group_key: str) -> bool`
+
+**Description:** Check if error is a duplicate within time window.
+
+Args:
+    error_context: Error context to check
+    group_key: Group to check for duplicates
+    
+Returns:
+    True if error is a duplicate, False otherwise
 
 ---
 
@@ -5929,6 +10541,18 @@ Returns:
 
 ---
 
+### _is_valid_version
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `_is_valid_version(self, version: str) -> bool`
+
+**Description:** Check if version follows basic semver format.
+
+---
+
 ### _load
 
 **Type:** Method
@@ -5965,6 +10589,24 @@ Returns:
 
 Args:
     config_file: Path to JSON configuration file
+
+---
+
+### _load_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_load_configuration(self, config_path: Optional[str]) -> ErrorConfiguration`
+
+**Description:** Load error handling configuration.
+
+Args:
+    config_path: Optional configuration file path
+    
+Returns:
+    Error configuration instance
 
 ---
 
@@ -6013,6 +10655,45 @@ Raises:
 
 ---
 
+### _load_default_patterns
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `_load_default_patterns(self) -> None`
+
+**Description:** Load default error detection patterns.
+
+---
+
+### _load_detailed_analyses
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `_load_detailed_analyses(self) -> None`
+
+**Description:** Load detailed file analyses by re-running the workspace scanner.
+
+This method imports and runs the comprehensive workspace scanner
+to get detailed analysis results for all workspace files.
+
+---
+
+### _load_env
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `_load_env(self, config_path: Path) -> Dict[str, Any]`
+
+**Description:** Load environment variable configuration.
+
+---
+
 ### _load_environment_config
 
 **Type:** Method
@@ -6034,6 +10715,30 @@ Raises:
 **Signature:** `_load_from_persistence(self) -> None`
 
 **Description:** Load data from persistence backend.
+
+---
+
+### _load_ini
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `_load_ini(self, config_path: Path) -> Dict[str, Any]`
+
+**Description:** Load INI configuration.
+
+---
+
+### _load_json
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `_load_json(self, config_path: Path) -> Dict[str, Any]`
+
+**Description:** Load JSON configuration.
 
 ---
 
@@ -6110,6 +10815,90 @@ Args:
 
 ---
 
+### _load_registry_data
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `_load_registry_data(self) -> Dict[str, Any]`
+
+**Description:** Load registry data from file.
+
+---
+
+### _load_template_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `_load_template_configuration(self) -> None`
+
+**Description:** Load template system configuration.
+
+---
+
+### _load_toml
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `_load_toml(self, config_path: Path) -> Dict[str, Any]`
+
+**Description:** Load TOML configuration.
+
+---
+
+### _load_unified_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_load_unified_config(self, config_path: Optional[str]) -> Dict[str, Any]`
+
+**Description:** Load unified Foundation configuration from file or defaults.
+
+---
+
+### _load_yaml
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `_load_yaml(self, config_path: Path) -> Dict[str, Any]`
+
+**Description:** Load YAML configuration.
+
+---
+
+### _log_error
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_log_error(self, message: str) -> None`
+
+**Description:** Log error message using available logger.
+
+---
+
+### _log_info
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_log_info(self, message: str) -> None`
+
+**Description:** Log info message using available logger.
+
+---
+
 ### _make_request
 
 **Type:** Method
@@ -6147,6 +10936,37 @@ Raises:
 
 ---
 
+### _matches_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `_matches_rule(self, error_context: ErrorContext, rule: Dict[str, Any]) -> bool`
+
+**Description:** Check if error context matches routing rule.
+
+Args:
+    error_context: Error context to check
+    rule: Routing rule to evaluate
+    
+Returns:
+    True if error matches rule, False otherwise
+
+---
+
+### _merge_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `_merge_config(self, config_dict: Dict[str, Any]) -> None`
+
+**Description:** Recursively merge configuration dictionary with defaults.
+
+---
+
 ### _message_cleanup_worker
 
 **Type:** Method
@@ -6156,6 +10976,54 @@ Raises:
 **Signature:** `_message_cleanup_worker(self) -> None`
 
 **Description:** Background worker for cleaning up expired messages.
+
+---
+
+### _ml_anomaly_detection
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetector`
+
+**Signature:** `_ml_anomaly_detection(self, metric_name: str, values: List[float], metric_data: List[Any]) -> Dict[str, Any]`
+
+**Description:** ML-based anomaly detection using Isolation Forest.
+
+---
+
+### _monitoring_cycle
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_monitoring_cycle(self) -> None`
+
+**Description:** Execute one monitoring cycle to check for errors and issues.
+
+---
+
+### _monitoring_loop
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitor`
+
+**Signature:** `_monitoring_loop(self) -> None`
+
+**Description:** Background monitoring loop.
+
+---
+
+### _monitoring_loop
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `_monitoring_loop(self) -> None`
+
+**Description:** Main monitoring loop for real-time updates.
 
 ---
 
@@ -6177,6 +11045,18 @@ Returns:
 
 ---
 
+### _notify_callbacks
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `_notify_callbacks(self, execution_id: str, metrics: RecipeExecutionMetrics) -> None`
+
+**Description:** Notify all registered callbacks of execution updates.
+
+---
+
 ### _optimize_chain
 
 **Type:** Method
@@ -6186,6 +11066,18 @@ Returns:
 **Signature:** `_optimize_chain(self) -> None`
 
 **Description:** Optimize the delta chain by merging deltas.
+
+---
+
+### _parse_memory_size
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `_parse_memory_size(self, size_str: str) -> int`
+
+**Description:** Parse memory size string to bytes.
 
 ---
 
@@ -6283,6 +11175,38 @@ Returns:
 
 ---
 
+### _process_partition_worker
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `_process_partition_worker(self, partition_data: List[Any], worker_id: int, function_params: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Worker function for processing a data partition.
+
+Args:
+    partition_data: Data partition to process
+    worker_id: Worker identifier
+    function_params: Parameters for processing function
+
+Returns:
+    Processing results
+
+---
+
+### _profile_fields
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `_profile_fields(self, df: pd.DataFrame) -> Dict[str, Dict[str, Any]]`
+
+**Description:** Profile individual fields.
+
+---
+
 ### _publish_event
 
 **Type:** Method
@@ -6292,6 +11216,18 @@ Returns:
 **Signature:** `_publish_event(self, event: MessageEvent) -> bool`
 
 **Description:** Internal method to publish events.
+
+---
+
+### _rebuild_dependency_graph
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `_rebuild_dependency_graph(self) -> None`
+
+**Description:** Rebuild dependency graph from current registry.
 
 ---
 
@@ -6340,6 +11276,102 @@ Args:
 
 ---
 
+### _record_failure
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_record_failure(self, compartment: BulkheadCompartment, exception: Exception) -> None`
+
+**Description:** Record failure in compartment and update state.
+
+---
+
+### _record_login_attempt
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `_record_login_attempt(self, username: str, ip_address: str, success: bool) -> None`
+
+**Description:** Record login attempt for rate limiting and auditing.
+
+---
+
+### _record_sla_violation
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `_record_sla_violation(self, service_name: str, metric: str, actual_value: float, target_value: float) -> None`
+
+**Description:** Record SLA violation for alerting and reporting.
+
+---
+
+### _record_success
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_record_success(self, compartment: BulkheadCompartment, execution_time: float) -> None`
+
+**Description:** Record successful execution in compartment.
+
+---
+
+### _register_builtin_filters
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `_register_builtin_filters(self) -> None`
+
+**Description:** Register built-in template filters.
+
+---
+
+### _register_builtin_functions
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `_register_builtin_functions(self) -> None`
+
+**Description:** Register built-in template global functions.
+
+---
+
+### _register_custom_formats
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.SchemaValidator`
+
+**Signature:** `_register_custom_formats(self) -> None`
+
+**Description:** Register custom format validators.
+
+---
+
+### _register_default_handlers
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_register_default_handlers(self) -> None`
+
+**Description:** Register default integration event handlers.
+
+---
+
 ### _register_discovered_plugins
 
 **Type:** Method
@@ -6373,6 +11405,42 @@ Args:
 **Signature:** `_remove_obsolete_files(self) -> None`
 
 **Description:** Remove obsolete files and directories.
+
+---
+
+### _render_matplotlib_chart
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `_render_matplotlib_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Render chart using Matplotlib.
+
+---
+
+### _render_plotly_chart
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `_render_plotly_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Render chart using Plotly.
+
+---
+
+### _render_text_chart
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `_render_text_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Render simple text-based chart when no visualization libraries available.
 
 ---
 
@@ -6469,6 +11537,61 @@ Returns:
 
 ---
 
+### _row_to_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `_row_to_entry(self, row: sqlite3.Row) -> PluginRegistryEntry`
+
+**Description:** Convert SQLite row to registry entry.
+
+---
+
+### _run_continuous_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_run_continuous_monitoring(self, interval: int, results: Dict[str, Any]) -> None`
+
+**Description:** Run continuous monitoring until stopped.
+
+---
+
+### _run_fixed_duration_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `_run_fixed_duration_monitoring(self, duration: int, interval: int, results: Dict[str, Any]) -> None`
+
+**Description:** Run monitoring for fixed duration.
+
+---
+
+### _run_health_checks
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_run_health_checks(self, context, args: Dict[str, Any]) -> int`
+
+**Description:** Run health checks and update context with results.
+
+Args:
+    context: Framework0 context for state management
+    args: Health check configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+---
+
 ### _run_hooks
 
 **Type:** Method
@@ -6545,6 +11668,18 @@ Raises:
 
 ---
 
+### _save_progress_checkpoint
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `_save_progress_checkpoint(self, completed_batches: int, total_batches: int) -> None`
+
+**Description:** Save progress checkpoint during processing.
+
+---
+
 ### _save_registry
 
 **Type:** Method
@@ -6554,6 +11689,18 @@ Raises:
 **Signature:** `_save_registry(self) -> None`
 
 **Description:** Save the snapshot registry to storage.
+
+---
+
+### _save_registry_data
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `_save_registry_data(self, data: Dict[str, Any]) -> bool`
+
+**Description:** Save registry data to file.
 
 ---
 
@@ -6611,6 +11758,92 @@ Returns:
 
 ---
 
+### _select_recovery_strategy
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `_select_recovery_strategy(self, error_context: ErrorContext) -> str`
+
+**Description:** Select appropriate recovery strategy based on error characteristics.
+
+Args:
+    error_context: Error context to analyze
+    
+Returns:
+    Name of recommended recovery strategy
+
+---
+
+### _send_email_notification
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `_send_email_notification(self, message: str, error_context: ErrorContext) -> bool`
+
+**Description:** Send notification via email (placeholder implementation).
+
+---
+
+### _send_log_notification
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `_send_log_notification(self, message: str, error_context: ErrorContext) -> bool`
+
+**Description:** Send notification to log.
+
+---
+
+### _send_notification
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `_send_notification(self, alert: Alert, value: float) -> None`
+
+**Description:** Send notification for triggered alert.
+
+---
+
+### _send_notification
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `_send_notification(self, channel: str, error_context: ErrorContext, additional_context: Optional[Dict[str, Any]]) -> bool`
+
+**Description:** Send notification to specific channel.
+
+Args:
+    channel: Channel name to send to
+    error_context: Error context to notify about
+    additional_context: Optional additional context
+    
+Returns:
+    True if notification was sent successfully, False otherwise
+
+---
+
+### _send_webhook_notification
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `_send_webhook_notification(self, message: str, error_context: ErrorContext) -> bool`
+
+**Description:** Send notification via webhook (placeholder implementation).
+
+---
+
 ### _set
 
 **Type:** Method
@@ -6664,6 +11897,18 @@ Args:
 
 ---
 
+### _setup_audit_logger
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_setup_audit_logger(self, config: Dict[str, Any]) -> None`
+
+**Description:** Setup audit logger.
+
+---
+
 ### _setup_callbacks
 
 **Type:** Method
@@ -6700,6 +11945,30 @@ Args:
 
 ---
 
+### _setup_default_alerts
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.ObservabilityPlatform`
+
+**Signature:** `_setup_default_alerts(self) -> None`
+
+**Description:** Set up essential alert rules for Framework0 monitoring.
+
+---
+
+### _setup_default_bulkheads
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_setup_default_bulkheads(self) -> None`
+
+**Description:** Setup default bulkhead compartments for common operations.
+
+---
+
 ### _setup_default_configurations
 
 **Type:** Method
@@ -6724,6 +11993,18 @@ Args:
 
 ---
 
+### _setup_default_engines
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `_setup_default_engines(self) -> None`
+
+**Description:** Setup default template engines.
+
+---
+
 ### _setup_default_validators
 
 **Type:** Method
@@ -6736,6 +12017,73 @@ Args:
 
 ---
 
+### _setup_event_handlers
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `_setup_event_handlers(self) -> None`
+
+**Description:** Setup event system handlers for template events.
+
+---
+
+### _setup_framework_logger
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_setup_framework_logger(self, config: Dict[str, Any]) -> None`
+
+**Description:** Setup main framework logger.
+
+---
+
+### _setup_health_error_correlation
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_setup_health_error_correlation(self) -> None`
+
+**Description:** Setup correlation between health status and error classification.
+
+---
+
+### _setup_health_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_setup_health_monitoring(self, context, args: Dict[str, Any]) -> int`
+
+**Description:** Set up health monitoring infrastructure.
+
+Args:
+    context: Framework0 context for state management
+    args: Setup configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+---
+
+### _setup_jinja_environment
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `_setup_jinja_environment(self) -> None`
+
+**Description:** Setup Jinja2 environment with custom loader.
+
+---
+
 ### _setup_layout
 
 **Type:** Method
@@ -6745,6 +12093,54 @@ Args:
 **Signature:** `_setup_layout(self) -> None`
 
 **Description:** Configure the dashboard HTML layout with interactive components.
+
+---
+
+### _setup_log_rotation
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_setup_log_rotation(self) -> int`
+
+**Description:** Setup log rotation for file handlers.
+
+---
+
+### _setup_logging_infrastructure
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_setup_logging_infrastructure(self, context) -> List[str]`
+
+**Description:** Setup core logging infrastructure.
+
+---
+
+### _setup_performance_anomaly_detection
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_setup_performance_anomaly_detection(self) -> None`
+
+**Description:** Setup performance anomaly detection with error handling.
+
+---
+
+### _setup_performance_logger
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_setup_performance_logger(self, config: Dict[str, Any]) -> None`
+
+**Description:** Setup performance logger.
 
 ---
 
@@ -6772,6 +12168,30 @@ during validation by adding required directories to sys.path.
 **Signature:** `_setup_routes(self) -> None`
 
 **Description:** Configure REST API routes for HTTP-based client access.
+
+---
+
+### _setup_routes
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `_setup_routes(self) -> None`
+
+**Description:** Setup Flask routes.
+
+---
+
+### _setup_sla_targets
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_setup_sla_targets(self) -> None`
+
+**Description:** Setup default SLA targets for different services.
 
 ---
 
@@ -6812,6 +12232,18 @@ Args:
 **Signature:** `_setup_websocket_handlers(self) -> None`
 
 **Description:** Configure WebSocket event handlers for real-time client communication.
+
+---
+
+### _setup_websocket_handlers
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `_setup_websocket_handlers(self) -> None`
+
+**Description:** Setup WebSocket event handlers.
 
 ---
 
@@ -6879,6 +12311,90 @@ Args:
 
 ---
 
+### _sort_aggregated_results
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `_sort_aggregated_results(self, aggregated: Dict[str, Any], config: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Sort aggregated results based on criteria.
+
+---
+
+### _sql_create
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `_sql_create(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Execute SQL INSERT operation.
+
+---
+
+### _sql_delete
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `_sql_delete(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Execute SQL DELETE operation.
+
+---
+
+### _sql_execute_raw
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `_sql_execute_raw(self, session, data_config: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Execute raw SQL query.
+
+---
+
+### _sql_read
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `_sql_read(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Execute SQL SELECT operation.
+
+---
+
+### _sql_update
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `_sql_update(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Execute SQL UPDATE operation.
+
+---
+
+### _start_audit_logging
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.SecurityFramework`
+
+**Signature:** `_start_audit_logging(self) -> None`
+
+**Description:** Start comprehensive audit logging.
+
+---
+
 ### _start_background_tasks
 
 **Type:** Method
@@ -6891,6 +12407,37 @@ Args:
 
 ---
 
+### _start_continuous_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_start_continuous_monitoring(self, context, args: Dict[str, Any]) -> int`
+
+**Description:** Start continuous health monitoring in background thread.
+
+Args:
+    context: Framework0 context for state management
+    args: Monitoring configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+---
+
+### _start_integrated_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `_start_integrated_monitoring(self) -> None`
+
+**Description:** Start integrated monitoring across all Foundation components.
+
+---
+
 ### _start_monitoring
 
 **Type:** Method
@@ -6900,6 +12447,37 @@ Args:
 **Signature:** `_start_monitoring(self) -> None`
 
 **Description:** Start real-time monitoring thread for active executions.
+
+---
+
+### _statistical_anomaly_detection
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetector`
+
+**Signature:** `_statistical_anomaly_detection(self, metric_name: str, values: List[float], metric_data: List[Any]) -> Dict[str, Any]`
+
+**Description:** Statistical anomaly detection using Z-score.
+
+---
+
+### _stop_continuous_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `_stop_continuous_monitoring(self, context, args: Dict[str, Any]) -> int`
+
+**Description:** Stop continuous health monitoring.
+
+Args:
+    context: Framework0 context for state management
+    args: Stop configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
 
 ---
 
@@ -6951,6 +12529,18 @@ Args:
 
 ---
 
+### _test_logging_system
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `_test_logging_system(self, context) -> Dict[str, Any]`
+
+**Description:** Test the complete logging system.
+
+---
+
 ### _track_analysis_trends
 
 **Type:** Method
@@ -6960,6 +12550,78 @@ Args:
 **Signature:** `_track_analysis_trends(self, summary: Dict[str, Any]) -> None`
 
 **Description:** Track analysis trends for long-term monitoring.
+
+---
+
+### _track_performance
+
+**Type:** Method
+
+**Location:** `scriptlets.core.file_processing.FileProcessor`
+
+**Signature:** `_track_performance(self, operation: str, duration: float) -> None`
+
+**Description:** Track performance metrics for Foundation integration.
+
+---
+
+### _transition_to_degraded
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_transition_to_degraded(self, compartment: BulkheadCompartment) -> None`
+
+**Description:** Transition compartment to degraded state.
+
+---
+
+### _transition_to_half_open
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `_transition_to_half_open(self) -> None`
+
+**Description:** Transition circuit to half-open state.
+
+---
+
+### _transition_to_healthy
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_transition_to_healthy(self, compartment: BulkheadCompartment) -> None`
+
+**Description:** Transition compartment to healthy state.
+
+---
+
+### _transition_to_isolated
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_transition_to_isolated(self, compartment: BulkheadCompartment) -> None`
+
+**Description:** Transition compartment to isolated state.
+
+---
+
+### _transition_to_recovering
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_transition_to_recovering(self, compartment: BulkheadCompartment) -> None`
+
+**Description:** Transition compartment to recovering state.
 
 ---
 
@@ -6987,6 +12649,45 @@ Args:
 
 ---
 
+### _update_average_execution_time
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.TimeoutManager`
+
+**Signature:** `_update_average_execution_time(self, execution_time: float) -> None`
+
+**Description:** Update average execution time statistic.
+
+---
+
+### _update_current_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `_update_current_metrics(self) -> None`
+
+**Description:** Update current performance metrics.
+
+---
+
+### _update_lifecycle_state
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `_update_lifecycle_state(self, new_state: PluginLifecycle) -> None`
+
+**Description:** Update plugin lifecycle state.
+
+Args:
+    new_state: New lifecycle state
+
+---
+
 ### _update_performance_metrics
 
 **Type:** Method
@@ -6996,6 +12697,30 @@ Args:
 **Signature:** `_update_performance_metrics(self, start_time: float, data_size: int) -> None`
 
 **Description:** Update performance tracking metrics.
+
+---
+
+### _update_performance_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `_update_performance_metrics(self) -> None`
+
+**Description:** Update performance metrics for SLA tracking.
+
+---
+
+### _update_resource_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `_update_resource_metrics(self, execution_id: str, metrics: RecipeExecutionMetrics) -> None`
+
+**Description:** Update resource usage metrics for active execution.
 
 ---
 
@@ -7017,6 +12742,66 @@ Args:
 
 ---
 
+### _update_search_index
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `_update_search_index(self, log_entry: Dict[str, Any]) -> None`
+
+**Description:** Update search index for efficient log searching.
+
+---
+
+### _update_state_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `_update_state_stats(self, old_state: BulkheadState, new_state: BulkheadState) -> None`
+
+**Description:** Update statistics when compartment state changes.
+
+---
+
+### _update_trace_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `_update_trace_statistics(self, span: TraceSpan) -> None`
+
+**Description:** Update performance statistics for completed spans.
+
+---
+
+### _validate_aggregated_results
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `_validate_aggregated_results(self, aggregated: Dict[str, Any], config: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Validate aggregated results for quality and consistency.
+
+---
+
+### _validate_aggregation_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `_validate_aggregation_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate aggregation business rule.
+
+---
+
 ### _validate_basic_execution
 
 **Type:** Method
@@ -7032,6 +12817,18 @@ Args:
     
 Returns:
     Dict[str, Any]: Execution validation results
+
+---
+
+### _validate_conditional_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `_validate_conditional_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate conditional business rule.
 
 ---
 
@@ -7065,6 +12862,58 @@ Returns:
 
 ---
 
+### _validate_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.core.LoggingConfiguration`
+
+**Signature:** `_validate_configuration(self) -> None`
+
+**Description:** Validate configuration structure and required fields.
+Ensures all necessary configuration is present and valid.
+
+---
+
+### _validate_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `_validate_configuration(self) -> None`
+
+**Description:** Validate configuration structure and values.
+
+Raises:
+    ValueError: If configuration is invalid
+
+---
+
+### _validate_cross_field_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `_validate_cross_field_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate cross-field consistency rule.
+
+---
+
+### _validate_custom_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `_validate_custom_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate custom business rule.
+
+---
+
 ### _validate_dependencies
 
 **Type:** Method
@@ -7093,6 +12942,40 @@ Returns:
 **Signature:** `_validate_dependency_graph(self, recipe_data: Dict[str, Any]) -> List[ValidationMessage]`
 
 **Description:** Validate step dependency graph for cycles and missing dependencies.
+
+---
+
+### _validate_exercise_requirements
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `_validate_exercise_requirements(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None`
+
+**Description:** Validate Exercise 7-9 integration requirements.
+
+---
+
+### _validate_file_path
+
+**Type:** Method
+
+**Location:** `scriptlets.core.file_processing.FileProcessor`
+
+**Signature:** `_validate_file_path(self, file_path: str, for_writing: bool = False) -> str`
+
+**Description:** Validate and normalize file path.
+
+Args:
+    file_path: File path to validate
+    for_writing: Whether path will be used for writing
+    
+Returns:
+    Validated and normalized file path
+    
+Raises:
+    FileProcessingError: If path is invalid
 
 ---
 
@@ -7130,6 +13013,24 @@ Args:
     
 Returns:
     Dict[str, Any]: Infrastructure validation results
+
+---
+
+### _validate_isolation_environment
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.isolation_framework.IsolationFramework`
+
+**Signature:** `_validate_isolation_environment(self, isolation_env: IsolationEnvironment) -> Dict[str, Any]`
+
+**Description:** Validate isolation environment configuration.
+
+Args:
+    isolation_env: Isolation environment to validate
+    
+Returns:
+    Dict[str, Any]: Validation result with errors if any
 
 ---
 
@@ -7208,6 +13109,54 @@ Args:
     
 Returns:
     Dict[str, Any]: Structure validation results
+
+---
+
+### _validate_password
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `_validate_password(self, password: str) -> None`
+
+**Description:** Validate password against security policy.
+
+---
+
+### _validate_plugin_capabilities
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `_validate_plugin_capabilities(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None`
+
+**Description:** Validate plugin capabilities.
+
+---
+
+### _validate_plugin_metadata
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `_validate_plugin_metadata(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None`
+
+**Description:** Validate plugin metadata.
+
+---
+
+### _validate_plugin_structure
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `_validate_plugin_structure(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None`
+
+**Description:** Validate basic plugin structure.
 
 ---
 
@@ -7377,6 +13326,18 @@ Raises:
 
 ---
 
+### _validate_single_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `_validate_single_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate a single business rule.
+
+---
+
 ### _validate_step_indices
 
 **Type:** Method
@@ -7458,6 +13419,18 @@ Returns:
 **Signature:** `_verify_consolidated_components(self) -> None`
 
 **Description:** Verify that all consolidated components are properly in place.
+
+---
+
+### _verify_password
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `_verify_password(self, password: str, stored_hash: str, salt: str) -> bool`
+
+**Description:** Verify password against stored hash.
 
 ---
 
@@ -7587,6 +13560,77 @@ Args:
 
 ---
 
+### acquire
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.RateLimiter`
+
+**Signature:** `acquire(self, tokens: int = 1) -> bool`
+
+**Description:** Acquire tokens from the bucket.
+
+Args:
+    tokens: Number of tokens to acquire
+    
+Returns:
+    True if tokens were acquired, False otherwise
+
+---
+
+### activate
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `activate(self) -> bool`
+
+**Description:** Activate the plugin.
+
+This method is called to activate plugin functionality. The plugin
+should start providing its services after this call.
+
+Returns:
+    bool: True if activation successful, False otherwise
+
+---
+
+### add_alert
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `add_alert(self, alert: Alert) -> None`
+
+**Description:** Add a new alert.
+
+---
+
+### add_alert_rule
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.AlertingEngine`
+
+**Signature:** `add_alert_rule(self, name: str, metric_name: str, condition: str, threshold: Union[float, int], severity: AlertSeverity, notification_channels: List[str] = None) -> str`
+
+**Description:** Add a new alert rule for monitoring.
+
+Args:
+    name: Alert rule name
+    metric_name: Metric to monitor
+    condition: Condition operator (>, <, >=, <=, ==, !=)
+    threshold: Threshold value
+    severity: Alert severity level
+    notification_channels: Where to send alerts
+    
+Returns:
+    Alert rule ID
+
+---
+
 ### add_annotation
 
 **Type:** Method
@@ -7647,6 +13691,22 @@ Args:
 Raises:
     ValueError: If rule name conflicts with existing rule
     TypeError: If rule is not a CleanupRule instance
+
+---
+
+### add_context
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.PerformanceMetric`
+
+**Signature:** `add_context(self, key: str, value: Any) -> None`
+
+**Description:** Add contextual information to the metric.
+
+Args:
+    key: Context key identifier
+    value: Context value (any JSON-serializable type)
 
 ---
 
@@ -7725,6 +13785,18 @@ Args:
 
 ---
 
+### add_engine
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `add_engine(self, name: str, engine: TemplateEngine, loader: TemplateLoader) -> None`
+
+**Description:** Add template engine.
+
+---
+
 ### add_entry
 
 **Type:** Method
@@ -7749,6 +13821,90 @@ Args:
 
 ---
 
+### add_error
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorAggregator`
+
+**Signature:** `add_error(self, error_context: ErrorContext) -> str`
+
+**Description:** Add error to aggregation system.
+
+Args:
+    error_context: Error context to aggregate
+    
+Returns:
+    Group ID that the error was assigned to
+
+---
+
+### add_fallback
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.FallbackStrategy`
+
+**Signature:** `add_fallback(self, operation: Callable, condition: Optional[Callable[[Exception], bool]] = None, priority: int = 1, description: str = '') -> None`
+
+**Description:** Add fallback operation.
+
+Args:
+    operation: Fallback function to execute
+    condition: Optional condition to determine if fallback should be used
+    priority: Priority level (lower numbers = higher priority)
+    description: Human-readable description of fallback
+
+---
+
+### add_filter
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateContext`
+
+**Signature:** `add_filter(self, name: str, filter_func: TemplateFilter) -> None`
+
+**Description:** Add custom filter function.
+
+---
+
+### add_filter
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `add_filter(self, name: str, filter_func: TemplateFilter) -> None`
+
+**Description:** Add custom template filter.
+
+---
+
+### add_function
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateContext`
+
+**Signature:** `add_function(self, name: str, function: TemplateFunction) -> None`
+
+**Description:** Add custom global function.
+
+---
+
+### add_function
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `add_function(self, name: str, function: TemplateFunction) -> None`
+
+**Description:** Add custom global function.
+
+---
+
 ### add_global_error
 
 **Type:** Method
@@ -7758,6 +13914,57 @@ Args:
 **Signature:** `add_global_error(self, error_message: str) -> None`
 
 **Description:** Add a global error message to recipe tracking.
+
+---
+
+### add_global_filter
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `add_global_filter(self, name: str, filter_func: TemplateFilter) -> None`
+
+**Description:** Add global template filter to all engines.
+
+---
+
+### add_global_filter
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `add_global_filter(self, event_filter: EventFilter) -> None`
+
+**Description:** Add global event filter applied to all events.
+
+Args:
+    event_filter: Filter function for events
+
+---
+
+### add_global_function
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `add_global_function(self, name: str, function: TemplateFunction) -> None`
+
+**Description:** Add global template function to all engines.
+
+---
+
+### add_global_variable
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `add_global_variable(self, name: str, value: Any) -> None`
+
+**Description:** Add global template variable.
 
 ---
 
@@ -7803,6 +14010,75 @@ Args:
 
 ---
 
+### add_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthAnalyzer`
+
+**Signature:** `add_metric(self, metric: HealthMetric) -> None`
+
+**Description:** Add a metric to the historical analysis data.
+
+Args:
+    metric: HealthMetric to add to history
+
+---
+
+### add_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthCheckResult`
+
+**Signature:** `add_metric(self, metric: HealthMetric) -> None`
+
+**Description:** Add a metric to this health check result.
+
+---
+
+### add_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `add_metrics(self, metrics: List[PerformanceMetric]) -> None`
+
+**Description:** Add metrics to the analyzer for processing.
+
+Args:
+    metrics: List of performance metrics to analyze
+
+---
+
+### add_metrics_from_result
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthAnalyzer`
+
+**Signature:** `add_metrics_from_result(self, result: HealthCheckResult) -> None`
+
+**Description:** Add all metrics from a health check result to analysis.
+
+Args:
+    result: HealthCheckResult containing metrics to analyze
+
+---
+
+### add_notification_callback
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `add_notification_callback(self, callback: Callable[[Alert, float], None]) -> None`
+
+**Description:** Add notification callback function.
+
+---
+
 ### add_pattern
 
 **Type:** Method
@@ -7812,6 +14088,72 @@ Args:
 **Signature:** `add_pattern(self, pattern_type: str, confidence: float, details: Dict[str, Any]) -> None`
 
 **Description:** Add detected pattern to result.
+
+---
+
+### add_pattern
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `add_pattern(self, pattern: ErrorPattern) -> None`
+
+**Description:** Add custom error detection pattern.
+
+Args:
+    pattern: Error pattern to add for detection
+
+---
+
+### add_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginDependencyGraph`
+
+**Signature:** `add_plugin(self, entry: PluginRegistryEntry) -> None`
+
+**Description:** Add plugin to dependency graph.
+
+---
+
+### add_point
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.TimeSeriesMetric`
+
+**Signature:** `add_point(self, timestamp: datetime, value: Union[int, float, bool, str], tags: Optional[Dict[str, str]] = None) -> None`
+
+**Description:** Add a new metric point.
+
+---
+
+### add_result
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationValidationResult`
+
+**Signature:** `add_result(self, severity: ValidationSeverity, message: str) -> None`
+
+**Description:** Add validation result message.
+
+---
+
+### add_retry_exception
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `add_retry_exception(self, exception_type: type) -> None`
+
+**Description:** Add exception type that should trigger retry.
+
+Args:
+    exception_type: Exception class to retry on
 
 ---
 
@@ -7841,6 +14183,24 @@ Args:
 **Signature:** `add_span(self, span: RequestSpan) -> None`
 
 **Description:** Add span to request trace.
+
+---
+
+### add_span_log
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `add_span_log(self, span_id: str, message: str, level: str = 'info', fields: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Add a log entry to a span.
+
+Args:
+    span_id: ID of the span
+    message: Log message
+    level: Log level
+    fields: Additional fields
 
 ---
 
@@ -7914,6 +14274,34 @@ Returns:
 
 ---
 
+### add_tag
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.Event`
+
+**Signature:** `add_tag(self, tag: str) -> 'Event'`
+
+**Description:** Add tag to event metadata.
+
+---
+
+### add_tag
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.PerformanceMetric`
+
+**Signature:** `add_tag(self, key: str, value: str) -> None`
+
+**Description:** Add metadata tag to the metric.
+
+Args:
+    key: Tag identifier (e.g., "environment", "service")
+    value: Tag value (e.g., "production", "api_server")
+
+---
+
 ### add_task
 
 **Type:** Method
@@ -7927,6 +14315,18 @@ Returns:
 Args:
     task_name (str): The name of the task.
     dependencies (List[str], optional): A list of task names that this task depends on. Defaults to [].
+
+---
+
+### add_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.InMemoryTemplateLoader`
+
+**Signature:** `add_template(self, name: str, content: str) -> None`
+
+**Description:** Add template to memory.
 
 ---
 
@@ -7996,6 +14396,73 @@ Args:
 
 ---
 
+### age_seconds
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthMetric`
+
+**Signature:** `age_seconds(self) -> float`
+
+**Description:** Calculate metric age in seconds from current time.
+
+---
+
+### aggregate
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `aggregate(self, aggregation_type: AggregationType, field: str = 'value') -> 'AnalyticsQuery'`
+
+**Description:** Add aggregation function.
+
+---
+
+### aggregate_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricsAggregator`
+
+**Signature:** `aggregate_metric(self, metric: TimeSeriesMetric, start_time: datetime, end_time: datetime, granularity: TimeGranularity, aggregation_type: AggregationType, tag_filters: Optional[Dict[str, str]] = None) -> AggregationWindow`
+
+**Description:** Aggregate metric data over time windows.
+
+---
+
+### aggregate_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `aggregate_metric(self, metric_name: str, start_time: datetime, end_time: datetime, granularity: TimeGranularity, aggregation_type: AggregationType, tag_filters: Optional[Dict[str, str]] = None) -> AggregationWindow`
+
+**Description:** Aggregate metric data.
+
+---
+
+### aggregate_results
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `aggregate_results(self, processing_results: List[Dict[str, Any]], aggregation_config: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Aggregate results from parallel workers.
+
+Args:
+    processing_results: Results from parallel workers
+    aggregation_config: Aggregation configuration
+
+Returns:
+    Aggregated results
+
+---
+
 ### all_policies
 
 **Type:** Method
@@ -8055,6 +14522,43 @@ Returns:
 
 ---
 
+### analyze
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `analyze(self, analysis_type: str = 'comprehensive') -> Dict[str, Any]`
+
+**Description:** Generate comprehensive Foundation analysis.
+
+Args:
+    analysis_type: Type of analysis ('health', 'performance', 'errors', 'comprehensive')
+    
+Returns:
+    Comprehensive analysis results
+
+---
+
+### analyze
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `analyze(self, report_type: str = 'comprehensive') -> Dict[str, Any]`
+
+**Description:** Generate comprehensive analysis and reports.
+
+Args:
+    report_type: Type of report ('sla', 'errors', 'performance', 'comprehensive')
+    **kwargs: Additional analysis parameters
+    
+Returns:
+    Dictionary with analysis results and reports
+
+---
+
 ### analyze_current_framework
 
 **Type:** Method
@@ -8105,6 +14609,43 @@ Returns:
 
 ---
 
+### analyze_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.performance_metrics.PerformanceMetricsScriptlet`
+
+**Signature:** `analyze_metrics(self) -> Dict[str, Any]`
+
+**Description:** Perform comprehensive analysis of collected metrics.
+
+Args:
+    **kwargs: Additional analysis parameters
+    
+Returns:
+    Dict containing analysis results
+
+---
+
+### analyze_performance_regression
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.PerformanceProfiler`
+
+**Signature:** `analyze_performance_regression(self, analyzer: MetricsAnalyzer, baseline_window_hours: float = 24.0) -> Dict[str, Any]`
+
+**Description:** Analyze for performance regressions compared to historical baselines.
+
+Args:
+    analyzer: MetricsAnalyzer containing historical performance data
+    baseline_window_hours: Hours of historical data to use as baseline
+    
+Returns:
+    Dict[str, Any]: Performance regression analysis results
+
+---
+
 ### analyze_recipe_dependencies
 
 **Type:** Method
@@ -8141,6 +14682,42 @@ Returns:
 
 ---
 
+### analyze_recipe_performance
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalyzer`
+
+**Signature:** `analyze_recipe_performance(self, recipe_name: str, execution_metrics: List[RecipeExecutionMetrics]) -> PerformanceAnalysisResult`
+
+**Description:** Perform comprehensive performance analysis for a recipe.
+
+---
+
+### analyze_recipe_performance
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `analyze_recipe_performance(self, recipe_name: str) -> PerformanceAnalysisResult`
+
+**Description:** Perform comprehensive performance analysis for a recipe.
+
+---
+
+### analyze_trends
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TrendAnalyzer`
+
+**Signature:** `analyze_trends(self, metric_name: str) -> Dict[str, Any]`
+
+**Description:** Analyze trends for a specific metric.
+
+---
+
 ### analyze_workspace
 
 **Type:** Method
@@ -8153,6 +14730,24 @@ Returns:
 
 Returns:
     BaselineFramework: Complete baseline framework structure
+
+---
+
+### apply_defaults
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationSchema`
+
+**Signature:** `apply_defaults(self, config_data: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Apply default values to configuration data.
+
+Args:
+    config_data: Configuration data
+    
+Returns:
+    Dict[str, Any]: Configuration data with defaults applied
 
 ---
 
@@ -8188,6 +14783,123 @@ Raises:
 
 **Description:** Apply a patch (key → value) to the master context.
 Overwrites existing keys (last-write-wins by default).
+
+---
+
+### apply_retention_policies
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.DataRetentionManager`
+
+**Signature:** `apply_retention_policies(self) -> Dict[str, int]`
+
+**Description:** Apply retention policies to all metrics.
+
+---
+
+### apply_template
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `apply_template(self, template_id: str, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> Any`
+
+**Description:** Apply template to a recipe.
+
+---
+
+### apply_to_recipe
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnalyticsTemplate`
+
+**Signature:** `apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> Any`
+
+**Description:** Apply template to a specific recipe.
+
+---
+
+### apply_to_recipe
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitoringTemplate`
+
+**Signature:** `apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'PerformanceMonitor'`
+
+**Description:** Apply performance monitoring to a recipe.
+
+---
+
+### apply_to_recipe
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TrendAnalysisTemplate`
+
+**Signature:** `apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'TrendAnalyzer'`
+
+**Description:** Apply trend analysis to a recipe.
+
+---
+
+### apply_to_recipe
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetectionTemplate`
+
+**Signature:** `apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'AnomalyDetector'`
+
+**Description:** Apply anomaly detection to a recipe.
+
+---
+
+### apply_to_recipe
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationTemplate`
+
+**Signature:** `apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'OptimizationEngine'`
+
+**Description:** Apply optimization to a recipe.
+
+---
+
+### assign_role_to_user
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `assign_role_to_user(self, user: User, role_name: str) -> bool`
+
+**Description:** Assign role to user and update permission cache.
+
+---
+
+### authenticate_user
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `authenticate_user(self, username: str, password: str, ip_address: str = 'unknown', user_agent: str = 'unknown') -> Optional[Dict[str, Any]]`
+
+**Description:** Authenticate user with credentials and create session.
+
+Args:
+    username: Username to authenticate
+    password: Password to verify
+    ip_address: Source IP address
+    user_agent: User agent string
+    
+Returns:
+    Authentication result with session token or None if failed
 
 ---
 
@@ -8278,7 +14990,65 @@ Returns:
 
 ---
 
+### build_container
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerDeploymentEngine`
+
+**Signature:** `build_container(self, recipe_package_path: str, container_name: str, build_options: Optional[Dict[str, Any]] = None) -> Dict[str, Any]`
+
+**Description:** Build Docker container for a Framework0 recipe package.
+
+Args:
+    recipe_package_path: Path to isolated recipe package
+    container_name: Name for the resulting container
+    build_options: Optional build configuration options
+    
+Returns:
+    Dict[str, Any]: Build result with container ID, size, and metadata
+
+---
+
+### build_container
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerBuilder`
+
+**Signature:** `build_container(self, dockerfile_content: str, container_name: str, build_context: str) -> Dict[str, Any]`
+
+**Description:** Build Docker container using generated Dockerfile.
+
+Args:
+    dockerfile_content: Dockerfile content to build
+    container_name: Name for the container
+    build_context: Build context directory
+    
+Returns:
+    Dict[str, Any]: Build result with container ID and metadata
+
+---
+
 ## C
+
+### calculate_delay
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `calculate_delay(self, attempt: int) -> float`
+
+**Description:** Calculate delay for retry attempt based on backoff strategy.
+
+Args:
+    attempt: Current attempt number (0-based)
+    
+Returns:
+    Delay in seconds before next retry
+
+---
 
 ### calculate_delta
 
@@ -8297,6 +15067,115 @@ Args:
     
 Returns:
     Dict[str, Any]: Delta information including changes and removals
+
+---
+
+### calculate_statistical_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `calculate_statistical_summary(self, metric_name: str) -> Optional[StatisticalSummary]`
+
+**Description:** Calculate comprehensive statistical summary for a metric.
+
+Args:
+    metric_name: Name of metric to analyze
+    
+Returns:
+    Optional[StatisticalSummary]: Statistical analysis or None if insufficient data
+
+---
+
+### calculate_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.TimeSeriesMetric`
+
+**Signature:** `calculate_statistics(self, start_time: Optional[datetime] = None, end_time: Optional[datetime] = None) -> Dict[str, float]`
+
+**Description:** Calculate statistical summary for numeric data.
+
+---
+
+### calculate_trend_analysis
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `calculate_trend_analysis(self, metric_name: str) -> Optional[TrendAnalysis]`
+
+**Description:** Perform trend analysis on metric time series.
+
+Args:
+    metric_name: Name of metric to analyze for trends
+    
+Returns:
+    Optional[TrendAnalysis]: Trend analysis or None if insufficient data
+
+---
+
+### call
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.CircuitBreaker`
+
+**Signature:** `call(self, func)`
+
+**Description:** Execute function through circuit breaker.
+
+Args:
+    func: Function to execute
+    *args: Function arguments
+    **kwargs: Function keyword arguments
+    
+Returns:
+    Function result
+    
+Raises:
+    APIIntegrationError: If circuit breaker is open
+
+---
+
+### call
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `call(self, operation: Callable) -> Any`
+
+**Description:** Execute operation through circuit breaker.
+
+Args:
+    operation: Function to execute
+    *args: Arguments for the operation
+    **kwargs: Keyword arguments for the operation
+    
+Returns:
+    Result of the operation
+    
+Raises:
+    Exception: If circuit is open or operation fails
+
+---
+
+### can_retry
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.RecoveryAction`
+
+**Signature:** `can_retry(self) -> bool`
+
+**Description:** Check if this recovery action can be retried.
+
+Returns:
+    True if action can be retried, False otherwise
 
 ---
 
@@ -8324,6 +15203,37 @@ to enable graceful termination of recipe execution.
 **Signature:** `capture_stack(self) -> None`
 
 **Description:** Capture current stack trace for debugging.
+
+---
+
+### check_accuracy
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `check_accuracy(self, data: List[Dict], config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Check data accuracy.
+
+Args:
+    data: Data to check
+    config: Accuracy check configuration
+    
+Returns:
+    List of validation results
+
+---
+
+### check_alerts
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `check_alerts(self, chart_id: str, metric_name: str, value: float) -> List[Alert]`
+
+**Description:** Check if any alerts are triggered by the given value.
 
 ---
 
@@ -8355,6 +15265,25 @@ Returns:
 
 ---
 
+### check_completeness
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `check_completeness(self, data: List[Dict], config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Check data completeness.
+
+Args:
+    data: Data to check
+    config: Completeness check configuration
+    
+Returns:
+    List of validation results
+
+---
+
 ### check_condition
 
 **Type:** Method
@@ -8370,6 +15299,103 @@ Args:
 
 Returns:
     True if condition is met or no condition set
+
+---
+
+### check_condition
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.Alert`
+
+**Signature:** `check_condition(self, value: float) -> bool`
+
+**Description:** Check if alert condition is met.
+
+---
+
+### check_consistency
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.QualityChecker`
+
+**Signature:** `check_consistency(self, data: List[Dict], config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Check data consistency.
+
+Args:
+    data: Data to check
+    config: Consistency check configuration
+    
+Returns:
+    List of validation results
+
+---
+
+### check_cpu_usage
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.SystemResourceChecker`
+
+**Signature:** `check_cpu_usage(self) -> HealthCheckResult`
+
+**Description:** Check CPU usage percentage across all cores.
+
+Returns:
+    HealthCheckResult with CPU usage metrics and status
+
+---
+
+### check_disk_usage
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.SystemResourceChecker`
+
+**Signature:** `check_disk_usage(self, paths: Optional[List[str]] = None) -> HealthCheckResult`
+
+**Description:** Check disk usage for specified paths or all mounted filesystems.
+
+Args:
+    paths: Optional list of specific paths to check
+    
+Returns:
+    HealthCheckResult with disk usage metrics and status
+
+---
+
+### check_internet_connectivity
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.NetworkHealthChecker`
+
+**Signature:** `check_internet_connectivity(self, hosts: Optional[List[Tuple[str, int]]] = None) -> HealthCheckResult`
+
+**Description:** Check internet connectivity to specified hosts.
+
+Args:
+    hosts: List of (hostname, port) tuples to test
+    
+Returns:
+    HealthCheckResult with connectivity metrics and status
+
+---
+
+### check_memory_usage
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.SystemResourceChecker`
+
+**Signature:** `check_memory_usage(self) -> HealthCheckResult`
+
+**Description:** Check memory usage including virtual and swap memory.
+
+Returns:
+    HealthCheckResult with memory usage metrics and status
 
 ---
 
@@ -8391,6 +15417,46 @@ Returns:
 
 ---
 
+### check_permission
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `check_permission(self, user: User, permission: Permission, resource: str = None, exercise: str = None, environment: str = None) -> bool`
+
+**Description:** Check if user has permission for specific resource and context.
+
+Args:
+    user: User to check permissions for
+    permission: Permission to check
+    resource: Specific resource being accessed
+    exercise: Exercise context
+    environment: Environment context
+    
+Returns:
+    True if user has permission, False otherwise
+
+---
+
+### check_process_running
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.ServiceHealthChecker`
+
+**Signature:** `check_process_running(self, process_names: List[str]) -> HealthCheckResult`
+
+**Description:** Check if specified processes are running.
+
+Args:
+    process_names: List of process names to check
+    
+Returns:
+    HealthCheckResult with process status metrics
+
+---
+
 ### check_server_connection
 
 **Type:** Method
@@ -8403,6 +15469,44 @@ Returns:
 
 Returns:
     True if server is reachable, False otherwise
+
+---
+
+### check_threshold_alert
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.AlertManager`
+
+**Signature:** `check_threshold_alert(self, metric: HealthMetric, threshold: HealthThreshold) -> Optional[Dict[str, Any]]`
+
+**Description:** Check if metric exceeds threshold and create alert if needed.
+
+Args:
+    metric: HealthMetric to evaluate
+    threshold: HealthThreshold to check against
+    
+Returns:
+    Alert dictionary if threshold exceeded, None otherwise
+
+---
+
+### classify_error
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorClassifier`
+
+**Signature:** `classify_error(self, error_context: ErrorContext, override_confidence: Optional[float] = None) -> ErrorContext`
+
+**Description:** Classify error and update context with classification metadata.
+
+Args:
+    error_context: Error context to classify
+    override_confidence: Optional confidence override
+    
+Returns:
+    Error context with updated classification
 
 ---
 
@@ -8541,6 +15645,18 @@ Returns:
 
 ---
 
+### cleanup_checkpoints
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointManager`
+
+**Signature:** `cleanup_checkpoints(self, keep_latest: int = 5) -> None`
+
+**Description:** Clean up old checkpoints, keeping only the latest ones.
+
+---
+
 ### cleanup_graphs
 
 **Type:** Method
@@ -8559,6 +15675,18 @@ Returns:
 
 ---
 
+### cleanup_old_data
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `cleanup_old_data(self) -> Dict[str, int]`
+
+**Description:** Perform data retention cleanup.
+
+---
+
 ### cleanup_python_path
 
 **Type:** Method
@@ -8568,6 +15696,18 @@ Returns:
 **Signature:** `cleanup_python_path(self) -> None`
 
 **Description:** Clean up Python path extensions made during validation.
+
+---
+
+### cleanup_resources
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `cleanup_resources(self) -> None`
+
+**Description:** Clean up processing resources.
 
 ---
 
@@ -8739,6 +15879,25 @@ Raises:
 
 ---
 
+### clear_alert
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.AlertManager`
+
+**Signature:** `clear_alert(self, metric_name: str, source: Optional[str] = None) -> bool`
+
+**Description:** Manually clear an active alert.
+
+Args:
+    metric_name: Name of metric to clear alert for
+    source: Optional source to specify exact alert
+    
+Returns:
+    True if alert was found and cleared, False otherwise
+
+---
+
 ### clear_all
 
 **Type:** Method
@@ -8750,6 +15909,66 @@ Raises:
 **Description:** Delete all snapshots and reset the registry.
 
 Use with caution! This will permanently delete all snapshot data.
+
+---
+
+### clear_all
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginStorageBackend`
+
+**Signature:** `clear_all(self) -> bool`
+
+**Description:** Clear all registry entries.
+
+---
+
+### clear_all
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.MemoryStorageBackend`
+
+**Signature:** `clear_all(self) -> bool`
+
+**Description:** Clear all registry entries from memory.
+
+---
+
+### clear_all
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `clear_all(self) -> bool`
+
+**Description:** Clear all registry entries from file.
+
+---
+
+### clear_all
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `clear_all(self) -> bool`
+
+**Description:** Clear all registry entries from SQLite database.
+
+---
+
+### clear_all_caches
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `clear_all_caches(self) -> None`
+
+**Description:** Clear all template caches.
 
 ---
 
@@ -8774,6 +15993,18 @@ Use with caution! This will permanently delete all snapshot data.
 **Signature:** `clear_cache(self) -> None`
 
 **Description:** Clear internal recipe cache.
+
+---
+
+### clear_cache
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `clear_cache(self) -> None`
+
+**Description:** Clear template cache.
 
 ---
 
@@ -8819,6 +16050,18 @@ Returns:
 
 ---
 
+### clear_loggers
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.LoggerManager`
+
+**Signature:** `clear_loggers(self) -> None`
+
+**Description:** Clear all managed loggers (useful for cleanup).
+
+---
+
 ### clear_registry
 
 **Type:** Method
@@ -8840,6 +16083,18 @@ Returns:
 **Signature:** `clear_traces(self) -> None`
 
 **Description:** Clear all trace entries and sessions.
+
+---
+
+### close
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `close(self) -> None`
+
+**Description:** Close all connections and cleanup resources.
 
 ---
 
@@ -8885,6 +16140,87 @@ Returns:
 
 ---
 
+### collect_all_system_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `collect_all_system_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Collect comprehensive system metrics (CPU, memory, disk, network).
+
+Returns:
+    List[PerformanceMetric]: All available system performance metrics
+
+---
+
+### collect_cpu_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `collect_cpu_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Collect CPU utilization metrics.
+
+Returns:
+    List[PerformanceMetric]: CPU usage metrics per core and overall
+
+---
+
+### collect_disk_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `collect_disk_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Collect disk I/O and usage metrics.
+
+Returns:
+    List[PerformanceMetric]: Disk utilization and I/O performance metrics
+
+---
+
+### collect_log
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `collect_log(self, level: str, message: str, source: str, timestamp: Optional[datetime] = None, trace_id: Optional[str] = None, span_id: Optional[str] = None, fields: Optional[Dict[str, Any]] = None) -> None`
+
+**Description:** Collect a log entry from Framework0 components.
+
+Args:
+    level: Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    message: Log message
+    source: Source component/service
+    timestamp: Log timestamp (current time if not provided)
+    trace_id: Associated trace ID for correlation
+    span_id: Associated span ID for correlation
+    fields: Additional structured fields
+
+---
+
+### collect_memory_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `collect_memory_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Collect memory utilization metrics.
+
+Returns:
+    List[PerformanceMetric]: Memory usage metrics (virtual and swap)
+
+---
+
 ### collect_metrics
 
 **Type:** Method
@@ -8894,6 +16230,54 @@ Returns:
 **Signature:** `collect_metrics(self, context: PluginExecutionContext) -> PluginExecutionResult`
 
 **Description:** Collect system metrics and performance data.
+
+---
+
+### collect_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.performance_metrics.PerformanceMetricsScriptlet`
+
+**Signature:** `collect_metrics(self) -> Dict[str, Any]`
+
+**Description:** Collect current performance metrics from all collectors.
+
+Args:
+    **kwargs: Additional collection parameters
+    
+Returns:
+    Dict containing collected metrics by category
+
+---
+
+### collect_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.AnalyticsPlugin`
+
+**Signature:** `collect_metrics(self) -> Dict[str, Any]`
+
+**Description:** Collect plugin-specific metrics.
+
+Returns:
+    Dict[str, Any]: Collected metrics data
+
+---
+
+### collect_network_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `collect_network_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Collect network I/O statistics.
+
+Returns:
+    List[PerformanceMetric]: Network interface utilization metrics
 
 ---
 
@@ -8958,6 +16342,37 @@ Returns:
     
 Raises:
     EnhancedPersistenceError: If comparison fails
+
+---
+
+### compile_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `compile_template(self, name: str, force_reload: bool = False) -> Template`
+
+**Description:** Compile template and cache result.
+
+Args:
+    name: Template name
+    force_reload: Force reload from source
+    
+Returns:
+    Template: Compiled Jinja2 template
+
+---
+
+### complete_recipe_execution
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `complete_recipe_execution(self, execution_id: str, success: bool = True) -> RecipeExecutionMetrics`
+
+**Description:** Complete monitoring of a recipe execution.
 
 ---
 
@@ -9098,6 +16513,69 @@ Args:
 
 Returns:
     True if configuration updated successfully, False otherwise
+
+---
+
+### configure
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `configure(self, configuration: Dict[str, Any]) -> bool`
+
+**Description:** Configure the plugin with provided settings.
+
+Args:
+    configuration: Plugin configuration dictionary
+    
+Returns:
+    bool: True if configuration successful, False otherwise
+
+---
+
+### configure_authentication
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.APIClient`
+
+**Signature:** `configure_authentication(self, auth_config: Dict[str, Any]) -> None`
+
+**Description:** Configure authentication for API requests.
+
+Args:
+    auth_config: Authentication configuration dictionary
+
+---
+
+### configure_rate_limiting
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.APIClient`
+
+**Signature:** `configure_rate_limiting(self, rate_config: Dict[str, Any]) -> None`
+
+**Description:** Configure rate limiting for API requests.
+
+Args:
+    rate_config: Rate limiting configuration
+
+---
+
+### configure_rollback
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.environment_rollback.RollbackSystem`
+
+**Signature:** `configure_rollback(self, config: RollbackConfig) -> None`
+
+**Description:** Configure rollback settings for a deployment.
+
+Args:
+    config: Rollback configuration to apply
 
 ---
 
@@ -9275,6 +16753,28 @@ Returns:
 
 ---
 
+### create_compartment
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `create_compartment(self, name: str, max_capacity: int = 10, failure_threshold: int = 10, isolation_threshold: int = 20, recovery_time: int = 60) -> BulkheadCompartment`
+
+**Description:** Create isolated bulkhead compartment.
+
+Args:
+    name: Compartment name for identification
+    max_capacity: Maximum concurrent operations
+    failure_threshold: Failures before degradation
+    isolation_threshold: Failures before isolation
+    recovery_time: Recovery time in seconds
+    
+Returns:
+    Created bulkhead compartment
+
+---
+
 ### create_config_chart
 
 **Type:** Method
@@ -9296,6 +16796,46 @@ Returns:
 **Signature:** `create_context_table(self, all_data)`
 
 **Description:** Create a table showing recent context data.
+
+---
+
+### create_correlation
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `create_correlation(self, event_ids: List[str], correlation_id: str) -> None`
+
+**Description:** Create correlation between multiple events.
+
+Args:
+    event_ids: List of event IDs to correlate
+    correlation_id: Unique correlation identifier
+
+---
+
+### create_dashboard
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnalyticsTemplate`
+
+**Signature:** `create_dashboard(self, analytics_dashboard: AnalyticsDashboard, dashboard_id: Optional[str] = None) -> str`
+
+**Description:** Create dashboard for this template.
+
+---
+
+### create_dashboard
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `create_dashboard(self, dashboard_id: str, config: Dict[str, Any]) -> DashboardLayout`
+
+**Description:** Create a new dashboard.
 
 ---
 
@@ -9454,6 +16994,18 @@ Returns:
 
 ---
 
+### create_environment_policy
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `create_environment_policy(self, environment: str, allowed_roles: Set[str]) -> None`
+
+**Description:** Create access policy for specific environment.
+
+---
+
 ### create_execution_environment
 
 **Type:** Method
@@ -9551,6 +17103,39 @@ Returns:
 
 ---
 
+### create_isolation_environment
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.isolation_framework.IsolationFramework`
+
+**Signature:** `create_isolation_environment(self, recipe_name: str, security_policy: Optional[SecurityPolicy] = None, resource_limits: Optional[ResourceLimits] = None, custom_config: Optional[Dict[str, Any]] = None) -> IsolationEnvironment`
+
+**Description:** Create comprehensive isolation environment for recipe execution.
+
+Args:
+    recipe_name: Name of recipe to isolate
+    security_policy: Optional custom security policy
+    resource_limits: Optional custom resource limits
+    custom_config: Optional additional configuration
+    
+Returns:
+    IsolationEnvironment: Complete isolation configuration
+
+---
+
+### create_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `create_metric(self, name: str, data_type: MetricDataType, description: str = '', unit: str = '') -> TimeSeriesMetric`
+
+**Description:** Create a new time-series metric.
+
+---
+
 ### create_minimal_package
 
 **Type:** Method
@@ -9629,6 +17214,41 @@ Returns:
 
 ---
 
+### create_resource_policy
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `create_resource_policy(self, resource: str, required_permissions: Set[Permission] = None, allowed_roles: Set[str] = None, additional_rules: Dict[str, Any] = None) -> None`
+
+**Description:** Create access policy for specific resource.
+
+---
+
+### create_role
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `create_role(self, role_name: str, description: str, permissions: Set[Permission], exercise_scope: Set[str] = None, environment_scope: Set[str] = None, created_by: str = 'system') -> Role`
+
+**Description:** Create a new role with specified permissions and scope.
+
+Args:
+    role_name: Unique role name
+    description: Role description
+    permissions: Set of permissions for the role
+    exercise_scope: Exercise access scope
+    environment_scope: Environment access scope
+    created_by: User who created the role
+    
+Returns:
+    Created role object
+
+---
+
 ### create_snapshot
 
 **Type:** Method
@@ -9676,6 +17296,28 @@ Raises:
 
 ---
 
+### create_span
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `create_span(self, trace_id: str, operation_name: str, parent_span_id: Optional[str] = None, service_name: str = 'framework0', kind: TraceSpanKind = TraceSpanKind.INTERNAL) -> TraceSpan`
+
+**Description:** Create a child span within an existing trace.
+
+Args:
+    trace_id: ID of the parent trace
+    operation_name: Name of the operation being traced
+    parent_span_id: ID of the parent span
+    service_name: Service creating the span
+    kind: Type of span being created
+    
+Returns:
+    New child span
+
+---
+
 ### create_system_metrics_chart
 
 **Type:** Method
@@ -9685,6 +17327,70 @@ Raises:
 **Signature:** `create_system_metrics_chart(self, all_data)`
 
 **Description:** Create system monitoring metrics chart.
+
+---
+
+### create_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `create_template(self, name: str, content: str, engine_name: str = 'filesystem', metadata: Optional[TemplateMetadata] = None) -> Path`
+
+**Description:** Create new template.
+
+Args:
+    name: Template name
+    content: Template content
+    engine_name: Engine to save template to
+    metadata: Template metadata
+    
+Returns:
+    Path: Path where template was saved (if filesystem)
+
+---
+
+### create_user
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `create_user(self, username: str, email: str, password: str, full_name: str = '', roles: Set[str] = None) -> User`
+
+**Description:** Create a new user account with secure password storage.
+
+Args:
+    username: Unique username
+    email: User email address
+    password: Plain text password (will be hashed)
+    full_name: User's full name
+    roles: Initial roles to assign
+    
+Returns:
+    Created user object
+    
+Raises:
+    ValueError: If username exists or password is invalid
+
+---
+
+### create_workflow_stage
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.ProductionPlugin`
+
+**Signature:** `create_workflow_stage(self, stage_spec: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Create custom workflow stage.
+
+Args:
+    stage_spec: Stage specification
+    
+Returns:
+    Dict[str, Any]: Created stage information
 
 ---
 
@@ -9718,6 +17424,43 @@ Args:
 ---
 
 ## D
+
+### dashboard
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `dashboard(self, refresh_interval: int = 10, duration: int = 300) -> Dict[str, Any]`
+
+**Description:** Display real-time Foundation dashboard.
+
+Args:
+    refresh_interval: Dashboard refresh interval in seconds
+    duration: Dashboard display duration (0 for continuous)
+    
+Returns:
+    Final dashboard status
+
+---
+
+### deactivate
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `deactivate(self) -> bool`
+
+**Description:** Deactivate the plugin.
+
+This method is called to gracefully deactivate plugin functionality.
+The plugin should stop providing services but remain initialized.
+
+Returns:
+    bool: True if deactivation successful, False otherwise
+
+---
 
 ### debug
 
@@ -9779,6 +17522,24 @@ Args:
 **Signature:** `debug_manager(self)`
 
 **Description:** Get plugin debug manager.
+
+---
+
+### decrypt_data
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.EncryptionService`
+
+**Signature:** `decrypt_data(self, encrypted_package: Dict[str, str]) -> str`
+
+**Description:** Decrypt data using stored key information.
+
+Args:
+    encrypted_package: Package from encrypt_data method
+    
+Returns:
+    Decrypted data as string
 
 ---
 
@@ -9932,6 +17693,54 @@ Raises:
 
 ---
 
+### delete_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginStorageBackend`
+
+**Signature:** `delete_entry(self, plugin_id: str) -> bool`
+
+**Description:** Delete plugin registry entry.
+
+---
+
+### delete_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.MemoryStorageBackend`
+
+**Signature:** `delete_entry(self, plugin_id: str) -> bool`
+
+**Description:** Delete plugin registry entry from memory.
+
+---
+
+### delete_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `delete_entry(self, plugin_id: str) -> bool`
+
+**Description:** Delete plugin registry entry from file.
+
+---
+
+### delete_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `delete_entry(self, plugin_id: str) -> bool`
+
+**Description:** Delete plugin registry entry from SQLite database.
+
+---
+
 ### delete_file
 
 **Type:** Method
@@ -9941,6 +17750,30 @@ Raises:
 **Signature:** `delete_file(self, filename: str) -> None`
 
 **Description:** Delete a storage file.
+
+---
+
+### delete_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.StorageBackend`
+
+**Signature:** `delete_metric(self, metric_name: str) -> bool`
+
+**Description:** Delete a metric and all its data.
+
+---
+
+### delete_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `delete_metric(self, metric_name: str) -> bool`
+
+**Description:** Delete a metric and all its data.
 
 ---
 
@@ -9962,6 +17795,24 @@ Raises:
 
 ---
 
+### deploy_component
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.DeploymentPlugin`
+
+**Signature:** `deploy_component(self, component_spec: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Deploy component using plugin capabilities.
+
+Args:
+    component_spec: Component deployment specification
+    
+Returns:
+    Dict[str, Any]: Deployment result
+
+---
+
 ### deserialize_delta
 
 **Type:** Method
@@ -9980,6 +17831,37 @@ Returns:
 
 ---
 
+### detect_anomalies
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetector`
+
+**Signature:** `detect_anomalies(self, metric_name: str) -> Dict[str, Any]`
+
+**Description:** Detect anomalies in metric data.
+
+---
+
+### detect_baseline_anomalies
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.AnomalyDetector`
+
+**Signature:** `detect_baseline_anomalies(self, analyzer: MetricsAnalyzer, metric_name: str) -> List[AnomalyResult]`
+
+**Description:** Detect anomalies based on established baseline deviation.
+
+Args:
+    analyzer: MetricsAnalyzer containing metric data and baselines
+    metric_name: Name of metric to analyze for baseline anomalies
+    
+Returns:
+    List[AnomalyResult]: Detected baseline deviation anomalies
+
+---
+
 ### detect_format
 
 **Type:** Method
@@ -9993,6 +17875,94 @@ Returns:
 :param file_path: Path to recipe file
 :return: Detected file format
 :raises ValueError: If file format is not supported
+
+---
+
+### detect_from_exception
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `detect_from_exception(self, exception: Exception, context: Optional[Dict[str, Any]] = None) -> ErrorContext`
+
+**Description:** Create error context from exception with enhanced detection.
+
+Args:
+    exception: Exception that occurred
+    context: Optional context information
+    
+Returns:
+    Error context with detection metadata
+
+---
+
+### detect_from_log_message
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `detect_from_log_message(self, log_message: str, log_level: str = 'INFO') -> List[ErrorContext]`
+
+**Description:** Detect errors from log message content.
+
+Args:
+    log_message: Log message to analyze
+    log_level: Log level of the message
+    
+Returns:
+    List of detected error contexts
+
+---
+
+### detect_iqr_anomalies
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.AnomalyDetector`
+
+**Signature:** `detect_iqr_anomalies(self, analyzer: MetricsAnalyzer, metric_name: str) -> List[AnomalyResult]`
+
+**Description:** Detect anomalies using Interquartile Range (IQR) method.
+
+Args:
+    analyzer: MetricsAnalyzer containing metric data
+    metric_name: Name of metric to analyze for anomalies
+    
+Returns:
+    List[AnomalyResult]: Detected anomalies using IQR method
+
+---
+
+### detect_zscore_anomalies
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.AnomalyDetector`
+
+**Signature:** `detect_zscore_anomalies(self, analyzer: MetricsAnalyzer, metric_name: str) -> List[AnomalyResult]`
+
+**Description:** Detect anomalies using Z-score statistical method.
+
+Args:
+    analyzer: MetricsAnalyzer containing metric data
+    metric_name: Name of metric to analyze for anomalies
+    
+Returns:
+    List[AnomalyResult]: Detected anomalies using Z-score method
+
+---
+
+### disable_detection
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `disable_detection(self) -> None`
+
+**Description:** Disable error detection.
 
 ---
 
@@ -10077,6 +18047,21 @@ Returns:
 
 ---
 
+### discover_installed_plugins
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginDiscovery`
+
+**Signature:** `discover_installed_plugins(self) -> PluginDiscoveryResult`
+
+**Description:** Discover plugins from installed packages.
+
+Returns:
+    PluginDiscoveryResult: Discovery operation result
+
+---
+
 ### discover_plugins
 
 **Type:** Method
@@ -10112,6 +18097,24 @@ Args:
 
 Returns:
     Number of plugins discovered
+
+---
+
+### discover_plugins
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `discover_plugins(self, search_paths: List[Union[str, Path]]) -> PluginDiscoveryResult`
+
+**Description:** Discover plugins in specified paths.
+
+Args:
+    search_paths: Paths to search for plugins
+    
+Returns:
+    PluginDiscoveryResult: Discovery results
 
 ---
 
@@ -10173,6 +18176,24 @@ Returns:
 
 ---
 
+### discover_plugins_in_directory
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginDiscovery`
+
+**Signature:** `discover_plugins_in_directory(self, directory: Path) -> PluginDiscoveryResult`
+
+**Description:** Discover plugins in directory.
+
+Args:
+    directory: Directory to search for plugins
+    
+Returns:
+    PluginDiscoveryResult: Discovery operation result
+
+---
+
 ### download_dump
 
 **Type:** Method
@@ -10231,6 +18252,54 @@ Raises:
 
 ---
 
+### duration
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AggregationWindow`
+
+**Signature:** `duration(self) -> timedelta`
+
+**Description:** Get window duration.
+
+---
+
+### duration_microseconds
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TraceSpan`
+
+**Signature:** `duration_microseconds(self) -> Optional[int]`
+
+**Description:** Calculate span duration in microseconds.
+
+---
+
+### duration_seconds
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.Alert`
+
+**Signature:** `duration_seconds(self) -> Optional[float]`
+
+**Description:** Calculate alert duration in seconds.
+
+---
+
+### duration_seconds
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.deployment_engine.DeploymentResult`
+
+**Signature:** `duration_seconds(self) -> Optional[float]`
+
+**Description:** Calculate deployment duration in seconds.
+
+---
+
 ### duration_seconds
 
 **Type:** Method
@@ -10244,6 +18313,60 @@ Raises:
 ---
 
 ## E
+
+### emit
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `emit(self, event_type: EventType, data: Optional[Dict[str, Any]] = None, priority: EventPriority = EventPriority.NORMAL, correlation_id: Optional[str] = None, tags: Optional[Set[str]] = None) -> Union[List[Any], Future]`
+
+**Description:** Convenience method to create and publish event.
+
+Args:
+    event_type: Type of event to emit
+    data: Event data payload
+    priority: Event priority level
+    correlation_id: Correlation ID for event tracking
+    tags: Event tags for filtering
+    
+Returns:
+    Union[List[Any], Future]: Publishing results
+
+---
+
+### enable_detection
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `enable_detection(self) -> None`
+
+**Description:** Enable error detection.
+
+---
+
+### encrypt_data
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.EncryptionService`
+
+**Signature:** `encrypt_data(self, data: str, key_name: str, additional_data: str = '') -> Dict[str, str]`
+
+**Description:** Encrypt data using specified key.
+
+Args:
+    data: Data to encrypt
+    key_name: Name of encryption key to use
+    additional_data: Additional authenticated data
+    
+Returns:
+    Dictionary with encrypted data and metadata
+
+---
 
 ### end_operation
 
@@ -10325,6 +18448,43 @@ Args:
 **Signature:** `error_count(self) -> int`
 
 **Description:** Count of validation errors.
+
+---
+
+### establish_baseline
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `establish_baseline(self, metric_name: str, baseline_value: Optional[float] = None) -> float`
+
+**Description:** Establish performance baseline for a metric.
+
+Args:
+    metric_name: Name of metric to establish baseline for
+    baseline_value: Optional explicit baseline value (uses median if not provided)
+    
+Returns:
+    float: Established baseline value
+
+---
+
+### evaluate
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthThreshold`
+
+**Signature:** `evaluate(self, metric_value: Union[int, float]) -> HealthStatus`
+
+**Description:** Evaluate a metric value against configured thresholds.
+
+Args:
+    metric_value: Numeric value to check against thresholds
+    
+Returns:
+    HealthStatus indicating the severity level
 
 ---
 
@@ -10480,6 +18640,162 @@ Raises:
 
 ---
 
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute command with parsed arguments.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.StatusCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute status command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.HelpCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute help command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginListCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute plugin list command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginInstallCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute plugin install command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginStatusCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute plugin status command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigGetCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute config get command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigSetCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute config set command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigListCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute config list command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.TemplateListCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute template list command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.TemplateRenderCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute template render command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.EventEmitCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute event emit command.
+
+---
+
+### execute
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.EventHistoryCommand`
+
+**Signature:** `execute(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute event history command.
+
+---
+
 ### execute_all
 
 **Type:** Method
@@ -10524,6 +18840,18 @@ Example:
 
 ---
 
+### execute_command
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.FrameworkCLI`
+
+**Signature:** `execute_command(self, args: argparse.Namespace) -> CLICommandResult`
+
+**Description:** Execute CLI command.
+
+---
+
 ### execute_comprehensive_validation
 
 **Type:** Method
@@ -10536,6 +18864,69 @@ Example:
 
 Returns:
     ValidationSummary: Complete validation results and statistics
+
+---
+
+### execute_in_compartment
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `execute_in_compartment(self, compartment_name: str, operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute operation in isolated compartment.
+
+Args:
+    compartment_name: Name of compartment to use
+    operation: Function to execute
+    *args: Arguments for operation
+    timeout: Optional timeout for operation
+    **kwargs: Keyword arguments for operation
+    
+Returns:
+    Dictionary with execution result and compartment metadata
+
+---
+
+### execute_operation
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.DatabaseOperationsManager`
+
+**Signature:** `execute_operation(self, operation: str, target_config: Dict[str, Any], data_config: Dict[str, Any], transaction_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]`
+
+**Description:** Execute database operation.
+
+Args:
+    operation: Operation type (create, read, update, delete, etc.)
+    target_config: Target table/collection configuration
+    data_config: Data and query configuration
+    transaction_context: Optional transaction context
+
+Returns:
+    Operation results dictionary
+
+---
+
+### execute_parallel_processing
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `execute_parallel_processing(self, partitions: List[Any], function_params: Dict[str, Any], progress_callback: Optional[Callable] = None) -> Dict[str, Any]`
+
+**Description:** Execute parallel processing of data partitions.
+
+Args:
+    partitions: List of data partitions
+    function_params: Parameters for processing function
+    progress_callback: Optional progress callback function
+
+Returns:
+    Processing results
 
 ---
 
@@ -10610,6 +19001,30 @@ Returns:
 
 ---
 
+### execute_query
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.StorageBackend`
+
+**Signature:** `execute_query(self, query: AnalyticsQuery) -> QueryResult`
+
+**Description:** Execute an analytics query.
+
+---
+
+### execute_query
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `execute_query(self, query: AnalyticsQuery) -> QueryResult`
+
+**Description:** Execute an analytics query.
+
+---
+
 ### execute_recipe_validation
 
 **Type:** Method
@@ -10661,6 +19076,69 @@ Returns:
 
 ---
 
+### execute_with_fallback
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.FallbackStrategy`
+
+**Signature:** `execute_with_fallback(self, primary_operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute primary operation with fallback support.
+
+Args:
+    primary_operation: Primary function to execute
+    *args: Arguments for operations
+    **kwargs: Keyword arguments for operations
+    
+Returns:
+    Dictionary with execution result and metadata
+
+---
+
+### execute_with_retry
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `execute_with_retry(self, operation: Callable) -> RetryResult`
+
+**Description:** Execute operation with retry logic.
+
+Args:
+    operation: Function to execute with retry
+    *args: Arguments for the operation
+    error_context: Optional error context for Framework0 integration
+    **kwargs: Keyword arguments for the operation
+    
+Returns:
+    RetryResult containing execution details and final outcome
+
+---
+
+### execute_with_timeout
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.TimeoutManager`
+
+**Signature:** `execute_with_timeout(self, operation_name: str, operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute operation with timeout management.
+
+Args:
+    operation_name: Name of operation for timeout tracking
+    operation: Function to execute
+    *args: Arguments for operation
+    custom_timeout: Optional custom timeout override
+    **kwargs: Keyword arguments for operation
+    
+Returns:
+    Dictionary with execution result and timing metadata
+
+---
+
 ### execute_workflow
 
 **Type:** Method
@@ -10689,6 +19167,24 @@ Args:
 
 Returns:
     PluginExecutionResult containing workflow execution outcome
+
+---
+
+### execute_workflow_step
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.ProductionPlugin`
+
+**Signature:** `execute_workflow_step(self, step_spec: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Execute custom workflow step.
+
+Args:
+    step_spec: Step execution specification
+    
+Returns:
+    Dict[str, Any]: Execution result
 
 ---
 
@@ -10771,6 +19267,30 @@ Args:
     
 Returns:
     List[str]: List of exported file paths
+
+---
+
+### export_analytics_data
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `export_analytics_data(self, recipe_name: Optional[str] = None, format: str = 'json') -> Dict[str, Any]`
+
+**Description:** Export analytics data for external analysis.
+
+---
+
+### export_chart_data
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.DataExporter`
+
+**Signature:** `export_chart_data(self, chart_config: ChartConfig, format_type: str = 'json') -> Dict[str, Any]`
+
+**Description:** Export chart data in specified format.
 
 ---
 
@@ -10879,6 +19399,72 @@ Returns a Context object or None (if server returned empty or error).
 
 ---
 
+### filter_by
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `filter_by(self, field: str, operator: str, value: Any) -> 'AnalyticsQuery'`
+
+**Description:** Add a filter condition.
+
+---
+
+### filter_by_tags
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.TimeSeriesMetric`
+
+**Signature:** `filter_by_tags(self, tag_filters: Dict[str, str]) -> List[MetricPoint]`
+
+**Description:** Filter points by tag values.
+
+---
+
+### filter_by_time_range
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `filter_by_time_range(self, start_time: datetime, end_time: datetime) -> 'AnalyticsQuery'`
+
+**Description:** Filter by time range.
+
+---
+
+### finish
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TraceSpan`
+
+**Signature:** `finish(self, status_code: int = 0, error: Optional[str] = None) -> None`
+
+**Description:** Finish the span with optional error information.
+
+---
+
+### finish_span
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `finish_span(self, span_id: str, status_code: int = 0, error: Optional[str] = None, tags: Optional[Dict[str, str]] = None) -> None`
+
+**Description:** Finish a span and record its completion.
+
+Args:
+    span_id: ID of the span to finish
+    status_code: Status code (0=OK, 1=ERROR)
+    error: Error message if failed
+    tags: Additional tags to add
+
+---
+
 ### flush
 
 **Type:** Method
@@ -10918,6 +19504,55 @@ Args:
 
 Returns:
     Formatted log message string
+
+---
+
+### format
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.formatters.ContextAwareFormatter`
+
+**Signature:** `format(self, record: logging.LogRecord) -> str`
+
+**Description:** Format log record with Framework0 context information.
+
+Args:
+    record: The log record to format
+    
+Returns:
+    Formatted log message string
+
+---
+
+### format_health_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthReporter`
+
+**Signature:** `format_health_report(self, dashboard: Dict[str, Any], format_type: str = 'text') -> str`
+
+**Description:** Format health dashboard as human-readable report.
+
+Args:
+    dashboard: Health dashboard dictionary from generate_health_dashboard
+    format_type: Output format ('text', 'json', 'markdown')
+    
+Returns:
+    Formatted health report string
+
+---
+
+### format_output
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandResult`
+
+**Signature:** `format_output(self, format_type: str = 'text') -> str`
+
+**Description:** Format result for output.
 
 ---
 
@@ -11023,6 +19658,96 @@ Returns:
 
 ---
 
+### from_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricPoint`
+
+**Signature:** `from_dict(cls, data: Dict[str, Any]) -> 'MetricPoint'`
+
+**Description:** Create from dictionary.
+
+---
+
+### from_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMetrics`
+
+**Signature:** `from_dict(cls, data: Dict[str, Any]) -> 'RecipeExecutionMetrics'`
+
+**Description:** Create metrics from dictionary.
+
+---
+
+### from_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointData`
+
+**Signature:** `from_dict(cls, data: Dict[str, Any]) -> 'CheckpointData'`
+
+**Description:** Create checkpoint from dictionary.
+
+---
+
+### from_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.PerformanceMetric`
+
+**Signature:** `from_dict(cls, data: Dict[str, Any]) -> 'PerformanceMetric'`
+
+**Description:** Create metric instance from dictionary representation.
+
+Args:
+    data: Dictionary containing metric data
+    
+Returns:
+    PerformanceMetric: Reconstructed metric instance
+
+---
+
+### from_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `from_dict(cls, config_dict: Dict[str, Any]) -> 'MetricsConfiguration'`
+
+**Description:** Create configuration instance from dictionary.
+
+Args:
+    config_dict: Configuration dictionary
+    
+Returns:
+    MetricsConfiguration: New configuration instance
+
+---
+
+### from_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorContext`
+
+**Signature:** `from_dict(cls, data: Dict[str, Any]) -> 'ErrorContext'`
+
+**Description:** Create ErrorContext from dictionary representation.
+
+Args:
+    data: Dictionary containing error context data
+    
+Returns:
+    ErrorContext instance reconstructed from dictionary
+
+---
+
 ### from_json
 
 **Type:** Method
@@ -11048,7 +19773,41 @@ Raises:
 
 ---
 
+### from_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricAggregation`
+
+**Signature:** `from_metrics(cls, metrics: List[PerformanceMetric], percentiles: List[int] = None) -> 'MetricAggregation'`
+
+**Description:** Create aggregation from a list of performance metrics.
+
+Args:
+    metrics: List of metrics with the same name to aggregate
+    percentiles: List of percentile values to calculate (default: [50, 90, 95, 99])
+    
+Returns:
+    MetricAggregation: Statistical summary of the metrics
+
+---
+
 ## G
+
+### generate_all_documentation
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_documentation_generator.ComprehensiveDocumentationGenerator`
+
+**Signature:** `generate_all_documentation(self) -> None`
+
+**Description:** Generate comprehensive documentation for all workspace files.
+
+This method creates individual user manuals for every Python module,
+shell script, recipe file, and configuration file in the workspace.
+
+---
 
 ### generate_api_reference
 
@@ -11077,6 +19836,44 @@ Returns:
 **Signature:** `generate_cleanup_report(self) -> str`
 
 **Description:** Generate comprehensive cleanup report.
+
+---
+
+### generate_compliance_report
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `generate_compliance_report(self, start_date: datetime, end_date: datetime, report_type: str = 'security') -> Dict[str, Any]`
+
+**Description:** Generate compliance report for specified time period.
+
+Args:
+    start_date: Report start date
+    end_date: Report end date
+    report_type: Type of compliance report
+    
+Returns:
+    Comprehensive compliance report
+
+---
+
+### generate_comprehensive_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsReporter`
+
+**Signature:** `generate_comprehensive_report(self, format: str = 'text') -> Dict[str, Any]`
+
+**Description:** Generate comprehensive performance report.
+
+Args:
+    format: Output format ("text", "json", "html")
+    
+Returns:
+    Dict[str, Any]: Comprehensive performance report
 
 ---
 
@@ -11114,6 +19911,45 @@ Returns:
 
 ---
 
+### generate_dockerfile
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerBuilder`
+
+**Signature:** `generate_dockerfile(self, recipe_package_path: str, build_options: Dict[str, Any]) -> str`
+
+**Description:** Generate optimized Dockerfile for recipe package.
+
+Args:
+    recipe_package_path: Path to recipe package
+    build_options: Build configuration options
+    
+Returns:
+    str: Generated Dockerfile content
+
+---
+
+### generate_encryption_key
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.EncryptionService`
+
+**Signature:** `generate_encryption_key(self, key_name: str, key_purpose: str = 'general', key_size: int = 32) -> str`
+
+**Description:** Generate new encryption key with metadata.
+
+Args:
+    key_name: Unique name for the key
+    key_purpose: Purpose/context for the key
+    key_size: Key size in bytes (32 = 256-bit)
+    
+Returns:
+    Key identifier
+
+---
+
 ### generate_enhancement_plan
 
 **Type:** Method
@@ -11129,6 +19965,39 @@ Args:
 
 Returns:
     EnhancementPlan: Complete enhancement plan with implementation strategy
+
+---
+
+### generate_health_dashboard
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthReporter`
+
+**Signature:** `generate_health_dashboard(self) -> Dict[str, Any]`
+
+**Description:** Generate comprehensive health status dashboard.
+
+Returns:
+    Dictionary containing complete health system status
+
+---
+
+### generate_integrated_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `generate_integrated_report(self, include_details: bool = True) -> Dict[str, Any]`
+
+**Description:** Generate comprehensive integrated report across all Foundation components.
+
+Args:
+    include_details: Whether to include detailed component reports
+    
+Returns:
+    Comprehensive integrated report
 
 ---
 
@@ -11197,6 +20066,18 @@ Returns:
 
 Returns:
     str: Complete path wrapper Python code
+
+---
+
+### generate_recommendations
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationEngine`
+
+**Signature:** `generate_recommendations(self) -> Dict[str, Any]`
+
+**Description:** Generate optimization recommendations.
 
 ---
 
@@ -11562,6 +20443,42 @@ Raises:
 
 ---
 
+### get_active_alerts
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `get_active_alerts(self) -> List[Alert]`
+
+**Description:** Get all currently active alerts.
+
+---
+
+### get_active_alerts
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.AlertingEngine`
+
+**Signature:** `get_active_alerts(self) -> List[Alert]`
+
+**Description:** Get list of currently active alerts.
+
+---
+
+### get_active_alerts
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.AlertManager`
+
+**Signature:** `get_active_alerts(self) -> List[Dict[str, Any]]`
+
+**Description:** Get list of currently active alerts.
+
+---
+
 ### get_age
 
 **Type:** Method
@@ -11574,6 +20491,69 @@ Raises:
 
 Returns:
     float: Age in seconds
+
+---
+
+### get_aggregation_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorAggregator`
+
+**Signature:** `get_aggregation_stats(self) -> Dict[str, Any]`
+
+**Description:** Get aggregation statistics.
+
+Returns:
+    Dictionary containing aggregation statistics
+
+---
+
+### get_alert_history
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.AlertManager`
+
+**Signature:** `get_alert_history(self, limit: Optional[int] = None) -> List[Dict[str, Any]]`
+
+**Description:** Get alert history, optionally limited to most recent alerts.
+
+---
+
+### get_alert_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.AlertingEngine`
+
+**Signature:** `get_alert_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get alerting system statistics.
+
+---
+
+### get_alerts_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `get_alerts_config(self) -> Dict[str, Any]`
+
+**Description:** Get alerting configuration section.
+
+---
+
+### get_analysis_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `get_analysis_config(self) -> Dict[str, Any]`
+
+**Description:** Get analysis configuration section.
 
 ---
 
@@ -11611,6 +20591,72 @@ Args:
     
 Returns:
     Dictionary with analyzer information or None if not found
+
+---
+
+### get_anomaly_history
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.AnomalyDetector`
+
+**Signature:** `get_anomaly_history(self, metric_name: str) -> List[AnomalyResult]`
+
+**Description:** Get historical anomaly detection results for a metric.
+
+Args:
+    metric_name: Name of metric to get anomaly history for
+    
+Returns:
+    List[AnomalyResult]: Historical anomaly detection results
+
+---
+
+### get_audit_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.core.LoggingConfiguration`
+
+**Signature:** `get_audit_config(self) -> Dict[str, Any]`
+
+**Description:** Get audit logging configuration.
+
+---
+
+### get_audit_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `get_audit_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive audit system statistics.
+
+---
+
+### get_authorization_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `get_authorization_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get authorization system statistics.
+
+---
+
+### get_authorization_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `get_authorization_summary(self, user: User) -> Dict[str, Any]`
+
+**Description:** Get comprehensive authorization summary for user.
 
 ---
 
@@ -11674,6 +20720,24 @@ Returns:
 
 ---
 
+### get_baseline
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `get_baseline(self, metric_name: str) -> Optional[float]`
+
+**Description:** Get established baseline for a metric.
+
+Args:
+    metric_name: Name of metric to get baseline for
+    
+Returns:
+    Optional[float]: Baseline value or None if not established
+
+---
+
 ### get_cache_hit_ratio
 
 **Type:** Method
@@ -11698,6 +20762,21 @@ Returns:
 **Signature:** `get_cached_analyzers(self) -> List[str]`
 
 **Description:** Get list of cached analyzer names.
+
+---
+
+### get_call_counts
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.ApplicationMetricsCollector`
+
+**Signature:** `get_call_counts(self) -> Dict[str, int]`
+
+**Description:** Get function call frequency statistics.
+
+Returns:
+    Dict[str, int]: Function names mapped to call counts
 
 ---
 
@@ -11770,6 +20849,21 @@ Returns:
 
 ---
 
+### get_capabilities
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `get_capabilities(self) -> PluginCapabilities`
+
+**Description:** Get plugin capabilities.
+
+Returns:
+    PluginCapabilities: Plugin capabilities specification
+
+---
+
 ### get_category
 
 **Type:** Method
@@ -11812,6 +20906,144 @@ Returns:
 
 ---
 
+### get_check_interval
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `get_check_interval(self) -> int`
+
+**Description:** Get health check interval in seconds.
+
+---
+
+### get_circuit_breaker_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `get_circuit_breaker_config(self) -> Dict[str, Any]`
+
+**Description:** Get circuit breaker configuration.
+
+Returns:
+    Circuit breaker configuration dictionary
+
+---
+
+### get_classification_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorClassifier`
+
+**Signature:** `get_classification_stats(self) -> Dict[str, Any]`
+
+**Description:** Get classification statistics.
+
+Returns:
+    Dictionary containing classification statistics
+
+---
+
+### get_collected_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `get_collected_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Retrieve metrics from continuous collection buffer.
+
+Returns:
+    List[PerformanceMetric]: All metrics collected since last retrieval
+
+---
+
+### get_collected_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.ApplicationMetricsCollector`
+
+**Signature:** `get_collected_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Retrieve all collected application metrics.
+
+Returns:
+    List[PerformanceMetric]: All metrics collected since last retrieval
+
+---
+
+### get_collected_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.NetworkMetricsCollector`
+
+**Signature:** `get_collected_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Retrieve all collected network metrics.
+
+Returns:
+    List[PerformanceMetric]: All network metrics since last retrieval
+
+---
+
+### get_collected_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `get_collected_metrics(self) -> List[PerformanceMetric]`
+
+**Description:** Retrieve all collected custom metrics.
+
+Returns:
+    List[PerformanceMetric]: All custom metrics since last retrieval
+
+---
+
+### get_collection_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `get_collection_config(self) -> Dict[str, Any]`
+
+**Description:** Get collection configuration section.
+
+---
+
+### get_command
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandRegistry`
+
+**Signature:** `get_command(self, name: str) -> Optional[CLICommand]`
+
+**Description:** Get registered command by name.
+
+---
+
+### get_command_descriptions
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandRegistry`
+
+**Signature:** `get_command_descriptions(self) -> Dict[str, str]`
+
+**Description:** Get command names and descriptions.
+
+---
+
 ### get_completion_percentage
 
 **Type:** Method
@@ -11836,6 +21068,103 @@ Returns:
 
 Returns:
     Dict[str, Any]: Dictionary of compression statistics
+
+---
+
+### get_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `get_configuration(self, config_name: str, scope: ConfigurationScope = ConfigurationScope.GLOBAL) -> Optional[Dict[str, Any]]`
+
+**Description:** Get loaded configuration data.
+
+Args:
+    config_name: Configuration name
+    scope: Configuration scope
+    
+Returns:
+    Optional[Dict[str, Any]]: Configuration data or None
+
+---
+
+### get_configuration_value
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `get_configuration_value(self, config_name: str, key_path: str, default: Any = None, scope: ConfigurationScope = ConfigurationScope.GLOBAL) -> Any`
+
+**Description:** Get specific configuration value using dot notation.
+
+Args:
+    config_name: Configuration name
+    key_path: Dot-notation path to setting
+    default: Default value if not found
+    scope: Configuration scope
+    
+Returns:
+    Any: Configuration value or default
+
+---
+
+### get_connection
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `get_connection(self)`
+
+**Description:** Get database connection from pool.
+
+---
+
+### get_correlated_events
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `get_correlated_events(self, correlation_id: str) -> List[IntegrationEvent]`
+
+**Description:** Get all events with specific correlation ID.
+
+Args:
+    correlation_id: Correlation identifier
+    
+Returns:
+    List of correlated integration events
+
+---
+
+### get_counter_values
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `get_counter_values(self) -> Dict[str, Union[int, float]]`
+
+**Description:** Get current values of all counters.
+
+Returns:
+    Dict[str, Union[int, float]]: Counter names mapped to current values
+
+---
+
+### get_current_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitor`
+
+**Signature:** `get_current_metrics(self) -> Dict[str, float]`
+
+**Description:** Get current performance metrics.
 
 ---
 
@@ -11869,6 +21198,18 @@ Returns:
 
 ---
 
+### get_dashboard_data
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `get_dashboard_data(self, dashboard_id: str) -> Dict[str, Any]`
+
+**Description:** Get current data for dashboard.
+
+---
+
 ### get_dashboard_status
 
 **Type:** Method
@@ -11878,6 +21219,16 @@ Returns:
 **Signature:** `get_dashboard_status(self) -> Dict[str, Any]`
 
 **Description:** Get comprehensive dashboard status and statistics.
+
+---
+
+### get_data
+
+**Type:** Method
+
+**Location:** `scriptlets.performance_metrics.ContextManager`
+
+**Signature:** `get_data(self, key, default = None)`
 
 ---
 
@@ -11929,6 +21280,36 @@ Returns:
     
 Raises:
     SnapshotNotFoundError: If snapshot with given version ID doesn't exist
+
+---
+
+### get_deployment_analytics
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerDeploymentEngine`
+
+**Signature:** `get_deployment_analytics(self) -> Dict[str, Any]`
+
+**Description:** Get deployment analytics and metrics.
+
+Returns:
+    Dict[str, Any]: Deployment analytics data and statistics
+
+---
+
+### get_detection_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorDetector`
+
+**Signature:** `get_detection_stats(self) -> Dict[str, Any]`
+
+**Description:** Get error detection statistics.
+
+Returns:
+    Dictionary containing detection statistics
 
 ---
 
@@ -12016,6 +21397,18 @@ Raises:
 
 ---
 
+### get_encryption_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.EncryptionService`
+
+**Signature:** `get_encryption_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get encryption service statistics.
+
+---
+
 ### get_end_time
 
 **Type:** Method
@@ -12025,6 +21418,18 @@ Raises:
 **Signature:** `get_end_time(self) -> float`
 
 **Description:** Calculate event end time based on start and duration.
+
+---
+
+### get_engine
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `get_engine(self, name: str = 'filesystem') -> TemplateEngine`
+
+**Description:** Get template engine by name.
 
 ---
 
@@ -12049,6 +21454,48 @@ Raises:
 
 ---
 
+### get_environment_info
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `get_environment_info(self) -> Dict[str, Any]`
+
+**Description:** Get current environment information.
+
+Returns:
+    Dict[str, Any]: Environment information
+
+---
+
+### get_error_analysis
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `get_error_analysis(self) -> Dict[str, Any]`
+
+**Description:** Analyze error patterns and frequency.
+
+---
+
+### get_error_groups
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorAggregator`
+
+**Signature:** `get_error_groups(self) -> Dict[str, List[ErrorContext]]`
+
+**Description:** Get current error groups.
+
+Returns:
+    Dictionary mapping group keys to error lists
+
+---
+
 ### get_execution_history
 
 **Type:** Method
@@ -12064,6 +21511,21 @@ Args:
     
 Returns:
     List[Dict[str, Any]]: Historical execution results
+
+---
+
+### get_execution_id
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.Framework0LoggerAdapter`
+
+**Signature:** `get_execution_id(self) -> str`
+
+**Description:** Get the unique execution ID for this adapter instance.
+
+Returns:
+    Unique execution ID string
 
 ---
 
@@ -12091,6 +21553,57 @@ Returns:
 **Signature:** `get_execution_summary(self, execution_id: str) -> Dict[str, Any]`
 
 **Description:** Get comprehensive summary of recipe execution.
+
+---
+
+### get_framework_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.core.LoggingConfiguration`
+
+**Signature:** `get_framework_config(self) -> Dict[str, Any]`
+
+**Description:** Get framework logging configuration.
+
+---
+
+### get_gauge_values
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `get_gauge_values(self) -> Dict[str, Union[int, float]]`
+
+**Description:** Get current values of all gauges.
+
+Returns:
+    Dict[str, Union[int, float]]: Gauge names mapped to current values
+
+---
+
+### get_handler_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `get_handler_statistics(self) -> Dict[str, Dict[str, Any]]`
+
+**Description:** Get detailed statistics for all registered handlers.
+
+---
+
+### get_help_text
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommand`
+
+**Signature:** `get_help_text(self) -> str`
+
+**Description:** Get detailed help text for command.
 
 ---
 
@@ -12175,6 +21688,33 @@ Returns:
 
 ---
 
+### get_integration_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `get_integration_config(self) -> Dict[str, Any]`
+
+**Description:** Get integration configuration section.
+
+---
+
+### get_integration_status
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `get_integration_status(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive integration status across all Foundation components.
+
+Returns:
+    Dictionary with integration status and statistics
+
+---
+
 ### get_keys
 
 **Type:** Method
@@ -12205,6 +21745,18 @@ Returns:
 
 ---
 
+### get_latest_points
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.TimeSeriesMetric`
+
+**Signature:** `get_latest_points(self, count: int = 100) -> List[MetricPoint]`
+
+**Description:** Get the most recent N points.
+
+---
+
 ### get_latest_snapshot
 
 **Type:** Method
@@ -12223,6 +21775,21 @@ Raises:
 
 ---
 
+### get_lifecycle_state
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `get_lifecycle_state(self) -> PluginLifecycle`
+
+**Description:** Get current plugin lifecycle state.
+
+Returns:
+    PluginLifecycle: Current plugin lifecycle state
+
+---
+
 ### get_loaded_plugins
 
 **Type:** Method
@@ -12232,6 +21799,52 @@ Raises:
 **Signature:** `get_loaded_plugins(self) -> Dict[str, Dict[str, Any]]`
 
 **Description:** Get information about all loaded plugins.
+
+---
+
+### get_log_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `get_log_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive log statistics.
+
+---
+
+### get_logger
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.LoggerManager`
+
+**Signature:** `get_logger(self, name: str, context: Optional[Context] = None) -> Framework0LoggerAdapter`
+
+**Description:** Get or create a Framework0 logger adapter.
+
+Args:
+    name: Name for the logger (will be prefixed with 'framework0.')
+    context: Framework0 context for the logger
+    
+Returns:
+    Framework0LoggerAdapter instance
+
+---
+
+### get_logger_count
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.LoggerManager`
+
+**Signature:** `get_logger_count(self) -> int`
+
+**Description:** Get the number of managed loggers.
+
+Returns:
+    Number of logger adapters being managed
 
 ---
 
@@ -12247,6 +21860,33 @@ Raises:
 
 Returns:
     Dictionary containing logger statistics
+
+---
+
+### get_max_concurrent_recoveries
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `get_max_concurrent_recoveries(self) -> int`
+
+**Description:** Get maximum number of concurrent recovery operations.
+
+Returns:
+    Maximum concurrent recoveries allowed
+
+---
+
+### get_memory_usage_mb
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `get_memory_usage_mb(self) -> float`
+
+**Description:** Get current memory usage in MB.
 
 ---
 
@@ -12340,6 +21980,95 @@ Returns:
 
 ---
 
+### get_metadata
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `get_metadata(self) -> PluginMetadata`
+
+**Description:** Get plugin metadata.
+
+Returns:
+    PluginMetadata: Plugin metadata information
+
+---
+
+### get_metric_by_name
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthCheckResult`
+
+**Signature:** `get_metric_by_name(self, name: str) -> Optional[HealthMetric]`
+
+**Description:** Retrieve a specific metric by name from this result.
+
+---
+
+### get_metric_count
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.MetricsAnalyzer`
+
+**Signature:** `get_metric_count(self, metric_name: str) -> int`
+
+**Description:** Get number of metrics in analyzer for a specific metric name.
+
+Args:
+    metric_name: Name of metric to count
+    
+Returns:
+    int: Number of metrics in sliding window
+
+---
+
+### get_metric_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `get_metric_statistics(self, metric_name: str, start_time: Optional[datetime] = None, end_time: Optional[datetime] = None) -> Dict[str, float]`
+
+**Description:** Get statistical summary for a metric.
+
+---
+
+### get_metric_trend
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthAnalyzer`
+
+**Signature:** `get_metric_trend(self, metric_name: str, source: Optional[str] = None, window_minutes: int = 60) -> Dict[str, Any]`
+
+**Description:** Analyze trend for a specific metric over time window.
+
+Args:
+    metric_name: Name of metric to analyze
+    source: Optional source filter for metric
+    window_minutes: Time window in minutes for trend analysis
+    
+Returns:
+    Dictionary containing trend analysis results
+
+---
+
+### get_metric_value
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.MetricsCollector`
+
+**Signature:** `get_metric_value(self, metric_name: str) -> Optional[Union[float, int]]`
+
+**Description:** Get current value of a specific metric.
+
+---
+
 ### get_metrics
 
 **Type:** Method
@@ -12400,6 +22129,156 @@ Returns:
 
 ---
 
+### get_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `get_metrics(self) -> Dict[str, Any]`
+
+**Description:** Get event bus metrics and statistics.
+
+---
+
+### get_metrics_by_source
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.MetricsCollector`
+
+**Signature:** `get_metrics_by_source(self, source: str) -> List[Metric]`
+
+**Description:** Get all metrics from a specific source.
+
+---
+
+### get_metrics_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.MetricsCollector`
+
+**Signature:** `get_metrics_summary(self) -> Dict[str, Any]`
+
+**Description:** Get summary statistics of collected metrics.
+
+---
+
+### get_monitoring_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `get_monitoring_config(self) -> Dict[str, Any]`
+
+**Description:** Get monitoring configuration section.
+
+---
+
+### get_notification_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `get_notification_config(self) -> Dict[str, Any]`
+
+**Description:** Get notification configuration.
+
+Returns:
+    Notification configuration dictionary
+
+---
+
+### get_notification_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `get_notification_stats(self) -> Dict[str, Any]`
+
+**Description:** Get notification statistics.
+
+Returns:
+    Dictionary containing notification statistics
+
+---
+
+### get_output_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `get_output_config(self) -> Dict[str, Any]`
+
+**Description:** Get output configuration section.
+
+---
+
+### get_overall_analytics_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `get_overall_analytics_summary(self) -> Dict[str, Any]`
+
+**Description:** Get summary of all analytics data.
+
+---
+
+### get_parameter_schema
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnalyticsTemplate`
+
+**Signature:** `get_parameter_schema(self) -> Dict[str, Any]`
+
+**Description:** Get schema for template parameters.
+
+---
+
+### get_performance_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.core.LoggingConfiguration`
+
+**Signature:** `get_performance_config(self) -> Dict[str, Any]`
+
+**Description:** Get performance logging configuration.
+
+---
+
+### get_performance_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `get_performance_config(self) -> Dict[str, Any]`
+
+**Description:** Get performance configuration section.
+
+---
+
+### get_performance_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `get_performance_summary(self) -> Dict[str, Any]`
+
+**Description:** Get performance summary across all traces.
+
+---
+
 ### get_phase_operations
 
 **Type:** Method
@@ -12416,6 +22295,60 @@ Args:
 
 Returns:
     List[Dict[str, Any]]: Operations for the specified phase
+
+---
+
+### get_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `get_plugin(self, plugin_name: str) -> Optional[Framework0Plugin]`
+
+**Description:** Get loaded plugin by name.
+
+Args:
+    plugin_name: Name of plugin to retrieve
+    
+Returns:
+    Optional[Framework0Plugin]: Plugin instance or None
+
+---
+
+### get_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `get_plugin(self, plugin_id: str) -> Optional[PluginRegistryEntry]`
+
+**Description:** Get plugin by ID.
+
+Args:
+    plugin_id: Plugin identifier
+    
+Returns:
+    Optional[PluginRegistryEntry]: Plugin entry or None
+
+---
+
+### get_plugin_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `get_plugin_configuration(self, plugin_name: str) -> Optional[Dict[str, Any]]`
+
+**Description:** Get plugin-specific configuration.
+
+Args:
+    plugin_name: Plugin identifier
+    
+Returns:
+    Optional[Dict[str, Any]]: Plugin configuration or None
 
 ---
 
@@ -12463,6 +22396,57 @@ Returns:
 
 ---
 
+### get_points_in_range
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.TimeSeriesMetric`
+
+**Signature:** `get_points_in_range(self, start_time: datetime, end_time: datetime) -> List[MetricPoint]`
+
+**Description:** Get all points within time range.
+
+---
+
+### get_recipe_analysis_history
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `get_recipe_analysis_history(self, recipe_name: str) -> List[PerformanceAnalysisResult]`
+
+**Description:** Get analysis history for a recipe.
+
+---
+
+### get_recipe_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `get_recipe_metrics(self, recipe_name: str) -> List[RecipeExecutionMetrics]`
+
+**Description:** Get stored execution metrics for a recipe.
+
+---
+
+### get_registry_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `get_registry_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get registry statistics and metrics.
+
+Returns:
+    Dict[str, Any]: Registry statistics
+
+---
+
 ### get_request_trace
 
 **Type:** Method
@@ -12475,6 +22459,54 @@ Returns:
 
 ---
 
+### get_retry_strategy
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `get_retry_strategy(self, strategy_name: str = 'default') -> Dict[str, Any]`
+
+**Description:** Get retry strategy configuration by name.
+
+Args:
+    strategy_name: Name of retry strategy to retrieve
+    
+Returns:
+    Retry strategy configuration dictionary
+
+---
+
+### get_rollback_history
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.environment_rollback.RollbackSystem`
+
+**Signature:** `get_rollback_history(self) -> List[Dict[str, Any]]`
+
+**Description:** Get history of rollback executions.
+
+Returns:
+    List of rollback execution records
+
+---
+
+### get_routing_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `get_routing_stats(self) -> Dict[str, Any]`
+
+**Description:** Get routing statistics.
+
+Returns:
+    Dictionary containing routing statistics
+
+---
+
 ### get_shared_data
 
 **Type:** Method
@@ -12484,6 +22516,36 @@ Returns:
 **Signature:** `get_shared_data(self, data_key: str) -> Any`
 
 **Description:** Get shared data from other analyzers.
+
+---
+
+### get_size_info
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.TimeSeriesMetric`
+
+**Signature:** `get_size_info(self) -> Dict[str, Any]`
+
+**Description:** Get size and memory usage information.
+
+---
+
+### get_sla_report
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `get_sla_report(self, service_name: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Generate comprehensive SLA compliance report.
+
+Args:
+    service_name: Optional specific service name
+    
+Returns:
+    Dictionary containing SLA compliance report
 
 ---
 
@@ -12563,6 +22625,16 @@ Raises:
 
 ---
 
+### get_source
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.CustomJinjaLoader`
+
+**Signature:** `get_source(self, environment, template)`
+
+---
+
 ### get_span_tree
 
 **Type:** Method
@@ -12608,6 +22680,21 @@ Raises:
 
 ---
 
+### get_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `get_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get plugin manager statistics.
+
+Returns:
+    Dict[str, Any]: Plugin management statistics
+
+---
+
 ### get_stats
 
 **Type:** Method
@@ -12635,6 +22722,111 @@ Returns:
 
 Returns:
     Dict[str, Any]: Dictionary of statistics for both cache levels
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.BulkheadIsolation`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get bulkhead isolation statistics.
+
+Returns:
+    Dictionary containing bulkhead statistics
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.TimeoutManager`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get timeout management statistics.
+
+Returns:
+    Dictionary containing timeout statistics
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get resilience metrics statistics.
+
+Returns:
+    Dictionary containing resilience statistics
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get retry execution statistics.
+
+Returns:
+    Dictionary containing retry statistics
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get circuit breaker statistics.
+
+Returns:
+    Dictionary containing circuit breaker statistics
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.FallbackStrategy`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get fallback execution statistics.
+
+Returns:
+    Dictionary containing fallback statistics
+
+---
+
+### get_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `get_stats(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive recovery statistics.
+
+Returns:
+    Dictionary containing all recovery statistics
 
 ---
 
@@ -12765,6 +22957,69 @@ Raises:
 
 ---
 
+### get_storage_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `get_storage_config(self) -> Dict[str, Any]`
+
+**Description:** Get storage configuration section.
+
+---
+
+### get_storage_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `get_storage_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get storage statistics.
+
+---
+
+### get_storage_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `get_storage_stats(self) -> Dict[str, Any]`
+
+**Description:** Get storage statistics.
+
+---
+
+### get_system_health_summary
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthAnalyzer`
+
+**Signature:** `get_system_health_summary(self) -> Dict[str, Any]`
+
+**Description:** Generate comprehensive system health summary from all metrics.
+
+Returns:
+    Dictionary containing overall system health analysis
+
+---
+
+### get_system_resources_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `get_system_resources_config(self) -> Dict[str, Any]`
+
+**Description:** Get system resources monitoring configuration.
+
+---
+
 ### get_system_status
 
 **Type:** Method
@@ -12844,6 +23099,42 @@ Returns:
 
 ---
 
+### get_template
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `get_template(self, template_id: str) -> Optional[AnalyticsTemplate]`
+
+**Description:** Get template by ID.
+
+---
+
+### get_template_metadata
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `get_template_metadata(self, name: str) -> Optional[TemplateMetadata]`
+
+**Description:** Get template metadata.
+
+---
+
+### get_threshold
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `get_threshold(self, metric_name: str) -> Optional[HealthThreshold]`
+
+**Description:** Get threshold configuration for a specific metric.
+
+---
+
 ### get_timeline_summary
 
 **Type:** Method
@@ -12853,6 +23144,24 @@ Returns:
 **Signature:** `get_timeline_summary(self, timeline_id: str) -> Dict[str, Any]`
 
 **Description:** Get comprehensive summary of timeline visualization.
+
+---
+
+### get_timeout
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.TimeoutManager`
+
+**Signature:** `get_timeout(self, operation_name: str) -> float`
+
+**Description:** Get timeout for operation with adaptive adjustment.
+
+Args:
+    operation_name: Name of operation
+    
+Returns:
+    Timeout in seconds (adaptive or configured)
 
 ---
 
@@ -12868,6 +23177,18 @@ Returns:
 
 ---
 
+### get_trace
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `get_trace(self, trace_id: str) -> Optional[List[TraceSpan]]`
+
+**Description:** Get all spans for a specific trace.
+
+---
+
 ### get_trace_summary
 
 **Type:** Method
@@ -12877,6 +23198,18 @@ Returns:
 **Signature:** `get_trace_summary(self) -> Dict[str, Any]`
 
 **Description:** Get summary of current trace information.
+
+---
+
+### get_trace_tree
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `get_trace_tree(self, trace_id: str) -> Optional[Dict[str, Any]]`
+
+**Description:** Get trace as hierarchical tree structure.
 
 ---
 
@@ -12892,6 +23225,30 @@ Returns:
 
 ---
 
+### get_user_effective_permissions
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `get_user_effective_permissions(self, user: User) -> Set[Permission]`
+
+**Description:** Get all effective permissions for a user (cached).
+
+---
+
+### get_user_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `get_user_statistics(self) -> Dict[str, Any]`
+
+**Description:** Get authentication system statistics.
+
+---
+
 ### get_validation_summary
 
 **Type:** Method
@@ -12904,6 +23261,18 @@ Returns:
 
 :param parsed_recipe: Parsed recipe with validation results
 :return: Formatted validation summary string
+
+---
+
+### get_variable
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateContext`
+
+**Signature:** `get_variable(self, name: str, default: Any = None) -> Any`
+
+**Description:** Get template variable.
 
 ---
 
@@ -12934,6 +23303,33 @@ Returns:
 **Signature:** `get_versions(self) -> list`
 
 **Description:** Get list of available versions.
+
+---
+
+### get_workflow_analytics
+
+**Type:** Method
+
+**Location:** `scriptlets.production.production_workflow_engine.ProductionWorkflowEngine`
+
+**Signature:** `get_workflow_analytics(self) -> Dict[str, Any]`
+
+**Description:** Get comprehensive workflow analytics and metrics.
+
+Returns:
+    Dict[str, Any]: Workflow analytics data
+
+---
+
+### group_by
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `group_by(self) -> 'AnalyticsQuery'`
+
+**Description:** Group results by fields.
 
 ---
 
@@ -12985,6 +23381,42 @@ Returns JSON dict of context snapshot.
 
 ---
 
+### has_permission
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.User`
+
+**Signature:** `has_permission(self, permission: Permission) -> bool`
+
+**Description:** Check if user has specific permission.
+
+---
+
+### has_permission
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.Role`
+
+**Signature:** `has_permission(self, permission: Permission) -> bool`
+
+**Description:** Check if role has specific permission.
+
+---
+
+### has_role
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.User`
+
+**Signature:** `has_role(self, role: str) -> bool`
+
+**Description:** Check if user has specific role.
+
+---
+
 ### health_check
 
 **Type:** Method
@@ -12997,6 +23429,18 @@ Returns JSON dict of context snapshot.
 
 Returns:
     Health status information
+
+---
+
+### health_check
+
+**Type:** Method
+
+**Location:** `scriptlets.core.database_operations.ConnectionPool`
+
+**Signature:** `health_check(self) -> Dict[str, Any]`
+
+**Description:** Perform connection pool health check.
 
 ---
 
@@ -13013,6 +23457,24 @@ Returns:
 ---
 
 ## I
+
+### identify_bottlenecks
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.PerformanceProfiler`
+
+**Signature:** `identify_bottlenecks(self, analyzer: MetricsAnalyzer) -> Dict[str, Any]`
+
+**Description:** Identify performance bottlenecks from analyzed metrics.
+
+Args:
+    analyzer: MetricsAnalyzer containing performance data
+    
+Returns:
+    Dict[str, Any]: Bottleneck analysis results with recommendations
+
+---
 
 ### import_data
 
@@ -13078,6 +23540,26 @@ Raises:
 **Signature:** `increment_cache_misses(self) -> None`
 
 **Description:** Increment cache miss count.
+
+---
+
+### increment_counter
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `increment_counter(self, name: str, value: Union[int, float] = 1, tags: Optional[Dict[str, str]] = None) -> PerformanceMetric`
+
+**Description:** Increment a named counter metric.
+
+Args:
+    name: Counter name identifier
+    value: Increment amount (default: 1)
+    tags: Optional metadata tags
+    
+Returns:
+    PerformanceMetric: Counter increment metric
 
 ---
 
@@ -13227,6 +23709,45 @@ Returns:
 
 ---
 
+### initialize
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `initialize(self) -> bool`
+
+**Description:** Initialize the plugin.
+
+This method is called after the plugin is loaded and all dependencies
+are resolved. Plugins should perform one-time setup here.
+
+Returns:
+    bool: True if initialization successful, False otherwise
+
+---
+
+### initialize_components
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `initialize_components(self, logging_config: Optional[Dict[str, Any]] = None, health_config: Optional[Dict[str, Any]] = None, performance_config: Optional[Dict[str, Any]] = None, error_config: Optional[Dict[str, Any]] = None) -> Dict[str, bool]`
+
+**Description:** Initialize all Foundation components with optional configurations.
+
+Args:
+    logging_config: Configuration for logging system
+    health_config: Configuration for health monitoring
+    performance_config: Configuration for performance metrics
+    error_config: Configuration for error handling
+    
+Returns:
+    Dictionary indicating initialization success for each component
+
+---
+
 ### inspect_object
 
 **Type:** Method
@@ -13294,6 +23815,30 @@ Returns:
 
 ---
 
+### is_active
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.User`
+
+**Signature:** `is_active(self) -> bool`
+
+**Description:** Check if user account is active.
+
+---
+
+### is_closed
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `is_closed(self) -> bool`
+
+**Description:** Check if circuit is closed (normal operation).
+
+---
+
 ### is_executing
 
 **Type:** Method
@@ -13351,6 +23896,69 @@ Returns:
 
 ---
 
+### is_half_open
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `is_half_open(self) -> bool`
+
+**Description:** Check if circuit is half-open (testing recovery).
+
+---
+
+### is_monitoring_enabled
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `is_monitoring_enabled(self) -> bool`
+
+**Description:** Check if health monitoring is enabled.
+
+---
+
+### is_numeric
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthMetric`
+
+**Signature:** `is_numeric(self) -> bool`
+
+**Description:** Check if metric value is numeric for threshold comparisons.
+
+---
+
+### is_open
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `is_open(self) -> bool`
+
+**Description:** Check if circuit is open (failing fast).
+
+---
+
+### is_recovery_enabled
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorConfiguration`
+
+**Signature:** `is_recovery_enabled(self) -> bool`
+
+**Description:** Check if automatic error recovery is enabled.
+
+Returns:
+    True if recovery is enabled, False otherwise
+
+---
+
 ### is_running
 
 **Type:** Method
@@ -13363,6 +23971,30 @@ Returns:
 
 Returns:
     True if server process is active
+
+---
+
+### is_section_enabled
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.core.LoggingConfiguration`
+
+**Signature:** `is_section_enabled(self, section: str) -> bool`
+
+**Description:** Check if logging section is enabled.
+
+---
+
+### is_successful
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.deployment_engine.DeploymentResult`
+
+**Signature:** `is_successful(self) -> bool`
+
+**Description:** Check if deployment was successful.
 
 ---
 
@@ -13476,6 +24108,18 @@ Returns:
 
 ## L
 
+### limit_results
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `limit_results(self, limit: int, offset: int = 0) -> 'AnalyticsQuery'`
+
+**Description:** Limit number of results.
+
+---
+
 ### list_all
 
 **Type:** Method
@@ -13492,6 +24136,60 @@ Returns:
 Raises:
     ConnectionError: When unable to connect to server
     ServerError: When server returns error response
+
+---
+
+### list_available_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `list_available_metrics(self) -> List[Dict[str, Any]]`
+
+**Description:** List all available metrics with metadata.
+
+---
+
+### list_checkpoints
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointManager`
+
+**Signature:** `list_checkpoints(self) -> List[str]`
+
+**Description:** List available checkpoint IDs.
+
+---
+
+### list_commands
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandRegistry`
+
+**Signature:** `list_commands(self) -> List[str]`
+
+**Description:** List all registered command names.
+
+---
+
+### list_configurations
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `list_configurations(self, scope: Optional[ConfigurationScope] = None) -> Dict[str, List[str]]`
+
+**Description:** List loaded configurations by scope.
+
+Args:
+    scope: Optional scope filter
+    
+Returns:
+    Dict[str, List[str]]: Configuration names by scope
 
 ---
 
@@ -13513,6 +24211,54 @@ Raises:
 
 ---
 
+### list_entries
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginStorageBackend`
+
+**Signature:** `list_entries(self) -> List[PluginRegistryEntry]`
+
+**Description:** List all plugin registry entries.
+
+---
+
+### list_entries
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.MemoryStorageBackend`
+
+**Signature:** `list_entries(self) -> List[PluginRegistryEntry]`
+
+**Description:** List all plugin registry entries from memory.
+
+---
+
+### list_entries
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `list_entries(self) -> List[PluginRegistryEntry]`
+
+**Description:** List all plugin registry entries from file.
+
+---
+
+### list_entries
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `list_entries(self) -> List[PluginRegistryEntry]`
+
+**Description:** List all plugin registry entries from SQLite database.
+
+---
+
 ### list_files
 
 **Type:** Method
@@ -13522,6 +24268,64 @@ Raises:
 **Signature:** `list_files(self) -> list`
 
 **Description:** List all JSON files in storage directory.
+
+---
+
+### list_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.StorageBackend`
+
+**Signature:** `list_metrics(self) -> List[str]`
+
+**Description:** List all available metric names.
+
+---
+
+### list_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `list_metrics(self) -> List[str]`
+
+**Description:** List all available metric names.
+
+---
+
+### list_plugins
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `list_plugins(self) -> Dict[str, Dict[str, Any]]`
+
+**Description:** List all loaded plugins with their status.
+
+Returns:
+    Dict[str, Dict[str, Any]]: Plugin information dictionary
+
+---
+
+### list_plugins
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `list_plugins(self, filter_validated: bool = False, filter_capabilities: Optional[List[str]] = None) -> List[PluginRegistryEntry]`
+
+**Description:** List registered plugins with optional filtering.
+
+Args:
+    filter_validated: Only return validated plugins
+    filter_capabilities: Filter by required capabilities
+    
+Returns:
+    List[PluginRegistryEntry]: List of plugin entries
 
 ---
 
@@ -13540,6 +24344,18 @@ Args:
     
 Returns:
     List[str]: List of found recipe file paths
+
+---
+
+### list_registered_checks
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.CustomHealthChecker`
+
+**Signature:** `list_registered_checks(self) -> List[str]`
+
+**Description:** Get list of registered custom health check names.
 
 ---
 
@@ -13585,6 +24401,78 @@ Returns:
 
 Returns:
     Dict[str, int]: Dictionary of tag to count of snapshots
+
+---
+
+### list_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `list_templates(self, category: Optional[TemplateCategory] = None) -> List[TemplateConfig]`
+
+**Description:** List available templates.
+
+---
+
+### list_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateLoader`
+
+**Signature:** `list_templates(self) -> List[str]`
+
+**Description:** List all available templates.
+
+---
+
+### list_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.FileSystemTemplateLoader`
+
+**Signature:** `list_templates(self) -> List[str]`
+
+**Description:** List all template files.
+
+---
+
+### list_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.InMemoryTemplateLoader`
+
+**Signature:** `list_templates(self) -> List[str]`
+
+**Description:** List all templates in memory.
+
+---
+
+### list_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `list_templates(self) -> List[str]`
+
+**Description:** List all available templates.
+
+---
+
+### list_templates
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `list_templates(self, engine_name: str = 'filesystem') -> List[str]`
+
+**Description:** List templates in engine.
 
 ---
 
@@ -13690,6 +24578,63 @@ Raises:
 
 ---
 
+### load_checkpoint
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointManager`
+
+**Signature:** `load_checkpoint(self, checkpoint_id: str) -> Optional[CheckpointData]`
+
+**Description:** Load checkpoint from storage.
+
+Args:
+    checkpoint_id: Checkpoint ID to load
+
+Returns:
+    CheckpointData if found, None otherwise
+
+---
+
+### load_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `load_configuration(self, config_path: Path, format_hint: Optional[ConfigurationFormat] = None) -> Dict[str, Any]`
+
+**Description:** Load configuration from file.
+
+Args:
+    config_path: Path to configuration file
+    format_hint: Optional format hint
+    
+Returns:
+    Dict[str, Any]: Loaded configuration data
+
+---
+
+### load_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `load_configuration(self, config_name: str, scope: ConfigurationScope = ConfigurationScope.GLOBAL, environment_specific: bool = True) -> Dict[str, Any]`
+
+**Description:** Load configuration with scope and environment support.
+
+Args:
+    config_name: Configuration name
+    scope: Configuration scope
+    environment_specific: Whether to load environment-specific config
+    
+Returns:
+    Dict[str, Any]: Loaded configuration data
+
+---
+
 ### load_configuration
 
 **Type:** Method
@@ -13731,6 +24676,54 @@ Raises:
 **Signature:** `load_context(self, filename: str = 'context.json') -> Dict[str, Any]`
 
 **Description:** Load context data from file.
+
+---
+
+### load_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginStorageBackend`
+
+**Signature:** `load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]`
+
+**Description:** Load plugin registry entry by ID.
+
+---
+
+### load_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.MemoryStorageBackend`
+
+**Signature:** `load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]`
+
+**Description:** Load plugin registry entry from memory.
+
+---
+
+### load_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]`
+
+**Description:** Load plugin registry entry from file.
+
+---
+
+### load_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]`
+
+**Description:** Load plugin registry entry from SQLite database.
 
 ---
 
@@ -13803,6 +24796,79 @@ Returns:
 
 ---
 
+### load_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `load_plugin(self, plugin_source: Union[str, Path]) -> PluginLoadResult`
+
+**Description:** Load plugin from file or module.
+
+Args:
+    plugin_source: Plugin file path or module name
+    
+Returns:
+    PluginLoadResult: Load operation result
+
+---
+
+### load_plugin_from_file
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginLoader`
+
+**Signature:** `load_plugin_from_file(self, plugin_path: Path) -> PluginLoadResult`
+
+**Description:** Load plugin from Python file.
+
+Args:
+    plugin_path: Path to plugin Python file
+    
+Returns:
+    PluginLoadResult: Loading operation result
+
+---
+
+### load_plugin_from_module
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginLoader`
+
+**Signature:** `load_plugin_from_module(self, module_name: str) -> PluginLoadResult`
+
+**Description:** Load plugin from installed Python module.
+
+Args:
+    module_name: Name of Python module containing plugin
+    
+Returns:
+    PluginLoadResult: Loading operation result
+
+---
+
+### load_processing_function
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `load_processing_function(self, function_name: str, module_name: str) -> Callable`
+
+**Description:** Load processing function from module.
+
+Args:
+    function_name: Name of the processing function
+    module_name: Name of the module containing the function
+
+Returns:
+    Processing function
+
+---
+
 ### load_restructuring_plan
 
 **Type:** Method
@@ -13815,6 +24881,54 @@ Returns:
 
 Returns:
     Optional[Dict[str, Any]]: Restructuring plan data or None if not found
+
+---
+
+### load_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateLoader`
+
+**Signature:** `load_template(self, name: str) -> str`
+
+**Description:** Load template source by name.
+
+---
+
+### load_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.FileSystemTemplateLoader`
+
+**Signature:** `load_template(self, name: str) -> str`
+
+**Description:** Load template from filesystem.
+
+---
+
+### load_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.InMemoryTemplateLoader`
+
+**Signature:** `load_template(self, name: str) -> str`
+
+**Description:** Load template from memory.
+
+---
+
+### load_templates_from_storage
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `load_templates_from_storage(self) -> int`
+
+**Description:** Load templates from file storage.
 
 ---
 
@@ -13833,6 +24947,35 @@ Args:
     key: Context key being operated on
     before: Previous value (for set operations)
     after: New value (for set operations)
+
+---
+
+### log_event
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `log_event(self, event_type: AuditEventType, user_id: str = None, resource: str = None, action: str = None, result: str = 'success', message: str = '', metadata: Dict[str, Any] = None, security_level: SecurityLevel = SecurityLevel.INTERNAL, session_id: str = None, ip_address: str = None, exercise: str = None, environment: str = None) -> str`
+
+**Description:** Log security audit event with comprehensive context.
+
+Args:
+    event_type: Type of audit event
+    user_id: User who triggered the event
+    resource: Resource affected by the event
+    action: Action performed
+    result: Result of the action (success/failure)
+    message: Human-readable event description
+    metadata: Additional event metadata
+    security_level: Security classification level
+    session_id: User session identifier
+    ip_address: Source IP address
+    exercise: Related Framework0 exercise
+    environment: Target environment
+    
+Returns:
+    Event ID of the logged event
 
 ---
 
@@ -13872,7 +25015,42 @@ Args:
 
 ---
 
+### logout_session
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `logout_session(self, session_id: str) -> bool`
+
+**Description:** Terminate user session.
+
+---
+
 ## M
+
+### make_request
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.APIClient`
+
+**Signature:** `make_request(self, method: str, endpoint: str, headers: Optional[Dict[str, str]] = None, params: Optional[Dict[str, Any]] = None, data: Optional[Union[Dict, str]] = None, timeout_config: Optional[Dict[str, float]] = None) -> requests.Response`
+
+**Description:** Make HTTP request with comprehensive error handling.
+
+Args:
+    method: HTTP method
+    endpoint: API endpoint
+    headers: Additional headers
+    params: Query parameters
+    data: Request body data
+    timeout_config: Timeout configuration
+    
+Returns:
+    HTTP response object
+
+---
 
 ### manage_configuration
 
@@ -13938,6 +25116,95 @@ Returns:
 
 ---
 
+### matches
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.QueryFilter`
+
+**Signature:** `matches(self, data_value: Any) -> bool`
+
+**Description:** Check if data value matches this filter.
+
+---
+
+### matches
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorPattern`
+
+**Signature:** `matches(self, text: str) -> bool`
+
+**Description:** Check if pattern matches the given text.
+
+Args:
+    text: Text to check for pattern match
+    
+Returns:
+    True if pattern matches, False otherwise
+
+---
+
+### measure_http_request
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.NetworkMetricsCollector`
+
+**Signature:** `measure_http_request(self, url: str, timeout: float = 10.0) -> Optional[PerformanceMetric]`
+
+**Description:** Measure HTTP request performance.
+
+Args:
+    url: Target URL for HTTP request
+    timeout: Request timeout in seconds
+    
+Returns:
+    Optional[PerformanceMetric]: HTTP timing metric or None if request failed
+
+---
+
+### measure_tcp_latency
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.NetworkMetricsCollector`
+
+**Signature:** `measure_tcp_latency(self, host: str, port: int, timeout: float = 5.0) -> Optional[PerformanceMetric]`
+
+**Description:** Measure TCP connection latency to a host and port.
+
+Args:
+    host: Target hostname or IP address
+    port: Target port number
+    timeout: Connection timeout in seconds
+    
+Returns:
+    Optional[PerformanceMetric]: Latency metric or None if connection failed
+
+---
+
+### measure_throughput
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.NetworkMetricsCollector`
+
+**Signature:** `measure_throughput(self, data_bytes: int, duration_seconds: float, operation: str = 'data_transfer') -> PerformanceMetric`
+
+**Description:** Calculate and record throughput metric.
+
+Args:
+    data_bytes: Number of bytes transferred
+    duration_seconds: Transfer duration in seconds
+    operation: Description of the operation
+    
+Returns:
+    PerformanceMetric: Throughput metric in bytes per second
+
+---
+
 ### merge_deltas
 
 **Type:** Method
@@ -13979,6 +25246,60 @@ Raises:
 
 ---
 
+### monitor
+
+**Type:** Method
+
+**Location:** `scriptlets.performance_metrics.PerformanceMetricsScriptlet`
+
+**Signature:** `monitor(self) -> PerformanceMonitor`
+
+**Description:** Get or create the performance monitor instance.
+
+Returns:
+    PerformanceMonitor: Configured monitor instance
+
+---
+
+### monitor
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `monitor(self, duration: int = 600, interval: int = 10, enable_dashboard: bool = False) -> Dict[str, Any]`
+
+**Description:** Start comprehensive Foundation monitoring.
+
+Args:
+    duration: Monitoring duration in seconds (0 for continuous)
+    interval: Monitoring check interval in seconds
+    enable_dashboard: Whether to enable real-time dashboard
+    
+Returns:
+    Dictionary with monitoring results and statistics
+
+---
+
+### monitor
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `monitor(self, duration: int = 300, interval: int = 5) -> Dict[str, Any]`
+
+**Description:** Monitor system for errors and handle them automatically.
+
+Args:
+    duration: Monitoring duration in seconds
+    interval: Check interval in seconds
+    
+Returns:
+    Dictionary with monitoring results and statistics
+
+---
+
 ### monitor_system
 
 **Type:** Method
@@ -13995,6 +25316,39 @@ Args:
 
 Returns:
     PluginExecutionResult containing monitoring data and outcome
+
+---
+
+### monitoring_session
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `monitoring_session(self, duration: int = 0, interval: int = 10)`
+
+**Description:** Context manager for monitoring sessions.
+
+---
+
+## N
+
+### notify_error
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorNotifier`
+
+**Signature:** `notify_error(self, error_context: ErrorContext, additional_context: Optional[Dict[str, Any]] = None) -> Dict[str, bool]`
+
+**Description:** Send error notification through appropriate channels.
+
+Args:
+    error_context: Error context to notify about
+    additional_context: Optional additional context information
+    
+Returns:
+    Dictionary mapping channel names to success status
 
 ---
 
@@ -14079,6 +25433,25 @@ Returns:
 
 ---
 
+### partition_data
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingManager`
+
+**Signature:** `partition_data(self, data_source: Any, partitioning_config: Dict[str, Any]) -> List[Any]`
+
+**Description:** Partition data for parallel processing.
+
+Args:
+    data_source: Data source to partition
+    partitioning_config: Partitioning configuration
+
+Returns:
+    List of data partitions
+
+---
+
 ### perform_cleanup
 
 **Type:** Method
@@ -14119,6 +25492,44 @@ Returns:
 **Signature:** `perform_health_check(self, context: PluginExecutionContext) -> PluginExecutionResult`
 
 **Description:** Perform health check operations.
+
+---
+
+### performance_timer
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.ApplicationMetricsCollector`
+
+**Signature:** `performance_timer(self, metric_name: Optional[str] = None, tags: Optional[Dict[str, str]] = None) -> Callable`
+
+**Description:** Decorator for automatic function timing measurement.
+
+Args:
+    metric_name: Optional custom metric name (uses function name if not provided)
+    tags: Optional metadata tags for the timing metric
+    
+Returns:
+    Callable: Decorated function with timing measurement
+
+---
+
+### performance_tracker
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.ApplicationMetricsCollector`
+
+**Signature:** `performance_tracker(self, metric_name: str, tags: Optional[Dict[str, str]] = None)`
+
+**Description:** Context manager for measuring code block execution time.
+
+Args:
+    metric_name: Name for the timing metric
+    tags: Optional metadata tags
+    
+Yields:
+    dict: Context object for adding additional metadata during execution
 
 ---
 
@@ -14248,6 +25659,43 @@ Returns:
 
 ---
 
+### process
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.Framework0LoggerAdapter`
+
+**Signature:** `process(self, msg: str, kwargs: Dict[str, Any]) -> tuple`
+
+**Description:** Process log message and add Framework0 context information.
+
+Args:
+    msg: Log message to process
+    kwargs: Additional logging arguments
+    
+Returns:
+    Tuple of (message, kwargs) with context information added
+
+---
+
+### process_analytics_data
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.AnalyticsPlugin`
+
+**Signature:** `process_analytics_data(self, analytics_data: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Process analytics data from Framework0.
+
+Args:
+    analytics_data: Analytics data to process
+    
+Returns:
+    Dict[str, Any]: Processed analytics results
+
+---
+
 ### process_data
 
 **Type:** Method
@@ -14280,6 +25728,43 @@ Returns:
 
 ---
 
+### process_health_results
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_reporters.HealthReporter`
+
+**Signature:** `process_health_results(self, results: List[HealthCheckResult], thresholds: Optional[Dict[str, HealthThreshold]] = None) -> Dict[str, Any]`
+
+**Description:** Process health check results for analysis and alerting.
+
+Args:
+    results: List of HealthCheckResult objects to process
+    thresholds: Optional threshold configurations for alerting
+    
+Returns:
+    Dictionary containing processing summary and alerts
+
+---
+
+### profile_dataset
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.DataProfiler`
+
+**Signature:** `profile_dataset(self, data: Union[List[Dict], pd.DataFrame]) -> Dict[str, Any]`
+
+**Description:** Generate comprehensive data profile.
+
+Args:
+    data: Dataset to profile
+    
+Returns:
+    Dictionary with profiling results
+
+---
+
 ### publish
 
 **Type:** Method
@@ -14295,6 +25780,95 @@ Args:
     
 Returns:
     True if successful, False otherwise
+
+---
+
+### publish
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `publish(self, event: Event) -> Union[List[Any], Future]`
+
+**Description:** Publish event with automatic sync/async detection.
+
+Args:
+    event: Event to publish
+    
+Returns:
+    Union[List[Any], Future]: Results or future for async context
+
+---
+
+### publish_event
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `publish_event(self, event: IntegrationEvent) -> None`
+
+**Description:** Publish integration event to all registered handlers.
+
+Args:
+    event: Integration event to publish
+
+---
+
+### publish_sync
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `publish_sync(self, event: Event) -> List[Any]`
+
+**Description:** Publish event synchronously.
+
+Args:
+    event: Event to publish
+    
+Returns:
+    List[Any]: Results from all handlers
+
+---
+
+### push_container
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.ContainerDeploymentEngine`
+
+**Signature:** `push_container(self, container_name: str, registry_config: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Push container to registry for distribution.
+
+Args:
+    container_name: Name of container to push
+    registry_config: Registry configuration (URL, credentials, etc.)
+    
+Returns:
+    Dict[str, Any]: Push result with registry URL and metadata
+
+---
+
+### push_container
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.RegistryManager`
+
+**Signature:** `push_container(self, container_name: str, registry_config: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Push container to configured registry.
+
+Args:
+    container_name: Container name to push
+    registry_config: Registry configuration
+    
+Returns:
+    Dict[str, Any]: Push result with registry URL
 
 ---
 
@@ -14335,6 +25909,20 @@ Returns True if accepted / successful, False otherwise.
 
 ---
 
+## Q
+
+### query_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `query_metrics(self, query: AnalyticsQuery) -> QueryResult`
+
+**Description:** Execute analytics query.
+
+---
+
 ## R
 
 ### rebaseline
@@ -14358,6 +25946,185 @@ Returns True if accepted / successful, False otherwise.
 **Signature:** `receive_messages(self) -> List[Any]`
 
 **Description:** Receive messages from other analyzers.
+
+---
+
+### record_attempt
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.RecoveryAction`
+
+**Signature:** `record_attempt(self, success: bool, error: Optional[str] = None) -> None`
+
+**Description:** Record an execution attempt for this recovery action.
+
+Args:
+    success: Whether the attempt was successful
+    error: Error message if attempt failed
+
+---
+
+### record_business_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `record_business_metric(self, name: str, value: Union[int, float], unit: MetricUnit = MetricUnit.COUNT, tags: Optional[Dict[str, str]] = None, context: Optional[Dict[str, Any]] = None) -> PerformanceMetric`
+
+**Description:** Record a custom business or domain-specific metric.
+
+Args:
+    name: Business metric name
+    value: Metric measurement value
+    unit: Measurement unit (default: COUNT)
+    tags: Optional metadata tags
+    context: Optional additional context data
+    
+Returns:
+    PerformanceMetric: Business metric
+
+---
+
+### record_custom_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.ApplicationMetricsCollector`
+
+**Signature:** `record_custom_metric(self, metric: PerformanceMetric) -> None`
+
+**Description:** Record a custom application metric.
+
+Args:
+    metric: Custom performance metric to store
+
+---
+
+### record_error
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `record_error(self, execution_id: str, error_info: Dict[str, Any]) -> None`
+
+**Description:** Record an error during recipe execution.
+
+---
+
+### record_histogram_value
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `record_histogram_value(self, name: str, value: Union[int, float], tags: Optional[Dict[str, str]] = None) -> PerformanceMetric`
+
+**Description:** Record a value for histogram distribution analysis.
+
+Args:
+    name: Histogram name identifier
+    value: Value to add to histogram
+    tags: Optional metadata tags
+    
+Returns:
+    PerformanceMetric: Histogram sample metric
+
+---
+
+### record_metric_point
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsDataManager`
+
+**Signature:** `record_metric_point(self, metric_name: str, timestamp: datetime, value: Union[int, float, bool, str], tags: Optional[Dict[str, str]] = None) -> None`
+
+**Description:** Record a new metric point.
+
+---
+
+### record_operation
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `record_operation(self, service_name: str, success: bool, response_time: float, timestamp: Optional[datetime] = None) -> None`
+
+**Description:** Record operation for SLA tracking.
+
+Args:
+    service_name: Name of service
+    success: Whether operation was successful
+    response_time: Response time in seconds
+    timestamp: Optional timestamp (defaults to now)
+
+---
+
+### record_resource_usage
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `record_resource_usage(self, execution_id: str, memory_usage: float, cpu_usage: float, io_ops: int = 0, network_requests: int = 0) -> None`
+
+**Description:** Record resource usage during execution.
+
+---
+
+### record_step_execution
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `record_step_execution(self, execution_id: str, step_name: str, duration: float, success: bool, dependencies: Optional[List[str]] = None) -> None`
+
+**Description:** Record completion of a recipe step.
+
+---
+
+### recover
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `recover(self, error_id: Optional[str] = None) -> Dict[str, Any]`
+
+**Description:** Execute recovery procedures for specific error or general system recovery.
+
+Args:
+    error_id: Optional specific error ID to recover from
+    **kwargs: Additional recovery parameters
+    
+Returns:
+    Dictionary with recovery results and actions taken
+
+---
+
+### recover_from_error
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RecoveryOrchestrator`
+
+**Signature:** `recover_from_error(self, error_context: ErrorContext, recovery_operation: Callable) -> Dict[str, Any]`
+
+**Description:** Execute comprehensive recovery for an error.
+
+Args:
+    error_context: Error context containing error information
+    recovery_operation: Operation to execute for recovery
+    *args: Arguments for recovery operation
+    **kwargs: Keyword arguments for recovery operation
+    
+Returns:
+    Dictionary containing recovery result and metadata
 
 ---
 
@@ -14403,6 +26170,129 @@ Raises:
 
 ---
 
+### register_callback
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `register_callback(self, callback: Callable[[str, RecipeExecutionMetrics], None]) -> None`
+
+**Description:** Register callback for real-time execution updates.
+
+---
+
+### register_check
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.CustomHealthChecker`
+
+**Signature:** `register_check(self, name: str, check_func: Callable[[], Tuple[HealthStatus, str]]) -> None`
+
+**Description:** Register a custom health check function.
+
+Args:
+    name: Unique name for the health check
+    check_func: Function returning (HealthStatus, message) tuple
+
+---
+
+### register_command
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandRegistry`
+
+**Signature:** `register_command(self, command: CLICommand) -> None`
+
+**Description:** Register a CLI command.
+
+---
+
+### register_default_commands
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.FrameworkCLI`
+
+**Signature:** `register_default_commands(self) -> None`
+
+**Description:** Register default CLI commands.
+
+---
+
+### register_environment
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.environment_rollback.EnvironmentController`
+
+**Signature:** `register_environment(self, config: EnvironmentConfig) -> None`
+
+**Description:** Register a new environment for deployment management.
+
+Args:
+    config: Environment configuration to register
+
+---
+
+### register_event_handler
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.FoundationIntegrationBridge`
+
+**Signature:** `register_event_handler(self, event_type: IntegrationEventType, handler: Callable[[IntegrationEvent], None]) -> None`
+
+**Description:** Register event handler for specific integration event type.
+
+Args:
+    event_type: Type of integration event to handle
+    handler: Handler function that accepts IntegrationEvent
+
+---
+
+### register_handler
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `register_handler(self, handler: EventHandler, event_types: Union[EventType, List[EventType]], priority: EventPriority = EventPriority.NORMAL, filters: Optional[List[EventFilter]] = None, max_concurrent: int = 1, timeout_seconds: Optional[float] = None, retry_on_failure: bool = True) -> str`
+
+**Description:** Register event handler with comprehensive configuration.
+
+Args:
+    handler: Event handler function (sync or async)
+    event_types: Event types to handle
+    priority: Handler priority level
+    filters: Optional event filters
+    max_concurrent: Maximum concurrent handler executions
+    timeout_seconds: Handler execution timeout
+    retry_on_failure: Whether to retry on failure
+    
+Returns:
+    str: Handler registration ID
+
+---
+
+### register_handler
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `register_handler(self, name: str, handler: Callable) -> None`
+
+**Description:** Register error handler for routing.
+
+Args:
+    name: Handler name for routing rules
+    handler: Callable handler function
+
+---
+
 ### register_plugin
 
 **Type:** Method
@@ -14432,6 +26322,80 @@ Args:
 
 Returns:
     True if registration successful, False otherwise
+
+---
+
+### register_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `register_plugin(self, plugin: Framework0Plugin, source: str = 'manual') -> PluginRegistryEntry`
+
+**Description:** Register plugin in registry.
+
+Args:
+    plugin: Plugin instance to register
+    source: Registration source identifier
+    
+Returns:
+    PluginRegistryEntry: Created registry entry
+
+---
+
+### register_plugin_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `register_plugin_configuration(self, plugin_name: str, plugin_config: Dict[str, Any]) -> None`
+
+**Description:** Register plugin-specific configuration.
+
+Args:
+    plugin_name: Plugin identifier
+    plugin_config: Plugin configuration data
+
+---
+
+### register_schema
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `register_schema(self, schema: ConfigurationSchema) -> None`
+
+**Description:** Register configuration schema.
+
+Args:
+    schema: Configuration schema to register
+
+---
+
+### register_validator
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `register_validator(self, name: str, validator: Callable) -> None`
+
+**Description:** Register a custom validation function.
+
+---
+
+### remove_alert
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AlertSystem`
+
+**Signature:** `remove_alert(self, alert_id: str) -> bool`
+
+**Description:** Remove an alert.
 
 ---
 
@@ -14465,6 +26429,24 @@ Returns:
 
 ---
 
+### remove_global_filter
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `remove_global_filter(self, event_filter: EventFilter) -> bool`
+
+**Description:** Remove global event filter.
+
+Args:
+    event_filter: Filter function to remove
+    
+Returns:
+    bool: True if filter was found and removed
+
+---
+
 ### remove_hook
 
 **Type:** Method
@@ -14492,6 +26474,30 @@ Args:
 
 ---
 
+### remove_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.InMemoryTemplateLoader`
+
+**Signature:** `remove_template(self, name: str) -> bool`
+
+**Description:** Remove template from memory.
+
+---
+
+### render_chart
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartRenderer`
+
+**Signature:** `render_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]`
+
+**Description:** Render chart based on configuration and data.
+
+---
+
 ### render_graph
 
 **Type:** Method
@@ -14510,6 +26516,47 @@ Args:
     
 Returns:
     str: Path to rendered output file
+
+---
+
+### render_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `render_template(self, name: str, context: Optional[TemplateContext] = None) -> str`
+
+**Description:** Render template with context.
+
+Args:
+    name: Template name
+    context: Template context with variables
+    **kwargs: Additional template variables
+    
+Returns:
+    str: Rendered template content
+
+---
+
+### render_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `render_template(self, template_name: str, context: Optional[TemplateContext] = None, engine_name: str = 'filesystem') -> str`
+
+**Description:** Render template with context.
+
+Args:
+    template_name: Name of template to render
+    context: Template context
+    engine_name: Template engine to use
+    **kwargs: Additional template variables
+    
+Returns:
+    str: Rendered template content
 
 ---
 
@@ -14537,6 +26584,30 @@ Returns:
 
 ---
 
+### reset_alert
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.Alert`
+
+**Signature:** `reset_alert(self) -> None`
+
+**Description:** Reset the alert state.
+
+---
+
+### reset_counters
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `reset_counters(self) -> None`
+
+**Description:** Reset all counter values to zero.
+
+---
+
 ### resolve_dependencies
 
 **Type:** Method
@@ -14555,6 +26626,39 @@ Returns:
 
 Raises:
     ValueError: If circular dependencies are detected
+
+---
+
+### resolve_dependencies
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginDependencyGraph`
+
+**Signature:** `resolve_dependencies(self) -> List[str]`
+
+**Description:** Resolve plugin dependencies using topological sort.
+
+Returns:
+    List[str]: Plugin IDs in dependency-resolved order
+
+---
+
+### resolve_dependencies
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `resolve_dependencies(self, plugin_ids: List[str]) -> List[str]`
+
+**Description:** Resolve plugin dependencies and return loading order.
+
+Args:
+    plugin_ids: List of plugin IDs to resolve
+    
+Returns:
+    List[str]: Plugin IDs in dependency-resolved order
 
 ---
 
@@ -14688,6 +26792,42 @@ Raises:
 
 ---
 
+### retrieve_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.StorageBackend`
+
+**Signature:** `retrieve_metric(self, metric_name: str) -> Optional[TimeSeriesMetric]`
+
+**Description:** Retrieve a time-series metric by name.
+
+---
+
+### retrieve_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `retrieve_metric(self, metric_name: str) -> Optional[TimeSeriesMetric]`
+
+**Description:** Retrieve a time-series metric by name.
+
+---
+
+### revoke_role_from_user
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthorizationEngine`
+
+**Signature:** `revoke_role_from_user(self, user: User, role_name: str) -> bool`
+
+**Description:** Revoke role from user and update permissions.
+
+---
+
 ### rollback
 
 **Type:** Method
@@ -14701,6 +26841,36 @@ Raises:
 Args:
     version_id: The version ID to rollback to
     context: The Context object to update
+
+---
+
+### rotate_key
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.EncryptionService`
+
+**Signature:** `rotate_key(self, key_name: str) -> str`
+
+**Description:** Rotate encryption key and maintain history.
+
+---
+
+### route_error
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `route_error(self, error_context: ErrorContext) -> Optional[str]`
+
+**Description:** Route error to appropriate handler.
+
+Args:
+    error_context: Error context to route
+    
+Returns:
+    Name of handler that processed the error, or None if no handler
 
 ---
 
@@ -14793,6 +26963,97 @@ Raises:
 
 ---
 
+### run
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.FrameworkCLI`
+
+**Signature:** `run(self, argv: Optional[List[str]] = None) -> int`
+
+**Description:** Run CLI application.
+
+---
+
+### run
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.LoggingFrameworkScriptlet`
+
+**Signature:** `run(self, context, args) -> int`
+
+**Description:** Execute logging framework setup and management.
+
+Args:
+    context: Framework0 context for state management 
+    args: Configuration arguments for logging setup
+    **kwargs: Additional keyword arguments
+    
+Returns:
+    int: 0 for success, 1 for failure (Framework0 standard)
+
+---
+
+### run
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging_framework.BaseScriptlet`
+
+**Signature:** `run(self)`
+
+**Description:** Run method must be implemented by subclasses.
+
+---
+
+### run
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.HealthMonitoringScriptlet`
+
+**Signature:** `run(self, context, args) -> int`
+
+**Description:** Execute health monitoring setup and management.
+
+Args:
+    context: Framework0 context for state management
+    args: Configuration arguments for health monitoring setup
+    **kwargs: Additional keyword arguments
+    
+Returns:
+    int: 0 for success, 1 for failure (Framework0 standard)
+
+---
+
+### run
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health_monitoring.BaseScriptlet`
+
+**Signature:** `run(self)`
+
+**Description:** Run method must be implemented by subclasses.
+
+---
+
+### run_all_custom_checks
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.CustomHealthChecker`
+
+**Signature:** `run_all_custom_checks(self) -> List[HealthCheckResult]`
+
+**Description:** Execute all registered custom health checks.
+
+Returns:
+    List of HealthCheckResult objects for all custom checks
+
+---
+
 ### run_all_examples
 
 **Type:** Method
@@ -14838,6 +27099,24 @@ Raises:
 **Signature:** `run_cleanup(self) -> Dict[str, any]`
 
 **Description:** Execute complete workspace cleanup process.
+
+---
+
+### run_custom_check
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.CustomHealthChecker`
+
+**Signature:** `run_custom_check(self, name: str) -> HealthCheckResult`
+
+**Description:** Execute a specific registered custom health check.
+
+Args:
+    name: Name of the custom check to execute
+    
+Returns:
+    HealthCheckResult with custom check outcome
 
 ---
 
@@ -15018,6 +27297,59 @@ Returns:
 
 ---
 
+### save_checkpoint
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointManager`
+
+**Signature:** `save_checkpoint(self, checkpoint_data: CheckpointData) -> bool`
+
+**Description:** Save checkpoint to storage.
+
+Args:
+    checkpoint_data: Checkpoint data to save
+
+Returns:
+    True if successful, False otherwise
+
+---
+
+### save_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationLoader`
+
+**Signature:** `save_configuration(self, config_data: Dict[str, Any], config_path: Path, format_type: ConfigurationFormat = ConfigurationFormat.JSON) -> None`
+
+**Description:** Save configuration to file.
+
+Args:
+    config_data: Configuration data to save
+    config_path: Path to save configuration
+    format_type: Configuration format
+
+---
+
+### save_configuration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `save_configuration(self, config_name: str, config_data: Dict[str, Any], scope: ConfigurationScope = ConfigurationScope.GLOBAL, environment_specific: bool = False) -> None`
+
+**Description:** Save configuration with scope support.
+
+Args:
+    config_name: Configuration name
+    config_data: Configuration data to save
+    scope: Configuration scope
+    environment_specific: Whether to save as environment-specific
+
+---
+
 ### save_configuration
 
 **Type:** Method
@@ -15079,6 +27411,54 @@ Returns:
 
 ---
 
+### save_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginStorageBackend`
+
+**Signature:** `save_entry(self, entry: PluginRegistryEntry) -> bool`
+
+**Description:** Save plugin registry entry.
+
+---
+
+### save_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.MemoryStorageBackend`
+
+**Signature:** `save_entry(self, entry: PluginRegistryEntry) -> bool`
+
+**Description:** Save plugin registry entry to memory.
+
+---
+
+### save_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.FileStorageBackend`
+
+**Signature:** `save_entry(self, entry: PluginRegistryEntry) -> bool`
+
+**Description:** Save plugin registry entry to file.
+
+---
+
+### save_entry
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.SQLiteStorageBackend`
+
+**Signature:** `save_entry(self, entry: PluginRegistryEntry) -> bool`
+
+**Description:** Save plugin registry entry to SQLite database.
+
+---
+
 ### save_restructuring_plan
 
 **Type:** Method
@@ -15097,6 +27477,30 @@ Returns:
 
 ---
 
+### save_template
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateManager`
+
+**Signature:** `save_template(self, template: AnalyticsTemplate, overwrite: bool = False) -> None`
+
+**Description:** Save template to storage.
+
+---
+
+### save_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.FileSystemTemplateLoader`
+
+**Signature:** `save_template(self, name: str, content: str) -> Path`
+
+**Description:** Save template to first template directory.
+
+---
+
 ### save_updated_documentation
 
 **Type:** Method
@@ -15109,6 +27513,39 @@ Returns:
 
 Returns:
     Dict[str, str]: Map of updated files to their new content
+
+---
+
+### scan_container
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.container_deployment_engine.SecurityScanner`
+
+**Signature:** `scan_container(self, container_id: str) -> Dict[str, Any]`
+
+**Description:** Perform security scan on container.
+
+Args:
+    container_id: Container ID to scan
+    
+Returns:
+    Dict[str, Any]: Security scan results
+
+---
+
+### scan_entire_workspace
+
+**Type:** Method
+
+**Location:** `tools.comprehensive_workspace_scanner.ComprehensiveWorkspaceScanner`
+
+**Signature:** `scan_entire_workspace(self) -> WorkspaceAnalysis`
+
+**Description:** Perform comprehensive scan of entire workspace for documentation generation.
+
+Returns:
+    WorkspaceAnalysis: Complete workspace analysis with all file details
 
 ---
 
@@ -15156,6 +27593,65 @@ Args:
 
 Returns:
     PluginExecutionResult containing scheduling outcome
+
+---
+
+### search_events
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditTrailSystem`
+
+**Signature:** `search_events(self, event_types: List[AuditEventType] = None, user_id: str = None, resource: str = None, start_time: datetime = None, end_time: datetime = None, security_level: SecurityLevel = None, exercise: str = None, limit: int = 100) -> List[AuditEvent]`
+
+**Description:** Search audit events with various filters.
+
+Args:
+    event_types: Filter by event types
+    user_id: Filter by user ID
+    resource: Filter by resource
+    start_time: Filter by start time
+    end_time: Filter by end time
+    security_level: Filter by security level
+    exercise: Filter by Framework0 exercise
+    limit: Maximum results to return
+    
+Returns:
+    List of matching audit events
+
+---
+
+### search_logs
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.LogAggregator`
+
+**Signature:** `search_logs(self, query: str, level: Optional[str] = None, source: Optional[str] = None, trace_id: Optional[str] = None, limit: int = 100) -> List[Dict[str, Any]]`
+
+**Description:** Search logs using various criteria.
+
+Args:
+    query: Text search query
+    level: Filter by log level
+    source: Filter by source component
+    trace_id: Filter by trace ID
+    limit: Maximum results to return
+    
+Returns:
+    List of matching log entries
+
+---
+
+### select_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `select_metrics(self) -> 'AnalyticsQuery'`
+
+**Description:** Select specific metrics to query.
 
 ---
 
@@ -15447,6 +27943,24 @@ Raises:
 
 ---
 
+### set_configuration_value
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationManager`
+
+**Signature:** `set_configuration_value(self, config_name: str, key_path: str, value: Any, scope: ConfigurationScope = ConfigurationScope.GLOBAL) -> None`
+
+**Description:** Set specific configuration value using dot notation.
+
+Args:
+    config_name: Configuration name
+    key_path: Dot-notation path to setting
+    value: Value to set
+    scope: Configuration scope
+
+---
+
 ### set_correlation_id
 
 **Type:** Method
@@ -15456,6 +27970,28 @@ Raises:
 **Signature:** `set_correlation_id(self, correlation_id: str) -> None`
 
 **Description:** Set correlation ID for request tracking.
+
+---
+
+### set_correlation_id
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.Event`
+
+**Signature:** `set_correlation_id(self, correlation_id: str) -> 'Event'`
+
+**Description:** Set correlation ID for event tracking.
+
+---
+
+### set_data
+
+**Type:** Method
+
+**Location:** `scriptlets.performance_metrics.ContextManager`
+
+**Signature:** `set_data(self, key, value)`
 
 ---
 
@@ -15471,6 +28007,21 @@ Raises:
 
 Args:
     level: Debug level (DEBUG, INFO, WARNING, ERROR)
+
+---
+
+### set_default_handler
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handlers.ErrorRouter`
+
+**Signature:** `set_default_handler(self, handler: Callable) -> None`
+
+**Description:** Set default handler for unrouted errors.
+
+Args:
+    handler: Default handler function
 
 ---
 
@@ -15498,6 +28049,137 @@ Args:
 
 ---
 
+### set_framework_integration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.Framework0Plugin`
+
+**Signature:** `set_framework_integration(self, analytics_manager = None, deployment_engine = None, isolation_framework = None, production_engine = None) -> None`
+
+**Description:** Set Framework0 integration components.
+
+This method is called by the plugin manager to provide access
+to Exercise 7-9 components for plugin integration.
+
+Args:
+    analytics_manager: Exercise 7 Analytics manager
+    deployment_engine: Exercise 8 Deployment engine  
+    isolation_framework: Exercise 8 Isolation framework
+    production_engine: Exercise 9 Production engine
+
+---
+
+### set_framework_integration
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginManager`
+
+**Signature:** `set_framework_integration(self, analytics_manager = None, deployment_engine = None, isolation_framework = None, production_engine = None) -> None`
+
+**Description:** Set Framework0 integration components.
+
+Args:
+    analytics_manager: Exercise 7 Analytics manager
+    deployment_engine: Exercise 8 Deployment engine
+    isolation_framework: Exercise 8 Isolation framework  
+    production_engine: Exercise 9 Production engine
+
+---
+
+### set_gauge
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.CustomMetricsCollector`
+
+**Signature:** `set_gauge(self, name: str, value: Union[int, float], tags: Optional[Dict[str, str]] = None) -> PerformanceMetric`
+
+**Description:** Set a gauge metric to a specific value.
+
+Args:
+    name: Gauge name identifier
+    value: Current gauge value
+    tags: Optional metadata tags
+    
+Returns:
+    PerformanceMetric: Gauge value metric
+
+---
+
+### set_retention_policy
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.DataRetentionManager`
+
+**Signature:** `set_retention_policy(self, policy_name: str, retention_period: timedelta) -> None`
+
+**Description:** Set retention policy.
+
+---
+
+### set_retry_condition
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `set_retry_condition(self, condition: Callable[[Exception], bool]) -> None`
+
+**Description:** Set custom retry condition function.
+
+Args:
+    condition: Function that takes an exception and returns bool
+
+---
+
+### set_sla_target
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.ResilienceMetrics`
+
+**Signature:** `set_sla_target(self, service_name: str, metric: str, target: float) -> None`
+
+**Description:** Set SLA target for service metric.
+
+Args:
+    service_name: Name of service
+    metric: Metric name (availability, response_time, error_rate, throughput)
+    target: Target value for the metric
+
+---
+
+### set_threshold
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `set_threshold(self, threshold: HealthThreshold) -> None`
+
+**Description:** Set threshold configuration for a metric.
+
+---
+
+### set_timeout
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.resilience_patterns.TimeoutManager`
+
+**Signature:** `set_timeout(self, operation_name: str, timeout: float) -> None`
+
+**Description:** Set timeout for specific operation.
+
+Args:
+    operation_name: Name of operation
+    timeout: Timeout in seconds
+
+---
+
 ### set_user_context
 
 **Type:** Method
@@ -15507,6 +28189,54 @@ Args:
 **Signature:** `set_user_context(self, user_context: Dict[str, Any]) -> None`
 
 **Description:** Set user context for action tracking.
+
+---
+
+### set_variable
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateContext`
+
+**Signature:** `set_variable(self, name: str, value: Any) -> None`
+
+**Description:** Set template variable.
+
+---
+
+### setup
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `setup(self) -> Dict[str, Any]`
+
+**Description:** Setup and initialize all Foundation components.
+
+Args:
+    **kwargs: Additional setup parameters
+    
+Returns:
+    Dictionary with comprehensive setup results
+
+---
+
+### setup
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_handling.ErrorHandlingOrchestrator`
+
+**Signature:** `setup(self) -> Dict[str, Any]`
+
+**Description:** Setup and validate error handling system.
+
+Args:
+    **kwargs: Additional setup parameters
+    
+Returns:
+    Dictionary with setup results and system status
 
 ---
 
@@ -15534,6 +28264,174 @@ Args:
 
 ---
 
+### setup_main_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.FrameworkCLI`
+
+**Signature:** `setup_main_parser(self) -> argparse.ArgumentParser`
+
+**Description:** Setup main argument parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup argument parser for this command.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.StatusCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup status command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.HelpCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup help command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginListCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup plugin list command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginInstallCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup plugin install command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.PluginStatusCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup plugin status command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigGetCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup config get command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigSetCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup config set command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.ConfigListCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup config list command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.TemplateListCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup template list command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.TemplateRenderCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup template render command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.EventEmitCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup event emit command parser.
+
+---
+
+### setup_parser
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.EventHistoryCommand`
+
+**Signature:** `setup_parser(self, parser: argparse.ArgumentParser) -> None`
+
+**Description:** Setup event history command parser.
+
+---
+
 ### share_data
 
 **Type:** Method
@@ -15543,6 +28441,67 @@ Args:
 **Signature:** `share_data(self, data_key: str, data: Any) -> None`
 
 **Description:** Share data with other analyzers.
+
+---
+
+### should_checkpoint
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointManager`
+
+**Signature:** `should_checkpoint(self) -> bool`
+
+**Description:** Check if it's time to create a checkpoint.
+
+---
+
+### should_include_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricFilter`
+
+**Signature:** `should_include_metric(self, metric: PerformanceMetric) -> bool`
+
+**Description:** Determine if a metric passes this filter's criteria.
+
+Args:
+    metric: Performance metric to evaluate
+    
+Returns:
+    bool: True if metric should be included, False if filtered out
+
+---
+
+### should_retry
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.RetryStrategy`
+
+**Signature:** `should_retry(self, exception: Exception, attempt: int) -> bool`
+
+**Description:** Determine if operation should be retried.
+
+Args:
+    exception: Exception that occurred
+    attempt: Current attempt number
+    
+Returns:
+    True if should retry, False otherwise
+
+---
+
+### should_throttle
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `should_throttle(self) -> bool`
+
+**Description:** Check if processing should be throttled due to resource usage.
 
 ---
 
@@ -15642,6 +28601,18 @@ Args:
 
 ---
 
+### shutdown
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_orchestrator.FoundationOrchestrator`
+
+**Signature:** `shutdown(self) -> Dict[str, Any]`
+
+**Description:** Gracefully shutdown Foundation orchestrator.
+
+---
+
 ### size
 
 **Type:** Method
@@ -15706,6 +28677,66 @@ from the context to disk / persistent storage.
 
 ---
 
+### start_continuous_collection
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `start_continuous_collection(self) -> None`
+
+**Description:** Start continuous background collection of system metrics.
+
+---
+
+### start_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitor`
+
+**Signature:** `start_monitoring(self) -> None`
+
+**Description:** Start performance monitoring.
+
+---
+
+### start_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `start_monitoring(self) -> None`
+
+**Description:** Start real-time monitoring of recipe executions.
+
+---
+
+### start_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `start_monitoring(self) -> None`
+
+**Description:** Start real-time recipe execution monitoring.
+
+---
+
+### start_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `start_monitoring(self) -> None`
+
+**Description:** Start resource monitoring.
+
+---
+
 ### start_operation
 
 **Type:** Method
@@ -15737,6 +28768,18 @@ Returns:
 
 ---
 
+### start_recipe_execution
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `start_recipe_execution(self, recipe_name: str, execution_id: str, context: Optional[Dict[str, Any]] = None) -> RecipeExecutionMetrics`
+
+**Description:** Start monitoring a new recipe execution.
+
+---
+
 ### start_request
 
 **Type:** Method
@@ -15756,6 +28799,18 @@ Args:
 
 Returns:
     Correlation ID for the request
+
+---
+
+### start_server
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `start_server(self, host: str = '0.0.0.0', port: int = 8080, debug: bool = False) -> None`
+
+**Description:** Start the dashboard web server.
 
 ---
 
@@ -15779,6 +28834,38 @@ Args:
 
 Returns:
     Span ID for the new span
+
+---
+
+### start_trace
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.TracingSystem`
+
+**Signature:** `start_trace(self, trace_id: Optional[str] = None, operation_name: str = 'framework0_operation', service_name: str = 'framework0') -> TraceSpan`
+
+**Description:** Start a new distributed trace.
+
+Args:
+    trace_id: Optional trace ID (generated if not provided)
+    operation_name: Name of the traced operation
+    service_name: Service creating the trace
+    
+Returns:
+    Root span for the trace
+
+---
+
+### state
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.recovery_strategies.CircuitBreaker`
+
+**Signature:** `state(self) -> CircuitState`
+
+**Description:** Get current circuit state.
 
 ---
 
@@ -15818,6 +28905,114 @@ Returns:
 **Signature:** `stop_background_task(self, context: PluginExecutionContext, task_id: str) -> PluginExecutionResult`
 
 **Description:** Stop background task or service.
+
+---
+
+### stop_continuous_collection
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_collectors.SystemMetricsCollector`
+
+**Signature:** `stop_continuous_collection(self) -> None`
+
+**Description:** Stop continuous background collection of system metrics.
+
+---
+
+### stop_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitor`
+
+**Signature:** `stop_monitoring(self) -> None`
+
+**Description:** Stop performance monitoring.
+
+---
+
+### stop_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `stop_monitoring(self) -> None`
+
+**Description:** Stop real-time monitoring.
+
+---
+
+### stop_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `stop_monitoring(self) -> None`
+
+**Description:** Stop real-time recipe execution monitoring.
+
+---
+
+### stop_monitoring
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `stop_monitoring(self) -> None`
+
+**Description:** Stop resource monitoring.
+
+---
+
+### stop_server
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.AnalyticsDashboard`
+
+**Signature:** `stop_server(self) -> None`
+
+**Description:** Stop the dashboard server.
+
+---
+
+### store_execution_metrics
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeAnalyticsEngine`
+
+**Signature:** `store_execution_metrics(self, metrics: RecipeExecutionMetrics) -> None`
+
+**Description:** Store completed execution metrics.
+
+---
+
+### store_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.StorageBackend`
+
+**Signature:** `store_metric(self, metric: TimeSeriesMetric) -> None`
+
+**Description:** Store a time-series metric.
+
+---
+
+### store_metric
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.InMemoryStorageBackend`
+
+**Signature:** `store_metric(self, metric: TimeSeriesMetric) -> None`
+
+**Description:** Store a time-series metric.
 
 ---
 
@@ -15897,6 +29092,54 @@ Args:
     
 Raises:
     SnapshotNotFoundError: If snapshot with given version ID doesn't exist
+
+---
+
+### template_context
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `template_context(self)`
+
+**Description:** Context manager for temporary template variables.
+
+---
+
+### template_exists
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateLoader`
+
+**Signature:** `template_exists(self, name: str) -> bool`
+
+**Description:** Check if template exists.
+
+---
+
+### template_exists
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.FileSystemTemplateLoader`
+
+**Signature:** `template_exists(self, name: str) -> bool`
+
+**Description:** Check if template exists in any directory.
+
+---
+
+### template_exists
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.InMemoryTemplateLoader`
+
+**Signature:** `template_exists(self, name: str) -> bool`
+
+**Description:** Check if template exists in memory.
 
 ---
 
@@ -16285,6 +29528,363 @@ Returns:
 
 **Type:** Method
 
+**Location:** `scriptlets.analytics.analytics_data_models.MetricPoint`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AggregationWindow`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AnalyticsQuery`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert query to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.QueryResult`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert result to dictionary.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TemplateConfig`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.ChartConfig`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.DashboardLayout`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.Alert`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMetrics`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert metrics to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.PerformanceAnalysisResult`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert analysis result to dictionary.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.CheckpointData`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert checkpoint to dictionary.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.ValidationResult`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert to dictionary representation.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommandResult`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert result to dictionary.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.User`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert user to dictionary representation.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.Role`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert role to dictionary representation.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuditEvent`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert audit event to dictionary representation.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.observability_platform.Metric`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert metric to dictionary representation.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.foundation_integration_bridge.IntegrationEvent`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert event to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.PerformanceMetric`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert metric to dictionary for JSON serialization.
+
+Returns:
+    dict: Serializable representation of the metric
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricAggregation`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert aggregation to dictionary for JSON serialization.
+
+Returns:
+    dict: Serializable representation of aggregation results
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricFilter`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert filter to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert configuration to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.StatisticalSummary`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert statistical summary to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.TrendAnalysis`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert trend analysis to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_analyzers.AnomalyResult`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert anomaly result to dictionary for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.errors.error_core.ErrorContext`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert error context to dictionary for JSON serialization.
+
+Returns:
+    Dictionary representation suitable for JSON serialization
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthMetric`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert metric to dictionary format for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthThreshold`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert threshold configuration to dictionary format.
+
+---
+
+### to_dict
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthCheckResult`
+
+**Signature:** `to_dict(self) -> Dict[str, Any]`
+
+**Description:** Convert result to dictionary format for serialization.
+
+---
+
+### to_dict
+
+**Type:** Method
+
 **Location:** `tools.framework0_workspace_cleaner.CleanupReport`
 
 **Signature:** `to_dict(self) -> Dict[str, Any]`
@@ -16451,7 +30051,31 @@ Returns:
 
 ---
 
+### trigger_alert
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_dashboard.Alert`
+
+**Signature:** `trigger_alert(self) -> None`
+
+**Description:** Trigger the alert.
+
+---
+
 ## U
+
+### unix_timestamp
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.MetricPoint`
+
+**Signature:** `unix_timestamp(self) -> float`
+
+**Description:** Get Unix timestamp representation.
+
+---
 
 ### unload_plugin
 
@@ -16486,6 +30110,42 @@ Args:
     
 Returns:
     bool: True if analyzer was removed, False if not found
+
+---
+
+### unregister_check
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_checks.CustomHealthChecker`
+
+**Signature:** `unregister_check(self, name: str) -> bool`
+
+**Description:** Unregister a custom health check.
+
+Args:
+    name: Name of health check to remove
+    
+Returns:
+    True if check was found and removed, False otherwise
+
+---
+
+### unregister_handler
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.EventBus`
+
+**Signature:** `unregister_handler(self, handler: EventHandler) -> bool`
+
+**Description:** Unregister event handler from all event types.
+
+Args:
+    handler: Event handler to unregister
+    
+Returns:
+    bool: True if handler was found and removed
 
 ---
 
@@ -16527,6 +30187,33 @@ Raises:
 
 ---
 
+### update
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateContext`
+
+**Signature:** `update(self, context: 'TemplateContext') -> 'TemplateContext'`
+
+**Description:** Update context with another context.
+
+---
+
+### update_all_contexts
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.LoggerManager`
+
+**Signature:** `update_all_contexts(self, context: Optional[Context]) -> None`
+
+**Description:** Update context for all managed loggers.
+
+Args:
+    context: New context to apply to all loggers
+
+---
+
 ### update_all_documentation
 
 **Type:** Method
@@ -16542,6 +30229,35 @@ Returns:
 
 ---
 
+### update_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `update_config(self, section: str, key: str, value: Any) -> None`
+
+**Description:** Update a specific configuration value.
+
+Args:
+    section: Configuration section name
+    key: Setting key within section
+    value: New value for the setting
+
+---
+
+### update_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.health.health_core.HealthConfiguration`
+
+**Signature:** `update_config(self, section: str, updates: Dict[str, Any]) -> None`
+
+**Description:** Update specific configuration section with new values.
+
+---
+
 ### update_context
 
 **Type:** Method
@@ -16551,6 +30267,45 @@ Returns:
 **Signature:** `update_context(self, updates: Dict[str, Any]) -> None`
 
 **Description:** Update plugin context with new values.
+
+---
+
+### update_context
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.logging.adapters.Framework0LoggerAdapter`
+
+**Signature:** `update_context(self, new_context: Optional[Context]) -> None`
+
+**Description:** Update the Framework0 context for this adapter.
+
+Args:
+    new_context: New Framework0 context to use
+
+---
+
+### update_error_rate
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingStats`
+
+**Signature:** `update_error_rate(self) -> None`
+
+**Description:** Update error rate calculation.
+
+---
+
+### update_execution_phase
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.recipe_analytics_engine.RecipeExecutionMonitor`
+
+**Signature:** `update_execution_phase(self, execution_id: str, phase: ExecutionPhase) -> None`
+
+**Description:** Update the current execution phase.
 
 ---
 
@@ -16666,6 +30421,27 @@ Args:
 
 ---
 
+### update_plugin_statistics
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_registry.PluginRegistry`
+
+**Signature:** `update_plugin_statistics(self, plugin_id: str, load_count_delta: int = 0, activation_count_delta: int = 0, error_count_delta: int = 0) -> bool`
+
+**Description:** Update plugin usage statistics.
+
+Args:
+    plugin_id: Plugin identifier
+    load_count_delta: Load count change
+    activation_count_delta: Activation count change
+    error_count_delta: Error count change
+    
+Returns:
+    bool: Update success
+
+---
+
 ### update_readme_baseline_framework
 
 **Type:** Method
@@ -16697,6 +30473,18 @@ Args:
 
 ---
 
+### update_stats
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.ResourceMonitor`
+
+**Signature:** `update_stats(self) -> Dict[str, float]`
+
+**Description:** Update and return current resource statistics.
+
+---
+
 ### update_step_status
 
 **Type:** Method
@@ -16714,6 +30502,18 @@ Args:
     result: Optional execution result data
     error_message: Optional error message if step failed
     performance_data: Optional performance metrics for step
+
+---
+
+### update_throughput
+
+**Type:** Method
+
+**Location:** `scriptlets.core.batch_processing.BatchProcessingStats`
+
+**Signature:** `update_throughput(self) -> None`
+
+**Description:** Update throughput calculation.
 
 ---
 
@@ -16830,6 +30630,42 @@ Returns:
 
 ---
 
+### validate
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationValidationRule`
+
+**Signature:** `validate(self, config_data: Dict[str, Any]) -> Optional[str]`
+
+**Description:** Validate configuration data against this rule.
+
+Args:
+    config_data: Configuration data to validate
+    
+Returns:
+    Optional[str]: Error message if validation fails, None if passes
+
+---
+
+### validate
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.configuration_system.ConfigurationSchema`
+
+**Signature:** `validate(self, config_data: Dict[str, Any]) -> ConfigurationValidationResult`
+
+**Description:** Validate configuration data against schema.
+
+Args:
+    config_data: Configuration data to validate
+    
+Returns:
+    ConfigurationValidationResult: Validation results
+
+---
+
 ### validate_all_components
 
 **Type:** Method
@@ -16842,6 +30678,33 @@ Returns:
 
 Returns:
     Dict[str, Any]: Complete validation results
+
+---
+
+### validate_args
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.cli_system.CLICommand`
+
+**Signature:** `validate_args(self, args: argparse.Namespace) -> bool`
+
+**Description:** Validate command arguments.
+
+---
+
+### validate_config
+
+**Type:** Method
+
+**Location:** `scriptlets.foundation.metrics.metrics_core.MetricsConfiguration`
+
+**Signature:** `validate_config(self) -> bool`
+
+**Description:** Validate configuration for correctness and consistency.
+
+Returns:
+    bool: True if configuration is valid, False otherwise
 
 ---
 
@@ -16897,6 +30760,24 @@ Returns:
 **Signature:** `validate_custom(self, context: Context, params: Dict[str, Any]) -> bool`
 
 **Description:** Custom validation for I/O parameters.
+
+---
+
+### validate_deployment
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_interface.DeploymentPlugin`
+
+**Signature:** `validate_deployment(self, deployment_id: str) -> bool`
+
+**Description:** Validate deployment status.
+
+Args:
+    deployment_id: Deployment identifier
+    
+Returns:
+    bool: True if deployment is valid, False otherwise
 
 ---
 
@@ -16986,6 +30867,24 @@ Returns:
 
 ---
 
+### validate_plugin
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.plugin_manager.PluginValidator`
+
+**Signature:** `validate_plugin(self, plugin: Framework0Plugin) -> Dict[str, Any]`
+
+**Description:** Validate plugin for Framework0 compatibility.
+
+Args:
+    plugin: Plugin instance to validate
+    
+Returns:
+    Dict[str, Any]: Validation results
+
+---
+
 ### validate_python_module
 
 **Type:** Method
@@ -17022,6 +30921,140 @@ Returns:
 
 ---
 
+### validate_requirements
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnalyticsTemplate`
+
+**Signature:** `validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]`
+
+**Description:** Validate that all template requirements are met.
+
+---
+
+### validate_requirements
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.PerformanceMonitoringTemplate`
+
+**Signature:** `validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]`
+
+**Description:** Validate performance monitoring requirements.
+
+---
+
+### validate_requirements
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.TrendAnalysisTemplate`
+
+**Signature:** `validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]`
+
+**Description:** Validate trend analysis requirements.
+
+---
+
+### validate_requirements
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.AnomalyDetectionTemplate`
+
+**Signature:** `validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]`
+
+**Description:** Validate anomaly detection requirements.
+
+---
+
+### validate_requirements
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_templates.OptimizationTemplate`
+
+**Signature:** `validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]`
+
+**Description:** Validate optimization requirements.
+
+---
+
+### validate_resource_limits
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.isolation_framework.ResourceManager`
+
+**Signature:** `validate_resource_limits(self, limits: ResourceLimits) -> Dict[str, Any]`
+
+**Description:** Validate resource limits configuration.
+
+---
+
+### validate_rules
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.BusinessRuleValidator`
+
+**Signature:** `validate_rules(self, data: List[Dict], rules_config: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate data against business rules.
+
+Args:
+    data: Data to validate
+    rules_config: Business rules configuration
+    
+Returns:
+    List of validation results
+
+---
+
+### validate_schema
+
+**Type:** Method
+
+**Location:** `scriptlets.core.data_validation.SchemaValidator`
+
+**Signature:** `validate_schema(self, data: Any, schema: Dict[str, Any]) -> List[ValidationResult]`
+
+**Description:** Validate data against JSON schema.
+
+Args:
+    data: Data to validate
+    schema: JSON schema definition
+    
+Returns:
+    List of validation results
+
+---
+
+### validate_security_policy
+
+**Type:** Method
+
+**Location:** `scriptlets.deployment.isolation_framework.SecuritySandbox`
+
+**Signature:** `validate_security_policy(self, policy: SecurityPolicy) -> Dict[str, Any]`
+
+**Description:** Validate security policy configuration.
+
+---
+
+### validate_session
+
+**Type:** Method
+
+**Location:** `scriptlets.production_ecosystem.security_framework.AuthenticationManager`
+
+**Signature:** `validate_session(self, token: str) -> Optional[Dict[str, Any]]`
+
+**Description:** Validate JWT session token and return user context.
+
+---
+
 ### validate_shell_script
 
 **Type:** Method
@@ -17037,6 +31070,36 @@ Args:
     
 Returns:
     ValidationResult: Detailed validation result
+
+---
+
+### validate_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateEngine`
+
+**Signature:** `validate_template(self, name: str) -> bool`
+
+**Description:** Validate template syntax.
+
+Args:
+    name: Template name to validate
+    
+Returns:
+    bool: True if template is valid
+
+---
+
+### validate_template
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.template_system.TemplateManager`
+
+**Signature:** `validate_template(self, name: str, engine_name: str = 'filesystem') -> bool`
+
+**Description:** Validate template syntax.
 
 ---
 
@@ -17074,6 +31137,24 @@ Note:
 ---
 
 ## W
+
+### wait_time
+
+**Type:** Method
+
+**Location:** `scriptlets.core.api_integration.RateLimiter`
+
+**Signature:** `wait_time(self, tokens: int = 1) -> float`
+
+**Description:** Calculate wait time needed to acquire tokens.
+
+Args:
+    tokens: Number of tokens needed
+    
+Returns:
+    Time to wait in seconds
+
+---
 
 ### warning
 
@@ -17117,6 +31198,30 @@ Args:
 Args:
     name: Variable name to watch
     value: Current variable value
+
+---
+
+### window_count
+
+**Type:** Method
+
+**Location:** `scriptlets.analytics.analytics_data_models.AggregationWindow`
+
+**Signature:** `window_count(self) -> int`
+
+**Description:** Get number of time windows.
+
+---
+
+### with_status
+
+**Type:** Method
+
+**Location:** `scriptlets.extensions.event_system.Event`
+
+**Signature:** `with_status(self, status: EventStatus) -> 'Event'`
+
+**Description:** Create new event with updated status (immutable pattern).
 
 ---
 

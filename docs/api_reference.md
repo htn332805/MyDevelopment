@@ -1,5 +1,5 @@
 # Framework0 Enhanced Context Server - API Reference
-*Generated on 2025-10-05 18:53:51 UTC*
+*Generated on 2025-10-06 04:25:00 UTC*
 
 ## Overview
 
@@ -28,7 +28,49 @@ Complete API reference for Framework0 Enhanced Context Server components, includ
 - [orchestrator.persistence.snapshot](#orchestrator-persistence-snapshot)
 - [orchestrator.recipe_parser](#orchestrator-recipe_parser)
 - [orchestrator.runner](#orchestrator-runner)
+- [scriptlets.analytics.analytics_dashboard](#scriptlets-analytics-analytics_dashboard)
+- [scriptlets.analytics.analytics_data_models](#scriptlets-analytics-analytics_data_models)
+- [scriptlets.analytics.analytics_templates](#scriptlets-analytics-analytics_templates)
+- [scriptlets.analytics.recipe_analytics_engine](#scriptlets-analytics-recipe_analytics_engine)
+- [scriptlets.core.api_integration](#scriptlets-core-api_integration)
+- [scriptlets.core.batch_processing](#scriptlets-core-batch_processing)
+- [scriptlets.core.data_validation](#scriptlets-core-data_validation)
+- [scriptlets.core.database_operations](#scriptlets-core-database_operations)
+- [scriptlets.core.file_processing](#scriptlets-core-file_processing)
+- [scriptlets.deployment.container_deployment_engine](#scriptlets-deployment-container_deployment_engine)
+- [scriptlets.deployment.isolation_framework](#scriptlets-deployment-isolation_framework)
+- [scriptlets.extensions.cli_system](#scriptlets-extensions-cli_system)
+- [scriptlets.extensions.configuration_system](#scriptlets-extensions-configuration_system)
+- [scriptlets.extensions.event_system](#scriptlets-extensions-event_system)
+- [scriptlets.extensions.plugin_interface](#scriptlets-extensions-plugin_interface)
+- [scriptlets.extensions.plugin_manager](#scriptlets-extensions-plugin_manager)
+- [scriptlets.extensions.plugin_registry](#scriptlets-extensions-plugin_registry)
+- [scriptlets.extensions.template_system](#scriptlets-extensions-template_system)
+- [scriptlets.foundation.errors.error_core](#scriptlets-foundation-errors-error_core)
+- [scriptlets.foundation.errors.error_handlers](#scriptlets-foundation-errors-error_handlers)
+- [scriptlets.foundation.errors.error_handling](#scriptlets-foundation-errors-error_handling)
+- [scriptlets.foundation.errors.recovery_strategies](#scriptlets-foundation-errors-recovery_strategies)
+- [scriptlets.foundation.errors.resilience_patterns](#scriptlets-foundation-errors-resilience_patterns)
+- [scriptlets.foundation.foundation_integration_bridge](#scriptlets-foundation-foundation_integration_bridge)
+- [scriptlets.foundation.foundation_orchestrator](#scriptlets-foundation-foundation_orchestrator)
+- [scriptlets.foundation.health.health_checks](#scriptlets-foundation-health-health_checks)
+- [scriptlets.foundation.health.health_core](#scriptlets-foundation-health-health_core)
+- [scriptlets.foundation.health.health_reporters](#scriptlets-foundation-health-health_reporters)
+- [scriptlets.foundation.health_monitoring](#scriptlets-foundation-health_monitoring)
+- [scriptlets.foundation.logging.adapters](#scriptlets-foundation-logging-adapters)
+- [scriptlets.foundation.logging.core](#scriptlets-foundation-logging-core)
+- [scriptlets.foundation.logging.formatters](#scriptlets-foundation-logging-formatters)
+- [scriptlets.foundation.logging_framework](#scriptlets-foundation-logging_framework)
+- [scriptlets.foundation.metrics.metrics_analyzers](#scriptlets-foundation-metrics-metrics_analyzers)
+- [scriptlets.foundation.metrics.metrics_collectors](#scriptlets-foundation-metrics-metrics_collectors)
+- [scriptlets.foundation.metrics.metrics_core](#scriptlets-foundation-metrics-metrics_core)
 - [scriptlets.framework](#scriptlets-framework)
+- [scriptlets.performance_metrics](#scriptlets-performance_metrics)
+- [scriptlets.production.production_workflow_engine](#scriptlets-production-production_workflow_engine)
+- [scriptlets.production_ecosystem.deployment_engine](#scriptlets-production_ecosystem-deployment_engine)
+- [scriptlets.production_ecosystem.environment_rollback](#scriptlets-production_ecosystem-environment_rollback)
+- [scriptlets.production_ecosystem.observability_platform](#scriptlets-production_ecosystem-observability_platform)
+- [scriptlets.production_ecosystem.security_framework](#scriptlets-production_ecosystem-security_framework)
 - [server.server_config](#server-server_config)
 - [src.analysis.components](#src-analysis-components)
 - [src.analysis.enhanced_components](#src-analysis-enhanced_components)
@@ -57,8 +99,11 @@ Complete API reference for Framework0 Enhanced Context Server components, includ
 - [src.visualization.timeline_visualizer](#src-visualization-timeline_visualizer)
 - [tools.baseline_documentation_updater](#tools-baseline_documentation_updater)
 - [tools.baseline_framework_analyzer](#tools-baseline_framework_analyzer)
+- [tools.comprehensive_documentation_generator](#tools-comprehensive_documentation_generator)
 - [tools.comprehensive_recipe_test_cli](#tools-comprehensive_recipe_test_cli)
+- [tools.comprehensive_workspace_scanner](#tools-comprehensive_workspace_scanner)
 - [tools.documentation_updater](#tools-documentation_updater)
+- [tools.framework0_documentation_generator](#tools-framework0_documentation_generator)
 - [tools.framework0_manager](#tools-framework0_manager)
 - [tools.framework0_workspace_cleaner](#tools-framework0_workspace_cleaner)
 - [tools.framework_enhancer](#tools-framework_enhancer)
@@ -5618,6 +5663,12129 @@ Args:
 
 ---
 
+## scriptlets.analytics.analytics_dashboard
+
+**Description:** Analytics Dashboard - Interactive Real-Time Analytics Visualization
+
+Comprehensive web-based dashboard system for Framework0 recipe analytics,
+providing real-time monitoring, interactive visualizations, and drill-down capabilities.
+
+Features:
+- Real-time dashboard with WebSocket updates for live data streaming
+- Interactive charts and visualizations with multiple chart types
+- Drill-down capabilities for detailed analysis and investigation
+- Custom alert thresholds and notification system
+- Multi-dashboard support with customizable layouts
+- Export functionality for reports and external analysis
+- Mobile-responsive design for monitoring on any device
+
+Key Components:
+- DashboardServer: Flask-based web server with WebSocket support
+- ChartRenderer: Dynamic chart generation with multiple visualization types
+- AlertSystem: Configurable alerting with multiple notification channels
+- DataExporter: Multi-format export capabilities (JSON, CSV, Excel)
+- DashboardConfig: Configuration management for customizable dashboards
+
+Usage:
+    # Start dashboard server
+    dashboard = AnalyticsDashboard(analytics_engine)
+    dashboard.start_server(host="0.0.0.0", port=8080)
+    
+    # Configure custom dashboard
+    dashboard.create_dashboard("performance", {
+        "charts": ["execution_times", "success_rates"],
+        "refresh_interval": 5
+    })
+
+Author: Framework0 Development Team  
+Version: 1.0.0
+
+**File:** `scriptlets/analytics/analytics_dashboard.py`
+
+### Classes
+
+#### ChartType
+
+**Inherits from:** Enum
+
+Types of charts supported by the dashboard.
+
+#### AlertSeverity
+
+**Inherits from:** Enum
+
+Alert severity levels.
+
+#### ChartConfig
+
+Configuration for dashboard charts.
+
+**Attributes:**
+
+- `chart_id: str`
+- `title: str`
+- `chart_type: ChartType`
+- `metric_name: str`
+- `aggregation_type: AggregationType = AggregationType.MEAN`
+- `time_range_hours: int = 24`
+- `refresh_interval_seconds: int = 30`
+- `color_scheme: str = 'default'`
+- `show_legend: bool = True`
+- `height: int = 400`
+- `width: Optional[int] = None`
+- `tag_filters: Dict[str, str] = field(default_factory=dict)`
+- `group_by_tags: List[str] = field(default_factory=list)`
+- `alert_thresholds: Dict[str, float] = field(default_factory=dict)`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary for serialization.
+
+#### DashboardLayout
+
+Dashboard layout configuration.
+
+**Attributes:**
+
+- `dashboard_id: str`
+- `title: str`
+- `description: str = ''`
+- `charts: List[ChartConfig] = field(default_factory=list)`
+- `grid_columns: int = 2`
+- `auto_refresh: bool = True`
+- `refresh_interval_seconds: int = 30`
+- `public: bool = True`
+- `allowed_users: List[str] = field(default_factory=list)`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `last_modified: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary for serialization.
+
+#### Alert
+
+Dashboard alert configuration and state.
+
+**Attributes:**
+
+- `alert_id: str`
+- `chart_id: str`
+- `metric_name: str`
+- `condition: str`
+- `threshold: float`
+- `severity: AlertSeverity`
+- `message: str`
+- `triggered: bool = False`
+- `last_triggered: Optional[datetime] = None`
+- `trigger_count: int = 0`
+- `notify_email: bool = False`
+- `notify_webhook: bool = False`
+- `webhook_url: Optional[str] = None`
+
+**Methods:**
+
+##### check_condition
+
+```python
+check_condition(self, value: float) -> bool
+```
+
+Check if alert condition is met.
+
+##### trigger_alert
+
+```python
+trigger_alert(self) -> None
+```
+
+Trigger the alert.
+
+##### reset_alert
+
+```python
+reset_alert(self) -> None
+```
+
+Reset the alert state.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary for serialization.
+
+#### ChartRenderer
+
+Renders charts using available visualization libraries.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize chart renderer.
+
+##### render_chart
+
+```python
+render_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Render chart based on configuration and data.
+
+##### _render_plotly_chart
+
+```python
+_render_plotly_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Render chart using Plotly.
+
+##### _render_matplotlib_chart
+
+```python
+_render_matplotlib_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Render chart using Matplotlib.
+
+##### _render_text_chart
+
+```python
+_render_text_chart(self, chart_config: ChartConfig, data: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Render simple text-based chart when no visualization libraries available.
+
+##### _create_empty_chart
+
+```python
+_create_empty_chart(self, chart_config: ChartConfig) -> Dict[str, Any]
+```
+
+Create empty chart placeholder.
+
+##### _create_error_chart
+
+```python
+_create_error_chart(self, chart_config: ChartConfig, error_message: str) -> Dict[str, Any]
+```
+
+Create error chart placeholder.
+
+#### AlertSystem
+
+Manages dashboard alerts and notifications.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize alert system.
+
+##### add_alert
+
+```python
+add_alert(self, alert: Alert) -> None
+```
+
+Add a new alert.
+
+##### remove_alert
+
+```python
+remove_alert(self, alert_id: str) -> bool
+```
+
+Remove an alert.
+
+##### check_alerts
+
+```python
+check_alerts(self, chart_id: str, metric_name: str, value: float) -> List[Alert]
+```
+
+Check if any alerts are triggered by the given value.
+
+##### get_active_alerts
+
+```python
+get_active_alerts(self) -> List[Alert]
+```
+
+Get all currently active alerts.
+
+##### add_notification_callback
+
+```python
+add_notification_callback(self, callback: Callable[[Alert, float], None]) -> None
+```
+
+Add notification callback function.
+
+##### _send_notification
+
+```python
+_send_notification(self, alert: Alert, value: float) -> None
+```
+
+Send notification for triggered alert.
+
+#### DataExporter
+
+Handles data export functionality.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, data_manager: AnalyticsDataManager)
+```
+
+Initialize data exporter.
+
+##### export_chart_data
+
+```python
+export_chart_data(self, chart_config: ChartConfig, format_type: str = 'json') -> Dict[str, Any]
+```
+
+Export chart data in specified format.
+
+##### _export_json
+
+```python
+_export_json(self, result: Any, chart_config: ChartConfig) -> Dict[str, Any]
+```
+
+Export data as JSON.
+
+##### _export_csv
+
+```python
+_export_csv(self, result: Any, chart_config: ChartConfig) -> Dict[str, Any]
+```
+
+Export data as CSV.
+
+##### _export_excel
+
+```python
+_export_excel(self, result: Any, chart_config: ChartConfig) -> Dict[str, Any]
+```
+
+Export data as Excel (requires pandas).
+
+#### AnalyticsDashboard
+
+Main analytics dashboard system.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analytics_engine: RecipeAnalyticsEngine)
+```
+
+Initialize dashboard system.
+
+##### create_dashboard
+
+```python
+create_dashboard(self, dashboard_id: str, config: Dict[str, Any]) -> DashboardLayout
+```
+
+Create a new dashboard.
+
+##### get_dashboard_data
+
+```python
+get_dashboard_data(self, dashboard_id: str) -> Dict[str, Any]
+```
+
+Get current data for dashboard.
+
+##### _get_chart_data
+
+```python
+_get_chart_data(self, chart_config: ChartConfig) -> Dict[str, Any]
+```
+
+Get data for a specific chart.
+
+##### start_server
+
+```python
+start_server(self, host: str = '0.0.0.0', port: int = 8080, debug: bool = False) -> None
+```
+
+Start the dashboard web server.
+
+##### stop_server
+
+```python
+stop_server(self) -> None
+```
+
+Stop the dashboard server.
+
+##### _setup_routes
+
+```python
+_setup_routes(self) -> None
+```
+
+Setup Flask routes.
+
+##### _setup_websocket_handlers
+
+```python
+_setup_websocket_handlers(self) -> None
+```
+
+Setup WebSocket event handlers.
+
+##### _background_update_loop
+
+```python
+_background_update_loop(self) -> None
+```
+
+Background loop to send real-time updates.
+
+
+---
+
+## scriptlets.analytics.analytics_data_models
+
+**Description:** Analytics Data Models - Structured Data Models for Recipe Analytics
+
+Comprehensive data models and storage systems for recipe analytics data,
+optimized for time-series analytics and high-performance querying.
+
+Features:
+- Optimized time-series data structures for performance metrics
+- Efficient aggregation pipelines for real-time dashboard updates
+- Flexible query system supporting complex analytics operations
+- Data retention and archival policies for long-term trend analysis
+- Integration with various storage backends (memory, file, database)
+
+Key Components:
+- TimeSeriesMetric: Core time-series data structure
+- MetricsAggregator: High-performance aggregation engine
+- AnalyticsQuery: Flexible query interface for complex operations
+- DataRetentionManager: Automated data lifecycle management
+- StorageBackend: Pluggable storage interface
+
+Usage:
+    # Create time-series metrics
+    metric = TimeSeriesMetric("execution_duration")
+    metric.add_point(timestamp, value, {"recipe": "example"})
+    
+    # Query and aggregate data
+    query = AnalyticsQuery().filter_by_time_range(start, end).group_by("recipe")
+    results = storage.execute_query(query)
+
+Author: Framework0 Development Team  
+Version: 1.0.0
+
+**File:** `scriptlets/analytics/analytics_data_models.py`
+
+### Classes
+
+#### MetricDataType
+
+**Inherits from:** Enum
+
+Types of metric data supported.
+
+#### AggregationType
+
+**Inherits from:** Enum
+
+Types of aggregations supported.
+
+#### TimeGranularity
+
+**Inherits from:** Enum
+
+Time granularities for aggregation.
+
+#### MetricPoint
+
+Individual metric data point with timestamp and metadata.
+
+**Attributes:**
+
+- `timestamp: datetime`
+- `value: Union[int, float, bool, str]`
+- `tags: Dict[str, str] = field(default_factory=dict)`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self)
+```
+
+Validate metric point data.
+
+##### unix_timestamp
+
+```python
+unix_timestamp(self) -> float
+```
+
+Get Unix timestamp representation.
+
+**Decorators:** property
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary for serialization.
+
+##### from_dict
+
+```python
+from_dict(cls, data: Dict[str, Any]) -> 'MetricPoint'
+```
+
+Create from dictionary.
+
+**Decorators:** classmethod
+
+#### TimeSeriesMetric
+
+Time-series metric with efficient storage and querying.
+
+**Attributes:**
+
+- `name: str`
+- `data_type: MetricDataType`
+- `description: str = ''`
+- `unit: str = ''`
+- `_points: deque = field(default_factory=lambda: deque(maxlen=10000))`
+- `_sorted_timestamps: List[float] = field(default_factory=list)`
+- `_tag_index: Dict[str, List[int]] = field(default_factory=lambda: defaultdict(list))`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `last_updated: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+
+**Methods:**
+
+##### add_point
+
+```python
+add_point(self, timestamp: datetime, value: Union[int, float, bool, str], tags: Optional[Dict[str, str]] = None) -> None
+```
+
+Add a new metric point.
+
+##### get_points_in_range
+
+```python
+get_points_in_range(self, start_time: datetime, end_time: datetime) -> List[MetricPoint]
+```
+
+Get all points within time range.
+
+##### filter_by_tags
+
+```python
+filter_by_tags(self, tag_filters: Dict[str, str]) -> List[MetricPoint]
+```
+
+Filter points by tag values.
+
+##### get_latest_points
+
+```python
+get_latest_points(self, count: int = 100) -> List[MetricPoint]
+```
+
+Get the most recent N points.
+
+##### calculate_statistics
+
+```python
+calculate_statistics(self, start_time: Optional[datetime] = None, end_time: Optional[datetime] = None) -> Dict[str, float]
+```
+
+Calculate statistical summary for numeric data.
+
+##### get_size_info
+
+```python
+get_size_info(self) -> Dict[str, Any]
+```
+
+Get size and memory usage information.
+
+#### AggregationWindow
+
+Time window for metric aggregation.
+
+**Attributes:**
+
+- `start_time: datetime`
+- `end_time: datetime`
+- `granularity: TimeGranularity`
+- `aggregation_type: AggregationType`
+- `aggregated_values: List[float] = field(default_factory=list)`
+- `window_timestamps: List[datetime] = field(default_factory=list)`
+- `metadata: Dict[str, Any] = field(default_factory=dict)`
+
+**Methods:**
+
+##### duration
+
+```python
+duration(self) -> timedelta
+```
+
+Get window duration.
+
+**Decorators:** property
+
+##### window_count
+
+```python
+window_count(self) -> int
+```
+
+Get number of time windows.
+
+**Decorators:** property
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary for serialization.
+
+#### MetricsAggregator
+
+High-performance aggregation engine for time-series metrics.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize the aggregator.
+
+##### aggregate_metric
+
+```python
+aggregate_metric(self, metric: TimeSeriesMetric, start_time: datetime, end_time: datetime, granularity: TimeGranularity, aggregation_type: AggregationType, tag_filters: Optional[Dict[str, str]] = None) -> AggregationWindow
+```
+
+Aggregate metric data over time windows.
+
+##### _get_window_size
+
+```python
+_get_window_size(self, granularity: TimeGranularity) -> timedelta
+```
+
+Get window size for granularity.
+
+##### _calculate_aggregation
+
+```python
+_calculate_aggregation(self, points: List[MetricPoint], aggregation_type: AggregationType) -> float
+```
+
+Calculate aggregation for a set of points.
+
+#### QueryFilter
+
+Filter criteria for analytics queries.
+
+**Attributes:**
+
+- `field: str`
+- `operator: str`
+- `value: Any`
+
+**Methods:**
+
+##### matches
+
+```python
+matches(self, data_value: Any) -> bool
+```
+
+Check if data value matches this filter.
+
+#### AnalyticsQuery
+
+Flexible query interface for complex analytics operations.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize empty query.
+
+##### select_metrics
+
+```python
+select_metrics(self) -> 'AnalyticsQuery'
+```
+
+Select specific metrics to query.
+
+##### filter_by_time_range
+
+```python
+filter_by_time_range(self, start_time: datetime, end_time: datetime) -> 'AnalyticsQuery'
+```
+
+Filter by time range.
+
+##### filter_by
+
+```python
+filter_by(self, field: str, operator: str, value: Any) -> 'AnalyticsQuery'
+```
+
+Add a filter condition.
+
+##### group_by
+
+```python
+group_by(self) -> 'AnalyticsQuery'
+```
+
+Group results by fields.
+
+##### aggregate
+
+```python
+aggregate(self, aggregation_type: AggregationType, field: str = 'value') -> 'AnalyticsQuery'
+```
+
+Add aggregation function.
+
+##### limit_results
+
+```python
+limit_results(self, limit: int, offset: int = 0) -> 'AnalyticsQuery'
+```
+
+Limit number of results.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert query to dictionary for serialization.
+
+#### QueryResult
+
+Result of an analytics query.
+
+**Attributes:**
+
+- `query: AnalyticsQuery`
+- `execution_time: float`
+- `total_points_scanned: int`
+- `metric_data: Dict[str, List[MetricPoint]] = field(default_factory=dict)`
+- `aggregated_data: Dict[str, List[float]] = field(default_factory=dict)`
+- `grouped_data: Dict[str, Dict[str, Any]] = field(default_factory=dict)`
+- `timestamp: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert result to dictionary.
+
+#### StorageBackend
+
+**Inherits from:** ABC
+
+Abstract storage backend interface.
+
+**Methods:**
+
+##### store_metric
+
+```python
+store_metric(self, metric: TimeSeriesMetric) -> None
+```
+
+Store a time-series metric.
+
+**Decorators:** abstractmethod
+
+##### retrieve_metric
+
+```python
+retrieve_metric(self, metric_name: str) -> Optional[TimeSeriesMetric]
+```
+
+Retrieve a time-series metric by name.
+
+**Decorators:** abstractmethod
+
+##### execute_query
+
+```python
+execute_query(self, query: AnalyticsQuery) -> QueryResult
+```
+
+Execute an analytics query.
+
+**Decorators:** abstractmethod
+
+##### list_metrics
+
+```python
+list_metrics(self) -> List[str]
+```
+
+List all available metric names.
+
+**Decorators:** abstractmethod
+
+##### delete_metric
+
+```python
+delete_metric(self, metric_name: str) -> bool
+```
+
+Delete a metric and all its data.
+
+**Decorators:** abstractmethod
+
+#### InMemoryStorageBackend
+
+**Inherits from:** StorageBackend
+
+In-memory storage backend for testing and development.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize in-memory storage.
+
+##### store_metric
+
+```python
+store_metric(self, metric: TimeSeriesMetric) -> None
+```
+
+Store a time-series metric.
+
+##### retrieve_metric
+
+```python
+retrieve_metric(self, metric_name: str) -> Optional[TimeSeriesMetric]
+```
+
+Retrieve a time-series metric by name.
+
+##### execute_query
+
+```python
+execute_query(self, query: AnalyticsQuery) -> QueryResult
+```
+
+Execute an analytics query.
+
+##### _apply_filter
+
+```python
+_apply_filter(self, point: MetricPoint, filter_criteria: QueryFilter) -> bool
+```
+
+Apply a filter to a metric point.
+
+##### list_metrics
+
+```python
+list_metrics(self) -> List[str]
+```
+
+List all available metric names.
+
+##### delete_metric
+
+```python
+delete_metric(self, metric_name: str) -> bool
+```
+
+Delete a metric and all its data.
+
+##### get_storage_stats
+
+```python
+get_storage_stats(self) -> Dict[str, Any]
+```
+
+Get storage statistics.
+
+#### DataRetentionManager
+
+Manages data lifecycle and retention policies.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_backend: StorageBackend)
+```
+
+Initialize retention manager.
+
+##### set_retention_policy
+
+```python
+set_retention_policy(self, policy_name: str, retention_period: timedelta) -> None
+```
+
+Set retention policy.
+
+##### apply_retention_policies
+
+```python
+apply_retention_policies(self) -> Dict[str, int]
+```
+
+Apply retention policies to all metrics.
+
+##### _get_retention_period
+
+```python
+_get_retention_period(self, metric: TimeSeriesMetric) -> timedelta
+```
+
+Get retention period for a metric.
+
+#### AnalyticsDataManager
+
+Main interface for analytics data management.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_backend: Optional[StorageBackend] = None)
+```
+
+Initialize data manager.
+
+##### create_metric
+
+```python
+create_metric(self, name: str, data_type: MetricDataType, description: str = '', unit: str = '') -> TimeSeriesMetric
+```
+
+Create a new time-series metric.
+
+##### record_metric_point
+
+```python
+record_metric_point(self, metric_name: str, timestamp: datetime, value: Union[int, float, bool, str], tags: Optional[Dict[str, str]] = None) -> None
+```
+
+Record a new metric point.
+
+##### query_metrics
+
+```python
+query_metrics(self, query: AnalyticsQuery) -> QueryResult
+```
+
+Execute analytics query.
+
+##### aggregate_metric
+
+```python
+aggregate_metric(self, metric_name: str, start_time: datetime, end_time: datetime, granularity: TimeGranularity, aggregation_type: AggregationType, tag_filters: Optional[Dict[str, str]] = None) -> AggregationWindow
+```
+
+Aggregate metric data.
+
+##### get_metric_statistics
+
+```python
+get_metric_statistics(self, metric_name: str, start_time: Optional[datetime] = None, end_time: Optional[datetime] = None) -> Dict[str, float]
+```
+
+Get statistical summary for a metric.
+
+##### list_available_metrics
+
+```python
+list_available_metrics(self) -> List[Dict[str, Any]]
+```
+
+List all available metrics with metadata.
+
+##### cleanup_old_data
+
+```python
+cleanup_old_data(self) -> Dict[str, int]
+```
+
+Perform data retention cleanup.
+
+##### get_storage_statistics
+
+```python
+get_storage_statistics(self) -> Dict[str, Any]
+```
+
+Get storage statistics.
+
+##### _infer_data_type
+
+```python
+_infer_data_type(self, value: Any) -> MetricDataType
+```
+
+Infer data type from value.
+
+
+---
+
+## scriptlets.analytics.analytics_templates
+
+**Description:** Analytics Templates - Pre-built Analytics Patterns and Templates
+
+Comprehensive collection of reusable analytics templates and patterns for common
+Framework0 recipe analytics use cases, providing quick-start solutions for 
+performance monitoring, trend analysis, anomaly detection, and optimization.
+
+Features:
+- Performance monitoring templates with customizable dashboards
+- Trend analysis patterns for identifying performance trends and forecasting
+- Anomaly detection templates using statistical and ML-based approaches
+- Optimization workflow templates with automated recommendations
+- Custom template builder for creating domain-specific analytics patterns
+- Template sharing and collaboration system
+
+Key Components:
+- PerformanceMonitoringTemplate: Real-time performance tracking and alerts
+- TrendAnalysisTemplate: Time-series trend detection and forecasting
+- AnomalyDetectionTemplate: Statistical and ML-based anomaly detection
+- OptimizationTemplate: Automated performance optimization workflows
+- TemplateBuilder: Interactive template creation and customization
+- TemplateManager: Template storage, versioning, and sharing
+
+Usage:
+    # Create performance monitoring template
+    template = PerformanceMonitoringTemplate()
+    template.configure_metrics(["execution_duration", "success_rate"])
+    template.setup_alerts(thresholds={"execution_duration": 10.0})
+    
+    # Apply template to recipe
+    monitor = template.apply_to_recipe("my_recipe")
+    monitor.start_monitoring()
+
+Author: Framework0 Development Team  
+Version: 1.0.0
+
+**File:** `scriptlets/analytics/analytics_templates.py`
+
+### Classes
+
+#### TemplateCategory
+
+**Inherits from:** Enum
+
+Categories of analytics templates.
+
+#### TemplateConfig
+
+Configuration for analytics templates.
+
+**Attributes:**
+
+- `template_id: str`
+- `name: str`
+- `category: TemplateCategory`
+- `description: str = ''`
+- `version: str = '1.0.0'`
+- `parameters: Dict[str, Any] = field(default_factory=dict)`
+- `required_metrics: List[str] = field(default_factory=list)`
+- `optional_metrics: List[str] = field(default_factory=list)`
+- `dashboard_config: Dict[str, Any] = field(default_factory=dict)`
+- `chart_configs: List[Dict[str, Any]] = field(default_factory=list)`
+- `alert_configs: List[Dict[str, Any]] = field(default_factory=list)`
+- `tags: List[str] = field(default_factory=list)`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `updated_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary for serialization.
+
+#### AnalyticsTemplate
+
+**Inherits from:** ABC
+
+Base class for analytics templates.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: TemplateConfig)
+```
+
+Initialize template with configuration.
+
+##### apply_to_recipe
+
+```python
+apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> Any
+```
+
+Apply template to a specific recipe.
+
+**Decorators:** abstractmethod
+
+##### validate_requirements
+
+```python
+validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]
+```
+
+Validate that all template requirements are met.
+
+**Decorators:** abstractmethod
+
+##### get_parameter_schema
+
+```python
+get_parameter_schema(self) -> Dict[str, Any]
+```
+
+Get schema for template parameters.
+
+##### create_dashboard
+
+```python
+create_dashboard(self, analytics_dashboard: AnalyticsDashboard, dashboard_id: Optional[str] = None) -> str
+```
+
+Create dashboard for this template.
+
+#### PerformanceMonitoringTemplate
+
+**Inherits from:** AnalyticsTemplate
+
+Template for recipe performance monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize performance monitoring template.
+
+##### apply_to_recipe
+
+```python
+apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'PerformanceMonitor'
+```
+
+Apply performance monitoring to a recipe.
+
+##### validate_requirements
+
+```python
+validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]
+```
+
+Validate performance monitoring requirements.
+
+#### TrendAnalysisTemplate
+
+**Inherits from:** AnalyticsTemplate
+
+Template for trend analysis and forecasting.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize trend analysis template.
+
+##### apply_to_recipe
+
+```python
+apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'TrendAnalyzer'
+```
+
+Apply trend analysis to a recipe.
+
+##### validate_requirements
+
+```python
+validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]
+```
+
+Validate trend analysis requirements.
+
+#### AnomalyDetectionTemplate
+
+**Inherits from:** AnalyticsTemplate
+
+Template for anomaly detection in recipe performance.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize anomaly detection template.
+
+##### apply_to_recipe
+
+```python
+apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'AnomalyDetector'
+```
+
+Apply anomaly detection to a recipe.
+
+##### validate_requirements
+
+```python
+validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]
+```
+
+Validate anomaly detection requirements.
+
+#### OptimizationTemplate
+
+**Inherits from:** AnalyticsTemplate
+
+Template for recipe optimization workflows.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize optimization template.
+
+##### apply_to_recipe
+
+```python
+apply_to_recipe(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> 'OptimizationEngine'
+```
+
+Apply optimization to a recipe.
+
+##### validate_requirements
+
+```python
+validate_requirements(self, analytics_engine: RecipeAnalyticsEngine) -> Dict[str, bool]
+```
+
+Validate optimization requirements.
+
+#### PerformanceMonitor
+
+Runtime performance monitor created from template.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, monitoring_interval: int, alert_thresholds: Dict[str, float], template_config: TemplateConfig)
+```
+
+Initialize performance monitor.
+
+##### start_monitoring
+
+```python
+start_monitoring(self) -> None
+```
+
+Start performance monitoring.
+
+##### stop_monitoring
+
+```python
+stop_monitoring(self) -> None
+```
+
+Stop performance monitoring.
+
+##### get_current_metrics
+
+```python
+get_current_metrics(self) -> Dict[str, float]
+```
+
+Get current performance metrics.
+
+##### _monitoring_loop
+
+```python
+_monitoring_loop(self) -> None
+```
+
+Background monitoring loop.
+
+#### TrendAnalyzer
+
+Runtime trend analyzer created from template.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, analysis_window_days: int, forecast_horizon_hours: int, trend_sensitivity: float, seasonal_analysis: bool, template_config: TemplateConfig)
+```
+
+Initialize trend analyzer.
+
+##### analyze_trends
+
+```python
+analyze_trends(self, metric_name: str) -> Dict[str, Any]
+```
+
+Analyze trends for a specific metric.
+
+##### _calculate_trend_slope
+
+```python
+_calculate_trend_slope(self, x: List[float], y: List[float]) -> float
+```
+
+Calculate trend slope using simple linear regression.
+
+#### AnomalyDetector
+
+Runtime anomaly detector created from template.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, detection_method: str, sensitivity: float, training_window_hours: int, alert_on_anomaly: bool, template_config: TemplateConfig)
+```
+
+Initialize anomaly detector.
+
+##### detect_anomalies
+
+```python
+detect_anomalies(self, metric_name: str) -> Dict[str, Any]
+```
+
+Detect anomalies in metric data.
+
+##### _statistical_anomaly_detection
+
+```python
+_statistical_anomaly_detection(self, metric_name: str, values: List[float], metric_data: List[Any]) -> Dict[str, Any]
+```
+
+Statistical anomaly detection using Z-score.
+
+##### _ml_anomaly_detection
+
+```python
+_ml_anomaly_detection(self, metric_name: str, values: List[float], metric_data: List[Any]) -> Dict[str, Any]
+```
+
+ML-based anomaly detection using Isolation Forest.
+
+#### OptimizationEngine
+
+Runtime optimization engine created from template.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, optimization_goals: List[str], analysis_depth: str, recommendation_threshold: float, auto_apply: bool, template_config: TemplateConfig)
+```
+
+Initialize optimization engine.
+
+##### generate_recommendations
+
+```python
+generate_recommendations(self) -> Dict[str, Any]
+```
+
+Generate optimization recommendations.
+
+##### _analyze_execution_duration
+
+```python
+_analyze_execution_duration(self) -> Optional[Dict[str, Any]]
+```
+
+Analyze execution duration for optimization opportunities.
+
+##### _analyze_throughput
+
+```python
+_analyze_throughput(self) -> Optional[Dict[str, Any]]
+```
+
+Analyze throughput for optimization opportunities.
+
+##### _analyze_error_patterns
+
+```python
+_analyze_error_patterns(self) -> Optional[Dict[str, Any]]
+```
+
+Analyze error patterns for optimization opportunities.
+
+#### TemplateManager
+
+Manages analytics templates and their lifecycle.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize template manager.
+
+##### _initialize_builtin_templates
+
+```python
+_initialize_builtin_templates(self) -> None
+```
+
+Initialize built-in analytics templates.
+
+##### get_template
+
+```python
+get_template(self, template_id: str) -> Optional[AnalyticsTemplate]
+```
+
+Get template by ID.
+
+##### list_templates
+
+```python
+list_templates(self, category: Optional[TemplateCategory] = None) -> List[TemplateConfig]
+```
+
+List available templates.
+
+##### apply_template
+
+```python
+apply_template(self, template_id: str, recipe_id: str, analytics_engine: RecipeAnalyticsEngine, parameters: Optional[Dict[str, Any]] = None) -> Any
+```
+
+Apply template to a recipe.
+
+##### save_template
+
+```python
+save_template(self, template: AnalyticsTemplate, overwrite: bool = False) -> None
+```
+
+Save template to storage.
+
+##### load_templates_from_storage
+
+```python
+load_templates_from_storage(self) -> int
+```
+
+Load templates from file storage.
+
+#### MockAnalyticsEngine
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, data_manager)
+```
+
+
+---
+
+## scriptlets.analytics.recipe_analytics_engine
+
+**Description:** Recipe Analytics Engine - Advanced Analytics for Framework0 Recipe Execution
+
+Comprehensive analytics system that monitors, analyzes, and provides insights
+into recipe execution patterns, performance bottlenecks, and optimization
+opportunities. Built upon Framework0's Performance Metrics Foundation.
+
+Features:
+- Real-time recipe execution monitoring with microsecond precision
+- Advanced statistical analysis of execution patterns and trends
+- Resource utilization profiling with optimization recommendations
+- Intelligent error pattern recognition and failure mode analysis
+- Performance benchmarking and comparison capabilities
+- Machine learning-powered anomaly detection and forecasting
+
+Key Components:
+- RecipeExecutionMonitor: Real-time monitoring and data collection
+- PerformanceAnalyzer: Statistical analysis and trend detection
+- ResourceProfiler: Deep resource utilization analysis
+- ErrorAnalyzer: Intelligent error pattern recognition
+- OptimizationEngine: AI-powered performance recommendations
+
+Integration:
+- Built on Exercise 5C Performance Metrics Foundation
+- Full integration with Framework0 Context and Foundation systems
+- Compatible with Exercise 6 Recipe Template system
+- Extensible architecture for custom analytics requirements
+
+Usage:
+    # Initialize analytics engine
+    engine = RecipeAnalyticsEngine()
+    
+    # Monitor recipe execution
+    analysis = engine.analyze_recipe_execution(recipe_path, execution_context)
+    
+    # Generate optimization recommendations
+    recommendations = engine.generate_optimization_recommendations(analysis)
+    
+    # Real-time monitoring
+    monitor = engine.start_realtime_monitoring()
+
+Author: Framework0 Development Team
+Version: 1.0.0
+
+**File:** `scriptlets/analytics/recipe_analytics_engine.py`
+
+### Classes
+
+#### ExecutionPhase
+
+**Inherits from:** Enum
+
+Phases of recipe execution for granular monitoring.
+
+#### AnalyticsMetricType
+
+**Inherits from:** Enum
+
+Types of analytics metrics collected.
+
+#### RecipeExecutionMetrics
+
+Comprehensive execution metrics for a single recipe run.
+
+**Attributes:**
+
+- `execution_id: str`
+- `recipe_name: str`
+- `recipe_path: str`
+- `start_time: datetime`
+- `end_time: Optional[datetime] = None`
+- `success: bool = False`
+- `exit_code: Optional[int] = None`
+- `error_message: Optional[str] = None`
+- `error_traceback: Optional[str] = None`
+- `total_duration_seconds: float = 0.0`
+- `phase_timings: Dict[ExecutionPhase, float] = field(default_factory=dict)`
+- `peak_memory_mb: float = 0.0`
+- `average_cpu_percent: float = 0.0`
+- `max_cpu_percent: float = 0.0`
+- `disk_io_bytes: int = 0`
+- `network_io_bytes: int = 0`
+- `step_count: int = 0`
+- `step_timings: List[float] = field(default_factory=list)`
+- `step_success_rates: List[bool] = field(default_factory=list)`
+- `execution_context: Dict[str, Any] = field(default_factory=dict)`
+- `environment_info: Dict[str, Any] = field(default_factory=dict)`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert metrics to dictionary for serialization.
+
+##### from_dict
+
+```python
+from_dict(cls, data: Dict[str, Any]) -> 'RecipeExecutionMetrics'
+```
+
+Create metrics from dictionary.
+
+**Decorators:** classmethod
+
+#### PerformanceAnalysisResult
+
+Results of performance analysis for recipe execution.
+
+**Attributes:**
+
+- `recipe_name: str`
+- `analysis_timestamp: datetime`
+- `execution_time_stats: Dict[str, float] = field(default_factory=dict)`
+- `resource_usage_stats: Dict[str, float] = field(default_factory=dict)`
+- `success_rate_stats: Dict[str, float] = field(default_factory=dict)`
+- `performance_trends: Dict[str, List[float]] = field(default_factory=dict)`
+- `trend_directions: Dict[str, str] = field(default_factory=dict)`
+- `performance_bottlenecks: List[Dict[str, Any]] = field(default_factory=list)`
+- `optimization_opportunities: List[Dict[str, Any]] = field(default_factory=list)`
+- `detected_anomalies: List[Dict[str, Any]] = field(default_factory=list)`
+- `anomaly_patterns: List[str] = field(default_factory=list)`
+- `optimization_recommendations: List[Dict[str, Any]] = field(default_factory=list)`
+- `performance_score: float = 0.0`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert analysis result to dictionary.
+
+#### RecipeExecutionMonitor
+
+Real-time monitoring system for recipe execution.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analytics_engine: 'RecipeAnalyticsEngine')
+```
+
+Initialize monitor with reference to analytics engine.
+
+##### start_monitoring
+
+```python
+start_monitoring(self) -> None
+```
+
+Start real-time monitoring of recipe executions.
+
+##### stop_monitoring
+
+```python
+stop_monitoring(self) -> None
+```
+
+Stop real-time monitoring.
+
+##### register_callback
+
+```python
+register_callback(self, callback: Callable[[str, RecipeExecutionMetrics], None]) -> None
+```
+
+Register callback for real-time execution updates.
+
+##### start_recipe_execution
+
+```python
+start_recipe_execution(self, recipe_name: str, execution_id: str, context: Optional[Dict[str, Any]] = None) -> RecipeExecutionMetrics
+```
+
+Start monitoring a new recipe execution.
+
+##### update_execution_phase
+
+```python
+update_execution_phase(self, execution_id: str, phase: ExecutionPhase) -> None
+```
+
+Update the current execution phase.
+
+##### record_step_execution
+
+```python
+record_step_execution(self, execution_id: str, step_name: str, duration: float, success: bool, dependencies: Optional[List[str]] = None) -> None
+```
+
+Record completion of a recipe step.
+
+##### record_resource_usage
+
+```python
+record_resource_usage(self, execution_id: str, memory_usage: float, cpu_usage: float, io_ops: int = 0, network_requests: int = 0) -> None
+```
+
+Record resource usage during execution.
+
+##### record_error
+
+```python
+record_error(self, execution_id: str, error_info: Dict[str, Any]) -> None
+```
+
+Record an error during recipe execution.
+
+##### complete_recipe_execution
+
+```python
+complete_recipe_execution(self, execution_id: str, success: bool = True) -> RecipeExecutionMetrics
+```
+
+Complete monitoring of a recipe execution.
+
+##### _monitoring_loop
+
+```python
+_monitoring_loop(self) -> None
+```
+
+Main monitoring loop for real-time updates.
+
+##### _update_resource_metrics
+
+```python
+_update_resource_metrics(self, execution_id: str, metrics: RecipeExecutionMetrics) -> None
+```
+
+Update resource usage metrics for active execution.
+
+##### _calculate_efficiency_metrics
+
+```python
+_calculate_efficiency_metrics(self, metrics: RecipeExecutionMetrics) -> None
+```
+
+Calculate efficiency and optimization metrics.
+
+##### _capture_environment_info
+
+```python
+_capture_environment_info(self) -> Dict[str, Any]
+```
+
+Capture current environment information.
+
+##### _notify_callbacks
+
+```python
+_notify_callbacks(self, execution_id: str, metrics: RecipeExecutionMetrics) -> None
+```
+
+Notify all registered callbacks of execution updates.
+
+#### PerformanceAnalyzer
+
+Advanced statistical analysis engine for recipe performance data.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analytics_engine: 'RecipeAnalyticsEngine')
+```
+
+Initialize analyzer with reference to analytics engine.
+
+##### analyze_recipe_performance
+
+```python
+analyze_recipe_performance(self, recipe_name: str, execution_metrics: List[RecipeExecutionMetrics]) -> PerformanceAnalysisResult
+```
+
+Perform comprehensive performance analysis for a recipe.
+
+##### _calculate_execution_time_stats
+
+```python
+_calculate_execution_time_stats(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, float]
+```
+
+Calculate statistical summary of execution times.
+
+##### _calculate_resource_usage_stats
+
+```python
+_calculate_resource_usage_stats(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, float]
+```
+
+Calculate resource usage statistics.
+
+##### _calculate_success_rate_stats
+
+```python
+_calculate_success_rate_stats(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, float]
+```
+
+Calculate success rate statistics.
+
+##### _analyze_performance_trends
+
+```python
+_analyze_performance_trends(self, metrics: List[RecipeExecutionMetrics]) -> Dict[str, List[float]]
+```
+
+Analyze performance trends over time.
+
+##### _determine_trend_directions
+
+```python
+_determine_trend_directions(self, trends: Dict[str, List[float]]) -> Dict[str, str]
+```
+
+Determine the direction of performance trends.
+
+##### _identify_performance_bottlenecks
+
+```python
+_identify_performance_bottlenecks(self, metrics: List[RecipeExecutionMetrics]) -> List[Dict[str, Any]]
+```
+
+Identify performance bottlenecks across executions.
+
+##### _identify_optimization_opportunities
+
+```python
+_identify_optimization_opportunities(self, metrics: List[RecipeExecutionMetrics]) -> List[Dict[str, Any]]
+```
+
+Identify optimization opportunities.
+
+##### _detect_performance_anomalies
+
+```python
+_detect_performance_anomalies(self, metrics: List[RecipeExecutionMetrics]) -> List[Dict[str, Any]]
+```
+
+Detect performance anomalies using statistical methods.
+
+##### _analyze_anomaly_patterns
+
+```python
+_analyze_anomaly_patterns(self, anomalies: List[Dict[str, Any]]) -> List[str]
+```
+
+Analyze patterns in detected anomalies.
+
+##### _generate_optimization_recommendations
+
+```python
+_generate_optimization_recommendations(self, metrics: List[RecipeExecutionMetrics], analysis: PerformanceAnalysisResult) -> List[Dict[str, Any]]
+```
+
+Generate actionable optimization recommendations.
+
+##### _calculate_performance_score
+
+```python
+_calculate_performance_score(self, metrics: List[RecipeExecutionMetrics], analysis: PerformanceAnalysisResult) -> float
+```
+
+Calculate overall performance score (0-100).
+
+#### RecipeAnalyticsEngine
+
+Main analytics engine for comprehensive recipe performance analysis.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, context: Optional[Context] = None)
+```
+
+Initialize the recipe analytics engine.
+
+##### start_monitoring
+
+```python
+start_monitoring(self) -> None
+```
+
+Start real-time recipe execution monitoring.
+
+##### stop_monitoring
+
+```python
+stop_monitoring(self) -> None
+```
+
+Stop real-time recipe execution monitoring.
+
+##### store_execution_metrics
+
+```python
+store_execution_metrics(self, metrics: RecipeExecutionMetrics) -> None
+```
+
+Store completed execution metrics.
+
+##### analyze_recipe_performance
+
+```python
+analyze_recipe_performance(self, recipe_name: str) -> PerformanceAnalysisResult
+```
+
+Perform comprehensive performance analysis for a recipe.
+
+##### get_recipe_metrics
+
+```python
+get_recipe_metrics(self, recipe_name: str) -> List[RecipeExecutionMetrics]
+```
+
+Get stored execution metrics for a recipe.
+
+##### get_recipe_analysis_history
+
+```python
+get_recipe_analysis_history(self, recipe_name: str) -> List[PerformanceAnalysisResult]
+```
+
+Get analysis history for a recipe.
+
+##### get_overall_analytics_summary
+
+```python
+get_overall_analytics_summary(self) -> Dict[str, Any]
+```
+
+Get summary of all analytics data.
+
+##### export_analytics_data
+
+```python
+export_analytics_data(self, recipe_name: Optional[str] = None, format: str = 'json') -> Dict[str, Any]
+```
+
+Export analytics data for external analysis.
+
+
+---
+
+## scriptlets.core.api_integration
+
+**Description:** Framework0 Core - API Integration Scriptlet
+
+Comprehensive HTTP API integration capabilities with authentication, rate limiting,
+and Foundation monitoring. This scriptlet provides the implementation
+for the api_integration recipe template.
+
+Features:
+- Multiple authentication methods (Bearer, Basic, API Key, OAuth2)
+- Configurable rate limiting with token bucket algorithm
+- Request retry logic with exponential backoff
+- Response validation and transformation
+- Circuit breaker pattern for fault tolerance
+- Performance monitoring and health checks
+- Integration with Foundation systems (5A-5D)
+- Comprehensive security and error handling
+
+Usage:
+    This scriptlet is designed to be called from Framework0 recipes,
+    specifically the api_integration.yaml template.
+
+**File:** `scriptlets/core/api_integration.py`
+
+### Classes
+
+#### APIIntegrationError
+
+**Inherits from:** Exception
+
+Custom exception for API integration errors.
+
+#### RateLimiter
+
+Token bucket rate limiter for API requests.
+
+Implements rate limiting using token bucket algorithm
+with thread-safe operations.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, requests_per_second: float = 1.0, burst_size: int = 10) -> None
+```
+
+Initialize rate limiter.
+
+Args:
+    requests_per_second: Rate limit for requests per second
+    burst_size: Maximum burst capacity
+
+##### acquire
+
+```python
+acquire(self, tokens: int = 1) -> bool
+```
+
+Acquire tokens from the bucket.
+
+Args:
+    tokens: Number of tokens to acquire
+    
+Returns:
+    True if tokens were acquired, False otherwise
+
+##### wait_time
+
+```python
+wait_time(self, tokens: int = 1) -> float
+```
+
+Calculate wait time needed to acquire tokens.
+
+Args:
+    tokens: Number of tokens needed
+    
+Returns:
+    Time to wait in seconds
+
+#### CircuitBreaker
+
+Circuit breaker for API fault tolerance.
+
+Prevents cascading failures by temporarily stopping
+requests when failure rate is too high.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, failure_threshold: int = 5, timeout_seconds: int = 30) -> None
+```
+
+Initialize circuit breaker.
+
+Args:
+    failure_threshold: Number of failures before opening
+    timeout_seconds: Timeout before trying half-open
+
+##### call
+
+```python
+call(self, func)
+```
+
+Execute function through circuit breaker.
+
+Args:
+    func: Function to execute
+    *args: Function arguments
+    **kwargs: Function keyword arguments
+    
+Returns:
+    Function result
+    
+Raises:
+    APIIntegrationError: If circuit breaker is open
+
+#### APIClient
+
+Comprehensive API client with authentication and monitoring.
+
+Provides HTTP request capabilities with enterprise-grade features
+including authentication, rate limiting, and error handling.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, base_url: str, context: Optional[Context] = None) -> None
+```
+
+Initialize API client.
+
+Args:
+    base_url: Base URL for API requests
+    context: Optional Framework0 context for integration
+
+##### configure_authentication
+
+```python
+configure_authentication(self, auth_config: Dict[str, Any]) -> None
+```
+
+Configure authentication for API requests.
+
+Args:
+    auth_config: Authentication configuration dictionary
+
+##### _handle_oauth2_authentication
+
+```python
+_handle_oauth2_authentication(self, oauth_config: Dict[str, Any]) -> None
+```
+
+Handle OAuth2 authentication flow.
+
+Args:
+    oauth_config: OAuth2 configuration
+
+##### configure_rate_limiting
+
+```python
+configure_rate_limiting(self, rate_config: Dict[str, Any]) -> None
+```
+
+Configure rate limiting for API requests.
+
+Args:
+    rate_config: Rate limiting configuration
+
+##### _apply_rate_limiting
+
+```python
+_apply_rate_limiting(self) -> None
+```
+
+Apply rate limiting before making request.
+
+##### make_request
+
+```python
+make_request(self, method: str, endpoint: str, headers: Optional[Dict[str, str]] = None, params: Optional[Dict[str, Any]] = None, data: Optional[Union[Dict, str]] = None, timeout_config: Optional[Dict[str, float]] = None) -> requests.Response
+```
+
+Make HTTP request with comprehensive error handling.
+
+Args:
+    method: HTTP method
+    endpoint: API endpoint
+    headers: Additional headers
+    params: Query parameters
+    data: Request body data
+    timeout_config: Timeout configuration
+    
+Returns:
+    HTTP response object
+
+
+---
+
+## scriptlets.core.batch_processing
+
+**Description:** Framework0 Core - Batch Processing Scriptlet
+
+Comprehensive batch processing capabilities with parallel execution,
+progress tracking, and checkpoint recovery. This scriptlet provides
+enterprise-grade batch processing for large datasets.
+
+Features:
+- Multi-threaded and multi-process parallel execution
+- Progress tracking with checkpoint recovery mechanisms
+- Memory management and resource throttling
+- Chunking algorithms for optimal performance
+- Foundation system integration for monitoring
+- Comprehensive error handling and retry logic
+- Performance optimization and scalability features
+
+Usage:
+    This scriptlet is designed to be called from Framework0 recipes,
+    specifically the batch_processing.yaml template.
+
+**File:** `scriptlets/core/batch_processing.py`
+
+### Classes
+
+#### BatchProcessingError
+
+**Inherits from:** Exception
+
+Custom exception for batch processing errors.
+
+#### BatchProcessingStats
+
+Statistics for batch processing operations.
+
+**Attributes:**
+
+- `total_items: int = 0`
+- `processed_items: int = 0`
+- `failed_items: int = 0`
+- `batches_completed: int = 0`
+- `batches_failed: int = 0`
+- `start_time: Optional[datetime] = None`
+- `end_time: Optional[datetime] = None`
+- `processing_time: float = 0.0`
+- `throughput: float = 0.0`
+- `error_rate: float = 0.0`
+- `memory_usage: Dict[str, float] = field(default_factory=dict)`
+- `cpu_usage: Dict[str, float] = field(default_factory=dict)`
+
+**Methods:**
+
+##### update_throughput
+
+```python
+update_throughput(self) -> None
+```
+
+Update throughput calculation.
+
+##### update_error_rate
+
+```python
+update_error_rate(self) -> None
+```
+
+Update error rate calculation.
+
+#### CheckpointData
+
+Data structure for checkpoint storage.
+
+**Attributes:**
+
+- `checkpoint_id: str`
+- `timestamp: datetime`
+- `processed_items: int`
+- `failed_items: int`
+- `current_batch: int`
+- `total_batches: int`
+- `processing_state: Dict[str, Any]`
+- `metadata: Dict[str, Any]`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert checkpoint to dictionary.
+
+##### from_dict
+
+```python
+from_dict(cls, data: Dict[str, Any]) -> 'CheckpointData'
+```
+
+Create checkpoint from dictionary.
+
+**Decorators:** classmethod
+
+#### CheckpointManager
+
+Manages checkpoint storage and recovery for batch processing.
+
+Provides reliable checkpoint functionality with compression,
+validation, and recovery capabilities.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: Dict[str, Any]) -> None
+```
+
+Initialize checkpoint manager.
+
+Args:
+    config: Checkpoint configuration
+
+##### should_checkpoint
+
+```python
+should_checkpoint(self) -> bool
+```
+
+Check if it's time to create a checkpoint.
+
+##### save_checkpoint
+
+```python
+save_checkpoint(self, checkpoint_data: CheckpointData) -> bool
+```
+
+Save checkpoint to storage.
+
+Args:
+    checkpoint_data: Checkpoint data to save
+
+Returns:
+    True if successful, False otherwise
+
+##### load_checkpoint
+
+```python
+load_checkpoint(self, checkpoint_id: str) -> Optional[CheckpointData]
+```
+
+Load checkpoint from storage.
+
+Args:
+    checkpoint_id: Checkpoint ID to load
+
+Returns:
+    CheckpointData if found, None otherwise
+
+##### list_checkpoints
+
+```python
+list_checkpoints(self) -> List[str]
+```
+
+List available checkpoint IDs.
+
+##### cleanup_checkpoints
+
+```python
+cleanup_checkpoints(self, keep_latest: int = 5) -> None
+```
+
+Clean up old checkpoints, keeping only the latest ones.
+
+#### ResourceMonitor
+
+Monitors system resources during batch processing.
+
+Tracks CPU, memory, and disk usage with throttling capabilities.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: Dict[str, Any]) -> None
+```
+
+Initialize resource monitor.
+
+Args:
+    config: Resource monitoring configuration
+
+##### _parse_memory_size
+
+```python
+_parse_memory_size(self, size_str: str) -> int
+```
+
+Parse memory size string to bytes.
+
+##### start_monitoring
+
+```python
+start_monitoring(self) -> None
+```
+
+Start resource monitoring.
+
+##### stop_monitoring
+
+```python
+stop_monitoring(self) -> None
+```
+
+Stop resource monitoring.
+
+##### update_stats
+
+```python
+update_stats(self) -> Dict[str, float]
+```
+
+Update and return current resource statistics.
+
+##### should_throttle
+
+```python
+should_throttle(self) -> bool
+```
+
+Check if processing should be throttled due to resource usage.
+
+##### get_memory_usage_mb
+
+```python
+get_memory_usage_mb(self) -> float
+```
+
+Get current memory usage in MB.
+
+#### BatchProcessingManager
+
+Main batch processing manager with parallel execution capabilities.
+
+Coordinates all aspects of batch processing including parallel workers,
+progress tracking, checkpoint management, and resource monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: Dict[str, Any], context: Optional[Context] = None) -> None
+```
+
+Initialize batch processing manager.
+
+Args:
+    config: Batch processing configuration
+    context: Optional Framework0 context
+
+##### load_processing_function
+
+```python
+load_processing_function(self, function_name: str, module_name: str) -> Callable
+```
+
+Load processing function from module.
+
+Args:
+    function_name: Name of the processing function
+    module_name: Name of the module containing the function
+
+Returns:
+    Processing function
+
+##### partition_data
+
+```python
+partition_data(self, data_source: Any, partitioning_config: Dict[str, Any]) -> List[Any]
+```
+
+Partition data for parallel processing.
+
+Args:
+    data_source: Data source to partition
+    partitioning_config: Partitioning configuration
+
+Returns:
+    List of data partitions
+
+##### _process_partition_worker
+
+```python
+_process_partition_worker(self, partition_data: List[Any], worker_id: int, function_params: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Worker function for processing a data partition.
+
+Args:
+    partition_data: Data partition to process
+    worker_id: Worker identifier
+    function_params: Parameters for processing function
+
+Returns:
+    Processing results
+
+##### execute_parallel_processing
+
+```python
+execute_parallel_processing(self, partitions: List[Any], function_params: Dict[str, Any], progress_callback: Optional[Callable] = None) -> Dict[str, Any]
+```
+
+Execute parallel processing of data partitions.
+
+Args:
+    partitions: List of data partitions
+    function_params: Parameters for processing function
+    progress_callback: Optional progress callback function
+
+Returns:
+    Processing results
+
+##### _save_progress_checkpoint
+
+```python
+_save_progress_checkpoint(self, completed_batches: int, total_batches: int) -> None
+```
+
+Save progress checkpoint during processing.
+
+##### aggregate_results
+
+```python
+aggregate_results(self, processing_results: List[Dict[str, Any]], aggregation_config: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Aggregate results from parallel workers.
+
+Args:
+    processing_results: Results from parallel workers
+    aggregation_config: Aggregation configuration
+
+Returns:
+    Aggregated results
+
+##### _validate_aggregated_results
+
+```python
+_validate_aggregated_results(self, aggregated: Dict[str, Any], config: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Validate aggregated results for quality and consistency.
+
+##### _sort_aggregated_results
+
+```python
+_sort_aggregated_results(self, aggregated: Dict[str, Any], config: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Sort aggregated results based on criteria.
+
+##### cleanup_resources
+
+```python
+cleanup_resources(self) -> None
+```
+
+Clean up processing resources.
+
+
+---
+
+## scriptlets.core.data_validation
+
+**Description:** Framework0 Core - Data Validation Scriptlet
+
+Comprehensive data validation capabilities with schema validation, data quality checks,
+and business rule validation. This scriptlet provides the implementation
+for the data_validation recipe template.
+
+Features:
+- JSON Schema validation with custom formats and patterns
+- Data quality checks (completeness, consistency, accuracy)
+- Business rule validation with custom logic execution
+- Statistical analysis and anomaly detection
+- Data profiling with comprehensive statistics
+- Performance monitoring and Foundation integration
+- Comprehensive error reporting with severity levels
+- Data sanitization and auto-correction capabilities
+
+Usage:
+    This scriptlet is designed to be called from Framework0 recipes,
+    specifically the data_validation.yaml template.
+
+**File:** `scriptlets/core/data_validation.py`
+
+### Classes
+
+#### DataValidationError
+
+**Inherits from:** Exception
+
+Custom exception for data validation errors.
+
+#### ValidationResult
+
+Structured validation result with severity levels.
+
+Provides detailed validation results with context,
+severity levels, and suggested corrections.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, field: str = None, rule: str = None, severity: str = 'error', message: str = '', value: Any = None, expected: Any = None, suggestion: str = None) -> None
+```
+
+Initialize validation result.
+
+Args:
+    field: Field name that failed validation
+    rule: Validation rule that failed
+    severity: Severity level (info, warning, error, critical)
+    message: Human-readable error message
+    value: Actual value that failed
+    expected: Expected value or format
+    suggestion: Suggested correction
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert to dictionary representation.
+
+#### DataProfiler
+
+Comprehensive data profiling engine.
+
+Provides statistical analysis, distribution analysis,
+and data quality metrics calculation.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize data profiler.
+
+##### profile_dataset
+
+```python
+profile_dataset(self, data: Union[List[Dict], pd.DataFrame]) -> Dict[str, Any]
+```
+
+Generate comprehensive data profile.
+
+Args:
+    data: Dataset to profile
+    
+Returns:
+    Dictionary with profiling results
+
+##### _get_dataset_info
+
+```python
+_get_dataset_info(self, df: pd.DataFrame) -> Dict[str, Any]
+```
+
+Get basic dataset information.
+
+##### _profile_fields
+
+```python
+_profile_fields(self, df: pd.DataFrame) -> Dict[str, Dict[str, Any]]
+```
+
+Profile individual fields.
+
+##### _analyze_numeric_field
+
+```python
+_analyze_numeric_field(self, series: pd.Series) -> Dict[str, Any]
+```
+
+Analyze numeric field statistics.
+
+##### _analyze_text_field
+
+```python
+_analyze_text_field(self, series: pd.Series) -> Dict[str, Any]
+```
+
+Analyze text field characteristics.
+
+##### _analyze_datetime_field
+
+```python
+_analyze_datetime_field(self, series: pd.Series) -> Dict[str, Any]
+```
+
+Analyze datetime field characteristics.
+
+##### _detect_outliers_iqr
+
+```python
+_detect_outliers_iqr(self, series: pd.Series) -> Dict[str, Any]
+```
+
+Detect outliers using IQR method.
+
+##### _detect_outliers_zscore
+
+```python
+_detect_outliers_zscore(self, series: pd.Series, threshold: float = 3.0) -> Dict[str, Any]
+```
+
+Detect outliers using Z-score method.
+
+##### _identify_text_patterns
+
+```python
+_identify_text_patterns(self, series: pd.Series) -> Dict[str, int]
+```
+
+Identify common text patterns.
+
+##### _calculate_quality_metrics
+
+```python
+_calculate_quality_metrics(self, df: pd.DataFrame) -> Dict[str, float]
+```
+
+Calculate overall data quality metrics.
+
+##### _get_statistical_summary
+
+```python
+_get_statistical_summary(self, df: pd.DataFrame) -> Dict[str, Any]
+```
+
+Get statistical summary of numeric fields.
+
+##### _analyze_correlations
+
+```python
+_analyze_correlations(self, df: pd.DataFrame) -> Dict[str, Any]
+```
+
+Analyze correlations between numeric fields.
+
+##### _analyze_distributions
+
+```python
+_analyze_distributions(self, df: pd.DataFrame) -> Dict[str, Any]
+```
+
+Analyze data distributions for numeric fields.
+
+#### SchemaValidator
+
+JSON Schema validation engine with custom formats.
+
+Provides comprehensive schema validation with custom
+format validators and detailed error reporting.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize schema validator.
+
+##### _register_custom_formats
+
+```python
+_register_custom_formats(self) -> None
+```
+
+Register custom format validators.
+
+##### validate_schema
+
+```python
+validate_schema(self, data: Any, schema: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate data against JSON schema.
+
+Args:
+    data: Data to validate
+    schema: JSON schema definition
+    
+Returns:
+    List of validation results
+
+#### QualityChecker
+
+Data quality assessment engine.
+
+Provides completeness, consistency, and accuracy checks
+with configurable thresholds and detailed reporting.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize quality checker.
+
+##### check_completeness
+
+```python
+check_completeness(self, data: List[Dict], config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Check data completeness.
+
+Args:
+    data: Data to check
+    config: Completeness check configuration
+    
+Returns:
+    List of validation results
+
+##### check_consistency
+
+```python
+check_consistency(self, data: List[Dict], config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Check data consistency.
+
+Args:
+    data: Data to check
+    config: Consistency check configuration
+    
+Returns:
+    List of validation results
+
+##### _validate_cross_field_rule
+
+```python
+_validate_cross_field_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate cross-field consistency rule.
+
+##### _evaluate_condition
+
+```python
+_evaluate_condition(self, condition: str, row: pd.Series) -> bool
+```
+
+Evaluate a simple condition against a data row.
+
+##### check_accuracy
+
+```python
+check_accuracy(self, data: List[Dict], config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Check data accuracy.
+
+Args:
+    data: Data to check
+    config: Accuracy check configuration
+    
+Returns:
+    List of validation results
+
+##### _check_format_accuracy
+
+```python
+_check_format_accuracy(self, df: pd.DataFrame, config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Check format accuracy of fields.
+
+##### _check_range_accuracy
+
+```python
+_check_range_accuracy(self, df: pd.DataFrame, range_config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Check range accuracy for numeric fields.
+
+##### _check_pattern_accuracy
+
+```python
+_check_pattern_accuracy(self, df: pd.DataFrame, pattern_config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Check pattern accuracy for text fields.
+
+#### BusinessRuleValidator
+
+Business rule validation engine.
+
+Provides custom business logic validation with
+configurable rules and severity levels.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize business rule validator.
+
+##### register_validator
+
+```python
+register_validator(self, name: str, validator: Callable) -> None
+```
+
+Register a custom validation function.
+
+##### validate_rules
+
+```python
+validate_rules(self, data: List[Dict], rules_config: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate data against business rules.
+
+Args:
+    data: Data to validate
+    rules_config: Business rules configuration
+    
+Returns:
+    List of validation results
+
+##### _validate_single_rule
+
+```python
+_validate_single_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate a single business rule.
+
+##### _validate_conditional_rule
+
+```python
+_validate_conditional_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate conditional business rule.
+
+##### _validate_aggregation_rule
+
+```python
+_validate_aggregation_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate aggregation business rule.
+
+##### _validate_custom_rule
+
+```python
+_validate_custom_rule(self, df: pd.DataFrame, rule: Dict[str, Any]) -> List[ValidationResult]
+```
+
+Validate custom business rule.
+
+##### _evaluate_condition
+
+```python
+_evaluate_condition(self, condition: str, row: pd.Series) -> bool
+```
+
+Evaluate a condition against a data row.
+
+
+---
+
+## scriptlets.core.database_operations
+
+**Description:** Framework0 Core - Database Operations Scriptlet
+
+Comprehensive database operations capabilities with multi-database support,
+transaction management, and connection pooling. This scriptlet provides
+the implementation for the database_operations recipe template.
+
+Features:
+- Multi-database support (PostgreSQL, MySQL, SQLite, MongoDB, Redis)
+- CRUD operations with advanced querying and filtering
+- Transaction management with isolation levels and rollback
+- Connection pooling with automatic failover and load balancing
+- Schema management and migration support
+- Performance monitoring and query optimization
+- Foundation system integration for health checks and metrics
+- Comprehensive error handling with retry logic and circuit breakers
+- Data security with encryption and access control
+
+Usage:
+    This scriptlet is designed to be called from Framework0 recipes,
+    specifically the database_operations.yaml template.
+
+**File:** `scriptlets/core/database_operations.py`
+
+### Classes
+
+#### DatabaseOperationsError
+
+**Inherits from:** Exception
+
+Custom exception for database operation errors.
+
+#### ConnectionPool
+
+Database connection pool manager.
+
+Manages database connections with automatic failover,
+health checking, and performance monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: Dict[str, Any]) -> None
+```
+
+Initialize connection pool.
+
+Args:
+    config: Database and pool configuration
+
+##### _initialize_pool
+
+```python
+_initialize_pool(self) -> None
+```
+
+Initialize the appropriate connection pool.
+
+##### _initialize_sql_pool
+
+```python
+_initialize_sql_pool(self) -> None
+```
+
+Initialize SQL database connection pool.
+
+##### _initialize_mongodb_pool
+
+```python
+_initialize_mongodb_pool(self) -> None
+```
+
+Initialize MongoDB connection pool.
+
+##### _initialize_redis_pool
+
+```python
+_initialize_redis_pool(self) -> None
+```
+
+Initialize Redis connection pool.
+
+##### _build_sql_connection_string
+
+```python
+_build_sql_connection_string(self, db_config: Dict[str, Any]) -> str
+```
+
+Build SQL database connection string.
+
+##### get_connection
+
+```python
+get_connection(self)
+```
+
+Get database connection from pool.
+
+**Decorators:** contextmanager
+
+##### _get_sql_connection
+
+```python
+_get_sql_connection(self)
+```
+
+Get SQL database connection.
+
+**Decorators:** contextmanager
+
+##### _get_mongodb_connection
+
+```python
+_get_mongodb_connection(self)
+```
+
+Get MongoDB database connection.
+
+**Decorators:** contextmanager
+
+##### _get_redis_connection
+
+```python
+_get_redis_connection(self)
+```
+
+Get Redis database connection.
+
+**Decorators:** contextmanager
+
+##### health_check
+
+```python
+health_check(self) -> Dict[str, Any]
+```
+
+Perform connection pool health check.
+
+##### close
+
+```python
+close(self) -> None
+```
+
+Close all connections and cleanup resources.
+
+#### DatabaseOperationsManager
+
+Database operations manager with multi-database support.
+
+Provides unified interface for database operations across
+different database types with transaction management.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: Dict[str, Any], context: Optional[Context] = None) -> None
+```
+
+Initialize database operations manager.
+
+Args:
+    config: Database configuration
+    context: Optional Framework0 context
+
+##### execute_operation
+
+```python
+execute_operation(self, operation: str, target_config: Dict[str, Any], data_config: Dict[str, Any], transaction_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
+```
+
+Execute database operation.
+
+Args:
+    operation: Operation type (create, read, update, delete, etc.)
+    target_config: Target table/collection configuration
+    data_config: Data and query configuration
+    transaction_context: Optional transaction context
+
+Returns:
+    Operation results dictionary
+
+##### _execute_sql_operation
+
+```python
+_execute_sql_operation(self, operation: str, target_config: Dict[str, Any], data_config: Dict[str, Any], transaction_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
+```
+
+Execute SQL database operation.
+
+##### _sql_create
+
+```python
+_sql_create(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]
+```
+
+Execute SQL INSERT operation.
+
+##### _sql_read
+
+```python
+_sql_read(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]
+```
+
+Execute SQL SELECT operation.
+
+##### _sql_update
+
+```python
+_sql_update(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]
+```
+
+Execute SQL UPDATE operation.
+
+##### _sql_delete
+
+```python
+_sql_delete(self, session, table_name: str, data_config: Dict[str, Any], schema_name: Optional[str] = None) -> Dict[str, Any]
+```
+
+Execute SQL DELETE operation.
+
+##### _sql_execute_raw
+
+```python
+_sql_execute_raw(self, session, data_config: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Execute raw SQL query.
+
+
+---
+
+## scriptlets.core.file_processing
+
+**Description:** Framework0 Core - File Processing Scriptlet
+
+Comprehensive file processing capabilities with validation, transformation,
+and Foundation integration. This scriptlet provides the implementation
+for the file_processing recipe template.
+
+Features:
+- Safe file operations with backup and rollback
+- Multiple format support (text, JSON, CSV, XML, YAML, binary)
+- Content validation and transformation
+- Performance monitoring and health checks
+- Integration with Foundation systems (5A-5D)
+- Robust error handling and recovery
+
+Usage:
+    This scriptlet is designed to be called from Framework0 recipes,
+    specifically the file_processing.yaml template.
+
+**File:** `scriptlets/core/file_processing.py`
+
+### Classes
+
+#### FileProcessingError
+
+**Inherits from:** Exception
+
+Custom exception for file processing errors.
+
+#### FileProcessor
+
+Core file processing engine with comprehensive capabilities.
+
+Provides safe, monitored file operations with validation,
+transformation, and Foundation integration.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, context: Optional[Context] = None) -> None
+```
+
+Initialize file processor.
+
+Args:
+    context: Optional Framework0 context for integration
+
+##### _track_performance
+
+```python
+_track_performance(self, operation: str, duration: float) -> None
+```
+
+Track performance metrics for Foundation integration.
+
+##### _detect_encoding
+
+```python
+_detect_encoding(self, file_path: str) -> str
+```
+
+Detect file encoding automatically.
+
+Args:
+    file_path: Path to file for encoding detection
+    
+Returns:
+    Detected encoding string
+
+##### _detect_format
+
+```python
+_detect_format(self, file_path: str) -> str
+```
+
+Detect file format from extension and content.
+
+Args:
+    file_path: Path to file for format detection
+    
+Returns:
+    Detected format string
+
+##### _validate_file_path
+
+```python
+_validate_file_path(self, file_path: str, for_writing: bool = False) -> str
+```
+
+Validate and normalize file path.
+
+Args:
+    file_path: File path to validate
+    for_writing: Whether path will be used for writing
+    
+Returns:
+    Validated and normalized file path
+    
+Raises:
+    FileProcessingError: If path is invalid
+
+##### _calculate_checksum
+
+```python
+_calculate_checksum(self, content: Union[str, bytes]) -> str
+```
+
+Calculate MD5 checksum for content verification.
+
+
+---
+
+## scriptlets.deployment.container_deployment_engine
+
+**Description:** Framework0 Deployment Module - Container-Based Recipe Deployment System
+
+This module provides enterprise-grade deployment capabilities for Framework0 recipes,
+including Docker containerization, Kubernetes orchestration, and production deployment workflows.
+
+Built upon Exercise 7 Analytics and existing Recipe Isolation CLI foundations.
+
+**File:** `scriptlets/deployment/container_deployment_engine.py`
+
+### Classes
+
+#### ContainerDeploymentEngine
+
+Enterprise-grade container deployment engine for Framework0 recipes.
+
+This class provides comprehensive containerization capabilities including:
+- Docker container generation with multi-stage builds
+- Container registry integration for distribution
+- Security-hardened container configurations  
+- Integration with Exercise 7 Analytics for deployment monitoring
+- Production-ready deployment orchestration
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analytics_manager: Optional[Any] = None) -> None
+```
+
+Initialize the Container Deployment Engine.
+
+Args:
+    analytics_manager: Optional analytics manager for deployment monitoring
+
+##### build_container
+
+```python
+build_container(self, recipe_package_path: str, container_name: str, build_options: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
+```
+
+Build Docker container for a Framework0 recipe package.
+
+Args:
+    recipe_package_path: Path to isolated recipe package
+    container_name: Name for the resulting container
+    build_options: Optional build configuration options
+    
+Returns:
+    Dict[str, Any]: Build result with container ID, size, and metadata
+
+##### push_container
+
+```python
+push_container(self, container_name: str, registry_config: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Push container to registry for distribution.
+
+Args:
+    container_name: Name of container to push
+    registry_config: Registry configuration (URL, credentials, etc.)
+    
+Returns:
+    Dict[str, Any]: Push result with registry URL and metadata
+
+##### get_deployment_analytics
+
+```python
+get_deployment_analytics(self) -> Dict[str, Any]
+```
+
+Get deployment analytics and metrics.
+
+Returns:
+    Dict[str, Any]: Deployment analytics data and statistics
+
+#### ContainerBuilder
+
+Docker container builder for Framework0 recipes with optimization.
+
+This class handles Dockerfile generation, multi-stage builds, and
+container optimization for minimal size and security.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize the Container Builder.
+
+##### generate_dockerfile
+
+```python
+generate_dockerfile(self, recipe_package_path: str, build_options: Dict[str, Any]) -> str
+```
+
+Generate optimized Dockerfile for recipe package.
+
+Args:
+    recipe_package_path: Path to recipe package
+    build_options: Build configuration options
+    
+Returns:
+    str: Generated Dockerfile content
+
+##### build_container
+
+```python
+build_container(self, dockerfile_content: str, container_name: str, build_context: str) -> Dict[str, Any]
+```
+
+Build Docker container using generated Dockerfile.
+
+Args:
+    dockerfile_content: Dockerfile content to build
+    container_name: Name for the container
+    build_context: Build context directory
+    
+Returns:
+    Dict[str, Any]: Build result with container ID and metadata
+
+#### RegistryManager
+
+Container registry management for distribution and versioning.
+
+This class handles pushing/pulling containers to/from registries,
+version management, and registry authentication.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize the Registry Manager.
+
+##### push_container
+
+```python
+push_container(self, container_name: str, registry_config: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Push container to configured registry.
+
+Args:
+    container_name: Container name to push
+    registry_config: Registry configuration
+    
+Returns:
+    Dict[str, Any]: Push result with registry URL
+
+#### SecurityScanner
+
+Container security scanner for vulnerability assessment.
+
+This class performs security scans on built containers to identify
+vulnerabilities and security issues before deployment.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize the Security Scanner.
+
+##### scan_container
+
+```python
+scan_container(self, container_id: str) -> Dict[str, Any]
+```
+
+Perform security scan on container.
+
+Args:
+    container_id: Container ID to scan
+    
+Returns:
+    Dict[str, Any]: Security scan results
+
+
+---
+
+## scriptlets.deployment.isolation_framework
+
+**Description:** Framework0 Isolation Framework - Advanced Security and Resource Management
+
+This module provides enterprise-grade isolation capabilities for Framework0 recipes,
+including security sandboxing, resource limits, and environment management.
+
+Built upon Exercise 8 Phase 1 Container Deployment Engine.
+
+**File:** `scriptlets/deployment/isolation_framework.py`
+
+### Classes
+
+#### SecurityPolicy
+
+Security policy configuration for recipe isolation.
+
+This class defines comprehensive security constraints including
+privilege restrictions, capability limits, and access controls.
+
+**Attributes:**
+
+- `run_as_user: str = 'framework0'`
+- `run_as_group: str = 'framework0'`
+- `allow_privilege_escalation: bool = False`
+- `dropped_capabilities: List[str] = field(default_factory=lambda: ['CAP_SYS_ADMIN', 'CAP_NET_ADMIN', 'CAP_SYS_MODULE', 'CAP_SYS_RAWIO', 'CAP_SYS_TIME', 'CAP_MKNOD'])`
+- `read_only_root_filesystem: bool = True`
+- `allowed_mount_points: List[str] = field(default_factory=lambda: ['/tmp', '/var/tmp'])`
+- `network_access: bool = True`
+- `allowed_ports: List[int] = field(default_factory=list)`
+- `apparmor_profile: Optional[str] = None`
+- `selinux_context: Optional[str] = None`
+- `no_new_privileges: bool = True`
+- `seccomp_profile: Optional[str] = 'default'`
+
+#### ResourceLimits
+
+Resource limitation configuration for recipe execution.
+
+This class defines comprehensive resource constraints including
+CPU, memory, disk, and network limitations.
+
+**Attributes:**
+
+- `cpu_limit_cores: float = 1.0`
+- `cpu_request_cores: float = 0.25`
+- `cpu_limit_percent: Optional[int] = None`
+- `memory_limit_mb: int = 512`
+- `memory_request_mb: int = 256`
+- `swap_limit_mb: int = 0`
+- `disk_limit_mb: Optional[int] = 1024`
+- `iops_read_limit: Optional[int] = 1000`
+- `iops_write_limit: Optional[int] = 500`
+- `max_processes: int = 100`
+- `max_open_files: int = 1024`
+- `network_bandwidth_mbps: Optional[float] = None`
+- `max_connections: Optional[int] = 50`
+- `execution_timeout_seconds: int = 3600`
+- `idle_timeout_seconds: int = 300`
+
+#### IsolationEnvironment
+
+Complete isolation environment configuration.
+
+This class combines security policies, resource limits, and
+environment configuration for comprehensive recipe isolation.
+
+**Attributes:**
+
+- `environment_id: str`
+- `recipe_name: str`
+- `security_policy: SecurityPolicy = field(default_factory=SecurityPolicy)`
+- `resource_limits: ResourceLimits = field(default_factory=ResourceLimits)`
+- `environment_variables: Dict[str, str] = field(default_factory=dict)`
+- `secret_variables: Dict[str, str] = field(default_factory=dict)`
+- `volume_mounts: Dict[str, str] = field(default_factory=dict)`
+- `tmpfs_mounts: List[str] = field(default_factory=lambda: ['/tmp'])`
+- `network_mode: str = 'bridge'`
+- `port_mappings: Dict[int, int] = field(default_factory=dict)`
+- `enable_monitoring: bool = True`
+- `log_level: str = 'INFO'`
+- `created_timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())`
+- `created_by: str = 'Framework0 Isolation Framework'`
+
+#### IsolationFramework
+
+Advanced isolation framework for secure recipe execution.
+
+This class provides comprehensive isolation capabilities including:
+- Security sandboxing with Linux security modules
+- Resource limitation and enforcement
+- Environment variable and secrets management
+- Filesystem isolation and mount management
+- Integration with Exercise 8 Phase 1 Container Engine
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analytics_manager: Optional[Any] = None) -> None
+```
+
+Initialize the Isolation Framework.
+
+Args:
+    analytics_manager: Optional analytics manager for monitoring
+
+##### create_isolation_environment
+
+```python
+create_isolation_environment(self, recipe_name: str, security_policy: Optional[SecurityPolicy] = None, resource_limits: Optional[ResourceLimits] = None, custom_config: Optional[Dict[str, Any]] = None) -> IsolationEnvironment
+```
+
+Create comprehensive isolation environment for recipe execution.
+
+Args:
+    recipe_name: Name of recipe to isolate
+    security_policy: Optional custom security policy
+    resource_limits: Optional custom resource limits
+    custom_config: Optional additional configuration
+    
+Returns:
+    IsolationEnvironment: Complete isolation configuration
+
+##### _apply_custom_configuration
+
+```python
+_apply_custom_configuration(self, isolation_env: IsolationEnvironment, custom_config: Dict[str, Any]) -> None
+```
+
+Apply custom configuration to isolation environment.
+
+Args:
+    isolation_env: Isolation environment to modify
+    custom_config: Custom configuration to apply
+
+##### _validate_isolation_environment
+
+```python
+_validate_isolation_environment(self, isolation_env: IsolationEnvironment) -> Dict[str, Any]
+```
+
+Validate isolation environment configuration.
+
+Args:
+    isolation_env: Isolation environment to validate
+    
+Returns:
+    Dict[str, Any]: Validation result with errors if any
+
+#### SecuritySandbox
+
+Security sandbox manager for AppArmor/SELinux integration.
+
+**Methods:**
+
+##### validate_security_policy
+
+```python
+validate_security_policy(self, policy: SecurityPolicy) -> Dict[str, Any]
+```
+
+Validate security policy configuration.
+
+#### ResourceManager
+
+Resource manager for CPU, memory, and I/O limits.
+
+**Methods:**
+
+##### validate_resource_limits
+
+```python
+validate_resource_limits(self, limits: ResourceLimits) -> Dict[str, Any]
+```
+
+Validate resource limits configuration.
+
+#### EnvironmentManager
+
+Environment manager for variables, secrets, and mounts.
+
+
+---
+
+## scriptlets.extensions.cli_system
+
+**Description:** Framework0 CLI System - Exercise 10 Phase 5
+Command-line interface for Framework0 Extension System management
+
+**File:** `scriptlets/extensions/cli_system.py`
+
+### Classes
+
+#### CLICommandResult
+
+Result of CLI command execution.
+
+**Attributes:**
+
+- `success: bool = True`
+- `message: str = ''`
+- `data: Dict[str, Any] = field(default_factory=dict)`
+- `exit_code: int = 0`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert result to dictionary.
+
+##### format_output
+
+```python
+format_output(self, format_type: str = 'text') -> str
+```
+
+Format result for output.
+
+#### CLICommand
+
+**Inherits from:** ABC
+
+Abstract base class for CLI commands.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, name: str, description: str)
+```
+
+Initialize CLI command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup argument parser for this command.
+
+**Decorators:** abstractmethod
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute command with parsed arguments.
+
+**Decorators:** abstractmethod
+
+##### validate_args
+
+```python
+validate_args(self, args: argparse.Namespace) -> bool
+```
+
+Validate command arguments.
+
+##### get_help_text
+
+```python
+get_help_text(self) -> str
+```
+
+Get detailed help text for command.
+
+#### CLICommandRegistry
+
+Registry for CLI commands.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize command registry.
+
+##### register_command
+
+```python
+register_command(self, command: CLICommand) -> None
+```
+
+Register a CLI command.
+
+##### get_command
+
+```python
+get_command(self, name: str) -> Optional[CLICommand]
+```
+
+Get registered command by name.
+
+##### list_commands
+
+```python
+list_commands(self) -> List[str]
+```
+
+List all registered command names.
+
+##### get_command_descriptions
+
+```python
+get_command_descriptions(self) -> Dict[str, str]
+```
+
+Get command names and descriptions.
+
+#### FrameworkCLI
+
+Main Framework0 CLI application.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize Framework0 CLI.
+
+##### setup_main_parser
+
+```python
+setup_main_parser(self) -> argparse.ArgumentParser
+```
+
+Setup main argument parser.
+
+##### register_default_commands
+
+```python
+register_default_commands(self) -> None
+```
+
+Register default CLI commands.
+
+##### execute_command
+
+```python
+execute_command(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute CLI command.
+
+##### run
+
+```python
+run(self, argv: Optional[List[str]] = None) -> int
+```
+
+Run CLI application.
+
+#### StatusCommand
+
+**Inherits from:** CLICommand
+
+System status command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize status command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup status command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute status command.
+
+#### HelpCommand
+
+**Inherits from:** CLICommand
+
+Help command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, registry: CLICommandRegistry)
+```
+
+Initialize help command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup help command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute help command.
+
+#### PluginListCommand
+
+**Inherits from:** CLICommand
+
+List plugins command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize plugin list command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup plugin list command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute plugin list command.
+
+#### PluginInstallCommand
+
+**Inherits from:** CLICommand
+
+Install plugin command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize plugin install command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup plugin install command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute plugin install command.
+
+#### PluginStatusCommand
+
+**Inherits from:** CLICommand
+
+Plugin status command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize plugin status command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup plugin status command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute plugin status command.
+
+#### ConfigGetCommand
+
+**Inherits from:** CLICommand
+
+Get configuration value command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize config get command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup config get command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute config get command.
+
+#### ConfigSetCommand
+
+**Inherits from:** CLICommand
+
+Set configuration value command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize config set command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup config set command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute config set command.
+
+#### ConfigListCommand
+
+**Inherits from:** CLICommand
+
+List configurations command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize config list command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup config list command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute config list command.
+
+#### TemplateListCommand
+
+**Inherits from:** CLICommand
+
+List templates command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize template list command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup template list command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute template list command.
+
+#### TemplateRenderCommand
+
+**Inherits from:** CLICommand
+
+Render template command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize template render command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup template render command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute template render command.
+
+#### EventEmitCommand
+
+**Inherits from:** CLICommand
+
+Emit event command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize event emit command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup event emit command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute event emit command.
+
+#### EventHistoryCommand
+
+**Inherits from:** CLICommand
+
+Event history command.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize event history command.
+
+##### setup_parser
+
+```python
+setup_parser(self, parser: argparse.ArgumentParser) -> None
+```
+
+Setup event history command parser.
+
+##### execute
+
+```python
+execute(self, args: argparse.Namespace) -> CLICommandResult
+```
+
+Execute event history command.
+
+
+---
+
+## scriptlets.extensions.configuration_system
+
+**Description:** Framework0 Configuration Management System - Exercise 10 Phase 2
+
+This module provides comprehensive configuration management for Framework0,
+enabling dynamic configuration loading, environment-specific settings, 
+validation schemas, and plugin configuration integration.
+
+**File:** `scriptlets/extensions/configuration_system.py`
+
+### Classes
+
+#### ConfigurationFormat
+
+**Inherits from:** Enum
+
+Configuration file format types.
+
+#### ConfigurationScope
+
+**Inherits from:** Enum
+
+Configuration scope levels.
+
+#### ValidationSeverity
+
+**Inherits from:** Enum
+
+Configuration validation severity levels.
+
+#### ConfigurationValidationRule
+
+Configuration validation rule definition.
+
+Defines validation logic for configuration values
+with support for different validation types.
+
+**Attributes:**
+
+- `field_path: str`
+- `rule_type: str`
+- `rule_params: Dict[str, Any] = field(default_factory=dict)`
+- `severity: ValidationSeverity = ValidationSeverity.ERROR`
+- `error_message: str = ''`
+
+**Methods:**
+
+##### validate
+
+```python
+validate(self, config_data: Dict[str, Any]) -> Optional[str]
+```
+
+Validate configuration data against this rule.
+
+Args:
+    config_data: Configuration data to validate
+    
+Returns:
+    Optional[str]: Error message if validation fails, None if passes
+
+##### _get_nested_value
+
+```python
+_get_nested_value(self, data: Dict[str, Any], path: str) -> Any
+```
+
+Get nested value using dot notation path.
+
+#### ConfigurationValidationResult
+
+Configuration validation result.
+
+**Attributes:**
+
+- `is_valid: bool = True`
+- `errors: List[str] = field(default_factory=list)`
+- `warnings: List[str] = field(default_factory=list)`
+- `info: List[str] = field(default_factory=list)`
+
+**Methods:**
+
+##### add_result
+
+```python
+add_result(self, severity: ValidationSeverity, message: str) -> None
+```
+
+Add validation result message.
+
+#### ConfigurationSchema
+
+Configuration schema definition.
+
+Defines the structure, validation rules, and default values
+for configuration sections.
+
+**Attributes:**
+
+- `name: str`
+- `version: str`
+- `description: str = ''`
+- `validation_rules: List[ConfigurationValidationRule] = field(default_factory=list)`
+- `default_values: Dict[str, Any] = field(default_factory=dict)`
+- `required_fields: List[str] = field(default_factory=list)`
+
+**Methods:**
+
+##### validate
+
+```python
+validate(self, config_data: Dict[str, Any]) -> ConfigurationValidationResult
+```
+
+Validate configuration data against schema.
+
+Args:
+    config_data: Configuration data to validate
+    
+Returns:
+    ConfigurationValidationResult: Validation results
+
+##### apply_defaults
+
+```python
+apply_defaults(self, config_data: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Apply default values to configuration data.
+
+Args:
+    config_data: Configuration data
+    
+Returns:
+    Dict[str, Any]: Configuration data with defaults applied
+
+##### _deep_merge
+
+```python
+_deep_merge(self, base: Dict[str, Any], overlay: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Deep merge two dictionaries.
+
+#### ConfigurationLoader
+
+Configuration file loader supporting multiple formats.
+
+Handles loading configuration from various file formats
+with error handling and format detection.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize configuration loader.
+
+##### load_configuration
+
+```python
+load_configuration(self, config_path: Path, format_hint: Optional[ConfigurationFormat] = None) -> Dict[str, Any]
+```
+
+Load configuration from file.
+
+Args:
+    config_path: Path to configuration file
+    format_hint: Optional format hint
+    
+Returns:
+    Dict[str, Any]: Loaded configuration data
+
+##### save_configuration
+
+```python
+save_configuration(self, config_data: Dict[str, Any], config_path: Path, format_type: ConfigurationFormat = ConfigurationFormat.JSON) -> None
+```
+
+Save configuration to file.
+
+Args:
+    config_data: Configuration data to save
+    config_path: Path to save configuration
+    format_type: Configuration format
+
+##### _detect_format
+
+```python
+_detect_format(self, config_path: Path) -> ConfigurationFormat
+```
+
+Detect configuration format from file extension.
+
+##### _load_json
+
+```python
+_load_json(self, config_path: Path) -> Dict[str, Any]
+```
+
+Load JSON configuration.
+
+##### _load_yaml
+
+```python
+_load_yaml(self, config_path: Path) -> Dict[str, Any]
+```
+
+Load YAML configuration.
+
+##### _load_toml
+
+```python
+_load_toml(self, config_path: Path) -> Dict[str, Any]
+```
+
+Load TOML configuration.
+
+##### _load_ini
+
+```python
+_load_ini(self, config_path: Path) -> Dict[str, Any]
+```
+
+Load INI configuration.
+
+##### _load_env
+
+```python
+_load_env(self, config_path: Path) -> Dict[str, Any]
+```
+
+Load environment variable configuration.
+
+#### ConfigurationManager
+
+Central configuration management system.
+
+Provides unified configuration management with support for
+multiple scopes, environments, validation, and plugin integration.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_directory: Optional[Path] = None) -> None
+```
+
+Initialize configuration manager.
+
+##### register_schema
+
+```python
+register_schema(self, schema: ConfigurationSchema) -> None
+```
+
+Register configuration schema.
+
+Args:
+    schema: Configuration schema to register
+
+##### load_configuration
+
+```python
+load_configuration(self, config_name: str, scope: ConfigurationScope = ConfigurationScope.GLOBAL, environment_specific: bool = True) -> Dict[str, Any]
+```
+
+Load configuration with scope and environment support.
+
+Args:
+    config_name: Configuration name
+    scope: Configuration scope
+    environment_specific: Whether to load environment-specific config
+    
+Returns:
+    Dict[str, Any]: Loaded configuration data
+
+##### save_configuration
+
+```python
+save_configuration(self, config_name: str, config_data: Dict[str, Any], scope: ConfigurationScope = ConfigurationScope.GLOBAL, environment_specific: bool = False) -> None
+```
+
+Save configuration with scope support.
+
+Args:
+    config_name: Configuration name
+    config_data: Configuration data to save
+    scope: Configuration scope
+    environment_specific: Whether to save as environment-specific
+
+##### get_configuration
+
+```python
+get_configuration(self, config_name: str, scope: ConfigurationScope = ConfigurationScope.GLOBAL) -> Optional[Dict[str, Any]]
+```
+
+Get loaded configuration data.
+
+Args:
+    config_name: Configuration name
+    scope: Configuration scope
+    
+Returns:
+    Optional[Dict[str, Any]]: Configuration data or None
+
+##### set_configuration_value
+
+```python
+set_configuration_value(self, config_name: str, key_path: str, value: Any, scope: ConfigurationScope = ConfigurationScope.GLOBAL) -> None
+```
+
+Set specific configuration value using dot notation.
+
+Args:
+    config_name: Configuration name
+    key_path: Dot-notation path to setting
+    value: Value to set
+    scope: Configuration scope
+
+##### get_configuration_value
+
+```python
+get_configuration_value(self, config_name: str, key_path: str, default: Any = None, scope: ConfigurationScope = ConfigurationScope.GLOBAL) -> Any
+```
+
+Get specific configuration value using dot notation.
+
+Args:
+    config_name: Configuration name
+    key_path: Dot-notation path to setting
+    default: Default value if not found
+    scope: Configuration scope
+    
+Returns:
+    Any: Configuration value or default
+
+##### register_plugin_configuration
+
+```python
+register_plugin_configuration(self, plugin_name: str, plugin_config: Dict[str, Any]) -> None
+```
+
+Register plugin-specific configuration.
+
+Args:
+    plugin_name: Plugin identifier
+    plugin_config: Plugin configuration data
+
+##### get_plugin_configuration
+
+```python
+get_plugin_configuration(self, plugin_name: str) -> Optional[Dict[str, Any]]
+```
+
+Get plugin-specific configuration.
+
+Args:
+    plugin_name: Plugin identifier
+    
+Returns:
+    Optional[Dict[str, Any]]: Plugin configuration or None
+
+##### list_configurations
+
+```python
+list_configurations(self, scope: Optional[ConfigurationScope] = None) -> Dict[str, List[str]]
+```
+
+List loaded configurations by scope.
+
+Args:
+    scope: Optional scope filter
+    
+Returns:
+    Dict[str, List[str]]: Configuration names by scope
+
+##### get_environment_info
+
+```python
+get_environment_info(self) -> Dict[str, Any]
+```
+
+Get current environment information.
+
+Returns:
+    Dict[str, Any]: Environment information
+
+##### _detect_environment
+
+```python
+_detect_environment(self) -> str
+```
+
+Detect current environment from environment variables.
+
+##### _deep_merge
+
+```python
+_deep_merge(self, base: Dict[str, Any], overlay: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Deep merge two dictionaries.
+
+
+---
+
+## scriptlets.extensions.event_system
+
+**Description:** Framework0 Event System - Exercise 10 Phase 3
+
+This module provides comprehensive event-driven architecture for Framework0,
+enabling asynchronous and synchronous event processing, event filtering,
+handler registration, and seamless integration with plugin and configuration systems.
+
+**File:** `scriptlets/extensions/event_system.py`
+
+### Classes
+
+#### EventPriority
+
+**Inherits from:** Enum
+
+Event processing priority levels.
+
+#### EventType
+
+**Inherits from:** Enum
+
+Framework0 event types.
+
+#### EventStatus
+
+**Inherits from:** Enum
+
+Event processing status.
+
+#### EventMetadata
+
+Event metadata for tracking and analysis.
+
+**Attributes:**
+
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `source: Optional[str] = None`
+- `correlation_id: Optional[str] = None`
+- `tags: Set[str] = field(default_factory=set)`
+- `priority: EventPriority = EventPriority.NORMAL`
+- `retry_count: int = 0`
+- `max_retries: int = 3`
+- `timeout_seconds: Optional[float] = None`
+
+#### Event
+
+Framework0 event with comprehensive metadata and payload support.
+
+Events are immutable once created and carry all necessary information
+for processing, filtering, and tracking.
+
+**Attributes:**
+
+- `event_id: str = field(default_factory=lambda: str(uuid.uuid4()))`
+- `event_type: EventType = EventType.CUSTOM`
+- `data: Dict[str, Any] = field(default_factory=dict)`
+- `metadata: EventMetadata = field(default_factory=EventMetadata)`
+- `status: EventStatus = EventStatus.PENDING`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Post-initialization event setup.
+
+##### with_status
+
+```python
+with_status(self, status: EventStatus) -> 'Event'
+```
+
+Create new event with updated status (immutable pattern).
+
+##### add_tag
+
+```python
+add_tag(self, tag: str) -> 'Event'
+```
+
+Add tag to event metadata.
+
+##### set_correlation_id
+
+```python
+set_correlation_id(self, correlation_id: str) -> 'Event'
+```
+
+Set correlation ID for event tracking.
+
+#### EventHandlerProtocol
+
+**Inherits from:** Protocol
+
+Protocol for event handler validation.
+
+**Methods:**
+
+##### __call__
+
+```python
+__call__(self, event: Event) -> Union[Any, Awaitable[Any]]
+```
+
+Handle event processing.
+
+#### EventHandlerRegistration
+
+Event handler registration information.
+
+**Attributes:**
+
+- `handler: EventHandler`
+- `event_types: Set[EventType]`
+- `priority: EventPriority`
+- `filters: List[EventFilter]`
+- `is_async: bool`
+- `max_concurrent: int = 1`
+- `timeout_seconds: Optional[float] = None`
+- `retry_on_failure: bool = True`
+- `active_count: int = field(default=0, init=False)`
+- `total_processed: int = field(default=0, init=False)`
+- `total_errors: int = field(default=0, init=False)`
+- `last_executed: Optional[datetime] = field(default=None, init=False)`
+
+#### EventBusError
+
+**Inherits from:** Exception
+
+Event bus specific exceptions.
+
+#### EventHandlerTimeoutError
+
+**Inherits from:** EventBusError
+
+Event handler timeout exception.
+
+#### EventProcessingError
+
+**Inherits from:** EventBusError
+
+Event processing exception.
+
+#### EventBus
+
+Comprehensive event bus for Framework0 with async/sync processing.
+
+Provides event publishing, handler registration, filtering, priority
+processing, and integration with plugin and configuration systems.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, max_workers: int = 4, event_history_size: int = 1000, enable_metrics: bool = True) -> None
+```
+
+Initialize Framework0 event bus.
+
+Args:
+    max_workers: Maximum worker threads for sync handlers
+    event_history_size: Maximum events to keep in history
+    enable_metrics: Whether to collect event metrics
+
+##### register_handler
+
+```python
+register_handler(self, handler: EventHandler, event_types: Union[EventType, List[EventType]], priority: EventPriority = EventPriority.NORMAL, filters: Optional[List[EventFilter]] = None, max_concurrent: int = 1, timeout_seconds: Optional[float] = None, retry_on_failure: bool = True) -> str
+```
+
+Register event handler with comprehensive configuration.
+
+Args:
+    handler: Event handler function (sync or async)
+    event_types: Event types to handle
+    priority: Handler priority level
+    filters: Optional event filters
+    max_concurrent: Maximum concurrent handler executions
+    timeout_seconds: Handler execution timeout
+    retry_on_failure: Whether to retry on failure
+    
+Returns:
+    str: Handler registration ID
+
+##### unregister_handler
+
+```python
+unregister_handler(self, handler: EventHandler) -> bool
+```
+
+Unregister event handler from all event types.
+
+Args:
+    handler: Event handler to unregister
+    
+Returns:
+    bool: True if handler was found and removed
+
+##### add_global_filter
+
+```python
+add_global_filter(self, event_filter: EventFilter) -> None
+```
+
+Add global event filter applied to all events.
+
+Args:
+    event_filter: Filter function for events
+
+##### remove_global_filter
+
+```python
+remove_global_filter(self, event_filter: EventFilter) -> bool
+```
+
+Remove global event filter.
+
+Args:
+    event_filter: Filter function to remove
+    
+Returns:
+    bool: True if filter was found and removed
+
+##### publish_sync
+
+```python
+publish_sync(self, event: Event) -> List[Any]
+```
+
+Publish event synchronously.
+
+Args:
+    event: Event to publish
+    
+Returns:
+    List[Any]: Results from all handlers
+
+##### publish
+
+```python
+publish(self, event: Event) -> Union[List[Any], Future]
+```
+
+Publish event with automatic sync/async detection.
+
+Args:
+    event: Event to publish
+    
+Returns:
+    Union[List[Any], Future]: Results or future for async context
+
+##### emit
+
+```python
+emit(self, event_type: EventType, data: Optional[Dict[str, Any]] = None, priority: EventPriority = EventPriority.NORMAL, correlation_id: Optional[str] = None, tags: Optional[Set[str]] = None) -> Union[List[Any], Future]
+```
+
+Convenience method to create and publish event.
+
+Args:
+    event_type: Type of event to emit
+    data: Event data payload
+    priority: Event priority level
+    correlation_id: Correlation ID for event tracking
+    tags: Event tags for filtering
+    
+Returns:
+    Union[List[Any], Future]: Publishing results
+
+##### _apply_filters
+
+```python
+_apply_filters(self, event: Event, filters: List[EventFilter]) -> bool
+```
+
+Apply filters to event and return whether it should be processed.
+
+##### _group_handlers_by_priority
+
+```python
+_group_handlers_by_priority(self, registrations: List[EventHandlerRegistration]) -> Dict[EventPriority, List[EventHandlerRegistration]]
+```
+
+Group handler registrations by priority level.
+
+##### get_metrics
+
+```python
+get_metrics(self) -> Dict[str, Any]
+```
+
+Get event bus metrics and statistics.
+
+##### get_handler_statistics
+
+```python
+get_handler_statistics(self) -> Dict[str, Dict[str, Any]]
+```
+
+Get detailed statistics for all registered handlers.
+
+
+---
+
+## scriptlets.extensions.plugin_interface
+
+**Description:** Framework0 Plugin Interface - Exercise 10 Phase 1
+
+This module defines the core plugin interface and base classes for Framework0
+plugins, providing standardized contracts for plugin development and integration
+with Exercise 7-9 components.
+
+**File:** `scriptlets/extensions/plugin_interface.py`
+
+### Classes
+
+#### PluginLifecycle
+
+**Inherits from:** Enum
+
+Plugin lifecycle state enumeration.
+
+#### PluginCapability
+
+**Inherits from:** Enum
+
+Standard plugin capability types.
+
+#### PluginDependency
+
+Plugin dependency specification.
+
+**Attributes:**
+
+- `name: str`
+- `version: str = '*'`
+- `optional: bool = False`
+- `capabilities: List[str] = field(default_factory=list)`
+
+#### PluginMetadata
+
+Plugin metadata and configuration information.
+
+Contains all metadata required for plugin discovery, loading,
+and integration with Framework0 systems.
+
+**Attributes:**
+
+- `name: str`
+- `version: str`
+- `description: str = ''`
+- `author: str = ''`
+- `license: str = ''`
+- `homepage: str = ''`
+- `capabilities: Set[PluginCapability] = field(default_factory=set)`
+- `dependencies: List[PluginDependency] = field(default_factory=list)`
+- `min_framework_version: str = '1.0.0'`
+- `max_framework_version: str = '*'`
+- `exercise_requirements: Set[str] = field(default_factory=set)`
+- `entry_point: str = ''`
+- `configuration_schema: Dict[str, Any] = field(default_factory=dict)`
+- `plugin_id: str = field(default_factory=lambda: f'plugin-{uuid.uuid4().hex[:8]}')`
+- `created_timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())`
+
+#### PluginCapabilities
+
+Plugin runtime capabilities and integration points.
+
+Defines what the plugin can do and how it integrates with
+Framework0's Exercise 7-9 systems.
+
+**Attributes:**
+
+- `provides_analytics: bool = False`
+- `consumes_analytics: bool = False`
+- `analytics_metrics: List[str] = field(default_factory=list)`
+- `supports_containers: bool = False`
+- `provides_isolation: bool = False`
+- `requires_isolation: bool = False`
+- `workflow_integration: bool = False`
+- `provides_stages: bool = False`
+- `cli_commands: List[str] = field(default_factory=list)`
+- `hot_reloadable: bool = False`
+- `configurable: bool = False`
+- `event_driven: bool = False`
+- `template_support: bool = False`
+
+#### Framework0Plugin
+
+**Inherits from:** ABC
+
+Abstract base class for all Framework0 plugins.
+
+This class defines the standard interface that all Framework0 plugins
+must implement. It provides integration points for Exercise 7-9
+components and standardized lifecycle management.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, plugin_metadata: PluginMetadata) -> None
+```
+
+Initialize the Framework0 plugin.
+
+Args:
+    plugin_metadata: Plugin metadata and configuration
+
+##### initialize
+
+```python
+initialize(self) -> bool
+```
+
+Initialize the plugin.
+
+This method is called after the plugin is loaded and all dependencies
+are resolved. Plugins should perform one-time setup here.
+
+Returns:
+    bool: True if initialization successful, False otherwise
+
+**Decorators:** abstractmethod
+
+##### activate
+
+```python
+activate(self) -> bool
+```
+
+Activate the plugin.
+
+This method is called to activate plugin functionality. The plugin
+should start providing its services after this call.
+
+Returns:
+    bool: True if activation successful, False otherwise
+
+**Decorators:** abstractmethod
+
+##### deactivate
+
+```python
+deactivate(self) -> bool
+```
+
+Deactivate the plugin.
+
+This method is called to gracefully deactivate plugin functionality.
+The plugin should stop providing services but remain initialized.
+
+Returns:
+    bool: True if deactivation successful, False otherwise
+
+**Decorators:** abstractmethod
+
+##### configure
+
+```python
+configure(self, configuration: Dict[str, Any]) -> bool
+```
+
+Configure the plugin with provided settings.
+
+Args:
+    configuration: Plugin configuration dictionary
+    
+Returns:
+    bool: True if configuration successful, False otherwise
+
+##### get_capabilities
+
+```python
+get_capabilities(self) -> PluginCapabilities
+```
+
+Get plugin capabilities.
+
+Returns:
+    PluginCapabilities: Plugin capabilities specification
+
+##### get_metadata
+
+```python
+get_metadata(self) -> PluginMetadata
+```
+
+Get plugin metadata.
+
+Returns:
+    PluginMetadata: Plugin metadata information
+
+##### get_lifecycle_state
+
+```python
+get_lifecycle_state(self) -> PluginLifecycle
+```
+
+Get current plugin lifecycle state.
+
+Returns:
+    PluginLifecycle: Current plugin lifecycle state
+
+##### set_framework_integration
+
+```python
+set_framework_integration(self, analytics_manager = None, deployment_engine = None, isolation_framework = None, production_engine = None) -> None
+```
+
+Set Framework0 integration components.
+
+This method is called by the plugin manager to provide access
+to Exercise 7-9 components for plugin integration.
+
+Args:
+    analytics_manager: Exercise 7 Analytics manager
+    deployment_engine: Exercise 8 Deployment engine  
+    isolation_framework: Exercise 8 Isolation framework
+    production_engine: Exercise 9 Production engine
+
+##### _update_lifecycle_state
+
+```python
+_update_lifecycle_state(self, new_state: PluginLifecycle) -> None
+```
+
+Update plugin lifecycle state.
+
+Args:
+    new_state: New lifecycle state
+
+#### AnalyticsPlugin
+
+**Inherits from:** Framework0Plugin
+
+Base class for plugins that provide Exercise 7 Analytics integration.
+
+Plugins extending this class can provide custom analytics capabilities
+and integrate with the Exercise 7 Analytics system.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, plugin_metadata: PluginMetadata) -> None
+```
+
+Initialize Analytics plugin.
+
+##### collect_metrics
+
+```python
+collect_metrics(self) -> Dict[str, Any]
+```
+
+Collect plugin-specific metrics.
+
+Returns:
+    Dict[str, Any]: Collected metrics data
+
+**Decorators:** abstractmethod
+
+##### process_analytics_data
+
+```python
+process_analytics_data(self, analytics_data: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Process analytics data from Framework0.
+
+Args:
+    analytics_data: Analytics data to process
+    
+Returns:
+    Dict[str, Any]: Processed analytics results
+
+**Decorators:** abstractmethod
+
+#### DeploymentPlugin
+
+**Inherits from:** Framework0Plugin
+
+Base class for plugins that provide Exercise 8 Deployment integration.
+
+Plugins extending this class can provide custom deployment capabilities
+and integrate with the Exercise 8 Deployment system.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, plugin_metadata: PluginMetadata) -> None
+```
+
+Initialize Deployment plugin.
+
+##### deploy_component
+
+```python
+deploy_component(self, component_spec: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Deploy component using plugin capabilities.
+
+Args:
+    component_spec: Component deployment specification
+    
+Returns:
+    Dict[str, Any]: Deployment result
+
+**Decorators:** abstractmethod
+
+##### validate_deployment
+
+```python
+validate_deployment(self, deployment_id: str) -> bool
+```
+
+Validate deployment status.
+
+Args:
+    deployment_id: Deployment identifier
+    
+Returns:
+    bool: True if deployment is valid, False otherwise
+
+**Decorators:** abstractmethod
+
+#### ProductionPlugin
+
+**Inherits from:** Framework0Plugin
+
+Base class for plugins that provide Exercise 9 Production integration.
+
+Plugins extending this class can provide custom production workflow
+capabilities and integrate with the Exercise 9 Production system.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, plugin_metadata: PluginMetadata) -> None
+```
+
+Initialize Production plugin.
+
+##### create_workflow_stage
+
+```python
+create_workflow_stage(self, stage_spec: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Create custom workflow stage.
+
+Args:
+    stage_spec: Stage specification
+    
+Returns:
+    Dict[str, Any]: Created stage information
+
+**Decorators:** abstractmethod
+
+##### execute_workflow_step
+
+```python
+execute_workflow_step(self, step_spec: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Execute custom workflow step.
+
+Args:
+    step_spec: Step execution specification
+    
+Returns:
+    Dict[str, Any]: Execution result
+
+**Decorators:** abstractmethod
+
+
+---
+
+## scriptlets.extensions.plugin_manager
+
+**Description:** Framework0 Plugin Manager - Exercise 10 Phase 1
+
+This module provides the core plugin management system for Framework0,
+handling plugin discovery, loading, validation, lifecycle management,
+and integration with Exercise 7-9 components.
+
+**File:** `scriptlets/extensions/plugin_manager.py`
+
+### Classes
+
+#### PluginLoadResult
+
+Result of plugin loading operation.
+
+**Attributes:**
+
+- `success: bool`
+- `plugin_instance: Optional[Framework0Plugin] = None`
+- `error_message: Optional[str] = None`
+- `load_time_seconds: float = 0.0`
+
+#### PluginDiscoveryResult
+
+Result of plugin discovery operation.
+
+**Attributes:**
+
+- `discovered_plugins: List[str] = field(default_factory=list)`
+- `discovery_errors: List[str] = field(default_factory=list)`
+- `discovery_time_seconds: float = 0.0`
+
+#### PluginLoader
+
+Plugin loading and validation system.
+
+Handles the technical aspects of loading Python modules as plugins
+and validating they conform to Framework0 plugin interface.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize plugin loader.
+
+##### load_plugin_from_file
+
+```python
+load_plugin_from_file(self, plugin_path: Path) -> PluginLoadResult
+```
+
+Load plugin from Python file.
+
+Args:
+    plugin_path: Path to plugin Python file
+    
+Returns:
+    PluginLoadResult: Loading operation result
+
+##### load_plugin_from_module
+
+```python
+load_plugin_from_module(self, module_name: str) -> PluginLoadResult
+```
+
+Load plugin from installed Python module.
+
+Args:
+    module_name: Name of Python module containing plugin
+    
+Returns:
+    PluginLoadResult: Loading operation result
+
+##### _find_plugin_class
+
+```python
+_find_plugin_class(self, module: Any) -> Optional[Type[Framework0Plugin]]
+```
+
+Find Framework0Plugin class in module.
+
+Args:
+    module: Python module to search
+    
+Returns:
+    Optional[Type[Framework0Plugin]]: Found plugin class or None
+
+##### _extract_plugin_metadata
+
+```python
+_extract_plugin_metadata(self, module: Any, plugin_class: Type[Framework0Plugin]) -> PluginMetadata
+```
+
+Extract plugin metadata from module and class.
+
+Args:
+    module: Python module containing plugin
+    plugin_class: Plugin class
+    
+Returns:
+    PluginMetadata: Extracted metadata
+
+#### PluginDiscovery
+
+Plugin discovery system.
+
+Handles automatic discovery of plugins from filesystem locations
+and installed Python packages.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize plugin discovery.
+
+##### discover_plugins_in_directory
+
+```python
+discover_plugins_in_directory(self, directory: Path) -> PluginDiscoveryResult
+```
+
+Discover plugins in directory.
+
+Args:
+    directory: Directory to search for plugins
+    
+Returns:
+    PluginDiscoveryResult: Discovery operation result
+
+##### discover_installed_plugins
+
+```python
+discover_installed_plugins(self) -> PluginDiscoveryResult
+```
+
+Discover plugins from installed packages.
+
+Returns:
+    PluginDiscoveryResult: Discovery operation result
+
+##### _file_contains_plugin
+
+```python
+_file_contains_plugin(self, file_path: Path) -> bool
+```
+
+Check if file contains Framework0Plugin class.
+
+Args:
+    file_path: Python file to check
+    
+Returns:
+    bool: True if file contains plugin class
+
+#### PluginValidator
+
+Plugin validation system.
+
+Validates plugin compatibility, dependencies, and integration
+requirements before activation.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize plugin validator.
+
+##### validate_plugin
+
+```python
+validate_plugin(self, plugin: Framework0Plugin) -> Dict[str, Any]
+```
+
+Validate plugin for Framework0 compatibility.
+
+Args:
+    plugin: Plugin instance to validate
+    
+Returns:
+    Dict[str, Any]: Validation results
+
+##### _validate_plugin_structure
+
+```python
+_validate_plugin_structure(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None
+```
+
+Validate basic plugin structure.
+
+##### _validate_plugin_metadata
+
+```python
+_validate_plugin_metadata(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None
+```
+
+Validate plugin metadata.
+
+##### _validate_plugin_capabilities
+
+```python
+_validate_plugin_capabilities(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None
+```
+
+Validate plugin capabilities.
+
+##### _validate_exercise_requirements
+
+```python
+_validate_exercise_requirements(self, plugin: Framework0Plugin, result: Dict[str, Any]) -> None
+```
+
+Validate Exercise 7-9 integration requirements.
+
+##### _is_valid_version
+
+```python
+_is_valid_version(self, version: str) -> bool
+```
+
+Check if version follows basic semver format.
+
+#### PluginManager
+
+Central plugin management system.
+
+Orchestrates plugin discovery, loading, validation, lifecycle management,
+and integration with Framework0 Exercise 7-9 components.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize plugin manager.
+
+##### set_framework_integration
+
+```python
+set_framework_integration(self, analytics_manager = None, deployment_engine = None, isolation_framework = None, production_engine = None) -> None
+```
+
+Set Framework0 integration components.
+
+Args:
+    analytics_manager: Exercise 7 Analytics manager
+    deployment_engine: Exercise 8 Deployment engine
+    isolation_framework: Exercise 8 Isolation framework  
+    production_engine: Exercise 9 Production engine
+
+##### discover_plugins
+
+```python
+discover_plugins(self, search_paths: List[Union[str, Path]]) -> PluginDiscoveryResult
+```
+
+Discover plugins in specified paths.
+
+Args:
+    search_paths: Paths to search for plugins
+    
+Returns:
+    PluginDiscoveryResult: Discovery results
+
+##### load_plugin
+
+```python
+load_plugin(self, plugin_source: Union[str, Path]) -> PluginLoadResult
+```
+
+Load plugin from file or module.
+
+Args:
+    plugin_source: Plugin file path or module name
+    
+Returns:
+    PluginLoadResult: Load operation result
+
+##### get_plugin
+
+```python
+get_plugin(self, plugin_name: str) -> Optional[Framework0Plugin]
+```
+
+Get loaded plugin by name.
+
+Args:
+    plugin_name: Name of plugin to retrieve
+    
+Returns:
+    Optional[Framework0Plugin]: Plugin instance or None
+
+##### list_plugins
+
+```python
+list_plugins(self) -> Dict[str, Dict[str, Any]]
+```
+
+List all loaded plugins with their status.
+
+Returns:
+    Dict[str, Dict[str, Any]]: Plugin information dictionary
+
+##### get_statistics
+
+```python
+get_statistics(self) -> Dict[str, Any]
+```
+
+Get plugin manager statistics.
+
+Returns:
+    Dict[str, Any]: Plugin management statistics
+
+
+---
+
+## scriptlets.extensions.plugin_registry
+
+**Description:** Framework0 Plugin Registry - Exercise 10 Phase 1
+
+This module provides centralized plugin metadata management, dependency resolution,
+versioning, and plugin organization capabilities for the Framework0 plugin system.
+
+**File:** `scriptlets/extensions/plugin_registry.py`
+
+### Classes
+
+#### RegistryStorageType
+
+**Inherits from:** Enum
+
+Plugin registry storage backend types.
+
+#### PluginRegistryEntry
+
+Plugin registry entry containing complete plugin information.
+
+Stores all metadata, capabilities, dependencies, and registry-specific
+information for a registered plugin.
+
+**Attributes:**
+
+- `plugin_id: str`
+- `metadata: PluginMetadata`
+- `capabilities: PluginCapabilities`
+- `dependencies: List[PluginDependency] = field(default_factory=list)`
+- `registration_time: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `last_updated: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `registration_source: str = 'manual'`
+- `is_validated: bool = False`
+- `validation_errors: List[str] = field(default_factory=list)`
+- `compatibility_score: float = 0.0`
+- `install_path: Optional[str] = None`
+- `module_name: Optional[str] = None`
+- `file_hash: Optional[str] = None`
+- `load_count: int = 0`
+- `activation_count: int = 0`
+- `error_count: int = 0`
+- `last_used: Optional[datetime] = None`
+
+#### PluginDependencyGraph
+
+Plugin dependency graph for dependency resolution.
+
+Manages plugin dependencies and resolves loading order
+based on dependency requirements.
+
+**Attributes:**
+
+- `nodes: Dict[str, PluginRegistryEntry] = field(default_factory=dict)`
+- `edges: Dict[str, Set[str]] = field(default_factory=dict)`
+- `resolved_order: List[str] = field(default_factory=list)`
+
+**Methods:**
+
+##### add_plugin
+
+```python
+add_plugin(self, entry: PluginRegistryEntry) -> None
+```
+
+Add plugin to dependency graph.
+
+##### resolve_dependencies
+
+```python
+resolve_dependencies(self) -> List[str]
+```
+
+Resolve plugin dependencies using topological sort.
+
+Returns:
+    List[str]: Plugin IDs in dependency-resolved order
+
+#### PluginStorageBackend
+
+Abstract base class for plugin registry storage backends.
+
+Defines the interface for persistent plugin registry storage
+with support for different backend implementations.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_path: Optional[Path] = None) -> None
+```
+
+Initialize storage backend.
+
+##### save_entry
+
+```python
+save_entry(self, entry: PluginRegistryEntry) -> bool
+```
+
+Save plugin registry entry.
+
+##### load_entry
+
+```python
+load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]
+```
+
+Load plugin registry entry by ID.
+
+##### list_entries
+
+```python
+list_entries(self) -> List[PluginRegistryEntry]
+```
+
+List all plugin registry entries.
+
+##### delete_entry
+
+```python
+delete_entry(self, plugin_id: str) -> bool
+```
+
+Delete plugin registry entry.
+
+##### clear_all
+
+```python
+clear_all(self) -> bool
+```
+
+Clear all registry entries.
+
+#### MemoryStorageBackend
+
+**Inherits from:** PluginStorageBackend
+
+In-memory storage backend for plugin registry.
+
+Provides non-persistent storage for testing and development.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_path: Optional[Path] = None) -> None
+```
+
+Initialize memory storage backend.
+
+##### save_entry
+
+```python
+save_entry(self, entry: PluginRegistryEntry) -> bool
+```
+
+Save plugin registry entry to memory.
+
+##### load_entry
+
+```python
+load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]
+```
+
+Load plugin registry entry from memory.
+
+##### list_entries
+
+```python
+list_entries(self) -> List[PluginRegistryEntry]
+```
+
+List all plugin registry entries from memory.
+
+##### delete_entry
+
+```python
+delete_entry(self, plugin_id: str) -> bool
+```
+
+Delete plugin registry entry from memory.
+
+##### clear_all
+
+```python
+clear_all(self) -> bool
+```
+
+Clear all registry entries from memory.
+
+#### FileStorageBackend
+
+**Inherits from:** PluginStorageBackend
+
+JSON file storage backend for plugin registry.
+
+Provides persistent file-based storage with JSON serialization.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_path: Optional[Path] = None) -> None
+```
+
+Initialize file storage backend.
+
+##### _ensure_storage_directory
+
+```python
+_ensure_storage_directory(self) -> None
+```
+
+Ensure storage directory exists.
+
+##### _load_registry_data
+
+```python
+_load_registry_data(self) -> Dict[str, Any]
+```
+
+Load registry data from file.
+
+##### _save_registry_data
+
+```python
+_save_registry_data(self, data: Dict[str, Any]) -> bool
+```
+
+Save registry data to file.
+
+##### _entry_to_dict
+
+```python
+_entry_to_dict(self, entry: PluginRegistryEntry) -> Dict[str, Any]
+```
+
+Convert registry entry to dictionary for JSON serialization.
+
+##### _dict_to_entry
+
+```python
+_dict_to_entry(self, entry_dict: Dict[str, Any]) -> PluginRegistryEntry
+```
+
+Convert dictionary to registry entry from JSON deserialization.
+
+##### save_entry
+
+```python
+save_entry(self, entry: PluginRegistryEntry) -> bool
+```
+
+Save plugin registry entry to file.
+
+##### load_entry
+
+```python
+load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]
+```
+
+Load plugin registry entry from file.
+
+##### list_entries
+
+```python
+list_entries(self) -> List[PluginRegistryEntry]
+```
+
+List all plugin registry entries from file.
+
+##### delete_entry
+
+```python
+delete_entry(self, plugin_id: str) -> bool
+```
+
+Delete plugin registry entry from file.
+
+##### clear_all
+
+```python
+clear_all(self) -> bool
+```
+
+Clear all registry entries from file.
+
+#### SQLiteStorageBackend
+
+**Inherits from:** PluginStorageBackend
+
+SQLite database storage backend for plugin registry.
+
+Provides robust persistent storage with SQL database capabilities
+and advanced querying support.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_path: Optional[Path] = None) -> None
+```
+
+Initialize SQLite storage backend.
+
+##### _ensure_storage_directory
+
+```python
+_ensure_storage_directory(self) -> None
+```
+
+Ensure storage directory exists.
+
+##### _get_connection
+
+```python
+_get_connection(self)
+```
+
+Get database connection with proper cleanup.
+
+**Decorators:** contextmanager
+
+##### _initialize_database
+
+```python
+_initialize_database(self) -> None
+```
+
+Initialize database schema.
+
+##### save_entry
+
+```python
+save_entry(self, entry: PluginRegistryEntry) -> bool
+```
+
+Save plugin registry entry to SQLite database.
+
+##### load_entry
+
+```python
+load_entry(self, plugin_id: str) -> Optional[PluginRegistryEntry]
+```
+
+Load plugin registry entry from SQLite database.
+
+##### list_entries
+
+```python
+list_entries(self) -> List[PluginRegistryEntry]
+```
+
+List all plugin registry entries from SQLite database.
+
+##### delete_entry
+
+```python
+delete_entry(self, plugin_id: str) -> bool
+```
+
+Delete plugin registry entry from SQLite database.
+
+##### clear_all
+
+```python
+clear_all(self) -> bool
+```
+
+Clear all registry entries from SQLite database.
+
+##### _row_to_entry
+
+```python
+_row_to_entry(self, row: sqlite3.Row) -> PluginRegistryEntry
+```
+
+Convert SQLite row to registry entry.
+
+#### PluginRegistry
+
+Central plugin registry for Framework0 plugin system.
+
+Provides centralized metadata management, dependency resolution,
+versioning, and plugin organization with persistent storage.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, storage_type: RegistryStorageType = RegistryStorageType.MEMORY, storage_path: Optional[Path] = None) -> None
+```
+
+Initialize plugin registry.
+
+##### _create_storage_backend
+
+```python
+_create_storage_backend(self, storage_type: RegistryStorageType, storage_path: Optional[Path]) -> PluginStorageBackend
+```
+
+Create storage backend based on type.
+
+##### register_plugin
+
+```python
+register_plugin(self, plugin: Framework0Plugin, source: str = 'manual') -> PluginRegistryEntry
+```
+
+Register plugin in registry.
+
+Args:
+    plugin: Plugin instance to register
+    source: Registration source identifier
+    
+Returns:
+    PluginRegistryEntry: Created registry entry
+
+##### get_plugin
+
+```python
+get_plugin(self, plugin_id: str) -> Optional[PluginRegistryEntry]
+```
+
+Get plugin by ID.
+
+Args:
+    plugin_id: Plugin identifier
+    
+Returns:
+    Optional[PluginRegistryEntry]: Plugin entry or None
+
+##### list_plugins
+
+```python
+list_plugins(self, filter_validated: bool = False, filter_capabilities: Optional[List[str]] = None) -> List[PluginRegistryEntry]
+```
+
+List registered plugins with optional filtering.
+
+Args:
+    filter_validated: Only return validated plugins
+    filter_capabilities: Filter by required capabilities
+    
+Returns:
+    List[PluginRegistryEntry]: List of plugin entries
+
+##### resolve_dependencies
+
+```python
+resolve_dependencies(self, plugin_ids: List[str]) -> List[str]
+```
+
+Resolve plugin dependencies and return loading order.
+
+Args:
+    plugin_ids: List of plugin IDs to resolve
+    
+Returns:
+    List[str]: Plugin IDs in dependency-resolved order
+
+##### update_plugin_statistics
+
+```python
+update_plugin_statistics(self, plugin_id: str, load_count_delta: int = 0, activation_count_delta: int = 0, error_count_delta: int = 0) -> bool
+```
+
+Update plugin usage statistics.
+
+Args:
+    plugin_id: Plugin identifier
+    load_count_delta: Load count change
+    activation_count_delta: Activation count change
+    error_count_delta: Error count change
+    
+Returns:
+    bool: Update success
+
+##### get_registry_statistics
+
+```python
+get_registry_statistics(self) -> Dict[str, Any]
+```
+
+Get registry statistics and metrics.
+
+Returns:
+    Dict[str, Any]: Registry statistics
+
+##### _generate_plugin_id
+
+```python
+_generate_plugin_id(self, metadata: PluginMetadata) -> str
+```
+
+Generate unique plugin ID from metadata.
+
+##### _calculate_file_hash
+
+```python
+_calculate_file_hash(self, file_path: str) -> str
+```
+
+Calculate file hash for integrity checking.
+
+##### _rebuild_dependency_graph
+
+```python
+_rebuild_dependency_graph(self) -> None
+```
+
+Rebuild dependency graph from current registry.
+
+
+---
+
+## scriptlets.extensions.template_system
+
+**Description:** Framework0 Template System - Exercise 10 Phase 4
+
+This module provides comprehensive template management for Framework0,
+enabling dynamic content generation with Jinja2 engine, template inheritance,
+context management, custom filters/functions, and integration with configuration
+and event systems.
+
+**File:** `scriptlets/extensions/template_system.py`
+
+### Classes
+
+#### TemplateFilter
+
+**Inherits from:** Protocol
+
+Protocol for template filter functions.
+
+**Methods:**
+
+##### __call__
+
+```python
+__call__(self, value: Any) -> Any
+```
+
+Apply filter to value.
+
+#### TemplateFunction
+
+**Inherits from:** Protocol
+
+Protocol for template global functions.
+
+**Methods:**
+
+##### __call__
+
+```python
+__call__(self) -> Any
+```
+
+Execute template function.
+
+#### TemplateMetadata
+
+Template metadata for tracking and management.
+
+**Attributes:**
+
+- `name: str`
+- `path: Optional[Path] = None`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `modified_at: Optional[datetime] = None`
+- `author: Optional[str] = None`
+- `description: Optional[str] = None`
+- `version: str = '1.0.0'`
+- `tags: Set[str] = field(default_factory=set)`
+- `dependencies: List[str] = field(default_factory=list)`
+- `variables: Dict[str, Any] = field(default_factory=dict)`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Post-initialization setup.
+
+#### TemplateContext
+
+Template rendering context with variable management.
+
+**Attributes:**
+
+- `variables: Dict[str, Any] = field(default_factory=dict)`
+- `globals_dict: Dict[str, Any] = field(default_factory=dict)`
+- `filters: Dict[str, Callable] = field(default_factory=dict)`
+- `functions: Dict[str, Callable] = field(default_factory=dict)`
+
+**Methods:**
+
+##### update
+
+```python
+update(self, context: 'TemplateContext') -> 'TemplateContext'
+```
+
+Update context with another context.
+
+##### set_variable
+
+```python
+set_variable(self, name: str, value: Any) -> None
+```
+
+Set template variable.
+
+##### get_variable
+
+```python
+get_variable(self, name: str, default: Any = None) -> Any
+```
+
+Get template variable.
+
+##### add_filter
+
+```python
+add_filter(self, name: str, filter_func: TemplateFilter) -> None
+```
+
+Add custom filter function.
+
+##### add_function
+
+```python
+add_function(self, name: str, function: TemplateFunction) -> None
+```
+
+Add custom global function.
+
+#### TemplateError
+
+**Inherits from:** Exception
+
+Base exception for template system errors.
+
+#### TemplateNotFoundError
+
+**Inherits from:** TemplateError
+
+Template not found exception.
+
+#### TemplateRenderError
+
+**Inherits from:** TemplateError
+
+Template rendering exception.
+
+#### TemplateValidationError
+
+**Inherits from:** TemplateError
+
+Template validation exception.
+
+#### TemplateLoader
+
+**Inherits from:** ABC
+
+Abstract base class for template loaders.
+
+**Methods:**
+
+##### load_template
+
+```python
+load_template(self, name: str) -> str
+```
+
+Load template source by name.
+
+**Decorators:** abstractmethod
+
+##### list_templates
+
+```python
+list_templates(self) -> List[str]
+```
+
+List all available templates.
+
+**Decorators:** abstractmethod
+
+##### template_exists
+
+```python
+template_exists(self, name: str) -> bool
+```
+
+Check if template exists.
+
+**Decorators:** abstractmethod
+
+#### FileSystemTemplateLoader
+
+**Inherits from:** TemplateLoader
+
+File system-based template loader.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, template_dirs: List[Path], encoding: str = 'utf-8') -> None
+```
+
+Initialize filesystem template loader.
+
+Args:
+    template_dirs: List of template directories to search
+    encoding: File encoding for template files
+
+##### load_template
+
+```python
+load_template(self, name: str) -> str
+```
+
+Load template from filesystem.
+
+##### list_templates
+
+```python
+list_templates(self) -> List[str]
+```
+
+List all template files.
+
+##### template_exists
+
+```python
+template_exists(self, name: str) -> bool
+```
+
+Check if template exists in any directory.
+
+##### save_template
+
+```python
+save_template(self, name: str, content: str) -> Path
+```
+
+Save template to first template directory.
+
+#### InMemoryTemplateLoader
+
+**Inherits from:** TemplateLoader
+
+In-memory template loader for dynamic templates.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize in-memory template loader.
+
+##### load_template
+
+```python
+load_template(self, name: str) -> str
+```
+
+Load template from memory.
+
+##### list_templates
+
+```python
+list_templates(self) -> List[str]
+```
+
+List all templates in memory.
+
+##### template_exists
+
+```python
+template_exists(self, name: str) -> bool
+```
+
+Check if template exists in memory.
+
+##### add_template
+
+```python
+add_template(self, name: str, content: str) -> None
+```
+
+Add template to memory.
+
+##### remove_template
+
+```python
+remove_template(self, name: str) -> bool
+```
+
+Remove template from memory.
+
+#### TemplateEngine
+
+Advanced template engine with Jinja2 integration.
+
+Provides template compilation, rendering, inheritance, and custom
+filter/function support with comprehensive error handling.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, loader: TemplateLoader, auto_reload: bool = True, enable_async: bool = False, strict_undefined: bool = False) -> None
+```
+
+Initialize template engine.
+
+Args:
+    loader: Template loader for template source
+    auto_reload: Whether to auto-reload changed templates
+    enable_async: Enable async template rendering
+    strict_undefined: Raise errors on undefined variables
+
+##### _setup_jinja_environment
+
+```python
+_setup_jinja_environment(self) -> None
+```
+
+Setup Jinja2 environment with custom loader.
+
+##### _register_builtin_filters
+
+```python
+_register_builtin_filters(self) -> None
+```
+
+Register built-in template filters.
+
+##### _register_builtin_functions
+
+```python
+_register_builtin_functions(self) -> None
+```
+
+Register built-in template global functions.
+
+##### add_filter
+
+```python
+add_filter(self, name: str, filter_func: TemplateFilter) -> None
+```
+
+Add custom template filter.
+
+##### add_function
+
+```python
+add_function(self, name: str, function: TemplateFunction) -> None
+```
+
+Add custom global function.
+
+##### compile_template
+
+```python
+compile_template(self, name: str, force_reload: bool = False) -> Template
+```
+
+Compile template and cache result.
+
+Args:
+    name: Template name
+    force_reload: Force reload from source
+    
+Returns:
+    Template: Compiled Jinja2 template
+
+##### render_template
+
+```python
+render_template(self, name: str, context: Optional[TemplateContext] = None) -> str
+```
+
+Render template with context.
+
+Args:
+    name: Template name
+    context: Template context with variables
+    **kwargs: Additional template variables
+    
+Returns:
+    str: Rendered template content
+
+##### validate_template
+
+```python
+validate_template(self, name: str) -> bool
+```
+
+Validate template syntax.
+
+Args:
+    name: Template name to validate
+    
+Returns:
+    bool: True if template is valid
+
+##### list_templates
+
+```python
+list_templates(self) -> List[str]
+```
+
+List all available templates.
+
+##### get_template_metadata
+
+```python
+get_template_metadata(self, name: str) -> Optional[TemplateMetadata]
+```
+
+Get template metadata.
+
+##### clear_cache
+
+```python
+clear_cache(self) -> None
+```
+
+Clear template cache.
+
+#### TemplateManager
+
+Comprehensive template management system.
+
+Manages template engines, contexts, events, and integration
+with Framework0 configuration and event systems.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, template_dirs: Optional[List[Path]] = None, auto_reload: bool = True, enable_events: bool = True) -> None
+```
+
+Initialize template manager.
+
+Args:
+    template_dirs: Template directories to search
+    auto_reload: Auto-reload changed templates
+    enable_events: Enable event system integration
+
+##### _setup_default_engines
+
+```python
+_setup_default_engines(self) -> None
+```
+
+Setup default template engines.
+
+##### _setup_event_handlers
+
+```python
+_setup_event_handlers(self) -> None
+```
+
+Setup event system handlers for template events.
+
+##### _load_template_configuration
+
+```python
+_load_template_configuration(self) -> None
+```
+
+Load template system configuration.
+
+##### add_engine
+
+```python
+add_engine(self, name: str, engine: TemplateEngine, loader: TemplateLoader) -> None
+```
+
+Add template engine.
+
+##### get_engine
+
+```python
+get_engine(self, name: str = 'filesystem') -> TemplateEngine
+```
+
+Get template engine by name.
+
+##### render_template
+
+```python
+render_template(self, template_name: str, context: Optional[TemplateContext] = None, engine_name: str = 'filesystem') -> str
+```
+
+Render template with context.
+
+Args:
+    template_name: Name of template to render
+    context: Template context
+    engine_name: Template engine to use
+    **kwargs: Additional template variables
+    
+Returns:
+    str: Rendered template content
+
+##### create_template
+
+```python
+create_template(self, name: str, content: str, engine_name: str = 'filesystem', metadata: Optional[TemplateMetadata] = None) -> Path
+```
+
+Create new template.
+
+Args:
+    name: Template name
+    content: Template content
+    engine_name: Engine to save template to
+    metadata: Template metadata
+    
+Returns:
+    Path: Path where template was saved (if filesystem)
+
+##### list_templates
+
+```python
+list_templates(self, engine_name: str = 'filesystem') -> List[str]
+```
+
+List templates in engine.
+
+##### validate_template
+
+```python
+validate_template(self, name: str, engine_name: str = 'filesystem') -> bool
+```
+
+Validate template syntax.
+
+##### add_global_variable
+
+```python
+add_global_variable(self, name: str, value: Any) -> None
+```
+
+Add global template variable.
+
+##### add_global_filter
+
+```python
+add_global_filter(self, name: str, filter_func: TemplateFilter) -> None
+```
+
+Add global template filter to all engines.
+
+##### add_global_function
+
+```python
+add_global_function(self, name: str, function: TemplateFunction) -> None
+```
+
+Add global template function to all engines.
+
+##### clear_all_caches
+
+```python
+clear_all_caches(self) -> None
+```
+
+Clear all template caches.
+
+##### template_context
+
+```python
+template_context(self)
+```
+
+Context manager for temporary template variables.
+
+**Decorators:** contextmanager
+
+#### Environment
+
+#### FileSystemLoader
+
+#### DictLoader
+
+#### BaseLoader
+
+#### Template
+
+#### TemplateNotFound
+
+**Inherits from:** Exception
+
+#### TemplateSyntaxError
+
+**Inherits from:** Exception
+
+#### UndefinedError
+
+**Inherits from:** Exception
+
+#### CustomJinjaLoader
+
+**Inherits from:** BaseLoader
+
+Custom Jinja2 loader that uses our template loader.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, template_loader: TemplateLoader)
+```
+
+##### get_source
+
+```python
+get_source(self, environment, template)
+```
+
+
+---
+
+## scriptlets.foundation.errors.error_core
+
+**Description:** Framework0 Foundation - Error Handling Core Infrastructure
+
+Core components for comprehensive error management including:
+- Error classification system with hierarchical categories
+- Rich error context preservation for Framework0 integration
+- Recovery action definitions and metadata management
+- Configuration management for error handling behavior
+- JSON serialization for context storage and analysis
+
+This module provides the foundation data structures and utilities
+needed by all other error handling components in the Framework0 ecosystem.
+
+**File:** `scriptlets/foundation/errors/error_core.py`
+
+### Classes
+
+#### ErrorCategory
+
+**Inherits from:** Enum
+
+Hierarchical error classification system for Framework0.
+
+Categories are designed to enable appropriate error handling strategies:
+- SYSTEM: Infrastructure and environment issues
+- NETWORK: Connectivity and communication failures
+- VALIDATION: Data validation and format issues
+- BUSINESS: Business logic and rule violations
+- SECURITY: Authentication, authorization, and security issues
+- FRAMEWORK: Framework0 internal errors and integration issues
+
+#### ErrorSeverity
+
+**Inherits from:** IntEnum
+
+Error severity levels for prioritization and escalation.
+
+Integer values enable severity comparison and filtering:
+- LOW (10): Minor issues, informational errors
+- MEDIUM (20): Standard errors requiring attention
+- HIGH (30): Serious errors requiring immediate action
+- CRITICAL (40): System-threatening errors requiring emergency response
+- FATAL (50): System failure errors requiring immediate shutdown
+
+#### RecoveryStrategy
+
+**Inherits from:** Enum
+
+Available recovery strategies for error scenarios.
+
+Each strategy represents a different approach to error recovery:
+- RETRY: Attempt the operation again with backoff
+- FALLBACK: Execute alternative operation or use cached data
+- CIRCUIT_BREAKER: Temporarily disable failing service
+- ROLLBACK: Undo previous operations and restore state
+- ESCALATE: Forward error to higher-level handler
+- IGNORE: Log error but continue execution
+
+#### ErrorMetadata
+
+Comprehensive metadata for error tracking and analysis.
+
+Contains all contextual information needed for error analysis:
+- Temporal information (timestamp, duration)
+- Location information (recipe, step, function)
+- Technical information (stack trace, system state)
+- Business information (user context, transaction details)
+
+**Attributes:**
+
+- `error_id: str`
+- `timestamp: str`
+- `category: ErrorCategory`
+- `severity: ErrorSeverity`
+- `recipe_name: Optional[str] = None`
+- `recipe_version: Optional[str] = None`
+- `step_name: Optional[str] = None`
+- `step_index: Optional[int] = None`
+- `scriptlet_name: Optional[str] = None`
+- `execution_id: Optional[str] = None`
+- `function_name: Optional[str] = None`
+- `file_path: Optional[str] = None`
+- `line_number: Optional[int] = None`
+- `stack_trace: Optional[str] = None`
+- `hostname: Optional[str] = None`
+- `process_id: Optional[int] = None`
+- `thread_id: Optional[str] = None`
+- `memory_usage: Optional[int] = None`
+- `root_cause_id: Optional[str] = None`
+- `parent_error_id: Optional[str] = None`
+- `correlation_id: Optional[str] = None`
+- `tags: Dict[str, str] = field(default_factory=dict)`
+- `custom_data: Dict[str, Any] = field(default_factory=dict)`
+
+#### ErrorContext
+
+Rich error context container for Framework0 integration.
+
+Preserves all necessary information for error analysis and recovery:
+- Original exception information
+- Framework0 execution context
+- System state at time of error
+- Recovery strategy recommendations
+
+**Attributes:**
+
+- `original_exception: Exception`
+- `error_message: str`
+- `metadata: ErrorMetadata`
+- `framework_context: Optional[Dict[str, Any]] = None`
+- `recipe_parameters: Optional[Dict[str, Any]] = None`
+- `step_outputs: Optional[Dict[str, Any]] = None`
+- `suggested_strategy: Optional[RecoveryStrategy] = None`
+- `recovery_attempts: int = 0`
+- `max_recovery_attempts: int = 3`
+- `resolved: bool = False`
+- `resolution_strategy: Optional[str] = None`
+- `resolution_timestamp: Optional[str] = None`
+- `resolution_notes: Optional[str] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert error context to dictionary for JSON serialization.
+
+Returns:
+    Dictionary representation suitable for JSON serialization
+
+##### from_dict
+
+```python
+from_dict(cls, data: Dict[str, Any]) -> 'ErrorContext'
+```
+
+Create ErrorContext from dictionary representation.
+
+Args:
+    data: Dictionary containing error context data
+    
+Returns:
+    ErrorContext instance reconstructed from dictionary
+
+**Decorators:** classmethod
+
+#### RecoveryAction
+
+Definition of a recovery action with execution parameters.
+
+Encapsulates everything needed to execute a recovery strategy:
+- Strategy type and configuration
+- Execution parameters and constraints
+- Success criteria and validation
+- Fallback options for recovery failures
+
+**Attributes:**
+
+- `strategy: RecoveryStrategy`
+- `name: str`
+- `description: str`
+- `max_attempts: int = 3`
+- `timeout_seconds: float = 30.0`
+- `backoff_multiplier: float = 2.0`
+- `initial_delay: float = 1.0`
+- `config: Dict[str, Any] = field(default_factory=dict)`
+- `success_condition: Optional[Callable] = None`
+- `validation_timeout: float = 5.0`
+- `fallback_action: Optional['RecoveryAction'] = None`
+- `escalation_threshold: int = 2`
+- `attempts_made: int = 0`
+- `last_attempt_timestamp: Optional[str] = None`
+- `last_error: Optional[str] = None`
+
+**Methods:**
+
+##### can_retry
+
+```python
+can_retry(self) -> bool
+```
+
+Check if this recovery action can be retried.
+
+Returns:
+    True if action can be retried, False otherwise
+
+##### record_attempt
+
+```python
+record_attempt(self, success: bool, error: Optional[str] = None) -> None
+```
+
+Record an execution attempt for this recovery action.
+
+Args:
+    success: Whether the attempt was successful
+    error: Error message if attempt failed
+
+#### ErrorConfiguration
+
+Configuration management for error handling system.
+
+Centralizes all error handling configuration including:
+- Error detection and classification rules
+- Recovery strategy definitions and parameters
+- Integration settings for logging and monitoring
+- Performance and reliability thresholds
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_dict: Optional[Dict[str, Any]] = None) -> None
+```
+
+Initialize error handling configuration.
+
+Args:
+    config_dict: Configuration dictionary with error handling settings
+
+##### _get_default_configuration
+
+```python
+_get_default_configuration(self) -> Dict[str, Any]
+```
+
+Get default error handling configuration.
+
+Returns:
+    Default configuration dictionary with standard settings
+
+##### _validate_configuration
+
+```python
+_validate_configuration(self) -> None
+```
+
+Validate configuration structure and values.
+
+Raises:
+    ValueError: If configuration is invalid
+
+##### get_retry_strategy
+
+```python
+get_retry_strategy(self, strategy_name: str = 'default') -> Dict[str, Any]
+```
+
+Get retry strategy configuration by name.
+
+Args:
+    strategy_name: Name of retry strategy to retrieve
+    
+Returns:
+    Retry strategy configuration dictionary
+
+##### get_circuit_breaker_config
+
+```python
+get_circuit_breaker_config(self) -> Dict[str, Any]
+```
+
+Get circuit breaker configuration.
+
+Returns:
+    Circuit breaker configuration dictionary
+
+##### get_notification_config
+
+```python
+get_notification_config(self) -> Dict[str, Any]
+```
+
+Get notification configuration.
+
+Returns:
+    Notification configuration dictionary
+
+##### is_recovery_enabled
+
+```python
+is_recovery_enabled(self) -> bool
+```
+
+Check if automatic error recovery is enabled.
+
+Returns:
+    True if recovery is enabled, False otherwise
+
+##### get_max_concurrent_recoveries
+
+```python
+get_max_concurrent_recoveries(self) -> int
+```
+
+Get maximum number of concurrent recovery operations.
+
+Returns:
+    Maximum concurrent recoveries allowed
+
+
+---
+
+## scriptlets.foundation.errors.error_handlers
+
+**Description:** Framework0 Foundation - Error Processing Engine
+
+Error detection, classification, and initial response coordination:
+- Proactive error detection from logs and performance metrics
+- Automatic error categorization using patterns and ML techniques
+- Configurable error routing rules with business logic
+- Error deduplication and correlation across recipe executions
+- Multi-channel notification system with severity-based escalation
+
+This module handles the "intake" side of error management, processing
+errors as they occur and routing them to appropriate recovery systems.
+
+**File:** `scriptlets/foundation/errors/error_handlers.py`
+
+### Classes
+
+#### ErrorPattern
+
+Error detection pattern for automated classification.
+
+Encapsulates pattern matching rules for error identification:
+- Regex patterns for log message matching
+- Exception type filters for code-based detection
+- Severity thresholds for metric-based detection
+- Classification rules for automatic categorization
+
+**Attributes:**
+
+- `name: str`
+- `pattern: str`
+- `category: ErrorCategory`
+- `severity: ErrorSeverity`
+- `case_sensitive: bool = False`
+- `whole_word: bool = False`
+- `multiline: bool = False`
+- `confidence: float = 1.0`
+- `tags: Set[str] = field(default_factory=set)`
+- `description: str = ''`
+- `_compiled_pattern: Optional[Pattern] = field(default=None, init=False, repr=False)`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Compile regex pattern after initialization.
+
+##### matches
+
+```python
+matches(self, text: str) -> bool
+```
+
+Check if pattern matches the given text.
+
+Args:
+    text: Text to check for pattern match
+    
+Returns:
+    True if pattern matches, False otherwise
+
+#### ErrorDetector
+
+Proactive error detection from multiple sources.
+
+Monitors Framework0 execution for error conditions:
+- Log message analysis with pattern matching
+- Performance metric threshold monitoring
+- Health check integration for predictive detection
+- Exception tracking across recipe executions
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize error detector with configuration.
+
+Args:
+    config: Error configuration containing detection settings
+
+##### _load_default_patterns
+
+```python
+_load_default_patterns(self) -> None
+```
+
+Load default error detection patterns.
+
+##### add_pattern
+
+```python
+add_pattern(self, pattern: ErrorPattern) -> None
+```
+
+Add custom error detection pattern.
+
+Args:
+    pattern: Error pattern to add for detection
+
+##### detect_from_log_message
+
+```python
+detect_from_log_message(self, log_message: str, log_level: str = 'INFO') -> List[ErrorContext]
+```
+
+Detect errors from log message content.
+
+Args:
+    log_message: Log message to analyze
+    log_level: Log level of the message
+    
+Returns:
+    List of detected error contexts
+
+##### detect_from_exception
+
+```python
+detect_from_exception(self, exception: Exception, context: Optional[Dict[str, Any]] = None) -> ErrorContext
+```
+
+Create error context from exception with enhanced detection.
+
+Args:
+    exception: Exception that occurred
+    context: Optional context information
+    
+Returns:
+    Error context with detection metadata
+
+##### get_detection_stats
+
+```python
+get_detection_stats(self) -> Dict[str, Any]
+```
+
+Get error detection statistics.
+
+Returns:
+    Dictionary containing detection statistics
+
+##### enable_detection
+
+```python
+enable_detection(self) -> None
+```
+
+Enable error detection.
+
+##### disable_detection
+
+```python
+disable_detection(self) -> None
+```
+
+Disable error detection.
+
+#### ErrorClassifier
+
+Automatic error categorization using patterns and ML techniques.
+
+Provides intelligent error classification:
+- Pattern-based classification with confidence scoring
+- Machine learning classification for unknown patterns
+- Classification confidence evaluation and validation
+- Feedback loop for improving classification accuracy
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize error classifier with configuration.
+
+Args:
+    config: Error configuration containing classification settings
+
+##### classify_error
+
+```python
+classify_error(self, error_context: ErrorContext, override_confidence: Optional[float] = None) -> ErrorContext
+```
+
+Classify error and update context with classification metadata.
+
+Args:
+    error_context: Error context to classify
+    override_confidence: Optional confidence override
+    
+Returns:
+    Error context with updated classification
+
+##### _extract_features
+
+```python
+_extract_features(self, error_context: ErrorContext) -> Dict[str, Any]
+```
+
+Extract features from error context for classification.
+
+Args:
+    error_context: Error context to analyze
+    
+Returns:
+    Dictionary of extracted features
+
+##### _classify_from_features
+
+```python
+_classify_from_features(self, features: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Classify error based on extracted features.
+
+Args:
+    features: Extracted features for classification
+    
+Returns:
+    Classification result with category, severity, and confidence
+
+##### get_classification_stats
+
+```python
+get_classification_stats(self) -> Dict[str, Any]
+```
+
+Get classification statistics.
+
+Returns:
+    Dictionary containing classification statistics
+
+#### ErrorRouter
+
+Route errors to appropriate handlers based on type and configuration.
+
+Provides configurable error routing logic:
+- Rule-based routing with category and severity filters
+- Business logic integration for custom routing decisions
+- Load balancing across multiple handler instances
+- Fallback routing for unhandled error types
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize error router with configuration.
+
+Args:
+    config: Error configuration containing routing settings
+
+##### _initialize_default_rules
+
+```python
+_initialize_default_rules(self) -> None
+```
+
+Initialize default routing rules.
+
+##### register_handler
+
+```python
+register_handler(self, name: str, handler: Callable) -> None
+```
+
+Register error handler for routing.
+
+Args:
+    name: Handler name for routing rules
+    handler: Callable handler function
+
+##### set_default_handler
+
+```python
+set_default_handler(self, handler: Callable) -> None
+```
+
+Set default handler for unrouted errors.
+
+Args:
+    handler: Default handler function
+
+##### route_error
+
+```python
+route_error(self, error_context: ErrorContext) -> Optional[str]
+```
+
+Route error to appropriate handler.
+
+Args:
+    error_context: Error context to route
+    
+Returns:
+    Name of handler that processed the error, or None if no handler
+
+##### _matches_rule
+
+```python
+_matches_rule(self, error_context: ErrorContext, rule: Dict[str, Any]) -> bool
+```
+
+Check if error context matches routing rule.
+
+Args:
+    error_context: Error context to check
+    rule: Routing rule to evaluate
+    
+Returns:
+    True if error matches rule, False otherwise
+
+##### get_routing_stats
+
+```python
+get_routing_stats(self) -> Dict[str, Any]
+```
+
+Get routing statistics.
+
+Returns:
+    Dictionary containing routing statistics
+
+#### ErrorAggregator
+
+Group related errors for batch processing and deduplication.
+
+Provides error aggregation capabilities:
+- Error deduplication based on content similarity
+- Time-based error batching for efficiency
+- Correlation detection across recipe executions
+- Statistical analysis of error patterns
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize error aggregator with configuration.
+
+Args:
+    config: Error configuration containing aggregation settings
+
+##### add_error
+
+```python
+add_error(self, error_context: ErrorContext) -> str
+```
+
+Add error to aggregation system.
+
+Args:
+    error_context: Error context to aggregate
+    
+Returns:
+    Group ID that the error was assigned to
+
+##### _calculate_group_key
+
+```python
+_calculate_group_key(self, error_context: ErrorContext) -> str
+```
+
+Calculate group key for error aggregation.
+
+Args:
+    error_context: Error context to group
+    
+Returns:
+    Group key string
+
+##### _is_duplicate
+
+```python
+_is_duplicate(self, error_context: ErrorContext, group_key: str) -> bool
+```
+
+Check if error is a duplicate within time window.
+
+Args:
+    error_context: Error context to check
+    group_key: Group to check for duplicates
+    
+Returns:
+    True if error is a duplicate, False otherwise
+
+##### get_error_groups
+
+```python
+get_error_groups(self) -> Dict[str, List[ErrorContext]]
+```
+
+Get current error groups.
+
+Returns:
+    Dictionary mapping group keys to error lists
+
+##### get_aggregation_stats
+
+```python
+get_aggregation_stats(self) -> Dict[str, Any]
+```
+
+Get aggregation statistics.
+
+Returns:
+    Dictionary containing aggregation statistics
+
+#### ErrorNotifier
+
+Multi-channel error notification system with severity-based escalation.
+
+Provides comprehensive notification capabilities:
+- Multiple notification channels (log, email, webhook, Slack)
+- Severity-based routing and escalation rules
+- Rate limiting and notification batching
+- Template-based message formatting
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize error notifier with configuration.
+
+Args:
+    config: Error configuration containing notification settings
+
+##### notify_error
+
+```python
+notify_error(self, error_context: ErrorContext, additional_context: Optional[Dict[str, Any]] = None) -> Dict[str, bool]
+```
+
+Send error notification through appropriate channels.
+
+Args:
+    error_context: Error context to notify about
+    additional_context: Optional additional context information
+    
+Returns:
+    Dictionary mapping channel names to success status
+
+##### _get_channels_for_severity
+
+```python
+_get_channels_for_severity(self, severity: ErrorSeverity, thresholds: Dict[str, str]) -> List[str]
+```
+
+Get notification channels appropriate for error severity.
+
+Args:
+    severity: Error severity level
+    thresholds: Severity thresholds for each channel
+    
+Returns:
+    List of channel names to use for notification
+
+##### _send_notification
+
+```python
+_send_notification(self, channel: str, error_context: ErrorContext, additional_context: Optional[Dict[str, Any]]) -> bool
+```
+
+Send notification to specific channel.
+
+Args:
+    channel: Channel name to send to
+    error_context: Error context to notify about
+    additional_context: Optional additional context
+    
+Returns:
+    True if notification was sent successfully, False otherwise
+
+##### _format_message
+
+```python
+_format_message(self, error_context: ErrorContext, additional_context: Optional[Dict[str, Any]]) -> str
+```
+
+Format error message for notification.
+
+Args:
+    error_context: Error context to format
+    additional_context: Optional additional context
+    
+Returns:
+    Formatted message string
+
+##### _send_log_notification
+
+```python
+_send_log_notification(self, message: str, error_context: ErrorContext) -> bool
+```
+
+Send notification to log.
+
+##### _send_email_notification
+
+```python
+_send_email_notification(self, message: str, error_context: ErrorContext) -> bool
+```
+
+Send notification via email (placeholder implementation).
+
+##### _send_webhook_notification
+
+```python
+_send_webhook_notification(self, message: str, error_context: ErrorContext) -> bool
+```
+
+Send notification via webhook (placeholder implementation).
+
+##### get_notification_stats
+
+```python
+get_notification_stats(self) -> Dict[str, Any]
+```
+
+Get notification statistics.
+
+Returns:
+    Dictionary containing notification statistics
+
+
+---
+
+## scriptlets.foundation.errors.error_handling
+
+**Description:** Framework0 Foundation - Error Handling & Recovery Orchestration Scriptlet
+
+Main orchestration scriptlet for comprehensive error handling and recovery:
+- Integrated setup of all error handling components with Framework0 context
+- Continuous error monitoring with real-time detection and classification
+- Automated recovery execution with intelligent strategy selection
+- Performance analysis with SLA tracking and reliability reporting
+
+This scriptlet provides the primary interface for Framework0's error handling
+capabilities, orchestrating all components into a cohesive reliability system.
+
+Usage:
+    python scriptlets/foundation/errors/error_handling.py setup
+    python scriptlets/foundation/errors/error_handling.py monitor --duration 300
+    python scriptlets/foundation/errors/error_handling.py recover --error-id ERR-123
+    python scriptlets/foundation/errors/error_handling.py analyze --report-type sla
+
+**File:** `scriptlets/foundation/errors/error_handling.py`
+
+### Classes
+
+#### ErrorHandlingOrchestrator
+
+Main orchestrator for Framework0 error handling and recovery system.
+
+Coordinates all error handling components:
+- Configuration management and component initialization
+- Real-time error monitoring with intelligent classification
+- Automated recovery execution with strategy orchestration
+- Performance tracking with SLA compliance reporting
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_path: Optional[str] = None) -> None
+```
+
+Initialize error handling orchestrator.
+
+Args:
+    config_path: Optional path to error handling configuration file
+
+##### _load_configuration
+
+```python
+_load_configuration(self, config_path: Optional[str]) -> ErrorConfiguration
+```
+
+Load error handling configuration.
+
+Args:
+    config_path: Optional configuration file path
+    
+Returns:
+    Error configuration instance
+
+##### _initialize_components
+
+```python
+_initialize_components(self) -> None
+```
+
+Initialize all error handling components.
+
+##### _setup_default_bulkheads
+
+```python
+_setup_default_bulkheads(self) -> None
+```
+
+Setup default bulkhead compartments for common operations.
+
+##### setup
+
+```python
+setup(self) -> Dict[str, Any]
+```
+
+Setup and validate error handling system.
+
+Args:
+    **kwargs: Additional setup parameters
+    
+Returns:
+    Dictionary with setup results and system status
+
+##### _setup_sla_targets
+
+```python
+_setup_sla_targets(self) -> None
+```
+
+Setup default SLA targets for different services.
+
+##### monitor
+
+```python
+monitor(self, duration: int = 300, interval: int = 5) -> Dict[str, Any]
+```
+
+Monitor system for errors and handle them automatically.
+
+Args:
+    duration: Monitoring duration in seconds
+    interval: Check interval in seconds
+    
+Returns:
+    Dictionary with monitoring results and statistics
+
+##### _monitoring_cycle
+
+```python
+_monitoring_cycle(self) -> None
+```
+
+Execute one monitoring cycle to check for errors and issues.
+
+##### _check_component_health
+
+```python
+_check_component_health(self) -> None
+```
+
+Check health of all system components.
+
+##### _update_performance_metrics
+
+```python
+_update_performance_metrics(self) -> None
+```
+
+Update performance metrics for SLA tracking.
+
+##### _check_sla_compliance
+
+```python
+_check_sla_compliance(self) -> None
+```
+
+Check SLA compliance and log violations.
+
+##### _detect_potential_issues
+
+```python
+_detect_potential_issues(self) -> None
+```
+
+Detect potential issues before they become critical.
+
+##### recover
+
+```python
+recover(self, error_id: Optional[str] = None) -> Dict[str, Any]
+```
+
+Execute recovery procedures for specific error or general system recovery.
+
+Args:
+    error_id: Optional specific error ID to recover from
+    **kwargs: Additional recovery parameters
+    
+Returns:
+    Dictionary with recovery results and actions taken
+
+##### _execute_targeted_recovery
+
+```python
+_execute_targeted_recovery(self, error_id: str) -> Dict[str, Any]
+```
+
+Execute recovery for a specific error.
+
+##### _execute_general_recovery
+
+```python
+_execute_general_recovery(self) -> list
+```
+
+Execute general system recovery procedures.
+
+##### analyze
+
+```python
+analyze(self, report_type: str = 'comprehensive') -> Dict[str, Any]
+```
+
+Generate comprehensive analysis and reports.
+
+Args:
+    report_type: Type of report ('sla', 'errors', 'performance', 'comprehensive')
+    **kwargs: Additional analysis parameters
+    
+Returns:
+    Dictionary with analysis results and reports
+
+##### _generate_recommendations
+
+```python
+_generate_recommendations(self) -> list
+```
+
+Generate recommendations based on current system state.
+
+##### _get_monitoring_statistics
+
+```python
+_get_monitoring_statistics(self) -> Dict[str, Any]
+```
+
+Get comprehensive monitoring statistics.
+
+
+---
+
+## scriptlets.foundation.errors.recovery_strategies
+
+**Description:** Framework0 Foundation - Recovery Automation Strategies
+
+Automated recovery strategies and resilience patterns implementation:
+- Configurable retry logic with exponential backoff and jitter
+- Circuit breaker pattern for service protection and recovery
+- Context-aware fallback execution paths with graceful degradation
+- Transaction-style rollback for multi-step operations with dependency tracking
+- Recovery workflow orchestration with Framework0 integration
+
+This module provides the "response" side of error management, executing
+recovery strategies when errors occur and managing the recovery lifecycle.
+
+**File:** `scriptlets/foundation/errors/recovery_strategies.py`
+
+### Classes
+
+#### BackoffStrategy
+
+**Inherits from:** Enum
+
+Available backoff strategies for retry operations.
+
+Each strategy provides different timing patterns for retry attempts:
+- FIXED: Fixed delay between attempts
+- LINEAR: Linearly increasing delay
+- EXPONENTIAL: Exponentially increasing delay
+- EXPONENTIAL_JITTER: Exponential with random jitter to prevent thundering herd
+
+#### CircuitState
+
+**Inherits from:** Enum
+
+Circuit breaker states for service protection.
+
+States follow the classic circuit breaker pattern:
+- CLOSED: Normal operation, requests pass through
+- OPEN: Circuit is open, requests fail fast
+- HALF_OPEN: Testing recovery, limited requests allowed
+
+#### RetryResult
+
+Result of a retry operation with execution metadata.
+
+Contains comprehensive information about retry execution:
+- Success status and final result or error
+- Execution statistics (attempts, timing, backoff)
+- Recovery metadata for analysis and optimization
+
+**Attributes:**
+
+- `success: bool`
+- `attempts_made: int`
+- `total_duration: float`
+- `final_result: Optional[Any] = None`
+- `final_error: Optional[Exception] = None`
+- `attempt_history: List[Dict[str, Any]] = field(default_factory=list)`
+- `backoff_times: List[float] = field(default_factory=list)`
+
+#### RetryStrategy
+
+Configurable retry logic with backoff patterns and failure handling.
+
+Provides comprehensive retry capabilities:
+- Multiple backoff strategies (fixed, linear, exponential, jitter)
+- Configurable retry conditions and exception filtering
+- Detailed execution tracking and performance analysis
+- Integration with Framework0 context and error handling
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, max_attempts: int = 3, backoff_strategy: BackoffStrategy = BackoffStrategy.EXPONENTIAL, initial_delay: float = 1.0, max_delay: float = 60.0, backoff_multiplier: float = 2.0, jitter_factor: float = 0.1) -> None
+```
+
+Initialize retry strategy with configuration.
+
+Args:
+    max_attempts: Maximum number of retry attempts
+    backoff_strategy: Strategy for calculating retry delays
+    initial_delay: Initial delay before first retry (seconds)
+    max_delay: Maximum delay between retries (seconds)
+    backoff_multiplier: Multiplier for exponential backoff
+    jitter_factor: Random jitter factor (0.0-1.0) for jitter strategies
+
+##### add_retry_exception
+
+```python
+add_retry_exception(self, exception_type: type) -> None
+```
+
+Add exception type that should trigger retry.
+
+Args:
+    exception_type: Exception class to retry on
+
+##### set_retry_condition
+
+```python
+set_retry_condition(self, condition: Callable[[Exception], bool]) -> None
+```
+
+Set custom retry condition function.
+
+Args:
+    condition: Function that takes an exception and returns bool
+
+##### should_retry
+
+```python
+should_retry(self, exception: Exception, attempt: int) -> bool
+```
+
+Determine if operation should be retried.
+
+Args:
+    exception: Exception that occurred
+    attempt: Current attempt number
+    
+Returns:
+    True if should retry, False otherwise
+
+##### calculate_delay
+
+```python
+calculate_delay(self, attempt: int) -> float
+```
+
+Calculate delay for retry attempt based on backoff strategy.
+
+Args:
+    attempt: Current attempt number (0-based)
+    
+Returns:
+    Delay in seconds before next retry
+
+##### execute_with_retry
+
+```python
+execute_with_retry(self, operation: Callable) -> RetryResult
+```
+
+Execute operation with retry logic.
+
+Args:
+    operation: Function to execute with retry
+    *args: Arguments for the operation
+    error_context: Optional error context for Framework0 integration
+    **kwargs: Keyword arguments for the operation
+    
+Returns:
+    RetryResult containing execution details and final outcome
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get retry execution statistics.
+
+Returns:
+    Dictionary containing retry statistics
+
+#### CircuitBreaker
+
+Circuit breaker pattern for service protection and automatic recovery.
+
+Provides service protection through the circuit breaker pattern:
+- Automatic failure detection and circuit opening
+- Configurable failure thresholds and recovery timeouts
+- Half-open testing for recovery detection
+- Detailed monitoring and statistics collection
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, failure_threshold: int = 5, recovery_timeout: float = 60.0, half_open_max_calls: int = 3, name: str = 'default') -> None
+```
+
+Initialize circuit breaker with configuration.
+
+Args:
+    failure_threshold: Number of failures before opening circuit
+    recovery_timeout: Time to wait before testing recovery (seconds)
+    half_open_max_calls: Maximum calls allowed in half-open state
+    name: Name for identification and logging
+
+##### state
+
+```python
+state(self) -> CircuitState
+```
+
+Get current circuit state.
+
+**Decorators:** property
+
+##### is_closed
+
+```python
+is_closed(self) -> bool
+```
+
+Check if circuit is closed (normal operation).
+
+**Decorators:** property
+
+##### is_open
+
+```python
+is_open(self) -> bool
+```
+
+Check if circuit is open (failing fast).
+
+**Decorators:** property
+
+##### is_half_open
+
+```python
+is_half_open(self) -> bool
+```
+
+Check if circuit is half-open (testing recovery).
+
+**Decorators:** property
+
+##### _can_attempt_call
+
+```python
+_can_attempt_call(self) -> bool
+```
+
+Check if call can be attempted in current state.
+
+Returns:
+    True if call can be attempted, False otherwise
+
+##### _transition_to_half_open
+
+```python
+_transition_to_half_open(self) -> None
+```
+
+Transition circuit to half-open state.
+
+##### _handle_success
+
+```python
+_handle_success(self) -> None
+```
+
+Handle successful call execution.
+
+##### _handle_failure
+
+```python
+_handle_failure(self, exception: Exception) -> None
+```
+
+Handle failed call execution.
+
+##### call
+
+```python
+call(self, operation: Callable) -> Any
+```
+
+Execute operation through circuit breaker.
+
+Args:
+    operation: Function to execute
+    *args: Arguments for the operation
+    **kwargs: Keyword arguments for the operation
+    
+Returns:
+    Result of the operation
+    
+Raises:
+    Exception: If circuit is open or operation fails
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get circuit breaker statistics.
+
+Returns:
+    Dictionary containing circuit breaker statistics
+
+#### FallbackStrategy
+
+Context-aware fallback execution paths with graceful degradation.
+
+Provides fallback capabilities when primary operations fail:
+- Multiple fallback levels with prioritization
+- Context-aware fallback selection based on error type
+- Cached data fallbacks for service degradation scenarios
+- Statistical tracking of fallback usage and success rates
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, name: str = 'default') -> None
+```
+
+Initialize fallback strategy.
+
+Args:
+    name: Name for identification and logging
+
+##### add_fallback
+
+```python
+add_fallback(self, operation: Callable, condition: Optional[Callable[[Exception], bool]] = None, priority: int = 1, description: str = '') -> None
+```
+
+Add fallback operation.
+
+Args:
+    operation: Fallback function to execute
+    condition: Optional condition to determine if fallback should be used
+    priority: Priority level (lower numbers = higher priority)
+    description: Human-readable description of fallback
+
+##### execute_with_fallback
+
+```python
+execute_with_fallback(self, primary_operation: Callable) -> Dict[str, Any]
+```
+
+Execute primary operation with fallback support.
+
+Args:
+    primary_operation: Primary function to execute
+    *args: Arguments for operations
+    **kwargs: Keyword arguments for operations
+    
+Returns:
+    Dictionary with execution result and metadata
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get fallback execution statistics.
+
+Returns:
+    Dictionary containing fallback statistics
+
+#### RecoveryOrchestrator
+
+Coordinate complex recovery workflows with Framework0 integration.
+
+Provides comprehensive recovery orchestration:
+- Integration of retry, circuit breaker, and fallback strategies
+- Recovery workflow definition and execution
+- Framework0 context integration for recipe-level recovery
+- Statistical analysis and recovery optimization
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration, context: Optional[Context] = None) -> None
+```
+
+Initialize recovery orchestrator.
+
+Args:
+    config: Error configuration containing recovery settings
+    context: Optional Framework0 context for integration
+
+##### _initialize_default_strategies
+
+```python
+_initialize_default_strategies(self) -> None
+```
+
+Initialize default recovery strategies from configuration.
+
+##### recover_from_error
+
+```python
+recover_from_error(self, error_context: ErrorContext, recovery_operation: Callable) -> Dict[str, Any]
+```
+
+Execute comprehensive recovery for an error.
+
+Args:
+    error_context: Error context containing error information
+    recovery_operation: Operation to execute for recovery
+    *args: Arguments for recovery operation
+    **kwargs: Keyword arguments for recovery operation
+    
+Returns:
+    Dictionary containing recovery result and metadata
+
+##### _select_recovery_strategy
+
+```python
+_select_recovery_strategy(self, error_context: ErrorContext) -> str
+```
+
+Select appropriate recovery strategy based on error characteristics.
+
+Args:
+    error_context: Error context to analyze
+    
+Returns:
+    Name of recommended recovery strategy
+
+##### _execute_retry_recovery
+
+```python
+_execute_retry_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]
+```
+
+Execute recovery using retry strategy.
+
+##### _execute_circuit_breaker_recovery
+
+```python
+_execute_circuit_breaker_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]
+```
+
+Execute recovery using circuit breaker.
+
+##### _execute_fallback_recovery
+
+```python
+_execute_fallback_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]
+```
+
+Execute recovery using fallback strategy.
+
+##### _execute_combined_recovery
+
+```python
+_execute_combined_recovery(self, error_context: ErrorContext, operation: Callable) -> Dict[str, Any]
+```
+
+Execute recovery using combined strategies.
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get comprehensive recovery statistics.
+
+Returns:
+    Dictionary containing all recovery statistics
+
+
+---
+
+## scriptlets.foundation.errors.resilience_patterns
+
+**Description:** Framework0 Foundation - Advanced Resilience Patterns
+
+Advanced resilience patterns and reliability engineering implementation:
+- Bulkhead isolation for failure containment across components
+- Adaptive timeout management based on performance metrics integration
+- Health-aware resource pools with automatic scaling and recovery
+- Automated failure analysis with root cause identification and learning
+- SLA tracking with comprehensive reliability metrics and reporting
+
+This module provides enterprise-grade reliability engineering patterns
+that integrate with Framework0's performance and health monitoring systems.
+
+**File:** `scriptlets/foundation/errors/resilience_patterns.py`
+
+### Classes
+
+#### BulkheadState
+
+**Inherits from:** Enum
+
+Bulkhead isolation states for failure containment.
+
+States represent the operational status of isolated compartments:
+- HEALTHY: Normal operation with full capacity
+- DEGRADED: Reduced capacity due to failures
+- ISOLATED: Completely isolated due to critical failures
+- RECOVERING: Gradually restoring capacity after isolation
+
+#### ResourceState
+
+**Inherits from:** Enum
+
+Resource pool states for health-aware management.
+
+States indicate the current health and availability of resources:
+- AVAILABLE: Resource is healthy and ready for use
+- BUSY: Resource is currently in use
+- UNHEALTHY: Resource has health issues but may recover
+- FAILED: Resource has failed and needs replacement
+
+#### BulkheadCompartment
+
+Isolated compartment for bulkhead pattern implementation.
+
+Represents a failure-isolated compartment with its own resources:
+- Independent thread pool for request processing
+- Isolated failure tracking and recovery logic
+- Configurable capacity and throttling limits
+- Health monitoring and automatic recovery
+
+**Attributes:**
+
+- `name: str`
+- `max_capacity: int`
+- `current_load: int = 0`
+- `state: BulkheadState = BulkheadState.HEALTHY`
+- `failure_count: int = 0`
+- `last_failure_time: Optional[datetime] = None`
+- `total_requests: int = 0`
+- `successful_requests: int = 0`
+- `average_response_time: float = 0.0`
+- `failure_threshold: int = 10`
+- `isolation_threshold: int = 20`
+- `recovery_time: int = 60`
+- `_executor: Optional[ThreadPoolExecutor] = field(default=None, init=False, repr=False)`
+- `_lock: threading.Lock = field(default_factory=threading.Lock, init=False, repr=False)`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Initialize compartment resources.
+
+#### BulkheadIsolation
+
+Bulkhead pattern for isolating failures across components.
+
+Provides failure containment through isolation compartments:
+- Independent resource pools for different operations
+- Automatic degradation and isolation based on failure patterns
+- Recovery detection and capacity restoration
+- Cross-compartment failure prevention
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize bulkhead isolation system.
+
+Args:
+    config: Error configuration containing bulkhead settings
+
+##### create_compartment
+
+```python
+create_compartment(self, name: str, max_capacity: int = 10, failure_threshold: int = 10, isolation_threshold: int = 20, recovery_time: int = 60) -> BulkheadCompartment
+```
+
+Create isolated bulkhead compartment.
+
+Args:
+    name: Compartment name for identification
+    max_capacity: Maximum concurrent operations
+    failure_threshold: Failures before degradation
+    isolation_threshold: Failures before isolation
+    recovery_time: Recovery time in seconds
+    
+Returns:
+    Created bulkhead compartment
+
+##### execute_in_compartment
+
+```python
+execute_in_compartment(self, compartment_name: str, operation: Callable) -> Dict[str, Any]
+```
+
+Execute operation in isolated compartment.
+
+Args:
+    compartment_name: Name of compartment to use
+    operation: Function to execute
+    *args: Arguments for operation
+    timeout: Optional timeout for operation
+    **kwargs: Keyword arguments for operation
+    
+Returns:
+    Dictionary with execution result and compartment metadata
+
+##### _can_accept_request
+
+```python
+_can_accept_request(self, compartment: BulkheadCompartment) -> bool
+```
+
+Check if compartment can accept new requests.
+
+Args:
+    compartment: Compartment to check
+    
+Returns:
+    True if compartment can accept requests, False otherwise
+
+##### _record_success
+
+```python
+_record_success(self, compartment: BulkheadCompartment, execution_time: float) -> None
+```
+
+Record successful execution in compartment.
+
+##### _record_failure
+
+```python
+_record_failure(self, compartment: BulkheadCompartment, exception: Exception) -> None
+```
+
+Record failure in compartment and update state.
+
+##### _transition_to_healthy
+
+```python
+_transition_to_healthy(self, compartment: BulkheadCompartment) -> None
+```
+
+Transition compartment to healthy state.
+
+##### _transition_to_degraded
+
+```python
+_transition_to_degraded(self, compartment: BulkheadCompartment) -> None
+```
+
+Transition compartment to degraded state.
+
+##### _transition_to_isolated
+
+```python
+_transition_to_isolated(self, compartment: BulkheadCompartment) -> None
+```
+
+Transition compartment to isolated state.
+
+##### _transition_to_recovering
+
+```python
+_transition_to_recovering(self, compartment: BulkheadCompartment) -> None
+```
+
+Transition compartment to recovering state.
+
+##### _update_state_stats
+
+```python
+_update_state_stats(self, old_state: BulkheadState, new_state: BulkheadState) -> None
+```
+
+Update statistics when compartment state changes.
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get bulkhead isolation statistics.
+
+Returns:
+    Dictionary containing bulkhead statistics
+
+#### TimeoutManager
+
+Comprehensive timeout handling with adaptive management.
+
+Provides intelligent timeout management:
+- Adaptive timeouts based on historical performance data
+- Operation-specific timeout configuration
+- Integration with performance metrics for optimization
+- Timeout violation tracking and analysis
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize timeout manager.
+
+Args:
+    config: Error configuration containing timeout settings
+
+##### set_timeout
+
+```python
+set_timeout(self, operation_name: str, timeout: float) -> None
+```
+
+Set timeout for specific operation.
+
+Args:
+    operation_name: Name of operation
+    timeout: Timeout in seconds
+
+##### get_timeout
+
+```python
+get_timeout(self, operation_name: str) -> float
+```
+
+Get timeout for operation with adaptive adjustment.
+
+Args:
+    operation_name: Name of operation
+    
+Returns:
+    Timeout in seconds (adaptive or configured)
+
+##### execute_with_timeout
+
+```python
+execute_with_timeout(self, operation_name: str, operation: Callable) -> Dict[str, Any]
+```
+
+Execute operation with timeout management.
+
+Args:
+    operation_name: Name of operation for timeout tracking
+    operation: Function to execute
+    *args: Arguments for operation
+    custom_timeout: Optional custom timeout override
+    **kwargs: Keyword arguments for operation
+    
+Returns:
+    Dictionary with execution result and timing metadata
+
+##### _update_average_execution_time
+
+```python
+_update_average_execution_time(self, execution_time: float) -> None
+```
+
+Update average execution time statistic.
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get timeout management statistics.
+
+Returns:
+    Dictionary containing timeout statistics
+
+#### ResilienceMetrics
+
+Comprehensive reliability metrics and SLA tracking.
+
+Provides enterprise-grade reliability monitoring:
+- SLA compliance tracking with configurable targets
+- Reliability metrics calculation and trending
+- Integration with error handling and recovery systems
+- Automated reporting and alerting for SLA violations
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: ErrorConfiguration) -> None
+```
+
+Initialize resilience metrics system.
+
+Args:
+    config: Error configuration containing metrics settings
+
+##### set_sla_target
+
+```python
+set_sla_target(self, service_name: str, metric: str, target: float) -> None
+```
+
+Set SLA target for service metric.
+
+Args:
+    service_name: Name of service
+    metric: Metric name (availability, response_time, error_rate, throughput)
+    target: Target value for the metric
+
+##### record_operation
+
+```python
+record_operation(self, service_name: str, success: bool, response_time: float, timestamp: Optional[datetime] = None) -> None
+```
+
+Record operation for SLA tracking.
+
+Args:
+    service_name: Name of service
+    success: Whether operation was successful
+    response_time: Response time in seconds
+    timestamp: Optional timestamp (defaults to now)
+
+##### _update_current_metrics
+
+```python
+_update_current_metrics(self) -> None
+```
+
+Update current performance metrics.
+
+##### _check_sla_compliance
+
+```python
+_check_sla_compliance(self, service_name: str, operation_data: Dict[str, Any]) -> None
+```
+
+Check SLA compliance for recorded operation.
+
+Args:
+    service_name: Name of service
+    operation_data: Operation data to check
+
+##### _record_sla_violation
+
+```python
+_record_sla_violation(self, service_name: str, metric: str, actual_value: float, target_value: float) -> None
+```
+
+Record SLA violation for alerting and reporting.
+
+##### get_sla_report
+
+```python
+get_sla_report(self, service_name: Optional[str] = None) -> Dict[str, Any]
+```
+
+Generate comprehensive SLA compliance report.
+
+Args:
+    service_name: Optional specific service name
+    
+Returns:
+    Dictionary containing SLA compliance report
+
+##### get_stats
+
+```python
+get_stats(self) -> Dict[str, Any]
+```
+
+Get resilience metrics statistics.
+
+Returns:
+    Dictionary containing resilience statistics
+
+
+---
+
+## scriptlets.foundation.foundation_integration_bridge
+
+**Description:** Framework0 Foundation - Unified Integration Bridge
+
+Comprehensive integration layer that connects all four Foundation pillars:
+- 5A: Logging & Monitoring Framework
+- 5B: Health Monitoring System  
+- 5C: Performance Metrics Framework
+- 5D: Error Handling & Recovery System
+
+This bridge provides:
+- Cross-component data flow and event propagation
+- Unified configuration management across all pillars
+- Integrated monitoring dashboard combining all systems
+- Shared context management for Framework0 integration
+- Automatic correlation between errors, performance, and health
+
+**File:** `scriptlets/foundation/foundation_integration_bridge.py`
+
+### Classes
+
+#### IntegrationEventType
+
+**Inherits from:** Enum
+
+Types of integration events flowing between Foundation components.
+
+#### IntegrationEvent
+
+Event data structure for cross-component communication.
+
+Carries information between Foundation components to enable
+intelligent correlation and automated responses.
+
+**Attributes:**
+
+- `event_id: str`
+- `event_type: IntegrationEventType`
+- `source_component: str`
+- `timestamp: datetime`
+- `data: Dict[str, Any] = field(default_factory=dict)`
+- `correlation_id: Optional[str] = None`
+- `parent_event_id: Optional[str] = None`
+- `processed_by: List[str] = field(default_factory=list)`
+- `processing_complete: bool = False`
+- `framework_context: Optional[Dict[str, Any]] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert event to dictionary for serialization.
+
+#### FoundationIntegrationBridge
+
+Central integration bridge connecting all Foundation components.
+
+Manages data flow, event correlation, and intelligent responses
+across the four Foundation pillars: Logging, Health, Performance,
+and Error Handling systems.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, context: Optional[Context] = None) -> None
+```
+
+Initialize Foundation integration bridge.
+
+Args:
+    context: Optional Framework0 context for integration
+
+##### initialize_components
+
+```python
+initialize_components(self, logging_config: Optional[Dict[str, Any]] = None, health_config: Optional[Dict[str, Any]] = None, performance_config: Optional[Dict[str, Any]] = None, error_config: Optional[Dict[str, Any]] = None) -> Dict[str, bool]
+```
+
+Initialize all Foundation components with optional configurations.
+
+Args:
+    logging_config: Configuration for logging system
+    health_config: Configuration for health monitoring
+    performance_config: Configuration for performance metrics
+    error_config: Configuration for error handling
+    
+Returns:
+    Dictionary indicating initialization success for each component
+
+##### _start_integrated_monitoring
+
+```python
+_start_integrated_monitoring(self) -> None
+```
+
+Start integrated monitoring across all Foundation components.
+
+##### _setup_health_error_correlation
+
+```python
+_setup_health_error_correlation(self) -> None
+```
+
+Setup correlation between health status and error classification.
+
+##### _setup_performance_anomaly_detection
+
+```python
+_setup_performance_anomaly_detection(self) -> None
+```
+
+Setup performance anomaly detection with error handling.
+
+##### publish_event
+
+```python
+publish_event(self, event: IntegrationEvent) -> None
+```
+
+Publish integration event to all registered handlers.
+
+Args:
+    event: Integration event to publish
+
+##### register_event_handler
+
+```python
+register_event_handler(self, event_type: IntegrationEventType, handler: Callable[[IntegrationEvent], None]) -> None
+```
+
+Register event handler for specific integration event type.
+
+Args:
+    event_type: Type of integration event to handle
+    handler: Handler function that accepts IntegrationEvent
+
+##### create_correlation
+
+```python
+create_correlation(self, event_ids: List[str], correlation_id: str) -> None
+```
+
+Create correlation between multiple events.
+
+Args:
+    event_ids: List of event IDs to correlate
+    correlation_id: Unique correlation identifier
+
+##### get_correlated_events
+
+```python
+get_correlated_events(self, correlation_id: str) -> List[IntegrationEvent]
+```
+
+Get all events with specific correlation ID.
+
+Args:
+    correlation_id: Correlation identifier
+    
+Returns:
+    List of correlated integration events
+
+##### _register_default_handlers
+
+```python
+_register_default_handlers(self) -> None
+```
+
+Register default integration event handlers.
+
+##### _handle_error_detected
+
+```python
+_handle_error_detected(self, event: IntegrationEvent) -> None
+```
+
+Handle error detection event with cross-component coordination.
+
+##### _handle_health_changed
+
+```python
+_handle_health_changed(self, event: IntegrationEvent) -> None
+```
+
+Handle health status change with error system integration.
+
+##### _handle_performance_anomaly_detected
+
+```python
+_handle_performance_anomaly_detected(self, event: IntegrationEvent) -> None
+```
+
+Handle performance anomaly with error escalation.
+
+##### _handle_recovery_started
+
+```python
+_handle_recovery_started(self, event: IntegrationEvent) -> None
+```
+
+Handle recovery process start with system-wide notifications.
+
+##### _handle_recovery_completed
+
+```python
+_handle_recovery_completed(self, event: IntegrationEvent) -> None
+```
+
+Handle recovery process completion with status updates.
+
+##### _handle_health_status_change
+
+```python
+_handle_health_status_change(self, event: IntegrationEvent) -> None
+```
+
+Handle health status changes for error classification.
+
+##### _handle_error_health_impact
+
+```python
+_handle_error_health_impact(self, event: IntegrationEvent) -> None
+```
+
+Handle error events that might impact health.
+
+##### _handle_performance_threshold
+
+```python
+_handle_performance_threshold(self, event: IntegrationEvent) -> None
+```
+
+Handle performance threshold violations.
+
+##### _handle_performance_anomaly
+
+```python
+_handle_performance_anomaly(self, event: IntegrationEvent) -> None
+```
+
+Handle performance anomalies for error correlation.
+
+##### _create_health_change_event
+
+```python
+_create_health_change_event(self, health_status: HealthStatus, details: Dict[str, Any], correlation_id: Optional[str] = None) -> IntegrationEvent
+```
+
+Create health change integration event.
+
+##### _create_recovery_event
+
+```python
+_create_recovery_event(self, recovery_type: str, recovery_data: Dict[str, Any], correlation_id: Optional[str] = None) -> IntegrationEvent
+```
+
+Create recovery process integration event.
+
+##### get_integration_status
+
+```python
+get_integration_status(self) -> Dict[str, Any]
+```
+
+Get comprehensive integration status across all Foundation components.
+
+Returns:
+    Dictionary with integration status and statistics
+
+##### generate_integrated_report
+
+```python
+generate_integrated_report(self, include_details: bool = True) -> Dict[str, Any]
+```
+
+Generate comprehensive integrated report across all Foundation components.
+
+Args:
+    include_details: Whether to include detailed component reports
+    
+Returns:
+    Comprehensive integrated report
+
+##### _analyze_event_correlations
+
+```python
+_analyze_event_correlations(self) -> Dict[str, Any]
+```
+
+Analyze event correlations for insights.
+
+##### _generate_integrated_recommendations
+
+```python
+_generate_integrated_recommendations(self, report: Dict[str, Any]) -> List[str]
+```
+
+Generate recommendations based on integrated report data.
+
+
+---
+
+## scriptlets.foundation.foundation_orchestrator
+
+**Description:** Framework0 Foundation - Master Orchestration System
+
+Unified orchestrator that coordinates all four Foundation pillars:
+- 5A: Logging & Monitoring Framework
+- 5B: Health Monitoring System
+- 5C: Performance Metrics Framework
+- 5D: Error Handling & Recovery System
+
+This orchestrator provides:
+- Single interface for all Foundation capabilities
+- Unified configuration management
+- Integrated monitoring dashboard
+- Cross-component correlation and intelligence
+- Framework0 context integration
+- Production-ready automation workflows
+
+Usage:
+    python scriptlets/foundation/foundation_orchestrator.py setup
+    python scriptlets/foundation/foundation_orchestrator.py monitor --duration 600
+    python scriptlets/foundation/foundation_orchestrator.py dashboard
+    python scriptlets/foundation/foundation_orchestrator.py analyze --type comprehensive
+
+**File:** `scriptlets/foundation/foundation_orchestrator.py`
+
+### Classes
+
+#### FoundationOrchestrator
+
+Master orchestrator for all Framework0 Foundation systems.
+
+Provides unified interface and intelligent coordination across:
+- Logging & Monitoring (5A)
+- Health Monitoring (5B)
+- Performance Metrics (5C)
+- Error Handling & Recovery (5D)
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_path: Optional[str] = None, context: Optional[Context] = None) -> None
+```
+
+Initialize Foundation orchestrator.
+
+Args:
+    config_path: Optional path to unified Foundation configuration
+    context: Optional Framework0 context for integration
+
+##### _load_unified_config
+
+```python
+_load_unified_config(self, config_path: Optional[str]) -> Dict[str, Any]
+```
+
+Load unified Foundation configuration from file or defaults.
+
+##### setup
+
+```python
+setup(self) -> Dict[str, Any]
+```
+
+Setup and initialize all Foundation components.
+
+Args:
+    **kwargs: Additional setup parameters
+    
+Returns:
+    Dictionary with comprehensive setup results
+
+##### monitor
+
+```python
+monitor(self, duration: int = 600, interval: int = 10, enable_dashboard: bool = False) -> Dict[str, Any]
+```
+
+Start comprehensive Foundation monitoring.
+
+Args:
+    duration: Monitoring duration in seconds (0 for continuous)
+    interval: Monitoring check interval in seconds
+    enable_dashboard: Whether to enable real-time dashboard
+    
+Returns:
+    Dictionary with monitoring results and statistics
+
+##### _run_fixed_duration_monitoring
+
+```python
+_run_fixed_duration_monitoring(self, duration: int, interval: int, results: Dict[str, Any]) -> None
+```
+
+Run monitoring for fixed duration.
+
+##### _run_continuous_monitoring
+
+```python
+_run_continuous_monitoring(self, interval: int, results: Dict[str, Any]) -> None
+```
+
+Run continuous monitoring until stopped.
+
+##### _execute_monitoring_cycle
+
+```python
+_execute_monitoring_cycle(self) -> Dict[str, Any]
+```
+
+Execute one complete monitoring cycle across all components.
+
+##### _check_integration_events
+
+```python
+_check_integration_events(self) -> List[Dict[str, Any]]
+```
+
+Check for new integration events from the bridge.
+
+##### _create_health_critical_event
+
+```python
+_create_health_critical_event(self, critical_issues: List[Any]) -> IntegrationEvent
+```
+
+Create integration event for critical health issues.
+
+##### _create_performance_anomaly_event
+
+```python
+_create_performance_anomaly_event(self, analysis: Dict[str, Any]) -> IntegrationEvent
+```
+
+Create integration event for performance anomalies.
+
+##### dashboard
+
+```python
+dashboard(self, refresh_interval: int = 10, duration: int = 300) -> Dict[str, Any]
+```
+
+Display real-time Foundation dashboard.
+
+Args:
+    refresh_interval: Dashboard refresh interval in seconds
+    duration: Dashboard display duration (0 for continuous)
+    
+Returns:
+    Final dashboard status
+
+##### _generate_dashboard
+
+```python
+_generate_dashboard(self) -> Dict[str, Any]
+```
+
+Generate current dashboard data.
+
+##### _display_dashboard
+
+```python
+_display_dashboard(self, dashboard: Dict[str, Any]) -> None
+```
+
+Display dashboard in terminal.
+
+##### analyze
+
+```python
+analyze(self, analysis_type: str = 'comprehensive') -> Dict[str, Any]
+```
+
+Generate comprehensive Foundation analysis.
+
+Args:
+    analysis_type: Type of analysis ('health', 'performance', 'errors', 'comprehensive')
+    
+Returns:
+    Comprehensive analysis results
+
+##### _generate_orchestrator_status
+
+```python
+_generate_orchestrator_status(self) -> Dict[str, Any]
+```
+
+Generate current orchestrator status.
+
+##### _generate_orchestrator_recommendations
+
+```python
+_generate_orchestrator_recommendations(self, analysis: Dict[str, Any]) -> List[str]
+```
+
+Generate orchestrator-level recommendations.
+
+##### _generate_monitoring_statistics
+
+```python
+_generate_monitoring_statistics(self) -> Dict[str, Any]
+```
+
+Generate comprehensive monitoring statistics.
+
+##### monitoring_session
+
+```python
+monitoring_session(self, duration: int = 0, interval: int = 10)
+```
+
+Context manager for monitoring sessions.
+
+**Decorators:** contextmanager
+
+##### shutdown
+
+```python
+shutdown(self) -> Dict[str, Any]
+```
+
+Gracefully shutdown Foundation orchestrator.
+
+
+---
+
+## scriptlets.foundation.health.health_checks
+
+**Description:** Framework0 Foundation - Health Check Implementations
+
+System health check implementations for monitoring:
+- CPU, memory, disk usage monitoring
+- Network connectivity and latency checks
+- Service availability and process validation
+- Custom health check framework
+
+Author: Framework0 System
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/health/health_checks.py`
+
+### Classes
+
+#### SystemResourceChecker
+
+System resource monitoring for CPU, memory, and disk usage.
+
+Provides comprehensive system resource health checks
+with configurable sampling and threshold monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, sample_duration: float = 1.0) -> None
+```
+
+Initialize system resource checker with sampling duration.
+
+##### check_cpu_usage
+
+```python
+check_cpu_usage(self) -> HealthCheckResult
+```
+
+Check CPU usage percentage across all cores.
+
+Returns:
+    HealthCheckResult with CPU usage metrics and status
+
+##### check_memory_usage
+
+```python
+check_memory_usage(self) -> HealthCheckResult
+```
+
+Check memory usage including virtual and swap memory.
+
+Returns:
+    HealthCheckResult with memory usage metrics and status
+
+##### check_disk_usage
+
+```python
+check_disk_usage(self, paths: Optional[List[str]] = None) -> HealthCheckResult
+```
+
+Check disk usage for specified paths or all mounted filesystems.
+
+Args:
+    paths: Optional list of specific paths to check
+    
+Returns:
+    HealthCheckResult with disk usage metrics and status
+
+#### NetworkHealthChecker
+
+Network connectivity and latency health checking.
+
+Provides network health validation including connectivity,
+DNS resolution, and latency measurement capabilities.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, timeout: float = 5.0) -> None
+```
+
+Initialize network health checker with connection timeout.
+
+##### check_internet_connectivity
+
+```python
+check_internet_connectivity(self, hosts: Optional[List[Tuple[str, int]]] = None) -> HealthCheckResult
+```
+
+Check internet connectivity to specified hosts.
+
+Args:
+    hosts: List of (hostname, port) tuples to test
+    
+Returns:
+    HealthCheckResult with connectivity metrics and status
+
+#### ServiceHealthChecker
+
+Service availability and process monitoring.
+
+Provides health checking for system services, processes,
+and application availability monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize service health checker.
+
+##### check_process_running
+
+```python
+check_process_running(self, process_names: List[str]) -> HealthCheckResult
+```
+
+Check if specified processes are running.
+
+Args:
+    process_names: List of process names to check
+    
+Returns:
+    HealthCheckResult with process status metrics
+
+#### CustomHealthChecker
+
+Framework for user-defined custom health checks.
+
+Allows registration and execution of custom health check
+functions for application-specific monitoring needs.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize custom health checker with empty registry.
+
+##### register_check
+
+```python
+register_check(self, name: str, check_func: Callable[[], Tuple[HealthStatus, str]]) -> None
+```
+
+Register a custom health check function.
+
+Args:
+    name: Unique name for the health check
+    check_func: Function returning (HealthStatus, message) tuple
+
+##### unregister_check
+
+```python
+unregister_check(self, name: str) -> bool
+```
+
+Unregister a custom health check.
+
+Args:
+    name: Name of health check to remove
+    
+Returns:
+    True if check was found and removed, False otherwise
+
+##### list_registered_checks
+
+```python
+list_registered_checks(self) -> List[str]
+```
+
+Get list of registered custom health check names.
+
+##### run_custom_check
+
+```python
+run_custom_check(self, name: str) -> HealthCheckResult
+```
+
+Execute a specific registered custom health check.
+
+Args:
+    name: Name of the custom check to execute
+    
+Returns:
+    HealthCheckResult with custom check outcome
+
+##### run_all_custom_checks
+
+```python
+run_all_custom_checks(self) -> List[HealthCheckResult]
+```
+
+Execute all registered custom health checks.
+
+Returns:
+    List of HealthCheckResult objects for all custom checks
+
+
+---
+
+## scriptlets.foundation.health.health_core
+
+**Description:** Framework0 Foundation - Health Monitoring Core Infrastructure
+
+Core components for the health monitoring system:
+- Health metric data structures and enums
+- Monitoring configuration management  
+- Base health check interfaces
+- Metric collection utilities
+
+Author: Framework0 System
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/health/health_core.py`
+
+### Classes
+
+#### HealthStatus
+
+**Inherits from:** Enum
+
+Enumeration of possible health status values.
+
+Used to categorize the health of system components
+and provide standardized status reporting.
+
+#### MetricType
+
+**Inherits from:** Enum
+
+Enumeration of health metric types for categorization.
+
+Helps organize and process different kinds of health metrics
+collected by the monitoring system.
+
+#### AlertLevel
+
+**Inherits from:** Enum
+
+Enumeration of alert severity levels.
+
+Used to determine appropriate response actions
+when health thresholds are exceeded.
+
+#### HealthMetric
+
+Data container for individual health metrics.
+
+Stores metric data with metadata for analysis
+and reporting by the health monitoring system.
+
+**Attributes:**
+
+- `name: str`
+- `value: Union[int, float, str]`
+- `metric_type: MetricType`
+- `timestamp: float = field(default_factory=time.time)`
+- `unit: Optional[str] = None`
+- `source: Optional[str] = None`
+- `metadata: Dict[str, Any] = field(default_factory=dict)`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Initialize metric after creation with validation.
+
+##### age_seconds
+
+```python
+age_seconds(self) -> float
+```
+
+Calculate metric age in seconds from current time.
+
+##### is_numeric
+
+```python
+is_numeric(self) -> bool
+```
+
+Check if metric value is numeric for threshold comparisons.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert metric to dictionary format for serialization.
+
+#### HealthThreshold
+
+Configuration for health metric threshold monitoring.
+
+Defines warning and critical levels for automated
+alerting when metrics exceed acceptable ranges.
+
+**Attributes:**
+
+- `metric_name: str`
+- `warning_min: Optional[float] = None`
+- `warning_max: Optional[float] = None`
+- `critical_min: Optional[float] = None`
+- `critical_max: Optional[float] = None`
+- `enabled: bool = True`
+
+**Methods:**
+
+##### evaluate
+
+```python
+evaluate(self, metric_value: Union[int, float]) -> HealthStatus
+```
+
+Evaluate a metric value against configured thresholds.
+
+Args:
+    metric_value: Numeric value to check against thresholds
+    
+Returns:
+    HealthStatus indicating the severity level
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert threshold configuration to dictionary format.
+
+#### HealthCheckResult
+
+Result container for individual health check execution.
+
+Stores the outcome of running a specific health check
+along with metadata for analysis and reporting.
+
+**Attributes:**
+
+- `check_name: str`
+- `status: HealthStatus`
+- `message: str`
+- `metrics: List[HealthMetric] = field(default_factory=list)`
+- `execution_time: Optional[float] = None`
+- `timestamp: float = field(default_factory=time.time)`
+- `error: Optional[str] = None`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Initialize result after creation with validation.
+
+##### add_metric
+
+```python
+add_metric(self, metric: HealthMetric) -> None
+```
+
+Add a metric to this health check result.
+
+##### get_metric_by_name
+
+```python
+get_metric_by_name(self, name: str) -> Optional[HealthMetric]
+```
+
+Retrieve a specific metric by name from this result.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert result to dictionary format for serialization.
+
+#### HealthConfiguration
+
+Configuration management for health monitoring system.
+
+Manages monitoring intervals, thresholds, enabled checks,
+and output settings for the health monitoring system.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_dict: Optional[Dict[str, Any]] = None) -> None
+```
+
+Initialize configuration with optional config dictionary.
+
+##### _merge_config
+
+```python
+_merge_config(self, config_dict: Dict[str, Any]) -> None
+```
+
+Recursively merge configuration dictionary with defaults.
+
+##### get_monitoring_config
+
+```python
+get_monitoring_config(self) -> Dict[str, Any]
+```
+
+Get monitoring configuration section.
+
+##### get_system_resources_config
+
+```python
+get_system_resources_config(self) -> Dict[str, Any]
+```
+
+Get system resources monitoring configuration.
+
+##### get_alerts_config
+
+```python
+get_alerts_config(self) -> Dict[str, Any]
+```
+
+Get alerting configuration section.
+
+##### get_output_config
+
+```python
+get_output_config(self) -> Dict[str, Any]
+```
+
+Get output configuration section.
+
+##### is_monitoring_enabled
+
+```python
+is_monitoring_enabled(self) -> bool
+```
+
+Check if health monitoring is enabled.
+
+##### get_check_interval
+
+```python
+get_check_interval(self) -> int
+```
+
+Get health check interval in seconds.
+
+##### get_threshold
+
+```python
+get_threshold(self, metric_name: str) -> Optional[HealthThreshold]
+```
+
+Get threshold configuration for a specific metric.
+
+##### set_threshold
+
+```python
+set_threshold(self, threshold: HealthThreshold) -> None
+```
+
+Set threshold configuration for a metric.
+
+##### update_config
+
+```python
+update_config(self, section: str, updates: Dict[str, Any]) -> None
+```
+
+Update specific configuration section with new values.
+
+
+---
+
+## scriptlets.foundation.health.health_reporters
+
+**Description:** Framework0 Foundation - Health Status Reporting and Analysis
+
+Health status reporting components for monitoring system:
+- Metric aggregation and analysis utilities
+- Threshold-based alerting and notification system
+- Health report generation and formatting
+- Integration with Framework0 logging infrastructure
+
+Author: Framework0 System
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/health/health_reporters.py`
+
+### Classes
+
+#### HealthAnalyzer
+
+Health metric analysis and trend detection system.
+
+Analyzes health metrics over time to identify trends,
+patterns, and potential issues before they become critical.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, max_history: int = 1000) -> None
+```
+
+Initialize health analyzer with metric history storage.
+
+##### add_metric
+
+```python
+add_metric(self, metric: HealthMetric) -> None
+```
+
+Add a metric to the historical analysis data.
+
+Args:
+    metric: HealthMetric to add to history
+
+##### add_metrics_from_result
+
+```python
+add_metrics_from_result(self, result: HealthCheckResult) -> None
+```
+
+Add all metrics from a health check result to analysis.
+
+Args:
+    result: HealthCheckResult containing metrics to analyze
+
+##### get_metric_trend
+
+```python
+get_metric_trend(self, metric_name: str, source: Optional[str] = None, window_minutes: int = 60) -> Dict[str, Any]
+```
+
+Analyze trend for a specific metric over time window.
+
+Args:
+    metric_name: Name of metric to analyze
+    source: Optional source filter for metric
+    window_minutes: Time window in minutes for trend analysis
+    
+Returns:
+    Dictionary containing trend analysis results
+
+##### get_system_health_summary
+
+```python
+get_system_health_summary(self) -> Dict[str, Any]
+```
+
+Generate comprehensive system health summary from all metrics.
+
+Returns:
+    Dictionary containing overall system health analysis
+
+#### AlertManager
+
+Threshold-based alerting and notification management.
+
+Monitors health metrics against configured thresholds
+and triggers appropriate alerts when limits are exceeded.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize alert manager with empty alert history.
+
+##### check_threshold_alert
+
+```python
+check_threshold_alert(self, metric: HealthMetric, threshold: HealthThreshold) -> Optional[Dict[str, Any]]
+```
+
+Check if metric exceeds threshold and create alert if needed.
+
+Args:
+    metric: HealthMetric to evaluate
+    threshold: HealthThreshold to check against
+    
+Returns:
+    Alert dictionary if threshold exceeded, None otherwise
+
+##### _format_alert_message
+
+```python
+_format_alert_message(self, metric: HealthMetric, threshold: HealthThreshold, status: HealthStatus) -> str
+```
+
+Format human-readable alert message.
+
+##### get_active_alerts
+
+```python
+get_active_alerts(self) -> List[Dict[str, Any]]
+```
+
+Get list of currently active alerts.
+
+##### get_alert_history
+
+```python
+get_alert_history(self, limit: Optional[int] = None) -> List[Dict[str, Any]]
+```
+
+Get alert history, optionally limited to most recent alerts.
+
+##### clear_alert
+
+```python
+clear_alert(self, metric_name: str, source: Optional[str] = None) -> bool
+```
+
+Manually clear an active alert.
+
+Args:
+    metric_name: Name of metric to clear alert for
+    source: Optional source to specify exact alert
+    
+Returns:
+    True if alert was found and cleared, False otherwise
+
+#### HealthReporter
+
+Main health reporting coordinator and dashboard generator.
+
+Coordinates health reporting across all monitoring components
+and generates comprehensive health status reports.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analyzer: Optional[HealthAnalyzer] = None, alert_manager: Optional[AlertManager] = None) -> None
+```
+
+Initialize health reporter with analysis and alerting components.
+
+##### process_health_results
+
+```python
+process_health_results(self, results: List[HealthCheckResult], thresholds: Optional[Dict[str, HealthThreshold]] = None) -> Dict[str, Any]
+```
+
+Process health check results for analysis and alerting.
+
+Args:
+    results: List of HealthCheckResult objects to process
+    thresholds: Optional threshold configurations for alerting
+    
+Returns:
+    Dictionary containing processing summary and alerts
+
+##### generate_health_dashboard
+
+```python
+generate_health_dashboard(self) -> Dict[str, Any]
+```
+
+Generate comprehensive health status dashboard.
+
+Returns:
+    Dictionary containing complete health system status
+
+##### format_health_report
+
+```python
+format_health_report(self, dashboard: Dict[str, Any], format_type: str = 'text') -> str
+```
+
+Format health dashboard as human-readable report.
+
+Args:
+    dashboard: Health dashboard dictionary from generate_health_dashboard
+    format_type: Output format ('text', 'json', 'markdown')
+    
+Returns:
+    Formatted health report string
+
+##### _format_text_report
+
+```python
+_format_text_report(self, dashboard: Dict[str, Any]) -> str
+```
+
+Format dashboard as plain text report.
+
+##### _format_markdown_report
+
+```python
+_format_markdown_report(self, dashboard: Dict[str, Any]) -> str
+```
+
+Format dashboard as Markdown report.
+
+
+---
+
+## scriptlets.foundation.health_monitoring
+
+**Description:** Framework0 Foundation - Health Monitoring Orchestration Scriptlet
+
+Main orchestration scriptlet for health monitoring system:
+- Health monitoring lifecycle management
+- Scheduled health check execution coordination  
+- Framework0 integration and context management
+- Configuration setup and monitoring coordination
+
+Author: Framework0 System  
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/health_monitoring.py`
+
+### Classes
+
+#### HealthMonitoringScriptlet
+
+**Inherits from:** BaseScriptlet
+
+Main health monitoring orchestration scriptlet for Framework0.
+
+Coordinates the complete health monitoring system:
+- Initializes health monitoring infrastructure
+- Manages health check execution and scheduling
+- Integrates with Framework0 context and logging
+- Provides health status reporting and alerting
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize health monitoring scriptlet.
+
+##### run
+
+```python
+run(self, context, args) -> int
+```
+
+Execute health monitoring setup and management.
+
+Args:
+    context: Framework0 context for state management
+    args: Configuration arguments for health monitoring setup
+    **kwargs: Additional keyword arguments
+    
+Returns:
+    int: 0 for success, 1 for failure (Framework0 standard)
+
+##### _setup_health_monitoring
+
+```python
+_setup_health_monitoring(self, context, args: Dict[str, Any]) -> int
+```
+
+Set up health monitoring infrastructure.
+
+Args:
+    context: Framework0 context for state management
+    args: Setup configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+##### _run_health_checks
+
+```python
+_run_health_checks(self, context, args: Dict[str, Any]) -> int
+```
+
+Run health checks and update context with results.
+
+Args:
+    context: Framework0 context for state management
+    args: Health check configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+##### _generate_health_report
+
+```python
+_generate_health_report(self, context, args: Dict[str, Any]) -> int
+```
+
+Generate and output health monitoring report.
+
+Args:
+    context: Framework0 context for state management
+    args: Report generation arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+##### _start_continuous_monitoring
+
+```python
+_start_continuous_monitoring(self, context, args: Dict[str, Any]) -> int
+```
+
+Start continuous health monitoring in background thread.
+
+Args:
+    context: Framework0 context for state management
+    args: Monitoring configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+##### _stop_continuous_monitoring
+
+```python
+_stop_continuous_monitoring(self, context, args: Dict[str, Any]) -> int
+```
+
+Stop continuous health monitoring.
+
+Args:
+    context: Framework0 context for state management
+    args: Stop configuration arguments
+    
+Returns:
+    int: 0 for success, 1 for failure
+
+##### _continuous_monitoring_loop
+
+```python
+_continuous_monitoring_loop(self, context, args: Dict[str, Any], interval: int) -> None
+```
+
+Continuous monitoring loop executed in background thread.
+
+Args:
+    context: Framework0 context for state management
+    args: Monitoring configuration arguments
+    interval: Check interval in seconds
+
+##### _extract_thresholds_from_config
+
+```python
+_extract_thresholds_from_config(self, config_dict: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Extract threshold configurations from config dictionary.
+
+##### _extract_thresholds_from_args
+
+```python
+_extract_thresholds_from_args(self, args: Dict[str, Any]) -> Dict[str, Any]
+```
+
+Extract threshold configurations from arguments.
+
+##### _log_info
+
+```python
+_log_info(self, message: str) -> None
+```
+
+Log info message using available logger.
+
+##### _log_error
+
+```python
+_log_error(self, message: str) -> None
+```
+
+Log error message using available logger.
+
+#### BaseScriptlet
+
+Fallback base scriptlet class.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, context = None)
+```
+
+Initialize base scriptlet.
+
+##### run
+
+```python
+run(self)
+```
+
+Run method must be implemented by subclasses.
+
+
+---
+
+## scriptlets.foundation.logging.adapters
+
+**Description:** Framework0 Foundation - Logger Adapters
+
+Context-aware logger adapters for Framework0 integration:
+- Framework0LoggerAdapter for automatic context inclusion
+- Utility functions for performance and audit logging
+- Thread-safe logger management for parallel execution
+- Easy-to-use interfaces for other scriptlets
+
+**File:** `scriptlets/foundation/logging/adapters.py`
+
+### Classes
+
+#### Framework0LoggerAdapter
+
+**Inherits from:** logging.LoggerAdapter
+
+Logger adapter that automatically includes Framework0 context information.
+
+Provides seamless integration with Framework0 execution context:
+- Automatic recipe and step information extraction
+- Unique execution ID generation for tracking
+- Thread-safe context management
+- Easy-to-use interface for other scriptlets
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, logger: logging.Logger, context: Optional[Context] = None) -> None
+```
+
+Initialize the Framework0 logger adapter.
+
+Args:
+    logger: The base logger instance to wrap
+    context: Framework0 context for extracting contextual information
+
+##### process
+
+```python
+process(self, msg: str, kwargs: Dict[str, Any]) -> tuple
+```
+
+Process log message and add Framework0 context information.
+
+Args:
+    msg: Log message to process
+    kwargs: Additional logging arguments
+    
+Returns:
+    Tuple of (message, kwargs) with context information added
+
+##### get_execution_id
+
+```python
+get_execution_id(self) -> str
+```
+
+Get the unique execution ID for this adapter instance.
+
+Returns:
+    Unique execution ID string
+
+##### update_context
+
+```python
+update_context(self, new_context: Optional[Context]) -> None
+```
+
+Update the Framework0 context for this adapter.
+
+Args:
+    new_context: New Framework0 context to use
+
+#### LoggerManager
+
+Thread-safe manager for Framework0 logger instances.
+
+Provides centralized management of logger adapters:
+- Thread-safe logger creation and retrieval
+- Consistent configuration across all loggers
+- Memory-efficient logger reuse
+- Easy cleanup and management
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize the logger manager.
+
+##### get_logger
+
+```python
+get_logger(self, name: str, context: Optional[Context] = None) -> Framework0LoggerAdapter
+```
+
+Get or create a Framework0 logger adapter.
+
+Args:
+    name: Name for the logger (will be prefixed with 'framework0.')
+    context: Framework0 context for the logger
+    
+Returns:
+    Framework0LoggerAdapter instance
+
+##### update_all_contexts
+
+```python
+update_all_contexts(self, context: Optional[Context]) -> None
+```
+
+Update context for all managed loggers.
+
+Args:
+    context: New context to apply to all loggers
+
+##### get_logger_count
+
+```python
+get_logger_count(self) -> int
+```
+
+Get the number of managed loggers.
+
+Returns:
+    Number of logger adapters being managed
+
+##### clear_loggers
+
+```python
+clear_loggers(self) -> None
+```
+
+Clear all managed loggers (useful for cleanup).
+
+
+---
+
+## scriptlets.foundation.logging.core
+
+**Description:** Framework0 Foundation - Core Logging Infrastructure
+
+Core components for structured logging system including:
+- Standard log levels and output format enums
+- Structured log entry data classes for consistency
+- Basic logging utilities and constants
+- Type definitions and validation helpers
+
+**File:** `scriptlets/foundation/logging/core.py`
+
+### Classes
+
+#### LogLevel
+
+**Inherits from:** Enum
+
+Standard logging levels with numeric values for filtering.
+Maps to Python logging module standard levels.
+
+#### LogFormat
+
+**Inherits from:** Enum
+
+Supported log output formats for different use cases.
+Each format serves specific requirements and audiences.
+
+#### LogOutput
+
+**Inherits from:** Enum
+
+Supported log output targets for message delivery.
+Each target serves different deployment and operational needs.
+
+#### LogEntry
+
+Structured log entry for consistent formatting across all loggers.
+
+Contains all necessary information for comprehensive log analysis:
+- Basic message information (timestamp, level, message)
+- Framework0 context (recipe, step, execution tracking)
+- System context (process, thread identification)
+- Additional data and error information
+
+**Attributes:**
+
+- `timestamp: str`
+- `level: str`
+- `logger_name: str`
+- `message: str`
+- `context_id: Optional[str] = None`
+- `recipe_name: Optional[str] = None`
+- `step_name: Optional[str] = None`
+- `execution_id: Optional[str] = None`
+- `thread_id: Optional[str] = None`
+- `process_id: Optional[int] = None`
+- `extra_data: Optional[Dict[str, Any]] = None`
+- `stack_trace: Optional[str] = None`
+
+#### LoggingConfiguration
+
+Configuration container for logging system setup.
+Provides validation and type checking for logging parameters.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_dict: Dict[str, Any]) -> None
+```
+
+Initialize logging configuration from dictionary.
+
+Args:
+    config_dict: Configuration dictionary with logging settings
+
+##### _validate_configuration
+
+```python
+_validate_configuration(self) -> None
+```
+
+Validate configuration structure and required fields.
+Ensures all necessary configuration is present and valid.
+
+##### get_framework_config
+
+```python
+get_framework_config(self) -> Dict[str, Any]
+```
+
+Get framework logging configuration.
+
+##### get_audit_config
+
+```python
+get_audit_config(self) -> Dict[str, Any]
+```
+
+Get audit logging configuration.
+
+##### get_performance_config
+
+```python
+get_performance_config(self) -> Dict[str, Any]
+```
+
+Get performance logging configuration.
+
+##### is_section_enabled
+
+```python
+is_section_enabled(self, section: str) -> bool
+```
+
+Check if logging section is enabled.
+
+
+---
+
+## scriptlets.foundation.logging.formatters
+
+**Description:** Framework0 Foundation - Logging Formatters
+
+Specialized formatters for different output formats and targets:
+- ContextAwareFormatter for Framework0 integration
+- JSON structured formatter for machine parsing
+- Human-readable formatters for development and operations
+- Error and exception formatting with stack traces
+
+**File:** `scriptlets/foundation/logging/formatters.py`
+
+### Classes
+
+#### ContextAwareFormatter
+
+**Inherits from:** logging.Formatter
+
+Custom formatter that includes Framework0 context in log entries.
+
+Automatically extracts and includes contextual information:
+- Recipe and step execution context
+- Thread and process identification for parallel execution
+- Execution tracking for distributed operations
+- Custom extra data for specialized logging needs
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, format_type: LogFormat, include_context: bool = True) -> None
+```
+
+Initialize the context-aware formatter.
+
+Args:
+    format_type: The type of formatting to apply (JSON, text, etc.)
+    include_context: Whether to include Framework0 context information
+
+##### format
+
+```python
+format(self, record: logging.LogRecord) -> str
+```
+
+Format log record with Framework0 context information.
+
+Args:
+    record: The log record to format
+    
+Returns:
+    Formatted log message string
+
+##### _create_log_entry_from_record
+
+```python
+_create_log_entry_from_record(self, record: logging.LogRecord) -> LogEntry
+```
+
+Create structured LogEntry from logging.LogRecord.
+
+Args:
+    record: Standard logging record
+    
+Returns:
+    Structured LogEntry with Framework0 context
+
+##### _format_as_json
+
+```python
+_format_as_json(self, entry: LogEntry) -> str
+```
+
+Format log entry as structured JSON.
+
+Args:
+    entry: Structured log entry
+    
+Returns:
+    JSON formatted string
+
+##### _format_as_simple_text
+
+```python
+_format_as_simple_text(self, entry: LogEntry) -> str
+```
+
+Format log entry as simple readable text.
+
+Args:
+    entry: Structured log entry
+    
+Returns:
+    Simple text formatted string
+
+##### _format_as_detailed_text
+
+```python
+_format_as_detailed_text(self, entry: LogEntry) -> str
+```
+
+Format log entry with detailed context information.
+
+Args:
+    entry: Structured log entry
+    
+Returns:
+    Detailed text formatted string with context
+
+##### _create_fallback_format
+
+```python
+_create_fallback_format(self, record: logging.LogRecord, error: Exception) -> str
+```
+
+Create fallback format when normal formatting fails.
+
+Args:
+    record: Original log record
+    error: Formatting error that occurred
+    
+Returns:
+    Basic formatted string with error information
+
+#### AuditFormatter
+
+**Inherits from:** ContextAwareFormatter
+
+Specialized formatter for audit logging with compliance focus.
+
+Always uses structured JSON format for compliance and security analysis.
+Includes additional audit-specific fields and ensures all required
+information is captured for regulatory and security requirements.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize audit formatter with JSON format.
+
+##### _create_log_entry_from_record
+
+```python
+_create_log_entry_from_record(self, record: logging.LogRecord) -> LogEntry
+```
+
+Create audit log entry with additional compliance fields.
+
+Args:
+    record: Standard logging record
+    
+Returns:
+    LogEntry enhanced for audit purposes
+
+#### PerformanceFormatter
+
+**Inherits from:** ContextAwareFormatter
+
+Specialized formatter for performance and metrics logging.
+
+Optimized for performance data analysis and monitoring systems.
+Includes timing information and resource utilization data.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize performance formatter with JSON format.
+
+##### _create_log_entry_from_record
+
+```python
+_create_log_entry_from_record(self, record: logging.LogRecord) -> LogEntry
+```
+
+Create performance log entry with metrics data.
+
+Args:
+    record: Standard logging record
+    
+Returns:
+    LogEntry enhanced for performance analysis
+
+
+---
+
+## scriptlets.foundation.logging_framework
+
+**Description:** Framework0 Foundation - Main Logging Framework Scriptlet
+
+Orchestration and integration layer for the modular logging system:
+- Coordinates all logging components (core, formatters, adapters)
+- Manages logging infrastructure setup and configuration
+- Provides Framework0 integration and context management
+- Handles log rotation, directory creation, and cleanup
+
+**File:** `scriptlets/foundation/logging_framework.py`
+
+### Classes
+
+#### LoggingFrameworkScriptlet
+
+**Inherits from:** BaseScriptlet
+
+Main logging framework scriptlet for Framework0 infrastructure.
+
+Orchestrates the complete logging system setup:
+- Initializes modular logging components
+- Configures multiple output targets and formats
+- Sets up log rotation and directory management
+- Provides Framework0-aware logging utilities
+- Manages logging infrastructure lifecycle
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize the logging framework scriptlet.
+
+##### run
+
+```python
+run(self, context, args) -> int
+```
+
+Execute logging framework setup and management.
+
+Args:
+    context: Framework0 context for state management 
+    args: Configuration arguments for logging setup
+    **kwargs: Additional keyword arguments
+    
+Returns:
+    int: 0 for success, 1 for failure (Framework0 standard)
+
+##### _create_log_directories
+
+```python
+_create_log_directories(self) -> List[str]
+```
+
+Create necessary log directories.
+
+##### _setup_logging_infrastructure
+
+```python
+_setup_logging_infrastructure(self, context) -> List[str]
+```
+
+Setup core logging infrastructure.
+
+##### _setup_framework_logger
+
+```python
+_setup_framework_logger(self, config: Dict[str, Any]) -> None
+```
+
+Setup main framework logger.
+
+##### _setup_audit_logger
+
+```python
+_setup_audit_logger(self, config: Dict[str, Any]) -> None
+```
+
+Setup audit logger.
+
+##### _setup_performance_logger
+
+```python
+_setup_performance_logger(self, config: Dict[str, Any]) -> None
+```
+
+Setup performance logger.
+
+##### _setup_log_rotation
+
+```python
+_setup_log_rotation(self) -> int
+```
+
+Setup log rotation for file handlers.
+
+##### _test_logging_system
+
+```python
+_test_logging_system(self, context) -> Dict[str, Any]
+```
+
+Test the complete logging system.
+
+#### BaseScriptlet
+
+Fallback base scriptlet class.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, context = None)
+```
+
+Initialize base scriptlet.
+
+##### run
+
+```python
+run(self)
+```
+
+Run method must be implemented by subclasses.
+
+
+---
+
+## scriptlets.foundation.metrics.metrics_analyzers
+
+**Description:** Performance Metrics Analytics & Processing Module.
+
+This module provides advanced analytics, statistical analysis, performance
+profiling, and reporting capabilities for the Framework0 Performance Metrics
+system. It processes collected metrics to extract insights, detect anomalies,
+identify bottlenecks, and generate comprehensive performance reports.
+
+Key Components:
+- MetricsAnalyzer: Statistical analysis with percentiles, trends, regression
+- PerformanceProfiler: Bottleneck identification and optimization recommendations
+- AnomalyDetector: Outlier detection using statistical and ML techniques
+- TrendAnalyzer: Time series analysis with forecasting capabilities
+- MetricsReporter: Dashboard generation and performance summaries
+
+Features:
+- Real-time statistical computation with sliding windows
+- Percentile calculations (p50, p90, p95, p99, p99.9)
+- Regression analysis for trend identification
+- Bottleneck detection with call tree analysis
+- Performance baseline establishment and drift detection
+
+Dependencies:
+- statistics: Statistical calculations
+- math: Mathematical operations
+- collections: Data structure utilities
+- datetime: Time-based analysis
+- typing: Comprehensive type annotations
+
+Author: Framework0 Development Team
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/metrics/metrics_analyzers.py`
+
+### Classes
+
+#### StatisticalSummary
+
+Comprehensive statistical summary for a collection of metrics.
+
+Contains detailed statistical analysis including central tendency,
+variability, distribution characteristics, and performance percentiles.
+Supports trend analysis and baseline comparison.
+
+**Attributes:**
+
+- `metric_name: str`
+- `sample_count: int`
+- `time_range: Tuple[float, float]`
+- `mean: float`
+- `median: float`
+- `mode: Optional[float] = None`
+- `std_dev: float = 0.0`
+- `variance: float = 0.0`
+- `range_span: float = 0.0`
+- `min_value: Union[int, float] = 0`
+- `max_value: Union[int, float] = 0`
+- `percentiles: Dict[int, float] = field(default_factory=dict)`
+- `skewness: Optional[float] = None`
+- `kurtosis: Optional[float] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert statistical summary to dictionary for serialization.
+
+#### TrendAnalysis
+
+Time series trend analysis results.
+
+Provides trend direction, regression coefficients, forecasting,
+and change point detection for metric time series data.
+
+**Attributes:**
+
+- `metric_name: str`
+- `trend_direction: str`
+- `slope: float`
+- `r_squared: float`
+- `change_points: List[float] = field(default_factory=list)`
+- `forecast_next_hour: Optional[float] = None`
+- `forecast_confidence: Optional[float] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert trend analysis to dictionary for serialization.
+
+#### AnomalyResult
+
+Anomaly detection result for a specific metric data point.
+
+Contains information about detected anomalies including confidence
+scores, detection methods, and contextual information.
+
+**Attributes:**
+
+- `metric: PerformanceMetric`
+- `is_anomaly: bool`
+- `confidence_score: float`
+- `detection_method: str`
+- `baseline_value: Optional[float] = None`
+- `deviation_magnitude: Optional[float] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert anomaly result to dictionary for serialization.
+
+#### MetricsAnalyzer
+
+Advanced statistical analyzer for performance metrics.
+
+Provides comprehensive statistical analysis including percentiles,
+moving averages, regression analysis, and distribution characterization.
+Maintains sliding windows for real-time analysis.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, window_size: int = 1000) -> None
+```
+
+Initialize metrics analyzer.
+
+Args:
+    window_size: Maximum number of metrics to keep in sliding window
+
+##### add_metrics
+
+```python
+add_metrics(self, metrics: List[PerformanceMetric]) -> None
+```
+
+Add metrics to the analyzer for processing.
+
+Args:
+    metrics: List of performance metrics to analyze
+
+##### calculate_statistical_summary
+
+```python
+calculate_statistical_summary(self, metric_name: str) -> Optional[StatisticalSummary]
+```
+
+Calculate comprehensive statistical summary for a metric.
+
+Args:
+    metric_name: Name of metric to analyze
+    
+Returns:
+    Optional[StatisticalSummary]: Statistical analysis or None if insufficient data
+
+##### calculate_trend_analysis
+
+```python
+calculate_trend_analysis(self, metric_name: str) -> Optional[TrendAnalysis]
+```
+
+Perform trend analysis on metric time series.
+
+Args:
+    metric_name: Name of metric to analyze for trends
+    
+Returns:
+    Optional[TrendAnalysis]: Trend analysis or None if insufficient data
+
+##### establish_baseline
+
+```python
+establish_baseline(self, metric_name: str, baseline_value: Optional[float] = None) -> float
+```
+
+Establish performance baseline for a metric.
+
+Args:
+    metric_name: Name of metric to establish baseline for
+    baseline_value: Optional explicit baseline value (uses median if not provided)
+    
+Returns:
+    float: Established baseline value
+
+##### get_baseline
+
+```python
+get_baseline(self, metric_name: str) -> Optional[float]
+```
+
+Get established baseline for a metric.
+
+Args:
+    metric_name: Name of metric to get baseline for
+    
+Returns:
+    Optional[float]: Baseline value or None if not established
+
+##### get_metric_count
+
+```python
+get_metric_count(self, metric_name: str) -> int
+```
+
+Get number of metrics in analyzer for a specific metric name.
+
+Args:
+    metric_name: Name of metric to count
+    
+Returns:
+    int: Number of metrics in sliding window
+
+#### AnomalyDetector
+
+Anomaly detection system for performance metrics.
+
+Implements multiple anomaly detection algorithms including statistical
+outlier detection, baseline deviation analysis, and isolation-based methods.
+Maintains adaptive thresholds and learning capabilities.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, sensitivity: float = 2.0) -> None
+```
+
+Initialize anomaly detector.
+
+Args:
+    sensitivity: Detection sensitivity (higher = more sensitive)
+
+##### detect_zscore_anomalies
+
+```python
+detect_zscore_anomalies(self, analyzer: MetricsAnalyzer, metric_name: str) -> List[AnomalyResult]
+```
+
+Detect anomalies using Z-score statistical method.
+
+Args:
+    analyzer: MetricsAnalyzer containing metric data
+    metric_name: Name of metric to analyze for anomalies
+    
+Returns:
+    List[AnomalyResult]: Detected anomalies using Z-score method
+
+##### detect_iqr_anomalies
+
+```python
+detect_iqr_anomalies(self, analyzer: MetricsAnalyzer, metric_name: str) -> List[AnomalyResult]
+```
+
+Detect anomalies using Interquartile Range (IQR) method.
+
+Args:
+    analyzer: MetricsAnalyzer containing metric data
+    metric_name: Name of metric to analyze for anomalies
+    
+Returns:
+    List[AnomalyResult]: Detected anomalies using IQR method
+
+##### detect_baseline_anomalies
+
+```python
+detect_baseline_anomalies(self, analyzer: MetricsAnalyzer, metric_name: str) -> List[AnomalyResult]
+```
+
+Detect anomalies based on established baseline deviation.
+
+Args:
+    analyzer: MetricsAnalyzer containing metric data and baselines
+    metric_name: Name of metric to analyze for baseline anomalies
+    
+Returns:
+    List[AnomalyResult]: Detected baseline deviation anomalies
+
+##### get_anomaly_history
+
+```python
+get_anomaly_history(self, metric_name: str) -> List[AnomalyResult]
+```
+
+Get historical anomaly detection results for a metric.
+
+Args:
+    metric_name: Name of metric to get anomaly history for
+    
+Returns:
+    List[AnomalyResult]: Historical anomaly detection results
+
+#### PerformanceProfiler
+
+Performance bottleneck identifier and optimization recommender.
+
+Analyzes performance metrics to identify bottlenecks, performance
+regressions, and optimization opportunities. Provides actionable
+recommendations for performance improvements.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize performance profiler.
+
+##### identify_bottlenecks
+
+```python
+identify_bottlenecks(self, analyzer: MetricsAnalyzer) -> Dict[str, Any]
+```
+
+Identify performance bottlenecks from analyzed metrics.
+
+Args:
+    analyzer: MetricsAnalyzer containing performance data
+    
+Returns:
+    Dict[str, Any]: Bottleneck analysis results with recommendations
+
+##### _generate_recommendations
+
+```python
+_generate_recommendations(self, bottlenecks: Dict[str, Any]) -> List[str]
+```
+
+Generate optimization recommendations based on detected bottlenecks.
+
+Args:
+    bottlenecks: Dictionary containing bottleneck analysis results
+    
+Returns:
+    List[str]: List of actionable optimization recommendations
+
+##### analyze_performance_regression
+
+```python
+analyze_performance_regression(self, analyzer: MetricsAnalyzer, baseline_window_hours: float = 24.0) -> Dict[str, Any]
+```
+
+Analyze for performance regressions compared to historical baselines.
+
+Args:
+    analyzer: MetricsAnalyzer containing historical performance data
+    baseline_window_hours: Hours of historical data to use as baseline
+    
+Returns:
+    Dict[str, Any]: Performance regression analysis results
+
+#### MetricsReporter
+
+Comprehensive performance metrics reporting and dashboard generation.
+
+Generates formatted reports, dashboards, and summaries from analyzed
+performance data. Supports multiple output formats and customizable
+reporting templates.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analyzer: MetricsAnalyzer, anomaly_detector: AnomalyDetector, profiler: PerformanceProfiler) -> None
+```
+
+Initialize metrics reporter.
+
+Args:
+    analyzer: MetricsAnalyzer for statistical data
+    anomaly_detector: AnomalyDetector for anomaly information
+    profiler: PerformanceProfiler for bottleneck analysis
+
+##### generate_comprehensive_report
+
+```python
+generate_comprehensive_report(self, format: str = 'text') -> Dict[str, Any]
+```
+
+Generate comprehensive performance report.
+
+Args:
+    format: Output format ("text", "json", "html")
+    
+Returns:
+    Dict[str, Any]: Comprehensive performance report
+
+##### _format_text_report
+
+```python
+_format_text_report(self, report: Dict[str, Any]) -> str
+```
+
+Format report as human-readable text.
+
+##### _format_html_report
+
+```python
+_format_html_report(self, report: Dict[str, Any]) -> str
+```
+
+Format report as HTML dashboard.
+
+
+---
+
+## scriptlets.foundation.metrics.metrics_collectors
+
+**Description:** Performance Metrics Collection Module.
+
+This module provides specialized collectors for different types of performance
+metrics within the Framework0 ecosystem. Each collector focuses on a specific
+domain of performance measurement, from system resources to application-level
+timing and custom business metrics.
+
+Key Components:
+- SystemMetricsCollector: CPU, memory, disk I/O, network performance monitoring
+- ApplicationMetricsCollector: Function timing, call counts, memory allocation
+- NetworkMetricsCollector: Latency, throughput, connection pool metrics
+- CustomMetricsCollector: User-defined performance counters and business metrics
+
+Features:
+- Decorator-based timing with @performance_timer
+- Context manager support with performance_tracker()
+- Asynchronous collection for minimal overhead
+- Automatic sampling and throttling for high-frequency metrics
+- Integration with psutil for system-level monitoring
+
+Dependencies:
+- psutil: System and process monitoring
+- threading: Asynchronous collection support
+- functools: Decorator implementation
+- contextlib: Context manager support
+- socket: Network connectivity testing
+- urllib: HTTP request timing
+
+Author: Framework0 Development Team
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/metrics/metrics_collectors.py`
+
+### Classes
+
+#### SystemMetricsCollector
+
+System-level performance metrics collector.
+
+Collects CPU utilization, memory usage, disk I/O, and network statistics
+using psutil. Provides both point-in-time snapshots and continuous
+monitoring capabilities with configurable collection intervals.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, collection_interval: float = 10.0) -> None
+```
+
+Initialize system metrics collector.
+
+Args:
+    collection_interval: Seconds between automatic collections
+
+##### collect_cpu_metrics
+
+```python
+collect_cpu_metrics(self) -> List[PerformanceMetric]
+```
+
+Collect CPU utilization metrics.
+
+Returns:
+    List[PerformanceMetric]: CPU usage metrics per core and overall
+
+##### collect_memory_metrics
+
+```python
+collect_memory_metrics(self) -> List[PerformanceMetric]
+```
+
+Collect memory utilization metrics.
+
+Returns:
+    List[PerformanceMetric]: Memory usage metrics (virtual and swap)
+
+##### collect_disk_metrics
+
+```python
+collect_disk_metrics(self) -> List[PerformanceMetric]
+```
+
+Collect disk I/O and usage metrics.
+
+Returns:
+    List[PerformanceMetric]: Disk utilization and I/O performance metrics
+
+##### collect_network_metrics
+
+```python
+collect_network_metrics(self) -> List[PerformanceMetric]
+```
+
+Collect network I/O statistics.
+
+Returns:
+    List[PerformanceMetric]: Network interface utilization metrics
+
+##### collect_all_system_metrics
+
+```python
+collect_all_system_metrics(self) -> List[PerformanceMetric]
+```
+
+Collect comprehensive system metrics (CPU, memory, disk, network).
+
+Returns:
+    List[PerformanceMetric]: All available system performance metrics
+
+##### start_continuous_collection
+
+```python
+start_continuous_collection(self) -> None
+```
+
+Start continuous background collection of system metrics.
+
+##### stop_continuous_collection
+
+```python
+stop_continuous_collection(self) -> None
+```
+
+Stop continuous background collection of system metrics.
+
+##### _collection_loop
+
+```python
+_collection_loop(self) -> None
+```
+
+Background loop for continuous metrics collection.
+
+##### get_collected_metrics
+
+```python
+get_collected_metrics(self) -> List[PerformanceMetric]
+```
+
+Retrieve metrics from continuous collection buffer.
+
+Returns:
+    List[PerformanceMetric]: All metrics collected since last retrieval
+
+#### ApplicationMetricsCollector
+
+Application-level performance metrics collector.
+
+Provides decorators and context managers for measuring function execution
+time, call counts, memory allocation, and custom application metrics.
+Supports both synchronous and asynchronous function timing.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize application metrics collector.
+
+##### performance_timer
+
+```python
+performance_timer(self, metric_name: Optional[str] = None, tags: Optional[Dict[str, str]] = None) -> Callable
+```
+
+Decorator for automatic function timing measurement.
+
+Args:
+    metric_name: Optional custom metric name (uses function name if not provided)
+    tags: Optional metadata tags for the timing metric
+    
+Returns:
+    Callable: Decorated function with timing measurement
+
+##### performance_tracker
+
+```python
+performance_tracker(self, metric_name: str, tags: Optional[Dict[str, str]] = None)
+```
+
+Context manager for measuring code block execution time.
+
+Args:
+    metric_name: Name for the timing metric
+    tags: Optional metadata tags
+    
+Yields:
+    dict: Context object for adding additional metadata during execution
+
+**Decorators:** contextmanager
+
+##### record_custom_metric
+
+```python
+record_custom_metric(self, metric: PerformanceMetric) -> None
+```
+
+Record a custom application metric.
+
+Args:
+    metric: Custom performance metric to store
+
+##### get_call_counts
+
+```python
+get_call_counts(self) -> Dict[str, int]
+```
+
+Get function call frequency statistics.
+
+Returns:
+    Dict[str, int]: Function names mapped to call counts
+
+##### get_collected_metrics
+
+```python
+get_collected_metrics(self) -> List[PerformanceMetric]
+```
+
+Retrieve all collected application metrics.
+
+Returns:
+    List[PerformanceMetric]: All metrics collected since last retrieval
+
+#### NetworkMetricsCollector
+
+Network performance metrics collector.
+
+Measures network latency, throughput, connection success rates,
+and HTTP request performance. Supports both TCP connectivity
+testing and HTTP endpoint monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize network metrics collector.
+
+##### measure_tcp_latency
+
+```python
+measure_tcp_latency(self, host: str, port: int, timeout: float = 5.0) -> Optional[PerformanceMetric]
+```
+
+Measure TCP connection latency to a host and port.
+
+Args:
+    host: Target hostname or IP address
+    port: Target port number
+    timeout: Connection timeout in seconds
+    
+Returns:
+    Optional[PerformanceMetric]: Latency metric or None if connection failed
+
+##### measure_http_request
+
+```python
+measure_http_request(self, url: str, timeout: float = 10.0) -> Optional[PerformanceMetric]
+```
+
+Measure HTTP request performance.
+
+Args:
+    url: Target URL for HTTP request
+    timeout: Request timeout in seconds
+    
+Returns:
+    Optional[PerformanceMetric]: HTTP timing metric or None if request failed
+
+##### measure_throughput
+
+```python
+measure_throughput(self, data_bytes: int, duration_seconds: float, operation: str = 'data_transfer') -> PerformanceMetric
+```
+
+Calculate and record throughput metric.
+
+Args:
+    data_bytes: Number of bytes transferred
+    duration_seconds: Transfer duration in seconds
+    operation: Description of the operation
+    
+Returns:
+    PerformanceMetric: Throughput metric in bytes per second
+
+##### get_collected_metrics
+
+```python
+get_collected_metrics(self) -> List[PerformanceMetric]
+```
+
+Retrieve all collected network metrics.
+
+Returns:
+    List[PerformanceMetric]: All network metrics since last retrieval
+
+#### CustomMetricsCollector
+
+User-defined custom metrics collector.
+
+Provides flexible infrastructure for recording business metrics,
+custom performance counters, and domain-specific measurements
+that don't fit into standard system/application/network categories.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self) -> None
+```
+
+Initialize custom metrics collector.
+
+##### increment_counter
+
+```python
+increment_counter(self, name: str, value: Union[int, float] = 1, tags: Optional[Dict[str, str]] = None) -> PerformanceMetric
+```
+
+Increment a named counter metric.
+
+Args:
+    name: Counter name identifier
+    value: Increment amount (default: 1)
+    tags: Optional metadata tags
+    
+Returns:
+    PerformanceMetric: Counter increment metric
+
+##### set_gauge
+
+```python
+set_gauge(self, name: str, value: Union[int, float], tags: Optional[Dict[str, str]] = None) -> PerformanceMetric
+```
+
+Set a gauge metric to a specific value.
+
+Args:
+    name: Gauge name identifier
+    value: Current gauge value
+    tags: Optional metadata tags
+    
+Returns:
+    PerformanceMetric: Gauge value metric
+
+##### record_histogram_value
+
+```python
+record_histogram_value(self, name: str, value: Union[int, float], tags: Optional[Dict[str, str]] = None) -> PerformanceMetric
+```
+
+Record a value for histogram distribution analysis.
+
+Args:
+    name: Histogram name identifier
+    value: Value to add to histogram
+    tags: Optional metadata tags
+    
+Returns:
+    PerformanceMetric: Histogram sample metric
+
+##### record_business_metric
+
+```python
+record_business_metric(self, name: str, value: Union[int, float], unit: MetricUnit = MetricUnit.COUNT, tags: Optional[Dict[str, str]] = None, context: Optional[Dict[str, Any]] = None) -> PerformanceMetric
+```
+
+Record a custom business or domain-specific metric.
+
+Args:
+    name: Business metric name
+    value: Metric measurement value
+    unit: Measurement unit (default: COUNT)
+    tags: Optional metadata tags
+    context: Optional additional context data
+    
+Returns:
+    PerformanceMetric: Business metric
+
+##### get_counter_values
+
+```python
+get_counter_values(self) -> Dict[str, Union[int, float]]
+```
+
+Get current values of all counters.
+
+Returns:
+    Dict[str, Union[int, float]]: Counter names mapped to current values
+
+##### get_gauge_values
+
+```python
+get_gauge_values(self) -> Dict[str, Union[int, float]]
+```
+
+Get current values of all gauges.
+
+Returns:
+    Dict[str, Union[int, float]]: Gauge names mapped to current values
+
+##### reset_counters
+
+```python
+reset_counters(self) -> None
+```
+
+Reset all counter values to zero.
+
+##### get_collected_metrics
+
+```python
+get_collected_metrics(self) -> List[PerformanceMetric]
+```
+
+Retrieve all collected custom metrics.
+
+Returns:
+    List[PerformanceMetric]: All custom metrics since last retrieval
+
+
+---
+
+## scriptlets.foundation.metrics.metrics_core
+
+**Description:** Performance Metrics Core Infrastructure Module.
+
+This module provides the foundational data structures, enums, and configuration
+management for the Framework0 Performance Metrics system. It serves as the
+base layer for all performance tracking, statistical analysis, and reporting
+functionality.
+
+Key Components:
+- MetricType: Enum defining performance metric categories
+- PerformanceMetric: Core data class for individual measurements
+- MetricAggregation: Statistical aggregation results container
+- MetricsConfiguration: Configuration management system
+- MetricFilter: Filtering and sampling rules for high-volume metrics
+
+Dependencies:
+- enum: For metric type definitions
+- dataclasses: For structured data containers
+- time: For high-precision timestamp management
+- typing: For comprehensive type annotations
+- json: For serialization support
+- statistics: For basic statistical calculations
+
+Author: Framework0 Development Team
+Version: 1.0.0
+
+**File:** `scriptlets/foundation/metrics/metrics_core.py`
+
+### Classes
+
+#### MetricType
+
+**Inherits from:** Enum
+
+Enumeration of performance metric categories.
+
+Defines the core types of performance metrics that can be collected
+and analyzed within the Framework0 performance monitoring system.
+Each type has specific characteristics and analysis patterns.
+
+#### MetricUnit
+
+**Inherits from:** Enum
+
+Standard units for performance metric measurements.
+
+Provides consistent unit definitions for metrics to enable proper
+aggregation, comparison, and reporting across different collectors
+and analysis components.
+
+#### PerformanceMetric
+
+Core data class representing a single performance measurement.
+
+Contains all necessary information for a performance metric including
+the measurement value, metadata, timing information, and categorization.
+Supports JSON serialization for Framework0 context integration.
+
+Attributes:
+    name: Human-readable metric identifier
+    value: Numeric measurement value
+    metric_type: Category of metric (timing, throughput, etc.)
+    unit: Measurement unit for proper interpretation
+    timestamp: High-precision measurement time (nanoseconds)
+    tags: Optional metadata tags for categorization
+    source: Component or system that generated the metric
+    context: Additional contextual information
+
+**Attributes:**
+
+- `name: str`
+- `value: Union[int, float]`
+- `metric_type: MetricType`
+- `unit: MetricUnit`
+- `timestamp: float = field(default_factory=time.time_ns)`
+- `tags: Optional[Dict[str, str]] = None`
+- `source: Optional[str] = None`
+- `context: Optional[Dict[str, Any]] = None`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Initialize optional fields with empty defaults if not provided.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert metric to dictionary for JSON serialization.
+
+Returns:
+    dict: Serializable representation of the metric
+
+##### from_dict
+
+```python
+from_dict(cls, data: Dict[str, Any]) -> 'PerformanceMetric'
+```
+
+Create metric instance from dictionary representation.
+
+Args:
+    data: Dictionary containing metric data
+    
+Returns:
+    PerformanceMetric: Reconstructed metric instance
+
+**Decorators:** classmethod
+
+##### add_tag
+
+```python
+add_tag(self, key: str, value: str) -> None
+```
+
+Add metadata tag to the metric.
+
+Args:
+    key: Tag identifier (e.g., "environment", "service")
+    value: Tag value (e.g., "production", "api_server")
+
+##### add_context
+
+```python
+add_context(self, key: str, value: Any) -> None
+```
+
+Add contextual information to the metric.
+
+Args:
+    key: Context key identifier
+    value: Context value (any JSON-serializable type)
+
+#### MetricAggregation
+
+Statistical aggregation results for a collection of metrics.
+
+Contains comprehensive statistical analysis of metric values including
+central tendency, variability, and distribution characteristics.
+Supports percentile calculations and trend analysis.
+
+Attributes:
+    metric_name: Name of the aggregated metric
+    count: Number of data points in aggregation
+    mean: Arithmetic average of values
+    median: Middle value (50th percentile)
+    std_dev: Standard deviation (measure of variability)
+    min_value: Minimum observed value
+    max_value: Maximum observed value
+    percentiles: Dictionary of percentile values
+    time_range: Tuple of (start_time, end_time) for data
+
+**Attributes:**
+
+- `metric_name: str`
+- `count: int`
+- `mean: float`
+- `median: float`
+- `std_dev: float`
+- `min_value: Union[int, float]`
+- `max_value: Union[int, float]`
+- `percentiles: Dict[int, float] = field(default_factory=dict)`
+- `time_range: Optional[tuple] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert aggregation to dictionary for JSON serialization.
+
+Returns:
+    dict: Serializable representation of aggregation results
+
+##### from_metrics
+
+```python
+from_metrics(cls, metrics: List[PerformanceMetric], percentiles: List[int] = None) -> 'MetricAggregation'
+```
+
+Create aggregation from a list of performance metrics.
+
+Args:
+    metrics: List of metrics with the same name to aggregate
+    percentiles: List of percentile values to calculate (default: [50, 90, 95, 99])
+    
+Returns:
+    MetricAggregation: Statistical summary of the metrics
+
+**Decorators:** classmethod
+
+#### MetricFilter
+
+Filtering and sampling configuration for high-volume metrics.
+
+Provides rules for reducing metric volume through sampling,
+filtering by tags or values, and rate limiting for high-frequency
+metric generation scenarios.
+
+Attributes:
+    name: Filter identifier
+    sample_rate: Fraction of metrics to keep (0.0 to 1.0)
+    tag_filters: Dictionary of tag key-value filters
+    value_range: Tuple of (min, max) for value filtering
+    rate_limit: Maximum metrics per second to accept
+    enabled: Whether the filter is currently active
+
+**Attributes:**
+
+- `name: str`
+- `sample_rate: float = 1.0`
+- `tag_filters: Optional[Dict[str, str]] = None`
+- `value_range: Optional[tuple] = None`
+- `rate_limit: Optional[float] = None`
+- `enabled: bool = True`
+
+**Methods:**
+
+##### __post_init__
+
+```python
+__post_init__(self) -> None
+```
+
+Validate filter configuration parameters.
+
+##### should_include_metric
+
+```python
+should_include_metric(self, metric: PerformanceMetric) -> bool
+```
+
+Determine if a metric passes this filter's criteria.
+
+Args:
+    metric: Performance metric to evaluate
+    
+Returns:
+    bool: True if metric should be included, False if filtered out
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert filter to dictionary for serialization.
+
+#### MetricsConfiguration
+
+Comprehensive configuration management for performance metrics system.
+
+Manages configuration for collectors, analyzers, filters, and integration
+settings. Provides validation, defaults, and serialization support for
+Framework0 context integration.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config_dict: Optional[Dict[str, Any]] = None) -> None
+```
+
+Initialize configuration with optional dictionary.
+
+Args:
+    config_dict: Optional configuration dictionary
+
+##### _apply_defaults
+
+```python
+_apply_defaults(self) -> None
+```
+
+Apply default configuration values for missing settings.
+
+##### get_collection_config
+
+```python
+get_collection_config(self) -> Dict[str, Any]
+```
+
+Get collection configuration section.
+
+##### get_analysis_config
+
+```python
+get_analysis_config(self) -> Dict[str, Any]
+```
+
+Get analysis configuration section.
+
+##### get_storage_config
+
+```python
+get_storage_config(self) -> Dict[str, Any]
+```
+
+Get storage configuration section.
+
+##### get_integration_config
+
+```python
+get_integration_config(self) -> Dict[str, Any]
+```
+
+Get integration configuration section.
+
+##### get_performance_config
+
+```python
+get_performance_config(self) -> Dict[str, Any]
+```
+
+Get performance configuration section.
+
+##### update_config
+
+```python
+update_config(self, section: str, key: str, value: Any) -> None
+```
+
+Update a specific configuration value.
+
+Args:
+    section: Configuration section name
+    key: Setting key within section
+    value: New value for the setting
+
+##### validate_config
+
+```python
+validate_config(self) -> bool
+```
+
+Validate configuration for correctness and consistency.
+
+Returns:
+    bool: True if configuration is valid, False otherwise
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert configuration to dictionary for serialization.
+
+##### from_dict
+
+```python
+from_dict(cls, config_dict: Dict[str, Any]) -> 'MetricsConfiguration'
+```
+
+Create configuration instance from dictionary.
+
+Args:
+    config_dict: Configuration dictionary
+    
+Returns:
+    MetricsConfiguration: New configuration instance
+
+**Decorators:** classmethod
+
+
+---
+
 ## scriptlets.framework
 
 **Description:** Unified IAF0 Scriptlet Framework - Consolidated System
@@ -6136,6 +18304,1831 @@ Args:
 
 Returns:
     Dictionary of results by scriptlet name
+
+
+---
+
+## scriptlets.performance_metrics
+
+**Description:** Framework0 Performance Metrics Scriptlet
+
+A comprehensive performance monitoring and analysis scriptlet for Framework0.
+Provides collect, analyze, profile, and report actions using the unified
+Performance Metrics Framework.
+
+Author: Framework0 Team
+Created: October 2024
+Version: 1.0.0
+
+**File:** `scriptlets/performance_metrics.py`
+
+### Classes
+
+#### PerformanceMetricsScriptlet
+
+Main scriptlet class for Framework0 performance monitoring integration.
+
+Provides comprehensive performance metrics collection, analysis, profiling,
+and reporting capabilities through Framework0's orchestration system.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, context: Optional[ContextManager] = None) -> None
+```
+
+Initialize the performance metrics scriptlet.
+
+Args:
+    context: Framework0 context manager for integration
+
+##### monitor
+
+```python
+monitor(self) -> PerformanceMonitor
+```
+
+Get or create the performance monitor instance.
+
+Returns:
+    PerformanceMonitor: Configured monitor instance
+
+**Decorators:** property
+
+##### collect_metrics
+
+```python
+collect_metrics(self) -> Dict[str, Any]
+```
+
+Collect current performance metrics from all collectors.
+
+Args:
+    **kwargs: Additional collection parameters
+    
+Returns:
+    Dict containing collected metrics by category
+
+##### analyze_metrics
+
+```python
+analyze_metrics(self) -> Dict[str, Any]
+```
+
+Perform comprehensive analysis of collected metrics.
+
+Args:
+    **kwargs: Additional analysis parameters
+    
+Returns:
+    Dict containing analysis results
+
+#### ContextManager
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+##### set_data
+
+```python
+set_data(self, key, value)
+```
+
+##### get_data
+
+```python
+get_data(self, key, default = None)
+```
+
+
+---
+
+## scriptlets.production.production_workflow_engine
+
+**Description:** Framework0 Production Workflow Engine - Enterprise Orchestration System
+
+This module provides the core production workflow engine for enterprise automation,
+integrating Exercise 7 Analytics and Exercise 8 Deployment capabilities into
+comprehensive production workflow orchestration.
+
+**File:** `scriptlets/production/production_workflow_engine.py`
+
+### Classes
+
+#### WorkflowStatus
+
+**Inherits from:** Enum
+
+Workflow execution status enumeration.
+
+#### StageStatus
+
+**Inherits from:** Enum
+
+Pipeline stage execution status enumeration.
+
+#### PipelineStage
+
+Individual pipeline stage configuration and execution state.
+
+This class represents a single stage in a production workflow pipeline,
+including configuration, dependencies, and execution state.
+
+**Attributes:**
+
+- `name: str`
+- `stage_id: str = field(default_factory=lambda: f'stage-{uuid.uuid4().hex[:8]}')`
+- `stage_type: str = 'generic'`
+- `command: Optional[str] = None`
+- `script: Optional[str] = None`
+- `container_image: Optional[str] = None`
+- `depends_on: List[str] = field(default_factory=list)`
+- `allow_failure: bool = False`
+- `timeout_seconds: int = 3600`
+- `environment_variables: Dict[str, str] = field(default_factory=dict)`
+- `working_directory: Optional[str] = None`
+- `isolation_policy: Optional[str] = None`
+- `container_config: Dict[str, Any] = field(default_factory=dict)`
+- `enable_analytics: bool = True`
+- `performance_tracking: bool = True`
+- `status: StageStatus = StageStatus.WAITING`
+- `start_time: Optional[datetime] = None`
+- `end_time: Optional[datetime] = None`
+- `duration_seconds: Optional[float] = None`
+- `exit_code: Optional[int] = None`
+- `output_logs: str = ''`
+- `error_logs: str = ''`
+- `analytics_data: Dict[str, Any] = field(default_factory=dict)`
+
+#### WorkflowDefinition
+
+Complete workflow definition with stages, configuration, and metadata.
+
+This class represents a complete production workflow including all stages,
+configuration, and integration with Exercise 7/8 capabilities.
+
+**Attributes:**
+
+- `name: str`
+- `workflow_id: str = field(default_factory=lambda: f'wf-{uuid.uuid4().hex[:8]}')`
+- `version: str = '1.0.0'`
+- `description: str = ''`
+- `stages: List[PipelineStage] = field(default_factory=list)`
+- `max_parallel_stages: int = 3`
+- `workflow_timeout_seconds: int = 14400`
+- `retry_failed_stages: bool = True`
+- `max_retries: int = 2`
+- `global_environment: Dict[str, str] = field(default_factory=dict)`
+- `default_isolation_policy: str = 'production'`
+- `container_registry: Optional[str] = None`
+- `deployment_config: Dict[str, Any] = field(default_factory=dict)`
+- `analytics_enabled: bool = True`
+- `performance_monitoring: bool = True`
+- `notification_config: Dict[str, Any] = field(default_factory=dict)`
+- `created_timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())`
+- `created_by: str = 'Framework0 Production Engine'`
+
+#### WorkflowExecutionResult
+
+Complete workflow execution result with stage results and analytics.
+
+This class contains comprehensive execution results including stage outcomes,
+performance data, and integration with Exercise 7 analytics.
+
+**Attributes:**
+
+- `workflow_id: str`
+- `status: WorkflowStatus`
+- `start_time: datetime`
+- `execution_id: str = field(default_factory=lambda: f'exec-{uuid.uuid4().hex[:8]}')`
+- `end_time: Optional[datetime] = None`
+- `duration_seconds: Optional[float] = None`
+- `stage_results: List[Dict[str, Any]] = field(default_factory=list)`
+- `successful_stages: int = 0`
+- `failed_stages: int = 0`
+- `analytics_data: Dict[str, Any] = field(default_factory=dict)`
+- `performance_metrics: Dict[str, Any] = field(default_factory=dict)`
+- `deployment_results: List[Dict[str, Any]] = field(default_factory=list)`
+- `container_builds: List[Dict[str, Any]] = field(default_factory=list)`
+- `error_message: Optional[str] = None`
+- `error_stage: Optional[str] = None`
+
+#### ProductionWorkflowEngine
+
+Enterprise production workflow orchestration engine.
+
+This class provides comprehensive workflow orchestration capabilities including:
+- Multi-stage pipeline execution with dependency management
+- Integration with Exercise 7 Analytics for performance monitoring
+- Integration with Exercise 8 Deployment for containerized execution
+- Enterprise features: retries, timeouts, parallel execution
+- Production monitoring and alerting capabilities
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, analytics_manager: Optional[Any] = None) -> None
+```
+
+Initialize the Production Workflow Engine.
+
+Args:
+    analytics_manager: Optional analytics manager for monitoring
+
+##### _build_dependency_graph
+
+```python
+_build_dependency_graph(self, stages: List[PipelineStage]) -> Dict[str, List[str]]
+```
+
+Build stage dependency graph for execution ordering.
+
+Args:
+    stages: List of pipeline stages
+
+Returns:
+    Dict[str, List[str]]: Dependency graph mapping stage -> dependencies
+
+##### _has_circular_dependencies
+
+```python
+_has_circular_dependencies(self, stages: List[PipelineStage]) -> bool
+```
+
+Check for circular dependencies in stage graph.
+
+Args:
+    stages: List of pipeline stages
+
+Returns:
+    bool: True if circular dependencies exist
+
+##### get_workflow_analytics
+
+```python
+get_workflow_analytics(self) -> Dict[str, Any]
+```
+
+Get comprehensive workflow analytics and metrics.
+
+Returns:
+    Dict[str, Any]: Workflow analytics data
+
+
+---
+
+## scriptlets.production_ecosystem.deployment_engine
+
+**Description:** Framework0 Exercise 11 Phase A: Deployment Automation Engine
+===========================================================
+
+This module implements enterprise-grade CI/CD and infrastructure automation
+for the Framework0 Production Ecosystem. It provides automated deployment
+pipelines, infrastructure as code management, multi-environment support,
+and automated rollback capabilities.
+
+Key Components:
+- DeploymentEngine: Core deployment orchestration
+- DeploymentPipeline: Automated build, test, and deploy workflows
+- InfrastructureManager: Infrastructure as code with multi-cloud support
+- EnvironmentController: Multi-environment deployment management
+- RollbackSystem: Automated rollback and recovery capabilities
+
+Integration:
+- Exercise 10 Extension System for plugin-based deployments
+- Exercise 8 Container orchestration for isolation
+- Exercise 7 Analytics for deployment monitoring
+- Exercise 9 Production workflows for enterprise integration
+
+Author: Framework0 Development Team
+Version: 1.0.0-exercise11-phase-a
+Created: October 5, 2025
+
+**File:** `scriptlets/production_ecosystem/deployment_engine.py`
+
+### Classes
+
+#### DeploymentStatus
+
+**Inherits from:** Enum
+
+Enumeration of deployment statuses for tracking pipeline states.
+
+#### DeploymentStrategy
+
+**Inherits from:** Enum
+
+Enumeration of deployment strategies for different deployment approaches.
+
+#### InfrastructureProvider
+
+**Inherits from:** Enum
+
+Enumeration of supported cloud infrastructure providers.
+
+#### DeploymentConfig
+
+Configuration class for deployment parameters and settings.
+
+**Attributes:**
+
+- `name: str`
+- `version: str`
+- `environment: str`
+- `strategy: DeploymentStrategy`
+- `provider: InfrastructureProvider`
+- `application_name: str`
+- `repository_url: str`
+- `build_command: List[str] = field(default_factory=list)`
+- `test_command: List[str] = field(default_factory=list)`
+- `infrastructure_config: Dict[str, Any] = field(default_factory=dict)`
+- `resource_limits: Dict[str, Any] = field(default_factory=dict)`
+- `scaling_config: Dict[str, Any] = field(default_factory=dict)`
+- `timeout_seconds: int = 1800`
+- `rollback_on_failure: bool = True`
+- `health_check_enabled: bool = True`
+- `monitoring_enabled: bool = True`
+- `exercise_10_integration: bool = True`
+- `analytics_integration: bool = True`
+- `production_workflow: bool = True`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `created_by: str = 'framework0-deployment-engine'`
+
+#### DeploymentResult
+
+Result class containing deployment execution results and metadata.
+
+**Attributes:**
+
+- `deployment_id: str`
+- `config: DeploymentConfig`
+- `status: DeploymentStatus`
+- `started_at: datetime`
+- `completed_at: Optional[datetime] = None`
+- `pipeline_stages: List[Dict[str, Any]] = field(default_factory=list)`
+- `infrastructure_changes: List[Dict[str, Any]] = field(default_factory=list)`
+- `test_results: Dict[str, Any] = field(default_factory=dict)`
+- `performance_metrics: Dict[str, Any] = field(default_factory=dict)`
+- `resource_usage: Dict[str, Any] = field(default_factory=dict)`
+- `error_message: Optional[str] = None`
+- `rollback_executed: bool = False`
+- `rollback_details: Dict[str, Any] = field(default_factory=dict)`
+- `exercise_10_plugins_deployed: List[str] = field(default_factory=list)`
+- `analytics_metrics: Dict[str, Any] = field(default_factory=dict)`
+- `deployment_artifacts: List[str] = field(default_factory=list)`
+- `log_files: List[str] = field(default_factory=list)`
+
+**Methods:**
+
+##### duration_seconds
+
+```python
+duration_seconds(self) -> Optional[float]
+```
+
+Calculate deployment duration in seconds.
+
+##### is_successful
+
+```python
+is_successful(self) -> bool
+```
+
+Check if deployment was successful.
+
+#### DeploymentPipeline
+
+Automated build, test, and deployment pipeline implementation.
+
+This class provides GitOps-based deployment workflows with support for
+multiple deployment strategies, automated testing, and integration with
+the Framework0 Extension System.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, config: DeploymentConfig, work_directory: Optional[str] = None)
+```
+
+Initialize deployment pipeline with configuration.
+
+Args:
+    config: Deployment configuration parameters
+    work_directory: Working directory for pipeline execution
+
+#### InfrastructureManager
+
+Infrastructure as Code management with multi-cloud support.
+
+This class provides infrastructure provisioning, management, and drift
+detection capabilities across multiple cloud providers using industry-standard
+Infrastructure as Code tools like Terraform and CloudFormation.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, provider: InfrastructureProvider)
+```
+
+Initialize infrastructure manager for specified provider.
+
+Args:
+    provider: Cloud infrastructure provider to use
+
+
+---
+
+## scriptlets.production_ecosystem.environment_rollback
+
+**Description:** Framework0 Exercise 11 Phase A: Environment Controller & Rollback System
+======================================================================
+
+This module provides multi-environment deployment management and automated
+rollback capabilities for the Framework0 Production Ecosystem. It manages
+deployment strategies across development, staging, and production environments
+with support for blue-green, canary, and rolling deployments.
+
+Key Components:
+- EnvironmentController: Multi-environment deployment management
+- RollbackSystem: Automated rollback and recovery capabilities
+- DeploymentStrategyManager: Strategy-specific deployment logic
+- EnvironmentValidator: Environment health and readiness validation
+
+Integration:
+- Exercise 10 Extension System for environment-specific plugins
+- Exercise 8 Container orchestration for environment isolation
+- Exercise 7 Analytics for environment monitoring
+- Exercise 9 Production workflows for enterprise governance
+
+Author: Framework0 Development Team
+Version: 1.0.0-exercise11-phase-a
+Created: October 5, 2025
+
+**File:** `scriptlets/production_ecosystem/environment_rollback.py`
+
+### Classes
+
+#### EnvironmentType
+
+**Inherits from:** Enum
+
+Enumeration of environment types for deployment management.
+
+#### HealthStatus
+
+**Inherits from:** Enum
+
+Enumeration of environment health statuses.
+
+#### RollbackTrigger
+
+**Inherits from:** Enum
+
+Enumeration of rollback trigger conditions.
+
+#### EnvironmentConfig
+
+Configuration class for environment-specific settings.
+
+**Attributes:**
+
+- `name: str`
+- `type: EnvironmentType`
+- `region: str`
+- `provider: InfrastructureProvider`
+- `cluster_name: str`
+- `namespace: str`
+- `load_balancer_config: Dict[str, Any] = field(default_factory=dict)`
+- `ingress_config: Dict[str, Any] = field(default_factory=dict)`
+- `dns_config: Dict[str, Any] = field(default_factory=dict)`
+- `security_groups: List[str] = field(default_factory=list)`
+- `ssl_certificate: Optional[str] = None`
+- `access_controls: Dict[str, Any] = field(default_factory=dict)`
+- `resource_quotas: Dict[str, Any] = field(default_factory=dict)`
+- `auto_scaling: Dict[str, Any] = field(default_factory=dict)`
+- `health_check_config: Dict[str, Any] = field(default_factory=dict)`
+- `monitoring_config: Dict[str, Any] = field(default_factory=dict)`
+- `deployment_approval_required: bool = False`
+- `rollback_window_hours: int = 24`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+
+#### RollbackConfig
+
+Configuration class for rollback behavior and settings.
+
+**Attributes:**
+
+- `rollback_id: str`
+- `deployment_id: str`
+- `trigger: RollbackTrigger`
+- `auto_rollback_enabled: bool = True`
+- `preserve_data: bool = True`
+- `target_version: Optional[str] = None`
+- `rollback_scope: List[str] = field(default_factory=list)`
+- `rollback_timeout_seconds: int = 600`
+- `verification_enabled: bool = True`
+- `notification_enabled: bool = True`
+- `error_rate_threshold: float = 0.05`
+- `response_time_threshold_ms: int = 5000`
+- `availability_threshold: float = 0.99`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+
+#### EnvironmentController
+
+Multi-environment deployment management with support for various
+deployment strategies and environment-specific configurations.
+
+This class manages deployments across development, staging, and production
+environments with proper validation, approval workflows, and monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize environment controller with configuration management.
+
+##### register_environment
+
+```python
+register_environment(self, config: EnvironmentConfig) -> None
+```
+
+Register a new environment for deployment management.
+
+Args:
+    config: Environment configuration to register
+
+#### RollbackSystem
+
+Automated rollback and recovery system with intelligent triggering,
+data preservation, and comprehensive verification capabilities.
+
+This class provides automated rollback capabilities based on health
+metrics, performance thresholds, and manual triggers.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize rollback system with monitoring and configuration.
+
+##### configure_rollback
+
+```python
+configure_rollback(self, config: RollbackConfig) -> None
+```
+
+Configure rollback settings for a deployment.
+
+Args:
+    config: Rollback configuration to apply
+
+##### get_rollback_history
+
+```python
+get_rollback_history(self) -> List[Dict[str, Any]]
+```
+
+Get history of rollback executions.
+
+Returns:
+    List of rollback execution records
+
+
+---
+
+## scriptlets.production_ecosystem.observability_platform
+
+**Description:** Framework0 Exercise 11 Phase B: Observability Platform
+=====================================================
+
+This module implements comprehensive monitoring, alerting, and diagnostic
+capabilities for the Framework0 Production Ecosystem. It provides real-time
+metrics collection, intelligent alerting, distributed tracing, and centralized
+log aggregation with advanced analytics.
+
+Key Components:
+- ObservabilityPlatform: Central orchestration and management
+- MetricsCollector: System and application metrics collection
+- AlertingEngine: Intelligent alerting with ML anomaly detection
+- TracingSystem: Distributed tracing across Framework0 components
+- LogAggregator: Centralized logging with search and analysis
+
+Integration:
+- Exercise 7 Analytics for advanced metrics processing
+- Phase A Deployment Engine for deployment monitoring
+- Exercise 10 Extension System for plugin observability
+- Exercise 8 Container system for infrastructure monitoring
+
+Author: Framework0 Development Team
+Version: 1.0.0-exercise11-phase-b
+Created: October 5, 2025
+
+**File:** `scriptlets/production_ecosystem/observability_platform.py`
+
+### Classes
+
+#### MetricType
+
+**Inherits from:** Enum
+
+Enumeration of metric types for categorization and processing.
+
+#### AlertSeverity
+
+**Inherits from:** Enum
+
+Enumeration of alert severity levels for prioritization.
+
+#### AlertStatus
+
+**Inherits from:** Enum
+
+Enumeration of alert states for lifecycle management.
+
+#### TraceSpanKind
+
+**Inherits from:** Enum
+
+Enumeration of trace span types for distributed tracing.
+
+#### Metric
+
+Data class representing a collected metric with metadata.
+
+**Attributes:**
+
+- `name: str`
+- `metric_type: MetricType`
+- `value: Union[float, int]`
+- `labels: Dict[str, str] = field(default_factory=dict)`
+- `timestamp: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `unit: Optional[str] = None`
+- `description: Optional[str] = None`
+- `source: Optional[str] = None`
+- `exercise_integration: Optional[str] = None`
+- `deployment_id: Optional[str] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert metric to dictionary representation.
+
+#### Alert
+
+Data class representing an alert with conditions and metadata.
+
+**Attributes:**
+
+- `alert_id: str`
+- `name: str`
+- `severity: AlertSeverity`
+- `metric_name: str`
+- `condition: str`
+- `threshold: Union[float, int]`
+- `status: AlertStatus = AlertStatus.PENDING`
+- `triggered_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `message: str = ''`
+- `description: str = ''`
+- `runbook_url: Optional[str] = None`
+- `escalation_policy: Optional[str] = None`
+- `notification_channels: List[str] = field(default_factory=list)`
+- `deployment_id: Optional[str] = None`
+- `environment: Optional[str] = None`
+- `acknowledged_at: Optional[datetime] = None`
+- `resolved_at: Optional[datetime] = None`
+- `acknowledged_by: Optional[str] = None`
+- `resolution_notes: Optional[str] = None`
+
+**Methods:**
+
+##### duration_seconds
+
+```python
+duration_seconds(self) -> Optional[float]
+```
+
+Calculate alert duration in seconds.
+
+#### TraceSpan
+
+Data class representing a distributed trace span.
+
+**Attributes:**
+
+- `span_id: str`
+- `trace_id: str`
+- `parent_span_id: Optional[str] = None`
+- `operation_name: str = ''`
+- `kind: TraceSpanKind = TraceSpanKind.INTERNAL`
+- `service_name: str = ''`
+- `start_time: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `end_time: Optional[datetime] = None`
+- `tags: Dict[str, str] = field(default_factory=dict)`
+- `logs: List[Dict[str, Any]] = field(default_factory=list)`
+- `status_code: int = 0`
+- `error_message: Optional[str] = None`
+- `exercise_component: Optional[str] = None`
+- `deployment_context: Optional[str] = None`
+
+**Methods:**
+
+##### duration_microseconds
+
+```python
+duration_microseconds(self) -> Optional[int]
+```
+
+Calculate span duration in microseconds.
+
+##### finish
+
+```python
+finish(self, status_code: int = 0, error: Optional[str] = None) -> None
+```
+
+Finish the span with optional error information.
+
+#### MetricsCollector
+
+Comprehensive metrics collection system with real-time processing.
+
+This class collects system and application metrics, processes them
+in real-time, and integrates with Exercise 7 Analytics for advanced
+analysis and reporting.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, collection_interval: int = 30, retention_hours: int = 24)
+```
+
+Initialize metrics collector with configuration.
+
+Args:
+    collection_interval: Metrics collection interval in seconds
+    retention_hours: How long to retain metrics in memory
+
+##### _cleanup_old_metrics
+
+```python
+_cleanup_old_metrics(self) -> None
+```
+
+Remove metrics older than retention period.
+
+##### get_metric_value
+
+```python
+get_metric_value(self, metric_name: str) -> Optional[Union[float, int]]
+```
+
+Get current value of a specific metric.
+
+##### get_metrics_by_source
+
+```python
+get_metrics_by_source(self, source: str) -> List[Metric]
+```
+
+Get all metrics from a specific source.
+
+##### get_metrics_summary
+
+```python
+get_metrics_summary(self) -> Dict[str, Any]
+```
+
+Get summary statistics of collected metrics.
+
+#### TracingSystem
+
+Distributed tracing system for Framework0 workflow debugging.
+
+This class provides distributed tracing capabilities for complex
+Framework0 workflows, enabling end-to-end visibility across all
+components and exercises with performance analysis and debugging.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize distributed tracing system.
+
+##### start_trace
+
+```python
+start_trace(self, trace_id: Optional[str] = None, operation_name: str = 'framework0_operation', service_name: str = 'framework0') -> TraceSpan
+```
+
+Start a new distributed trace.
+
+Args:
+    trace_id: Optional trace ID (generated if not provided)
+    operation_name: Name of the traced operation
+    service_name: Service creating the trace
+    
+Returns:
+    Root span for the trace
+
+##### create_span
+
+```python
+create_span(self, trace_id: str, operation_name: str, parent_span_id: Optional[str] = None, service_name: str = 'framework0', kind: TraceSpanKind = TraceSpanKind.INTERNAL) -> TraceSpan
+```
+
+Create a child span within an existing trace.
+
+Args:
+    trace_id: ID of the parent trace
+    operation_name: Name of the operation being traced
+    parent_span_id: ID of the parent span
+    service_name: Service creating the span
+    kind: Type of span being created
+    
+Returns:
+    New child span
+
+##### finish_span
+
+```python
+finish_span(self, span_id: str, status_code: int = 0, error: Optional[str] = None, tags: Optional[Dict[str, str]] = None) -> None
+```
+
+Finish a span and record its completion.
+
+Args:
+    span_id: ID of the span to finish
+    status_code: Status code (0=OK, 1=ERROR)
+    error: Error message if failed
+    tags: Additional tags to add
+
+##### add_span_log
+
+```python
+add_span_log(self, span_id: str, message: str, level: str = 'info', fields: Optional[Dict[str, Any]] = None) -> None
+```
+
+Add a log entry to a span.
+
+Args:
+    span_id: ID of the span
+    message: Log message
+    level: Log level
+    fields: Additional fields
+
+##### get_trace
+
+```python
+get_trace(self, trace_id: str) -> Optional[List[TraceSpan]]
+```
+
+Get all spans for a specific trace.
+
+##### get_trace_tree
+
+```python
+get_trace_tree(self, trace_id: str) -> Optional[Dict[str, Any]]
+```
+
+Get trace as hierarchical tree structure.
+
+##### _calculate_trace_duration
+
+```python
+_calculate_trace_duration(self, spans: List[TraceSpan]) -> float
+```
+
+Calculate total trace duration in milliseconds.
+
+##### _update_trace_statistics
+
+```python
+_update_trace_statistics(self, span: TraceSpan) -> None
+```
+
+Update performance statistics for completed spans.
+
+##### get_performance_summary
+
+```python
+get_performance_summary(self) -> Dict[str, Any]
+```
+
+Get performance summary across all traces.
+
+#### LogAggregator
+
+Centralized logging system with search and analysis capabilities.
+
+This class provides centralized log collection from all Framework0
+components with structured logging, pattern detection, and correlation
+with metrics and traces for comprehensive observability.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize centralized log aggregation system.
+
+##### collect_log
+
+```python
+collect_log(self, level: str, message: str, source: str, timestamp: Optional[datetime] = None, trace_id: Optional[str] = None, span_id: Optional[str] = None, fields: Optional[Dict[str, Any]] = None) -> None
+```
+
+Collect a log entry from Framework0 components.
+
+Args:
+    level: Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    message: Log message
+    source: Source component/service
+    timestamp: Log timestamp (current time if not provided)
+    trace_id: Associated trace ID for correlation
+    span_id: Associated span ID for correlation
+    fields: Additional structured fields
+
+##### _update_search_index
+
+```python
+_update_search_index(self, log_entry: Dict[str, Any]) -> None
+```
+
+Update search index for efficient log searching.
+
+##### _detect_log_patterns
+
+```python
+_detect_log_patterns(self, log_entry: Dict[str, Any]) -> None
+```
+
+Detect patterns in log messages for analysis.
+
+##### _cleanup_old_logs
+
+```python
+_cleanup_old_logs(self) -> None
+```
+
+Remove oldest logs when limit is exceeded.
+
+##### search_logs
+
+```python
+search_logs(self, query: str, level: Optional[str] = None, source: Optional[str] = None, trace_id: Optional[str] = None, limit: int = 100) -> List[Dict[str, Any]]
+```
+
+Search logs using various criteria.
+
+Args:
+    query: Text search query
+    level: Filter by log level
+    source: Filter by source component
+    trace_id: Filter by trace ID
+    limit: Maximum results to return
+    
+Returns:
+    List of matching log entries
+
+##### get_log_statistics
+
+```python
+get_log_statistics(self) -> Dict[str, Any]
+```
+
+Get comprehensive log statistics.
+
+##### get_error_analysis
+
+```python
+get_error_analysis(self) -> Dict[str, Any]
+```
+
+Analyze error patterns and frequency.
+
+#### AlertingEngine
+
+Intelligent alerting system with machine learning anomaly detection.
+
+This class provides smart alerting capabilities with escalation routing,
+anomaly detection, and integration with communication systems for
+comprehensive incident management.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, metrics_collector: MetricsCollector)
+```
+
+Initialize alerting engine with metrics collector integration.
+
+Args:
+    metrics_collector: MetricsCollector instance for monitoring
+
+##### add_alert_rule
+
+```python
+add_alert_rule(self, name: str, metric_name: str, condition: str, threshold: Union[float, int], severity: AlertSeverity, notification_channels: List[str] = None) -> str
+```
+
+Add a new alert rule for monitoring.
+
+Args:
+    name: Alert rule name
+    metric_name: Metric to monitor
+    condition: Condition operator (>, <, >=, <=, ==, !=)
+    threshold: Threshold value
+    severity: Alert severity level
+    notification_channels: Where to send alerts
+    
+Returns:
+    Alert rule ID
+
+##### _evaluate_condition
+
+```python
+_evaluate_condition(self, value: Union[float, int], condition: str, threshold: Union[float, int]) -> bool
+```
+
+Evaluate alert condition against current value.
+
+##### _detect_anomaly
+
+```python
+_detect_anomaly(self, metric_name: str, current_value: Union[float, int]) -> bool
+```
+
+Detect anomalies using statistical analysis of baseline data.
+
+##### get_active_alerts
+
+```python
+get_active_alerts(self) -> List[Alert]
+```
+
+Get list of currently active alerts.
+
+##### get_alert_statistics
+
+```python
+get_alert_statistics(self) -> Dict[str, Any]
+```
+
+Get alerting system statistics.
+
+#### ObservabilityPlatform
+
+Central orchestration and management for Framework0 observability.
+
+This class integrates all observability components (metrics, alerts,
+tracing, logs) and provides a unified interface for comprehensive
+production monitoring and debugging capabilities.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, metrics_interval: int = 30, retention_hours: int = 24)
+```
+
+Initialize comprehensive observability platform.
+
+Args:
+    metrics_interval: Metrics collection interval in seconds
+    retention_hours: Data retention period in hours
+
+##### _setup_default_alerts
+
+```python
+_setup_default_alerts(self) -> None
+```
+
+Set up essential alert rules for Framework0 monitoring.
+
+##### _initialize_tracing
+
+```python
+_initialize_tracing(self) -> None
+```
+
+Initialize distributed tracing for Framework0 components.
+
+##### _initialize_log_collection
+
+```python
+_initialize_log_collection(self) -> None
+```
+
+Initialize centralized log collection.
+
+
+---
+
+## scriptlets.production_ecosystem.security_framework
+
+**Description:** Framework0 Exercise 11 Phase C: Security Framework
+================================================
+
+This module implements comprehensive security capabilities for the Framework0
+Production Ecosystem. It provides enterprise-grade authentication, authorization,
+encryption, audit trails, and compliance systems with complete integration
+across all Framework0 components and exercises.
+
+Key Components:
+- AuthenticationManager: Multi-factor authentication and user lifecycle
+- AuthorizationEngine: Role-based access control with granular permissions
+- EncryptionService: Data protection with key management and certificates
+- AuditTrailSystem: Security event logging and compliance reporting
+- SecurityFramework: Unified security orchestration and management
+
+Integration:
+- Phase A Deployment Engine for secure CI/CD pipelines
+- Phase B Observability Platform for security monitoring
+- Exercise 7 Analytics for security analytics and threat detection
+- Exercise 8-10 for component-level security enforcement
+
+Author: Framework0 Development Team
+Version: 1.0.0-exercise11-phase-c
+Created: October 5, 2025
+
+**File:** `scriptlets/production_ecosystem/security_framework.py`
+
+### Classes
+
+#### AuthenticationMethod
+
+**Inherits from:** Enum
+
+Enumeration of supported authentication methods.
+
+#### UserStatus
+
+**Inherits from:** Enum
+
+Enumeration of user account states.
+
+#### Permission
+
+**Inherits from:** Enum
+
+Enumeration of Framework0 system permissions.
+
+#### AuditEventType
+
+**Inherits from:** Enum
+
+Enumeration of audit event types for security tracking.
+
+#### SecurityLevel
+
+**Inherits from:** Enum
+
+Enumeration of security classification levels.
+
+#### User
+
+Data class representing a Framework0 user with security context.
+
+**Attributes:**
+
+- `user_id: str`
+- `username: str`
+- `email: str`
+- `password_hash: str`
+- `salt: str`
+- `mfa_secret: Optional[str] = None`
+- `mfa_enabled: bool = False`
+- `full_name: str = ''`
+- `department: str = ''`
+- `title: str = ''`
+- `status: UserStatus = UserStatus.ACTIVE`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `last_login: Optional[datetime] = None`
+- `login_attempts: int = 0`
+- `password_expires: Optional[datetime] = None`
+- `session_timeout: int = 3600`
+- `allowed_ip_ranges: List[str] = field(default_factory=list)`
+- `roles: Set[str] = field(default_factory=set)`
+- `permissions: Set[Permission] = field(default_factory=set)`
+- `exercise_access: Set[str] = field(default_factory=set)`
+- `environment_access: Set[str] = field(default_factory=set)`
+
+**Methods:**
+
+##### has_permission
+
+```python
+has_permission(self, permission: Permission) -> bool
+```
+
+Check if user has specific permission.
+
+##### has_role
+
+```python
+has_role(self, role: str) -> bool
+```
+
+Check if user has specific role.
+
+##### is_active
+
+```python
+is_active(self) -> bool
+```
+
+Check if user account is active.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert user to dictionary representation.
+
+#### Role
+
+Data class representing a security role with permissions.
+
+**Attributes:**
+
+- `role_id: str`
+- `name: str`
+- `description: str`
+- `permissions: Set[Permission] = field(default_factory=set)`
+- `created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `created_by: str = ''`
+- `exercise_scope: Set[str] = field(default_factory=set)`
+- `environment_scope: Set[str] = field(default_factory=set)`
+
+**Methods:**
+
+##### has_permission
+
+```python
+has_permission(self, permission: Permission) -> bool
+```
+
+Check if role has specific permission.
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert role to dictionary representation.
+
+#### AuditEvent
+
+Data class representing a security audit event.
+
+**Attributes:**
+
+- `event_id: str`
+- `event_type: AuditEventType`
+- `timestamp: datetime = field(default_factory=lambda: datetime.now(timezone.utc))`
+- `user_id: Optional[str] = None`
+- `session_id: Optional[str] = None`
+- `ip_address: Optional[str] = None`
+- `user_agent: Optional[str] = None`
+- `resource: Optional[str] = None`
+- `action: Optional[str] = None`
+- `result: str = 'success'`
+- `message: str = ''`
+- `metadata: Dict[str, Any] = field(default_factory=dict)`
+- `security_level: SecurityLevel = SecurityLevel.INTERNAL`
+- `exercise: Optional[str] = None`
+- `environment: Optional[str] = None`
+- `deployment_id: Optional[str] = None`
+
+**Methods:**
+
+##### to_dict
+
+```python
+to_dict(self) -> Dict[str, Any]
+```
+
+Convert audit event to dictionary representation.
+
+#### AuthenticationManager
+
+Comprehensive authentication system with multi-factor support.
+
+This class provides enterprise-grade authentication capabilities including
+password-based authentication, multi-factor authentication (MFA), JWT tokens,
+OAuth2 integration, and secure session management for Framework0 users.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, jwt_secret: str = None, session_timeout: int = 3600, max_login_attempts: int = 5)
+```
+
+Initialize authentication manager with security configuration.
+
+Args:
+    jwt_secret: Secret key for JWT token signing
+    session_timeout: Default session timeout in seconds
+    max_login_attempts: Maximum failed login attempts before lockout
+
+##### create_user
+
+```python
+create_user(self, username: str, email: str, password: str, full_name: str = '', roles: Set[str] = None) -> User
+```
+
+Create a new user account with secure password storage.
+
+Args:
+    username: Unique username
+    email: User email address
+    password: Plain text password (will be hashed)
+    full_name: User's full name
+    roles: Initial roles to assign
+    
+Returns:
+    Created user object
+    
+Raises:
+    ValueError: If username exists or password is invalid
+
+##### authenticate_user
+
+```python
+authenticate_user(self, username: str, password: str, ip_address: str = 'unknown', user_agent: str = 'unknown') -> Optional[Dict[str, Any]]
+```
+
+Authenticate user with credentials and create session.
+
+Args:
+    username: Username to authenticate
+    password: Password to verify
+    ip_address: Source IP address
+    user_agent: User agent string
+    
+Returns:
+    Authentication result with session token or None if failed
+
+##### _validate_password
+
+```python
+_validate_password(self, password: str) -> None
+```
+
+Validate password against security policy.
+
+##### _hash_password
+
+```python
+_hash_password(self, password: str, salt: str) -> str
+```
+
+Create secure password hash with salt.
+
+##### _verify_password
+
+```python
+_verify_password(self, password: str, stored_hash: str, salt: str) -> bool
+```
+
+Verify password against stored hash.
+
+##### _create_session
+
+```python
+_create_session(self, user: User, ip_address: str, user_agent: str) -> str
+```
+
+Create authenticated user session with JWT token.
+
+##### _record_login_attempt
+
+```python
+_record_login_attempt(self, username: str, ip_address: str, success: bool) -> None
+```
+
+Record login attempt for rate limiting and auditing.
+
+##### validate_session
+
+```python
+validate_session(self, token: str) -> Optional[Dict[str, Any]]
+```
+
+Validate JWT session token and return user context.
+
+##### logout_session
+
+```python
+logout_session(self, session_id: str) -> bool
+```
+
+Terminate user session.
+
+##### get_user_statistics
+
+```python
+get_user_statistics(self) -> Dict[str, Any]
+```
+
+Get authentication system statistics.
+
+#### AuthorizationEngine
+
+Role-based access control (RBAC) system with granular permissions.
+
+This class provides comprehensive authorization capabilities with role-based
+access control, resource-level permissions, policy enforcement, and dynamic
+permission evaluation for all Framework0 components and exercises.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize authorization engine with default roles and permissions.
+
+##### _create_default_roles
+
+```python
+_create_default_roles(self) -> None
+```
+
+Create default system roles with appropriate permissions.
+
+##### create_role
+
+```python
+create_role(self, role_name: str, description: str, permissions: Set[Permission], exercise_scope: Set[str] = None, environment_scope: Set[str] = None, created_by: str = 'system') -> Role
+```
+
+Create a new role with specified permissions and scope.
+
+Args:
+    role_name: Unique role name
+    description: Role description
+    permissions: Set of permissions for the role
+    exercise_scope: Exercise access scope
+    environment_scope: Environment access scope
+    created_by: User who created the role
+    
+Returns:
+    Created role object
+
+##### assign_role_to_user
+
+```python
+assign_role_to_user(self, user: User, role_name: str) -> bool
+```
+
+Assign role to user and update permission cache.
+
+##### revoke_role_from_user
+
+```python
+revoke_role_from_user(self, user: User, role_name: str) -> bool
+```
+
+Revoke role from user and update permissions.
+
+##### check_permission
+
+```python
+check_permission(self, user: User, permission: Permission, resource: str = None, exercise: str = None, environment: str = None) -> bool
+```
+
+Check if user has permission for specific resource and context.
+
+Args:
+    user: User to check permissions for
+    permission: Permission to check
+    resource: Specific resource being accessed
+    exercise: Exercise context
+    environment: Environment context
+    
+Returns:
+    True if user has permission, False otherwise
+
+##### create_resource_policy
+
+```python
+create_resource_policy(self, resource: str, required_permissions: Set[Permission] = None, allowed_roles: Set[str] = None, additional_rules: Dict[str, Any] = None) -> None
+```
+
+Create access policy for specific resource.
+
+##### create_environment_policy
+
+```python
+create_environment_policy(self, environment: str, allowed_roles: Set[str]) -> None
+```
+
+Create access policy for specific environment.
+
+##### get_user_effective_permissions
+
+```python
+get_user_effective_permissions(self, user: User) -> Set[Permission]
+```
+
+Get all effective permissions for a user (cached).
+
+##### get_authorization_summary
+
+```python
+get_authorization_summary(self, user: User) -> Dict[str, Any]
+```
+
+Get comprehensive authorization summary for user.
+
+##### get_authorization_statistics
+
+```python
+get_authorization_statistics(self) -> Dict[str, Any]
+```
+
+Get authorization system statistics.
+
+#### EncryptionService
+
+Comprehensive encryption service with key management.
+
+This class provides data-at-rest and data-in-transit encryption,
+key management, certificate handling, and secure communication
+protocols for the Framework0 ecosystem.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self)
+```
+
+Initialize encryption service with key management.
+
+##### generate_encryption_key
+
+```python
+generate_encryption_key(self, key_name: str, key_purpose: str = 'general', key_size: int = 32) -> str
+```
+
+Generate new encryption key with metadata.
+
+Args:
+    key_name: Unique name for the key
+    key_purpose: Purpose/context for the key
+    key_size: Key size in bytes (32 = 256-bit)
+    
+Returns:
+    Key identifier
+
+##### encrypt_data
+
+```python
+encrypt_data(self, data: str, key_name: str, additional_data: str = '') -> Dict[str, str]
+```
+
+Encrypt data using specified key.
+
+Args:
+    data: Data to encrypt
+    key_name: Name of encryption key to use
+    additional_data: Additional authenticated data
+    
+Returns:
+    Dictionary with encrypted data and metadata
+
+##### decrypt_data
+
+```python
+decrypt_data(self, encrypted_package: Dict[str, str]) -> str
+```
+
+Decrypt data using stored key information.
+
+Args:
+    encrypted_package: Package from encrypt_data method
+    
+Returns:
+    Decrypted data as string
+
+##### rotate_key
+
+```python
+rotate_key(self, key_name: str) -> str
+```
+
+Rotate encryption key and maintain history.
+
+##### get_encryption_statistics
+
+```python
+get_encryption_statistics(self) -> Dict[str, Any]
+```
+
+Get encryption service statistics.
+
+#### AuditTrailSystem
+
+Comprehensive audit logging with security events tracking.
+
+This class provides security event logging, compliance reporting,
+forensic analysis capabilities, and integration with the observability
+platform from Phase B for comprehensive security monitoring.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, retention_days: int = 365, max_events: int = 100000)
+```
+
+Initialize audit trail system with retention settings.
+
+Args:
+    retention_days: How long to retain audit events
+    max_events: Maximum audit events to keep in memory
+
+##### log_event
+
+```python
+log_event(self, event_type: AuditEventType, user_id: str = None, resource: str = None, action: str = None, result: str = 'success', message: str = '', metadata: Dict[str, Any] = None, security_level: SecurityLevel = SecurityLevel.INTERNAL, session_id: str = None, ip_address: str = None, exercise: str = None, environment: str = None) -> str
+```
+
+Log security audit event with comprehensive context.
+
+Args:
+    event_type: Type of audit event
+    user_id: User who triggered the event
+    resource: Resource affected by the event
+    action: Action performed
+    result: Result of the action (success/failure)
+    message: Human-readable event description
+    metadata: Additional event metadata
+    security_level: Security classification level
+    session_id: User session identifier
+    ip_address: Source IP address
+    exercise: Related Framework0 exercise
+    environment: Target environment
+    
+Returns:
+    Event ID of the logged event
+
+##### _check_security_alerts
+
+```python
+_check_security_alerts(self, event: AuditEvent) -> None
+```
+
+Check if event triggers security alerts.
+
+##### _count_recent_events
+
+```python
+_count_recent_events(self, event_type: AuditEventType, hours: int = 1, user_id: str = None) -> int
+```
+
+Count recent events of specified type.
+
+##### _cleanup_old_events
+
+```python
+_cleanup_old_events(self) -> None
+```
+
+Remove old audit events beyond retention period.
+
+##### search_events
+
+```python
+search_events(self, event_types: List[AuditEventType] = None, user_id: str = None, resource: str = None, start_time: datetime = None, end_time: datetime = None, security_level: SecurityLevel = None, exercise: str = None, limit: int = 100) -> List[AuditEvent]
+```
+
+Search audit events with various filters.
+
+Args:
+    event_types: Filter by event types
+    user_id: Filter by user ID
+    resource: Filter by resource
+    start_time: Filter by start time
+    end_time: Filter by end time
+    security_level: Filter by security level
+    exercise: Filter by Framework0 exercise
+    limit: Maximum results to return
+    
+Returns:
+    List of matching audit events
+
+##### generate_compliance_report
+
+```python
+generate_compliance_report(self, start_date: datetime, end_date: datetime, report_type: str = 'security') -> Dict[str, Any]
+```
+
+Generate compliance report for specified time period.
+
+Args:
+    start_date: Report start date
+    end_date: Report end date
+    report_type: Type of compliance report
+    
+Returns:
+    Comprehensive compliance report
+
+##### get_audit_statistics
+
+```python
+get_audit_statistics(self) -> Dict[str, Any]
+```
+
+Get comprehensive audit system statistics.
+
+#### SecurityFramework
+
+Unified security orchestration and management platform.
+
+This class integrates all security components (authentication, authorization,
+encryption, audit trails) and provides a unified interface for comprehensive
+security management across the Framework0 ecosystem.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, session_timeout: int = 3600, audit_retention_days: int = 365)
+```
+
+Initialize comprehensive security framework.
+
+Args:
+    session_timeout: Default user session timeout
+    audit_retention_days: Audit log retention period
+
+##### _configure_security_policies
+
+```python
+_configure_security_policies(self) -> None
+```
+
+Configure default security policies.
+
+##### _start_audit_logging
+
+```python
+_start_audit_logging(self) -> None
+```
+
+Start comprehensive audit logging.
 
 
 ---
@@ -13512,6 +27505,212 @@ Returns:
 
 ---
 
+## tools.comprehensive_documentation_generator
+
+**Description:** Comprehensive Documentation Generator for Framework0 Workspace
+
+This module generates individual user manuals for all Python modules,
+shell scripts, recipe files, and configuration files in the Framework0
+workspace based on the comprehensive workspace analysis results.
+
+Author: Framework0 Development Team
+Date: 2025-10-05
+Version: 1.0.0-comprehensive
+
+**File:** `tools/comprehensive_documentation_generator.py`
+
+### Classes
+
+#### ComprehensiveDocumentationGenerator
+
+Comprehensive documentation generator for Framework0 workspace files.
+
+This class generates detailed user manuals for all analyzed files,
+creating comprehensive documentation with usage examples, features,
+and complete API documentation for each file in the workspace.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, workspace_root: str, analysis_file: str) -> None
+```
+
+Initialize documentation generator with workspace analysis results.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root
+    analysis_file: Path to workspace analysis JSON file
+
+##### _load_detailed_analyses
+
+```python
+_load_detailed_analyses(self) -> None
+```
+
+Load detailed file analyses by re-running the workspace scanner.
+
+This method imports and runs the comprehensive workspace scanner
+to get detailed analysis results for all workspace files.
+
+##### generate_all_documentation
+
+```python
+generate_all_documentation(self) -> None
+```
+
+Generate comprehensive documentation for all workspace files.
+
+This method creates individual user manuals for every Python module,
+shell script, recipe file, and configuration file in the workspace.
+
+##### _generate_python_manuals
+
+```python
+_generate_python_manuals(self) -> None
+```
+
+Generate individual user manuals for all Python modules.
+
+Creates comprehensive documentation for each Python file including
+functions, classes, usage examples, and complete API information.
+
+##### _generate_shell_manuals
+
+```python
+_generate_shell_manuals(self) -> None
+```
+
+Generate individual user manuals for all shell scripts.
+
+Creates comprehensive documentation for each shell script including
+functions, usage patterns, and execution examples.
+
+##### _generate_recipe_manuals
+
+```python
+_generate_recipe_manuals(self) -> None
+```
+
+Generate individual user manuals for all recipe files.
+
+Creates comprehensive documentation for each recipe including
+steps, configuration, and execution instructions.
+
+##### _generate_config_manuals
+
+```python
+_generate_config_manuals(self) -> None
+```
+
+Generate individual user manuals for all configuration files.
+
+Creates comprehensive documentation for each configuration file
+including sections, settings, and usage instructions.
+
+##### _create_python_manual
+
+```python
+_create_python_manual(self, module) -> str
+```
+
+Create comprehensive user manual content for Python module.
+
+Args:
+    module: FileAnalysis object for Python module
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+##### _create_shell_manual
+
+```python
+_create_shell_manual(self, script) -> str
+```
+
+Create comprehensive user manual content for shell script.
+
+Args:
+    script: FileAnalysis object for shell script
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+##### _create_recipe_manual
+
+```python
+_create_recipe_manual(self, recipe) -> str
+```
+
+Create comprehensive user manual content for recipe file.
+
+Args:
+    recipe: FileAnalysis object for recipe file
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+##### _create_config_manual
+
+```python
+_create_config_manual(self, config) -> str
+```
+
+Create comprehensive user manual content for configuration file.
+
+Args:
+    config: FileAnalysis object for configuration file
+    
+Returns:
+    str: Complete manual content in Markdown format
+
+##### _generate_workspace_summary
+
+```python
+_generate_workspace_summary(self) -> None
+```
+
+Generate comprehensive workspace summary documentation.
+
+Creates an overview document that summarizes the entire Framework0
+workspace structure, capabilities, and file organization.
+
+##### _generate_api_reference
+
+```python
+_generate_api_reference(self) -> None
+```
+
+Generate comprehensive API reference documentation.
+
+Creates detailed API reference covering all Python modules,
+functions, and classes in the Framework0 system.
+
+##### _generate_usage_guide
+
+```python
+_generate_usage_guide(self) -> None
+```
+
+Generate comprehensive usage guide documentation.
+
+Creates a user guide covering common usage patterns,
+examples, and getting started information for Framework0.
+
+##### _display_generation_summary
+
+```python
+_display_generation_summary(self) -> None
+```
+
+Display comprehensive summary of documentation generation results.
+
+Shows statistics about generated documentation files and coverage.
+
+
+---
+
 ## tools.comprehensive_recipe_test_cli
 
 **Description:** Framework0 Comprehensive Recipe Test CLI
@@ -13659,6 +27858,299 @@ Args:
     
 Returns:
     Dict[str, Any]: Framework compatibility analysis
+
+
+---
+
+## tools.comprehensive_workspace_scanner
+
+**Description:** Comprehensive Workspace Scanner for Framework0 Documentation Update
+
+This module performs thorough analysis of the current workspace structure,
+identifying all Python modules, shell scripts, and their capabilities to
+generate accurate documentation reflecting the actual codebase.
+
+Author: Framework0 Development Team  
+Date: 2025-10-05
+Version: 1.0.0-comprehensive
+
+**File:** `tools/comprehensive_workspace_scanner.py`
+
+### Classes
+
+#### FileAnalysis
+
+Comprehensive analysis result for individual workspace files.
+
+This class captures complete information about a file including its
+purpose, capabilities, dependencies, and usage patterns for documentation.
+
+**Attributes:**
+
+- `file_path: str`
+- `file_type: str`
+- `file_name: str`
+- `description: str`
+- `main_functions: List[Dict[str, Any]] = field(default_factory=list)`
+- `classes: List[Dict[str, Any]] = field(default_factory=list)`
+- `dependencies: List[str] = field(default_factory=list)`
+- `entry_points: List[str] = field(default_factory=list)`
+- `usage_examples: List[str] = field(default_factory=list)`
+- `features: List[str] = field(default_factory=list)`
+- `limitations: List[str] = field(default_factory=list)`
+- `documentation_needed: bool = True`
+- `last_modified: str = ''`
+- `file_size_bytes: int = 0`
+
+#### WorkspaceAnalysis
+
+Complete analysis result for entire Framework0 workspace.
+
+This class aggregates all file analyses and provides workspace-wide
+statistics and insights for comprehensive documentation generation.
+
+**Attributes:**
+
+- `workspace_root: str`
+- `analysis_timestamp: str`
+- `total_files_analyzed: int = 0`
+- `python_modules: List[FileAnalysis] = field(default_factory=list)`
+- `shell_scripts: List[FileAnalysis] = field(default_factory=list)`
+- `recipe_files: List[FileAnalysis] = field(default_factory=list)`
+- `config_files: List[FileAnalysis] = field(default_factory=list)`
+- `workspace_structure: Dict[str, List[str]] = field(default_factory=dict)`
+- `framework_capabilities: List[str] = field(default_factory=list)`
+- `integration_patterns: List[str] = field(default_factory=list)`
+- `documentation_status: Dict[str, int] = field(default_factory=dict)`
+
+#### ComprehensiveWorkspaceScanner
+
+Comprehensive workspace scanner for Framework0 documentation generation.
+
+This class performs thorough analysis of all workspace files, extracting
+detailed information about capabilities, usage patterns, and documentation
+requirements to generate accurate user manuals and API documentation.
+
+**Methods:**
+
+##### __init__
+
+```python
+__init__(self, workspace_root: str) -> None
+```
+
+Initialize comprehensive workspace scanner with configuration.
+
+Args:
+    workspace_root: Absolute path to Framework0 workspace root directory
+
+##### scan_entire_workspace
+
+```python
+scan_entire_workspace(self) -> WorkspaceAnalysis
+```
+
+Perform comprehensive scan of entire workspace for documentation generation.
+
+Returns:
+    WorkspaceAnalysis: Complete workspace analysis with all file details
+
+##### _discover_workspace_files
+
+```python
+_discover_workspace_files(self) -> Dict[str, List[Path]]
+```
+
+Discover all relevant files in workspace for analysis.
+
+Returns:
+    Dict[str, List[Path]]: Files organized by type for analysis
+
+##### _analyze_individual_file
+
+```python
+_analyze_individual_file(self, file_path: Path, file_type: str) -> FileAnalysis
+```
+
+Perform comprehensive analysis of individual file for documentation.
+
+Args:
+    file_path: Path to file for analysis
+    file_type: Type of file being analyzed
+    
+Returns:
+    FileAnalysis: Complete analysis of individual file
+
+##### _analyze_python_module
+
+```python
+_analyze_python_module(self, file_path: Path, analysis: FileAnalysis) -> None
+```
+
+Perform comprehensive analysis of Python module for documentation.
+
+Args:
+    file_path: Path to Python module file
+    analysis: FileAnalysis object to populate with results
+
+##### _analyze_shell_script
+
+```python
+_analyze_shell_script(self, file_path: Path, analysis: FileAnalysis) -> None
+```
+
+Perform comprehensive analysis of shell script for documentation.
+
+Args:
+    file_path: Path to shell script file
+    analysis: FileAnalysis object to populate with results
+
+##### _analyze_recipe_file
+
+```python
+_analyze_recipe_file(self, file_path: Path, analysis: FileAnalysis) -> None
+```
+
+Perform comprehensive analysis of recipe file for documentation.
+
+Args:
+    file_path: Path to recipe file
+    analysis: FileAnalysis object to populate with results
+
+##### _analyze_config_file
+
+```python
+_analyze_config_file(self, file_path: Path, analysis: FileAnalysis) -> None
+```
+
+Perform comprehensive analysis of configuration file for documentation.
+
+Args:
+    file_path: Path to configuration file
+    analysis: FileAnalysis object to populate with results
+
+##### _extract_function_info
+
+```python
+_extract_function_info(self, node: ast.FunctionDef) -> Dict[str, Any]
+```
+
+Extract comprehensive information about a function from AST node.
+
+Args:
+    node: AST FunctionDef node to analyze
+    
+Returns:
+    Dict[str, Any]: Complete function information for documentation
+
+##### _extract_class_info
+
+```python
+_extract_class_info(self, node: ast.ClassDef) -> Dict[str, Any]
+```
+
+Extract comprehensive information about a class from AST node.
+
+Args:
+    node: AST ClassDef node to analyze
+    
+Returns:
+    Dict[str, Any]: Complete class information for documentation
+
+##### _extract_import_info
+
+```python
+_extract_import_info(self, node) -> List[str]
+```
+
+Extract import information from AST import node.
+
+Args:
+    node: AST Import or ImportFrom node
+    
+Returns:
+    List[str]: List of imported modules and packages
+
+##### _extract_usage_examples
+
+```python
+_extract_usage_examples(self, source_code: str) -> List[str]
+```
+
+Extract usage examples from Python source code comments and docstrings.
+
+Args:
+    source_code: Complete Python source code content
+    
+Returns:
+    List[str]: List of usage examples found in code
+
+##### _extract_python_features
+
+```python
+_extract_python_features(self, analysis: FileAnalysis) -> List[str]
+```
+
+Extract key features from Python module analysis.
+
+Args:
+    analysis: FileAnalysis object with function and class information
+    
+Returns:
+    List[str]: List of key features and capabilities
+
+##### _generate_workspace_structure
+
+```python
+_generate_workspace_structure(self) -> Dict[str, List[str]]
+```
+
+Generate complete workspace directory structure mapping.
+
+Returns:
+    Dict[str, List[str]]: Directory structure with file listings
+
+##### _extract_framework_capabilities
+
+```python
+_extract_framework_capabilities(self, analysis: WorkspaceAnalysis) -> List[str]
+```
+
+Extract framework-wide capabilities from workspace analysis.
+
+Args:
+    analysis: Complete workspace analysis
+    
+Returns:
+    List[str]: List of framework capabilities and features
+
+##### _extract_integration_patterns
+
+```python
+_extract_integration_patterns(self, analysis: WorkspaceAnalysis) -> List[str]
+```
+
+Extract common integration patterns from workspace analysis.
+
+Args:
+    analysis: Complete workspace analysis
+    
+Returns:
+    List[str]: List of integration patterns and usage examples
+
+##### _calculate_documentation_status
+
+```python
+_calculate_documentation_status(self, analysis: WorkspaceAnalysis) -> Dict[str, int]
+```
+
+Calculate documentation coverage statistics for workspace.
+
+Args:
+    analysis: Complete workspace analysis
+    
+Returns:
+    Dict[str, int]: Documentation coverage statistics
 
 
 ---
@@ -13887,6 +28379,13 @@ Generate and update all documentation files.
 
 Returns:
     Dictionary mapping documentation types to their file paths
+
+
+---
+
+## tools.framework0_documentation_generator
+
+**File:** `tools/framework0_documentation_generator.py`
 
 
 ---

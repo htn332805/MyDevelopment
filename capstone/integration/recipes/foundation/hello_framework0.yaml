@@ -1,0 +1,121 @@
+# Framework0 Recipe: Hello Framework0 - Your First Recipe
+# Exercise 1 Integration - Foundation Recipe Pattern
+# Category: Foundation | Complexity: Beginner
+
+metadata:
+  name: "hello_framework0"
+  version: "1.0.0"
+  description: "Introduction to Framework0 recipe structure and basic scriptlets"
+  author: "Framework0 Team"
+  category: "foundation"
+  complexity: "beginner"
+  exercise_source: "Exercise 1"
+  estimated_duration: "30-45 minutes"
+  
+  # Learning objectives for this recipe
+  learning_objectives:
+    - "Understand Framework0 recipe YAML structure"
+    - "Create and execute basic scriptlets"
+    - "Use Context system for data sharing"
+    - "Implement proper logging and error handling"
+  
+  # Prerequisites for successful execution
+  prerequisites:
+    - "Framework0 environment setup"
+    - "Python 3.11+ activated"
+    - "Basic YAML syntax understanding"
+  
+  # Tags for recipe discovery
+  tags: ["beginner", "introduction", "hello-world", "yaml", "context", "foundation"]
+
+# Recipe execution configuration
+execution:
+  timeout_seconds: 60
+  retry_attempts: 2
+  parallel_execution: false
+  
+# Recipe steps definition
+steps:
+  - name: "initialize_welcome"
+    idx: 1
+    type: "python"
+    description: "Display Framework0 welcome message with user personalization"
+    module: "scriptlets.foundation"
+    function: "WelcomeScriptlet"
+    args:
+      message: "Hello Framework0!"
+      user_name: "Framework0 Learner"
+      show_timestamp: true
+      greeting_style: "friendly"
+    
+  - name: "system_information"
+    idx: 2
+    type: "python" 
+    description: "Gather and display system information for context"
+    module: "scriptlets.foundation"
+    function: "SystemInfoScriptlet"
+    args:
+      include_python_version: true
+      include_framework_version: true
+      include_system_stats: true
+      store_in_context: true
+    depends_on: ["initialize_welcome"]
+    
+  - name: "context_demonstration"
+    idx: 3
+    type: "python"
+    description: "Demonstrate Context operations and data sharing"
+    module: "scriptlets.foundation"
+    function: "ContextDemoScriptlet"
+    args:
+      demo_operations: ["set", "get", "contains", "keys"]
+      sample_data:
+        user_preference: "learning"
+        session_id: "exercise_1_demo"
+        framework_component: "recipe_system"
+      display_results: true
+    depends_on: ["system_information"]
+    
+  - name: "completion_summary"
+    idx: 4
+    type: "python"
+    description: "Summarize recipe execution and learning outcomes"
+    module: "scriptlets.foundation"
+    function: "CompletionSummaryScriptlet"
+    args:
+      include_execution_metrics: true
+      include_context_summary: true
+      display_learning_objectives: true
+      next_steps_recommendation: "Exercise 2: Data Processing Basics"
+    depends_on: ["context_demonstration"]
+
+# Success criteria for recipe validation
+success_criteria:
+  - "All steps execute without errors"
+  - "Welcome message displays correctly"
+  - "System information is gathered and displayed"
+  - "Context operations demonstrate data sharing"
+  - "Completion summary shows successful execution"
+
+# Common troubleshooting guidance
+troubleshooting:
+  common_issues:
+    - issue: "ModuleNotFoundError for scriptlets"
+      solution: "Ensure scriptlets directory is in Python path"
+      command: "export PYTHONPATH=$PYTHONPATH:$(pwd)"
+    - issue: "YAML syntax errors"
+      solution: "Validate YAML syntax using online validator"
+      command: "python -c 'import yaml; yaml.safe_load(open(\"recipe.yaml\"))'"
+    - issue: "Context data not persisting"
+      solution: "Check Context initialization and scope"
+      command: "Review Context.set() and Context.get() calls"
+
+# Recipe metadata for portfolio integration
+portfolio_integration:
+  showcase_priority: 1  # High priority for demonstration
+  interactive_elements: true
+  performance_monitoring: true
+  learning_assessment: true
+  next_recipe_suggestions:
+    - "data_processing_basics"
+    - "csv_processing_demo"
