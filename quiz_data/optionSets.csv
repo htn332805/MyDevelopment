@@ -1,0 +1,7 @@
+optionSetName,optionsDelimited
+trueFalse,True|False
+yesNo,Yes|No
+planets,Earth|Jupiter|Saturn|Neptune|Mars|Venus
+elements,Au|Ag|Fe|Cu|H|O|N|C
+numbers,10|20|30|40|50
+colors,Red|Blue|Green|Yellow|Purple|Orange

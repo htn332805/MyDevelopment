@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Framework0 Quiz System - After Incremental Update",
+  "description": "Demonstration of incremental update functionality",
+  "meta": {
+    "version": "1.1.0",
+    "created": "2025-10-06T07:11:36.325147",
+    "updated": "2025-10-06T07:11:36.329438",
+    "description": "Initial quiz data created for incremental update demo"
+  },
+  "optionSets": {
+    "trueFalse": [
+      "True",
+      "False"
+    ],
+    "yesNo": [
+      "Yes",
+      "No"
+    ],
+    "planets": [
+      "Earth",
+      "Jupiter",
+      "Saturn",
+      "Neptune",
+      "Mars",
+      "Venus"
+    ],
+    "elements": [
+      "Au",
+      "Ag",
+      "Fe",
+      "Cu",
+      "H",
+      "O",
+      "N",
+      "C"
+    ],
+    "numbers": [
+      "10",
+      "20",
+      "30",
+      "40",
+      "50"
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow",
+      "Purple",
+      "Orange"
+    ]
+  },
+  "templates": {
+    "mc": {
+      "type": "Multiple Choice",
+      "structure": [
+        "text",
+        "options",
+        "answer",
+        "hint?",
+        "category",
+        "difficulty?",
+        "tags?"
+      ]
+    },
+    "tf": {
+      "type": "True/False",
+      "structure": [
+        "text",
+        "answer",
+        "hint?",
+        "category",
+        "difficulty?",
+        "tags?"
+      ],
+      "options": "@trueFalse"
+    },
+    "match": {
+      "type": "Matching",
+      "structure": [
+        "text",
+        "pairs",
+        "answer",
+        "hint?",
+        "category",
+        "difficulty?",
+        "tags?"
+      ]
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "template": "mc",
+      "text": "What is the largest planet?",
+      "hint": "Gas giant with Great Red Spot",
+      "category": "astronomy",
+      "difficulty": 2,
+      "tags": [
+        "space",
+        "planets"
+      ],
+      "options": [
+        "Earth",
+        "Jupiter",
+        "Saturn",
+        "Neptune",
+        "Mars",
+        "Venus"
+      ],
+      "answer": "Jupiter"
+    },
+    {
+      "id": 2,
+      "template": "tf",
+      "text": "The sun is a star.",
+      "hint": "Nuclear fusion",
+      "category": "astronomy",
+      "difficulty": 1,
+      "tags": [
+        "space"
+      ],
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "id": 3,
+      "template": "mc",
+      "text": "What is 2 + 2?",
+      "hint": "Basic arithmetic",
+      "category": "math",
+      "difficulty": 1,
+      "tags": [
+        "arithmetic"
+      ],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": 4,
+      "template": "match",
+      "text": "Match elements to symbols",
+      "hint": "Chemical symbols",
+      "category": "chemistry",
+      "difficulty": 2,
+      "tags": [
+        "science"
+      ],
+      "pairs": {
+        "Gold": {
+          "optionSet": "elements"
+        },
+        "Silver": {
+          "optionSet": "elements"
+        },
+        "Iron": {
+          "optionSet": "elements"
+        }
+      },
+      "answer": {
+        "Gold": "Au",
+        "Silver": "Ag",
+        "Iron": "Fe"
+      }
+    },
+    {
+      "id": 5,
+      "template": "tf",
+      "text": "Water boils at 100°C at sea level.",
+      "hint": "Standard atmospheric pressure",
+      "category": "chemistry",
+      "difficulty": 1,
+      "tags": [
+        "science",
+        "basics"
+      ],
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    }
+  ]
+}

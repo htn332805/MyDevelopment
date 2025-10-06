@@ -1,0 +1,4 @@
+id,template,text,options_ref,options_inline,pairs,answer_mc,answer_match,hint,category,difficulty,tags
+1,mc,What is the largest planet?,planets,,,Jupiter,,King of the gods,astronomy,1,space
+2,tf,The sun is a star.,trueFalse,,,True,,Nuclear fusion,astronomy,1,space
+3,mc,What is 2 + 2?,,1|2|3|4|5,,4,,Basic arithmetic,math,1,arithmetic

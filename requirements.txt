@@ -1,7 +1,7 @@
 # requirements.txt
 
 # Framework0 Core Dependencies
-framework0==0.1.0  # Pinning to a specific version ensures consistency across environments.
+#framework0==0.1.0  # Pinning to a specific version ensures consistency across environments.
 
 # HTTP Requests
 requests>=2.25.0  # Allows for minor and patch updates, ensuring compatibility with the latest features and security patches.

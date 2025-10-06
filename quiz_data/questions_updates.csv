@@ -1,0 +1,4 @@
+id,template,text,options_ref,options_inline,pairs,answer_mc,answer_match,hint,category,difficulty,tags
+1,mc,What is the largest planet?,planets,,,Jupiter,,Gas giant with Great Red Spot,astronomy,2,space|planets
+4,match,Match elements to symbols,,,Gold=optionSet:elements|Silver=optionSet:elements|Iron=optionSet:elements,,Gold=Au|Silver=Ag|Iron=Fe,Chemical symbols,chemistry,2,science
+5,tf,Water boils at 100°C at sea level.,trueFalse,,,True,,Standard atmospheric pressure,chemistry,1,science|basics
