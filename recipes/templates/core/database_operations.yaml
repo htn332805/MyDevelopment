@@ -1,0 +1,870 @@
+# Framework0 Core Recipe Template - Database Operations
+# Comprehensive database operations with multi-database support, transactions, and monitoring
+#
+# This template provides enterprise-grade database operations capabilities including:
+# - Multi-database support (PostgreSQL, MySQL, SQLite, MongoDB, Redis)
+# - CRUD operations with advanced querying and filtering
+# - Transaction management with isolation levels and rollback
+# - Connection pooling with automatic failover and load balancing
+# - Schema management and migration support
+# - Performance monitoring and query optimization
+# - Foundation system integration for health checks and metrics
+# - Comprehensive error handling with retry logic and circuit breakers
+# - Data security with encryption and access control
+
+name: database_operations_template
+version: "1.0.0"
+description: "Comprehensive database operations template with multi-database support, transactions, and monitoring"
+category: "core_patterns"
+author: "Framework0 Core Team"
+created_date: "2024-10-05"
+tags:
+  - "database"
+  - "crud"
+  - "transactions"
+  - "connection_pooling"
+  - "schema_management"
+  - "monitoring"
+  - "foundation_integration"
+
+# Template parameters with comprehensive validation
+parameters:
+  # Database connection configuration
+  database_config:
+    type: "object"
+    description: "Database connection configuration"
+    required: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          type:
+            type: "string"
+            enum: ["postgresql", "mysql", "sqlite", "mongodb", "redis", "oracle", "sqlserver"]
+          connection_string:
+            type: "string"
+            description: "Database connection string or URI"
+          host:
+            type: "string"
+            description: "Database host address"
+          port:
+            type: "integer"
+            description: "Database port number"
+          database:
+            type: "string"
+            description: "Database name"
+          username:
+            type: "string"
+            description: "Database username"
+          password:
+            type: "string"
+            description: "Database password"
+          ssl_config:
+            type: "object"
+            description: "SSL/TLS configuration"
+            properties:
+              enabled:
+                type: "boolean"
+              cert_path:
+                type: "string"
+              key_path:
+                type: "string"
+              ca_path:
+                type: "string"
+          additional_options:
+            type: "object"
+            description: "Database-specific connection options"
+            additional_properties: true
+        required: ["type"]
+      error_message: "Invalid database configuration"
+  
+  # Operation configuration
+  operation:
+    type: "string"
+    description: "Database operation to perform"
+    required: true
+    validation:
+      enum: ["create", "read", "update", "delete", "execute", "migrate", "backup", "restore"]
+      error_message: "Must be a valid database operation"
+  
+  # Table/Collection configuration
+  target_config:
+    type: "object"
+    description: "Target table or collection configuration"
+    required: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          table_name:
+            type: "string"
+            description: "Table or collection name"
+          schema_name:
+            type: "string"
+            description: "Database schema name (for SQL databases)"
+          primary_key:
+            type: ["string", "array"]
+            description: "Primary key field(s)"
+          indexes:
+            type: "array"
+            description: "Index definitions"
+            items:
+              type: "object"
+          constraints:
+            type: "array"
+            description: "Table constraints"
+            items:
+              type: "object"
+        required: ["table_name"]
+      error_message: "Invalid target configuration"
+  
+  # Data configuration for operations
+  data_config:
+    type: "object"
+    description: "Data configuration for database operations"
+    required: false
+    default: {}
+    validation:
+      schema:
+        type: "object"
+        properties:
+          data:
+            type: ["object", "array"]
+            description: "Data for insert/update operations"
+          conditions:
+            type: "object"
+            description: "Query conditions for select/update/delete"
+          fields:
+            type: "array"
+            description: "Fields to select/update"
+            items:
+              type: "string"
+          order_by:
+            type: "array"
+            description: "Ordering specification"
+            items:
+              type: "object"
+          limit:
+            type: "integer"
+            description: "Result limit"
+            minimum: 1
+          offset:
+            type: "integer"
+            description: "Result offset"
+            minimum: 0
+          raw_query:
+            type: "string"
+            description: "Raw SQL/NoSQL query"
+          query_parameters:
+            type: "object"
+            description: "Parameters for parameterized queries"
+            additional_properties: true
+        required: []
+      error_message: "Invalid data configuration"
+  
+  # Transaction management configuration
+  transaction_config:
+    type: "object"
+    description: "Transaction management configuration"
+    required: false
+    default:
+      enabled: false
+      isolation_level: "READ_COMMITTED"
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          isolation_level:
+            type: "string"
+            enum: ["READ_UNCOMMITTED", "READ_COMMITTED", "REPEATABLE_READ", "SERIALIZABLE"]
+          timeout_seconds:
+            type: "integer"
+            minimum: 1
+            maximum: 3600
+          auto_commit:
+            type: "boolean"
+          rollback_on_error:
+            type: "boolean"
+          savepoints:
+            type: "array"
+            description: "Transaction savepoint definitions"
+            items:
+              type: "string"
+          batch_size:
+            type: "integer"
+            description: "Batch size for bulk operations"
+            minimum: 1
+            maximum: 10000
+        required: ["enabled"]
+      error_message: "Invalid transaction configuration"
+  
+  # Connection pooling configuration
+  connection_pool_config:
+    type: "object"
+    description: "Connection pooling configuration"
+    required: false
+    default:
+      enabled: true
+      min_connections: 2
+      max_connections: 10
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          min_connections:
+            type: "integer"
+            minimum: 1
+            maximum: 50
+          max_connections:
+            type: "integer"
+            minimum: 1
+            maximum: 100
+          max_idle_time:
+            type: "integer"
+            description: "Maximum idle time in seconds"
+            minimum: 30
+            maximum: 3600
+          connection_timeout:
+            type: "integer"
+            description: "Connection timeout in seconds"
+            minimum: 1
+            maximum: 120
+          validation_query:
+            type: "string"
+            description: "Query to validate connections"
+          health_check_interval:
+            type: "integer"
+            description: "Health check interval in seconds"
+            minimum: 10
+            maximum: 300
+          failover_config:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              retry_attempts:
+                type: "integer"
+              backup_hosts:
+                type: "array"
+                items:
+                  type: "string"
+        required: ["enabled"]
+      error_message: "Invalid connection pool configuration"
+  
+  # Schema management configuration
+  schema_config:
+    type: "object"
+    description: "Database schema management configuration"
+    required: false
+    default:
+      auto_create: false
+      validate_schema: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          auto_create:
+            type: "boolean"
+            description: "Automatically create tables/collections if missing"
+          validate_schema:
+            type: "boolean"
+            description: "Validate schema before operations"
+          schema_definition:
+            type: "object"
+            description: "Schema definition for table/collection"
+            additional_properties: true
+          migration_config:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              migration_table:
+                type: "string"
+              migration_scripts_path:
+                type: "string"
+              auto_migrate:
+                type: "boolean"
+          versioning:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              version_field:
+                type: "string"
+              strategy:
+                type: "string"
+                enum: ["timestamp", "sequential", "uuid"]
+        required: ["auto_create", "validate_schema"]
+      error_message: "Invalid schema configuration"
+  
+  # Performance optimization configuration
+  performance_config:
+    type: "object"
+    description: "Performance optimization configuration"
+    required: false
+    default:
+      enable_query_cache: true
+      enable_result_streaming: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enable_query_cache:
+            type: "boolean"
+          cache_ttl_seconds:
+            type: "integer"
+            minimum: 60
+            maximum: 86400
+          enable_result_streaming:
+            type: "boolean"
+          stream_batch_size:
+            type: "integer"
+            minimum: 100
+            maximum: 10000
+          query_timeout_seconds:
+            type: "integer"
+            minimum: 1
+            maximum: 3600
+          enable_query_optimization:
+            type: "boolean"
+          explain_queries:
+            type: "boolean"
+          slow_query_threshold_ms:
+            type: "integer"
+            minimum: 100
+            maximum: 30000
+          connection_retry_config:
+            type: "object"
+            properties:
+              max_retries:
+                type: "integer"
+              retry_delay_seconds:
+                type: "number"
+              exponential_backoff:
+                type: "boolean"
+        required: ["enable_query_cache"]
+      error_message: "Invalid performance configuration"
+  
+  # Security configuration
+  security_config:
+    type: "object"
+    description: "Database security configuration"
+    required: false
+    default:
+      encrypt_connection: true
+      log_queries: false
+    validation:
+      schema:
+        type: "object"
+        properties:
+          encrypt_connection:
+            type: "boolean"
+          log_queries:
+            type: "boolean"
+            description: "Log SQL queries (security consideration)"
+          mask_sensitive_data:
+            type: "boolean"
+          sensitive_fields:
+            type: "array"
+            description: "Fields to mask in logs"
+            items:
+              type: "string"
+          access_control:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              role_based:
+                type: "boolean"
+              allowed_operations:
+                type: "array"
+                items:
+                  type: "string"
+          audit_config:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              audit_table:
+                type: "string"
+              track_changes:
+                type: "boolean"
+              include_user_context:
+                type: "boolean"
+        required: ["encrypt_connection"]
+      error_message: "Invalid security configuration"
+  
+  # Monitoring and Foundation integration
+  monitoring_config:
+    type: "object"
+    description: "Database monitoring and Foundation integration configuration"
+    required: false
+    default:
+      enabled: true
+      track_performance: true
+    validation:
+      schema:
+        type: "object"
+        properties:
+          enabled:
+            type: "boolean"
+          track_performance:
+            type: "boolean"
+          log_database_events:
+            type: "boolean"
+          health_checks:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              check_interval_seconds:
+                type: "integer"
+              connection_health:
+                type: "boolean"
+              query_health:
+                type: "boolean"
+          performance_metrics:
+            type: "object"
+            properties:
+              query_duration:
+                type: "boolean"
+              connection_pool_stats:
+                type: "boolean"
+              transaction_stats:
+                type: "boolean"
+              error_rates:
+                type: "boolean"
+          alerting:
+            type: "object"
+            properties:
+              enabled:
+                type: "boolean"
+              slow_query_threshold_ms:
+                type: "integer"
+              connection_failure_threshold:
+                type: "integer"
+              error_rate_threshold:
+                type: "number"
+        required: ["enabled"]
+      error_message: "Invalid monitoring configuration"
+
+# Recipe steps with comprehensive database operations workflow
+steps:
+  - name: "initialize_database_connection"
+    description: "Initialize database connection and connection pool"
+    scriptlet: "core.database_operations"
+    function: "initialize_database_connection"
+    parameters:
+      database_config: "{{ database_config }}"
+      connection_pool_config: "{{ connection_pool_config }}"
+      security_config: "{{ security_config }}"
+      monitoring_config: "{{ monitoring_config }}"
+    outputs:
+      - name: "database_connection_config"
+        description: "Initialized database connection configuration"
+      - name: "connection_pool_status"
+        description: "Connection pool initialization status"
+    error_handling:
+      on_failure: "rollback"
+      max_retries: 3
+      retry_delay: 2
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Initializing database connection to {{ database_config.type }}"
+      performance:
+        track: true
+        threshold_warning_ms: 3000
+      health_check:
+        endpoint: "database_connection_init"
+        timeout: 15
+  
+  - name: "validate_database_schema"
+    description: "Validate database schema and create tables if needed"
+    scriptlet: "core.database_operations"
+    function: "validate_database_schema"
+    parameters:
+      database_connection_config: "{{ steps.initialize_database_connection.outputs.database_connection_config }}"
+      target_config: "{{ target_config }}"
+      schema_config: "{{ schema_config }}"
+    outputs:
+      - name: "schema_validation_results"
+        description: "Schema validation results and actions taken"
+    depends_on: ["initialize_database_connection"]
+    error_handling:
+      on_failure: "fail_fast"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Validating schema for {{ target_config.table_name }}"
+      performance:
+        track: true
+  
+  - name: "setup_transaction_context"
+    description: "Setup transaction context if transactions are enabled"
+    scriptlet: "core.database_operations"
+    function: "setup_transaction_context"
+    parameters:
+      database_connection_config: "{{ steps.initialize_database_connection.outputs.database_connection_config }}"
+      transaction_config: "{{ transaction_config }}"
+      operation: "{{ operation }}"
+    outputs:
+      - name: "transaction_context"
+        description: "Transaction context and configuration"
+    depends_on: ["validate_database_schema"]
+    error_handling:
+      on_failure: "cleanup_and_retry"
+      max_retries: 2
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Setting up transaction context"
+      performance:
+        track: true
+  
+  - name: "execute_database_operation"
+    description: "Execute the specified database operation"
+    scriptlet: "core.database_operations"
+    function: "execute_database_operation"
+    parameters:
+      database_connection_config: "{{ steps.initialize_database_connection.outputs.database_connection_config }}"
+      transaction_context: "{{ steps.setup_transaction_context.outputs.transaction_context }}"
+      operation: "{{ operation }}"
+      target_config: "{{ target_config }}"
+      data_config: "{{ data_config }}"
+      performance_config: "{{ performance_config }}"
+    outputs:
+      - name: "operation_results"
+        description: "Database operation results and affected records"
+      - name: "execution_metadata"
+        description: "Operation execution metadata and timing"
+    depends_on: ["setup_transaction_context"]
+    error_handling:
+      on_failure: "rollback_transaction"
+      max_retries: "{{ performance_config.connection_retry_config.max_retries | default(3) }}"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Executing {{ operation }} operation on {{ target_config.table_name }}"
+      performance:
+        track: true
+        threshold_warning_ms: "{{ performance_config.slow_query_threshold_ms | default(1000) }}"
+      health_check:
+        endpoint: "database_operation"
+        timeout: "{{ performance_config.query_timeout_seconds | default(30) }}"
+  
+  - name: "validate_operation_results"
+    description: "Validate operation results and data integrity"
+    scriptlet: "core.database_operations"
+    function: "validate_operation_results"
+    parameters:
+      operation_results: "{{ steps.execute_database_operation.outputs.operation_results }}"
+      execution_metadata: "{{ steps.execute_database_operation.outputs.execution_metadata }}"
+      operation: "{{ operation }}"
+      target_config: "{{ target_config }}"
+      expected_results: "{{ data_config.expected_results | default({}) }}"
+    outputs:
+      - name: "validation_results"
+        description: "Operation results validation status"
+    depends_on: ["execute_database_operation"]
+    error_handling:
+      on_failure: "log_and_continue"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Validating operation results"
+      performance:
+        track: true
+  
+  - name: "commit_or_rollback_transaction"
+    description: "Commit transaction if successful or rollback on failure"
+    scriptlet: "core.database_operations"
+    function: "commit_or_rollback_transaction"
+    parameters:
+      transaction_context: "{{ steps.setup_transaction_context.outputs.transaction_context }}"
+      validation_results: "{{ steps.validate_operation_results.outputs.validation_results }}"
+      transaction_config: "{{ transaction_config }}"
+    outputs:
+      - name: "transaction_status"
+        description: "Final transaction status and actions taken"
+    depends_on: ["validate_operation_results"]
+    error_handling:
+      on_failure: "force_rollback"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Finalizing transaction"
+      performance:
+        track: true
+  
+  - name: "update_performance_metrics"
+    description: "Update performance metrics and health status"
+    scriptlet: "core.database_operations"
+    function: "update_performance_metrics"
+    parameters:
+      database_connection_config: "{{ steps.initialize_database_connection.outputs.database_connection_config }}"
+      operation_results: "{{ steps.execute_database_operation.outputs.operation_results }}"
+      execution_metadata: "{{ steps.execute_database_operation.outputs.execution_metadata }}"
+      transaction_status: "{{ steps.commit_or_rollback_transaction.outputs.transaction_status }}"
+      monitoring_config: "{{ monitoring_config }}"
+    outputs:
+      - name: "performance_metrics"
+        description: "Updated performance metrics and statistics"
+    depends_on: ["commit_or_rollback_transaction"]
+    error_handling:
+      on_failure: "log_error_continue"
+    foundation_integration:
+      logging:
+        level: "DEBUG"
+        message: "Updating performance metrics"
+      performance:
+        track: true
+  
+  - name: "generate_operation_report"
+    description: "Generate comprehensive database operation report"
+    scriptlet: "core.database_operations"
+    function: "generate_operation_report"
+    parameters:
+      database_connection_config: "{{ steps.initialize_database_connection.outputs.database_connection_config }}"
+      schema_validation_results: "{{ steps.validate_database_schema.outputs.schema_validation_results }}"
+      operation_results: "{{ steps.execute_database_operation.outputs.operation_results }}"
+      execution_metadata: "{{ steps.execute_database_operation.outputs.execution_metadata }}"
+      validation_results: "{{ steps.validate_operation_results.outputs.validation_results }}"
+      transaction_status: "{{ steps.commit_or_rollback_transaction.outputs.transaction_status }}"
+      performance_metrics: "{{ steps.update_performance_metrics.outputs.performance_metrics }}"
+    outputs:
+      - name: "operation_report"
+        description: "Comprehensive database operation report"
+      - name: "summary_statistics"
+        description: "Operation summary statistics"
+    depends_on: ["update_performance_metrics"]
+    error_handling:
+      on_failure: "log_error_continue"
+    foundation_integration:
+      logging:
+        level: "INFO"
+        message: "Database operation completed successfully"
+      performance:
+        track: true
+        summary: true
+      health_check:
+        endpoint: "operation_complete"
+        success_indicator: true
+
+# Error handling and recovery procedures
+error_handling:
+  global_strategy: "transaction_aware_recovery"
+  rollback_procedures:
+    - name: "rollback_active_transaction"
+      description: "Rollback any active database transactions"
+      scriptlet: "core.database_operations"
+      function: "rollback_active_transaction"
+    - name: "cleanup_connection_pool"
+      description: "Clean up database connection pool resources"
+      scriptlet: "core.database_operations"
+      function: "cleanup_connection_pool"
+    - name: "reset_connection_state"
+      description: "Reset database connection state"
+      scriptlet: "core.database_operations"
+      function: "reset_connection_state"
+    - name: "log_operation_failure"
+      description: "Log detailed database operation failure information"
+      scriptlet: "core.database_operations"
+      function: "log_operation_failure"
+  
+  transaction_recovery:
+    enabled: true
+    auto_rollback_on_error: true
+    savepoint_recovery: true
+    connection_retry_logic: true
+
+# Foundation system integration
+foundation_integration:
+  logging:
+    component_name: "database_operations_template"
+    default_level: "INFO"
+    structured_logging: true
+    include_query_context: false  # Security consideration
+  
+  health_monitoring:
+    endpoints:
+      - name: "database_connectivity"
+        check_interval_seconds: 30
+        timeout_seconds: 10
+      - name: "connection_pool_health"
+        check_interval_seconds: 60
+        timeout_seconds: 5
+      - name: "query_performance"
+        check_interval_seconds: 120
+        timeout_seconds: 15
+  
+  performance_monitoring:
+    metrics:
+      - name: "database_query_duration"
+        type: "histogram"
+        unit: "milliseconds"
+      - name: "database_operation_count"
+        type: "counter"
+        labels: ["operation", "table", "status"]
+      - name: "connection_pool_active"
+        type: "gauge"
+        labels: ["database_type", "host"]
+      - name: "transaction_duration"
+        type: "histogram"
+        unit: "milliseconds"
+      - name: "database_errors"
+        type: "counter"
+        labels: ["error_type", "operation"]
+    
+    alerts:
+      - name: "slow_database_queries"
+        condition: "database_query_duration > 5000"
+        severity: "warning"
+      - name: "connection_pool_exhausted"
+        condition: "connection_pool_active >= max_connections * 0.9"
+        severity: "error"
+      - name: "database_connection_failures"
+        condition: "database_errors{error_type='connection'} > 3"
+        severity: "critical"
+  
+  error_tracking:
+    capture_query_text: false     # Security consideration
+    capture_connection_details: true
+    include_stack_trace: true
+    mask_sensitive_parameters: true
+
+# Template metadata and usage examples
+metadata:
+  usage_examples:
+    - name: "simple_crud_operations"
+      description: "Basic CRUD operations with PostgreSQL"
+      parameters:
+        database_config:
+          type: "postgresql"
+          host: "localhost"
+          port: 5432
+          database: "myapp"
+          username: "${DB_USER}"
+          password: "${DB_PASSWORD}"
+        operation: "read"
+        target_config:
+          table_name: "users"
+        data_config:
+          conditions: {"active": true}
+          limit: 100
+    
+    - name: "transactional_operations"
+      description: "Complex operations with transactions"
+      parameters:
+        operation: "create"
+        transaction_config:
+          enabled: true
+          isolation_level: "REPEATABLE_READ"
+          rollback_on_error: true
+        data_config:
+          data: [
+            {"name": "John", "email": "john@example.com"},
+            {"name": "Jane", "email": "jane@example.com"}
+          ]
+    
+    - name: "mongodb_operations"
+      description: "NoSQL operations with MongoDB"
+      parameters:
+        database_config:
+          type: "mongodb"
+          connection_string: "mongodb://localhost:27017/myapp"
+        operation: "read"
+        target_config:
+          table_name: "products"
+        data_config:
+          conditions: {"category": "electronics", "price": {"$lt": 1000}}
+  
+  integration_patterns:
+    - "ETL data processing"
+    - "API data persistence"
+    - "Batch data operations"
+    - "Real-time data updates"
+    - "Data migration and synchronization"
+  
+  performance_characteristics:
+    typical_query_time: "10-500ms depending on complexity"
+    memory_usage: "low-medium with connection pooling"
+    cpu_usage: "low-medium"
+    scalability: "horizontal with connection pooling"
+  
+  security_considerations:
+    - "Database credentials should be stored securely"
+    - "SQL injection prevention with parameterized queries"
+    - "Connection encryption enabled by default"
+    - "Query logging disabled for sensitive operations"
+    - "Access control and audit logging available"
+
+# Output specifications
+outputs:
+  primary_outputs:
+    - name: "operation_report"
+      description: "Comprehensive database operation report"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          operation_summary:
+            type: "object"
+          results_summary:
+            type: "object"
+          performance_metrics:
+            type: "object"
+          transaction_info:
+            type: "object"
+        required: ["operation_summary", "results_summary"]
+    
+    - name: "operation_results"
+      description: "Database operation results and affected data"
+      type: ["object", "array"]
+    
+    - name: "performance_metrics"
+      description: "Detailed performance and timing metrics"
+      type: "object"
+      schema:
+        type: "object"
+        properties:
+          query_duration_ms:
+            type: "number"
+          records_affected:
+            type: "integer"
+          connection_pool_stats:
+            type: "object"
+        required: ["query_duration_ms"]
+  
+  debug_outputs:
+    - name: "execution_metadata"
+      description: "Detailed execution metadata and diagnostics"
+      type: "object"
+    
+    - name: "connection_diagnostics"
+      description: "Database connection diagnostic information"
+      type: "object"
+    
+    - name: "transaction_status"
+      description: "Transaction status and rollback information"
+      type: "object"
+
+# Version and compatibility information
+compatibility:
+  framework0_version: ">=1.0.0"
+  python_version: ">=3.11"
+  required_packages:
+    - "sqlalchemy>=2.0.0"
+    - "psycopg2-binary>=2.9.0"  # PostgreSQL
+    - "pymysql>=1.1.0"          # MySQL
+    - "pymongo>=4.5.0"          # MongoDB
+    - "redis>=5.0.0"            # Redis
+  optional_packages:
+    - "cx_Oracle>=8.3.0"        # Oracle Database
+    - "pyodbc>=4.0.39"          # SQL Server
+    - "asyncpg>=0.28.0"         # Async PostgreSQL
+    - "motor>=3.3.0"            # Async MongoDB

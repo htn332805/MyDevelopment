@@ -1,0 +1,1134 @@
+# Framework0 Core Recipe Template: Batch Processing Operations
+# 
+# Purpose: Comprehensive batch processing capabilities for large dataset operations
+# Features: Parallel execution, progress tracking, checkpoint recovery, resource management
+# Version: 1.0.0
+# Dependencies: Foundation 5A-5D (Logging, Health, Metrics, Context Management)
+# 
+# This template provides enterprise-grade batch processing with:
+# - Multi-threaded and multi-process execution strategies
+# - Progress tracking with checkpoint recovery mechanisms
+# - Memory management and resource throttling
+# - Chunking algorithms for optimal performance
+# - Foundation system integration for monitoring
+# - Comprehensive error handling and retry logic
+# - Performance optimization and scalability features
+
+metadata:
+  template_name: "batch_processing"
+  version: "1.0.0"
+  description: "Enterprise batch processing operations with parallelization and monitoring"
+  category: "core"
+  author: "Framework0 Development Team"
+  created: "2025-10-05"
+  last_modified: "2025-10-05"
+  
+  # Template dependencies
+  dependencies:
+    framework0: ">=1.0.0"
+    foundation_logging: "5A"
+    foundation_health: "5B" 
+    foundation_metrics: "5C"
+    foundation_context: "5D"
+  
+  # Required Python packages
+  required_packages:
+    - "multiprocessing"
+    - "concurrent.futures"
+    - "threading"
+    - "queue"
+    - "pickle"
+    - "psutil"  # For resource monitoring
+    - "tqdm"    # For progress bars (optional)
+  
+  # Template capabilities
+  capabilities:
+    - "parallel_execution"
+    - "progress_tracking"
+    - "checkpoint_recovery"
+    - "memory_management"
+    - "resource_throttling" 
+    - "performance_optimization"
+    - "foundation_integration"
+
+# Recipe template structure
+recipe:
+  name: "${batch_processing_config.recipe_name}"
+  description: "${batch_processing_config.description}"
+  version: "1.0.0"
+  
+  # Recipe metadata
+  metadata:
+    generated_from: "batch_processing_template"
+    generation_time: "${generation_timestamp}"
+    template_version: "1.0.0"
+    batch_size: "${processing_config.batch_size}"
+    parallel_workers: "${execution_config.parallel_workers}"
+    
+  # Foundation integration configuration
+  foundation:
+    logging:
+      enabled: true
+      level: "${monitoring_config.log_level}"
+      component: "batch_processing"
+      structured: true
+      
+    health_monitoring:
+      enabled: "${monitoring_config.health_checks_enabled}"
+      check_interval: "${monitoring_config.health_check_interval}"
+      component: "batch_processing"
+      
+    performance_metrics:
+      enabled: "${monitoring_config.performance_monitoring_enabled}" 
+      collection_interval: "${monitoring_config.metrics_collection_interval}"
+      component: "batch_processing"
+      
+    context_management:
+      enabled: true
+      context_type: "batch_processing"
+      preserve_state: true
+
+  # Recipe steps with comprehensive batch processing workflow
+  steps:
+    # Step 1: Initialize batch processing environment
+    - name: "initialize_batch_processing"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "initialize_batch_processing"
+      description: "Initialize batch processing environment with configuration validation"
+      
+      parameters:
+        batch_processing_config:
+          recipe_name: "${batch_processing_config.recipe_name}"
+          description: "${batch_processing_config.description}"
+          operation_mode: "${batch_processing_config.operation_mode}"
+          
+        processing_config:
+          batch_size: "${processing_config.batch_size}"
+          chunk_size: "${processing_config.chunk_size}"
+          processing_strategy: "${processing_config.processing_strategy}"
+          data_source_type: "${processing_config.data_source_type}"
+          data_source_config: "${processing_config.data_source_config}"
+          
+        execution_config:
+          parallel_workers: "${execution_config.parallel_workers}"
+          execution_mode: "${execution_config.execution_mode}"
+          worker_timeout: "${execution_config.worker_timeout}"
+          max_queue_size: "${execution_config.max_queue_size}"
+          
+        memory_config:
+          max_memory_usage: "${memory_config.max_memory_usage}"
+          memory_monitoring_enabled: "${memory_config.memory_monitoring_enabled}"
+          garbage_collection_enabled: "${memory_config.garbage_collection_enabled}"
+          memory_cleanup_interval: "${memory_config.memory_cleanup_interval}"
+          
+        checkpoint_config:
+          checkpoint_enabled: "${checkpoint_config.checkpoint_enabled}"
+          checkpoint_interval: "${checkpoint_config.checkpoint_interval}"
+          checkpoint_storage_path: "${checkpoint_config.checkpoint_storage_path}"
+          recovery_enabled: "${checkpoint_config.recovery_enabled}"
+          
+        monitoring_config:
+          progress_tracking_enabled: "${monitoring_config.progress_tracking_enabled}"
+          performance_monitoring_enabled: "${monitoring_config.performance_monitoring_enabled}"
+          resource_monitoring_enabled: "${monitoring_config.resource_monitoring_enabled}"
+          health_checks_enabled: "${monitoring_config.health_checks_enabled}"
+          log_level: "${monitoring_config.log_level}"
+          metrics_collection_interval: "${monitoring_config.metrics_collection_interval}"
+          health_check_interval: "${monitoring_config.health_check_interval}"
+          
+      outputs:
+        - "batch_processing_manager"
+        - "execution_environment" 
+        - "initialization_status"
+        
+      error_handling:
+        retry_count: 3
+        retry_delay: 5
+        fallback_action: "terminate"
+        
+    # Step 2: Validate data sources and processing configuration
+    - name: "validate_batch_configuration"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "validate_batch_configuration"
+      description: "Validate data sources, processing parameters, and resource availability"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        data_source_config: "${processing_config.data_source_config}"
+        validation_config:
+          validate_data_source: true
+          validate_memory_requirements: true
+          validate_disk_space: true
+          validate_worker_resources: true
+          validate_checkpoint_path: "${checkpoint_config.checkpoint_enabled}"
+          
+        resource_validation:
+          min_available_memory: "${memory_config.min_available_memory}"
+          min_disk_space: "${resource_validation.min_disk_space}"
+          max_cpu_usage: "${resource_validation.max_cpu_usage}"
+          
+      outputs:
+        - "validation_results"
+        - "resource_assessment"
+        - "data_source_metadata"
+        
+      error_handling:
+        retry_count: 2
+        retry_delay: 3
+        fallback_action: "fail_fast"
+
+    # Step 3: Setup parallel execution environment
+    - name: "setup_execution_environment"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "setup_execution_environment"
+      description: "Configure parallel workers, queues, and execution infrastructure"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        execution_config: "${execution_config}"
+        validation_results: "${steps.validate_batch_configuration.outputs.validation_results}"
+        
+        worker_configuration:
+          worker_pool_size: "${execution_config.parallel_workers}"
+          worker_type: "${execution_config.execution_mode}"
+          worker_initialization: "${execution_config.worker_initialization}"
+          worker_cleanup: "${execution_config.worker_cleanup}"
+          
+        queue_configuration:
+          input_queue_size: "${execution_config.max_queue_size}"
+          output_queue_size: "${execution_config.max_queue_size}"
+          priority_queue_enabled: "${execution_config.priority_queue_enabled}"
+          queue_timeout: "${execution_config.queue_timeout}"
+          
+        resource_limits:
+          memory_per_worker: "${memory_config.memory_per_worker}"
+          cpu_affinity: "${execution_config.cpu_affinity}"
+          process_priority: "${execution_config.process_priority}"
+          
+      outputs:
+        - "execution_environment"
+        - "worker_pool"
+        - "queue_manager"
+        
+      error_handling:
+        retry_count: 2
+        retry_delay: 5
+        fallback_action: "reduce_workers"
+
+    # Step 4: Initialize checkpoint and recovery system
+    - name: "setup_checkpoint_system"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "setup_checkpoint_system"
+      description: "Configure checkpoint storage and recovery mechanisms"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        checkpoint_config: "${checkpoint_config}"
+        execution_environment: "${steps.setup_execution_environment.outputs.execution_environment}"
+        
+        checkpoint_storage:
+          storage_path: "${checkpoint_config.checkpoint_storage_path}"
+          storage_format: "${checkpoint_config.storage_format}"
+          compression_enabled: "${checkpoint_config.compression_enabled}"
+          encryption_enabled: "${checkpoint_config.encryption_enabled}"
+          
+        recovery_configuration:
+          auto_recovery_enabled: "${checkpoint_config.recovery_enabled}"
+          recovery_validation: "${checkpoint_config.recovery_validation}"
+          partial_recovery_allowed: "${checkpoint_config.partial_recovery_allowed}"
+          
+      outputs:
+        - "checkpoint_manager"
+        - "recovery_status"
+        - "checkpoint_metadata"
+        
+      error_handling:
+        retry_count: 2
+        retry_delay: 3
+        fallback_action: "disable_checkpoints"
+
+    # Step 5: Load and partition data for batch processing
+    - name: "load_and_partition_data"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "load_and_partition_data"
+      description: "Load data source and create optimized partitions for parallel processing"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        data_source_config: "${processing_config.data_source_config}"
+        processing_config: "${processing_config}"
+        checkpoint_manager: "${steps.setup_checkpoint_system.outputs.checkpoint_manager}"
+        
+        partitioning_strategy:
+          strategy_type: "${processing_config.partitioning_strategy}"
+          partition_size: "${processing_config.chunk_size}"
+          load_balancing: "${processing_config.load_balancing_enabled}"
+          dynamic_partitioning: "${processing_config.dynamic_partitioning_enabled}"
+          
+        data_loading:
+          streaming_enabled: "${processing_config.streaming_enabled}"
+          prefetch_enabled: "${processing_config.prefetch_enabled}"
+          prefetch_size: "${processing_config.prefetch_size}"
+          memory_mapped: "${processing_config.memory_mapped_enabled}"
+          
+        optimization:
+          data_caching: "${processing_config.data_caching_enabled}"
+          compression: "${processing_config.compression_enabled}"
+          serialization_format: "${processing_config.serialization_format}"
+          
+      outputs:
+        - "data_partitions"
+        - "partition_metadata"
+        - "loading_statistics"
+        
+      error_handling:
+        retry_count: 3
+        retry_delay: 10
+        fallback_action: "reduce_batch_size"
+
+    # Step 6: Execute batch processing with parallel workers
+    - name: "execute_batch_processing"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "execute_batch_processing"
+      description: "Execute parallel batch processing with monitoring and progress tracking"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        execution_environment: "${steps.setup_execution_environment.outputs.execution_environment}"
+        data_partitions: "${steps.load_and_partition_data.outputs.data_partitions}"
+        checkpoint_manager: "${steps.setup_checkpoint_system.outputs.checkpoint_manager}"
+        
+        processing_function:
+          function_name: "${processing_config.processing_function}"
+          function_module: "${processing_config.processing_module}"
+          function_parameters: "${processing_config.function_parameters}"
+          function_timeout: "${processing_config.function_timeout}"
+          
+        execution_control:
+          max_retries: "${execution_config.max_retries}"
+          retry_delay: "${execution_config.retry_delay}"
+          failure_threshold: "${execution_config.failure_threshold}"
+          early_termination_enabled: "${execution_config.early_termination_enabled}"
+          
+        progress_tracking:
+          progress_reporting_enabled: "${monitoring_config.progress_tracking_enabled}"
+          progress_update_interval: "${monitoring_config.progress_update_interval}"
+          progress_callback: "${monitoring_config.progress_callback}"
+          
+        resource_management:
+          throttling_enabled: "${memory_config.throttling_enabled}"
+          throttling_threshold: "${memory_config.throttling_threshold}"
+          resource_monitoring_interval: "${monitoring_config.resource_monitoring_interval}"
+          
+      outputs:
+        - "processing_results"
+        - "execution_statistics"
+        - "performance_metrics"
+        - "error_summary"
+        
+      error_handling:
+        retry_count: 1
+        retry_delay: 30
+        fallback_action: "partial_recovery"
+
+    # Step 7: Aggregate and validate processing results
+    - name: "aggregate_processing_results"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "aggregate_processing_results"
+      description: "Aggregate results from parallel workers and validate output quality"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        processing_results: "${steps.execute_batch_processing.outputs.processing_results}"
+        execution_statistics: "${steps.execute_batch_processing.outputs.execution_statistics}"
+        
+        aggregation_config:
+          aggregation_strategy: "${output_config.aggregation_strategy}"
+          result_validation_enabled: "${output_config.result_validation_enabled}"
+          duplicate_detection: "${output_config.duplicate_detection_enabled}"
+          sorting_enabled: "${output_config.sorting_enabled}"
+          sorting_criteria: "${output_config.sorting_criteria}"
+          
+        output_format:
+          format_type: "${output_config.format_type}"
+          compression_enabled: "${output_config.compression_enabled}"
+          file_splitting_enabled: "${output_config.file_splitting_enabled}"
+          max_file_size: "${output_config.max_file_size}"
+          
+        quality_validation:
+          completeness_check: "${validation_config.completeness_check_enabled}"
+          consistency_check: "${validation_config.consistency_check_enabled}"
+          data_integrity_check: "${validation_config.data_integrity_check_enabled}"
+          
+      outputs:
+        - "aggregated_results"
+        - "aggregation_metadata"
+        - "quality_report"
+        
+      error_handling:
+        retry_count: 2
+        retry_delay: 10
+        fallback_action: "partial_aggregation"
+
+    # Step 8: Update performance metrics and monitoring data
+    - name: "update_performance_metrics"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "update_performance_metrics"
+      description: "Update performance metrics and resource utilization statistics"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        execution_statistics: "${steps.execute_batch_processing.outputs.execution_statistics}"
+        performance_metrics: "${steps.execute_batch_processing.outputs.performance_metrics}"
+        aggregation_metadata: "${steps.aggregate_processing_results.outputs.aggregation_metadata}"
+        
+        metrics_collection:
+          throughput_metrics: true
+          latency_metrics: true
+          resource_utilization_metrics: true
+          error_rate_metrics: true
+          efficiency_metrics: true
+          
+        foundation_integration:
+          update_health_monitor: "${monitoring_config.health_checks_enabled}"
+          update_performance_monitor: "${monitoring_config.performance_monitoring_enabled}"
+          update_context_manager: true
+          
+      outputs:
+        - "performance_report"
+        - "resource_utilization_report"
+        - "efficiency_analysis"
+        
+      error_handling:
+        retry_count: 2
+        retry_delay: 5
+        fallback_action: "skip_metrics"
+
+    # Step 9: Cleanup resources and generate comprehensive report
+    - name: "cleanup_and_report"
+      scriptlet: "scriptlets.core.batch_processing"
+      function: "cleanup_and_report" 
+      description: "Cleanup processing resources and generate comprehensive batch report"
+      
+      parameters:
+        batch_processing_manager: "${steps.initialize_batch_processing.outputs.batch_processing_manager}"
+        execution_environment: "${steps.setup_execution_environment.outputs.execution_environment}"
+        aggregated_results: "${steps.aggregate_processing_results.outputs.aggregated_results}"
+        performance_report: "${steps.update_performance_metrics.outputs.performance_report}"
+        checkpoint_manager: "${steps.setup_checkpoint_system.outputs.checkpoint_manager}"
+        
+        cleanup_config:
+          cleanup_workers: true
+          cleanup_queues: true
+          cleanup_temporary_files: "${cleanup_config.cleanup_temporary_files}"
+          cleanup_checkpoints: "${cleanup_config.cleanup_checkpoints_after_success}"
+          
+        report_generation:
+          generate_summary_report: true
+          include_performance_analysis: true
+          include_resource_utilization: true
+          include_error_analysis: true
+          include_recommendations: true
+          
+        output_configuration:
+          output_path: "${output_config.output_path}"
+          report_format: "${output_config.report_format}"
+          detailed_logging: "${monitoring_config.detailed_logging_enabled}"
+          
+      outputs:
+        - "batch_processing_report"
+        - "cleanup_status"
+        - "final_statistics"
+        
+      error_handling:
+        retry_count: 1
+        retry_delay: 5
+        fallback_action: "force_cleanup"
+
+# Parameter definitions with comprehensive validation schemas
+parameters:
+  # Core batch processing configuration
+  batch_processing_config:
+    type: "object"
+    description: "Core batch processing configuration"
+    required: true
+    properties:
+      recipe_name:
+        type: "string"
+        description: "Name of the batch processing recipe"
+        required: true
+        validation:
+          min_length: 3
+          max_length: 100
+          pattern: "^[a-zA-Z0-9_-]+$"
+      
+      description:
+        type: "string" 
+        description: "Description of the batch processing operation"
+        required: true
+        validation:
+          min_length: 10
+          max_length: 500
+      
+      operation_mode:
+        type: "string"
+        description: "Batch processing operation mode"
+        required: true
+        enum: ["parallel", "sequential", "adaptive", "stream"]
+        default: "parallel"
+
+  # Processing configuration  
+  processing_config:
+    type: "object"
+    description: "Data processing configuration parameters"
+    required: true
+    properties:
+      batch_size:
+        type: "integer"
+        description: "Number of items to process in each batch"
+        required: true
+        validation:
+          minimum: 1
+          maximum: 100000
+          default: 1000
+      
+      chunk_size:
+        type: "integer"
+        description: "Size of data chunks for parallel processing"
+        required: true
+        validation:
+          minimum: 1
+          maximum: 10000
+          default: 100
+      
+      processing_strategy:
+        type: "string"
+        description: "Strategy for processing data partitions"
+        required: true
+        enum: ["round_robin", "load_balanced", "priority_based", "resource_aware"]
+        default: "load_balanced"
+        
+      data_source_type:
+        type: "string"
+        description: "Type of data source"
+        required: true
+        enum: ["file", "database", "stream", "api", "memory", "queue"]
+        
+      data_source_config:
+        type: "object"
+        description: "Data source specific configuration"
+        required: true
+        properties:
+          source_path:
+            type: "string"
+            description: "Path or URL to data source"
+            required: false
+          connection_config:
+            type: "object"
+            description: "Connection configuration for external sources"
+            required: false
+          format_config:
+            type: "object" 
+            description: "Data format configuration"
+            required: false
+            
+      processing_function:
+        type: "string"
+        description: "Name of the processing function to apply"
+        required: true
+        
+      processing_module:
+        type: "string"
+        description: "Module containing the processing function"
+        required: true
+        
+      function_parameters:
+        type: "object"
+        description: "Parameters to pass to processing function"
+        required: false
+        default: {}
+        
+      function_timeout:
+        type: "integer"
+        description: "Timeout for processing function execution (seconds)"
+        required: false
+        validation:
+          minimum: 1
+          maximum: 3600
+          default: 300
+
+  # Execution configuration
+  execution_config:
+    type: "object"
+    description: "Parallel execution configuration"
+    required: true
+    properties:
+      parallel_workers:
+        type: "integer"
+        description: "Number of parallel workers"
+        required: true
+        validation:
+          minimum: 1
+          maximum: 64
+          default: 4
+      
+      execution_mode:
+        type: "string"
+        description: "Type of parallel execution"
+        required: true
+        enum: ["thread", "process", "hybrid", "distributed"]
+        default: "process"
+        
+      worker_timeout:
+        type: "integer"
+        description: "Timeout for individual worker operations (seconds)"
+        required: false
+        validation:
+          minimum: 10
+          maximum: 7200
+          default: 600
+          
+      max_queue_size:
+        type: "integer"
+        description: "Maximum size for worker queues"
+        required: false
+        validation:
+          minimum: 10
+          maximum: 10000
+          default: 1000
+          
+      max_retries:
+        type: "integer"
+        description: "Maximum retry attempts for failed operations"
+        required: false
+        validation:
+          minimum: 0
+          maximum: 10
+          default: 3
+          
+      retry_delay:
+        type: "integer" 
+        description: "Delay between retry attempts (seconds)"
+        required: false
+        validation:
+          minimum: 1
+          maximum: 300
+          default: 5
+          
+      failure_threshold:
+        type: "number"
+        description: "Maximum failure rate before termination (0.0-1.0)"
+        required: false
+        validation:
+          minimum: 0.0
+          maximum: 1.0
+          default: 0.1
+
+  # Memory and resource configuration
+  memory_config:
+    type: "object"
+    description: "Memory management configuration"
+    required: false
+    properties:
+      max_memory_usage:
+        type: "string"
+        description: "Maximum memory usage (e.g., '4GB', '512MB')"
+        required: false
+        default: "2GB"
+        validation:
+          pattern: "^[0-9]+(MB|GB|TB)$"
+          
+      memory_monitoring_enabled:
+        type: "boolean"
+        description: "Enable memory usage monitoring"
+        required: false
+        default: true
+        
+      garbage_collection_enabled:
+        type: "boolean"
+        description: "Enable automatic garbage collection"
+        required: false
+        default: true
+        
+      memory_cleanup_interval:
+        type: "integer"
+        description: "Interval for memory cleanup operations (seconds)"
+        required: false
+        validation:
+          minimum: 10
+          maximum: 3600
+          default: 60
+          
+      throttling_enabled:
+        type: "boolean"
+        description: "Enable resource throttling when limits approached"
+        required: false
+        default: true
+        
+      throttling_threshold:
+        type: "number"
+        description: "Resource usage threshold for throttling (0.0-1.0)"
+        required: false
+        validation:
+          minimum: 0.1
+          maximum: 1.0
+          default: 0.8
+
+  # Checkpoint and recovery configuration
+  checkpoint_config:
+    type: "object"
+    description: "Checkpoint and recovery configuration"
+    required: false
+    properties:
+      checkpoint_enabled:
+        type: "boolean"
+        description: "Enable checkpoint functionality"
+        required: false
+        default: true
+        
+      checkpoint_interval:
+        type: "integer"
+        description: "Interval between checkpoints (seconds)"
+        required: false
+        validation:
+          minimum: 30
+          maximum: 3600
+          default: 300
+          
+      checkpoint_storage_path:
+        type: "string"
+        description: "Path for checkpoint storage"
+        required: false
+        default: "./checkpoints"
+        
+      recovery_enabled:
+        type: "boolean"
+        description: "Enable automatic recovery from checkpoints"
+        required: false
+        default: true
+        
+      storage_format:
+        type: "string"
+        description: "Format for checkpoint storage"
+        required: false
+        enum: ["pickle", "json", "binary", "compressed"]
+        default: "pickle"
+        
+      compression_enabled:
+        type: "boolean"
+        description: "Enable compression for checkpoint files"
+        required: false
+        default: true
+        
+      encryption_enabled:
+        type: "boolean"
+        description: "Enable encryption for checkpoint files"
+        required: false
+        default: false
+
+  # Monitoring and performance configuration
+  monitoring_config:
+    type: "object"
+    description: "Monitoring and performance tracking configuration"
+    required: false
+    properties:
+      progress_tracking_enabled:
+        type: "boolean"
+        description: "Enable progress tracking and reporting"
+        required: false
+        default: true
+        
+      performance_monitoring_enabled:
+        type: "boolean"
+        description: "Enable performance metrics collection"
+        required: false
+        default: true
+        
+      resource_monitoring_enabled:
+        type: "boolean"
+        description: "Enable resource utilization monitoring"
+        required: false
+        default: true
+        
+      health_checks_enabled:
+        type: "boolean"
+        description: "Enable health monitoring checks"
+        required: false
+        default: true
+        
+      log_level:
+        type: "string"
+        description: "Logging level for batch processing operations"
+        required: false
+        enum: ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+        default: "INFO"
+        
+      metrics_collection_interval:
+        type: "integer"
+        description: "Interval for metrics collection (seconds)"
+        required: false
+        validation:
+          minimum: 5
+          maximum: 300
+          default: 30
+          
+      health_check_interval:
+        type: "integer"
+        description: "Interval for health checks (seconds)"
+        required: false
+        validation:
+          minimum: 10
+          maximum: 600
+          default: 60
+          
+      progress_update_interval:
+        type: "integer"
+        description: "Interval for progress updates (seconds)"
+        required: false
+        validation:
+          minimum: 1
+          maximum: 60
+          default: 10
+
+  # Output configuration
+  output_config:
+    type: "object"
+    description: "Output configuration for processed results"
+    required: false
+    properties:
+      output_path:
+        type: "string"
+        description: "Path for output files"
+        required: false
+        default: "./output"
+        
+      format_type:
+        type: "string"
+        description: "Output format type"
+        required: false
+        enum: ["json", "csv", "parquet", "pickle", "custom"]
+        default: "json"
+        
+      aggregation_strategy:
+        type: "string"
+        description: "Strategy for aggregating results"
+        required: false
+        enum: ["merge", "append", "custom", "streaming"]
+        default: "merge"
+        
+      compression_enabled:
+        type: "boolean"
+        description: "Enable output compression"
+        required: false
+        default: false
+        
+      file_splitting_enabled:
+        type: "boolean"
+        description: "Enable splitting large output files"
+        required: false
+        default: true
+        
+      max_file_size:
+        type: "string"
+        description: "Maximum size per output file"
+        required: false
+        default: "100MB"
+
+# Error handling and recovery procedures
+error_handling:
+  global_retry_count: 3
+  global_retry_delay: 10
+  
+  # Error categories and handling strategies
+  error_categories:
+    memory_errors:
+      strategy: "reduce_batch_size"
+      max_retries: 2
+      recovery_actions:
+        - "garbage_collection"
+        - "reduce_worker_count"
+        - "enable_streaming"
+        
+    resource_errors:
+      strategy: "throttle_resources"
+      max_retries: 3
+      recovery_actions:
+        - "reduce_parallelism"
+        - "increase_timeout"
+        - "enable_checkpointing"
+        
+    data_errors:
+      strategy: "skip_and_continue"
+      max_retries: 1
+      recovery_actions:
+        - "log_error_record"
+        - "continue_processing"
+        - "generate_error_report"
+        
+    system_errors:
+      strategy: "fail_fast"
+      max_retries: 0
+      recovery_actions:
+        - "save_checkpoint"
+        - "cleanup_resources"
+        - "generate_failure_report"
+
+# Performance optimization settings
+performance:
+  optimization_strategies:
+    - "dynamic_load_balancing"
+    - "adaptive_batch_sizing"
+    - "memory_pool_management"
+    - "cpu_affinity_optimization"
+    - "io_optimization"
+    
+  auto_tuning:
+    enabled: true
+    parameters:
+      - "batch_size"
+      - "worker_count"
+      - "queue_size"
+      - "memory_usage"
+      
+  caching:
+    enabled: true
+    strategies:
+      - "result_caching"
+      - "intermediate_caching"
+      - "metadata_caching"
+
+# Usage examples and common patterns
+examples:
+  # Example 1: File batch processing
+  file_processing_example:
+    description: "Process large CSV files in parallel"
+    parameters:
+      batch_processing_config:
+        recipe_name: "large_csv_processing"
+        description: "Process CSV files with 10M+ records"
+        operation_mode: "parallel"
+        
+      processing_config:
+        batch_size: 10000
+        chunk_size: 1000
+        processing_strategy: "load_balanced"
+        data_source_type: "file"
+        data_source_config:
+          source_path: "/data/large_dataset.csv"
+          format_config:
+            file_format: "csv"
+            delimiter: ","
+            header: true
+        processing_function: "transform_csv_record"
+        processing_module: "data_transformers"
+        
+      execution_config:
+        parallel_workers: 8
+        execution_mode: "process"
+        worker_timeout: 300
+        max_queue_size: 5000
+        
+      memory_config:
+        max_memory_usage: "8GB"
+        memory_monitoring_enabled: true
+        throttling_enabled: true
+        
+      checkpoint_config:
+        checkpoint_enabled: true
+        checkpoint_interval: 600
+        checkpoint_storage_path: "./checkpoints/csv_processing"
+        
+      output_config:
+        output_path: "./processed_data"
+        format_type: "parquet"
+        compression_enabled: true
+
+  # Example 2: Database batch processing  
+  database_processing_example:
+    description: "Process database records in batches"
+    parameters:
+      batch_processing_config:
+        recipe_name: "database_batch_processing"
+        description: "Process database records with complex transformations"
+        operation_mode: "parallel"
+        
+      processing_config:
+        batch_size: 5000
+        chunk_size: 500
+        processing_strategy: "resource_aware"
+        data_source_type: "database"
+        data_source_config:
+          connection_config:
+            host: "localhost"
+            port: 5432
+            database: "analytics"
+            username: "batch_user"
+            password: "${env.DB_PASSWORD}"
+          query: "SELECT * FROM large_table WHERE status = 'pending'"
+        processing_function: "process_database_record"
+        processing_module: "database_processors"
+        
+      execution_config:
+        parallel_workers: 4
+        execution_mode: "process"
+        max_retries: 5
+        
+      checkpoint_config:
+        checkpoint_enabled: true
+        checkpoint_interval: 300
+        recovery_enabled: true
+
+  # Example 3: API data processing
+  api_processing_example:
+    description: "Process data from external APIs"
+    parameters:
+      batch_processing_config:
+        recipe_name: "api_data_processing"
+        description: "Fetch and process data from multiple API endpoints"
+        operation_mode: "adaptive"
+        
+      processing_config:
+        batch_size: 1000
+        chunk_size: 50
+        processing_strategy: "priority_based"
+        data_source_type: "api"
+        data_source_config:
+          base_url: "https://api.example.com"
+          authentication:
+            type: "bearer"
+            token: "${env.API_TOKEN}"
+          endpoints:
+            - "/data/batch/{batch_id}"
+            - "/analytics/summary/{id}"
+        processing_function: "process_api_response"
+        processing_module: "api_processors"
+        
+      execution_config:
+        parallel_workers: 6
+        execution_mode: "thread"
+        worker_timeout: 120
+        
+      monitoring_config:
+        progress_tracking_enabled: true
+        performance_monitoring_enabled: true
+        progress_update_interval: 5
+
+# Template validation rules
+validation_rules:
+  # Parameter validation
+  parameter_validation:
+    batch_size_optimization:
+      rule: "batch_size should be optimally sized for memory and processing efficiency"
+      validation: "batch_size >= chunk_size * 2 and batch_size <= 50000"
+      
+    worker_count_validation:
+      rule: "parallel_workers should not exceed available CPU cores"
+      validation: "parallel_workers <= system_cpu_count * 2"
+      
+    memory_configuration:
+      rule: "memory configuration should be realistic for system resources"
+      validation: "max_memory_usage <= system_available_memory * 0.8"
+      
+    checkpoint_path_validation:
+      rule: "checkpoint path should be writable and have sufficient space"
+      validation: "path_exists(checkpoint_storage_path) and path_writable(checkpoint_storage_path)"
+
+  # Configuration validation  
+  configuration_validation:
+    execution_mode_compatibility:
+      rule: "execution mode should be compatible with processing function"
+      validation: "execution_mode compatible with function threading requirements"
+      
+    resource_consistency:
+      rule: "resource limits should be consistent across configuration"
+      validation: "memory_per_worker * parallel_workers <= max_memory_usage"
+      
+    timeout_consistency:
+      rule: "timeout values should be consistent and realistic"
+      validation: "worker_timeout >= function_timeout and checkpoint_interval <= worker_timeout"
+
+# Integration with Foundation systems
+foundation_integration:
+  # Logging integration (5A)
+  logging:
+    structured_logging: true
+    log_components:
+      - "batch_initialization"
+      - "data_partitioning"
+      - "parallel_execution"
+      - "progress_tracking"
+      - "error_handling"
+      - "performance_monitoring"
+      - "resource_management"
+      - "checkpoint_operations"
+    
+    log_levels:
+      DEBUG: "detailed_execution_traces"
+      INFO: "progress_and_status_updates"
+      WARNING: "performance_degradation_alerts"
+      ERROR: "processing_failures_and_errors"
+      CRITICAL: "system_failures_and_termination"
+
+  # Health monitoring integration (5B)  
+  health_monitoring:
+    health_checks:
+      - name: "worker_health"
+        description: "Monitor worker process health and responsiveness"
+        interval: 30
+        
+      - name: "memory_health"  
+        description: "Monitor memory usage and availability"
+        interval: 15
+        
+      - name: "queue_health"
+        description: "Monitor queue sizes and throughput"
+        interval: 20
+        
+      - name: "checkpoint_health"
+        description: "Monitor checkpoint system availability"
+        interval: 60
+        
+    health_thresholds:
+      memory_usage: 0.85
+      queue_backlog: 0.9
+      error_rate: 0.1
+      worker_availability: 0.8
+
+  # Performance monitoring integration (5C)
+  performance_monitoring:
+    metrics:
+      throughput:
+        - "records_processed_per_second"
+        - "batches_completed_per_minute"
+        - "data_volume_processed_per_hour"
+        
+      latency:
+        - "average_batch_processing_time"
+        - "worker_response_time"
+        - "queue_wait_time"
+        
+      resource_utilization:
+        - "cpu_usage_per_worker"
+        - "memory_usage_per_batch"
+        - "disk_io_rate"
+        - "network_bandwidth_usage"
+        
+      efficiency:
+        - "parallel_efficiency_ratio"
+        - "resource_utilization_efficiency" 
+        - "cache_hit_ratio"
+        - "error_to_success_ratio"
+
+  # Context management integration (5D)
+  context_management:
+    context_preservation:
+      - "batch_processing_state"
+      - "worker_configurations"
+      - "checkpoint_metadata"
+      - "performance_baselines"
+      
+    context_sharing:
+      - "cross_worker_state"
+      - "global_progress_tracking"
+      - "shared_resource_pools"
+      - "distributed_coordination"
