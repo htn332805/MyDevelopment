@@ -695,3 +695,654 @@ This project is part of the Framework0 automation ecosystem.
 
 **Framework0 Complete Documentation** - Enterprise Automation & Orchestration Framework  
 For technical support, feature requests, and contributions, please refer to the comprehensive documentation and developer guides included with the framework.
+
+
+
+
+
+
+
+Overview
+The octo_step_engine_parameters.py module provides a thread-safe, file-based parameter management system for the Octo Step Engine framework. It enables persistent storage and atomic updates of step engine configuration and runtime state using JSON files with file-locking mechanisms.
+
+Purpose
+This module serves as the central parameter management layer for step engine instances, providing:
+
+Persistent State Management - Store and retrieve step engine state across executions
+Thread-Safe Operations - Atomic read/write/increment operations with file locking
+Configuration Management - Manage global parameters, step-specific settings, and custom key-value pairs
+Default Parameter Initialization - Automatic creation of parameter files with sensible defaults
+Core Architecture
+File Structure
+The module manages two files:
+
+.octo_step_engine_parameters.json - The actual parameter storage file
+.octo_step_engine_parameters.lock - Lock file for atomic operations
+Default Parameter Schema
+
+{
+    "global_parameters": {
+        "step_engine_library_path": "",           # Path to step library
+        "step_engine_instance_path": "",          # Instance directory path
+        "step_engine_state": "INACTIVE",          # Engine state
+        "current_step_module": "",                # Current step module name
+        "current_step_node": "",                  # Current step node name
+        "current_step_state": "INACTIVE",         # Current step state
+        "first_step_module": "",                  # First step module
+        "first_step_node": "",                    # First step node
+        "run_step_count": 1,                      # Step execution counter
+        # ... custom parameters
+    },
+    "key001": { ... },  # Custom parameter groups
+    "key002": { ... }
+}
+
+State Values
+Step Engine States:
+
+INACTIVE - Engine not started
+STARTUP - Engine initializing
+RUNNING - Engine executing steps
+COMPLETE_SUCCESS - Successful completion
+COMPLETE_ERROR - Error completion
+Step States:
+
+INACTIVE - Step not active
+ENTER - Entering step (calling step_entry())
+EXECUTE - Executing step (calling step_execute())
+ADVANCE - Advancing step (calling step_advance())
+EXIT - Exiting step (calling step_exit())
+JUMP - Jumping to next step
+Class Reference: octo_step_engine_parameters
+Initialization
+from octo_step_engine_parameters import octo_step_engine_parameters
+
+# Create instance
+params_obj = octo_step_engine_parameters()
+The __init__() method automatically:
+
+Sets up module paths
+Imports the octolockjson locking mechanism
+Core Methods
+1. get_default_param_dict()
+Returns the default parameter dictionary structure.
+default_dict = params_obj.get_default_param_dict()
+
+2. get_default_param_file_name()
+Returns the default parameter filename: .octo_step_engine_parameters.json
+param_file = params_obj.get_default_param_file_name()
+# Returns: ".octo_step_engine_parameters.json"
+
+3. get_default_param_lock_file_name()
+Returns the lock filename: .octo_step_engine_parameters.lock
+lock_file = params_obj.get_default_param_lock_file_name()
+# Returns: ".octo_step_engine_parameters.lock"
+
+4. read_json_dict(default_dict, file_name, lock_file_name)
+Thread-safe read of the parameter file.
+dict_obj = params_obj.read_json_dict(
+    default_parameter_dict, 
+    parameters_file_name, 
+    parameters_lock_file_name
+)
+
+Returns: Complete parameter dictionary
+
+5. update_json_dict(default_dict, file_name, lock_file_name, main_key, sub_key, sub_value)
+Thread-safe update of a specific parameter.
+updated_dict = params_obj.update_json_dict(
+    default_dict,
+    param_file,
+    lock_file,
+    "global_parameters",      # Main key
+    "current_step_state",     # Sub key
+    "EXECUTE"                 # New value
+)
+
+6. increment_json_dict(default_dict, file_name, lock_file_name, main_key, sub_key, increment_bool)
+Atomically increment or decrement an integer parameter.
+# Increment
+updated_dict = params_obj.increment_json_dict(
+    default_dict, param_file, lock_file,
+    "global_parameters", "run_step_count", True
+)
+
+# Decrement
+updated_dict = params_obj.increment_json_dict(
+    default_dict, param_file, lock_file,
+    "global_parameters", "run_step_count", False
+)
+
+7. dictionary_display(param_dictionary)
+Pretty-print a parameter dictionary.
+params_obj.dictionary_display(dict_obj)
+
+Command-Line Usage
+1. Display All Parameters (Current Directory)
+   ./octo_step_engine_parameters.py
+2. Display All Parameters (Specific Path)
+./octo_step_engine_parameters.py /path/to/step/instance
+3. Display Parameter Group
+   ./octo_step_engine_parameters.py /path/to/instance global_parameters
+4. Read Single Parameter
+   ./octo_step_engine_parameters.py /path/to/instance global_parameters current_step_state
+5. Update Parameter
+   ./octo_step_engine_parameters.py /path/to/instance global_parameters current_step_state RUNNING
+6. Increment/Decrement Parameter
+   # Increment
+./octo_step_engine_parameters.py /path/to/instance global_parameters run_step_count -i
+# Decrement
+./octo_step_engine_parameters.py /path/to/instance global_parameters run_step_count -d
+
+Integration into Custom Step Nodes
+Basic Integration Pattern
+Here's how to integrate parameter management into your custom step node:
+import os
+import sys
+
+# Add module path
+running_script_dir = os.path.dirname(os.path.abspath(__file__))
+octo_modules_dir = os.path.join(running_script_dir, "..", "..", "..", "modules")
+sys.path.append(octo_modules_dir)
+
+from octo_step_engine_parameters import octo_step_engine_parameters
+
+class step_node_custom:
+    name = "step_node_custom"
+    description = "Custom step with parameter management"
+    
+    def __init__(self, name, verbose_flag=False):
+        self.name = name
+        self.verbose_flag = verbose_flag
+        
+        # Initialize parameter manager
+        self.params_obj = octo_step_engine_parameters()
+        self.default_dict = self.params_obj.get_default_param_dict()
+        self.param_file = self.params_obj.get_default_param_file_name()
+        self.lock_file = self.params_obj.get_default_param_lock_file_name()
+    
+    def step_entry(self):
+        """Read parameters on entry"""
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, 
+            self.param_file, 
+            self.lock_file
+        )
+        
+        current_state = dict_obj["global_parameters"]["current_step_state"]
+        print(f"Entering step, current state: {current_state}")
+        
+        return 0
+    
+    def step_execute(self):
+        """Execute with parameter updates"""
+        # Read current parameters
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        # Increment execution counter
+        self.params_obj.increment_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "global_parameters", "run_step_count", True
+        )
+        
+        # Your step logic here
+        print(f"Executing {self.name}")
+        
+        return 0
+    
+    def step_exit(self):
+        """Update state on exit"""
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "global_parameters", "current_step_state", "ADVANCE"
+        )
+        
+        return 0
+
+  import os
+import sys
+
+running_script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(running_script_dir, "..", "..", "..", "modules"))
+
+from octo_step_engine_parameters import octo_step_engine_parameters
+
+class step_node_statemachine:
+    name = "step_node_statemachine"
+    
+    step_node_graph_dict = {
+        "step_node_statemachine": {
+            "module_name_string": "step_node_statemachine",
+            "node_step_name_string": "step_node_statemachine",
+            "dg_node_attr_dict": {"label": "SM", "shape": "box"},
+            "first_node_step_bool": 0,
+            "active_node_step_bool": 1,
+            "node_entry_breakpoint": 0,
+            "node_exit_breakpoint": 0,
+        },
+    }
+    
+    step_arrow_graph_dict = {
+        "next_step": {
+            "module_name_string": "step_node_next",
+            "arrow_step_name_string": "step_node_next",
+            "dg_edge_attr_dict": {},
+            "active_arrow_step_bool": 1,
+        },
+    }
+    
+    step_node_params_dict_init = {
+        "step_node_statemachine": {
+            "state_machine_mode": "INIT",
+            "retry_count": 0,
+            "max_retries": 3,
+        },
+    }
+    
+    step_node_results_dict_init = {
+        "step_node_statemachine": {
+            "step_results_key_last_status": "SUCCESS",
+            "execution_count": 0,
+        },
+    }
+    
+    def __init__(self, name, verbose_flag=False):
+        self.name = name
+        self.verbose_flag = verbose_flag
+        
+        # Setup parameter management
+        self.params_obj = octo_step_engine_parameters()
+        self.default_dict = self.params_obj.get_default_param_dict()
+        self.param_file = self.params_obj.get_default_param_file_name()
+        self.lock_file = self.params_obj.get_default_param_lock_file_name()
+    
+    def step_entry(self):
+        """Initialize step parameters"""
+        if self.verbose_flag:
+            print(f"Step_Entry: {self.name}")
+        
+        # Read current state
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        # Update step state to ENTER
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "global_parameters", "current_step_state", "ENTER"
+        )
+        
+        # Initialize custom parameters if needed
+        if "state_machine_mode" not in dict_obj.get("step_node_statemachine", {}):
+            self.params_obj.update_json_dict(
+                self.default_dict, self.param_file, self.lock_file,
+                "step_node_statemachine", "state_machine_mode", "INIT"
+            )
+        
+        return 0
+    
+    def step_execute(self):
+        """Execute with state tracking"""
+        if self.verbose_flag:
+            print(f"Step_Execute: {self.name}")
+        
+        # Read parameters
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        # Get custom parameters
+        sm_mode = dict_obj.get("step_node_statemachine", {}).get("state_machine_mode", "INIT")
+        retry_count = dict_obj.get("step_node_statemachine", {}).get("retry_count", 0)
+        max_retries = dict_obj.get("step_node_statemachine", {}).get("max_retries", 3)
+        
+        # State machine logic
+        if sm_mode == "INIT":
+            print("State: INIT - Initializing resources")
+            # Update state
+            self.params_obj.update_json_dict(
+                self.default_dict, self.param_file, self.lock_file,
+                "step_node_statemachine", "state_machine_mode", "PROCESSING"
+            )
+        
+        elif sm_mode == "PROCESSING":
+            print("State: PROCESSING - Executing main logic")
+            
+            # Simulate work with potential failure
+            import random
+            success = random.choice([True, False])
+            
+            if success:
+                self.params_obj.update_json_dict(
+                    self.default_dict, self.param_file, self.lock_file,
+                    "step_node_statemachine", "state_machine_mode", "COMPLETE"
+                )
+            else:
+                # Increment retry counter
+                self.params_obj.increment_json_dict(
+                    self.default_dict, self.param_file, self.lock_file,
+                    "step_node_statemachine", "retry_count", True
+                )
+                
+                # Check retry limit
+                if retry_count + 1 >= max_retries:
+                    self.params_obj.update_json_dict(
+                        self.default_dict, self.param_file, self.lock_file,
+                        "step_node_statemachine", "state_machine_mode", "ERROR"
+                    )
+        
+        elif sm_mode == "COMPLETE":
+            print("State: COMPLETE - Success!")
+        
+        elif sm_mode == "ERROR":
+            print("State: ERROR - Max retries exceeded")
+        
+        # Increment execution counter
+        self.params_obj.increment_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "global_parameters", "run_step_count", True
+        )
+        
+        # Update step state
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "global_parameters", "current_step_state", "EXECUTE"
+        )
+        
+        return 0
+    
+    def step_exit(self):
+        """Clean up and update exit state"""
+        if self.verbose_flag:
+            print(f"Step_Exit: {self.name}")
+        
+        # Read final state
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        sm_mode = dict_obj.get("step_node_statemachine", {}).get("state_machine_mode", "UNKNOWN")
+        
+        # Update results
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "step_node_statemachine", "step_results_key_last_status", sm_mode
+        )
+        
+        # Update step state to EXIT
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "global_parameters", "current_step_state", "EXIT"
+        )
+        
+        return 0
+
+    def step_advance(self):
+        """Determine next step based on state"""
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        sm_mode = dict_obj.get("step_node_statemachine", {}).get("state_machine_mode", "UNKNOWN")
+        
+        if sm_mode == "COMPLETE":
+            return "next_step"
+        else:
+            # Stay in current step for retry or error handling
+            return "step_arrow_graph_list_key_step_node_statemachine"
+
+----------------------------------------------------------------------------------------------------------
+import os
+import sys
+import json
+
+running_script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(running_script_dir, "..", "..", "..", "modules"))
+
+from octo_step_engine_parameters import octo_step_engine_parameters
+
+class step_node_dataprocessor:
+    name = "step_node_dataprocessor"
+    
+    step_node_params_dict_init = {
+        "step_node_dataprocessor": {
+            "input_file": "",
+            "output_file": "",
+            "processed_records": 0,
+            "total_records": 0,
+            "last_error": "",
+        },
+    }
+    
+    def __init__(self, name, verbose_flag=False):
+        self.name = name
+        self.verbose_flag = verbose_flag
+        
+        self.params_obj = octo_step_engine_parameters()
+        self.default_dict = self.params_obj.get_default_param_dict()
+        self.param_file = self.params_obj.get_default_param_file_name()
+        self.lock_file = self.params_obj.get_default_param_lock_file_name()
+    
+    def step_entry(self):
+        """Setup processing parameters"""
+        # Initialize custom parameters
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "step_node_dataprocessor", "input_file", "/data/input.csv"
+        )
+        
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "step_node_dataprocessor", "output_file", "/data/output.json"
+        )
+        
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "step_node_dataprocessor", "processed_records", 0
+        )
+        
+        return 0
+    
+    def step_execute(self):
+        """Process data with progress tracking"""
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        input_file = dict_obj.get("step_node_dataprocessor", {}).get("input_file", "")
+        
+        # Simulate processing records
+        total_records = 100
+        
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "step_node_dataprocessor", "total_records", total_records
+        )
+        
+        for i in range(total_records):
+            # Process record
+            # ...
+            
+            # Update progress
+            self.params_obj.increment_json_dict(
+                self.default_dict, self.param_file, self.lock_file,
+                "step_node_dataprocessor", "processed_records", True
+            )
+            
+            if self.verbose_flag and i % 10 == 0:
+                print(f"Processed {i}/{total_records} records")
+        
+        return 0
+    
+    def step_exit(self):
+        """Finalize and report results"""
+        dict_obj = self.params_obj.read_json_dict(
+            self.default_dict, self.param_file, self.lock_file
+        )
+        
+        processed = dict_obj.get("step_node_dataprocessor", {}).get("processed_records", 0)
+        total = dict_obj.get("step_node_dataprocessor", {}).get("total_records", 0)
+        
+        print(f"Processing complete: {processed}/{total} records")
+        
+        return 0
+-----------------------------------------------------------------------------
+# From octo_step_instance.py
+
+from octo_step_engine_parameters import octo_step_engine_parameters
+
+# Initialize
+params_obj = octo_step_engine_parameters()
+default_dict = params_obj.get_default_param_dict()
+param_file = params_obj.get_default_param_file_name()
+lock_file = params_obj.get_default_param_lock_file_name()
+
+# Read instance parameters
+dict_obj = params_obj.read_json_dict(default_dict, param_file, lock_file)
+
+# Initialize step engine
+params_obj.update_json_dict(
+    default_dict, param_file, lock_file,
+    "global_parameters", "step_engine_state", "STARTUP"
+)
+
+# Set first step
+params_obj.update_json_dict(
+    default_dict, param_file, lock_file,
+    "global_parameters", "current_step_module", "step_node_001"
+)
+
+params_obj.update_json_dict(
+    default_dict, param_file, lock_file,
+    "global_parameters", "current_step_node", "step_node_001"
+)
+
+# Move to ENTER state
+params_obj.update_json_dict(
+    default_dict, param_file, lock_file,
+    "global_parameters", "current_step_state", "ENTER"
+)
+
+# Execute step lifecycle
+# ENTER -> EXECUTE -> EXIT -> ADVANCE -> JUMP
+
+Helper Script: scriptlet_step_engine_params.py
+A simplified wrapper for common parameter operations:
+# Read all parameters
+./scriptlet_step_engine_params.py /path/to/instance
+
+# Read parameter group
+./scriptlet_step_engine_params.py /path/to/instance global_parameters
+
+# Read specific parameter
+./scriptlet_step_engine_params.py /path/to/instance global_parameters current_step_state
+
+# Update parameter
+./scriptlet_step_engine_params.py /path/to/instance global_parameters current_step_state RUNNING
+
+# Increment counter
+./scriptlet_step_engine_params.py /path/to/instance global_parameters run_step_count -i
+
+Best Practices
+1. Always Use Lock Files
+   # Good
+dict_obj = params_obj.read_json_dict(default_dict, param_file, lock_file)
+
+# Bad - No lock protection
+with open(param_file) as f:
+    dict_obj = json.load(f)
+    
+2. Initialize Parameters in step_entry()
+def step_entry(self):
+    # Set up step-specific parameters
+    self.params_obj.update_json_dict(
+        self.default_dict, self.param_file, self.lock_file,
+        "my_step", "initialized", True
+    )
+    return 0
+3. Track Progress with Counters
+   def step_execute(self):
+    # Increment execution counter
+    self.params_obj.increment_json_dict(
+        self.default_dict, self.param_file, self.lock_file,
+        "global_parameters", "run_step_count", True
+    )
+    return 0
+4. Store Results in step_exit()
+   def step_exit(self):
+    # Save results
+    self.params_obj.update_json_dict(
+        self.default_dict, self.param_file, self.lock_file,
+        "my_step", "step_results_key_last_status", "SUCCESS"
+    )
+    return 0
+5. Use Custom Parameter Groups
+   # Create custom parameter namespace
+self.params_obj.update_json_dict(
+    self.default_dict, self.param_file, self.lock_file,
+    "my_custom_group", "custom_param", "custom_value"
+)
+
+6.Common Patterns
+Pattern 1: Conditional Step Execution
+def step_execute(self):
+    dict_obj = self.params_obj.read_json_dict(
+        self.default_dict, self.param_file, self.lock_file
+    )
+    
+    retry_count = dict_obj.get("my_step", {}).get("retry_count", 0)
+    
+    if retry_count < 3:
+        # Execute logic
+        success = self.do_work()
+        
+        if not success:
+            self.params_obj.increment_json_dict(
+                self.default_dict, self.param_file, self.lock_file,
+                "my_step", "retry_count", True
+            )
+    
+    return 0
+    
+Pattern 2: Cross-Step Data Sharing
+# Step 1: Store data
+def step_exit(self):
+    self.params_obj.update_json_dict(
+        self.default_dict, self.param_file, self.lock_file,
+        "shared_data", "result_from_step1", "important_value"
+    )
+    return 0
+
+# Step 2: Read data
+def step_entry(self):
+    dict_obj = self.params_obj.read_json_dict(
+        self.default_dict, self.param_file, self.lock_file
+    )
+    
+    previous_result = dict_obj.get("shared_data", {}).get("result_from_step1", "")
+    print(f"Using data from previous step: {previous_result}")
+    
+    return 0
+
+  # pattern 3: Error tracking
+  def step_execute(self):
+    try:
+        # Execute logic
+        self.do_risky_operation()
+        
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "my_step", "last_error", ""
+        )
+    
+    except Exception as e:
+        self.params_obj.update_json_dict(
+            self.default_dict, self.param_file, self.lock_file,
+            "my_step", "last_error", str(e)
+        )
+        return 1
+    
+    return 0
+    
