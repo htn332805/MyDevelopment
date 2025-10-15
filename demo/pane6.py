@@ -84,7 +84,7 @@ def send_promptbased_command(
 
 
 def get_local_host_time():
-    return datetime.now().strftime("+%m%d%H%M%Y.%S")
+    return datetime.now().strftime("%m%d%H%M%Y.%S")
 
 
 def run_with_retries(
@@ -123,26 +123,6 @@ def run_with_retries(
         f"❌ Command failed after {max_retries} attempts: pattern='{pattern}', command='{command}'"
     )
 
-
-# List of (regex pattern, command to send, number of log lines to check)
-steps = [
-    ("MyDevelopment\\$ ", "telnet 172.25.27.3 2026", 5),
-    ("\\]\\'.", "", 5),
-    ("login:", "admin", 5),
-    ("Password:", "Nbv12345", 5),
-]
-
-steps2 = [
-    ("login:", "admin", 5),
-    ("Password:", "Nbv12345", 5),
-]
-# Execute steps
-tmux_session = "my_session"
-windows_name = "GE"
-pane_index = 6
-input_file = "../logs/BMC1.log"
-
-
 def intial_login(steps, input_file, tmux_session, windows_name, pane_index):
     for pattern, command, lines in steps:
         try:
@@ -155,29 +135,73 @@ def intial_login(steps, input_file, tmux_session, windows_name, pane_index):
                 windows_name,
                 pane_index,
             )
-            time.sleep(1)
+            time.sleep(3)
         except RuntimeError as e:
             print(e)
             break
-    run_shell_command(
-        f'ssh hain2@sjc-ads-3697 "./trinity_key.sh $(python3 get_challenge_key.py)" > key.{pane_index}'
-    )
-    time.sleep(5)
-    run_shell_command(f"tail -n 1 key.{pane_index} > response.{pane_index}")
-    tmux_command = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} '{read_file(f"response.{pane_index}")}' C-m"
-    run_shell_command(tmux_command)
-    print(f"➡️ Sent command to tmux pane: {tmux_command}")
+#------------------------Logic starts here------------------------
+# List of (regex pattern, command to send, number of log lines to check)
+steps = [
+    ("MyDevelopment\\$ ", "telnet 172.25.27.3 2026", 5),
+    ("\\]\\'.", "", 5),
+    ("login:", "admin", 5),
+    ("Password:", "Nbv12345", 5),
+]
 
+steps2 = [
+    (r"\# ", "cd /mnt/emmc/hsu_intersight", 5),
+    (r"\# ", "blade-power on", 5),
+    (r"\# ", "/etc/scripts/getip_novlan.sh 0", 5),
+    (r"\# ", "solshell -X", 5),
+]
+# Execute steps
+tmux_session = "my_session"
+windows_name = "GE"
+pane_index = 6
+input_file = "../logs/BMC1.log"
 
 intial_login(steps, input_file, tmux_session, windows_name, pane_index)
-time.sleep(1)
-tmux_command2 = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} 'sed -i \"s/^export TMOUT=600;/export TMOUT=00;/\" /etc/bashrc' C-m"
-run_shell_command(tmux_command2)
-print(f"➡️ Sent command to tmux pane: {tmux_command2}")
+time.sleep(3)
+key=run_shell_command(f"python3 get_challenge_key.py {input_file}")
+print(key)  
+run_shell_command(f'ssh hain2@sjc-ads-3697 "./trinity_key.sh {key}" > key.{pane_index}')
+run_shell_command(f"tail -n 1 key.{pane_index} > response.{pane_index}")
+send_response_key = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} '{read_file(f"response.{pane_index}")}' C-m"
+run_shell_command(send_response_key)
+print(f"➡️ Sent command to tmux pane: {send_response_key}")
+time.sleep(3)
 
+set_timeout = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} 'resize && sed -i \"s/^export TMOUT=600;/export TMOUT=00;/\" /etc/bashrc' C-m"
+run_shell_command(set_timeout)
+print(f"➡️ Sent command to tmux pane: {set_timeout}")
+time.sleep(3)
+
+date=f"{get_local_host_time()}"
+set_date = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} 'export TZ=UTC && date {date}' C-m"
+run_shell_command(set_date)
+print(f"➡️ Sent command to tmux pane: {set_date}")
+time.sleep(3)
 logout = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} 'logout' C-m"
-time.sleep(1)
 run_shell_command(logout)
 print(f"➡️ Sent command to tmux pane: {logout}")
+time.sleep(3)
+loginagain = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} 'admin' C-m"
+run_shell_command(loginagain)
+print(f"➡️ Sent command to tmux pane: {loginagain}")
 time.sleep(1)
+passwordagain = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} 'Nbv12345' C-m"
+run_shell_command(passwordagain)
+print(f"➡️ Sent command to tmux pane: {passwordagain}")
+time.sleep(3)
+key=run_shell_command(f"python3 get_challenge_key.py {input_file}")
+print(key)  
+run_shell_command(f'ssh hain2@sjc-ads-3697 "./trinity_key.sh {key}" > key.{pane_index}')
+run_shell_command(f"tail -n 1 key.{pane_index} > response.{pane_index}")
+send_response_key = f"tmux send-keys -t {tmux_session}:{windows_name}.{pane_index} '{read_file(f"response.{pane_index}")}' C-m"
+run_shell_command(send_response_key)
+print(f"➡️ Sent command to tmux pane: {send_response_key}")
+time.sleep(3)
+
 intial_login(steps2, input_file, tmux_session, windows_name, pane_index)
+time.sleep(1)
+print("DONE")

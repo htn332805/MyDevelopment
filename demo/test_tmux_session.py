@@ -1,11 +1,18 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from tmux_session import TmuxSessionManager, _parse_json_to_config, SessionConfig, WindowConfig, PaneConfig
+from tmux_predefined_layout import (
+    TmuxSessionManager,
+    _parse_json_to_config,
+    SessionConfig,
+    WindowConfig,
+    PaneConfig,
+)
+
 
 class TestTmuxSessionManager(unittest.TestCase):
     def setUp(self):
         # Patch libtmux.Server so no real tmux connection is made
-        patcher = patch('tmux_session.libtmux.Server')
+        patcher = patch("tmux_session.libtmux.Server")
         self.mock_server_class = patcher.start()
         self.addCleanup(patcher.stop)
         self.mock_server = MagicMock()
@@ -16,7 +23,7 @@ class TestTmuxSessionManager(unittest.TestCase):
         self.mock_server.list_sessions.return_value = [self.mock_session]
         self.mock_session.name = "test_session"
         self.mock_session.windows = []
-        
+
         self.manager = TmuxSessionManager("test_session")
         self.manager.server = self.mock_server  # Inject mock server
 
@@ -34,7 +41,7 @@ class TestTmuxSessionManager(unittest.TestCase):
 
     def test_create_session_already_exists(self):
         self.mock_server.list_sessions.return_value = [self.mock_session]
-        with self.assertLogs('tmux_manager', level='INFO') as cm:
+        with self.assertLogs("tmux_manager", level="INFO") as cm:
             self.manager.create_session()
             self.assertIn("already exists", "\n".join(cm.output))
 
@@ -42,7 +49,9 @@ class TestTmuxSessionManager(unittest.TestCase):
         self.mock_server.list_sessions.return_value = []
         self.mock_server.new_session.return_value = self.mock_session
         self.manager.create_session()
-        self.mock_server.new_session.assert_called_once_with(session_name="test_session", attach=False)
+        self.mock_server.new_session.assert_called_once_with(
+            session_name="test_session", attach=False
+        )
 
     def test_kill_session_exists(self):
         self.mock_server.list_sessions.return_value = [self.mock_session]
@@ -52,7 +61,7 @@ class TestTmuxSessionManager(unittest.TestCase):
 
     def test_kill_session_not_exists(self):
         self.mock_server.list_sessions.return_value = []
-        with self.assertLogs('tmux_manager', level='WARNING') as cm:
+        with self.assertLogs("tmux_manager", level="WARNING") as cm:
             self.manager.kill_session()
             self.assertIn("does not exist", "\n".join(cm.output))
 
@@ -63,14 +72,12 @@ class TestTmuxSessionManager(unittest.TestCase):
                 {
                     "name": "win1",
                     "layout": "tiled",
-                    "panes": [
-                        {"name": "pane1", "command": "echo hi"}
-                    ]
+                    "panes": [{"name": "pane1", "command": "echo hi"}],
                 }
             ],
             "options": {"mouse": True},
             "pre_commands": ["echo pre"],
-            "post_commands": ["echo post"]
+            "post_commands": ["echo post"],
         }
         config = _parse_json_to_config(json_data)
         self.assertIsInstance(config, SessionConfig)
@@ -85,8 +92,9 @@ class TestTmuxSessionManager(unittest.TestCase):
         with self.assertRaises(ValueError):
             _parse_json_to_config(json_data)
 
-    # More tests can be added for _apply_session_options, _configure_pane, etc. 
+    # More tests can be added for _apply_session_options, _configure_pane, etc.
     # Those would require mocking tmux commands or the panes/windows more deeply.
+
 
 if __name__ == "__main__":
     unittest.main()

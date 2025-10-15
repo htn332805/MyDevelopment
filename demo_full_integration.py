@@ -22,9 +22,14 @@ import signal
 import threading
 from config import get_config
 from logger import setup_logger
-from monitoring import get_cpu_usage, get_memory_usage, get_disk_usage, get_network_stats
+from monitoring import (
+    get_cpu_usage,
+    get_memory_usage,
+    get_disk_usage,
+    get_network_stats,
+)
 from cleanup import cleanup_old_files
-from tmux_session import TmuxSessionManager
+from tmux_predefined_layout import TmuxSessionManager
 from pexpect_handler import PexpectHandler
 from metrics import accuracy, precision, recall, f1_score, hamming_score
 from process_manager import ProcessManager, worker_function
@@ -32,18 +37,23 @@ from ssh_connection import SSHConnection
 from utils import read_json_file, write_json_file
 from watchdog import main as watchdog_main
 
+
 def handle_signals(logger):
     """
     Registers signal handlers for graceful shutdown.
     """
+
     def sigint_handler(signum, frame):
         logger.info("SIGINT received. Shutting down demo.")
         exit(0)
+
     def sigterm_handler(signum, frame):
         logger.info("SIGTERM received. Shutting down demo.")
         exit(0)
+
     signal.signal(signal.SIGINT, sigint_handler)
     signal.signal(signal.SIGTERM, sigterm_handler)
+
 
 def demo():
     """
@@ -62,7 +72,9 @@ def demo():
     mem_total, mem_used, mem_free = get_memory_usage()
     disk_total, disk_used, disk_free = get_disk_usage()
     net_sent, net_recv = get_network_stats()
-    logger.info(f"System stats: CPU={cpu}%, Mem={mem_used}/{mem_total}, Disk={disk_used}/{disk_total}, Net={net_sent}/{net_recv}")
+    logger.info(
+        f"System stats: CPU={cpu}%, Mem={mem_used}/{mem_total}, Disk={disk_used}/{disk_total}, Net={net_sent}/{net_recv}"
+    )
 
     # Cleanup old files (dry run)
     cleanup_old_files(directory=".", days=1, dry_run=True, force=True)
@@ -101,7 +113,10 @@ def demo():
     # Multiprocessing demo
     def sample_task():
         return "Sample task result"
-    manager = ProcessManager(num_workers=1, worker_function=worker_function, tasks=[sample_task])
+
+    manager = ProcessManager(
+        num_workers=1, worker_function=worker_function, tasks=[sample_task]
+    )
     manager.start_workers()
     results = manager.collect_results()
     logger.info(f"ProcessManager results: {results}")
@@ -123,10 +138,12 @@ def demo():
     # Watchdog (run in thread for demo)
     def run_watchdog():
         watchdog_main(".")
+
     watchdog_thread = threading.Thread(target=run_watchdog, daemon=True)
     watchdog_thread.start()
 
     logger.info("Full integration demo completed.")
+
 
 if __name__ == "__main__":
     demo()

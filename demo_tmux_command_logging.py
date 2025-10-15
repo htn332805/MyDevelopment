@@ -12,8 +12,9 @@ Utilizes:
 import os
 from config import get_config
 from logger import setup_logger
-from tmux_session import TmuxSessionManager
+from tmux_predefined_layout import TmuxSessionManager
 from pexpect_handler import PexpectHandler
+
 
 def main():
     """
@@ -56,6 +57,7 @@ def main():
     handler.close()
     tmux_manager.kill_session()
     logger.info("Demo completed.")
+
 
 if __name__ == "__main__":
     main()
